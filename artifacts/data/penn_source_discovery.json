@@ -1,0 +1,4193 @@
+{
+  "generated_at": "2026-06-01T23:02:14.619424+00:00",
+  "pages_seen": 650,
+  "findings": [
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/fellowship-programs",
+      "title": "Fellowship Programs - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Programs",
+        "",
+        "The Department of Medicine offers a wide variety of fellowship programs."
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency",
+      "title": "Internal Medicine Residency Program | Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Internal Medicine Residency Program",
+        "Meet Penn Internal Medicine Residency’s New Program Director: Amber Bird, MD",
+        "In This Section",
+        "Featured links",
+        "Social Media",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education",
+      "title": "Department of Medicine Medical Student Education Programs - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Department of Medicine Medical Student Education Programs",
+        "Leadership Team"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/measey-medical-education-fellowship",
+      "title": "Department of Medicine | Measey Medical Education Fellowship",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Measey Medical Education Fellowship",
+        "Program Goals",
+        "Program Format",
+        "Topics Covered",
+        "Examples of outcomes"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/bloom-health-equity",
+      "title": "BLOOM Health Equity - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "BLOOM Health Equity: Building Leadership OppOrtunities in Medicine to Develop Leaders in Health Equity",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism",
+      "title": "Endocrinology Diabetes and Metabolism - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Endocrinology, Diabetes and Metabolism",
+        "Welcome From Susan J. Mandel, MD, MPH – Chief",
+        "In This Section",
+        "Featured links",
+        "Social Media",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology",
+      "title": "Gastroenterology - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Gastroenterology and Hepatology",
+        "Welcome from Jorge Marrero, MD – Chief",
+        "In This Section",
+        "Featured links",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics",
+      "title": "Geriatrics - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Geriatrics",
+        "Welcome From Lisa M. Walke, MD, MSHA – Chief",
+        "In This Section",
+        "Featured links",
+        "",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology",
+      "title": "Hematology and Oncology - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Hematology and Oncology",
+        "Welcome From Alison Wakoff Loren, MD, MSCE – Chief",
+        "In This Section",
+        "Featured links",
+        "Contact Us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care",
+      "title": "Pulmonary, Allergy and Critical Care - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Pulmonary, Allergy and Critical Care",
+        "Welcome From Jason D. Christie, MD, MS – Chief",
+        "In This Section",
+        "Featured links",
+        "",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division",
+      "title": "Renal Electrolyte and Hypertension - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Renal Electrolyte and Hypertension",
+        "Why Choose Penn Kidney",
+        "In This Section",
+        "Featured links",
+        "Social media",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology",
+      "title": "Rheumatology - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Rheumatology",
+        "Welcome From Peter A. Merkel, MD, MPH – Chief",
+        "In This Section",
+        "Featured links",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/sleep-medicine",
+      "title": "Sleep Medicine - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Sleep Medicine",
+        "Meet Our Chief",
+        "In This Section",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/translational-medicine-human-genetics",
+      "title": "Translational Medicine and Human Genetics - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Translational Medicine and Human Genetics",
+        "Welcome from Daniel J. Rader, MD – Chief",
+        "In This Section",
+        "Featured Links",
+        "Contact Us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care",
+      "title": "Program in Palliative Care - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Palliative Care Program",
+        "Welcome Message from Niharika Ganta, MD MPH – Chief",
+        "In This Section",
+        "Featured links",
+        "Social media",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/fellowship-programs/fellowship-program-central-leadership-team",
+      "title": "Fellowship Program Central Leadership Team - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Program Central Leadership Team",
+        "If you have any questions, please do not hesitate to contact the Education Office at 215-662-2200 or via email at any of the email addresses below. Laura Dingfield, MD, MSEd - Vice Chair for Education, Department of Medicine [REDACTED_EMAIL] Sara Shibe - Director, Medical Education [REDACTED_EMAIL] Jon McCabe - Associate Director of Graduate Medical Education for Fellowships [REDACTED_EMAIL]"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs",
+      "title": "Fellowship Programs for the Division of Cardiovascular Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Programs for the Division of Cardiovascular Medicine"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/adult-congenital-heart-disease-fellowship",
+      "title": "Adult Congenital Heart Disease Fellowship - Penn Medicine",
+      "classification": "review",
+      "bio_count": 7,
+      "headings": [
+        "Adult Congenital Heart Disease Fellowship Program",
+        "",
+        "Program Director",
+        "Associate Program Director",
+        "Current Adult Congenital Heart Disease Fellow",
+        "PACHC Faculty and Staff"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/advanced-heart-failure-transplant-cardiology-fellowship",
+      "title": "Advanced Heart Failure Transplant Cardiology Fellowship Program",
+      "classification": "review",
+      "bio_count": 3,
+      "headings": [
+        "Advanced Heart Failure Transplant Cardiology Fellowship Program",
+        "",
+        "Program Director",
+        "Current Advanced Heart Failure Transplant Cardiology Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship",
+      "title": "Cardiovascular Disease Fellowship Program - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Cardiovascular Disease Fellowship Program",
+        "Check out our new fellowship videos!",
+        "Contact us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/electrophysiology-fellowship",
+      "title": "Electrophysiology Fellowship - Penn Medicine",
+      "classification": "review",
+      "bio_count": 14,
+      "headings": [
+        "Electrophysiology Fellowship Program",
+        "",
+        "Program Directors",
+        "Current Clinical Cardiac Electrophysiology Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/interventional-fellowship",
+      "title": "Interventional Fellowship - Penn Medicine",
+      "classification": "review",
+      "bio_count": 5,
+      "headings": [
+        "Interventional Fellowship Program",
+        "",
+        "Program Director",
+        "Current Interventional Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs",
+      "title": "Endocrinology, Diabetes, and Metabolism Fellowship Program",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Endocrinology, Diabetes and Metabolism Fellowship Program",
+        "Our Mission",
+        "First Year",
+        "Second Year"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship",
+      "title": "Gastroenterology and Hepatology Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gastroenterology and Hepatology Fellowship",
+        "Non Accredited Programs"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program",
+      "title": "Fellowship Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship in Geriatric Medicine",
+        "Welcome to the University of Pennsylvania Geriatric Medicine Fellowship!"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship",
+      "title": "Hematology/Oncology Fellowship - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Hematology/Oncology Fellowship Overview",
+        "Statement on Culture",
+        "Master's Degree Programs",
+        "Research Training",
+        "Program Leadership"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program",
+      "title": "Fellowship Programs - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Division of Infectious Diseases Fellowship Programs",
+        "Hear from the Infectious Disease Faculty",
+        "First Year of ID Fellowship",
+        "Upper Year(s) of ID Fellowship",
+        "Follow us on Social Media",
+        "Contacts"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings",
+      "title": "Pulmonary and Critical Care Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pulmonary and Critical Care Fellowship",
+        "Training Pathways"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship",
+      "title": "Penn Medicine | Allergy and Immunology Fellowship",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Learn about the Allergy and Immunology Fellowship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs",
+      "title": "Nephrology Fellowship Programs - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nephrology Fellowship Programs"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs",
+      "title": "Rheumatology Fellowship Program - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Rheumatology Fellowship Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/sleep-medicine/education-and-training",
+      "title": "Sleep Medicine: Education and Training | Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Education and Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/transplant-hepatology-fellowship",
+      "title": "Transplant Hepatology Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Transplant Hepatology Fellowship",
+        "Program Leadership",
+        "Training Program",
+        "Faculty",
+        "Core Curriculum"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine",
+      "title": "Fellowship Program in Hospice and Palliative Medicine - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Program in Hospice and Palliative Medicine",
+        "How to Apply"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-transplant-fellowship",
+      "title": "Transplant Nephrology Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Transplant Nephrology Fellowship",
+        "Application to the Program",
+        "Program Description",
+        "Transplant Nephrology Faculty"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program",
+      "title": "Our Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Our Internal Medicine Residency Program",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical",
+      "title": "Categorical Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Categorical Program",
+        "Goals",
+        "Structure: 6+2 Block Scheduling System",
+        "Average Breakdown of Rotations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information",
+      "title": "Application Information - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Application Information",
+        "Applications and Interviews 2025-2026",
+        "Employment Information",
+        "Contact"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum",
+      "title": "Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Curriculum Overview",
+        "While on the Wards",
+        "While on the Ambulatory Block",
+        "Research Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/leadership",
+      "title": "Leadership - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Leadership",
+        "Michael Parmacek, MD, Chair Department of Medicine",
+        "Laura Dingfield, MD, MSEd, Vice Chair for Education",
+        "Amber Bird, MD, Program Director",
+        "Peter Klein, MD, PhD, Program Director - Physician-Scientist Pathway",
+        "D. Rani Nandiwada, MD, Director - Medical Education and Leadership Track, Program Director - Primary Care Program",
+        "Dava Szalda, MD, Program Director Combined Med-Peds Residency",
+        "David Aizenberg, MD, FACP , Associate Program Director",
+        "Janae Heath, MD, Associate Program Director",
+        "Farah Hussain, MD, Associate Program Director",
+        "Nadim Mahmud, MD MS MPH MSCE, Associate Program Director",
+        "Lauren Mechanic, MD, Associate Program Director"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/resident-life",
+      "title": "Resident Life - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Resident Life"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/leadership/mentorship",
+      "title": "Mentorship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Mentorship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/resident-life/wellness",
+      "title": "Wellness - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Wellness",
+        "What Wellness Looks Like at Penn IM",
+        "Wellness Spaces"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/physician-scientist-pathway",
+      "title": "Physician Scientist Pathway Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Physician Scientist Pathway Program",
+        "Goal",
+        "Research Community",
+        "",
+        "Mentorship",
+        "Graduates of the PSP",
+        "PSP Application Information:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program",
+      "title": "Primary Care Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Primary Care Program",
+        "From The Program Director",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-pediatrics-program",
+      "title": "Combined Internal Medicine Pediatrics Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Combined Internal Medicine Pediatrics Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program",
+      "title": "Combined Internal Medicine Dermatology Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Combined Internal Medicine Dermatology Program",
+        "Only Applications through ERAS to the combined Medicine/Dermatology program will be accepted. The deadline for a fully completed applications is 9:05AM on Wednesday, September 24, 2025."
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/medical-education",
+      "title": "The Medical Education Leadership Track (MELT) - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "The Medical Education Leadership Track (MELT)",
+        "Overview of Track"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/healthcare-quality-in-leadership",
+      "title": "Healthcare Leadership in Quality Track - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Healthcare Leadership in Quality Track",
+        "For more information, please visit:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health",
+      "title": "Global Health - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Global Health Equities Track"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/urban-health-equity-track",
+      "title": "Urban Health Equity Track - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Urban Health Equity Track"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/intern-ambulatory-block",
+      "title": "Intern Ambulatory Block - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Intern Ambulatory Block",
+        "Outpatient General Internal Medicine Continuity Practice"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/upper-year-ambulatory-block",
+      "title": "Upper Year Ambulatory Block - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ambulatory Medicine-Second and Third Year",
+        "Outpatient General Internal Medicine Continuity Practice",
+        "Outpatient Subspecialty Continuity Practice",
+        "Outpatient Subspecialty Continuity Practice"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/ambulatory-report",
+      "title": "Ambulatory Report - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ambulatory Report",
+        "Content"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/firm-curriculum",
+      "title": "Firm Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Outpatient Firm Rotation",
+        "Rotation Objectives"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/patient-care-curriculum",
+      "title": "Patient Care Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Patient Care Curriculum",
+        "Inpatient Rotations",
+        "Outpatient Rotations",
+        "Average Breakdown of Rotations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/ultrasound-curriculum",
+      "title": "Ultrasound Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ultrasound Curriculum",
+        "For more information, please visit:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/quality-improvement-and-patient-safety-curriculum",
+      "title": "Quality Improvement and Patient Safety Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Quality Improvement and Patient Safety Curriculum",
+        "Quality Improvement",
+        "Patient Safety"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/leadership/chief-residents",
+      "title": "Chief Residents - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Chief Residents"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/leadership/program-administration",
+      "title": "Program Administration - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Program Administration"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/resident-life/life-in-philadelphia",
+      "title": "Life in Philadelphia - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Life in Philadelphia",
+        "Things To Do",
+        "Housing, Affordability, and Where to Live",
+        "Transportation & Travel"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/resident-life/program-wide-events",
+      "title": "Program Wide Events - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Program Wide Events"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information/internal-medicine-graduates",
+      "title": "Internal Medicine Graduates - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Internal Medicine Graduates",
+        "2025 FELLOWSHIP MATCH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information/faqs",
+      "title": "Department and Amenities FAQs - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Department and Amenities Frequently Asked Questions",
+        "General Information",
+        "Hospital Sites and Continuity Clinics",
+        "Mentoring and Wellness",
+        "Research",
+        "Life in Philadelphia"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations",
+      "title": "Department of Medicine Medical Student Rotations - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Department of Medicine Medical Student Rotations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/mentoring-and-research-opportunities",
+      "title": "Mentoring and Research Opportunities - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Career Mentoring and Research Opportunities",
+        "Career Mentoring",
+        "Research Opportunities"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/applying-for-residency-in-internal-medicine",
+      "title": "Applying for Residency - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 2,
+      "headings": [
+        "Applying for Internal Medicine Residency",
+        "",
+        "Department of Medicine Faculty Advisors",
+        "Course Requirements and Extracurricular Activities",
+        "How to Apply for General Internal Medicine Residency",
+        "FAQs"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/william-pepper-medical-society",
+      "title": "William Pepper Medical Society - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "William Pepper Medical Society"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/useful-links",
+      "title": "Useful Links - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Useful Links",
+        "American College of Physicians: Medical Students",
+        "Aquifer Cases"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Heart and Vascular Medical Education and Training",
+        "The “Best of the Best” come here for:",
+        "Interested in an education in cardiovascular medicine?",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Endocrinology Medical Training at Penn",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs",
+      "title": "Gastroenterology Fellowship Programs - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Programs",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gastroenterology Education and Training",
+        "Research Opportunities for Students",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/gastroenterology-elective-for-medical-house-staff",
+      "title": "Gastroenterology Elective for Medical House Staff - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gastroenterology Elective for Medical House Staff",
+        "Inpatient Gastroenterology and Hepatology Rotations",
+        "Outpatient Gastroenterology and Hepatology Rotations",
+        "Didactic Methods",
+        "Areas of Learning",
+        "Evaluation",
+        "Reading Material"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/gastroenterology-elective-for-medical-student",
+      "title": "Gastroenterology Elective for Medical Student Rotation - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gastroenterology Elective for Medical Student Rotation",
+        "Inpatient Gastroenterology and Hepatology Rotations",
+        "Outpatient Gastroenterology and Hepatology Rotations",
+        "Didactic Methods",
+        "Areas of Learning",
+        "Evaluation",
+        "Reading Material"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/gi-pathophysiology-course",
+      "title": "GI Pathophysiology Course - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "GI Pathophysiology Course"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/gi-lectureship",
+      "title": "GI Lectureship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "GI Lectureship",
+        "The Kaufman Lectureship in the Gastroenterology Division",
+        "David K. Ginsberg, MD Pancreatic Disease Lectureship",
+        "Julius J. Deren IBD Lectureship",
+        "The Wilmott Family Advances in Health Care Lectureship",
+        "The Professor Sheila Sherlock Hepatology Lectureship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/undergraduate-student-scholars-program",
+      "title": "Undergraduate Student Scholars Program | Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Undergraduate Student Scholars Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/graduate-and-postdoc-research",
+      "title": "Graduate and Postdoc Research - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Graduate and Postdoc Research",
+        "Graduate Training",
+        "Postdoctoral Opportunities",
+        "Research Training for Medical Students"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/general-internal-medicine/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of General Internal Medicine Medical Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/general-internal-medicine/education-and-training/general-internal-medicine-fellowship",
+      "title": "General Internal Medicine Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "General Internal Medicine Fellowship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/general-internal-medicine/education-and-training/penn-primary-care-research-training-program",
+      "title": "Penn Primary Care Research Training Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Penn Primary Care Research Training Program",
+        "Program Leadership",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/resident-rotation-information",
+      "title": "Resident Rotation Information - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Outpatient Geriatrics Rotation for Family Medicine and Internal Medicine Residents",
+        "Questions, Concerns, Issues?",
+        "Overview and Goals",
+        "Penn Memory Center",
+        "Home Care Course"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training",
+      "title": "Geriatrics Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Geriatrics Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/faculty-mentorship",
+      "title": "Faculty Mentorships - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Faculty Mentored Projects"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/faculty",
+      "title": "Faculty - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Hematology and Oncology Faculty",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Hematology and Oncology Education and Training",
+        "Why Fellows Choose Penn Medicine",
+        "Fellowship Program",
+        "Classical (Non-Malignant) Hematology Program",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/cellular-transplant-therapy-observership",
+      "title": "Cellular Transplant Therapy Observership - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Cell Therapy and Transplantation International Observership Program",
+        "Why Penn Medicine?",
+        "How to Apply",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Infectious Disease Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/spidr-summer-program",
+      "title": "Penn Summer Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Penn Summer Program in Infectious Diseases Research (SPIDR)",
+        "Program Leadership",
+        "Past Scholars"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/summer-research-fellowship",
+      "title": "Mayock Summer Research Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Mayock Summer Research Fellowship",
+        "Statement of Purpose and Description of Fellowship",
+        "Operation of the Robert L. Mayock Student Research Fellowship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pulmonary, Allergy and Critical Care Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology",
+      "title": "Section of Allergy and Immunology",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Allergy and Immunology",
+        "Message from Dr. Fadugba – Section Chief, Allergy and Immunology",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/grand-rounds",
+      "title": "Grand Rounds - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pulmonary Grand Rounds 2026",
+        "Location: 8 Maloney Conference Room - 8:00 a.m.",
+        "Tuesday, February 26, 2026",
+        "Tuesday, March 24, 2026",
+        "Tuesday, April 28, 2026",
+        "Tuesday, June 23, 2026"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/treating-tobacco-dependence-training",
+      "title": "Tobacco Treatment Academy - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Tobacco Treatment Academy",
+        "Why Tobacco Treatment Training Matters",
+        "Get Certified: Tobacco Treatment Specialist Training",
+        "Be the SPARK",
+        "Rewired",
+        "One-Day Team Training: Tobacco Dependence Essentials",
+        "Featured Videos",
+        "Start Your Tobacco Treatment Training Today",
+        "Watch & Learn: Free Webinar Series"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/about-us",
+      "title": "About Us - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "About the Section of Allergy and Immunology"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+      "title": "Section of Allergy and Immunology Faculty",
+      "classification": "roster_candidate",
+      "bio_count": 9,
+      "headings": [
+        "Allergy and Immunology Faculty",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/clinical-care",
+      "title": "Clinical Care - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Care"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/research",
+      "title": "Section of Allergy and Immunology | Penn Medicine | Research",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Research Programs"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/message-from-the-chief",
+      "title": "Message from the Chief - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Message from the Chief of Renal-Electrolyte and Hypertension"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Renal-Electrolyte and Hypertension Education and Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/about-us/health-equity-in-nephrology",
+      "title": "Health Equity in Nephrology - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Health Equity in Nephrology",
+        "Apply to the Renal-Electrolyte and Hypertension Fellowship Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training",
+      "title": "Education and Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rheumatology Education and Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/medical-students-and-resident-rotations",
+      "title": "Medical Students and Resident Rotations - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rheumatology Medical Students and Resident Rotations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/sleep-medicine/clinical-care",
+      "title": "Sleep Medicine: Clinical Care | Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Care"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/sleep-medicine/faculty-and-staff",
+      "title": "Faculty and Staff - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Sleep Medicine Faculty and Staff"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/sleep-medicine/education-and-training/fellowship-program",
+      "title": "Department of Medicine | Division of Sleep Medicine Fellowship",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Division of Sleep Medicine Fellowship Program",
+        "Contact Information and Related Links",
+        "Program Overview",
+        "Admissions",
+        "Curriculum"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/translational-medicine-human-genetics/education-and-training/pharmacogenetics-fellowship",
+      "title": "Pharmacogenetics Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pharmacogenetics Fellowship",
+        "Fellowship Description"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/translational-medicine-human-genetics/education-and-training",
+      "title": "Translational Medicine & Human Genetics: Education and Training",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/translational-medicine-human-genetics/education-and-training/residency",
+      "title": "Residency - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Combined Residency",
+        "Internal Medicine & Medical Genetics"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/serious-illness-care-program",
+      "title": "Serious Illness Care Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Serious Illness Care Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training",
+      "title": "Program in Palliative Care: Education and Training | Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Education and Training",
+        "In This Section"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/other-educational-opportunities",
+      "title": "Other Educational Opportunities - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Other Educational Opportunities",
+        "Students From Chaplaincy, Medicine, Nursing, and Social Work",
+        "Ongoing Professional Education",
+        "Self-Directed Learning Through CAPC"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/a-note-from-the-director-of-education",
+      "title": "A Note from the Program Director - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "A Note from the Program Director"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/berkman-summer-internship",
+      "title": "Berkman Summer Internship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Berkman Summer Internship in Palliative Care",
+        "Mission & Goal",
+        "About the Summer",
+        "Compensation",
+        "Eligibility & Application Process",
+        "Contact"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/advanced-imaging-cardiology-fellowship",
+      "title": "Advanced Noninvasive Cardiac Imaging (NST) Program - Penn Medicine",
+      "classification": "review",
+      "bio_count": 4,
+      "headings": [
+        "Advanced Noninvasive Cardiac Imaging Non-Standard Training (NST) Fellowship Program",
+        "",
+        "Scope of training",
+        "Program Directors",
+        "Current Advanced Imaging Cardiology Fellow"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardio-oncology-fellowship-program",
+      "title": "Cardio-Oncology Fellowship - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 2,
+      "headings": [
+        "Cardio-Oncology Fellowship Program",
+        "",
+        "How to Apply",
+        "Current Cardio Oncology Fellow"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/clinical-training/specialized-pathways",
+      "title": "Specialized Pathways - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Advanced Fellowship Pathways",
+        "",
+        "Sleep Medicine",
+        "Advanced Lung Disease and Lung Transplantation",
+        "Interventional Pulmonology",
+        "Pulmonary Hypertension/Pulmonary Vascular Disease",
+        "Other Options"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/about-us",
+      "title": "About Us - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Overview",
+        "Location",
+        "University of Pennsylvania Health System Graduate Medical Education",
+        "The New Patient Pavilion - Hospital of the University of Pennsylvania East"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program",
+      "title": "Our Program - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Our Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/current-fellows",
+      "title": "Cardiovascular Disease Fellowship: Current Fellows",
+      "classification": "roster_candidate",
+      "bio_count": 33,
+      "headings": [
+        "Current Fellows",
+        "",
+        "1st Year Fellows",
+        "2nd Year Fellows",
+        "3rd Year Fellows",
+        "Fourth Year Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/alumni",
+      "title": "Alumni - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Alumni"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/why-penn-cardiology",
+      "title": "Why Penn Cardiology - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Why choose Penn Cardiology?",
+        "What is a typical day like as a Penn Cardiology fellow?",
+        "How did Penn Cardiology get you to where you wanted to go?",
+        "How did you find your career path at Penn Cardiology?"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/your-penn-interview-day",
+      "title": "Your Penn Interview Day - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Your Penn Interview Day",
+        "Mapping Your Career Path @ Penn Cardiology",
+        "Resources for Virtual Fellowship Interviews and Picking a Fellowship Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/clinical-training",
+      "title": "Clinical Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Endocrinology, Diabetes and Metabolism Clinical Training",
+        "First Year Ambulatory Experiences:",
+        "Second Year Ambulatory Experiences:",
+        "Additional Ambulatory Rotation Experiences:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/didactic-training",
+      "title": "Endocrinology, Diabetes and Metabolism Didactic Training",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Endocrinology, Diabetes and Metabolism Didactic Training",
+        "Endocrine Grand Rounds",
+        "Rodebaugh Diabetes Conference Series",
+        "Combined IDOM / DRC Seminar Series"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/research-training",
+      "title": "Research Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Endocrinology, Diabetes and Metabolism Research Training",
+        "Endocrinology Diabetes & Metabolism Research Faculty"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/how-to-apply",
+      "title": "How to Apply: Endocrinology, Diabetes and Metabolism Fellowship",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "How to Apply for an Endocrinology, Diabetes and Metabolism Fellowship",
+        "Application"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/fellows",
+      "title": "Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 23,
+      "headings": [
+        "Current Endocrinology, Diabetes and Metabolism Fellows",
+        "",
+        "Program Director",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Recent Graduates"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gi-fellows-boot-camp",
+      "title": "GI Fellows Boot Camp - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "GI Fellows Boot Camp"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/leadership",
+      "title": "Leadership Team - Penn Medicine",
+      "classification": "review",
+      "bio_count": 4,
+      "headings": [
+        "Gastroenterology and Hepatology Fellowship Leadership Team",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/applicant-faq",
+      "title": "Applicant FAQ - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Applicant FAQ",
+        "Clinical",
+        "Research",
+        "Work/Life:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-endoscopy-fellowship",
+      "title": "Advanced Endoscopy Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Advanced Endoscopy Fellowship",
+        "Program Leadership",
+        "Advanced Endoscopy Faculty"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-endoscopy-alumni",
+      "title": "Advanced Endoscopy Alumni - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Advanced Endoscopy Alumni"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/ibd-fellowship",
+      "title": "IBD Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Inflammatory Bowel Disease Fellowship",
+        "Program Leadership",
+        "Program Contact",
+        "Activities of the Fellow",
+        "Didactic Sessions",
+        "Research Requirements and Opportunities",
+        "Curriculum",
+        "Trainee Selection"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-ibd-fellowship-alumni",
+      "title": "IBD Fellowship Alumni - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "IBD Fellowship Alumni",
+        "",
+        "2024"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-esophagology-and-swallowing-fellowship",
+      "title": "Advanced Esophagology and Swallowing Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Advanced Esophagology and Swallowing Fellowship",
+        "Goals and Objectives"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/neurogastroenterology-and-motility-advanced-training-fellowship",
+      "title": "Neurogastroenterology and Motility Advanced Training Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Neurogastroenterology and Motility Advanced Training Fellowship",
+        "Goals and Objectives",
+        "How to Apply"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles",
+      "title": "Gastroenterology and Hepatology Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 23,
+      "headings": [
+        "Gastroenterology and Hepatology Fellows",
+        "",
+        "First Year Gastroenterology Fellows",
+        "Second Year Gastroenterology Fellows",
+        "Third Year Gastroenterology Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
+      "title": "Advanced Gastroenterology and Hepatology Fellows - Penn Medicine",
+      "classification": "review",
+      "bio_count": 2,
+      "headings": [
+        "Advanced Gastroenterology and Hepatology Fellows",
+        "",
+        "Advanced Endoscopy Fellows",
+        "Advanced Transplant Hepatology Fellow"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-alumni",
+      "title": "Gastroenterology and Hepatology Fellowship Alumni - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gastroenterology and Hepatology Fellowship Alumni",
+        "2020 - 2025",
+        "2025",
+        "2024",
+        "2023",
+        "2022",
+        "2021",
+        "2020",
+        "2019 - 2011"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship/basic-science-track",
+      "title": "Basic Science Track - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Basic Science Track",
+        "Program Structure",
+        "Program Benefits",
+        "Application Information",
+        "Testimonials from current and recent graduates of the Basic Science Track fellowship program:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship/clinical-epidemiology-track",
+      "title": "Clinical Epidemiology Track - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Epidemiology Track",
+        "Program Structure",
+        "Program Benefits",
+        "Program Outcomes"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship/clinical-scholar-track",
+      "title": "Clinical Scholar Track - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Scholar Track",
+        "Program structure:",
+        "Program benefits:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/apply",
+      "title": "How to Apply - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "How to Apply",
+        "Eligibility",
+        "Required Documents",
+        "Interviews",
+        "Contact",
+        "Fellow Experiences"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/fellowship-leaders",
+      "title": "Program Leadership - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Program Leadership"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/fellowship-curriculum",
+      "title": "Fellowship Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Our 1-Year Fellowship \"6+2\" Curriculum – How it Works",
+        "Clinical Rotations",
+        "Didactics",
+        "Additional Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/scholarship",
+      "title": "Division of Geriatric Medicine | Scholarshi[",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Scholarship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/our-fellows",
+      "title": "Division of Geriatric Medicine | Fellows",
+      "classification": "review",
+      "bio_count": 3,
+      "headings": [
+        "Our Fellows",
+        "",
+        "2025-2026 Fellows",
+        "AGE SMART Fellow (2nd Year)",
+        "Past Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/first-year-curriculum",
+      "title": "First Year Curriculum - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "First Year Curriculum",
+        "Classical Hematology",
+        "Philadelphia VA Medical Center",
+        "Penn Presbyterian Medical Center"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/second-and-third-year-curriculum",
+      "title": "Second and Third Year Curriculum - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Second and Third Year Curriculum",
+        "Oncology Consults ( combined hematology/oncology track)",
+        "Gynecologic Oncology (combined hematology/oncology track)",
+        "Classical hematology Electives",
+        "Laboratory-Based Research",
+        "Clinical/Translational Research",
+        "Formal Mentoring",
+        "Clinical Experience"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/how-to-apply",
+      "title": "How to Apply Fellowship - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "How to Apply to Our Hematology and Oncology Fellowship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/about-philadelphia",
+      "title": "About Philadelphia - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "About Philadelphia",
+        "Philly in the News",
+        "Arts & Entertainment",
+        "Tourism",
+        "Blogs"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/fellows",
+      "title": "Current Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 32,
+      "headings": [
+        "Division of Hematology and Oncology Current Fellows",
+        "",
+        "Chief Fellows",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Third Year Fellows",
+        "Research Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+      "title": "Current Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 15,
+      "headings": [
+        "Division of Infectious Disease Fellows",
+        "",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Upper Year Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/fellowship-application",
+      "title": "Fellowship Application - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Infectious Diseases Fellowship Application"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/id-fellowship-clinical-tracks",
+      "title": "ID Fellowship Clinical Tracks - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "ID Fellowship Clinical Tracks"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/training-and-research-opportunities-for-fellows",
+      "title": "Training and Research Opportunities for Fellows - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Infectious Diseases Training and Research Opportunities for Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/videos",
+      "title": "Videos - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Videos from Infectious Disease Faculty Members",
+        "Welcome to Penn Medicine Graduate Medical Education (GME)",
+        "Message from Florence Momplaisir, MD",
+        "Message from Jennifer E. Cohn, MD MPH",
+        "Message from Blair Weikert, MD",
+        "Message from Rahul M. Kohli, MD, PhD",
+        "Message from Keith Hamilton, MD",
+        "Message from Robert Gross, MD, MSCE",
+        "Be Compassionate"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/training-and-research-opportunities-for-fellows/training-hospitals",
+      "title": "Training Hospitals - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Infectious Diseases Training Hospitals",
+        "The Hospital of the University of Pennsylvania",
+        "Penn Presbyterian Medical Center",
+        "Pennsylvania Hospital",
+        "Philadelphia Veterans Administration Medical Center"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/program-leadership",
+      "title": "Pulmonary and Critical Care Fellowship: Program Leadership",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Program Leadership"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+      "title": "Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 34,
+      "headings": [
+        "Current Pulmonary and Critical Care Fellows",
+        "",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Third Year Fellows",
+        "Fourth Year Fellows",
+        "Advanced Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/clinical-training",
+      "title": "Clinical Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pulmonary and Critical Care Clinical Training",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/research-training",
+      "title": "Research Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pulmonary and Critical Care Research Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/how-to-apply",
+      "title": "How to Apply For Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "How to Apply for a Pulmonary and Critical Care Fellowship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
+      "title": "Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 4,
+      "headings": [
+        "Allergy and Immunology Fellows",
+        "",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Fellow leadership roles (2019-2023)",
+        "Fellows’ career paths (2018-2023)"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/outpatient-training",
+      "title": "Outpatient Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Allergy and Immunology Outpatient Training",
+        "Organization of the Outpatient Programs/Clinics",
+        "Diversity of Out-Patient Populations",
+        "Resident’s Participation in Out-Patient Procedures",
+        "Participation in Research Program",
+        "Participation in Quality Improvement Projects"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/inpatient-training",
+      "title": "Inpatient Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Allergy and Immunology Inpatient Training",
+        "Fellow Assignments"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/core-curriculum",
+      "title": "Core Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Core Curriculum of the Allergy and Immunology Fellowship",
+        "Wellness",
+        "Life at Penn and in Philadelphia",
+        "Conferences"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/research-training",
+      "title": "Research Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Research Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/how-to-apply",
+      "title": "How to Apply - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "How to Apply to the Allergy and Immunology Fellowship Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/message-from-the-director",
+      "title": "Message from the Director - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Message from the Director of Nephrology Fellowship Programs",
+        "Amanda Leonberg-Yoo, MD, MS"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/fellowship-program-overview",
+      "title": "Nephrology Fellowship Program Overview - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nephrology Fellowship Program Overview",
+        "Unique Program Features",
+        "Nephrology Rotations",
+        "Fellowship Administration:"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/clinical-fellowships",
+      "title": "Nephrology Clinical Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nephrology Clinical Fellowship",
+        "First Fellowship Year",
+        "Second Fellowship Year",
+        "Nephrology Fellowship Curriculum"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/research-fellowships",
+      "title": "Nephrology Research Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nephrology Research Fellowship",
+        "First Training Year",
+        "Second and Subsequent Research Training Years"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/medical-and-pediatric-combined-fellowship",
+      "title": "Medical and Pediatric Combined Fellowship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Medical and Pediatric Combined Fellowship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/women-in-nephrology",
+      "title": "Women in Nephrology - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Women in Nephrology",
+        "Resources for Women at the University of Pennsylvania",
+        "External Resources",
+        "Selected Reading Material"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/frequently-asked-questions",
+      "title": "Nephrology Fellowship FAQ's - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nephrology Fellowship FAQ's",
+        "Essential",
+        "First Year of Inpatient Service",
+        "Outpatient Clinics",
+        "Conferences",
+        "Research Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows",
+      "title": "Current Nephrology Fellows | Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 23,
+      "headings": [
+        "Nephrology Fellows",
+        "",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Transplant Fellow",
+        "Med/Peds Fellow",
+        "NRSA Postdoc Fellows",
+        "Postdoc Researcher",
+        "Instructor"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/fellowship-life",
+      "title": "Fellowship Life - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Life",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/apply-for-fellowships",
+      "title": "Apply for Nephrology Fellowships - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Apply for Nephrology Fellowships"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/alumni",
+      "title": "Nephrology Alumni - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nephrology Fellow Alumni",
+        "Graduation Year 2024",
+        "Graduation Year 2023",
+        "Graduation Year 2022",
+        "Graduation Year 2021",
+        "Graduation Year 2020",
+        "Graduation Year 2019",
+        "Graduation Year 2018",
+        "Graduation Year 2017",
+        "Graduation Year 2016"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/curriculum-and-mentoring",
+      "title": "Penn Medicine Rheumatology Fellowship Curriculum and Mentoring",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Curriculum and Mentoring",
+        "Curriculum",
+        "Mentoring"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/faculty-expertise",
+      "title": "Faculty Expertise - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Faculty Expertise",
+        "Clinical Centers and Expertise"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/fellow-career-development",
+      "title": "Fellow Career Development - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Fellow Career Development Opportunities",
+        "Master of Science in Clinical Epidemiology",
+        "Clinical Research Certificate Program",
+        "Master of Science in Health Policy Research",
+        "Master of Science in Translational Research",
+        "Master of Science in Medical Bioethics",
+        "Master of Public Health",
+        "Measey Medical Education Certificate Program",
+        "Clinical/Medical Informatics Fellowship Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows",
+      "title": "Current Fellows - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 15,
+      "headings": [
+        "Penn Rheum Current Clinical Fellows (2025 – 2026)",
+        "",
+        "First Year Fellows",
+        "Second Year Fellows",
+        "Third Year Fellows",
+        "Post-Doc Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/fun-in-philly",
+      "title": "Fun in Philly - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Fun in Philly",
+        "Fun things to do outside of work"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine/leadership",
+      "title": "Leadership - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Program Leadership"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine/clinical-program",
+      "title": "Clinical Program - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Program",
+        "Curriculum"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine/scholarly-activities-and-mentorship",
+      "title": "Scholarly Activities and Mentorship - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Scholarly Activities and Mentorship",
+        "Scholarly Activities",
+        "Mentorship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine/current-fellows",
+      "title": "Program in Palliative Care: Current Fellows | Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Current Fellows",
+        "Traditional Fellowship",
+        "Mid-Career Fellowship",
+        "Fellowship Alumni"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents",
+      "title": "Categorical Residents - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 173,
+      "headings": [
+        "Categorical Residents",
+        "",
+        "PGY 3",
+        "",
+        "PGY 2",
+        "",
+        "PGY 1",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/physician-scientist-pathway/physician-scientist-residents",
+      "title": "Physician Scientist Residents - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 15,
+      "headings": [
+        "Physician Scientist Residents",
+        "",
+        "PGY1",
+        "PGY2",
+        "PGY3"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/leadership",
+      "title": "Leadership - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Primary Care Program Leadership",
+        "D. Rani Nandiwada, MD, Program Director",
+        "Robin Canada, MD, Associate Program Director",
+        "Rachael Truchil, MD, MPH, Primary Care Residency Clinical Site Director",
+        "Renata Holloway, Residency Coordinator"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/curriculum",
+      "title": "Curriculum - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Primary Care Program Curriculum",
+        "Internship (PGY-1)",
+        "Junior Residency (PGY-2)",
+        "Senior Residency (PGY-3)",
+        "Curriculum Highlights"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/second-clinics-and-other-unique-clinical-experiences",
+      "title": "Second Clinics and Other Unique Clinical Experiences - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Second Clinics and Other Unique Clinical Experiences"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/primary-care-residents",
+      "title": "Primary Care Residents - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 21,
+      "headings": [
+        "Primary Care Residents",
+        "",
+        "PGY 1",
+        "PGY 2",
+        "PGY 3"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/graduates",
+      "title": "Primary Care Program Graduates - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Primary Care Program Graduates",
+        "Graduates"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/faqs",
+      "title": "Primary Care Program FAQs - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Primary Care Frequently Asked Questions",
+        "General Information"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/quotes",
+      "title": "Quotes - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Quotes from Penn’s Primary Care Residents"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program/medicine-dermatology-residents",
+      "title": "Medicine-Dermatology Residents | Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 5,
+      "headings": [
+        "Medicine-Dermatology Residents",
+        "",
+        "PGY 1",
+        "PGY 2",
+        "PGY 3",
+        "PGY 4"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/medical-education/medical-education-residents",
+      "title": "Internal Medicine: Medical Education Residents | Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 9,
+      "headings": [
+        "Medical Education Residents",
+        "",
+        "PGY 2",
+        "PGY 3",
+        "PGY 4"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/healthcare-quality-in-leadership/healthcare-leadership-in-quality-residents",
+      "title": "Healthcare Leadership in Quality Residents | Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 25,
+      "headings": [
+        "Healthcare Leadership in Quality Residents",
+        "",
+        "PGY 2",
+        "PGY 3"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/leadership",
+      "title": "Leadership - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 5,
+      "headings": [
+        "Global Health Track Leadership",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/rotations",
+      "title": "Rotations - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Global Health Equities Track Rotation",
+        "Botswana, Princess Marina Hospital, Gaborone",
+        "Indian Health Service (IHS), Navajo Health, Tsehootsooi Medical Center in Fort Defiance, Arizona",
+        "Indian Health Service (IHS), Apache Nation, Whiteriver Indian Health Service Unit, Arizona",
+        "Rwanda - Butaro District Hospital, Cancer Center of Excellence",
+        "Dominican Republic (For Med/Peds Residents), Consuelo"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/community-clinics",
+      "title": "Community - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Global Health Equities Track - Community Clinics",
+        "Prevention Point Street-Side Health Project",
+        "Jonathan Lax Center/Philadelphia FIGHT",
+        "Puentes de Salud",
+        "Philadelphia County Prison Health",
+        "Refugee Clinic at the Penn Center for Primary Care"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/global-health-equities-residents",
+      "title": "Internal Medicine: Global Equities Residents | Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 22,
+      "headings": [
+        "Global Equities Residents",
+        "",
+        "PGY2",
+        "PGY3",
+        "PGY4"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/graduates",
+      "title": "Graduates - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Global Health Graduates"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/faqs",
+      "title": "Frequently Asked Questions - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Global Health Track Frequently Asked Questions",
+        "Frequently Asked Questions"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/patient-care-curriculum/inpatient-rotations",
+      "title": "Inpatient Rotations - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Inpatient Rotations",
+        "Rotation Specifics"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/curriculum/patient-care-curriculum/outpatient-rotations",
+      "title": "Outpatient Rotations - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Outpatient Rotations",
+        "Ambulatory Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/clinical-medicine",
+      "title": "Clinical Medicine - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Introduction to Clinical Medicine"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/clerkship",
+      "title": "Clerkship - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 7,
+      "headings": [
+        "Clerkship in Internal Medicine",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/sub-internship",
+      "title": "Sub-Internship - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 7,
+      "headings": [
+        "Internal Medicine Sub-Internship",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/specialty-electives",
+      "title": "Specialty Electives - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Inpatient and Outpatient Specialty Electives",
+        "Allergy and Immunology",
+        "Cardiology",
+        "Cystic Fibrosis",
+        "Endocrinology",
+        "Externship in Outpatient Medicine",
+        "Gastroenterology",
+        "Geriatric Medicine",
+        "Hematology Oncology",
+        "Infectious Disease",
+        "Nephrology",
+        "Outpatient Gastroenterology and Hepatology"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/critical-care",
+      "title": "Critical Care - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Critical Care Unit Rotations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/transition-courses",
+      "title": "Transition Courses - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Transition Experiences and Courses",
+        "Standardized Patient Experience (240)-Core 2",
+        "Clinical Skills Course (250)-Core 2",
+        "Transition to General Internal Medicine Internship"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/visiting-student-rotations",
+      "title": "Visiting Student Rotations - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Visiting Student Rotations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/medical-student-rotations/cooper-visiting-student-clerkship",
+      "title": "Cooper Visiting Student Clerkship - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Edward S. Cooper Visiting Student Clerkship for URMs"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/student-education/mentoring-and-research-opportunities/dom-research-faculty",
+      "title": "DOM Research Faculty - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Department of Medicine Research Faculty",
+        "Cardiovascular Research Faculty",
+        "Endocrine Research Faculty",
+        "Geriatric Research Faculty",
+        "Gastroenterology Research Faculty",
+        "Hematology-Oncology Research Faculty",
+        "Infectious Disease Research Faculty",
+        "Internal Medicine Research Faculty",
+        "Pulmonary Research Faculty",
+        "Renal Research Faculty",
+        "Rheumatology Research Faculty",
+        "Sleep Medicine"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/about-us/news/news-archive",
+      "title": "News Archive - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "News Archive For the Division of Endocrinology, Diabetes and Metabolism",
+        "Publications",
+        "Live Virtual Course - Foundations of Culinary Medicine for Healthcare Professionals",
+        "Endocrine Society's 2023 Early Career Forum Awards",
+        "Endocrine Society's 2023 Laureate Awards",
+        "Recent Publications",
+        "New Patient Education Videos",
+        "The Fall 2022 IDOM/DRC Seminar Series",
+        "2022 New Endocrinology Fellows",
+        "Former and Current Fellows",
+        "Congratulations",
+        "Philadelphia Magazine's Top Docs™"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/gastroenterology-elective-for-medical-student/gastroenterology-and-hepatology-reading-list",
+      "title": "Gastroenterology and Hepatology Reading List - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gastroenterology and Hepatology Reading List"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/undergraduate-student-scholars-program/make-a-gift-to-ussp",
+      "title": "Make A Gift To USSP | Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Make a Gift to USSP"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/undergraduate-student-scholars-program/ussp-faqs",
+      "title": "Division of Gastroenterology | Undergraduate Scholars Program FAQ",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "USSP FAQs",
+        "Undergraduate Student Scholars Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/general-internal-medicine/education-and-training/penn-primary-care-research-training-program/eligibility-and-application",
+      "title": "Eligibility and Application Procedures - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Eligibility and Application Procedures for Penn Primary Care Research Training Program",
+        "Eligibility",
+        "Deadline"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/general-internal-medicine/education-and-training/penn-primary-care-research-training-program/additional-educational-opportunities",
+      "title": "Additional Educational Opportunities - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Additional Education Opportunities at Penn Primary Care"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/general-internal-medicine/education-and-training/penn-primary-care-research-training-program/advanced-degrees",
+      "title": "Advanced Degrees - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Advanced Research Degrees for Primary Care"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/resident-rotation-information/readings-for-ace-unit",
+      "title": "Readings for ACE Unit - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Readings for the ACE Unit Geriatrics Rotation by Topic",
+        "Delirium",
+        "Dementia",
+        "Depression",
+        "Dizziness",
+        "Ethics/Decision Making",
+        "Falls/Gait",
+        "Nutrition/Feeding Tubes",
+        "Palliative Care",
+        "Polypharmacy",
+        "Pressure Ulcers",
+        "Sleep Evaluation & Management"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/cellular-transplant-therapy-observership/application",
+      "title": "Application - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Observership Program Application",
+        "Application Process"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/cellular-transplant-therapy-observership/fee-schedule",
+      "title": "Fee Schedule - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Fee Schedule"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/cellular-transplant-therapy-observership/health-form",
+      "title": "Health Form - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Health Form"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/cellular-transplant-therapy-observership/resources",
+      "title": "Resources - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Information and Resources"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/cellular-transplant-therapy-observership/observership-team",
+      "title": "Heme Team - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 22,
+      "headings": [
+        "Heme Team",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/faculty-and-staff/infectious-diseases-faculty/kreider-ted",
+      "title": "Kreider Ted - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ted Kreider, MD, PhD."
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/treating-tobacco-dependence-training/meet-the-team",
+      "title": "Meet the Team - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Meet the Team"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/treating-tobacco-dependence-training/tobacco-treatment-specialist-training-program",
+      "title": "Tobacco Treatment Specialist Training Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Tobacco Treatment Specialist Training Program",
+        "Register",
+        "Accreditation",
+        "Contact Us"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/treating-tobacco-dependence-training/be-the-spark",
+      "title": "Be the SPARK - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Be the SPARK: Treating Tobacco Use in High-Risk Populations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/treating-tobacco-dependence-training/adolescent-nicotine-use",
+      "title": "Adolescent Nicotine Use - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rewired: Understanding and Addressing Adolescent Nicotine Use"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/about-us/news",
+      "title": "News - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "News",
+        "2023"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/research/asthma-program",
+      "title": "Asthma Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Asthma Program"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/research/drug-allergy-program",
+      "title": "Drug Allergy Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Drug Allergy Program",
+        "Expedited Penicillin Allergy Evaluation for Expectant Mothers",
+        "Drugs Evaluated by the Penn Drug Allergy Program",
+        "Research in Drug Allergy"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/research/mastocytosis-program",
+      "title": "Mastocytosis Program - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Mastocytosis Program",
+        "Multidisciplinary Care Team",
+        "Advanced and Personalized Diagnostics and Treatment"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/serious-illness-care-program/guide",
+      "title": "Guide - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Serious Illness Care Program Guide",
+        "Set up the conversation",
+        "Assess understanding of prognosis",
+        "Share prognosis",
+        "Explore key topics",
+        "Close the conversations",
+        "Document your conversation",
+        "Communicate with key clinicians"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/clinical-training/ambulatory-training",
+      "title": "Ambulatory Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ambulatory Care Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/clinical-training/pulmonary-training",
+      "title": "Core Pulmonary Training - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Core Clinical Training in Pulmonary Medicine"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/clinical-training/teaching-conferences",
+      "title": "Teaching Conferences - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Teaching Conferences"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/about-us/leadership",
+      "title": "Leadership Team - Penn Medicine",
+      "classification": "roster_candidate",
+      "bio_count": 9,
+      "headings": [
+        "Cardiovascular Disease Fellowship Leadership Team",
+        "",
+        "Program Directors",
+        "Fellowship Program Administrators",
+        "Chief Fellows",
+        "Faculty"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/about-us/mission-and-vision",
+      "title": "Mission and Vision - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Mission and Vision"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/about-us/how-to-apply",
+      "title": "How to Apply to Penn Cardiovascular Disease Fellowship",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "How to Apply to the Penn Cardiovascular Disease Fellowship",
+        "Interviews",
+        "Cardiovascular Fellowship Brochure",
+        "Questions?"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program/clinical-track",
+      "title": "Clinical Track - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Track"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program/rotations",
+      "title": "Rotations - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Rotations",
+        "Inpatient rotations include",
+        "Procedural rotations include",
+        "Cardiac imaging rotations include"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program/ambulatory-experience",
+      "title": "Ambulatory Experience - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Ambulatory Experience"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program/research",
+      "title": "Cardiovascular Disease Fellowship: Research | Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Research",
+        "Resources for Fellow Research",
+        "Research Collaborations"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program/curriculum-and-virtual-education",
+      "title": "Curriculum and Virtual Education - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Fellowship Curriculum and Virtual Education",
+        "Weekly Structured Education Schedule",
+        "Innovation in Fellowship Education"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/our-program/fellow-wellness",
+      "title": "Fellow Wellness - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Fellow Wellness",
+        "Overview",
+        "Parenting and Fellowship Training"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/fellows/recent-graduates/francis-nnenia",
+      "title": "Francis Nnenia - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nnenia Francis, MD",
+        "Assistant Professor of Medicine, University of Kentucky"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/fellows/recent-graduates/kamimoto-jorge",
+      "title": "Kamimoto Jorge - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Jorge Jo Kamimoto, MD",
+        "Assistant Professor of Medicine, Perelman School of Medicine"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/fellows/recent-graduates/rivadeneira-ana",
+      "title": "Rivadeneira Ana - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ana Rivadeneira, MD",
+        "Assistant Professor of Medicine, Einstein Healthcare Network"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/garcia",
+      "title": "Garcia - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Carolina Garcia, MZD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/ghandour",
+      "title": "Ghandour - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Bachir Ghandour, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/grell",
+      "title": "Grell - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Yendé Grell, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/kang",
+      "title": "Kang - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Hansol Kang, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/lee",
+      "title": "Lee - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Kate Lee Karlin, MD, MS"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/leto",
+      "title": "Leto - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Alexandra Leto, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/silverstein",
+      "title": "Silverstein - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Noah Silverstein, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/first-year-gastroenterology-fellows/white",
+      "title": "White - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Brian White, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/andrew-kuang",
+      "title": "Andrew Kuang - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Andrew Kuang, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/benjamin-rosenthal",
+      "title": "Benjamin Rosenthal - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Benjamin Rosenthal, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/esteban-urias",
+      "title": "Esteban Urias - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Esteban Urias, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/henry-kuang",
+      "title": "Henry Kuang - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Henry Kuang, MD, PHD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/michael-song",
+      "title": "Michael Song - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Michael Song, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/saif-zaman",
+      "title": "Saif Zaman - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Saif Zaman, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/sohaib-hashmi",
+      "title": "Sohaib Hashmi - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Sohaib Hashmi, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/second-year-gastroenterology-fellows/yasmin-kamal",
+      "title": "Yasmin Kamal - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Yasmin Kamal, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/third-year-gastroenterology-fellows/arsia-jamali",
+      "title": "Arsia Jamali - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Arsia Jamali, MD, MPH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/third-year-gastroenterology-fellows/christopher-manzella",
+      "title": "Christopher Manzella - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Christopher Manzella, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/third-year-gastroenterology-fellows/dilara-hatipoglu",
+      "title": "Dilara Hatipoglu - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Dilara Hatipoglu, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/third-year-gastroenterology-fellows/michael-shen",
+      "title": "Michael Shen - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Michael Shen, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/third-year-gastroenterology-fellows/rachel-hirshorn",
+      "title": "Rachel Hirshorn - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rachel Hirshorn, MD",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles/third-year-gastroenterology-fellows/sara-chapin",
+      "title": "Sara Chapin - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Sara Chapin, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows/advanced-endoscopy-fellows/panchal-sarjukumar",
+      "title": "Panchal Sarjukumar - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Sarjukumar Panchal, MD, PharmD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows/transplant-hepatology-fellow/allemant-pedro",
+      "title": "Allemant Pedro - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pedro Ochoa Allemant, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship/basic-science-track/basic-science-track-leadership-team",
+      "title": "Basic Science Track Leadership Team - Penn Medicine",
+      "classification": "review",
+      "bio_count": 4,
+      "headings": [
+        "Basic Science Track Leadership Team",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship/clinical-epidemiology-track/leadership",
+      "title": "Clinical Epidemiology Leadership Team - Penn Medicine",
+      "classification": "review",
+      "bio_count": 4,
+      "headings": [
+        "Clinical Epidemiology Leadership Team",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-fellowship/clinical-scholar-track/leadership",
+      "title": "Clinical Scholar Track Leadership Team - Penn Medicine",
+      "classification": "review",
+      "bio_count": 2,
+      "headings": [
+        "Clinical Scholar Track Leadership Team",
+        ""
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/second-year-fellows/gabrielle-aquino",
+      "title": "Gabrielle Aquino - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Gabrielle Aquino, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/second-year-fellows/joseph-ladines-lim",
+      "title": "Joseph Ladines Lim - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Joseph Ladines Lim, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/second-year-fellows/jung-min-seo",
+      "title": "Jung Min Seo - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Jung Min Seo, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/second-year-fellows/mary-ferranti",
+      "title": "Mary Ferranti - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Mary Ferranti, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/second-year-fellows/sofia-barrios",
+      "title": "Sofia Barrios - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Sofia Barrios, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/upper-year-fellows/zachary-m-hostetler",
+      "title": "Zachary M Hostetler, MD - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Zachary M Hostetler, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/upper-year-fellows/oneil-jessica",
+      "title": "ONeil Jessica - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Jessica O’Neil, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows/upper-year-fellows/m-elle-saine",
+      "title": "M Elle Saine, MD - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "M Elle Saine, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/id-fellowship-clinical-tracks/infection-prevention-and-antimicrobial-stewardship-track",
+      "title": "Infection Prevention and Antimicrobial Stewardship Track - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Infection Prevention and Antimicrobial Stewardship Fellowship Track",
+        "Clinical Training",
+        "Research Experience",
+        "Mentorship",
+        "Additional Training Opportunities",
+        "Core Faculty Mentors"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/id-fellowship-clinical-tracks/transplant-track",
+      "title": "Transplant Infectious Diseases Track - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Transplant Infectious Diseases Fellowship Track",
+        "Clinical Training",
+        "Research Experience",
+        "Mentorship",
+        "Core Faculty Mentors"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/id-fellowship-clinical-tracks/critical-care-infectious-diseases-track",
+      "title": "Critical Care Infectious Diseases Track - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Critical Care Infectious Diseases Fellowship Track",
+        "Clinical Training",
+        "Long-Term Acute Care Facility",
+        "Research Experience",
+        "Mentorship",
+        "Core Faculty Mentors"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/id-fellowship-clinical-tracks/hiv-and-viral-hepatitis-track",
+      "title": "HIV and Viral Hepatitis Track - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "HIV and Viral Hepatitis Fellowship Track",
+        "Clinical Training",
+        "Optional Clinical Opportunities",
+        "Research Experience",
+        "Mentorship",
+        "Core Faculty"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/id-fellowship-clinical-tracks/opioid-use-disorders-and-infectious-diseases",
+      "title": "Division of Infectious Disease | Opioid Use Disorder Fellowship",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Opioid Use Disorders and Infectious Diseases Fellowship",
+        "Core Faculty"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/training-and-research-opportunities-for-fellows/clinical-rotations",
+      "title": "Clinical Rotations - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Clinical Rotations",
+        "HUP General Consultation Service",
+        "HUP HIV service",
+        "Outpatient HIV",
+        "Clinical Microbiology",
+        "Oncology & Transplant",
+        "Penn-Presbyterian Medical Center",
+        "Philadelphia Veterans Affairs Medical Center",
+        "Public Health",
+        "Pennsylvania Hospital",
+        "The Children's Hospital of Philadelphia Infectious Disease Inpatient Consult Service",
+        "Botswana Elective"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/training-and-research-opportunities-for-fellows/research-opportunities",
+      "title": "Research Opportunities - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Infectious Diseases Research Opportunities",
+        "Basic Science Training Program",
+        "The Master of Science in Clinical Epidemiology (MSCE) Degree Program",
+        "The PhD Program in Epidemiology",
+        "The Masters of Science Program in Health Policy Research",
+        "Additional Training Programs Available to ID Fellows"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/training-and-research-opportunities-for-fellows/conference-schedule",
+      "title": "Clinical Conference Schedule - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Infectious Diseases Clinical Conference Schedule"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/martin-akutek",
+      "title": "Martin Akutek, MBChB - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Martin Akutek, MBChB"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/christopher-banach",
+      "title": "Christopher Banach, DO - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Christopher Banach, DO"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/yara-bilen",
+      "title": "Yara Bilen, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Yara Bilen, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/justin-panthappattu",
+      "title": "Justin Panthappattu, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Justin Panthappattu, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/gianna-toglia",
+      "title": "Gianna Toglia, DO - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gianna Toglia, DO"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/adam-tuchinsky",
+      "title": "Adam Tuchinsky, DO - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Adam Tuchinsky, DO"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/second-year-fellows/clara-wilson",
+      "title": "Clara Wilson, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Clara Wilson, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/medpeds-fellow/stephanie-lawanto",
+      "title": "Stephanie Lawanto, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Stephanie Lawanto, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/medpeds-fellow/kwok-jonas",
+      "title": "Jonas Kwok, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Jonas Kwok, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/nrsa-postdoc-fellows/fishchman-clara",
+      "title": "Clara Fischman, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Clara Fischman, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/nrsa-postdoc-fellows/martinez-leon-victor-jose",
+      "title": "Victor Jose Martinez-Leon, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Victor Jose Martinez-Leon, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/postdoc-researcher/samer-mohandes",
+      "title": "Samer Mohandes, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Samer Mohandes, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows/instructor/rachel-shulman",
+      "title": "Rachel Shulman, MD - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rachel Shulman, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/first-year-fellows/alonzo-adrian",
+      "title": "Alonzo Adrian - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Adrian Alonzo, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/first-year-fellows/galvao-rachel",
+      "title": "Galvao Rachel - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Rachel Galvao, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/first-year-fellows/obaji-gladys",
+      "title": "Obaji Gladys - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Gladys Obaji, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/first-year-fellows/saha-rick",
+      "title": "Saha Rick - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Rick Saha, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/first-year-fellows/syracuse-bethany",
+      "title": "Syracuse Bethany - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Bethany Syracuse, DO"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/second-year-fellows/anstett-sarah",
+      "title": "Anstett Sarah - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Sarah Anstett, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/second-year-fellows/krall-max",
+      "title": "Krall Max - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Max Krall, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/second-year-fellows/lee-stephanie",
+      "title": "Lee Stephanie - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Stephanie Lee, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/second-year-fellows/madan-riya",
+      "title": "Madan Riya - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Riya Madan, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/second-year-fellows/rivera-aguila-tania",
+      "title": "Aguila Tania - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Tania M. Aguila Rivera, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/third-year-fellows/breed-elise",
+      "title": "Breed Elise - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Elise Ristig Breed, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/post-doc-fellows/coburn-brian",
+      "title": "Coburn Brian - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Brian Coburn, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/post-doc-fellows/kotzin-jonathan",
+      "title": "Kotzin Jonathan - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Jonathan Kotzin, MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/post-doc-fellows/riley-tom",
+      "title": "Riley Tom - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Tom Riley, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows/post-doc-fellows/romich-ellen",
+      "title": "Romich Ellen - Penn Medicine",
+      "classification": "non_bio_roster_candidate",
+      "bio_count": 0,
+      "headings": [
+        "Ellen Romich, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/bansal-esha",
+      "title": "Bansal Esha - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Esha Bansal MD, MPH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/barsouk-adam",
+      "title": "Barsouk Adam - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Adam Barsouk, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/bhuiya-tanzim",
+      "title": "Bhuiya Tanzim - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Tanzim Bhuiya MD, MPH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/bickford-david",
+      "title": "Bickford David - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "David Bickford MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/bisno-dan",
+      "title": "Bisno Dan - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Dan Bisno MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/boakye-ellen",
+      "title": "Boakye Ellen - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ellen Boakye MBChB, MPH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/cao-yulei",
+      "title": "Cao Yulei - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Yulei Cao MD MS"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/danforth-madeline",
+      "title": "Danforth Madeline - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Madeline Danforth MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/dash-anwesh",
+      "title": "Dash Anwesh - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Anwesh Dash MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/duqueney-esther",
+      "title": "Duqueney Esther - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Esther Duqueney MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/early-macy",
+      "title": "Early Macy - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Macy Early MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/elghawy-omar",
+      "title": "Elghawy Omar - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Omar Elghawy MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/farley--gordon",
+      "title": "Farley Gordon - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Gordon Farley MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/fishman-claire",
+      "title": "Fishman Claire - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Claire Fishman MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/goebel-anna",
+      "title": "Goebel Anna - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Anna Goebel MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/hao-jackie",
+      "title": "Hao Jackie - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Jackie Hao DO"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/hewlett-hunter",
+      "title": "Hewlett Hunter - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Hunter Hewlett MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/kacew-alec",
+      "title": "Kacew Alec - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Alec Kacew MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/lai-daniel",
+      "title": "Lai Daniel - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Daniel Lai MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/landon-suzy",
+      "title": "Landon Suzy - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Suzy Landon MD, MSc"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/luo-thomas",
+      "title": "Luo Thomas - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Thomas Luo MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/manam-anjeli",
+      "title": "Manam Anjeli - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Anjeli Manam MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/mellacheruvu-pranav",
+      "title": "Mellacheruvu Pranav - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Pranav Mellacheruvu MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/murali-anjana",
+      "title": "Murali Anjana - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Anjana Murali MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/odenigbo-charles",
+      "title": "Odenigbo Charles - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Charles Odenigbo MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/ohley-will",
+      "title": "Ohley Will - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Will Ohley MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/pepe-vince",
+      "title": "Pepe Vince - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Vincent Pepe MD, MPH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/ranum-alison",
+      "title": "Ranum Alison - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Alison Ranum MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/ravindra-kirshna",
+      "title": "Ravindra Kirshna - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Krishna Ravindra MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/sack-danny",
+      "title": "Sack Danny - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Danny Sack MD, PhD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/salinas-parra-natalia",
+      "title": "Salinas Parra Natalia - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Natalia Salinas Parra MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/smith-nicholas",
+      "title": "Smith Nicholas - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nicholas Smith MD MBA"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/storm-kyle",
+      "title": "Storm Kyle - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Kyle Storm MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/swami-nish",
+      "title": "Swami Nish - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nishwant Swami MD MPH"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/ackerman-nicole",
+      "title": "Ackerman Nicole - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nicole Ackerman MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/ademuwagun-christianah",
+      "title": "Ademuwagun Christianah - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Christianah Ademuwagun, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/ani-omar",
+      "title": "Ani Omar - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Omar Ani MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/bennett-barrington",
+      "title": "Bennett Barrington - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Barrington Bennett MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/bhatia-ranvir",
+      "title": "Bhatia Ranvir - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ranvir Bhatia MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/brown-jordana",
+      "title": "Brown Jordana - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Jordana Brown MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/campbell-daphne",
+      "title": "Campbell Daphne - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Daphne Campbell, DO"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/cordell-elizabeth",
+      "title": "Cordell Elizabeth - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Elizabeth Cordell MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/curfman-verna",
+      "title": "Curfman Verna - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Verna Curfman MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/ditmars-erick",
+      "title": "Ditmars Erick - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Erick Ditmars MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/federico-lydia",
+      "title": "Federico Lydia - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Lydia Federico MD, MPhil"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/forelli-nick",
+      "title": "Forelli Nick - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nick Forelli MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/fu-kai",
+      "title": "Fu Kai - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Kai Fu MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/gheewala-rohi",
+      "title": "Gheewala Rohi - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rohi Gheewala MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/ghodrati-farinaz",
+      "title": "Ghodrati Farinaz - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Farinaz Ghodrati MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/guarino-isadora",
+      "title": "Guarino Isadora - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Isadora Guarino MD, MEng"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/gutstein-lila",
+      "title": "Gutstein Lila - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Lila Gutstein, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/hunt-ava",
+      "title": "Hunt Ava - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Ava Hunt MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/jaber-chehayeb-rachel",
+      "title": "Jaber Chehayeb Rachel - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rachel Jaber Chehayeb MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/johnson-nicolette",
+      "title": "Johnson Nicolette - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Nicolette Johnson MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/khan-kinza",
+      "title": "Khan Kinza - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Kinza Khan MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/kiran-akshatha",
+      "title": "Kiran Akshatha - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Akshatha Kiran MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/kolkey-zak",
+      "title": "Kolkey Zak - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Zak Kolkey MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/manjunatha-rajashri",
+      "title": "Manjunatha Rajashri - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Rajashri Manjunatha, MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/marion-sarah",
+      "title": "Marion Sarah - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Sarah Marion MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/martin-elena",
+      "title": "Martin Elena - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Elena Martin MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/masood-faisal",
+      "title": "Masood Faisal - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Faisal Masood MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/morris-natalie",
+      "title": "Morris Natalie - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Natalie Morris MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/olsen-stefan",
+      "title": "Olsen Stefan - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Stefan Olsen MD"
+      ]
+    },
+    {
+      "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/patel-chirag",
+      "title": "Patel Chirag - Penn Medicine",
+      "classification": "context",
+      "bio_count": 0,
+      "headings": [
+        "Chirag Patel MD"
+      ]
+    }
+  ]
+}

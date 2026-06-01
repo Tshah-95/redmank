@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-01T23:00:08.597382+00:00",
+  "person_records": 528,
+  "unique_person_records": 453,
+  "context_records": 2,
+  "by_source": {
+    "cardiology_current_fellows": 33,
+    "cardiology_alumni": 0,
+    "cardiology_adult_congenital_current_fellows": 2,
+    "cardiology_advanced_heart_failure_current_fellows": 2,
+    "cardiology_electrophysiology_current_fellows": 12,
+    "cardiology_interventional_current_fellows": 4,
+    "cardiology_cardio_oncology_current_fellows": 2,
+    "cardiology_advanced_imaging_current_fellows": 2,
+    "endocrinology_current_fellows": 21,
+    "gastroenterology_current_fellows": 23,
+    "gastroenterology_advanced_current_fellows": 2,
+    "geriatrics_current_fellows": 3,
+    "hematology_oncology_current_fellows": 32,
+    "infectious_diseases_current_fellows": 15,
+    "pulmonary_critical_care_current_fellows": 34,
+    "allergy_immunology_current_fellows": 4,
+    "nephrology_current_fellows": 22,
+    "rheumatology_current_fellows": 15,
+    "palliative_current_fellows": 5,
+    "internal_medicine_categorical": 173,
+    "internal_medicine_physician_scientist": 15,
+    "internal_medicine_primary_care": 21,
+    "internal_medicine_med_derm": 5,
+    "internal_medicine_medical_education": 9,
+    "internal_medicine_healthcare_quality": 25,
+    "internal_medicine_global_health_equities": 22,
+    "internal_medicine_med_peds": 25,
+    "internal_medicine_faq": 0
+  },
+  "by_role_status_unique": {
+    "fellow:current": 220,
+    "fellow:former": 13,
+    "resident:chief": 1,
+    "resident:current": 219
+  },
+  "fields_present": {
+    "medical_school": 515,
+    "residency_program": 233,
+    "profile_url": 230
+  }
+}

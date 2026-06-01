@@ -1,0 +1,66 @@
+# redmank
+
+`redmank` is a public-source research corpus for understanding medicine training programs, starting with Penn Medicine and the Perelman School of Medicine.
+
+The first case study focuses on Penn Department of Medicine residents and fellows, with a separate partial medical-student source from the public Penn MSTP directory. The project keeps provenance close to each record: source URL, source type, extraction method, role, program, population, training-year label, current-status inference, and quality notes.
+
+## Current Penn Outputs
+
+- `artifacts/data/penn_training_people_unique.json`: deduplicated Department of Medicine resident/fellow corpus.
+- `artifacts/data/penn_training_people_unique.csv`: spreadsheet-friendly version of the same corpus.
+- `artifacts/data/penn_profile_index.md`: human review index for the resident/fellow corpus.
+- `artifacts/data/penn_training_summary.json`: counts and field coverage for the resident/fellow corpus.
+- `artifacts/data/penn_source_discovery.json`: crawler-based review list of candidate Penn Department of Medicine training pages.
+- `artifacts/data/penn_mstp_students.json`: separate public MSTP student-directory extract.
+- `artifacts/research/`: methodology and tradeoff briefs.
+
+As of the latest local generation, the Department of Medicine corpus has 453 unique resident/fellow profiles: 220 current fellows, 219 current residents, 1 chief resident, and 13 former fellows exposed on current fellowship pages. The separate MSTP student subset has 225 public student-directory records and is intentionally not treated as an all-medical-student roster.
+
+## Reproduce
+
+Install dependencies:
+
+```bash
+python3 -m pip install --target /tmp/penn_corpus_deps -r requirements.txt
+```
+
+Run the resident/fellow corpus:
+
+```bash
+python3 scripts/scrape_penn_training.py
+```
+
+Run Penn Department of Medicine source discovery:
+
+```bash
+python3 scripts/discover_penn_training_sources.py
+```
+
+Run the separate public MSTP student extract:
+
+```bash
+python3 scripts/scrape_penn_mstp_students.py
+```
+
+Validate scripts:
+
+```bash
+python3 -m py_compile scripts/*.py
+```
+
+## Data Policy
+
+This project uses public web sources only. It does not bypass login walls, private directories, robots exclusions, or application-only systems. Public student-directory email links are intentionally not extracted. Records should retain source URLs and quality notes so downstream users can distinguish official roster facts from inferred categorization and enrichment candidates.
+
+## Method
+
+The initial methodology is conservative:
+
+- Prefer official program roster pages over search snippets or secondary profiles.
+- Store raw source snapshots and source metadata, including HTTP status and content hash.
+- Deduplicate by normalized person name with manual aliases only when the same public corpus shows the variant.
+- Keep track and fellowship memberships as multi-valued fields instead of forcing one person into one category.
+- Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
+- Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
+
+See the latest research brief in `artifacts/research/` for source coverage, quality grades, and recommended enrichment tiers.

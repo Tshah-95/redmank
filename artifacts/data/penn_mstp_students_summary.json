@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-01T23:00:09.377015+00:00",
+  "source": {
+    "source_key": "perelman_mstp_student_directory",
+    "url": "https://www.med.upenn.edu/mstp/student-directory/",
+    "fetched_at": "2026-06-01T23:00:09.246491+00:00",
+    "http_status": 200,
+    "effective_url": "https://www.med.upenn.edu/mstp/student-directory/"
+  },
+  "student_records": 225,
+  "fields_present": {
+    "graduate_group": 220,
+    "phase": 225,
+    "thesis_advisor": 138,
+    "affinity_groups_and_student_orgs": 128,
+    "academic_interests": 186,
+    "hobbies_and_interests": 177,
+    "other": 99,
+    "publications_url": 4
+  }
+}
