@@ -42,7 +42,7 @@ The important distinction is accepted identifier versus identifier candidate. `o
 
 ## SQLite Model
 
-The warehouse is generated locally at `artifacts/data/redmank.sqlite`. The SQLite file is ignored by Git; committed flat artifacts plus `artifacts/data/redmank_sqlite_manifest.json` preserve the expected hash, size, storage policy, and validation commands for a rebuilt local warehouse.
+The warehouse is generated locally at `artifacts/data/redmank.sqlite`. The SQLite file is ignored by Git; committed flat artifacts plus `artifacts/data/redmank_sqlite_manifest.json` preserve the expected hash, size, storage policy, and validation commands for a rebuilt local warehouse. `scripts/rebuild_local_warehouse.py` performs the no-network replay path from committed artifacts.
 
 Core tables:
 

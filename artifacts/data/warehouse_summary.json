@@ -202,7 +202,7 @@
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558,
-    "warehouse_reproducibility_audit": 32
+    "warehouse_reproducibility_audit": 35
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -463,7 +463,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T10:16:57.889210+00:00",
+  "generated_at": "2026-06-02T10:23:02.942386+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -1043,7 +1043,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T10:16:57.458174+00:00",
+    "generated_at": "2026-06-02T10:23:02.486414+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -1218,12 +1218,12 @@
     "transition_events_csv": "artifacts/data/training_state_transition_events.csv"
   },
   "warehouse_reproducibility_counts": {
-    "ok": 32
+    "ok": 35
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 32,
-    "audited_at": "2026-06-02T10:16:57.561719+00:00",
+    "artifact_rows": 35,
+    "audited_at": "2026-06-02T10:23:02.588672+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -1232,6 +1232,7 @@
       "contact_ledger": 1,
       "identity_enrichment_ledger": 1,
       "longitudinal_readiness_ledger": 4,
+      "longitudinal_snapshot_ledger": 3,
       "official_program_alias_ledger": 1,
       "official_program_denominator_ledger": 1,
       "official_program_gap_probe_ledger": 1,
@@ -1247,7 +1248,7 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 32
+      "ok": 35
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
@@ -1257,7 +1258,7 @@
     "sqlite_byte_size": 58728448,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "d00923d09a54465379276dbb42183a89d83251761c230bd9228366f368656eba",
+    "sqlite_sha256": "e2957514ded920bbe33b765ae120a053fcd954ec50e7b4a3ff1925a700f18bdd",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

@@ -180,7 +180,7 @@ python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```
 
-`artifacts/data/redmank.sqlite` is a generated local warehouse, not a committed data blob. Rebuild it with `python3 scripts/build_sqlite.py`, run the downstream audit scripts above, and compare the resulting hash/storage metadata in `artifacts/data/redmank_sqlite_manifest.json`.
+`artifacts/data/redmank.sqlite` is a generated local warehouse, not a committed data blob. Rebuild it from committed artifacts with `python3 scripts/rebuild_local_warehouse.py`, then compare the resulting hash/storage metadata in `artifacts/data/redmank_sqlite_manifest.json`. The replay step intentionally avoids network collection; use the longer collection pipeline above when refreshing source data from the public web.
 
 OpenAlex author search is implemented as a candidate utility, but the latest full-corpus run hit sustained OpenAlex 429 throttling. Keep it as a resumable/polite enrichment lane rather than a default blocking rebuild step:
 
