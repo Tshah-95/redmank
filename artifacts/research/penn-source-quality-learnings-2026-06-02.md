@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T05:12:37.450002+00:00
+Generated: 2026-06-02T05:31:02.651846+00:00
 
 ## What This Pass Did
 
@@ -16,6 +16,60 @@ This pass widened Penn source discovery beyond Department of Medicine, then ran 
 | attending_faculty_candidate | 34 |
 
 Interpretation: `trainee_roster_candidate` is a review queue, not a canonical roster count. Program-context pages can mention residents/fellows without listing people, and some faculty pages share the same bio components as trainee pages.
+
+## Official HUP GME Program Universe
+
+Official denominator source: https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs
+
+Official HUP programs parsed: 91.
+
+| coverage_status | count |
+| --- | --- |
+| covered_current_roster | 33 |
+| discovered_no_current_roster | 27 |
+| not_discovered | 31 |
+
+Sample uncovered or partially covered official programs:
+
+| program_type | department | program_name | coverage_status | match_method |
+| --- | --- | --- | --- | --- |
+| residency | Anesthesiology | Anesthesiology | discovered_no_current_roster | source_discovery |
+| fellowship | Anesthesiology | Adult Cardiothoracic Anesthesiology | discovered_no_current_roster | source_discovery |
+| fellowship | Anesthesiology | Critical Care Medicine | discovered_no_current_roster | source_discovery |
+| fellowship | Anesthesiology | Pain Medicine | discovered_no_current_roster | source_discovery |
+| residency | Dermatology | Dermatology | discovered_no_current_roster | source_discovery |
+| fellowship | Dermatology | Dermatopathology | not_discovered | none |
+| fellowship | Dermatology | Micrographic Surgery and Dermatologic Oncology | not_discovered | none |
+| residency | Emergency Medicine | Emergency Medicine | discovered_no_current_roster | source_discovery |
+| residency | Emergency Medicine | Occupational and Environmental Medicine (Preventative Medicine) | not_discovered | none |
+| fellowship | Emergency Medicine | Undersea and Hyperbaric Medicine | discovered_no_current_roster | source_discovery |
+| residency | Family Medicine | Family Medicine | not_discovered | none |
+| fellowship | Family Medicine | Addiction Medicine | discovered_no_current_roster | source_discovery |
+| fellowship | Family Medicine | Sports Medicine | not_discovered | none |
+| fellowship | Internal Medicine | Sleep Medicine | discovered_no_current_roster | source_discovery |
+| fellowship | Internal Medicine | Transplant Hepatology | discovered_no_current_roster | source_discovery |
+| residency | Neurological Surgery | Neurological Surgery | not_discovered | none |
+| residency | Neurology | Neurology | not_discovered | none |
+| fellowship | Neurology | Clinical Neurophysiology | not_discovered | none |
+| fellowship | Neurology | Epilepsy | not_discovered | none |
+| fellowship | Neurology | Neurocritical Care | not_discovered | none |
+| fellowship | Neurology | Neuromuscular Medicine | not_discovered | none |
+| fellowship | Neurology | Vascular Neurology | not_discovered | none |
+| residency | Obstetrics and Gynecology | Obstetrics and Gynecology | not_discovered | none |
+| fellowship | Obstetrics and Gynecology | Complex Family Planning | not_discovered | none |
+| fellowship | Obstetrics and Gynecology | Gynecologic Oncology | not_discovered | none |
+| fellowship | Obstetrics and Gynecology | Maternal Fetal Medicine | not_discovered | none |
+| fellowship | Obstetrics and Gynecology | Reproductive Endocrinology and Infertility | not_discovered | none |
+| fellowship | Obstetrics and Gynecology | Urogynecology and Reconstructive Pelvic Surgery | not_discovered | none |
+| residency | Oral and Maxillofacial Surgery | Oral and Maxillofacial Surgery | not_discovered | none |
+| residency | Oral and Maxillofacial Surgery | Oral Medicine | not_discovered | none |
+| residency | Orthopedic Surgery | Orthopedic Surgery | not_discovered | none |
+| fellowship | Orthopedic Surgery | Adult Reconstructive Orthopedics | not_discovered | none |
+| fellowship | Orthopedic Surgery | Hand Surgery | not_discovered | none |
+| residency | Otorhinolaryngology | Otorhinolaryngology | discovered_no_current_roster | source_discovery |
+| fellowship | Otorhinolaryngology | Neurotology | not_discovered | none |
+
+Learning: source discovery is not coverage. An official program-universe table gives the denominator needed for gap accounting, annual recrawls, and institution-level diff views. `covered_current_roster` means we have current people attached; `discovered_no_current_roster` means a program page is known but no current roster people are captured; `not_discovered` names crawl gaps.
 
 ## Penn-Wide Program Categorization
 
@@ -198,7 +252,7 @@ Learning: roster strings should become normalized state observations with explic
 | penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7 | accepted | undergraduate_school | 14 | 0.836 |
 | penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532 | accepted | medical_school | 20 | 0.9 |
 | penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532 | accepted | residency_program | 10 | 0.77 |
-| pubmed_eutilities | candidate | pubmed_author_query_candidate | 759 | 0.208 |
+| pubmed_eutilities | candidate | pubmed_author_query_candidate | 759 | 0.211 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
@@ -210,7 +264,7 @@ Learning: roster strings should become normalized state observations with explic
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
-| pubmed_eutilities | 759 | 759 | 0 | 0 | 0 | {"claims": 759, "mean_confidence": 0.208} |
+| pubmed_eutilities | 759 | 759 | 0 | 0 | 0 | {"claims": 759, "mean_confidence": 0.211} |
 
 ## OpenAlex Feature Distribution
 
@@ -223,9 +277,9 @@ Learning: OpenAlex remains a promising author-disambiguation utility, but the cu
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
-| ["author_query", "high_collision_risk"] | 452 | 0.16 |
-| ["author_query", "bounded_result_count"] | 220 | 0.35 |
-| ["author_query", "no_results"] | 87 | 0.1 |
+| ["author_query", "high_collision_risk"] | 466 | 0.16 |
+| ["author_query", "bounded_result_count"] | 226 | 0.35 |
+| ["author_query", "no_results"] | 67 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
 

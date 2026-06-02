@@ -9,6 +9,8 @@
   "counts": {
     "career_events": 85,
     "evidence_claims": 2038,
+    "official_program_coverage_audit": 91,
+    "official_program_universe": 91,
     "organization_aliases": 695,
     "organization_identifiers": 1,
     "organizations": 675,
@@ -19,7 +21,7 @@
     "programs": 52,
     "source_quality_observations": 2,
     "source_utilities": 8,
-    "sources": 1345
+    "sources": 1346
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "evidence_source_counts": {
@@ -70,7 +72,7 @@
     "accepted": 1279,
     "candidate": 759
   },
-  "generated_at": "2026-06-02T05:12:37.428062+00:00",
+  "generated_at": "2026-06-02T05:31:02.674869+00:00",
   "generic_program_label_count": 0,
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,
@@ -99,6 +101,11 @@
     "MEDICAL_SCHOOL_MS3_OR_MS4": 49,
     "MSTP_PHD_PHASE": 123,
     "POSTDOCTORAL_RESEARCH_FELLOW": 7
+  },
+  "official_program_coverage_counts": {
+    "covered_current_roster": 33,
+    "discovered_no_current_roster": 27,
+    "not_discovered": 31
   },
   "organization_category_counts": {
     "clinical_training_site": 166,

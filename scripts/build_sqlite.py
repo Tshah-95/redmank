@@ -35,6 +35,11 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_outcome_candidate_sources.json",
     ARTIFACTS / "penn_attending_candidates.json",
     ARTIFACTS / "penn_outcome_candidates.json",
+    ARTIFACTS / "penn_gme_program_universe.json",
+    ARTIFACTS / "penn_gme_program_universe_source.json",
+    ARTIFACTS / "penn_gme_program_coverage.json",
+    ARTIFACTS / "research_candidate_claims.json",
+    ARTIFACTS / "research_candidate_summary.json",
     ARTIFACTS / "manual_source_quality_observations.json",
 ]
 
@@ -350,6 +355,21 @@ def insert_source_utilities(conn: sqlite3.Connection) -> None:
         )
 
 
+def upsert_scholarly_sources(conn: sqlite3.Connection) -> None:
+    for source_key, source_url, title in [
+        ("openalex_author_search", "https://api.openalex.org/authors", "OpenAlex author search"),
+        ("pubmed_eutilities", "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/", "NCBI PubMed E-utilities"),
+    ]:
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO sources
+            (source_key, source_url, source_type, title, metadata_json)
+            VALUES (?, ?, ?, ?, ?)
+            """,
+            (source_key, source_url, "scholarly_api", title, "{}"),
+        )
+
+
 def insert_manual_source_quality_observations(conn: sqlite3.Connection) -> None:
     path = ARTIFACTS / "manual_source_quality_observations.json"
     if not path.exists():
@@ -372,6 +392,72 @@ def insert_manual_source_quality_observations(conn: sqlite3.Connection) -> None:
                 int(row.get("ambiguous_claims", 0)),
                 row.get("notes", ""),
                 dumps(row.get("metrics", {})),
+            ),
+        )
+
+
+def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
+    path = ARTIFACTS / "research_candidate_claims.json"
+    if not path.exists():
+        return
+    claims = load_json(path)
+    if not claims:
+        return
+    upsert_scholarly_sources(conn)
+    for row in claims:
+        conn.execute(
+            """
+            INSERT INTO evidence_claims
+            (person_key, claim_type, claim_value, source_key, source_url, source_type,
+             confidence, status, match_features_json, reconciliation_notes, evidence_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                row["person_key"],
+                row["claim_type"],
+                row["claim_value"],
+                row["source_key"],
+                row["source_url"],
+                row["source_type"],
+                row["confidence"],
+                row["status"],
+                dumps(row.get("match_features", [])),
+                row.get("reconciliation_notes", ""),
+                dumps(row.get("evidence", {})),
+            ),
+        )
+    generated_at = datetime.now(timezone.utc).isoformat()
+    summary_path = ARTIFACTS / "research_candidate_summary.json"
+    summary = load_json(summary_path) if summary_path.exists() else {}
+    people_processed = int(summary.get("people_processed", 0))
+    for source_key in sorted({row["source_key"] for row in claims}):
+        source_claims = [row for row in claims if row["source_key"] == source_key]
+        conn.execute(
+            """
+            INSERT INTO source_quality_observations
+            (utility_key, observed_at, sample_size, candidate_claims, accepted_claims,
+             rejected_claims, ambiguous_claims, notes, metrics_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                source_key,
+                summary.get("generated_at") or generated_at,
+                people_processed or len({row["person_key"] for row in source_claims}),
+                sum(1 for row in source_claims if row["status"] == "candidate"),
+                sum(1 for row in source_claims if row["status"] == "accepted"),
+                sum(1 for row in source_claims if row["status"] == "rejected"),
+                sum(1 for row in source_claims if row["status"] == "needs_review"),
+                "Replayed durable research-candidate artifact; no claims accepted automatically.",
+                dumps(
+                    {
+                        "claims": len(source_claims),
+                        "mean_confidence": round(
+                            sum(float(row["confidence"]) for row in source_claims) / len(source_claims), 4
+                        )
+                        if source_claims
+                        else 0,
+                    }
+                ),
             ),
         )
 
@@ -947,6 +1033,14 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
     )
 
 
+def observed_at_for_source(conn: sqlite3.Connection, source_key: str | None, as_of: date) -> str:
+    if source_key:
+        row = conn.execute("SELECT fetched_at FROM sources WHERE source_key = ?", (source_key,)).fetchone()
+        if row and row["fetched_at"]:
+            return row["fetched_at"]
+    return f"{as_of.isoformat()}T00:00:00+00:00"
+
+
 def insert_training_states(conn: sqlite3.Connection, row: dict) -> None:
     person_key = row.get("person_key") or key_for("person", row["name"])
     programs = listish(row.get("program_memberships")) or listish(row.get("program"))
@@ -959,7 +1053,7 @@ def insert_training_states(conn: sqlite3.Connection, row: dict) -> None:
     if not labels:
         labels = [""]
     as_of = date.today()
-    observed_at = datetime.now(timezone.utc).isoformat()
+    observed_at = observed_at_for_source(conn, source_key, as_of)
     for program_name in programs:
         program_id = program_key(program_name, row.get("role")) if program_name else None
         for label in labels:
@@ -1152,6 +1246,79 @@ def insert_career_events(conn: sqlite3.Connection) -> None:
             )
 
 
+def insert_official_program_coverage(conn: sqlite3.Connection) -> None:
+    universe_path = ARTIFACTS / "penn_gme_program_universe.json"
+    source_path = ARTIFACTS / "penn_gme_program_universe_source.json"
+    coverage_path = ARTIFACTS / "penn_gme_program_coverage.json"
+    if not (universe_path.exists() and source_path.exists() and coverage_path.exists()):
+        return
+    source = load_json(source_path)
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO sources
+        (source_key, source_url, source_type, title, fetched_at, http_status, sha256, metadata_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            source["source_key"],
+            source["url"],
+            source["source_type"],
+            "HUP GME Programs",
+            source.get("fetched_at"),
+            source.get("http_status"),
+            source.get("sha256"),
+            dumps(source),
+        ),
+    )
+    for record in load_json(universe_path):
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO official_program_universe
+            (official_program_key, source_key, source_url, sponsoring_institution, department,
+             program_type, program_name, program_url, source_type, confidence, evidence_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                record["entry_key"],
+                source["source_key"],
+                record["source_url"],
+                record["sponsoring_institution"],
+                record["department"],
+                record["program_type"],
+                record["program_name"],
+                record.get("program_url"),
+                record.get("source_type"),
+                record.get("confidence", 0.0),
+                dumps(record.get("evidence", {})),
+            ),
+        )
+    audited_at = datetime.now(timezone.utc).isoformat()
+    for row in load_json(coverage_path):
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO official_program_coverage_audit
+            (official_program_key, coverage_status, matched_program_key, matched_program_name,
+             captured_people_count, match_method, match_confidence, discovery_classification,
+             discovery_title, discovery_url, notes, audited_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                row["entry_key"],
+                row["coverage_status"],
+                row.get("matched_program_key") or None,
+                row.get("matched_program_name"),
+                int(row.get("captured_people_count") or 0),
+                row.get("match_method"),
+                float(row.get("match_confidence") or 0.0),
+                row.get("discovery_classification"),
+                row.get("discovery_title"),
+                row.get("discovery_url"),
+                row.get("notes"),
+                audited_at,
+            ),
+        )
+
+
 def load_people(conn: sqlite3.Connection, resolver: OrganizationResolver) -> None:
     people = []
     for path in PERSON_FILES:
@@ -1193,6 +1360,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",
+        "official_program_universe",
+        "official_program_coverage_audit",
     ]:
         counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
     resolver_counts = {
@@ -1236,6 +1405,8 @@ def main() -> None:
         insert_manual_source_quality_observations(conn)
         resolver = OrganizationResolver(conn, ORG_SEEDS)
         load_people(conn, resolver)
+        insert_research_candidate_claims(conn)
+        insert_official_program_coverage(conn)
         export_review_queue(conn)
         write_summary(conn, db_path)
     conn.close()

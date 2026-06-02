@@ -358,7 +358,14 @@ def main() -> None:
                     )
             for claim in person_claims:
                 insert_claim(conn, person["person_key"], claim)
-            all_claims.extend(person_claims)
+                all_claims.append(
+                    {
+                        "person_key": person["person_key"],
+                        "display_name": person["display_name"],
+                        "role": person["role"],
+                        **claim,
+                    }
+                )
             if index % 50 == 0:
                 print(f"processed={index} claims={len(all_claims)}", flush=True)
             time.sleep(args.sleep)
@@ -410,6 +417,10 @@ def main() -> None:
         "current_database_by_source": current_counts,
         "current_database_by_source_status": current_status_counts,
     }
+    (OUT / "research_candidate_claims.json").write_text(
+        json.dumps(all_claims, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     (OUT / "research_candidate_summary.json").write_text(dumps(summary) + "\n", encoding="utf-8")
     print(dumps(summary))
 

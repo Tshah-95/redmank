@@ -27,6 +27,12 @@ def md_table(items: list[dict], columns: list[str]) -> list[str]:
     return lines
 
 
+def read_json(path: Path, default):
+    if not path.exists():
+        return default
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def main() -> None:
     REPORTS.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB)
@@ -155,6 +161,23 @@ def main() -> None:
         """,
     )
     conn.close()
+    hup_coverage_summary = read_json(ARTIFACTS / "penn_gme_program_coverage_summary.json", {})
+    hup_coverage_rows = read_json(ARTIFACTS / "penn_gme_program_coverage.json", [])
+    hup_coverage_counts = [
+        {"coverage_status": status, "count": count}
+        for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
+    ]
+    hup_not_covered = [
+        {
+            "program_type": row.get("program_type", ""),
+            "department": row.get("department", ""),
+            "program_name": row.get("program_name", ""),
+            "coverage_status": row.get("coverage_status", ""),
+            "match_method": row.get("match_method", ""),
+        }
+        for row in hup_coverage_rows
+        if row.get("coverage_status") != "covered_current_roster"
+    ][:35]
 
     report = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -170,6 +193,8 @@ def main() -> None:
         "training_state_counts": training_state_counts,
         "transition_rule_counts": transition_rule_counts,
         "contact_counts": contact_counts,
+        "hup_gme_program_coverage_summary": hup_coverage_summary,
+        "hup_gme_program_coverage_gaps_sample": hup_not_covered,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -194,6 +219,23 @@ def main() -> None:
         *md_table(broad_discovery, ["classification", "count"]),
         "",
         "Interpretation: `trainee_roster_candidate` is a review queue, not a canonical roster count. Program-context pages can mention residents/fellows without listing people, and some faculty pages share the same bio components as trainee pages.",
+        "",
+        "## Official HUP GME Program Universe",
+        "",
+        f"Official denominator source: {hup_coverage_summary.get('source_url', 'not generated')}",
+        "",
+        f"Official HUP programs parsed: {hup_coverage_summary.get('programs', 0)}.",
+        "",
+        *md_table(hup_coverage_counts, ["coverage_status", "count"]),
+        "",
+        "Sample uncovered or partially covered official programs:",
+        "",
+        *md_table(
+            hup_not_covered,
+            ["program_type", "department", "program_name", "coverage_status", "match_method"],
+        ),
+        "",
+        "Learning: source discovery is not coverage. An official program-universe table gives the denominator needed for gap accounting, annual recrawls, and institution-level diff views. `covered_current_roster` means we have current people attached; `discovered_no_current_roster` means a program page is known but no current roster people are captured; `not_discovered` names crawl gaps.",
         "",
         "## Penn-Wide Program Categorization",
         "",

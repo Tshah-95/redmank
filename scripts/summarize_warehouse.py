@@ -31,6 +31,8 @@ def main() -> None:
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",
+        "official_program_universe",
+        "official_program_coverage_audit",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -85,6 +87,12 @@ def main() -> None:
         row["contact_type"]: row["count"]
         for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
     }
+    official_program_coverage_counts = {
+        row["coverage_status"]: row["count"]
+        for row in conn.execute(
+            "SELECT coverage_status, COUNT(*) AS count FROM official_program_coverage_audit GROUP BY coverage_status"
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -104,6 +112,7 @@ def main() -> None:
         "evidence_source_counts": evidence_source_counts,
         "career_event_counts": career_event_counts,
         "contact_counts": contact_counts,
+        "official_program_coverage_counts": official_program_coverage_counts,
         "organization_category_counts": category_counts,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(

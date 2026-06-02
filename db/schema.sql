@@ -57,6 +57,35 @@ CREATE TABLE IF NOT EXISTS programs (
   normalized_name TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_universe (
+  official_program_key TEXT PRIMARY KEY,
+  source_key TEXT,
+  source_url TEXT NOT NULL,
+  sponsoring_institution TEXT,
+  department TEXT,
+  program_type TEXT NOT NULL,
+  program_name TEXT NOT NULL,
+  program_url TEXT,
+  source_type TEXT,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  evidence_json TEXT
+);
+
+CREATE TABLE IF NOT EXISTS official_program_coverage_audit (
+  official_program_key TEXT PRIMARY KEY REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  coverage_status TEXT NOT NULL,
+  matched_program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  matched_program_name TEXT,
+  captured_people_count INTEGER NOT NULL DEFAULT 0,
+  match_method TEXT,
+  match_confidence REAL NOT NULL DEFAULT 0.0,
+  discovery_classification TEXT,
+  discovery_title TEXT,
+  discovery_url TEXT,
+  notes TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,
@@ -262,6 +291,32 @@ FROM person_training_states s
 JOIN people p ON p.person_key = s.person_key
 LEFT JOIN programs pr ON pr.program_key = s.program_key
 ORDER BY p.display_name, pr.program_name, s.stage_rank, s.raw_stage_label;
+
+CREATE VIEW IF NOT EXISTS v_official_program_coverage_gaps AS
+SELECT
+  u.sponsoring_institution,
+  u.department,
+  u.program_type,
+  u.program_name,
+  u.program_url,
+  a.coverage_status,
+  a.match_method,
+  a.discovery_url,
+  a.captured_people_count,
+  a.match_confidence,
+  a.notes
+FROM official_program_universe u
+JOIN official_program_coverage_audit a ON a.official_program_key = u.official_program_key
+WHERE a.coverage_status != 'covered_current_roster'
+ORDER BY
+  CASE a.coverage_status
+    WHEN 'discovered_no_current_roster' THEN 0
+    WHEN 'not_discovered' THEN 1
+    ELSE 2
+  END,
+  u.department,
+  u.program_type,
+  u.program_name;
 
 CREATE VIEW IF NOT EXISTS v_recent_attending_trend_candidates AS
 SELECT

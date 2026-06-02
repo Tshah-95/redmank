@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T05:12:37.450002+00:00",
+  "generated_at": "2026-06-02T05:31:02.651846+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -10,6 +10,11 @@
       "source_type": "official_attending_faculty_candidate",
       "classification": null,
       "count": 4
+    },
+    {
+      "source_type": "official_hup_gme_program_list",
+      "classification": null,
+      "count": 1
     },
     {
       "source_type": "official_outcome_context",
@@ -701,7 +706,7 @@
       "status": "candidate",
       "claim_type": "pubmed_author_query_candidate",
       "count": 759,
-      "avg_confidence": 0.208
+      "avg_confidence": 0.211
     },
     {
       "source_key": "pulmonary_critical_care_current_fellows",
@@ -756,24 +761,24 @@
       "accepted_claims": 0,
       "rejected_claims": 0,
       "ambiguous_claims": 0,
-      "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.208}"
+      "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.211}"
     }
   ],
   "openalex_feature_distribution": [],
   "pubmed_feature_distribution": [
     {
       "match_features_json": "[\"author_query\", \"high_collision_risk\"]",
-      "count": 452,
+      "count": 466,
       "avg_confidence": 0.16
     },
     {
       "match_features_json": "[\"author_query\", \"bounded_result_count\"]",
-      "count": 220,
+      "count": 226,
       "avg_confidence": 0.35
     },
     {
       "match_features_json": "[\"author_query\", \"no_results\"]",
-      "count": 87,
+      "count": 67,
       "avg_confidence": 0.1
     }
   ],
@@ -1210,6 +1215,267 @@
       "status": "candidate",
       "count": 53,
       "avg_confidence": 0.82
+    }
+  ],
+  "hup_gme_program_coverage_summary": {
+    "by_coverage_status": {
+      "covered_current_roster": 33,
+      "discovered_no_current_roster": 27,
+      "not_discovered": 31
+    },
+    "by_program_type": {
+      "fellowship": 62,
+      "residency": 29
+    },
+    "generated_at": "2026-06-02T05:31:02.556893+00:00",
+    "programs": 91,
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs"
+  },
+  "hup_gme_program_coverage_gaps_sample": [
+    {
+      "program_type": "residency",
+      "department": "Anesthesiology",
+      "program_name": "Anesthesiology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Anesthesiology",
+      "program_name": "Adult Cardiothoracic Anesthesiology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Anesthesiology",
+      "program_name": "Critical Care Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Anesthesiology",
+      "program_name": "Pain Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "residency",
+      "department": "Dermatology",
+      "program_name": "Dermatology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Dermatology",
+      "program_name": "Dermatopathology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Dermatology",
+      "program_name": "Micrographic Surgery and Dermatologic Oncology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Emergency Medicine",
+      "program_name": "Emergency Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "residency",
+      "department": "Emergency Medicine",
+      "program_name": "Occupational and Environmental Medicine (Preventative Medicine)",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Emergency Medicine",
+      "program_name": "Undersea and Hyperbaric Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "residency",
+      "department": "Family Medicine",
+      "program_name": "Family Medicine",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Family Medicine",
+      "program_name": "Addiction Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Family Medicine",
+      "program_name": "Sports Medicine",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Internal Medicine",
+      "program_name": "Sleep Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Internal Medicine",
+      "program_name": "Transplant Hepatology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "residency",
+      "department": "Neurological Surgery",
+      "program_name": "Neurological Surgery",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Neurology",
+      "program_name": "Neurology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Neurology",
+      "program_name": "Clinical Neurophysiology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Neurology",
+      "program_name": "Epilepsy",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Neurology",
+      "program_name": "Neurocritical Care",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Neurology",
+      "program_name": "Neuromuscular Medicine",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Neurology",
+      "program_name": "Vascular Neurology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Obstetrics and Gynecology",
+      "program_name": "Obstetrics and Gynecology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Obstetrics and Gynecology",
+      "program_name": "Complex Family Planning",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Obstetrics and Gynecology",
+      "program_name": "Gynecologic Oncology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Obstetrics and Gynecology",
+      "program_name": "Maternal Fetal Medicine",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Obstetrics and Gynecology",
+      "program_name": "Reproductive Endocrinology and Infertility",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Obstetrics and Gynecology",
+      "program_name": "Urogynecology and Reconstructive Pelvic Surgery",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Oral and Maxillofacial Surgery",
+      "program_name": "Oral and Maxillofacial Surgery",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Oral and Maxillofacial Surgery",
+      "program_name": "Oral Medicine",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Orthopedic Surgery",
+      "program_name": "Orthopedic Surgery",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Orthopedic Surgery",
+      "program_name": "Adult Reconstructive Orthopedics",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Orthopedic Surgery",
+      "program_name": "Hand Surgery",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "residency",
+      "department": "Otorhinolaryngology",
+      "program_name": "Otorhinolaryngology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Otorhinolaryngology",
+      "program_name": "Neurotology",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
     }
   ]
 }

@@ -13,13 +13,17 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_source_discovery.json`: crawler-based review list of candidate Penn Department of Medicine training pages.
 - `artifacts/data/penn_mstp_students.json`: separate public MSTP student-directory extract.
 - `artifacts/data/redmank.sqlite`: SQLite warehouse built from the generated artifacts.
+- SQLite tables `official_program_universe` and `official_program_coverage_audit`: queryable official-program denominator and coverage status.
 - `artifacts/data/warehouse_summary.json`: warehouse table counts and resolver status counts.
 - `artifacts/data/organization_review_queue.csv`: organization labels that need alias/identifier review.
 - `artifacts/data/person_enrichment_queue.csv`: per-person recursive enrichment tasks.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
+- `artifacts/data/penn_gme_program_universe.json`: official HUP GME program denominator parsed from the public Penn Medicine program list.
+- `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
 - `artifacts/data/penn_attending_candidates.json`: conservative current Penn attending/faculty candidate layer for future career-trend reconciliation.
 - `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
+- `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
 - `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
@@ -28,6 +32,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/research/`: methodology and tradeoff briefs.
 
 As of the latest local generation, the warehouse has 984 people: 456 residents, 303 fellows, and 225 public MSTP student-directory records. It also has 1,279 accepted roster/training evidence claims, 759 PubMed author-query research candidates, 292 public contact candidates, and 85 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
+
+The official HUP GME coverage audit currently parses 91 public HUP programs: 33 have captured current roster people, 27 are discovered as program/source pages without current roster capture, and 31 are not yet discovered by the current Penn-wide crawl.
 
 ## Reproduce
 
@@ -70,6 +76,7 @@ python3 scripts/scrape_penn_affiliated_rosters.py
 python3 scripts/scrape_penn_attending_candidates.py
 python3 scripts/extract_penn_outcome_candidates.py
 python3 scripts/build_sqlite.py
+python3 scripts/audit_penn_gme_program_coverage.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --replace-source pubmed_eutilities --sleep 0.34
 python3 scripts/export_warehouse_views.py
