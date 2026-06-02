@@ -88,6 +88,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_program_alias_review_packets.csv",
+        "official_program_alias_review_packets",
+        "csv",
+        "official_program_alias_review_packets",
+        True,
+    ),
+    (
         "artifacts/data/official_program_alias_reconciliation_candidates.csv",
         "official_program_alias_ledger",
         "csv",

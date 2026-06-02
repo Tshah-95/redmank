@@ -286,6 +286,30 @@ CREATE TABLE IF NOT EXISTS official_program_coverage_action_queue (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_alias_review_packets (
+  packet_key TEXT PRIMARY KEY,
+  queue_key TEXT REFERENCES official_program_coverage_action_queue(queue_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  loaded_program_name TEXT,
+  loaded_role TEXT,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  loaded_source_url TEXT,
+  action_lane TEXT NOT NULL,
+  blocker_status TEXT NOT NULL,
+  alias_decision_status TEXT NOT NULL,
+  alias_confidence REAL NOT NULL DEFAULT 0.0,
+  reviewer_ready INTEGER NOT NULL DEFAULT 0,
+  coverage_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  recommended_next_action TEXT NOT NULL,
+  review_question TEXT NOT NULL,
+  rationale TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
   observation_key TEXT PRIMARY KEY,
   identifier_source TEXT NOT NULL,

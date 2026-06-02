@@ -247,6 +247,10 @@ def main() -> None:
         ARTIFACTS / "official_program_coverage_action_queue_summary.json",
         {},
     )
+    official_program_alias_review_packets_summary = read_json(
+        ARTIFACTS / "official_program_alias_review_packets_summary.json",
+        {},
+    )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -432,6 +436,7 @@ def main() -> None:
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
         "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
+        "official_program_alias_review_packets_summary": official_program_alias_review_packets_summary,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -498,6 +503,27 @@ def main() -> None:
         *md_table(
             official_program_coverage_action_queue_summary.get("top_actions") or [],
             ["official_program_name", "official_program_type", "action_lane", "priority", "person_impact_count", "recommended_next_action"],
+        ),
+        "",
+        "Alias review packets:",
+        "",
+        f"Alias packet rows: {official_program_alias_review_packets_summary.get('packet_rows', 0)}. Reviewer-ready rows: {official_program_alias_review_packets_summary.get('reviewer_ready_rows', 0)}. Reviewer-ready person count: {official_program_alias_review_packets_summary.get('reviewer_ready_person_count', 0)}.",
+        "",
+        *md_table(
+            [
+                {"alias_decision_status": status, "count": count}
+                for status, count in sorted(
+                    (official_program_alias_review_packets_summary.get("by_alias_decision_status") or {}).items()
+                )
+            ],
+            ["alias_decision_status", "count"],
+        ),
+        "",
+        "Top alias packets:",
+        "",
+        *md_table(
+            official_program_alias_review_packets_summary.get("top_packets") or [],
+            ["official_program_name", "loaded_program_name", "loaded_person_count", "alias_decision_status", "reviewer_ready", "recommended_next_action"],
         ),
         "",
         "Sample uncovered or partially covered official programs:",

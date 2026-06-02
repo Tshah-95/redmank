@@ -1,0 +1,168 @@
+{
+  "by_alias_decision_status": {
+    "not_alias_count_conflict_review": 1,
+    "review_required_combined_track_not_categorical_coverage": 1,
+    "review_required_official_type_or_track_mismatch_review": 1,
+    "review_required_role_mismatch_related_source": 1,
+    "review_required_track_split_unresolved_review": 1,
+    "review_required_weak_related_source_review": 10,
+    "reviewer_ready_broad_residency_alias_candidate": 1,
+    "reviewer_ready_combined_track_alias_candidate": 2,
+    "reviewer_ready_program_alias_candidate": 9,
+    "reviewer_ready_same_program_alias_candidate": 1,
+    "reviewer_ready_section_split_candidate": 1,
+    "reviewer_ready_track_alias_candidate": 1,
+    "weak_alias_review": 2
+  },
+  "by_blocker_status": {
+    "covered_by_alias_without_explicit_acceptance": 15,
+    "exact_resolution_count_conflict": 1,
+    "open_gap_with_related_loaded_people": 16
+  },
+  "by_recommended_next_action": {
+    "accept_alias_only_if_loaded_source_excludes_combined_tracks": 1,
+    "accept_combined_track_alias_if_roster_matches_official_track": 2,
+    "accept_program_alias_after_source_scope_check": 9,
+    "accept_track_alias_if_roster_scope_matches": 1,
+    "collect_stronger_alias_or_split_evidence": 2,
+    "do_not_alias_without_track_specific_source": 1,
+    "do_not_mark_categorical_dermatology_covered_without_dermatology_roster": 1,
+    "find_or_confirm_independent_ir_current_roster_before_aliasing": 1,
+    "keep_gap_open_and_collect_stronger_evidence": 10,
+    "review_and_accept_same_program_alias_if_source_current": 1,
+    "review_count_conflict_before_alias_acceptance": 1,
+    "review_official_program_type_against_integrated_independent_residency_source": 1,
+    "split_loaded_program_by_section_label_then_close_gap": 1
+  },
+  "coverage_mutation_allowed_rows": 0,
+  "csv": "artifacts/data/official_program_alias_review_packets.csv",
+  "generated_at": "2026-06-02T11:30:42.161679+00:00",
+  "json": "artifacts/data/official_program_alias_review_packets.json",
+  "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
+  "packet_rows": 32,
+  "reviewer_ready_person_count": 392,
+  "reviewer_ready_rows": 15,
+  "top_packets": [
+    {
+      "alias_decision_status": "reviewer_ready_broad_residency_alias_candidate",
+      "loaded_person_count": 173,
+      "loaded_program_name": "Internal Medicine Residency",
+      "official_program_name": "Internal Medicine - Categorical",
+      "recommended_next_action": "accept_alias_only_if_loaded_source_excludes_combined_tracks",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 54,
+      "loaded_program_name": "Diagnostic Radiology Residency",
+      "official_program_name": "Radiology - Diagnostic",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 34,
+      "loaded_program_name": "Pulmonary and Critical Care Fellowship",
+      "official_program_name": "Pulmonary Disease and Critical Care Medicine",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 23,
+      "loaded_program_name": "Gastroenterology and Hepatology Fellowship",
+      "official_program_name": "Gastroenterology",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 22,
+      "loaded_program_name": "Plastic Surgery Residency",
+      "official_program_name": "Plastic Surgery - Integrated",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 21,
+      "loaded_program_name": "Endocrinology, Diabetes and Metabolism Fellowship",
+      "official_program_name": "Endocrinology",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_track_alias_candidate",
+      "loaded_person_count": 19,
+      "loaded_program_name": "Interventional Radiology Integrated Residency",
+      "official_program_name": "Radiology - Interventional, Integrated",
+      "recommended_next_action": "accept_track_alias_if_roster_scope_matches",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_combined_track_alias_candidate",
+      "loaded_person_count": 16,
+      "loaded_program_name": "Penn-CHOP Internal Medicine-Pediatrics Residency",
+      "official_program_name": "Internal Medicine - Pediatrics",
+      "recommended_next_action": "accept_combined_track_alias_if_roster_matches_official_track",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 15,
+      "loaded_program_name": "Infectious Diseases Fellowship",
+      "official_program_name": "Infectious Disease",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 6,
+      "loaded_program_name": "Surgical Pathology Fellowship",
+      "official_program_name": "Surgical Pathology (Selective)",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_combined_track_alias_candidate",
+      "loaded_person_count": 3,
+      "loaded_program_name": "Combined Internal Medicine-Dermatology Residency",
+      "official_program_name": "Internal Medicine - Dermatology",
+      "recommended_next_action": "accept_combined_track_alias_if_roster_matches_official_track",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_section_split_candidate",
+      "loaded_person_count": 2,
+      "loaded_program_name": "Advanced Gastroenterology and Hepatology Fellowship",
+      "official_program_name": "Transplant Hepatology",
+      "recommended_next_action": "split_loaded_program_by_section_label_then_close_gap",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 2,
+      "loaded_program_name": "GI/Hepatic Pathology Fellowship",
+      "official_program_name": "Gastrointestinal and Hepatic Pathology (Selective)",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_program_alias_candidate",
+      "loaded_person_count": 1,
+      "loaded_program_name": "Transfusion Medicine/Blood Bank Fellowship",
+      "official_program_name": "Blood Banking and Transfusion Medicine",
+      "recommended_next_action": "accept_program_alias_after_source_scope_check",
+      "reviewer_ready": 1
+    },
+    {
+      "alias_decision_status": "reviewer_ready_same_program_alias_candidate",
+      "loaded_person_count": 1,
+      "loaded_program_name": "Soft Tissue/Bone Pathology Fellowship",
+      "official_program_name": "Soft Tissue/Bone (Selective)",
+      "recommended_next_action": "review_and_accept_same_program_alias_if_source_current",
+      "reviewer_ready": 1
+    }
+  ],
+  "total_loaded_person_count": 531
+}

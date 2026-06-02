@@ -28,7 +28,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T11:25:07.590457+00:00",
+    "generated_at": "2026-06-02T11:30:41.696106+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -140,7 +140,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T11:25:07.720945+00:00",
+    "generated_at": "2026-06-02T11:30:41.829318+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 3,
@@ -233,7 +233,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T11:25:07.682320+00:00",
+    "generated_at": "2026-06-02T11:30:41.789853+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -298,7 +298,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T11:25:07.650902+00:00",
+    "generated_at": "2026-06-02T11:30:41.757480+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -329,6 +329,7 @@
     "official_gap_roster_program_resolution": 24,
     "official_gap_roster_reconciliation": 37,
     "official_program_alias_reconciliation_candidates": 16,
+    "official_program_alias_review_packets": 32,
     "official_program_coverage_action_queue": 43,
     "official_program_coverage_assurance_audit": 91,
     "official_program_coverage_audit": 91,
@@ -368,7 +369,7 @@
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558,
     "training_state_transition_rollups": 216,
-    "warehouse_reproducibility_audit": 46
+    "warehouse_reproducibility_audit": 47
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -629,7 +630,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T11:25:09.011335+00:00",
+  "generated_at": "2026-06-02T11:30:43.169797+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -921,7 +922,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T11:25:07.882923+00:00",
+    "generated_at": "2026-06-02T11:30:41.992450+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 430,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -960,7 +961,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T11:25:07.816102+00:00",
+    "generated_at": "2026-06-02T11:30:41.924980+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 499,
     "loaded_person_count": 499,
@@ -978,6 +979,193 @@
     "section_level_split_candidate": 1,
     "track_split_unresolved_review": 1,
     "weak_related_source_review": 10
+  },
+  "official_program_alias_review_packet_counts": {
+    "not_alias_count_conflict_review": 1,
+    "review_required_combined_track_not_categorical_coverage": 1,
+    "review_required_official_type_or_track_mismatch_review": 1,
+    "review_required_role_mismatch_related_source": 1,
+    "review_required_track_split_unresolved_review": 1,
+    "review_required_weak_related_source_review": 10,
+    "reviewer_ready_broad_residency_alias_candidate": 1,
+    "reviewer_ready_combined_track_alias_candidate": 2,
+    "reviewer_ready_program_alias_candidate": 9,
+    "reviewer_ready_same_program_alias_candidate": 1,
+    "reviewer_ready_section_split_candidate": 1,
+    "reviewer_ready_track_alias_candidate": 1,
+    "weak_alias_review": 2
+  },
+  "official_program_alias_review_packet_reviewer_ready_counts": {
+    "0": 17,
+    "1": 15
+  },
+  "official_program_alias_review_packets_summary": {
+    "by_alias_decision_status": {
+      "not_alias_count_conflict_review": 1,
+      "review_required_combined_track_not_categorical_coverage": 1,
+      "review_required_official_type_or_track_mismatch_review": 1,
+      "review_required_role_mismatch_related_source": 1,
+      "review_required_track_split_unresolved_review": 1,
+      "review_required_weak_related_source_review": 10,
+      "reviewer_ready_broad_residency_alias_candidate": 1,
+      "reviewer_ready_combined_track_alias_candidate": 2,
+      "reviewer_ready_program_alias_candidate": 9,
+      "reviewer_ready_same_program_alias_candidate": 1,
+      "reviewer_ready_section_split_candidate": 1,
+      "reviewer_ready_track_alias_candidate": 1,
+      "weak_alias_review": 2
+    },
+    "by_blocker_status": {
+      "covered_by_alias_without_explicit_acceptance": 15,
+      "exact_resolution_count_conflict": 1,
+      "open_gap_with_related_loaded_people": 16
+    },
+    "by_recommended_next_action": {
+      "accept_alias_only_if_loaded_source_excludes_combined_tracks": 1,
+      "accept_combined_track_alias_if_roster_matches_official_track": 2,
+      "accept_program_alias_after_source_scope_check": 9,
+      "accept_track_alias_if_roster_scope_matches": 1,
+      "collect_stronger_alias_or_split_evidence": 2,
+      "do_not_alias_without_track_specific_source": 1,
+      "do_not_mark_categorical_dermatology_covered_without_dermatology_roster": 1,
+      "find_or_confirm_independent_ir_current_roster_before_aliasing": 1,
+      "keep_gap_open_and_collect_stronger_evidence": 10,
+      "review_and_accept_same_program_alias_if_source_current": 1,
+      "review_count_conflict_before_alias_acceptance": 1,
+      "review_official_program_type_against_integrated_independent_residency_source": 1,
+      "split_loaded_program_by_section_label_then_close_gap": 1
+    },
+    "coverage_mutation_allowed_rows": 0,
+    "csv": "artifacts/data/official_program_alias_review_packets.csv",
+    "generated_at": "2026-06-02T11:30:42.161679+00:00",
+    "json": "artifacts/data/official_program_alias_review_packets.json",
+    "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
+    "packet_rows": 32,
+    "reviewer_ready_person_count": 392,
+    "reviewer_ready_rows": 15,
+    "top_packets": [
+      {
+        "alias_decision_status": "reviewer_ready_broad_residency_alias_candidate",
+        "loaded_person_count": 173,
+        "loaded_program_name": "Internal Medicine Residency",
+        "official_program_name": "Internal Medicine - Categorical",
+        "recommended_next_action": "accept_alias_only_if_loaded_source_excludes_combined_tracks",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 54,
+        "loaded_program_name": "Diagnostic Radiology Residency",
+        "official_program_name": "Radiology - Diagnostic",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 34,
+        "loaded_program_name": "Pulmonary and Critical Care Fellowship",
+        "official_program_name": "Pulmonary Disease and Critical Care Medicine",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 23,
+        "loaded_program_name": "Gastroenterology and Hepatology Fellowship",
+        "official_program_name": "Gastroenterology",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 22,
+        "loaded_program_name": "Plastic Surgery Residency",
+        "official_program_name": "Plastic Surgery - Integrated",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 21,
+        "loaded_program_name": "Endocrinology, Diabetes and Metabolism Fellowship",
+        "official_program_name": "Endocrinology",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_track_alias_candidate",
+        "loaded_person_count": 19,
+        "loaded_program_name": "Interventional Radiology Integrated Residency",
+        "official_program_name": "Radiology - Interventional, Integrated",
+        "recommended_next_action": "accept_track_alias_if_roster_scope_matches",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_combined_track_alias_candidate",
+        "loaded_person_count": 16,
+        "loaded_program_name": "Penn-CHOP Internal Medicine-Pediatrics Residency",
+        "official_program_name": "Internal Medicine - Pediatrics",
+        "recommended_next_action": "accept_combined_track_alias_if_roster_matches_official_track",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 15,
+        "loaded_program_name": "Infectious Diseases Fellowship",
+        "official_program_name": "Infectious Disease",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 6,
+        "loaded_program_name": "Surgical Pathology Fellowship",
+        "official_program_name": "Surgical Pathology (Selective)",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_combined_track_alias_candidate",
+        "loaded_person_count": 3,
+        "loaded_program_name": "Combined Internal Medicine-Dermatology Residency",
+        "official_program_name": "Internal Medicine - Dermatology",
+        "recommended_next_action": "accept_combined_track_alias_if_roster_matches_official_track",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_section_split_candidate",
+        "loaded_person_count": 2,
+        "loaded_program_name": "Advanced Gastroenterology and Hepatology Fellowship",
+        "official_program_name": "Transplant Hepatology",
+        "recommended_next_action": "split_loaded_program_by_section_label_then_close_gap",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 2,
+        "loaded_program_name": "GI/Hepatic Pathology Fellowship",
+        "official_program_name": "Gastrointestinal and Hepatic Pathology (Selective)",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_program_alias_candidate",
+        "loaded_person_count": 1,
+        "loaded_program_name": "Transfusion Medicine/Blood Bank Fellowship",
+        "official_program_name": "Blood Banking and Transfusion Medicine",
+        "recommended_next_action": "accept_program_alias_after_source_scope_check",
+        "reviewer_ready": 1
+      },
+      {
+        "alias_decision_status": "reviewer_ready_same_program_alias_candidate",
+        "loaded_person_count": 1,
+        "loaded_program_name": "Soft Tissue/Bone Pathology Fellowship",
+        "official_program_name": "Soft Tissue/Bone (Selective)",
+        "recommended_next_action": "review_and_accept_same_program_alias_if_source_current",
+        "reviewer_ready": 1
+      }
+    ],
+    "total_loaded_person_count": 531
   },
   "official_program_coverage_action_blocker_counts": {
     "candidate_source_without_people": 7,
@@ -1021,7 +1209,7 @@
       "residency": 13
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T11:25:07.960181+00:00",
+    "generated_at": "2026-06-02T11:30:42.089581+00:00",
     "highest_priority": 1093,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -1235,7 +1423,7 @@
     "covered_people_count": 1196,
     "covered_program_rows": 64,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T11:25:07.921558+00:00",
+    "generated_at": "2026-06-02T11:30:42.043247+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 769,
     "level_4_program_rows": 48,
@@ -1556,7 +1744,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T11:25:08.467040+00:00",
+    "generated_at": "2026-06-02T11:30:42.636909+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -1795,12 +1983,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 46
+    "ok": 47
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 46,
-    "audited_at": "2026-06-02T11:25:08.572636+00:00",
+    "artifact_rows": 47,
+    "audited_at": "2026-06-02T11:30:42.758637+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -1815,6 +2003,7 @@
       "longitudinal_readiness_ledger": 4,
       "longitudinal_snapshot_ledger": 4,
       "official_program_alias_ledger": 1,
+      "official_program_alias_review_packets": 1,
       "official_program_coverage_action_queue": 1,
       "official_program_coverage_assurance_ledger": 1,
       "official_program_denominator_ledger": 1,
@@ -1833,17 +2022,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 46
+      "ok": 47
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 61652992,
+    "sqlite_byte_size": 63246336,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "d0f79fe3ad62abb6a73b6218d80787ee36c573342e336126d67fb7bffa01de28",
+    "sqlite_sha256": "e3f61717dbb66aaa422e2254eeb7fca5c0ca523cdde9d3bdf5c906b0925b3aa8",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

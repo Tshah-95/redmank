@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T11:25:08.536706+00:00
+Generated: 2026-06-02T11:30:42.722669+00:00
 
 ## What This Pass Did
 
@@ -73,6 +73,46 @@ Top coverage actions:
 | Transplant Hepatology | fellowship | alias_review | 926 | 2 | resolve_related_loaded_program_before_gap_closure |
 | Internal Medicine - Dermatology | residency | alias_review | 925 | 5 | accept_or_split_alias_mapping |
 | Gastroenterology | fellowship | alias_review | 923 | 23 | accept_or_split_alias_mapping |
+
+Alias review packets:
+
+Alias packet rows: 32. Reviewer-ready rows: 15. Reviewer-ready person count: 392.
+
+| alias_decision_status | count |
+| --- | --- |
+| not_alias_count_conflict_review | 1 |
+| review_required_combined_track_not_categorical_coverage | 1 |
+| review_required_official_type_or_track_mismatch_review | 1 |
+| review_required_role_mismatch_related_source | 1 |
+| review_required_track_split_unresolved_review | 1 |
+| review_required_weak_related_source_review | 10 |
+| reviewer_ready_broad_residency_alias_candidate | 1 |
+| reviewer_ready_combined_track_alias_candidate | 2 |
+| reviewer_ready_program_alias_candidate | 9 |
+| reviewer_ready_same_program_alias_candidate | 1 |
+| reviewer_ready_section_split_candidate | 1 |
+| reviewer_ready_track_alias_candidate | 1 |
+| weak_alias_review | 2 |
+
+Top alias packets:
+
+| official_program_name | loaded_program_name | loaded_person_count | alias_decision_status | reviewer_ready | recommended_next_action |
+| --- | --- | --- | --- | --- | --- |
+| Internal Medicine - Categorical | Internal Medicine Residency | 173 | reviewer_ready_broad_residency_alias_candidate | 1 | accept_alias_only_if_loaded_source_excludes_combined_tracks |
+| Radiology - Diagnostic | Diagnostic Radiology Residency | 54 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Pulmonary Disease and Critical Care Medicine | Pulmonary and Critical Care Fellowship | 34 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Gastroenterology | Gastroenterology and Hepatology Fellowship | 23 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Plastic Surgery - Integrated | Plastic Surgery Residency | 22 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Endocrinology | Endocrinology, Diabetes and Metabolism Fellowship | 21 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Radiology - Interventional, Integrated | Interventional Radiology Integrated Residency | 19 | reviewer_ready_track_alias_candidate | 1 | accept_track_alias_if_roster_scope_matches |
+| Internal Medicine - Pediatrics | Penn-CHOP Internal Medicine-Pediatrics Residency | 16 | reviewer_ready_combined_track_alias_candidate | 1 | accept_combined_track_alias_if_roster_matches_official_track |
+| Infectious Disease | Infectious Diseases Fellowship | 15 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Surgical Pathology (Selective) | Surgical Pathology Fellowship | 6 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Internal Medicine - Dermatology | Combined Internal Medicine-Dermatology Residency | 3 | reviewer_ready_combined_track_alias_candidate | 1 | accept_combined_track_alias_if_roster_matches_official_track |
+| Transplant Hepatology | Advanced Gastroenterology and Hepatology Fellowship | 2 | reviewer_ready_section_split_candidate | 1 | split_loaded_program_by_section_label_then_close_gap |
+| Gastrointestinal and Hepatic Pathology (Selective) | GI/Hepatic Pathology Fellowship | 2 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Blood Banking and Transfusion Medicine | Transfusion Medicine/Blood Bank Fellowship | 1 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
+| Soft Tissue/Bone (Selective) | Soft Tissue/Bone Pathology Fellowship | 1 | reviewer_ready_same_program_alias_candidate | 1 | review_and_accept_same_program_alias_if_source_current |
 
 Sample uncovered or partially covered official programs:
 
@@ -568,7 +608,7 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 46 | 46 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 47 | 47 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
