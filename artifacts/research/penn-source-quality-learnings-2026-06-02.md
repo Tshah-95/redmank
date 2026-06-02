@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T13:38:58.317577+00:00
+Generated: 2026-06-02T13:49:43.743274+00:00
 
 ## What This Pass Did
 
@@ -40,12 +40,13 @@ Level-4 supported programs: 48 covering 769 people. Alias/count-review programs:
 | discovered_source_without_current_roster | 7 |
 | exact_resolution_backed_current_roster | 19 |
 | exact_resolution_count_conflict_review | 1 |
-| not_discovered_by_current_strategy | 15 |
+| not_discovered_by_current_strategy | 14 |
 | open_gap_with_alias_review | 5 |
+| open_gap_with_resolution_review | 1 |
 
 Coverage action queue:
 
-Action rows: 43. Person-impact count: 542.
+Action rows: 43. Person-impact count: 594.
 
 | action_lane | count |
 | --- | --- |
@@ -218,40 +219,43 @@ Learning: coverage gaps need their own crawl state. Official program URLs, disco
 
 ## HUP Gap Roster Extraction
 
-Supported gap roster sources attempted: 32. Sources with records: 27. Person records extracted: 524.
+Supported gap roster sources attempted: 36. Sources with records: 31. Person records extracted: 576.
 
 Records by role:
 
 | role | count |
 | --- | --- |
 | fellow | 82 |
-| resident | 442 |
+| resident | 494 |
 
 Extraction statuses:
 
 | extraction_status | count |
 | --- | --- |
-| no_supported_person_structure | 5 |
-| records_extracted | 27 |
+| http_error | 3 |
+| no_supported_person_structure | 2 |
+| preserved_previous_records_after_refresh_error | 15 |
+| records_extracted | 16 |
 
 Denominator-link reconciliation:
 
-Official-linked extracted records: 94. Seed records still missing denominator keys: 430. Loaded memberships from reconciled sources: 499.
+Official-linked extracted records: 94. Seed records still missing denominator keys: 482. Loaded memberships from reconciled sources: 551.
 
 | denominator_link_status | count |
 | --- | --- |
 | official_program_key_no_supported_person_structure | 6 |
-| records_extracted_seed_without_denominator_key | 24 |
+| records_extracted_seed_without_denominator_key | 28 |
 | records_extracted_with_official_program_key | 3 |
 | skipped_already_loaded_official_source | 4 |
 
 Seed roster program-resolution audit:
 
-Resolution rows reviewed: 24. Reviewer-ready exact-resolution records: 418. Review-required records: 12.
+Resolution rows reviewed: 28. Reviewer-ready exact-resolution records: 418. Review-required records: 64.
 
 | resolution_status | records |
 | --- | --- |
 | accepted_exact_program_resolution_candidate | 418 |
+| review_program_alias_resolution_candidate | 52 |
 | source_role_program_type_mismatch_review | 12 |
 
 Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records. Extracted people and denominator coverage closure are separate claims: seed-derived records need an official program key or alias reconciliation before they can close an official HUP program gap.
@@ -264,6 +268,7 @@ Learning: queue-driven extraction should stay template-aware. Pages without supp
 | General Surgery Residency | resident | 75 |
 | Diagnostic Radiology Residency | resident | 54 |
 | Neurology Residency | resident | 54 |
+| Psychiatry Residency | resident | 52 |
 | Pathology - Anatomic and Clinical Residency | resident | 44 |
 | Orthopedic Surgery Residency | resident | 40 |
 | Family Medicine Residency | resident | 35 |
@@ -299,7 +304,6 @@ Learning: queue-driven extraction should stay template-aware. Pages without supp
 | Advanced Musculoskeletal Fellowship | fellow | 3 |
 | Transplant Surgery Fellowship | fellow | 3 |
 | Aortic Surgery Fellowship | fellow | 2 |
-| Clinical Chemistry Fellowship | fellow | 2 |
 
 Generic `Residents`/`Fellows` program labels remaining: 0.
 
@@ -356,10 +360,10 @@ Learning: the public medical-student universe is not the same as the full medica
 | clinical_postgraduate | GME_CLINICAL_YEAR_3 | current | 10 | 0.72 |
 | clinical_postgraduate | GME_CLINICAL_YEAR_4 | current | 9 | 0.72 |
 | clinical_postgraduate | GME_INDEPENDENT_RESIDENT | current | 2 | 0.62 |
-| clinical_postgraduate | GME_PGY_1 | current | 205 | 0.872 |
-| clinical_postgraduate | GME_PGY_2 | current | 204 | 0.893 |
-| clinical_postgraduate | GME_PGY_3 | current | 176 | 0.894 |
-| clinical_postgraduate | GME_PGY_4 | current | 71 | 0.877 |
+| clinical_postgraduate | GME_PGY_1 | current | 217 | 0.873 |
+| clinical_postgraduate | GME_PGY_2 | current | 218 | 0.893 |
+| clinical_postgraduate | GME_PGY_3 | current | 190 | 0.894 |
+| clinical_postgraduate | GME_PGY_4 | current | 83 | 0.88 |
 | clinical_postgraduate | GME_PGY_5 | current | 25 | 0.85 |
 | clinical_postgraduate | GME_PGY_6 | current | 8 | 0.9 |
 | clinical_postgraduate | GME_PGY_7 | current | 3 | 0.9 |
@@ -383,7 +387,7 @@ Transition rules observed:
 
 | transition_rule | count |
 | --- | --- |
-| expected GME annual advancement around Jul 1 unless program-specific exception | 618 |
+| expected GME annual advancement around Jul 1 unless program-specific exception | 670 |
 | expected fellowship annual advancement around Jul 1; terminal year requires program-length context | 182 |
 | current fellow but year not normalized; refresh on next roster and use program-specific duration if available | 141 |
 | MSTP PhD phase duration is individualized; refresh from public directory annually | 123 |
@@ -439,7 +443,7 @@ Lifecycle semantics observed:
 | US_GME_RESIDENCY_6Y | source_refresh_required | source_refresh_required | 26 | 0.485 |
 | US_GME_RESIDENCY_7Y | expected_annual_advancement | annual_clock | 18 | 0.9 |
 | US_GME_RESIDENCY_7Y | expected_completion | annual_clock | 3 | 0.9 |
-| US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | annual_clock | 44 | 0.9 |
+| US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | annual_clock | 96 | 0.9 |
 | US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 8 | 0.46 |
 | US_MD_PHD_MSTP_VARIABLE | source_refresh_required | source_refresh_required | 225 | 0.762 |
 
@@ -448,7 +452,7 @@ State-machine audit status:
 | state_machine_status | count |
 | --- | --- |
 | annual_clock_active | 659 |
-| current_observation | 69 |
+| current_observation | 121 |
 | review_required | 23 |
 | source_refresh_required | 627 |
 | terminal_year_active | 252 |
@@ -457,7 +461,7 @@ Clock models:
 
 | clock_model | count |
 | --- | --- |
-| annual_gme_july | 967 |
+| annual_gme_july | 1019 |
 | refresh_from_source | 13 |
 | review_required | 23 |
 | source_refresh_required | 627 |
@@ -468,7 +472,7 @@ Learning: roster strings should become normalized state observations with explic
 
 ## Longitudinal Change Readiness
 
-Projected refresh date: 2027-08-15. State rows: 1630. Person rows: 1483. Program rows: 95.
+Projected refresh date: 2027-08-15. State rows: 1682. Person rows: 1535. Program rows: 96.
 
 Readiness statuses:
 
@@ -479,13 +483,13 @@ Readiness statuses:
 | expected_completion_window | 252 |
 | review_required_window | 23 |
 | source_refresh_required_window | 627 |
-| stale_without_transition_review | 56 |
+| stale_without_transition_review | 108 |
 
 Missing-on-refresh expectations:
 
 | missing_expectation | count |
 | --- | --- |
-| absence_requires_source_reconciliation | 706 |
+| absence_requires_source_reconciliation | 758 |
 | expected_absence_after_completion | 252 |
 | unexpected_absence_review | 672 |
 
@@ -495,16 +499,16 @@ Same-stage-on-refresh expectations:
 | --- | --- |
 | same_stage_after_expected_transition_review | 659 |
 | same_stage_expected | 13 |
-| same_stage_requires_fresh_source | 706 |
+| same_stage_requires_fresh_source | 758 |
 | same_terminal_stage_after_completion_review | 252 |
 
-Advancement due rows: 1446. Completion-window rows: 252. Source-refresh-required rows: 627. Human-review rows: 79.
+Advancement due rows: 1498. Completion-window rows: 252. Source-refresh-required rows: 627. Human-review rows: 131.
 
 Learning: annual diffs should be state-machine informed before they are person-table mutations. A missing terminal-year fellow after the stale-after date is likely completion; a missing PGY-2 before the expected exit is a review item; an unchanged MSTP PhD-phase student needs a fresh source rather than an inferred clock advancement.
 
 ## Transition Plan Ledger
 
-Plan rows: 1630. Rollup rows: 224. Auto-classifiable transition rows: 911. Fresh-observation-required rows: 1617.
+Plan rows: 1682. Rollup rows: 226. Auto-classifiable transition rows: 911. Fresh-observation-required rows: 1669.
 
 Policy lanes:
 
@@ -513,7 +517,7 @@ Policy lanes:
 | carry_forward_no_change | 13 |
 | deterministic_expected_advancement | 659 |
 | deterministic_expected_completion | 252 |
-| manual_review_required | 79 |
+| manual_review_required | 131 |
 | source_refresh_required | 627 |
 
 Diff readiness:
@@ -522,7 +526,7 @@ Diff readiness:
 | --- | --- |
 | diff_expected_change_classifiable | 911 |
 | diff_no_change_expected | 13 |
-| diff_review_bound | 79 |
+| diff_review_bound | 131 |
 | diff_source_refresh_bound | 627 |
 
 Corpus action: review_lifecycle_or_source_before_mutation. Policy: This ledger is non-mutating. Expected transitions are classifiable only with fresh source evidence or explicit terminal absence after stale-after; review/source-bound states are not carried forward silently.
@@ -3193,11 +3197,11 @@ Scorecard rows: 23.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 78 | 1558 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
+| Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 82 | 1610 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
 | Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 64 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
 | ACGME public program identifier candidates | program accreditation code, specialty, sponsoring program name, city, and accreditation-row context | 91 | 113 | 82.0 | strong_with_known_limits | use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities |
 | Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
-| Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 32 | 524 | 76.0 | strong_with_known_limits | review_denominator_resolution_candidates_then_rerun_coverage |
+| Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 36 | 576 | 76.0 | strong_with_known_limits | review_denominator_resolution_candidates_then_rerun_coverage |
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1336 | 1336 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
@@ -3213,9 +3217,9 @@ Scorecard rows: 23.
 | NPPES NPI Registry candidates | candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review | 1257 | 1073 | 62.0 | useful_candidate_layer | use_npi_candidates_as_secondary_identity_anchors_only |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
-| Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
-| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1483 | 6089 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
-| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6089 | 6089 | 78.0 | strong_with_known_limits | execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile |
+| Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1682 | 1682 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
+| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1535 | 6349 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
+| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6349 | 6349 | 78.0 | strong_with_known_limits | execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile |
 
 Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.
 
@@ -3637,7 +3641,7 @@ Learning: NPPES is an official provider registry and useful as a secondary ident
 
 ## Enrichment Coverage Audit
 
-People audited: 1483. Program/role groups audited: 95. Average coverage score: 61.68.
+People audited: 1535. Program/role groups audited: 96. Average coverage score: 60.27.
 
 Coverage bands:
 
@@ -3645,7 +3649,7 @@ Coverage bands:
 | --- | --- |
 | broad_enrichment_surface | 203 |
 | moderate_enrichment_surface | 1097 |
-| thin_enrichment_surface | 183 |
+| thin_enrichment_surface | 235 |
 
 Recommended next actions:
 
@@ -3653,7 +3657,7 @@ Recommended next actions:
 | --- | --- |
 | collect_article_level_research_candidates | 52 |
 | monitor_refresh_and_diff | 203 |
-| official_profile_search | 535 |
+| official_profile_search | 587 |
 | organization_alias_review | 383 |
 | public_contact_search | 26 |
 | reconcile_high_priority_evidence | 243 |
@@ -3668,6 +3672,7 @@ Lowest-scoring program/role surfaces:
 | Clinical Microbiology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | GI/Hepatic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Soft Tissue/Bone Pathology Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Psychiatry Residency | resident | 52 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Gynecologic Oncology Fellowship | fellow | 6 | 20.67 | 0.0 | 0.0 | 0.0 | 0.167 | 0.167 | official_profile_search |
 | Hematopathology Fellowship | fellow | 4 | 21.0 | 0.0 | 0.0 | 0.0 | 0.25 | 0.25 | official_profile_search |
 | Maternal Fetal Medicine Fellowship | fellow | 8 | 21.0 | 0.0 | 0.0 | 0.0 | 0.25 | 0.25 | official_profile_search |
@@ -3689,7 +3694,6 @@ Lowest-scoring program/role surfaces:
 | Spine Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Oral Medicine Residency | resident | 8 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Otorhinolaryngology Residency | resident | 31 | 26.42 | 0.0 | 0.0 | 0.065 | 0.194 | 0.194 | official_profile_search |
-| Adult Reconstructive Orthopedics Fellowship | fellow | 3 | 27.0 | 0.0 | 0.0 | 0.0 | 0.667 | 0.333 | official_profile_search |
 
 Learning: coverage needs to be audited separately from evidence acceptance. This pass shows where the recursive loop should work next: official profile search, organization alias review, article-level research collection, and high-priority reconciliation.
 
@@ -3697,7 +3701,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T13:38:33.938442+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 524, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T13:46:59.932273+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
 | pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |

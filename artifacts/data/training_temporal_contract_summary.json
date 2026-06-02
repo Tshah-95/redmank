@@ -1,7 +1,7 @@
 {
   "auto_classifiable_transition_rows": 911,
   "by_current_temporal_state_code": {
-    "AMBIGUOUS_OR_OUT_OF_RULE_REVIEW": 79,
+    "AMBIGUOUS_OR_OUT_OF_RULE_REVIEW": 131,
     "ANNUAL_CLOCK_EXPECTED_ADVANCEMENT": 659,
     "CURRENT_OBSERVATION": 13,
     "TERMINAL_STAGE_EXPECTED_COMPLETION": 252,
@@ -10,7 +10,7 @@
   "by_next_refresh_contract": {
     "advance_only_if_fresh_expected_stage_observed": 659,
     "complete_or_alumni_only_if_absent_after_stale_or_endpoint_observed": 252,
-    "do_not_mutate_without_review": 79,
+    "do_not_mutate_without_review": 131,
     "retain_only_if_fresh_source_reobserves": 627,
     "retain_until_fresh_source_contradiction": 13
   },
@@ -18,13 +18,13 @@
     "carry_forward_no_change": 13,
     "deterministic_expected_advancement": 659,
     "deterministic_expected_completion": 252,
-    "manual_review_required": 79,
+    "manual_review_required": 131,
     "source_refresh_required": 627
   },
   "by_rollup_guardrail_status": {
     "carry_forward_until_contradicted": 4,
     "deterministic_with_fresh_evidence": 36,
-    "review_bound": 39,
+    "review_bound": 41,
     "source_refresh_bound": 150
   },
   "by_rollup_scope": {
@@ -35,28 +35,28 @@
     "institution_role": 3,
     "lifecycle_code": 14,
     "next_refresh_contract": 5,
-    "program": 94,
-    "program_role": 95,
+    "program": 95,
+    "program_role": 96,
     "role": 3,
     "temporal_state": 5,
     "trainee_category": 3
   },
-  "contract_rows": 1630,
+  "contract_rows": 1682,
   "corpus_guardrail_status": "review_bound",
   "corpus_recommended_operator_action": "resolve_review_bound_lifecycle_or_source_labels",
   "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
   "csv": "artifacts/data/training_temporal_contracts.csv",
-  "fresh_observation_required_rows": 1617,
-  "generated_at": "2026-06-02T13:38:38.407273+00:00",
-  "human_review_required_rows": 79,
+  "fresh_observation_required_rows": 1669,
+  "generated_at": "2026-06-02T13:47:05.090040+00:00",
+  "human_review_required_rows": 131,
   "json": "artifacts/data/training_temporal_contracts.json",
-  "person_count": 1483,
+  "person_count": 1535,
   "policy": "Temporal contracts are non-mutating. They define how future fresh observations, absences, unchanged stages, and expected next stages can be classified before any person/program truth is updated.",
-  "program_count": 94,
+  "program_count": 95,
   "projected_refresh_date": "2027-08-15",
   "rollup_csv": "artifacts/data/training_temporal_contract_rollups.csv",
   "rollup_json": "artifacts/data/training_temporal_contract_rollups.json",
-  "rollup_rows": 229,
+  "rollup_rows": 231,
   "source_refresh_required_rows": 627,
-  "stale_by_refresh_rows": 1617
+  "stale_by_refresh_rows": 1669
 }

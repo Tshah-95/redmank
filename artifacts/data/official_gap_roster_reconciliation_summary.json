@@ -1,24 +1,26 @@
 {
   "by_denominator_link_status": {
     "official_program_key_no_supported_person_structure": 6,
-    "records_extracted_seed_without_denominator_key": 24,
+    "records_extracted_seed_without_denominator_key": 28,
     "records_extracted_with_official_program_key": 3,
     "skipped_already_loaded_official_source": 4
   },
   "by_extraction_status": {
     "already_loaded_as_official_roster_source": 4,
-    "no_supported_person_structure": 5,
-    "records_extracted": 27,
+    "http_error": 3,
+    "no_supported_person_structure": 2,
+    "preserved_previous_records_after_refresh_error": 15,
+    "records_extracted": 16,
     "student_fellows_directory_not_gme_roster": 1
   },
   "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-  "generated_at": "2026-06-02T13:38:56.632761+00:00",
+  "generated_at": "2026-06-02T13:47:24.595182+00:00",
   "json": "artifacts/data/official_gap_roster_reconciliation.json",
-  "loaded_membership_count": 499,
-  "loaded_person_count": 499,
+  "loaded_membership_count": 551,
+  "loaded_person_count": 551,
   "official_linked_records_extracted": 94,
-  "reconciliation_rows": 37,
-  "records_extracted": 524,
-  "seed_without_denominator_key_records": 430,
-  "sources_with_records": 27
+  "reconciliation_rows": 41,
+  "records_extracted": 576,
+  "seed_without_denominator_key_records": 482,
+  "sources_with_records": 31
 }

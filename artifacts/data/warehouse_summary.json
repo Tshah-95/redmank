@@ -29,7 +29,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T13:38:37.903897+00:00",
+    "generated_at": "2026-06-02T13:47:03.916007+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -142,7 +142,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T13:38:38.052324+00:00",
+    "generated_at": "2026-06-02T13:47:04.063278+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 3,
@@ -235,7 +235,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T13:38:38.008295+00:00",
+    "generated_at": "2026-06-02T13:47:04.019363+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -280,7 +280,7 @@
       "2020": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-02T13:38:38.089014+00:00",
+    "generated_at": "2026-06-02T13:47:04.100026+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "pending_reviewer_decision_rows": 3,
@@ -330,7 +330,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T13:38:37.972492+00:00",
+    "generated_at": "2026-06-02T13:47:03.983175+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -363,8 +363,8 @@
     "medical_student_source_audit": 16,
     "npi_candidate_claims": 1073,
     "npi_source_observations": 1257,
-    "official_gap_roster_program_resolution": 24,
-    "official_gap_roster_reconciliation": 37,
+    "official_gap_roster_program_resolution": 28,
+    "official_gap_roster_reconciliation": 41,
     "official_program_alias_reconciliation_candidates": 16,
     "official_program_alias_review_packets": 32,
     "official_program_alias_reviewer_decision_audit": 32,
@@ -382,48 +382,48 @@
     "organization_identifier_candidates": 237,
     "organization_identifiers": 1,
     "organizations": 834,
-    "people": 1483,
+    "people": 1535,
     "person_contacts": 313,
-    "person_enrichment_coverage": 1483,
-    "person_enrichment_execution_readiness": 6089,
+    "person_enrichment_coverage": 1535,
+    "person_enrichment_execution_readiness": 6349,
     "person_enrichment_execution_readiness_rollups": 37,
-    "person_enrichment_work_queue": 6089,
+    "person_enrichment_work_queue": 6349,
     "person_evidence_review_packets": 1504,
     "person_reconciliation_decisions": 1504,
-    "person_refresh_expectations": 1483,
+    "person_refresh_expectations": 1535,
     "person_training_events": 1775,
-    "person_training_state_machine_audit": 1483,
-    "person_training_states": 1630,
+    "person_training_state_machine_audit": 1535,
+    "person_training_states": 1682,
     "prior_training_discovery_candidates": 0,
     "prior_training_search_observations": 0,
     "prior_training_search_queries": 538,
-    "program_enrichment_coverage": 95,
+    "program_enrichment_coverage": 96,
     "program_identifier_candidates": 113,
     "program_identifier_reconciliation": 113,
     "program_identifier_source_observations": 1,
     "program_lifecycle_consistency_audit": 69,
     "program_lifecycle_rules": 13,
-    "program_refresh_expectations": 95,
-    "program_training_state_machine_audit": 95,
-    "programs": 95,
+    "program_refresh_expectations": 96,
+    "program_training_state_machine_audit": 96,
+    "programs": 96,
     "source_quality_observations": 4,
     "source_utilities": 12,
     "source_utility_scorecard": 23,
-    "sources": 2317,
+    "sources": 2321,
     "trainee_profile_discovery_candidates": 0,
     "trainee_profile_search_observations": 0,
     "trainee_profile_search_queries": 1668,
-    "training_lifecycle_assurance_rollups": 230,
-    "training_state_machine_audit": 1630,
-    "training_state_refresh_expectations": 1630,
-    "training_state_snapshot_rows": 1630,
-    "training_state_snapshots": 1,
-    "training_state_transition_events": 1558,
-    "training_state_transition_plan": 1630,
-    "training_state_transition_plan_rollups": 224,
-    "training_state_transition_rollups": 216,
-    "training_temporal_contract_rollups": 229,
-    "training_temporal_contracts": 1630,
+    "training_lifecycle_assurance_rollups": 232,
+    "training_state_machine_audit": 1682,
+    "training_state_refresh_expectations": 1682,
+    "training_state_snapshot_rows": 3312,
+    "training_state_snapshots": 2,
+    "training_state_transition_events": 1610,
+    "training_state_transition_plan": 1682,
+    "training_state_transition_plan_rollups": 226,
+    "training_state_transition_rollups": 224,
+    "training_temporal_contract_rollups": 231,
+    "training_temporal_contracts": 1682,
     "warehouse_reproducibility_audit": 74
   },
   "database_path": "artifacts/data/redmank.sqlite",
@@ -499,17 +499,17 @@
     "secondary_identity_anchor_rows": 801
   },
   "enrichment_coverage_summary": {
-    "article_candidate_coverage_rate": 0.241,
-    "avg_coverage_score": 61.68,
+    "article_candidate_coverage_rate": 0.233,
+    "avg_coverage_score": 60.27,
     "by_coverage_band": {
       "broad_enrichment_surface": 203,
       "moderate_enrichment_surface": 1097,
-      "thin_enrichment_surface": 183
+      "thin_enrichment_surface": 235
     },
     "by_recommended_next_action": {
       "collect_article_level_research_candidates": 52,
       "monitor_refresh_and_diff": 203,
-      "official_profile_search": 535,
+      "official_profile_search": 587,
       "organization_alias_review": 383,
       "public_contact_search": 26,
       "reconcile_high_priority_evidence": 243,
@@ -520,18 +520,18 @@
     "by_role": {
       "fellow": 385,
       "medical_student": 225,
-      "resident": 873
+      "resident": 925
     },
     "cleaned_org_review_people": 617,
-    "contact_coverage_rate": 0.188,
-    "npi_candidate_coverage_rate": 0.561,
-    "npi_needs_review_coverage_rate": 0.511,
+    "contact_coverage_rate": 0.182,
+    "npi_candidate_coverage_rate": 0.542,
+    "npi_needs_review_coverage_rate": 0.494,
     "people_with_reconciliation_queue": 1454,
     "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
-    "person_rows": 1483,
-    "profile_coverage_rate": 0.625,
+    "person_rows": 1535,
+    "profile_coverage_rate": 0.604,
     "program_coverage_csv": "artifacts/data/program_enrichment_coverage.csv",
-    "program_rows": 95
+    "program_rows": 96
   },
   "evidence_reconciliation_decision_counts": {
     "attending_training_claim_needs_identity_link": 2,
@@ -1626,14 +1626,14 @@
   "expected_transition_type_counts": {
     "expected_annual_advancement": 659,
     "expected_completion": 252,
-    "source_refresh_required": 696,
+    "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T13:38:59.373079+00:00",
+  "generated_at": "2026-06-02T13:49:44.903718+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
-    "mixed_with_human_review": 40,
+    "mixed_with_human_review": 42,
     "source_refresh_bound": 151,
     "stable_or_no_change_expected": 3
   },
@@ -1641,7 +1641,7 @@
     "diff_can_classify_but_missing_rows_need_review": 64,
     "diff_expected_change_supported": 3,
     "diff_requires_fresh_source_before_retention": 123,
-    "diff_requires_review_queue": 40
+    "diff_requires_review_queue": 42
   },
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -1655,12 +1655,12 @@
     "US_GME_RESIDENCY_5Y": 309,
     "US_GME_RESIDENCY_6Y": 56,
     "US_GME_RESIDENCY_7Y": 21,
-    "US_GME_RESIDENCY_DURATION_UNKNOWN": 52,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN": 104,
     "US_MD_PHD_MSTP_VARIABLE": 225,
     "none": 13
   },
   "longitudinal_change_readiness_summary": {
-    "advance_due_by_refresh_rows": 1446,
+    "advance_due_by_refresh_rows": 1498,
     "by_category_and_readiness_status": {
       "fellow:active_no_change_expected": 13,
       "fellow:expected_advancement_window": 100,
@@ -1673,15 +1673,15 @@
       "resident:expected_completion_window": 191,
       "resident:review_required_window": 10,
       "resident:source_refresh_required_window": 210,
-      "resident:stale_without_transition_review": 44
+      "resident:stale_without_transition_review": 96
     },
     "by_missing_expectation": {
-      "absence_requires_source_reconciliation": 706,
+      "absence_requires_source_reconciliation": 758,
       "expected_absence_after_completion": 252,
       "unexpected_absence_review": 672
     },
     "by_next_stage_expectation": {
-      "early_expected_next_stage_review": 410,
+      "early_expected_next_stage_review": 462,
       "expected_next_stage_accept_candidate": 659,
       "no_expected_next_stage": 561
     },
@@ -1691,7 +1691,7 @@
       "expected_completion_window": 252,
       "review_required_window": 23,
       "source_refresh_required_window": 627,
-      "stale_without_transition_review": 56
+      "stale_without_transition_review": 108
     },
     "by_role_and_readiness_status": {
       "fellow:active_no_change_expected": 13,
@@ -1705,27 +1705,27 @@
       "resident:expected_completion_window": 191,
       "resident:review_required_window": 10,
       "resident:source_refresh_required_window": 210,
-      "resident:stale_without_transition_review": 44
+      "resident:stale_without_transition_review": 96
     },
     "by_same_stage_expectation": {
       "same_stage_after_expected_transition_review": 659,
       "same_stage_expected": 13,
-      "same_stage_requires_fresh_source": 706,
+      "same_stage_requires_fresh_source": 758,
       "same_terminal_stage_after_completion_review": 252
     },
     "category_csv": "artifacts/data/category_refresh_expectations.csv",
     "category_rows": 3,
     "completion_window_by_refresh_rows": 252,
     "person_csv": "artifacts/data/person_refresh_expectations.csv",
-    "person_rows": 1483,
+    "person_rows": 1535,
     "program_csv": "artifacts/data/program_refresh_expectations.csv",
-    "program_rows": 95,
+    "program_rows": 96,
     "projected_refresh_date": "2027-08-15",
-    "requires_human_review_by_refresh_rows": 79,
+    "requires_human_review_by_refresh_rows": 131,
     "requires_source_refresh_by_refresh_rows": 627,
-    "stale_by_refresh_rows": 1617,
+    "stale_by_refresh_rows": 1669,
     "state_csv": "artifacts/data/training_state_refresh_expectations.csv",
-    "state_rows": 1630
+    "state_rows": 1682
   },
   "medical_student_source_audit_counts": {
     "accepted_public_mstp_roster": 1,
@@ -1791,10 +1791,10 @@
     "GME_CLINICAL_YEAR_3": 10,
     "GME_CLINICAL_YEAR_4": 9,
     "GME_INDEPENDENT_RESIDENT": 2,
-    "GME_PGY_1": 205,
-    "GME_PGY_2": 204,
-    "GME_PGY_3": 176,
-    "GME_PGY_4": 71,
+    "GME_PGY_1": 217,
+    "GME_PGY_2": 218,
+    "GME_PGY_3": 190,
+    "GME_PGY_4": 83,
     "GME_PGY_5": 25,
     "GME_PGY_6": 8,
     "GME_PGY_7": 3,
@@ -1903,72 +1903,79 @@
   },
   "official_gap_roster_program_resolution_counts": {
     "accepted_exact_program_resolution_candidate": 23,
+    "review_program_alias_resolution_candidate": 4,
     "source_role_program_type_mismatch_review": 1
   },
   "official_gap_roster_program_resolution_record_counts": {
     "accepted_exact_program_resolution_candidate": 418,
+    "review_program_alias_resolution_candidate": 52,
     "source_role_program_type_mismatch_review": 12
   },
   "official_gap_roster_program_resolution_summary": {
     "by_inferred_source_role": {
       "fellowship": 10,
-      "residency": 14
+      "residency": 14,
+      "unknown": 4
     },
     "by_resolution_status": {
       "accepted_exact_program_resolution_candidate": 23,
+      "review_program_alias_resolution_candidate": 4,
       "source_role_program_type_mismatch_review": 1
     },
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T13:38:56.707437+00:00",
+    "generated_at": "2026-06-02T13:47:24.674053+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
-    "loaded_people_reviewed": 430,
+    "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
     "records_by_resolution_status": {
       "accepted_exact_program_resolution_candidate": 418,
+      "review_program_alias_resolution_candidate": 52,
       "source_role_program_type_mismatch_review": 12
     },
-    "resolution_rows": 24,
-    "review_required_records": 12,
-    "review_required_rows": 1,
-    "source_records_reviewed": 430
+    "resolution_rows": 28,
+    "review_required_records": 64,
+    "review_required_rows": 5,
+    "source_records_reviewed": 482
   },
   "official_gap_roster_reconciliation_counts": {
     "official_program_key_no_supported_person_structure": 6,
-    "records_extracted_seed_without_denominator_key": 24,
+    "records_extracted_seed_without_denominator_key": 28,
     "records_extracted_with_official_program_key": 3,
     "skipped_already_loaded_official_source": 4
   },
   "official_gap_roster_reconciliation_extracted_counts": {
     "official_program_key_no_supported_person_structure": 0,
-    "records_extracted_seed_without_denominator_key": 430,
+    "records_extracted_seed_without_denominator_key": 482,
     "records_extracted_with_official_program_key": 94,
     "skipped_already_loaded_official_source": 0
   },
   "official_gap_roster_reconciliation_summary": {
     "by_denominator_link_status": {
       "official_program_key_no_supported_person_structure": 6,
-      "records_extracted_seed_without_denominator_key": 24,
+      "records_extracted_seed_without_denominator_key": 28,
       "records_extracted_with_official_program_key": 3,
       "skipped_already_loaded_official_source": 4
     },
     "by_extraction_status": {
       "already_loaded_as_official_roster_source": 4,
-      "no_supported_person_structure": 5,
-      "records_extracted": 27,
+      "http_error": 3,
+      "no_supported_person_structure": 2,
+      "preserved_previous_records_after_refresh_error": 15,
+      "records_extracted": 16,
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T13:38:56.632761+00:00",
+    "generated_at": "2026-06-02T13:47:24.595182+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
-    "loaded_membership_count": 499,
-    "loaded_person_count": 499,
+    "loaded_membership_count": 551,
+    "loaded_person_count": 551,
     "official_linked_records_extracted": 94,
-    "reconciliation_rows": 37,
-    "records_extracted": 524,
-    "seed_without_denominator_key_records": 430,
-    "sources_with_records": 27
+    "reconciliation_rows": 41,
+    "records_extracted": 576,
+    "seed_without_denominator_key_records": 482,
+    "sources_with_records": 31
   },
   "official_program_alias_reconciliation_counts": {
     "combined_track_not_categorical_coverage": 1,
@@ -2036,7 +2043,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-02T13:38:56.862596+00:00",
+    "generated_at": "2026-06-02T13:47:24.823667+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2192,7 +2199,7 @@
     "by_reviewer_decision": {
       "pending": 32
     },
-    "generated_at": "2026-06-02T13:38:56.907274+00:00",
+    "generated_at": "2026-06-02T13:47:24.864999+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "not_ready_rows": 17,
@@ -2215,8 +2222,8 @@
     "source_candidate_probe": 15
   },
   "official_program_coverage_action_level_counts": {
-    "0": 15,
-    "1": 12,
+    "0": 14,
+    "1": 13,
     "3": 16
   },
   "official_program_coverage_action_queue_summary": {
@@ -2227,8 +2234,8 @@
       "source_candidate_probe": 15
     },
     "by_assurance_level": {
-      "0": 15,
-      "1": 12,
+      "0": 14,
+      "1": 13,
       "3": 16
     },
     "by_blocker_status": {
@@ -2243,7 +2250,7 @@
       "residency": 13
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T13:38:56.796747+00:00",
+    "generated_at": "2026-06-02T13:47:24.761844+00:00",
     "highest_priority": 1093,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -2400,7 +2407,7 @@
         "recommended_next_action": "accept_or_split_alias_mapping"
       }
     ],
-    "total_person_impact_count": 542
+    "total_person_impact_count": 594
   },
   "official_program_coverage_assurance_counts": {
     "alias_method_current_roster_review": 15,
@@ -2408,21 +2415,23 @@
     "discovered_source_without_current_roster": 7,
     "exact_resolution_backed_current_roster": 19,
     "exact_resolution_count_conflict_review": 1,
-    "not_discovered_by_current_strategy": 15,
-    "open_gap_with_alias_review": 5
+    "not_discovered_by_current_strategy": 14,
+    "open_gap_with_alias_review": 5,
+    "open_gap_with_resolution_review": 1
   },
   "official_program_coverage_assurance_evidence_counts": {
     "coverage_from_alias_match": 15,
     "direct_program_name_match": 29,
     "exact_program_resolution_has_broader_count_than_coverage": 1,
     "exact_program_resolution_supports_current_roster_count": 19,
-    "no_public_current_roster_source_discovered": 15,
+    "no_public_current_roster_source_discovered": 14,
     "program_page_discovered_no_roster_people": 7,
-    "related_loaded_people_but_alias_unaccepted": 5
+    "related_loaded_people_but_alias_unaccepted": 5,
+    "resolution_candidate_requires_role_or_scope_review": 1
   },
   "official_program_coverage_assurance_level_counts": {
-    "0": 15,
-    "1": 12,
+    "0": 14,
+    "1": 13,
     "3": 16,
     "4": 48
   },
@@ -2431,8 +2440,8 @@
     "alias_review_program_rows": 15,
     "assurance_rows": 91,
     "by_assurance_level": {
-      "0": 15,
-      "1": 12,
+      "0": 14,
+      "1": 13,
       "3": 16,
       "4": 48
     },
@@ -2442,29 +2451,31 @@
       "discovered_source_without_current_roster": 7,
       "exact_resolution_backed_current_roster": 19,
       "exact_resolution_count_conflict_review": 1,
-      "not_discovered_by_current_strategy": 15,
-      "open_gap_with_alias_review": 5
+      "not_discovered_by_current_strategy": 14,
+      "open_gap_with_alias_review": 5,
+      "open_gap_with_resolution_review": 1
     },
     "by_denominator_evidence_status": {
       "coverage_from_alias_match": 15,
       "direct_program_name_match": 29,
       "exact_program_resolution_has_broader_count_than_coverage": 1,
       "exact_program_resolution_supports_current_roster_count": 19,
-      "no_public_current_roster_source_discovered": 15,
+      "no_public_current_roster_source_discovered": 14,
       "program_page_discovered_no_roster_people": 7,
-      "related_loaded_people_but_alias_unaccepted": 5
+      "related_loaded_people_but_alias_unaccepted": 5,
+      "resolution_candidate_requires_role_or_scope_review": 1
     },
     "covered_people_count": 1196,
     "covered_program_rows": 64,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T13:38:56.750658+00:00",
+    "generated_at": "2026-06-02T13:47:24.715837+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 769,
     "level_4_program_rows": 48,
     "mutation_policy": "non_mutating_assurance_audit; coverage_mutation_allowed is reserved for future explicit reviewer acceptance",
     "open_gap_rows": 27,
-    "open_gap_with_review_evidence_rows": 5,
-    "records_remaining_resolution_review": 12,
+    "open_gap_with_review_evidence_rows": 6,
+    "records_remaining_resolution_review": 64,
     "records_supported_by_exact_resolution": 418
   },
   "official_program_coverage_counts": {
@@ -2531,22 +2542,22 @@
     "strong_or_parent_candidate_rows": 66
   },
   "person_enrichment_automation_status_counts": {
-    "collector_available_only_when_source_exposes_contact": 1204,
-    "collector_available_partial_source_coverage": 1470,
-    "collector_available_queue_driven": 1951,
+    "collector_available_only_when_source_exposes_contact": 1256,
+    "collector_available_partial_source_coverage": 1522,
+    "collector_available_queue_driven": 2107,
     "collector_available_review_required": 617,
     "manual_decision_ready": 847
   },
   "person_enrichment_execution_lane_counts": {
     "collector_then_manual_normalization": 617,
-    "collector_with_reconciliation_required": 1470,
-    "dependent_on_roster_or_profile_refresh": 1204,
-    "queue_driven_collector_available": 1951,
+    "collector_with_reconciliation_required": 1522,
+    "dependent_on_roster_or_profile_refresh": 1256,
+    "queue_driven_collector_available": 2107,
     "reviewer_decision_required": 847
   },
   "person_enrichment_execution_requirement_counts": {
-    "requires_manual_review": 4137,
-    "requires_network": 5242,
+    "requires_manual_review": 4345,
+    "requires_network": 5502,
     "requires_new_parser": 0,
     "requires_script_extension": 0
   },
@@ -2554,32 +2565,32 @@
     "carry_forward_no_change": 49,
     "deterministic_expected_advancement": 2522,
     "deterministic_expected_completion": 880,
-    "manual_review_required": 342,
+    "manual_review_required": 602,
     "source_refresh_required": 2296
   },
   "person_enrichment_queue_priority_counts": {
-    "critical": 2317,
-    "high": 646,
-    "low": 1204,
-    "medium": 1922
+    "critical": 2369,
+    "high": 698,
+    "low": 1256,
+    "medium": 2026
   },
   "person_enrichment_queue_source_counts": {
-    "contact": 1204,
+    "contact": 1256,
     "normalization": 617,
-    "official_profile": 556,
-    "official_roster": 1470,
-    "prior_training": 269,
-    "research": 1126,
+    "official_profile": 608,
+    "official_roster": 1522,
+    "prior_training": 321,
+    "research": 1178,
     "review_queue": 847
   },
   "person_enrichment_queue_task_counts": {
-    "current_roster_state_reconciliation": 1470,
+    "current_roster_state_reconciliation": 1522,
     "evidence_reconciliation_review": 847,
-    "official_profile_search": 556,
+    "official_profile_search": 608,
     "organization_alias_review": 617,
-    "public_contact_verification": 1204,
-    "research_identity_search": 1126,
-    "source_medical_school_background": 179,
+    "public_contact_verification": 1256,
+    "research_identity_search": 1178,
+    "source_medical_school_background": 231,
     "source_residency_background": 90
   },
   "person_evidence_review_packet_counts": {
@@ -2799,7 +2810,7 @@
     "expected_completion_window": 252,
     "review_required_window": 23,
     "source_refresh_required_window": 627,
-    "stale_without_transition_review": 56
+    "stale_without_transition_review": 108
   },
   "resolver_counts": {
     "cleaned_label": 824,
@@ -2808,7 +2819,7 @@
   "role_counts": {
     "fellow": 385,
     "medical_student": 225,
-    "resident": 873
+    "resident": 925
   },
   "source_utility_scorecard_counts": {
     "blocked_or_low_current_utility": 1,
@@ -2866,7 +2877,7 @@
     },
     "candidate_or_discovery_rows": 7,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T13:38:58.189813+00:00",
+    "generated_at": "2026-06-02T13:49:43.588566+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 23,
@@ -2929,10 +2940,10 @@
       }
     ]
   },
-  "stale_by_next_august_count": 1617,
+  "stale_by_next_august_count": 1669,
   "state_machine_status_counts": {
     "annual_clock_active": 659,
-    "current_observation": 69,
+    "current_observation": 121,
     "review_required": 23,
     "source_refresh_required": 627,
     "terminal_year_active": 252
@@ -2940,14 +2951,14 @@
   "temporal_contract_counts": {
     "advance_only_if_fresh_expected_stage_observed": 659,
     "complete_or_alumni_only_if_absent_after_stale_or_endpoint_observed": 252,
-    "do_not_mutate_without_review": 79,
+    "do_not_mutate_without_review": 131,
     "retain_only_if_fresh_source_reobserves": 627,
     "retain_until_fresh_source_contradiction": 13
   },
   "temporal_contract_guardrail_counts": {
     "carry_forward_until_contradicted": 4,
     "deterministic_with_fresh_evidence": 36,
-    "review_bound": 39,
+    "review_bound": 41,
     "source_refresh_bound": 150
   },
   "temporal_contract_rollup_scope_counts": {
@@ -2958,14 +2969,14 @@
     "institution_role": 3,
     "lifecycle_code": 14,
     "next_refresh_contract": 5,
-    "program": 94,
-    "program_role": 95,
+    "program": 95,
+    "program_role": 96,
     "role": 3,
     "temporal_state": 5,
     "trainee_category": 3
   },
   "temporal_contract_state_counts": {
-    "AMBIGUOUS_OR_OUT_OF_RULE_REVIEW": 79,
+    "AMBIGUOUS_OR_OUT_OF_RULE_REVIEW": 131,
     "ANNUAL_CLOCK_EXPECTED_ADVANCEMENT": 659,
     "CURRENT_OBSERVATION": 13,
     "TERMINAL_STAGE_EXPECTED_COMPLETION": 252,
@@ -2997,7 +3008,7 @@
   "training_lifecycle_assurance_summary": {
     "by_assurance_status": {
       "deterministic_clock_supported": 36,
-      "mixed_with_human_review": 40,
+      "mixed_with_human_review": 42,
       "source_refresh_bound": 151,
       "stable_or_no_change_expected": 3
     },
@@ -3005,13 +3016,13 @@
       "diff_can_classify_but_missing_rows_need_review": 64,
       "diff_expected_change_supported": 3,
       "diff_requires_fresh_source_before_retention": 123,
-      "diff_requires_review_queue": 40
+      "diff_requires_review_queue": 42
     },
     "by_rollup_scope": {
       "corpus": 1,
       "lifecycle_code": 14,
-      "program": 94,
-      "program_role": 95,
+      "program": 95,
+      "program_role": 96,
       "readiness_status": 6,
       "role": 3,
       "role_lifecycle_code": 14,
@@ -3021,23 +3032,23 @@
     "corpus_counts": {
       "expected_advancement_count": 659,
       "expected_completion_count": 252,
-      "human_review_required_count": 79,
-      "person_count": 1483,
-      "program_count": 94,
+      "human_review_required_count": 131,
+      "person_count": 1535,
+      "program_count": 95,
       "source_refresh_required_count": 627,
-      "stale_by_refresh_count": 1617,
-      "state_observation_count": 1630
+      "stale_by_refresh_count": 1669,
+      "state_observation_count": 1682
     },
     "corpus_diff_readiness_status": "diff_requires_review_queue",
     "corpus_recommended_operator_action": "review_lifecycle_rule_source_label_or_identity_before_mutation",
     "corpus_stale_information_policy": "do_not_auto_mutate; stale rows enter review",
     "csv": "artifacts/data/training_lifecycle_assurance_rollups.csv",
     "projected_refresh_date": "2027-08-15",
-    "rollup_rows": 230,
-    "source_state_rows": 1630
+    "rollup_rows": 232,
+    "source_state_rows": 1682
   },
   "training_state_family_counts": {
-    "clinical_postgraduate": 993,
+    "clinical_postgraduate": 1045,
     "clinical_postgraduate_research": 25,
     "fellowship": 367,
     "medical_school": 102,
@@ -3047,7 +3058,7 @@
   "training_state_machine_summary": {
     "auto_advance_candidate_rows": 659,
     "by_clock_model": {
-      "annual_gme_july": 967,
+      "annual_gme_july": 1019,
       "refresh_from_source": 13,
       "review_required": 23,
       "source_refresh_required": 627
@@ -3082,7 +3093,7 @@
       "US_GME_RESIDENCY_6Y:terminal_year_active": 5,
       "US_GME_RESIDENCY_7Y:annual_clock_active": 18,
       "US_GME_RESIDENCY_7Y:terminal_year_active": 3,
-      "US_GME_RESIDENCY_DURATION_UNKNOWN:current_observation": 44,
+      "US_GME_RESIDENCY_DURATION_UNKNOWN:current_observation": 96,
       "US_GME_RESIDENCY_DURATION_UNKNOWN:source_refresh_required": 8,
       "US_MD_PHD_MSTP_VARIABLE:source_refresh_required": 225,
       "none:current_observation": 13
@@ -3090,7 +3101,7 @@
     "by_recommended_action": {
       "mark_completion_or_alumni_if_absent_after_stale_after": 252,
       "refresh_source_before_mutation": 627,
-      "retain_until_next_refresh": 69,
+      "retain_until_next_refresh": 121,
       "review_lifecycle_rule_or_source_label": 23,
       "wait_until_expected_next_date_then_reconcile": 659
     },
@@ -3102,14 +3113,14 @@
       "fellow:terminal_year_active": 61,
       "medical_student:source_refresh_required": 225,
       "resident:annual_clock_active": 559,
-      "resident:current_observation": 44,
+      "resident:current_observation": 96,
       "resident:review_required": 10,
       "resident:source_refresh_required": 210,
       "resident:terminal_year_active": 191
     },
     "by_state_machine_status": {
       "annual_clock_active": 659,
-      "current_observation": 69,
+      "current_observation": 121,
       "review_required": 23,
       "source_refresh_required": 627,
       "terminal_year_active": 252
@@ -3117,38 +3128,39 @@
     "completion_candidate_rows": 252,
     "generated_as_of_date": "2026-06-02",
     "person_rollup_csv": "artifacts/data/person_training_state_machine_audit.csv",
-    "person_rows": 1483,
+    "person_rows": 1535,
     "program_rollup_csv": "artifacts/data/program_training_state_machine_audit.csv",
-    "program_rows": 95,
+    "program_rows": 96,
     "stale_or_review_state_rows": 23,
     "state_audit_csv": "artifacts/data/training_state_machine_audit.csv",
-    "state_rows": 1630
+    "state_rows": 1682
   },
   "training_state_snapshot_summary": {
     "by_change_type": {
-      "added": 1558
+      "added": 52,
+      "unchanged": 1558
     },
     "by_rollup_scope": {
-      "corpus": 1,
-      "institution": 3,
-      "institution_role": 4,
-      "lifecycle_code": 13,
-      "program": 94,
-      "program_role": 95,
-      "role": 3,
-      "trainee_category": 3
+      "corpus": 2,
+      "institution": 4,
+      "institution_role": 5,
+      "lifecycle_code": 14,
+      "program": 95,
+      "program_role": 96,
+      "role": 4,
+      "trainee_category": 4
     },
-    "canonical_key_count": 1558,
+    "canonical_key_count": 1610,
     "compare_date": "2026-06-02",
     "duplicate_canonical_key_count": 72,
-    "previous_snapshot_id": null,
-    "row_count": 1630,
-    "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.csv",
-    "snapshot_id": "training_states_2026-06-02_dffa6e406d83",
-    "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
-    "transition_event_rows": 1558,
+    "previous_snapshot_id": "training_states_2026-06-02_dffa6e406d83",
+    "row_count": 1682,
+    "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_9e448a9a6e3a.csv",
+    "snapshot_id": "training_states_2026-06-02_9e448a9a6e3a",
+    "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_9e448a9a6e3a.json",
+    "transition_event_rows": 1610,
     "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
-    "transition_rollup_rows": 216,
+    "transition_rollup_rows": 224,
     "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
   },
   "training_state_transition_plan_summary": {
@@ -3156,14 +3168,14 @@
     "by_diff_readiness_status": {
       "diff_expected_change_classifiable": 911,
       "diff_no_change_expected": 13,
-      "diff_review_bound": 79,
+      "diff_review_bound": 131,
       "diff_source_refresh_bound": 627
     },
     "by_policy_lane": {
       "carry_forward_no_change": 13,
       "deterministic_expected_advancement": 659,
       "deterministic_expected_completion": 252,
-      "manual_review_required": 79,
+      "manual_review_required": 131,
       "source_refresh_required": 627
     },
     "by_recommended_operator_action": {
@@ -3171,7 +3183,7 @@
       "reconcile_fresh_roster_against_expected_next_stage": 659,
       "refresh_source_before_retaining_state": 627,
       "retain_until_contradicted": 13,
-      "review_lifecycle_or_source_before_mutation": 79
+      "review_lifecycle_or_source_before_mutation": 131
     },
     "by_role_and_policy_lane": {
       "fellow:carry_forward_no_change": 13,
@@ -3182,7 +3194,7 @@
       "medical_student:source_refresh_required": 225,
       "resident:deterministic_expected_advancement": 559,
       "resident:deterministic_expected_completion": 191,
-      "resident:manual_review_required": 54,
+      "resident:manual_review_required": 106,
       "resident:source_refresh_required": 210
     },
     "by_rollup_scope": {
@@ -3193,8 +3205,8 @@
       "institution_role": 3,
       "lifecycle_code": 14,
       "policy_lane": 5,
-      "program": 94,
-      "program_role": 95,
+      "program": 95,
+      "program_role": 96,
       "role": 3,
       "trainee_category": 3
     },
@@ -3204,35 +3216,35 @@
     "corpus_guardrail_policy_lane": "mixed_with_manual_review",
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
-    "fresh_observation_required_rows": 1617,
-    "generated_at": "2026-06-02T13:38:38.232212+00:00",
-    "human_review_required_rows": 79,
+    "fresh_observation_required_rows": 1669,
+    "generated_at": "2026-06-02T13:47:04.906733+00:00",
+    "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
-    "person_count": 1483,
-    "plan_rows": 1630,
+    "person_count": 1535,
+    "plan_rows": 1682,
     "policy": "This ledger is non-mutating. Expected transitions are classifiable only with fresh source evidence or explicit terminal absence after stale-after; review/source-bound states are not carried forward silently.",
-    "program_count": 94,
+    "program_count": 95,
     "projected_refresh_date": "2027-08-15",
     "rollup_csv": "artifacts/data/training_state_transition_plan_rollups.csv",
     "rollup_json": "artifacts/data/training_state_transition_plan_rollups.json",
-    "rollup_rows": 224,
+    "rollup_rows": 226,
     "source_refresh_required_rows": 627,
-    "stale_by_refresh_rows": 1617
+    "stale_by_refresh_rows": 1669
   },
   "training_state_transition_rollup_scope_counts": {
-    "corpus": 1,
-    "institution": 3,
-    "institution_role": 4,
-    "lifecycle_code": 13,
-    "program": 94,
-    "program_role": 95,
-    "role": 3,
-    "trainee_category": 3
+    "corpus": 2,
+    "institution": 4,
+    "institution_role": 5,
+    "lifecycle_code": 14,
+    "program": 95,
+    "program_role": 96,
+    "role": 4,
+    "trainee_category": 4
   },
   "training_temporal_contract_summary": {
     "auto_classifiable_transition_rows": 911,
     "by_current_temporal_state_code": {
-      "AMBIGUOUS_OR_OUT_OF_RULE_REVIEW": 79,
+      "AMBIGUOUS_OR_OUT_OF_RULE_REVIEW": 131,
       "ANNUAL_CLOCK_EXPECTED_ADVANCEMENT": 659,
       "CURRENT_OBSERVATION": 13,
       "TERMINAL_STAGE_EXPECTED_COMPLETION": 252,
@@ -3241,7 +3253,7 @@
     "by_next_refresh_contract": {
       "advance_only_if_fresh_expected_stage_observed": 659,
       "complete_or_alumni_only_if_absent_after_stale_or_endpoint_observed": 252,
-      "do_not_mutate_without_review": 79,
+      "do_not_mutate_without_review": 131,
       "retain_only_if_fresh_source_reobserves": 627,
       "retain_until_fresh_source_contradiction": 13
     },
@@ -3249,13 +3261,13 @@
       "carry_forward_no_change": 13,
       "deterministic_expected_advancement": 659,
       "deterministic_expected_completion": 252,
-      "manual_review_required": 79,
+      "manual_review_required": 131,
       "source_refresh_required": 627
     },
     "by_rollup_guardrail_status": {
       "carry_forward_until_contradicted": 4,
       "deterministic_with_fresh_evidence": 36,
-      "review_bound": 39,
+      "review_bound": 41,
       "source_refresh_bound": 150
     },
     "by_rollup_scope": {
@@ -3266,42 +3278,42 @@
       "institution_role": 3,
       "lifecycle_code": 14,
       "next_refresh_contract": 5,
-      "program": 94,
-      "program_role": 95,
+      "program": 95,
+      "program_role": 96,
       "role": 3,
       "temporal_state": 5,
       "trainee_category": 3
     },
-    "contract_rows": 1630,
+    "contract_rows": 1682,
     "corpus_guardrail_status": "review_bound",
     "corpus_recommended_operator_action": "resolve_review_bound_lifecycle_or_source_labels",
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
-    "fresh_observation_required_rows": 1617,
-    "generated_at": "2026-06-02T13:38:38.407273+00:00",
-    "human_review_required_rows": 79,
+    "fresh_observation_required_rows": 1669,
+    "generated_at": "2026-06-02T13:47:05.090040+00:00",
+    "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
-    "person_count": 1483,
+    "person_count": 1535,
     "policy": "Temporal contracts are non-mutating. They define how future fresh observations, absences, unchanged stages, and expected next stages can be classified before any person/program truth is updated.",
-    "program_count": 94,
+    "program_count": 95,
     "projected_refresh_date": "2027-08-15",
     "rollup_csv": "artifacts/data/training_temporal_contract_rollups.csv",
     "rollup_json": "artifacts/data/training_temporal_contract_rollups.json",
-    "rollup_rows": 229,
+    "rollup_rows": 231,
     "source_refresh_required_rows": 627,
-    "stale_by_refresh_rows": 1617
+    "stale_by_refresh_rows": 1669
   },
   "transition_plan_diff_counts": {
     "diff_expected_change_classifiable": 911,
     "diff_no_change_expected": 13,
-    "diff_review_bound": 79,
+    "diff_review_bound": 131,
     "diff_source_refresh_bound": 627
   },
   "transition_plan_policy_counts": {
     "carry_forward_no_change": 13,
     "deterministic_expected_advancement": 659,
     "deterministic_expected_completion": 252,
-    "manual_review_required": 79,
+    "manual_review_required": 131,
     "source_refresh_required": 627
   },
   "transition_plan_rollup_scope_counts": {
@@ -3312,8 +3324,8 @@
     "institution_role": 3,
     "lifecycle_code": 14,
     "policy_lane": 5,
-    "program": 94,
-    "program_role": 95,
+    "program": 95,
+    "program_role": 96,
     "role": 3,
     "trainee_category": 3
   },
@@ -3323,7 +3335,7 @@
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     "artifact_rows": 74,
-    "audited_at": "2026-06-02T13:38:58.365468+00:00",
+    "audited_at": "2026-06-02T13:49:43.797740+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -3378,10 +3390,10 @@
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 148590592,
+    "sqlite_byte_size": 153317376,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "a22171668d938ff3707b1663af3e6eee1f01bbd22dc49083ba88a8903200b4db",
+    "sqlite_sha256": "dd9e7a3a1b71a361f461cd036a1127583d43b6ca0597aab6e2deaae19e91d4e5",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

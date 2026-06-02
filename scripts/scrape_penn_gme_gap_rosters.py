@@ -191,6 +191,34 @@ SEED_ROSTER_CANDIDATES = [
         "program_type": "residency",
     },
     {
+        "candidate_title": "PGY1",
+        "candidate_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+        "department": "Psychiatry",
+        "program_name": "Psychiatry",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "PGY2",
+        "candidate_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+        "department": "Psychiatry",
+        "program_name": "Psychiatry",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "PGY3",
+        "candidate_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+        "department": "Psychiatry",
+        "program_name": "Psychiatry",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "PGY4",
+        "candidate_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+        "department": "Psychiatry",
+        "program_name": "Psychiatry",
+        "program_type": "residency",
+    },
+    {
         "candidate_title": "Meet Our Fellow",
         "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship/fellows",
         "department": "Surgery",
@@ -752,6 +780,56 @@ def extract_neurology_archive_cards(soup: BeautifulSoup, candidate: dict, source
     return rows
 
 
+def extract_psychiatry_resident_profiles(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
+    if "med.upenn.edu/psychres/class_of_" not in source_url:
+        return []
+    heading = soup.find("h1")
+    class_label = norm(heading.get_text(" ")) if heading else ""
+    training_label = class_or_pgy_label(candidate.get("candidate_title") or class_label)
+    rows = []
+    for profile in soup.select(".personnel .profile"):
+        name_node = profile.select_one(".name")
+        if not name_node:
+            continue
+        name = norm(name_node.get_text(" "))
+        if not looks_like_person_name(name):
+            continue
+        position_node = profile.select_one(".position")
+        medical_school = clean_school_value(position_node.get_text(" ")) if position_node else ""
+        image = profile.select_one("img")
+        anchor = profile.select_one("a[id]")
+        profile_url = f"{source_url}#{anchor.get('id')}" if anchor and anchor.get("id") else source_url
+        description = ""
+        paragraphs = profile.find_all("p", recursive=False)
+        if len(paragraphs) > 1:
+            description = redact_text(norm(" ".join(p.get_text(" ") for p in paragraphs[1:])))
+        fields = {
+            key: value
+            for key, value in {
+                "medical_school": medical_school,
+                "bio_text": description,
+                "class_year_label": class_label,
+            }.items()
+            if value
+        }
+        rows.append(
+            record_for(
+                candidate,
+                source_key,
+                source_url,
+                name,
+                "Psychiatry Residency",
+                "resident",
+                training_label,
+                "gap_queue_psychiatry_resident_profile",
+                fields=fields,
+                profile_url=profile_url,
+                headshot_url=absolute(source_url, image.get("src") if image else ""),
+            )
+        )
+    return rows
+
+
 def pathology_program_from_detail(detail: str, fallback: str) -> str:
     detail = norm(detail)
     fellowship_match = re.search(r"\d{4}-\d{2}\s+(.+?)\s+Fellow\b", detail, re.I)
@@ -857,6 +935,24 @@ def existing_roster_urls(conn: sqlite3.Connection) -> set[str]:
     }
 
 
+def existing_gap_roster_artifacts() -> tuple[dict[str, list[dict]], dict[str, dict]]:
+    people_path = ARTIFACTS / "penn_gme_gap_roster_people.json"
+    sources_path = ARTIFACTS / "penn_gme_gap_roster_sources.json"
+    people_by_url: dict[str, list[dict]] = defaultdict(list)
+    sources_by_url: dict[str, dict] = {}
+    if people_path.exists():
+        for row in json.loads(people_path.read_text(encoding="utf-8")):
+            source_url = (row.get("source_url") or "").rstrip("/")
+            if source_url:
+                people_by_url[source_url].append(row)
+    if sources_path.exists():
+        for row in json.loads(sources_path.read_text(encoding="utf-8")):
+            source_url = (row.get("url") or "").rstrip("/")
+            if source_url:
+                sources_by_url[source_url] = row
+    return people_by_url, sources_by_url
+
+
 def queue_candidates(conn: sqlite3.Connection, limit: int | None) -> list[dict]:
     conn.row_factory = sqlite3.Row
     sql = """
@@ -941,6 +1037,7 @@ def parse_candidate(session: requests.Session, candidate: dict) -> tuple[list[di
         ("accordion_header", extract_accordion_headers(soup, candidate, meta["source_key"], url)),
         ("heading_name_list", extract_heading_name_lists(soup, candidate, meta["source_key"], url)),
         ("neurology_archive_card", extract_neurology_archive_cards(soup, candidate, meta["source_key"], url)),
+        ("psychiatry_resident_profile", extract_psychiatry_resident_profiles(soup, candidate, meta["source_key"], url)),
         ("pathology_current_resident_accordion", extract_pathology_current_residents(soup, candidate, meta["source_key"], url)),
         ("pathology_people_accordion", extract_pathology_people_accordion(soup, candidate, meta["source_key"], url)),
         ("obgyn_current_fellows", extract_obgyn_current_fellows(soup, candidate, meta["source_key"], url)),
@@ -999,6 +1096,7 @@ def main() -> None:
     captured_urls = existing_roster_urls(conn)
     candidates = queue_candidates(conn, limit=None)
     conn.close()
+    previous_records_by_url, previous_sources_by_url = existing_gap_roster_artifacts()
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-penn-gme-gap-roster-scraper/0.1"
     records = []
@@ -1027,6 +1125,29 @@ def main() -> None:
             )
             continue
         rows, meta = parse_candidate(session, candidate)
+        previous_rows = previous_records_by_url.get(url, [])
+        previous_source = previous_sources_by_url.get(url, {})
+        if meta.get("extraction_status") == "http_error" and previous_rows:
+            rows = previous_rows
+            meta = {
+                **previous_source,
+                **{
+                    "url": url,
+                    "candidate_key": candidate.get("candidate_key"),
+                    "official_program_key": candidate.get("official_program_key"),
+                    "candidate_priority": candidate.get("priority"),
+                    "candidate_confidence": candidate.get("confidence"),
+                    "candidate_title": candidate.get("candidate_title"),
+                    "program_name": candidate.get("program_name"),
+                    "department": candidate.get("department"),
+                    "latest_refresh_http_status": meta.get("http_status"),
+                    "latest_refresh_error": meta.get("error", ""),
+                    "latest_refresh_attempted_at": meta.get("fetched_at"),
+                    "extraction_status": "preserved_previous_records_after_refresh_error",
+                    "records_extracted": len(rows),
+                    "preservation_policy": "Retain previously captured public roster rows when a later refresh has a transport-level fetch error; stale/refresh status is handled by the training state machine.",
+                },
+            }
         records.extend(rows)
         sources.append(meta)
     write_outputs(records, sources, skipped)

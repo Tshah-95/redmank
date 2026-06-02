@@ -2,6 +2,7 @@ program_name,role,person_count,avg_coverage_score,broad_enrichment_surface_count
 Clinical Microbiology Fellowship,fellow,2,20.0,0,0,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,official_profile_search
 GI/Hepatic Pathology Fellowship,fellow,2,20.0,0,0,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,official_profile_search
 Soft Tissue/Bone Pathology Fellowship,fellow,1,20.0,0,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,official_profile_search
+Psychiatry Residency,resident,52,20.0,0,0,52,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,official_profile_search
 Gynecologic Oncology Fellowship,fellow,6,20.67,0,0,6,0.0,0.0,0.0,0.0,0.0,0.167,0.167,0,1,official_profile_search
 Hematopathology Fellowship,fellow,4,21.0,0,0,4,0.0,0.0,0.0,0.0,0.0,0.25,0.25,0,1,official_profile_search
 Maternal Fetal Medicine Fellowship,fellow,8,21.0,0,0,8,0.0,0.0,0.0,0.0,0.0,0.25,0.25,0,2,official_profile_search

@@ -250,16 +250,16 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
-        "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
+        "artifacts/data/training_state_snapshots/*.json",
         "longitudinal_snapshot_ledger",
-        "json_object",
+        "json_object_glob",
         "training_state_snapshots",
         True,
     ),
     (
-        "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.csv",
+        "artifacts/data/training_state_snapshots/*.csv",
         "longitudinal_snapshot_ledger",
-        "csv",
+        "csv_glob",
         "training_state_snapshot_rows",
         True,
     ),
@@ -403,6 +403,20 @@ def json_rows(path: Path, artifact_format: str) -> int | None:
     return None
 
 
+def glob_paths(rel_pattern: str) -> list[Path]:
+    return sorted(ROOT.glob(rel_pattern))
+
+
+def sha256_paths(paths: list[Path]) -> str:
+    h = hashlib.sha256()
+    for path in paths:
+        h.update(str(path.relative_to(ROOT)).encode("utf-8"))
+        h.update(b"\0")
+        h.update(sha256_file(path).encode("utf-8"))
+        h.update(b"\0")
+    return h.hexdigest()
+
+
 def sqlite_count(conn: sqlite3.Connection, table: str | None) -> int | None:
     if not table:
         return None
@@ -423,15 +437,22 @@ def is_git_tracked(rel_path: str) -> bool:
 def classify_row(spec: tuple, conn: sqlite3.Connection, audited_at: str) -> dict:
     rel_path, role, artifact_format, table, required = spec
     path = ROOT / rel_path
-    exists = path.exists()
-    git_tracked = is_git_tracked(rel_path)
-    byte_size = path.stat().st_size if exists else 0
-    file_hash = "" if rel_path == "artifacts/data/redmank.sqlite" else sha256_file(path) if exists else ""
+    is_glob = artifact_format.endswith("_glob")
+    paths = glob_paths(rel_path) if is_glob else [path]
+    exists = bool(paths) if is_glob else path.exists()
+    git_tracked = all(is_git_tracked(str(item.relative_to(ROOT))) for item in paths) if is_glob and paths else is_git_tracked(rel_path)
+    byte_size = sum(item.stat().st_size for item in paths) if is_glob else path.stat().st_size if exists else 0
+    file_hash = "" if rel_path == "artifacts/data/redmank.sqlite" else sha256_paths(paths) if is_glob and paths else sha256_file(path) if exists else ""
     artifact_rows = None
     if exists and artifact_format == "csv":
         artifact_rows = csv_rows(path)
+    elif exists and artifact_format == "csv_glob":
+        artifact_rows = sum(csv_rows(item) for item in paths)
     elif exists and artifact_format.startswith("json"):
-        artifact_rows = json_rows(path, artifact_format)
+        if artifact_format == "json_object_glob":
+            artifact_rows = sum(1 for item in paths if json_rows(item, "json_object") == 1)
+        else:
+            artifact_rows = json_rows(path, artifact_format)
     sqlite_rows = sqlite_count(conn, table)
 
     if not exists and required:
@@ -462,6 +483,7 @@ def classify_row(spec: tuple, conn: sqlite3.Connection, audited_at: str) -> dict
     evidence = {
         "github_recommended_file_limit_bytes": GITHUB_RECOMMENDED_FILE_LIMIT_BYTES,
         "path": rel_path,
+        "globbed_paths": [str(item.relative_to(ROOT)) for item in paths] if is_glob else [],
         "sqlite_table": table,
         "artifact_rows": artifact_rows,
         "sqlite_rows": sqlite_rows,

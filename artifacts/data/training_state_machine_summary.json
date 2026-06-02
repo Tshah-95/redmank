@@ -1,7 +1,7 @@
 {
   "auto_advance_candidate_rows": 659,
   "by_clock_model": {
-    "annual_gme_july": 967,
+    "annual_gme_july": 1019,
     "refresh_from_source": 13,
     "review_required": 23,
     "source_refresh_required": 627
@@ -36,7 +36,7 @@
     "US_GME_RESIDENCY_6Y:terminal_year_active": 5,
     "US_GME_RESIDENCY_7Y:annual_clock_active": 18,
     "US_GME_RESIDENCY_7Y:terminal_year_active": 3,
-    "US_GME_RESIDENCY_DURATION_UNKNOWN:current_observation": 44,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN:current_observation": 96,
     "US_GME_RESIDENCY_DURATION_UNKNOWN:source_refresh_required": 8,
     "US_MD_PHD_MSTP_VARIABLE:source_refresh_required": 225,
     "none:current_observation": 13
@@ -44,7 +44,7 @@
   "by_recommended_action": {
     "mark_completion_or_alumni_if_absent_after_stale_after": 252,
     "refresh_source_before_mutation": 627,
-    "retain_until_next_refresh": 69,
+    "retain_until_next_refresh": 121,
     "review_lifecycle_rule_or_source_label": 23,
     "wait_until_expected_next_date_then_reconcile": 659
   },
@@ -56,14 +56,14 @@
     "fellow:terminal_year_active": 61,
     "medical_student:source_refresh_required": 225,
     "resident:annual_clock_active": 559,
-    "resident:current_observation": 44,
+    "resident:current_observation": 96,
     "resident:review_required": 10,
     "resident:source_refresh_required": 210,
     "resident:terminal_year_active": 191
   },
   "by_state_machine_status": {
     "annual_clock_active": 659,
-    "current_observation": 69,
+    "current_observation": 121,
     "review_required": 23,
     "source_refresh_required": 627,
     "terminal_year_active": 252
@@ -71,10 +71,10 @@
   "completion_candidate_rows": 252,
   "generated_as_of_date": "2026-06-02",
   "person_rollup_csv": "artifacts/data/person_training_state_machine_audit.csv",
-  "person_rows": 1483,
+  "person_rows": 1535,
   "program_rollup_csv": "artifacts/data/program_training_state_machine_audit.csv",
-  "program_rows": 95,
+  "program_rows": 96,
   "stale_or_review_state_rows": 23,
   "state_audit_csv": "artifacts/data/training_state_machine_audit.csv",
-  "state_rows": 1630
+  "state_rows": 1682
 }

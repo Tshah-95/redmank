@@ -1,52 +1,52 @@
 {
   "by_automation_status": {
-    "collector_available_only_when_source_exposes_contact": 1204,
-    "collector_available_partial_source_coverage": 1470,
-    "collector_available_queue_driven": 1951,
+    "collector_available_only_when_source_exposes_contact": 1256,
+    "collector_available_partial_source_coverage": 1522,
+    "collector_available_queue_driven": 2107,
     "collector_available_review_required": 617,
     "manual_decision_ready": 847
   },
   "by_execution_lane": {
     "collector_then_manual_normalization": 617,
-    "collector_with_reconciliation_required": 1470,
-    "dependent_on_roster_or_profile_refresh": 1204,
-    "queue_driven_collector_available": 1951,
+    "collector_with_reconciliation_required": 1522,
+    "dependent_on_roster_or_profile_refresh": 1256,
+    "queue_driven_collector_available": 2107,
     "reviewer_decision_required": 847
   },
   "by_priority_band": {
-    "critical": 2317,
-    "high": 646,
-    "low": 1204,
-    "medium": 1922
+    "critical": 2369,
+    "high": 698,
+    "low": 1256,
+    "medium": 2026
   },
   "by_task_type": {
-    "current_roster_state_reconciliation": 1470,
+    "current_roster_state_reconciliation": 1522,
     "evidence_reconciliation_review": 847,
-    "official_profile_search": 556,
+    "official_profile_search": 608,
     "organization_alias_review": 617,
-    "public_contact_verification": 1204,
-    "research_identity_search": 1126,
-    "source_medical_school_background": 179,
+    "public_contact_verification": 1256,
+    "research_identity_search": 1178,
+    "source_medical_school_background": 231,
     "source_residency_background": 90
   },
-  "manual_review_required_tasks": 4137,
-  "network_required_tasks": 5242,
+  "manual_review_required_tasks": 4345,
+  "network_required_tasks": 5502,
   "new_parser_required_tasks": 0,
-  "person_count": 1483,
+  "person_count": 1535,
   "readiness_csv": "artifacts/data/person_enrichment_execution_readiness.csv",
   "readiness_json": "artifacts/data/person_enrichment_execution_readiness.json",
-  "readiness_rows": 6089,
+  "readiness_rows": 6349,
   "rollup_csv": "artifacts/data/person_enrichment_execution_readiness_rollups.csv",
   "rollup_json": "artifacts/data/person_enrichment_execution_readiness_rollups.json",
   "rollup_rows": 37,
   "script_extension_required_tasks": 0,
   "top_next_system_actions": {
-    "refresh_public_contact_sources_and_reaudit_display_safety": 1204,
+    "refresh_public_contact_sources_and_reaudit_display_safety": 1256,
     "review_high_priority_evidence_packets_and_record_accept_or_reject_decisions": 847,
     "run_identifier_candidate_collection_then_review_alias_collapses": 617,
-    "run_official_trainee_profile_discovery_then_reconcile_candidates": 556,
-    "run_or_extend_official_roster_collectors_then_reconcile_state_machine": 1470,
-    "run_prior_training_background_discovery_then_reconcile_candidates": 269,
-    "run_queue_driven_research_candidate_collection_then_article_level_reconciliation": 1126
+    "run_official_trainee_profile_discovery_then_reconcile_candidates": 608,
+    "run_or_extend_official_roster_collectors_then_reconcile_state_machine": 1522,
+    "run_prior_training_background_discovery_then_reconcile_candidates": 321,
+    "run_queue_driven_research_candidate_collection_then_article_level_reconciliation": 1178
   }
 }

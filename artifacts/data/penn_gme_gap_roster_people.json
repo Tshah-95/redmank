@@ -12252,7 +12252,7 @@
     "unit": "Pathology and Laboratory Medicine"
   },
   {
-    "bio_text": "PGY-3, Clinical Pathology Program (PSP)",
+    "bio_text": "PGY-1, Combined Anatomic Pathology and Clinical Pathology Program",
     "coverage_gap_program_name": "Pathology - Anatomic and Clinical",
     "coverage_gap_status": null,
     "current_status": "current",
@@ -12260,7 +12260,7 @@
     "headshot_alt": "",
     "headshot_url": "",
     "institution": "University of Pennsylvania / Penn Medicine",
-    "name": "Gregory Chen, MD, PhD",
+    "name": "Chuan Hao Chen, MD, PhD",
     "official_program_key": "",
     "population": "penn_affiliated_current_trainees",
     "profile_url": "",
@@ -12282,7 +12282,7 @@
     "unit": "Pathology and Laboratory Medicine"
   },
   {
-    "bio_text": "PGY-1, Combined Anatomic Pathology and Clinical Pathology Program",
+    "bio_text": "PGY-3, Clinical Pathology Program (PSP)",
     "coverage_gap_program_name": "Pathology - Anatomic and Clinical",
     "coverage_gap_status": null,
     "current_status": "current",
@@ -12290,7 +12290,7 @@
     "headshot_alt": "",
     "headshot_url": "",
     "institution": "University of Pennsylvania / Penn Medicine",
-    "name": "Chuan Hao Chen, MD, PhD",
+    "name": "Gregory Chen, MD, PhD",
     "official_program_key": "",
     "population": "penn_affiliated_current_trainees",
     "profile_url": "",
@@ -15906,6 +15906,1566 @@
     "training_year_label": "PGY1",
     "undergraduate_school": "Niagara University, BA",
     "unit": "Podiatric Surgery"
+  },
+  {
+    "bio_text": "Katherine Aliano Ruiz, MD Icahn School of Medicine at Mount Sinai Hello, I’m Kat! I was born and raised in Brazil before moving to New York to study English at Barnard College. While at Barnard, I interned with the Legal Aid Society’s Homeless Rights Project where I deepened my passion for advocacy and working with marginalized communities and discovered my interest in medicine. After graduating, I moved to Philly and worked at a literacy and K-12 curriculum development company for 2 years before going to Bryn Mawr College to complete their postbaccalaureate premedical program. I went to the Icahn School of Medicine at Mount Sinai for medical school where I fell in love with psychiatry and the potential to make mental health care more accessible. I’m excited to be back in Philly at Penn and to train in such a supportive and warm community! My current clinical interests include child and adolescent psychiatry, addiction psychiatry, community psychiatry, and LGBTQ+ mental health. Outside of work, I love trying new restaurants, cooking, reading, drawing, spending time with family and friends, and getting invested in an array of TV shows.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Katherine Aliano Ruiz, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Yocasta Alvarez-Bagnarol, MD, PhD University of Puerto Rico School of Medicine Research Track Hi, I’m Yocasta Alvarez-Bagnarol! I was born in Caracas, Venezuela, and raised in San Juan, Puerto Rico. I majored in molecular biology at the University of Puerto Rico (UPR), where I later joined the MD/PhD program. I performed my PhD work at the National Institute on Drug Abuse (NIDA), were I studied the neurobiology of opioid use disorder (OUD) using a multidisciplinary approach that combined chemogenetics, anatomical tracing, and behavioral analysis in preclinical models of heroin withdrawal. When I returned to medical school at UPR, I was deeply moved by patients’ journeys toward mental health recovery during my psychiatry clerkship. The complexity of psychiatric illness highlighted for me the urgent need for evidence-based approaches grounded in our growing understanding of neural circuits and neurotransmitter systems. As I continue to grow as a physician-scientist, I’m particularly interested in exploring the use of neuromodulation techniques as therapeutic interventions for OUD, and in integrating neuroimaging to better understand the circuit-based effects of these treatments. Outside of work, I enjoy working out, practicing yoga, reading psychological thrillers, building puzzles and Legos, visiting art museums, spending time with friends and family, and trying to keep my plants alive.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Yocasta Alvarez-Bagnarol, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Emma Chaloux-Pinette, MD, PhD Johns Hopkins University School of Medicine Research Track I was born and raised in southern Maine. From there, I completed my undergraduate degree in biology at Massachusetts Institute of Technology where I volunteered as and EMT and did research on genetic factors of neurodevelopmental disorders like autism spectrum disorders. After completing my bachelor's degree, I pursued an MD/PhD at Johns Hopkins University School of Medicine. My interest in the brain and behavior led me to spend my PhD studying the role of the amygdala in animal models of opioid use disorder. During my PhD I mentored several undergraduate students interested in medicine and research. Once I returned to medical school, my psychiatry clerkship reaffirmed my passion for psychiatry. Currently, my interests in psychiatry involve addiction and reproductive psychiatry. Outside of work, I love going on adventures with my dog, baking, and exploring the Philly food scene.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Emma Chaloux-Pinette, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Adaora Ekwonu, MD University of Chicago Pritzker School of Medicine Hi! My name is Adaora Ekwonu. I was raised in Charlotte, North Carolina, and I went to the University of Chicago for undergrad and for medical school. I was a psychology major in undergrad, and I knew from very early on that I wanted to become a psychiatrist. In medical school I served as a leader of the Psychiatry Interest Group and volunteered at a student-run free psychiatric clinic in a women's shelter on the southside of Chicago. I think psychiatry is the most exciting and interesting field in medicine, because I get to use creative thinking and intuition to gain a deeper understanding of how thought patterns affect behavior. I love that I get to build trust with my patients and take the time to get to know them on an intimate level. I also love that I have the opportunity to care for some of the most vulnerable members of society. My academic interests include psychotherapy, forensics, neuromodulation, community psychiatry, and academic medicine. Outside of work, I enjoy watching movies (my favorite genres are horror and musicals), trying new restaurants, and going to football games. I'll always be a Carolina Panthers fan at heart, but Philly may turn me into an Eagles fan too! I'm so excited to spend the next four years learning everything I can about the human mind and working alongside my amazing co-interns.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Adaora Ekwonu, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Brendan Ho, MD Perelman School of Medicine University of Pennsylvania Hi! I’m from Cincinnati, Ohio, where I grew up in the suburbs and went to college. While at the University of Cincinnati, I volunteered as an online crisis counselor during the COVID-19 pandemic. The conversations I had laid bare a great need for mental healthcare across all ages and populations and inspired a passion to be able to provide more relief than I could at the time, eventually culminating in an interest in psychiatry. I left the Midwest to attend medical school at the University of Pennsylvania, where my interest in psychiatry solidified and I began exploring different facets of the field through narrative medicine, advocacy for asylum seekers, and research using aggregate risk scores to predict the development of substance use disorders and model adolescent suicide attempts. My clinical interests are in psychotherapy, child and adolescent psychiatry, and integrated care models. Outside of medicine, I enjoy trying new recipes, getting a workout in (especially bouldering!), watching video essays, and, on rare occasion, doing a bit of writing.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Brendan Ho, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Peter Lambert, MD, PhD Washington University in St. Louis School of Medicine Research Track I grew up in College Station, TX and attended Rice University in Houston, TX for undergrad. There, I worked toward a degree in Biochemistry and Cell Biology while studying oxalate metabolism in plants (on the coolest rooftop greenhouse in the Texas Medical Center). I became fascinated by the vast opportunities and complex questions in neuroscience and joined the MD-PhD program at WashU in St Louis, where I studied pharmacology and physiology of GABA-A receptors. Utilizing a variety of electrophysiological methods, much of my thesis work centered on the neurosteroid allopregnanolone and its effects on receptor, cell, and network activity in the brain to better understand its antidepressant effects. After returning to clinical training, my interest in clinical psychiatry was affirmed, I expanded my passion for psychopharmacology, and I uncovered a new curiosity for interventional psychiatry and neuromodulation. Clinically, I am interested in reproductive mental health, LGBTQ+ health, psychosis, and catatonia. I’m excited to join the Penn Psychiatry community and look forward to drawing inspiration from my clinical encounters to guide the next phase of my research training. Outside of work, I enjoy gardening, cooking, knitting, and exploring Philly with my partner Chris.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Peter Lambert, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Nicolas Mandel, MD Perelman School of Medicine at the University of Pennsylvania I was raised in Washington D.C. where I had a chance to be exposed early on to mental health care and research in postpartum depression during summers spent taking short trips up the red line to the NIMH Bethesda Campus. Shortly after, I left home for Brown University where I had a chance to study the way our brains interact with the world and earn my degree in Neuroscience. At Penn I quickly gravitated to psychiatry. During my clerkships and subsequent rotations, I realized that psychiatry was the best platform for me to continue to explore the brain while also attempting to understand the metaphysical mind. I’m excited to continue training at Penn with the amazing mentors I’ve met so far and look forward to continuing to pursue my interests in the intersection of AI and mental health care, geriatric psychiatry, and addition psychiatry. Outside of medicine, I enjoy racquet sports, ice hockey, trying great restaurants, and all the other perks of Philly living.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Nicolas Mandel, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Jonathan Myers, MD Emory University School of Medicine I grew up in Denver, Colorado before moving to the Midwest to play soccer at Washington University in St. Louis. While I was originally drawn to the world of tech and entrepreneurship, I found myself increasingly interested in mental health and clinical care. After graduation, I spent a couple years in New York conducting research on schizophrenia, using AI to analyze language patterns and predict clinical outcomes. I then moved to Atlanta to attend medical school at Emory University. There I continued my research on schizophrenia, this time focusing on the role of inflammation and metabolic dysfunction in negative symptoms, while also developing interests in neuromodulation and psychedelic-assisted therapy. I am thrilled to continue exploring my interests in psychiatry at the University of Pennsylvania. Outside of medicine, I love sports, camping, skiing, and doing anything that gets me outdoors.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Jonathan Myers, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Lucas Occhino-Moede, MD, MPH Keck School of Medicine University of Southern California I’m thrilled to be at Penn, and equally thrilled to finally experience real seasons after a lifetime in California. I made my way down the state over the years, eventually landing in San Diego for undergrad at UCSD, where I studied Neuroscience and Computing Arts. I then moved to Los Angeles to obtain my MD/MPH at the Keck School of Medicine of USC. My clinical interests include acute psychiatric care, transitional models, community psychiatry, and neurointerventional treatment modalities. I’m also deeply interested in the political determinants that shape mental health and influence access to psychiatric care. I’m excited to explore Philly’s best bites and wander through its art and music spaces, though more often than not, you’ll find me on the couch with my spouse, unwinding over a solid lineup of reality TV (recommendations always welcome).",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Lucas Occhino-Moede, MD, MPH",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Chevonne Parker, MD, MPH University of North Carolina at Chapel Hill School of Medicine Hi everyone! I grew up right outside of Raleigh, North Carolina. I ventured north to attend Yale University, where I majored in Sociology with a concentration in Health and Society. After graduating, I returned home to North Carolina for medical school. Throughout my medical training, I have dedicated time to working for and with marginalized populations through research, advocacy, and clinical care. During medical school, I pursued a Master of Public Health, focusing my research on the sociopolitical factors that shape access to school-based behavioral health services in the United States. I fell in love with psychiatry during my clerkships—it offered the unique opportunity to merge my intellectual curiosities and academic interests with a deeply human-centered approach to patient care. I am honored and excited to be part of the Penn Psychiatry family. My clinical interests are broad, but I’m passionate about public and community psychiatry, adolescent mental health, and advancing mental health equity. Outside of work, I enjoy reading, binge-watching Netflix shows, exploring new eateries in Philadelphia, and catching local sports games.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Chevonne Parker, MD, MPH",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Armaan Singh, MD, MBA University of Chicago Pritzker School of Medicine I grew up in Tallahassee, Florida and Andover, Massachusetts before heading to Northwestern University in Evanston, IL for college. At Northwestern, I studied neuroscience and economics and found my passion for the intersection of medicine, business, and politics. I deferred medical school for two years, during which I worked at the Boston Consulting Group and Oak Street Health. I then attended the Pritzker School of Medicine at UChicago, where I conducted research on topics such as financial conflicts-of-interests and the role of advanced practice providers in the healthcare setting. I went through most of med school thinking that I would be a surgeon, until I fell in love with psychiatry during my 3rd year rotation and decided to take the plunge! At Penn, I’m excited to take advantage of all the incredible resources across the university system, especially in the topics of business and healthcare services research. In my free time, I enjoy playing golf, working out, and following college sports, the NFL, and Formula 1!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Armaan Singh, MD, MBA",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Somachukwu Umeozulu, MD Perelman School of Medicine University of Pennsylvania Hi everyone! I was born in Nigeria but grew up primarily in Maryland. I attended the University of Maryland, College Park (Go Terps!) where I was a Chemistry major and was in the Gemstone Honors Program. After college, I worked for two years at the NIH in a radiochemistry lab developing radiotracers for PET imaging to detect markers of inflammation in the brain. I then attended Penn for medical school where I grew my interests in community work and medical education. I am excited to stay in Philly for another four years to continue my training in Psychiatry here at Penn! I have many interests in the field, but some main ones are community psychiatry, addiction psychiatry, and consult-liaison (CL) psychiatry. In my free time I enjoy exploring the city, trying new restaurants, reading when I can, listening to podcasts, doing jigsaw puzzles, and enjoying performances at the many theatres in the city.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Somachukwu Umeozulu, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_29_html_5d42a1e915",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_29.html",
+    "training_year_label": "PGY1",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Farid Aboharb, MD, PhD Weill Cornell Medicine Research Track Hey there! I was born in Venezuela and grew up just outside of Philly in the town of Pennsauken, NJ. Since as far back as I remember I was interested in brains and wanting to be a scientist. At Rutgers New Brunswick, where I went to college, I studied brains alongside philosophy and learned about the physician scientist path. My next step was the Tri-Institutional MD-PhD program in New York City. I studied how brains make sense of the social world by doing electrophysiology in non-human primates during my PhD at Rockefeller University. I got into coding and bringing my love of video games into my work by using computer generated stimuli of social scenes. Before finishing medical school, I took a brief detour in Ithaca to complete a Masters of Engineering in Biomedical Engineering and study psychedelics. Psychiatry has long been the most interesting speciality to me - examining how brains make minds, and how we can heal their dysfunctions. My goal is to develop tools and paradigms in the space of neuroimaging, bioinformatics, and neuromodulation. Beyond the hospital, I love to explore the city, play video games, and watch stand up comedy.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Farid Aboharb, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Joseph (Will) Butkiewicz, MD Perelman School of Medicine at the University of Pennsylvania Hi there! I was born and raised in Northeastern Pennsylvania before coming to Philly for college at Penn, where I studied Linguistics and French. After graduating, I spent two years teaching in a public elementary school and then completed a postbaccalaureate premedical program at Bryn Mawr College. I returned to Penn for medical school, where I found my home in psychiatry. I’m thrilled to keep learning as part of the warm Penn Psychiatry community, and to keep enjoying the vibrant and diverse city of Philadelphia. My current clinical and professional interests include LGBTQ+ mental health, addiction psychiatry, psychotherapy, and medical education. In my free time, I like to garden, bake, read, run, hike, and hang with family and friends.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Joseph Butkiewicz, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Evan Calvo, MD Geisinger Commonwealth School of Medicine I grew up in Northeast Philadelphia and started my undergraduate career at the University of Pittsburgh, but ultimately returned home to earn my BA in psychology with a minor in chemistry from Temple University. I worked as a research assistant in the Psychology Department at Temple University for 2 years where I developed a number of clinical and academic interests pertaining to psychotic disorders and the psychosis-risk spectrum. I then joined the MD program at the Geisinger Commonwealth School of Medicine in Scranton, PA, where I continued exploring my interests and passions inside the field of psychiatry. Currently, I have too many clinical interests to list, but am broadly interested in interventional, consult-liaison, and acute inpatient psychiatry. I also look forward to incorporating a growing passion for mental health advocacy in my career. Outside of professional life, my favorite things to do include running, cycling, and exploring the Philly food scene.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Evan Calvo, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "John Curran, MD Sidney Kimmel Medical College at Thomas Jefferson University Hello! I grew up in Jenkintown, Pennsylvania, a suburb just outside Philadelphia. I attended Georgetown University, where I majored in Biology and minored in Justice and Peace Studies. During my time at Georgetown, I found a home in the University’s Center for Social Justice, collaborating with and learning from many great community organizations in D.C. After graduation, I worked as a clinical research coordinator at Thomas Jefferson University Hospital, studying headache and migraine. I later continued my journey at Jefferson, attending Sidney Kimmel Medical College, where I quickly developed an interest in psychiatry. My current interests include consultation-liaison (CL) psychiatry, addiction psychiatry, and community psychiatry. I am thrilled to join the incredible community of residents and faculty here at Penn and to train in such a supportive environment! Outside of the hospital, I enjoy reading, cooking, running, and exploring the many beautiful neighborhoods we have here in Philly.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "John Curran, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Karen Gomez, MD, PhD Columbia University Vagelos College of Physicians and Surgeons Research Track I completed my undergraduate studies at Temple University with a Bachelor of Science in Biochemistry, a minor in Spanish, and a certificate in Genome Medicine. I then attended medical school at the Columbia University Vagelos College of Physicians and Surgeons, where I joined the MD-PhD dual-degree program. I completed my PhD at Columbia University in the Systems Biology Track of the Integrated Program in Cellular, Molecular and Biomedical Studies. My thesis focused on the genomics of immune dysregulation in the context of cancer. During my clinical rotations in medical school, I developed a passion for psychiatry. I am particularly interested in psychiatric genomics and utilization of computational approaches to better understand and treat mental illness. I am honored to be continuing my clinical and research training here at Penn. Outside of the hospital, I enjoy cooking, gardening, and hiking.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Karen Gomez, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Finola Goudy, MD Sidney Kimmel Medical College at Thomas Jefferson University Hello everyone! I grew up here in Philadelphia before heading to Barnard College to study neuroscience and behavior and explore my love of theatre and the arts in New York. After college, I spent two years working in clinical research at Weill Cornell Medicine before returning to Philadelphia to attend medical school at Sidney Kimmel Medical College. Throughout medical school, I spent many evenings leading a student-run free clinic for people experiencing homelessness in the city, where I saw firsthand how mental health impacted my patients’ lives. This drove me to pursue psychiatry and fostered my drive to give back to my home city through clinical work. On my interview day at Penn, I could sense a deep care for the community and warmth amongst the resident and faculty, and I am honored to be starting my training here this year. Outside the hospital, you’ll find me enjoying one of Philadelphia’s many amazing coffee shops, taking care of my house plants, cooking dinner with my husband, crafting, and spending time with friends and family!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Finola Goudy, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Carina Guerra, MD Perelman School of Medicine at the University of Pennsylvania Hello! I grew up all over the place, calling everywhere from Florida, Peru, New Zealand, and North Carolina my home. At an early age, I became a major theater kid. I’m talking arts school for performance starting in the 8th grade and doing Shakespeare competitions in high school alongside being cast in school and amateur productions. My dreams of Broadway continued until halfway through my theater degree at UNC-Chapel Hill, when I realized that what I loved most about performance was human stories and understanding how people think and behave. I pivoted and graduated with a BS in psychology planning to be in the mental health field. I worked in psychiatric neuroimaging research for a year before I decided to pursue medicine with the intent of becoming a psychiatrist. During my time as a Penn medical student, I incorporated my training as a performer through the development of a theater course for medical students and also deepened my interest in social determinants of health graduating with concentrations in both medical humanities and community health. I’m thrilled to continue my training at Penn Psychiatry, where I plan to further explore my many interests within the field including the medical humanities, community psychiatry, and psychotherapy. Outside of medicine, I enjoy eating the several delicious cuisines Philly has to offer (especially at the Southeast Asian market, Chinatown, and Reading Terminal), long city walks, and spending time in the Italian Market with my partner and my dog Mimi.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Carina Guerra, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Gabriel Herbst, MD Lewis Katz School of Medicine at Temple University Hello! Aside from a brief (though arguably significant) period of my life from birth to twelve months, I have lived in Pennsylvania. I am hoping that my twenty-five years of experience living in Pennsylvania will translate to a smooth transition to Philadelphia, but I’ve mostly lived in small towns, so that’s TBD. I attended Allegheny College followed by Temple Medical School (St. Luke’s Campus). I had a sneaking suspicion in college that I would end up pursuing psychiatry. At that time, I had started to wake up to the fact that every person has a unique story to tell, and I really love to listen. My suspicion was confirmed during my psychiatry rotations where I had the opportunity to listen to patients’ stories, and through them, learn the extent to which peoples’ lives are affected by mental illness. I want to be the best physician I can for people with mental illness, which is why I am both excited and honored to train at UPenn! Outside of medicine, I like to spend time with friends/family, be outside, exercise, and attempt to read a book here and there.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Gabriel Herbst, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Corey Horien, MD, PhD Yale School of Medicine Research Track I grew up in Thief River Falls, MN and went to Concordia College in Moorhead, MN. After spending a year at the University of Oxford studying various aspects of Neisseria type four pili molecular biology, I joined the MD-PhD program at Yale University. I worked with Todd Constable and obtained my PhD in neuroscience, investigating individual differences in functional connectomic data in neurodevelopmental conditions. I look forward to continuing this work at Penn and working with amazing researchers and clinicians across the department. In my downtime, I love ice hockey (go MN Wild!), yoga, reading, and trying new restaurants.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Corey Horien, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Susheel Khetarpal, MD University of Pittsburgh Post Pediatric Portal Program Hi! My name is Susheel. I was born in Harrisburg, PA but spent most of my formative years in Pittsburgh (Go Steelers!). I attended Carnegie Mellon University for college and then stayed in the burgh to also complete medical school and a master’s in clinical research at the University of Pittsburgh. During medical school, I learned that I loved working with children and families, thinking how one’s mental health affects their physical health. I considered triple board training but ended up completing pediatrics residency at Columbia in NYC. I am now so excited to be a pediatric portal fellow at CHOP. I’m interested in lots of things, thinking about being a psychiatrist for children with medical complexity and chronic medical conditions as well as south Asian mental health.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Susheel Khetarpal, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Naomie Shembo, MD The Warren Alpert Medical School of Brown University I grew up in Charlotte, North Carolina though I spent the last nine years in Providence, RI completing Brown’s BA/MD program. During my undergraduate years, I pursued majors in Public Health and French/Francophone Studies, alongside a scholarly concentration in Medical Education during medical school. Throughout my academic journey, I've been dedicated to cultivating inclusive spaces for patients and peers to speak freely about our mental health. I am excited to learn more about integrating my perspective as a member of the LGBTQ+ community with the practice of psychotherapy as I move through residency. I look forward to exploring how this integration can enhance patient care and support within diverse communities. I am also particularly interested in continuing to pursue medical education during residency. Outside of the hospital, you’ll often find me on the couch watching reality TV with my partner and our diva of a cat, Mari!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Naomie Shembo, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Andrew Siliciano, MD, PhD Weill Cornell Medicine I grew up in Ithaca, New York and stayed in the beautiful Finger Lakes Region to study Applied and Engineering Physics at Cornell University. During this time, I became interested in how the brain gives rise to behavior, and how dysfunction in neural circuits may manifest as psychiatric illness. As my interests shifted from physics to medicine, I decided to pursue an MD-PhD at the Weill Cornell/Rockefeller/Sloan-Kettering Tri-Institutional program in New York City. For my PhD, I turned to the tiny fruit fly, Drosophila melanogaster, a model organism whose concise neural architecture allows for deep mechanistic understanding of how brain circuits give rise to complex behaviors. I chose to study the behavioral algorithms and neural mechanisms underlying odor plume tracking (in other words, how a fruit fly finds the banana on your kitchen counter!). After returning to the wards, I found that I wanted to pursue a career in psychiatry, and am trilled to be training at Penn! My interests are broad, but include addiction, interventional, and consult-liaison psychiatry. In my free time I enjoy cycling with my wife, laughing with my daughter, and petting my cat Tubbs.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Andrew Siliciano, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Shiori Tomatsu, MD Sidney Kimmel Medical College at Thomas Jefferson University Post Pediatric Portal Program I grew up in St. Louis, MO. In college, I majored in music with a focus on flute performance at Yale University. Prior to starting medical school, I was interested in pursuing psychiatry. After starting medical school, my interests expanded to both pediatrics and psychiatry, so I completed a pediatric residency in Minnesota. I am now continuing my training in general psychiatry and child psychiatry at Penn. I am looking forward to being back in Philly again.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Shiori Tomatsu, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Chidinma Wilson, MD Perelman School of Medicine at the University of Pennsylvania Hi everyone! I was born in Michigan and spent several of my formative years in California. From an early age, I knew I wanted to be a physician, but my career vision became more defined in high school. As a first-generation Guyanese American, I desired to understand differences in health outcomes for those closest to me. So, I delved into unpacking the drivers of health disparities, particularly adverse childhood experiences, cultural differences, and language barriers. This exploration ignited my passion for health equity. I matriculated into Oakwood University to pursue a dual degree in Biology and Spanish, and spent a year abroad in Entre Ríos, Argentina. Afterward, I started medical school at Penn, where I was honored to partner with the community through various leadership roles, including Co-Chair at the United Community Clinic and Co-Coordinator for Philadelphia Towards Racial and Environmental Equity. During my clerkship year, I found what lay at the intersection of my passions: psychiatry. I am overjoyed to continue my here training at Penn for residency, where I strive to deepen my interest in timely, trauma-sensitive interventions for children and their families and quality mental health care for marginalized communities. In my free time, I enjoy exploring local restaurants, traveling, putting puzzles together, and trying new activities with my family and friends.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Chidinma Wilson, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_28_html_260d4b97a2",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_28.html",
+    "training_year_label": "PGY2",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Emily Beydler, MD University of Florida College of Medicine Research Track I grew up in the Washington, DC area and studied neuroscience and biochemistry at the College of William and Mary. I fell in love with the brain, and after graduation spent two years in a post-baccalaureate research fellowship at the NIMH, where I studied circuit-based and neurosteroid therapeutics. I then completed MD training at University of Florida College of Medicine, where I continued neuroscience research. During rotations, I realized my passion for caring for patients' mental health around pregnancy and menopause and I was drawn to the gaps in knowledge surrounding reproductive psychiatric disorders. My long-term goal is to become a reproductive psychiatrist and independent investigator focused on risk prediction and early intervention for psychiatric disorders across the reproductive lifespan. The deep care for patients, broad opportunities, and warmth amongst co-residents made Penn Psychiatry stand out to me on interview day and I feel so lucky to be part of such an amazing class! Outside of medicine, I enjoy caring for my pets and houseplants, spending time with family and friends, and reading.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Emily Beydler, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Lara Boyle, MD, PhD Columbia University Vagelos College of Physicians and Surgeons Research Track Hi there! I grew up outside of Boston, before pursuing a degree in neuroscience from Yale University. I joined a research lab studying how chronic stress affects how we learn and remember fearful experiences in mouse models. While pursuing this work, I realized how critical it is for research to speak to the needs and experiences of patients. After two years at Boston Children’s Hospital investigating changes in circadian rhythms in children with Tuberous Sclerosis Complex, I joined the MD/PhD program at Columbia University. My thesis work used mouse models to study the activity of thousands of neurons during social memory, and identified brain regions that allow us to learn to avoid individuals who do us harm. At the same time, my experiences doing psychiatry and therapy solidified my passion for mental health, particularly in the areas of mood and trauma. During residency I plan to study how early life sleep disturbances (including from stress) affect neural activity and rhythms into adulthood. Outside of the hospital, I love to cook, play board games, throw the ball for my dog Ringo, and explore all that Philadelphia has to offer.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Lara Boyle, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Luke Brier, MD, PhD Washington University in St. Louis School of Medicine Research Track I grew up in a suburb of Dallas, TX and was a proud band kid in a high school where this was actually cool (still second to the football team, of course). From there, I went to college in Houston where I continued to study music and completed a BS in math. I became interested in software and algorithm development as an undergrad and used this as a basis for a few different research endeavors during my graduate studies at WashU in St. Louis. Here, my main thesis focused on software and hardware development within optical neuroimaging. My clinical interest in psychiatry stemmed from witnessing the staggering effects social determinants of health had on patients I was caring for in St. Louis and seeing how developing more affordable and accessible interventional neuromodulation options could serve as a resource to help mitigate this. Outside of medicine, I try to stay very active in local music scenes, enjoy participating in recreational team sports, and am excited to explore Philly!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Luke Brier, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Chance Dunbar, MD University of California, San Diego School of Medicine Hey everyone! I was raised in Sacramento, CA and went across the US to study biology at Brown University. After graduating, I moved back to Sacramento where I worked as a medical scribe for two years. I then attended UC San Diego School of Medicine and discovered my love for psychiatry after my 3 rd year clerkship. My interests include child and adolescent psychiatry, LGBTQ+ populations, and community psychiatry. Outside of the hospital I love to cook, spend time with my partner, try new restaurants, go to the rock-climbing gym, get out in nature, and relax with some hard-earned video games. I feel honored to be able to train at Penn where I’ve already found such a supportive environment both in my coresidents and program leadership. I’m so excited to be back on the east coast and explore Philadelphia!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Chance Dunbar, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Desmond Green, MD, MPH University of Miami LM Miller School of Medicine Post Pediatric Portal Program My name is Desmond Green and I am currently a First-year Post Pediatric Portal Fellow (PGY-4). I previously completed my Pediatrics training at the University of Washington/Seattle Children’s Hospital. I am from Newport News, Virginia where most of my family still lives. I attended Harvard University for my undergraduate studies where I studied Music and minored in Germanic Studies and then attended the University of Miami Miller School of Medicine where I obtained both my MD and MPH. My academic interests include Pediatric Environmental Health, as well as improving URiM representation through JEDI recruitment strategies and mentorship, which has carried with me through residency when I served as treasurer and Co-Chair of the Diversity Committee of my residency program. Appreciating the importance of psychosocial components in nurturing the total wellbeing of a child, I believe it is essential to be able to serve the behavioral and mental, as well as the physical, needs of my patients. As such, that is what brought me to the University of Pennsylvania/Children’s Hospital of Philadelphia, where upon completion I will be triple boarded in Pediatrics, Adult Psychiatry, and Child and Adolescent Psychiatry to be able to better respond to these nuanced needs. After finishing my training, I envision continuing to work in high-needs areas in medicine: mental health triaging in the emergency department, functional neurologic and abdominal disorders, and integration of psychiatric/behavioral/mental health into the medical home model to name a few. In my free time, I love to go on adventures and experience new things. As a single person without many things tying me down, I feel like now is the time more than ever to go out and explore the world while I can. I am always open to any travel tips that come my way!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Desmond Green, MD, MPH",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Yasmin Issari, MD Columbia University Vagelos College of Physicians and Surgeons I was born in Tehran, Iran but left the desert for the cold winters of Hartford, CT with my family when I was 5 years old. I went to Harvard for college, where I studied psychology and developed a passion for working with young people. After college, I spent a year in Medellin, Colombia where I developed youth programming at a center for former child soldiers while also conducting research on the ways communities cope following civil conflict, an experience that showed me how trauma can deeply impact human experience and mental health. A few years later, I found my way to medicine and began medical school at Columbia University. Though I initially planned on becoming a primary care physician and spent many evenings working at a student-run clinic for patients experiencing homelessness, listening to my patients share how significantly mental illness impacted their lives fostered my desire to become a psychiatrist serving underserved communities. I have a particular interest in trauma disorders, public/community psychiatry, and adolescent mental health. When I am not in the hospital, I enjoy spending my time creating in the pottery studio, practicing recipes from the GBBO, or planning my next hiking trip!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Yasmin Issari, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Ross Johnson, MD Creighton University School of Medicine Hi there! I have lived in Phoenix, Arizona for all but two years of my life. Unfortunately, I never became accustomed to the \"dry heat.\" I studied animal behavior and neurobiology at Arizona State University. There, I fell in love with the interplay of genetics, biology, and human behavior. Around the same time, I started a leadership position at an interprofessional student-run free clinic serving the homeless of downtown Phoenix. Working at the clinic, I saw firsthand how social determinants of health and living conditions affect mental health. I knew then that I wanted to spend my career serving populations experiencing mental illness. After college, I packed my bags and moved to Omaha, Nebraska for medical school. I loved learning about medicine, and I was especially drawn to psychiatry and its pathologies that so greatly affect peoples' lives. During this time, I also enjoyed working with student government and faculty to design and implement medical education and curriculum change. I am so excited to be training at Penn, where I felt a strong connection during my interviews and a sense that its education would set me up for a long and successful career. In my free time, I enjoy running and hiking, playing pickleball, writing and recording music, and exploring new cities rich with history.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Ross Johnson, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Hae-Min Jung, MD Perelman School of Medicine at the University of Pennsylvania Hi! I grew up just outside Pittsburgh, PA, and bounced around a lot of different career goals from astronaut to chemist before majoring in Statistics in Williams College. With an MR physicist for a father, I grew up around MRI's and brains, and I did MRI research at Austen Riggs during my gap years. While doing research and volunteering, I decided to go into medicine after realizing I was drawn more to caring for other human beings in the present moreso than diving into statistical minutia (though I still have a soft spot for statistics). In medical school at Penn, I worked my way through the different blocks before resonating most strongly with Psychiatry and its emphasis on understanding the multimodal causes of suffering. My current interests are in exploring the overlap between Psychiatry and Buddhism, and I'm excited to explore more of this wonderful field at Penn!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Hae-Min Jung, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Peter Lauro, MD, PhD The Warren Alpert Medical School of Brown University Research Track I grew up in northern New Jersey and studied neuroscience at Hamilton College. I first became interested in medicine during a post-bac fellowship at the NIH where I conducted neuroimaging research. I then completed MD/PhD training at Brown, where my graduate work used awake human intracranial recordings to identify neural biomarkers of Parkinson's disease symptoms such as tremor and bradykinesia. Upon returning to my clerkships however, I realized psychiatry was my calling as it allowed me to compassionately treat patients while understanding the complex interactions of mind, brain, and life experience. At Penn I am investigating how patients with treatment-refractory OCD make risk-benefit decisions, and how their decision making changes with clinical interventions such as deep brain stimulation or focused ultrasound. I plan to specialize in interventional psychiatry, using neuromodulation to both treat patients and better understand the relationship between psychiatric illness and cognitive neuroscience. Outside of the hospital and lab, I enjoy exploring Philadelphia's parks with my family.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Peter Lauro, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Christopher Lea, MD Duke University School of Medicine I grew up outside of Atlanta, GA before attending Duke for my undergraduate years where I majored in Psychology. From my time working with military veterans conducting spirituality research, I chose to spend my gap year before medical school pursuing a Certificate in Theology and Healthcare at the Duke Divinity School before attending Duke for my MD degree. During my third year of medical school, I developed my passion for community psychiatry and marginalized populations, and I leveraged my time as a Duke Margolis Health Policy Scholar to explore policy level interventions to support the communities I hope to serve. With the disproportionately rising rates of suicide in Black youth, my research focused on Black youth suicide prevention strategies specifically in North Carolina. I have benefited greatly from mentorship, and I was heavily involved in mentoring high school students through my medical school’s SNMA chapter. Going forward, I plan to pursue child psychiatry and continue my work empowering marginalized communities to assist in their flourishing. In my personal life, I regularly attend therapy, frequent spin classes, explore restaurants, and stay connected with family and friends from all stages of my life.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Christopher Lea, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Madeleine Norris, MD Sidney Kimmel Medical College at Thomas Jefferson University Post Pediatric Portal Program I grew up in the suburbs of Philadelphia and moved to Atlanta for college to study Anthropology and Human Biology. As an anthropology student, I was captivated by the concept of what different cultures found to be \"the story worth telling.\" This has translated into my work with patients and helped me identify their goals and framework of understanding better. As a pediatrics resident, I discovered that my ability to empathize and understand the unique narratives of my patients enhanced their care experiences. I realized that beyond treating ailments, my true calling lay in assisting children in navigating complex emotions and fostering their mental well-being. This led me to pursue the Post Pediatric Portal Program with the goal of integrating Pediatrics and Child Psychiatry. When I'm not at work I can be found running along the SRT, playing with my cat Milo, or reading fantasy books, as I like to believe there is still magic in the world.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Madeleine Norris, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Chase Stevens, MD University of Cincinnati College of Medicine Hi everyone! I was born and raised in Louisville, Kentucky. I then completed my undergraduate studies at Spelman College, an HBCU and women’s college. There, I began to explore the human mind as a psychology major. I also furthered my interest in social justice through my studies at the college and working with various community organizations. Since entering medical school, I gravitated towards psychiatry because of the privilege to work with people of a marginalized community every day and the goal of understanding each patient as a whole person. My interests in psychiatry include community psychiatry, addiction psychiatry, emergency psychiatry and psychotherapy. Outside of work, you can find me exploring all of Philly’s amazing restaurants, walking around one of the many parks with my dog, Ella, or practicing yoga!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Chase Stevens, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Demetrius Woodard, MD Lewis Katz School of Medicine at Temple University I was born and raised in Southwest Philadelphia and lived in different sections of Philadelphia for the majority of my life. I attended Central High School (Class of 274!!!) and then went to The West Chester University of Pennsylvania to obtain my BS in microbiology. Next, I attended Lewis Katz School of Medicine at Temple University, and this afforded me the opportunity to go back into the community and work with community residents on projects such as our barbershop blood pressure intuitive and several college and career prep courses in High School across the city. I am excited to continue this community work in the field of psychiatry with my Penn family! My interests in the field include urban trauma focused psychotherapy, mental health policy and legislation, consult-liaison and forensics. Outside of the hospital, you will most likely catch me running on Kelly drive or crying from the Eagles, Phillies, and/or the Sixers.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Demetrius Woodard, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Catherine Yang, MD Perelman School of Medicine at the University of Pennsylvania I grew up in the suburbs of Philadelphia to two Chinese immigrants who met in West Philly. Though my family left the area when I was in high school, I eventually found my way back to the best city in the world and discovered my passion for psychiatry along the way. In high school, my first hospital volunteer experience involved providing hand massages and making conversation with patients across the hospital. Later, after four years of working for campus publications and taking as many creative writing classes as I could get my hands on at Yale, I became a Penn medical student driven by the mission to bring more arts, storytelling, and humanities to my school. In the process, I also learned a great deal from my peers and mentors via administrative and curricular leadership roles. I am now the proud co-founder of apenndx (PSOM's student-run literary magazine), PSOM's Student Curriculum Council, and PSOM's Medical Humanities Area of Concentration. I am even prouder to call Penn Psychiatry my new home, where I hope to take a deep dive into women's mental health, medical education, psychotherapy, and—of course—the medical humanities. You'll often overhear me talking about Chinatown, house plants, movies, animation, Philly food gems, and my aspirations of becoming a cat mom.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Catherine Yang, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_27_html_55a39b2840",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_27.html",
+    "training_year_label": "PGY3",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Reshem Agarwal, MD University of Southern California's Keck School of Medicine Post Pediatric Portal Program Hi there! I have worked as a primary care pediatrician and hospitalist in various community healthcare settings over the last six years. My clinical experience has focused on serving newly arrived immigrant populations from culturally diverse backgrounds. As a daughter of Indian immigrants who was born and raised in California, I have an ever-evolving relationship with my own multicultural identity and am passionate about exploring the relationship between identity and health. I am interested in people’s stories and understanding what drives behavior. This has brought me to an exciting juncture in my career as I begin training in psychiatry. I look forward to focusing on behavioral health and applying this lens to public health issues. Outside of work, I enjoy practicing yoga, getting outdoors, and exploring music and arts.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Reshem Agarwal, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Phillip Bradshaw, MD Perelman School of Medicine at the University of Pennsylvania My path to psychiatry emerged from a passion for languages. Early on, I participated in several exchange programs in Spanish, German and Russian speaking countries. Later, I majored in Linguistics and Russian at Georgetown University. While assisting in aphasia research, I discovered the overlap between medicine and linguistics. On a Fulbright Fellowship in Germany, I further explored the field of psycholinguistics and quickly realized that as a physician, I could pair expertise in communication and medicine to support the health and wellbeing of patients. After a couple years of international adventures, I returned to the US, completed post-baccalaureate premedical studies at Goucher College, and matriculated into the Perelman School of Medicine at the University of Pennsylvania. Faculty mentorship, research opportunities and fulfilling encounters with patients contributed to my decision to specialize in psychiatry at Penn. Between medical school and residency, I consulted for a mental health tech company in the development a natural language processing tool for psychotherapy. I also traveled abundantly and developed my hobbies in gardening and yoga.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Phillip Bradshaw, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Elizabeth Duthinh, MD, MPH Perelman School of Medicine at the University of Pennsylvania I grew up in western Maryland and studied public policy in undergrad at Brown University. After graduation, I moved to Philadelphia and worked in legal services at a nonprofit serving low-income immigrants and refugees. I completed the premedical postbaccalaureate program at Bryn Mawr College and attended medical school at Penn. I took a winding road through medical education, including pursuing an MPH and spending a year teaching high school biology and chemistry. The ongoing warmth and supportiveness of the faculty and residents at Penn psychiatry made the decision to stay here for residency an easy one. I care deeply about my LGBTQ community, health access and equity, and psychiatry and reproductive health.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Elizabeth Duthinh, MD, MPH",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "QeeQee Gao, MD University of Kansas School of Medicine Kansas City Hi, I’m QeeQee (pronounced “Chee-Chee”)! From living and dying to neurons and networks, and everything in between, I am excited and inspired by all things human. I majored in biology at MIT, where I discovered the great joys of humanities and social sciences. After two gap years of teaching and serving coffee, I began medical school at the University of Kansas to become a surgeon. Little did I know that I would gravitate to the unassuming pursuit of human connection and meaning that is psychiatry! I hope to combine my love for art and science with policy and innovation to reimagine the social landscape. I am interested in the interdisciplinary crossovers of community and cultural psychiatry, psychodynamic psychotherapy, and medical humanities. In my downtime, you can find me listening to podcasts, binging Netflix reality tv, trying (and failing) to win the love of my cats, and occasionally writing a thing or two.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "QeeQee Gao, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Nadine Michel, MD, PhD University of Virginia School of Medicine Research Track I became interested in research after spending a summer studying the prevalence of psychiatric illness in earthquake survivors in Haiti. I became intrigued by resilience to social stress and worked in a lab as an undergrad at Duke studying the neural circuits involved in susceptibility to social stress in a rodent model. I pursued an MD/PhD at UVA and used human stem cells to study how genomic stress during brain development can cause DNA damage in high-risk psychiatric genes. I look forward to joining the Penn research track and combining my interest in understanding mechanisms of resilience to stress with my passion for community mental health work.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Nadine Michel, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Alise Peckjian, MD Drexel University College of Medicine Post Pediatric Portal Program I was born and raised in the suburbs outside of Philadelphia. I earned both my Bachelor’s degree in Biomedical Engineering and my Medical degree at Drexel University. Throughout medical school, I volunteered at the Eliza Shirley House for Women and Children, where I realized the importance of child and family care as well as mental health medicine in disadvantaged communities. This led me to pursue my pediatric residency at St Christopher’s Hospital for Children. During my residency, I had the opportunity to care for children in diverse settings for their medical and behavioral health care, from outpatient clinics to the PICU. As I continued my work, the recurring theme of mental health in patient care guided me to collaborate with the Behavioral Health Committee at my hospital in developing new policies for psychiatric patients in the inpatient and emergency departments. These experiences culminated in my matriculation into the Post Pediatric Portal Fellowship! My personal interests outside of work include painting, cooking, exploring the food scene in Philadelphia, and racking up steps in the city and our local state parks!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Alise Peckjian, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Zachary Rosenthal, MD, PhD Washington University in St. Louis School of Medicine Research Track Hey there! I grew up in the suburbs of New Jersey, just outside NYC. From there I headed to Haverford College, where I majored in chemistry and found my passion for research during my senior thesis studying molecular regulation of protein aggregation in Huntington’s Disease. In pursuit of a mixed career as a physician-scientist, I went on to the MD/PhD program at WashU in St. Louis, where my PhD work explored how focal cortical injury and stimulation change brain network dynamics, using neuroimaging and electrophysiology in mouse models. I then returned to the wards and discovered my love of psychiatry, and became particularly interested in interventional neuromodulation therapies like ECT, TMS, and ketamine. At Penn I’m planning to explore my clinical interests in interventional psychiatry as well as use my postdoctoral research to investigate the physiological mechanisms of clinical brain stimulation using neural recordings in animal models. In the psychiatry world, I’m also interested in addiction, LGBTQ populations, and consult liaison psychiatry. In my free time, I enjoy cooking, home fermentation, hiking with my partner Bryan, and petting my cats Otto and Wayne.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Zachary Rosenthal, MD, PhD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Eugenia Saiegh, MD Perelman School of Medicine at the University of Pennsylvania Hi! I was born and raised in Buenos Aires, Argentina and spent the second half of my life in New Jersey. I stayed in New Jersey for college, where I studied biology and nutrition at Rutgers University. As a first-generation Latina immigrant, I have volunteered in Spanish clinics throughout college and medical school to help improve medical care within the Latinx community. In medical school I co-founded the first Culinary Medicine Interest Group at Penn with a mission to improve nutrition and culinary literacy in medical education and patient care. I discovered my passion for psychiatry during my clerkship rotation at the Veterans Affair hospital, and I’m excited to be staying at Penn for residency. Throughout residency I hope to explore my interests in the gut-brain axis, Latinx mental health, and child/adolescent psychiatry. Outside of the hospital, I enjoy rock climbing, training Jiu-Jitsu, cooking vegan recipes, camping/hiking, and being a Philly sports fan!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Eugenia Saiegh, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Kirsten Sandgren, MD Perelman School of Medicine at the University of Pennsylvania I grew up outside of Milwaukee, WI and moved to Washington, DC for my undergraduate at Georgetown University. I explored my fascination with human resilience and the experiences that shape and reshape our minds through my double major in psychology and history. I knew that I wanted to build my career in the field of mental health and pursued a Masters in Social Work at the University of Washington in Seattle, where I had the opportunity to work with patients involved in the criminal justice system, soldiers returning from Iraq and Afghanistan with the Warrior Transition Battalion at Joint Base Lewis-McChord and finally as an interventionist in a clinical research trial seeking to identify and mitigate the development of PTSD in acutely injured trauma survivors. Throughout my time as a social worker, I was humbled and honored to work with patients during some of the most trying moments of their lives, hear their stories and lend support where I was able. I was privileged to work with superb psychiatrists and as time and was inspired to attend Perelman School of Medicine and become a psychiatrist myself. I have a particular interest in trauma disorders, perinatal mental health, narrative medicine and the role of physicians as allies and advocates in advancing social justice. Outside of my time at the hospital, I fill every moment I can spending time exploring parks with my partner and our young daughters, trying out overly ambitious baking projects and playing board games.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Kirsten Sandgren, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Mila Tamminga, MD Perelman School of Medicine at the University of Pennsylvania I was born and raised in Central Pennsylvania. I stuck around to complete my undergraduate degree in microbiology at Penn State, where I also worked in an adult basic literacy program and did research in neuroregeneration. As a medical student at Penn, I fell in love with psychiatry while studying novel therapeutics for addiction and working at a free community clinic. I also developed interests in well-being and the medical humanities, running a course at the Philadelphia Museum of Art about medical bias and completing mixed-methods research on medical students’ experience seeking psychiatric care. I am thrilled to be joining Penn’s warm, expansive program for residency. Within psychiatry, I am interested in collaborative/integrated care, addiction psychiatry, medical education, and well-being. I spend my free time trying new restaurants, walking in Philly’s many beautiful parks, and hanging out with my husband and cats.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Mila Tamminga, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Mikiko Thelwell, MD, MPH UCLA/Drew Medical Education Program Growing up in the South (shoutout to Atlanta) as a first-generation Jamaican American and queer woman of color, I decided to pursue medicine after taking cultural psychiatry at my alma mater, Barnard College. By connecting mental health with social justice, I found my passion. I attended medical school at the Charles R. Drew University (CDU) of Medicine and Science and the David Geffen School of Medicine at UCLA. As the only historically Black medical school on the west coast, CDU’s medical education program was designed specifically towards serving patients in under-resourced settings. In my first year, I began working with my mentor and psychiatrist Dr. Eraka on her sexual and reproductive health program for youth impacted by commercial sexual exploitation (CSE). After learning more about her use of community-based participatory research, I decided to pursue my master’s in public health at UCLA in community health sciences. For my thesis, I was honored to help create lessons that challenged cis-normative/binary assumptions around sexual and reproductive health and to use critically informed psychoeducation with young people of color. In my final year of medical school, I continued engaging with multidisciplinary and intersectional mental health care. I completed the first Sub-I in the UCLA STAR clinic and EMPWR program for youth who identify as LGBTQ+ and families navigating complex experiences of trauma. I then translated these experiences through co-authorship of the first Kaplan and Sadock textbook chapter on mental health needs for LGBTQIA+ youth. I hope to continue this work at Penn, practicing psychiatry with an emphasis on public health programming for marginalized communities. Outside of work, I spend time singing, traveling, and doing hot yoga!",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Mikiko Thelwell, MD, MPH",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
+  },
+  {
+    "bio_text": "Eric Wagner, MD University of Colorado School of Medicine I am a native of Colorado and was born and raised on the south side of Colorado Springs. I started my educational journey thinking I would play linebacker for the Adams State Grizzlies before an injury and large transition lead me back home to complete my undergraduate degree at the University of Colorado-Colorado Springs. I became the first person in my family to graduate from college with a degree in biomedical science and became interested about dialogue around mental health within minority communities and how policy shapes health outcomes for those on the margins of society. Two years following undergraduate I entered medical school at CU with tunnel vision focused on a career in psychiatry with a particular passion around patient advocacy. I am ecstatic to finally leave my home base and come to out to a completely different world in Philly where there will be much necessary personal and professional growth. In my free time, I enjoy weightlifting, exploring restaurants, brewing up incredible coffees from the homeland of Panama, and suffering on Sundays when watching my favorite team, the Washington Commanders.",
+    "coverage_gap_program_name": "Psychiatry",
+    "coverage_gap_status": null,
+    "current_status": "current",
+    "extraction_method": "gap_queue_profile_component",
+    "headshot_alt": "",
+    "headshot_url": "",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "name": "Eric Wagner, MD",
+    "official_program_key": "",
+    "population": "penn_affiliated_current_trainees",
+    "profile_url": "",
+    "program": "Psychiatry Residency",
+    "program_memberships": [
+      "Psychiatry Residency"
+    ],
+    "quality_notes": [
+      "official_hup_gap_queue_source",
+      "queue_driven_roster_scrape_needs_review",
+      "source_priority_150"
+    ],
+    "quality_tier": "medium",
+    "role": "resident",
+    "source_key": "penn_gme_gap_psychres_class_of_26_html_d5ebfd7c08",
+    "source_type": "official_gap_roster",
+    "source_url": "https://www.med.upenn.edu/psychres/class_of_26.html",
+    "training_year_label": "PGY4",
+    "unit": "Psychiatry"
   },
   {
     "bio_text": "Zayne Belal, MD I grew up in Baytown, TX and later attended the University of Southern California where I played Water Polo and finished a Degree in Social Sciences & Economics. I returned to Texas and completed another degree in Physics (emphasis in Health Physics) at Texas Southern University (TSU). During my time at TSU, I completed a summer internship at PENN in the Radiation Physics Department where we studied Proton beam characteristics using acoustic measurements. Following Graduation, I worked as a research assistant at MD Anderson Cancer Center in the Radiation Physics Department where we investigated radiation induced lymphopenia. I then completed medical school at Texas Tech University Health Sciences Center in Lubbock, TX. Before Joining Penn’s Radiation Oncology Department, I completed my internship year at the Hospital of the University of Pennsylvania. Outside of work, I enjoy grilling with friends and family, Movies/TV, and exploring Philadelphia’s wonderful food scene.",

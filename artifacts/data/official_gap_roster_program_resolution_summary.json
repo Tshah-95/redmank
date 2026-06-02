@@ -1,25 +1,28 @@
 {
   "by_inferred_source_role": {
     "fellowship": 10,
-    "residency": 14
+    "residency": 14,
+    "unknown": 4
   },
   "by_resolution_status": {
     "accepted_exact_program_resolution_candidate": 23,
+    "review_program_alias_resolution_candidate": 4,
     "source_role_program_type_mismatch_review": 1
   },
   "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
   "denominator_mutation_allowed_records": 418,
   "denominator_mutation_allowed_rows": 23,
-  "generated_at": "2026-06-02T13:38:56.707437+00:00",
+  "generated_at": "2026-06-02T13:47:24.674053+00:00",
   "json": "artifacts/data/official_gap_roster_program_resolution.json",
-  "loaded_people_reviewed": 430,
+  "loaded_people_reviewed": 482,
   "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
   "records_by_resolution_status": {
     "accepted_exact_program_resolution_candidate": 418,
+    "review_program_alias_resolution_candidate": 52,
     "source_role_program_type_mismatch_review": 12
   },
-  "resolution_rows": 24,
-  "review_required_records": 12,
-  "review_required_rows": 1,
-  "source_records_reviewed": 430
+  "resolution_rows": 28,
+  "review_required_records": 64,
+  "review_required_rows": 5,
+  "source_records_reviewed": 482
 }

@@ -1,5 +1,5 @@
 {
-  "advance_due_by_refresh_rows": 1446,
+  "advance_due_by_refresh_rows": 1498,
   "by_category_and_readiness_status": {
     "fellow:active_no_change_expected": 13,
     "fellow:expected_advancement_window": 100,
@@ -12,15 +12,15 @@
     "resident:expected_completion_window": 191,
     "resident:review_required_window": 10,
     "resident:source_refresh_required_window": 210,
-    "resident:stale_without_transition_review": 44
+    "resident:stale_without_transition_review": 96
   },
   "by_missing_expectation": {
-    "absence_requires_source_reconciliation": 706,
+    "absence_requires_source_reconciliation": 758,
     "expected_absence_after_completion": 252,
     "unexpected_absence_review": 672
   },
   "by_next_stage_expectation": {
-    "early_expected_next_stage_review": 410,
+    "early_expected_next_stage_review": 462,
     "expected_next_stage_accept_candidate": 659,
     "no_expected_next_stage": 561
   },
@@ -30,7 +30,7 @@
     "expected_completion_window": 252,
     "review_required_window": 23,
     "source_refresh_required_window": 627,
-    "stale_without_transition_review": 56
+    "stale_without_transition_review": 108
   },
   "by_role_and_readiness_status": {
     "fellow:active_no_change_expected": 13,
@@ -44,25 +44,25 @@
     "resident:expected_completion_window": 191,
     "resident:review_required_window": 10,
     "resident:source_refresh_required_window": 210,
-    "resident:stale_without_transition_review": 44
+    "resident:stale_without_transition_review": 96
   },
   "by_same_stage_expectation": {
     "same_stage_after_expected_transition_review": 659,
     "same_stage_expected": 13,
-    "same_stage_requires_fresh_source": 706,
+    "same_stage_requires_fresh_source": 758,
     "same_terminal_stage_after_completion_review": 252
   },
   "category_csv": "artifacts/data/category_refresh_expectations.csv",
   "category_rows": 3,
   "completion_window_by_refresh_rows": 252,
   "person_csv": "artifacts/data/person_refresh_expectations.csv",
-  "person_rows": 1483,
+  "person_rows": 1535,
   "program_csv": "artifacts/data/program_refresh_expectations.csv",
-  "program_rows": 95,
+  "program_rows": 96,
   "projected_refresh_date": "2027-08-15",
-  "requires_human_review_by_refresh_rows": 79,
+  "requires_human_review_by_refresh_rows": 131,
   "requires_source_refresh_by_refresh_rows": 627,
-  "stale_by_refresh_rows": 1617,
+  "stale_by_refresh_rows": 1669,
   "state_csv": "artifacts/data/training_state_refresh_expectations.csv",
-  "state_rows": 1630
+  "state_rows": 1682
 }

@@ -9,6 +9,7 @@ paths = [
   '''artifacts/data/person_enrichment_execution_readiness\.json''',
 ]
 regexes = [
+  '''person_[a-z0-9][a-z0-9_-]*_[0-9a-f]{2,16}''',
   '''person_[a-z0-9][a-z0-9_-]*_[0-9a-f]{3,12}''',
   '''person_[a-z0-9-]+_[0-9a-f]{12,16}''',
   '''"person_key": "person_[a-z0-9-]+_[0-9a-f]{12,16}''',

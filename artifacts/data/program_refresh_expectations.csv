@@ -10,6 +10,7 @@ Rheumatology Fellowship,fellow,15,1,15,review_required_window,100,covered_curren
 Internal Medicine Residency - Global Health Equities Track,fellow,2,1,4,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,4,0,4,0,review_lifecycle_or_source_before_mutation
 Maternal Fetal Medicine Fellowship,fellow,8,1,8,stale_without_transition_review,95,covered_current_roster,0,0,0,0,8,0,8,0,review_lifecycle_or_source_before_mutation
 Pathology - Anatomic and Clinical Residency,resident,44,1,44,stale_without_transition_review,95,covered_current_roster,0,0,0,0,44,0,44,0,review_lifecycle_or_source_before_mutation
+Psychiatry Residency,resident,52,1,52,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,52,0,52,0,review_lifecycle_or_source_before_mutation
 ABR Alternate Pathway to Certification,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Abdominal Imaging Fellowship,fellow,9,1,9,source_refresh_required_window,85,covered_current_roster,0,0,9,0,0,0,9,0,refresh_source_before_retaining_state
 Adult Congenital Heart Disease Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state

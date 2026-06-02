@@ -3,45 +3,45 @@
     "carry_forward_no_change": 49,
     "deterministic_expected_advancement": 2522,
     "deterministic_expected_completion": 880,
-    "manual_review_required": 342,
+    "manual_review_required": 602,
     "source_refresh_required": 2296
   },
   "by_priority_band": {
-    "critical": 2317,
-    "high": 646,
-    "low": 1204,
-    "medium": 1922
+    "critical": 2369,
+    "high": 698,
+    "low": 1256,
+    "medium": 2026
   },
   "by_role": {
     "fellow": 1879,
     "medical_student": 412,
-    "resident": 3798
+    "resident": 4058
   },
   "by_source_family": {
-    "contact": 1204,
+    "contact": 1256,
     "normalization": 617,
-    "official_profile": 556,
-    "official_roster": 1470,
-    "prior_training": 269,
-    "research": 1126,
+    "official_profile": 608,
+    "official_roster": 1522,
+    "prior_training": 321,
+    "research": 1178,
     "review_queue": 847
   },
   "by_task_type": {
-    "current_roster_state_reconciliation": 1470,
+    "current_roster_state_reconciliation": 1522,
     "evidence_reconciliation_review": 847,
-    "official_profile_search": 556,
+    "official_profile_search": 608,
     "organization_alias_review": 617,
-    "public_contact_verification": 1204,
-    "research_identity_search": 1126,
-    "source_medical_school_background": 179,
+    "public_contact_verification": 1256,
+    "research_identity_search": 1178,
+    "source_medical_school_background": 231,
     "source_residency_background": 90
   },
-  "fresh_observation_required_tasks": 6040,
-  "person_count": 1483,
+  "fresh_observation_required_tasks": 6300,
+  "person_count": 1535,
   "queue_csv": "artifacts/data/person_enrichment_queue.csv",
   "queue_json": "artifacts/data/person_enrichment_queue.json",
-  "queue_rows": 6089,
-  "stale_by_refresh_tasks": 6040,
+  "queue_rows": 6349,
+  "stale_by_refresh_tasks": 6300,
   "top_critical_tasks": [
     {
       "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
