@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T14:00:11.653396+00:00
+Generated: 2026-06-02T14:04:45.249040+00:00
 
 ## What This Pass Did
 
@@ -116,30 +116,31 @@ Top alias packets:
 
 Alias reviewer decisions:
 
-Queue rows: 32. Ready rows: 15. Manual decision rows: 0. Accepted alias mappings: 0. Pending reviewer decisions: 15.
+Queue rows: 32. Ready rows: 15. Manual decision rows: 15. Accepted alias mappings: 14. Pending reviewer decisions: 0.
 
 | decision_status | count |
 | --- | --- |
+| accepted_reviewer_decision | 14 |
+| deferred_needs_more_evidence | 1 |
 | not_ready_for_reviewer_decision | 17 |
-| pending_reviewer_decision | 15 |
 
 | official_program_name | loaded_program_name | loaded_person_count | reviewer_decision | decision_status | accepted_alias_mapping | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Internal Medicine - Categorical | Internal Medicine Residency | 173 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Radiology - Diagnostic | Diagnostic Radiology Residency | 54 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Pulmonary Disease and Critical Care Medicine | Pulmonary and Critical Care Fellowship | 34 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Gastroenterology | Gastroenterology and Hepatology Fellowship | 23 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Plastic Surgery - Integrated | Plastic Surgery Residency | 22 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Endocrinology | Endocrinology, Diabetes and Metabolism Fellowship | 21 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Radiology - Interventional, Integrated | Interventional Radiology Integrated Residency | 19 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Internal Medicine - Pediatrics | Penn-CHOP Internal Medicine-Pediatrics Residency | 16 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Infectious Disease | Infectious Diseases Fellowship | 15 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Surgical Pathology (Selective) | Surgical Pathology Fellowship | 6 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Internal Medicine - Dermatology | Combined Internal Medicine-Dermatology Residency | 3 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Gastrointestinal and Hepatic Pathology (Selective) | GI/Hepatic Pathology Fellowship | 2 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Transplant Hepatology | Advanced Gastroenterology and Hepatology Fellowship | 2 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Blood Banking and Transfusion Medicine | Transfusion Medicine/Blood Bank Fellowship | 1 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
-| Soft Tissue/Bone (Selective) | Soft Tissue/Bone Pathology Fellowship | 1 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Internal Medicine - Categorical | Internal Medicine Residency | 173 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Radiology - Diagnostic | Diagnostic Radiology Residency | 54 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Pulmonary Disease and Critical Care Medicine | Pulmonary and Critical Care Fellowship | 34 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Gastroenterology | Gastroenterology and Hepatology Fellowship | 23 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Plastic Surgery - Integrated | Plastic Surgery Residency | 22 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Endocrinology | Endocrinology, Diabetes and Metabolism Fellowship | 21 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Radiology - Interventional, Integrated | Interventional Radiology Integrated Residency | 19 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Internal Medicine - Pediatrics | Penn-CHOP Internal Medicine-Pediatrics Residency | 16 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Infectious Disease | Infectious Diseases Fellowship | 15 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Surgical Pathology (Selective) | Surgical Pathology Fellowship | 6 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Internal Medicine - Dermatology | Combined Internal Medicine-Dermatology Residency | 3 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Gastrointestinal and Hepatic Pathology (Selective) | GI/Hepatic Pathology Fellowship | 2 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Transplant Hepatology | Advanced Gastroenterology and Hepatology Fellowship | 2 | needs_more_evidence | deferred_needs_more_evidence | 0 | collect_additional_program_role_track_or_current_roster_evidence |
+| Blood Banking and Transfusion Medicine | Transfusion Medicine/Blood Bank Fellowship | 1 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
+| Soft Tissue/Bone (Selective) | Soft Tissue/Bone Pathology Fellowship | 1 | accept_alias_mapping | accepted_reviewer_decision | 1 | materialize_accepted_alias_mapping |
 | Soft Tissue/Bone (Selective) | Pathology - Anatomic and Clinical Residency | 44 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
 | Plastic Surgery | Plastic Surgery Residency | 22 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
 | Radiology - Interventional, Independent | Interventional Radiology Integrated Residency | 19 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
@@ -3699,7 +3700,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T13:59:42.049062+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T14:04:17.431111+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
 | pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |

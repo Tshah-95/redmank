@@ -50,7 +50,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_program_alias_reviewer_decision_queue.csv`: reviewer-decision queue for alias packets, including packet fingerprints and required confirmation fields.
 - `artifacts/data/official_program_alias_reviewer_decisions.csv`: manual reviewer decision input file for accepting/rejecting official-program alias mappings.
 - `artifacts/data/official_program_alias_reviewer_decision_audit.csv`: audit of manual alias decisions against the current packet fingerprint and confirmation requirements.
-- `artifacts/data/accepted_official_program_alias_mappings.csv`: accepted alias mappings; currently empty until explicit reviewer acceptance is recorded and still non-mutating for denominator coverage.
+- `artifacts/data/accepted_official_program_alias_mappings.csv`: accepted alias mappings from explicit reviewer decisions; currently 14 public-source-backed mappings covering 390 loaded people, still non-mutating for denominator coverage.
 - `artifacts/data/official_program_alias_reviewer_decision_summary.json`: alias decision queue, pending, rejected/deferred, and accepted-mapping counts.
 - `artifacts/data/penn_gme_gap_source_candidates.csv`: prioritized source queue for official HUP programs without captured current roster people.
 - `artifacts/data/penn_gme_gap_source_probes.json`: reachability and page-signal observations for uncovered official HUP program URLs.

@@ -1,30 +1,34 @@
 {
   "acceptance_policy": "Accepted official-program alias mappings require an explicit reviewer decision, a matching packet fingerprint, and all required confirmation fields set to 1. Accepted mappings do not mutate denominator coverage by themselves.",
-  "accepted_alias_mapping_person_count": 0,
-  "accepted_alias_mapping_rows": 0,
+  "accepted_alias_mapping_person_count": 390,
+  "accepted_alias_mapping_rows": 14,
   "accepted_mappings_csv": "artifacts/data/accepted_official_program_alias_mappings.csv",
   "audit_csv": "artifacts/data/official_program_alias_reviewer_decision_audit.csv",
   "audit_rows": 32,
   "by_decision_status": {
-    "not_ready_for_reviewer_decision": 17,
-    "pending_reviewer_decision": 15
+    "accepted_reviewer_decision": 14,
+    "deferred_needs_more_evidence": 1,
+    "not_ready_for_reviewer_decision": 17
   },
   "by_queue_status": {
     "not_ready_for_reviewer_decision": 17,
     "ready_for_reviewer_decision": 15
   },
   "by_recommended_next_action": {
+    "collect_additional_program_role_track_or_current_roster_evidence": 1,
     "collect_stronger_alias_or_scope_evidence": 17,
-    "record_accept_reject_or_needs_more_evidence_decision": 15
+    "materialize_accepted_alias_mapping": 14
   },
   "by_reviewer_decision": {
-    "pending": 32
+    "accept_alias_mapping": 14,
+    "needs_more_evidence": 1,
+    "pending": 17
   },
-  "generated_at": "2026-06-02T14:00:10.175856+00:00",
+  "generated_at": "2026-06-02T14:04:43.846348+00:00",
   "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
-  "manual_decision_rows": 0,
+  "manual_decision_rows": 15,
   "not_ready_rows": 17,
-  "pending_reviewer_decision_rows": 15,
+  "pending_reviewer_decision_rows": 0,
   "queue_csv": "artifacts/data/official_program_alias_reviewer_decision_queue.csv",
   "queue_rows": 32,
   "ready_queue_rows": 15
