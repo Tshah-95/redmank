@@ -142,6 +142,15 @@ Penn training-history claims from current attending profiles are `needs_review`,
 
 The assurance ledger is deliberately not an accepted trend table. A current Penn attending endpoint plus a same-name Penn-training profile claim is still only a candidate until a dated historical roster, alumni page, CV, or independent profile links that attending identity to a Penn trainee record. This prevents the trend layer from turning current faculty pages into alumni-flow evidence without a real identity bridge.
 
+`scripts/discover_attending_historical_links.py` is the next recursive loop for those assurance gaps. It reads the trend-linkage groups, seeds already-known official Penn/provider URLs, optionally runs polite broad web search queries, probes candidate pages, and writes:
+
+- `attending_historical_link_candidates.csv`: source candidates with query/source provenance, probe status, content hash, term-hit labels, candidate status, confidence, priority, and required next evidence.
+- `attending_historical_link_search_queries.csv`: deterministic query plan for historical roster, alumni, profile, CV, and Penn-training searches.
+- `attending_historical_link_search_observations.csv`: search-endpoint observations, including rate-limit or non-200 behavior.
+- `attending_historical_link_discovery_summary.json`: counts by candidate status, query kind, result domain, searched group, and seeded/search rows.
+
+The seeded mode is intentionally reproducible and uses only already-known official source URLs. Broad search is useful, but it is a source utility with availability constraints; throttling is recorded as source-quality evidence rather than silently treated as no historical evidence.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.

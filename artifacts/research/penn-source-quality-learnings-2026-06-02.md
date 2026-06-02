@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T07:08:50.267732+00:00
+Generated: 2026-06-02T07:17:17.023288+00:00
 
 ## What This Pass Did
 
@@ -626,6 +626,31 @@ Top linkage groups:
 | Erin O. Aakhus, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
 
 Learning: current Penn attending pages are endpoint evidence, not trend-line facts. The current corpus has endpoint-plus-Penn-training groups but no linked historical trainee identity yet, so recent-attending trend claims should remain candidates until a historical roster, alumni page, CV, or independent profile supplies the missing dated Penn trainee link.
+
+## Attending Historical Link Discovery
+
+Groups considered: 4. Seeded source rows: 8. Search observations: 0. Search skipped: True. Candidate rows: 8.
+
+Candidate statuses:
+
+| candidate_status | count |
+| --- | --- |
+| historical_link_source_candidate | 8 |
+
+Top historical-link candidates:
+
+| display_name | query_kind | candidate_status | confidence | priority | result_domain | probe_title | required_next_evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Emily Gordon, MD, MSEd | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Department of Anesthesiology Education Leadership Team | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Emily Gordon - Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Priya Patel, MD | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Priya Patel, MD | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Timothy Buckey, MD, MBE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Timothy Buckey, MD, MBE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+
+Learning: seeded official Penn/provider URLs give a deterministic baseline for trend-link discovery, while broad web search is an optional, rate-limited enrichment utility. Even strong official profile candidates remain review candidates until the page text supplies explicit same-person, Penn-training, program, and date anchors.
 
 ## Enrichment Coverage Audit
 

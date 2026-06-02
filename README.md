@@ -33,6 +33,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_reconciliation_decisions.csv`: person/name-level reconciliation decision rollup.
 - `artifacts/data/attending_trend_linkage_events.csv`: event-level assurance audit for whether attending/faculty/outcome evidence can support a Penn-trainee trend link.
 - `artifacts/data/attending_trend_linkage_groups.csv`: person/source-group rollup for recent-attending trend linkage candidates.
+- `artifacts/data/attending_historical_link_candidates.csv`: seeded/search-discovered source candidates that may bridge current Penn attending endpoints to dated historical trainee records.
+- `artifacts/data/attending_historical_link_search_queries.csv`: deterministic web-search query plan for attending trend identity linkage.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
 - `artifacts/data/program_enrichment_coverage.csv`: per-program/role enrichment coverage rollup and next-action summary.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
@@ -119,6 +121,7 @@ python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026
+python3 scripts/discover_attending_historical_links.py --max-groups 4 --probe-pages --skip-search --sleep 0.1
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```
@@ -128,6 +131,8 @@ OpenAlex author search is implemented as a candidate utility, but the latest ful
 ```bash
 python3 scripts/collect_research_candidates.py --only openalex --skip-existing-source openalex_author_search --sleep 0.5
 ```
+
+Broad web search for attending historical-link discovery is also optional. The default reproducible pass can use seeded official Penn/provider URLs with `--skip-search`; remove that flag only for a polite, rate-limit-aware discovery run.
 
 Validate scripts:
 

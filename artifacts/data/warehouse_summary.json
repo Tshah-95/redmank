@@ -1,4 +1,34 @@
 {
+  "attending_historical_link_discovery_summary": {
+    "by_candidate_status": {
+      "historical_link_source_candidate": 8
+    },
+    "by_query_kind": {
+      "historical_penn_training": 20,
+      "historical_roster_or_alumni": 4,
+      "official_penn_profile": 8,
+      "upenn_profile_or_cv": 4
+    },
+    "by_result_domain": {
+      "www3.pennmedicine.org": 8
+    },
+    "candidate_csv": "artifacts/data/attending_historical_link_candidates.csv",
+    "candidate_rows": 8,
+    "generated_at": "2026-06-02T07:17:11.238047+00:00",
+    "groups_considered": 4,
+    "observation_csv": "artifacts/data/attending_historical_link_search_observations.csv",
+    "query_csv": "artifacts/data/attending_historical_link_search_queries.csv",
+    "query_rows": 36,
+    "search_observations": 0,
+    "search_skipped": true,
+    "searched_group_keys": [
+      "emily gordon",
+      "patrick kevin gleeson",
+      "priya patel",
+      "timothy buckey"
+    ],
+    "seeded_source_rows": 8
+  },
   "attending_trend_linkage_summary": {
     "as_of_year": 2026,
     "by_assurance_level": {
@@ -220,7 +250,7 @@
     "source_refresh_required": 670,
     "stage_outside_nominal_duration_review": 21
   },
-  "generated_at": "2026-06-02T07:08:50.259831+00:00",
+  "generated_at": "2026-06-02T07:17:17.012888+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,

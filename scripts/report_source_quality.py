@@ -228,8 +228,10 @@ def main() -> None:
     reconciliation_decision_summary = read_json(ARTIFACTS / "evidence_reconciliation_decision_summary.json", {})
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
+    attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
     top_attending_linkage_groups = read_csv(ARTIFACTS / "attending_trend_linkage_groups.csv", limit=20)
+    top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
     top_reconciliation_decisions = [
         row
         for row in read_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv")
@@ -286,6 +288,10 @@ def main() -> None:
         {"assurance_level": level, "count": count}
         for level, count in sorted((attending_trend_linkage_summary.get("by_assurance_level") or {}).items())
     ]
+    attending_historical_status_counts = [
+        {"candidate_status": status, "count": count}
+        for status, count in sorted((attending_historical_link_summary.get("by_candidate_status") or {}).items())
+    ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
         for status, count in sorted((hup_gap_probe_summary.get("by_candidate_status") or {}).items())
@@ -339,6 +345,8 @@ def main() -> None:
         "top_reconciliation_decisions": top_reconciliation_decisions,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "top_attending_trend_linkage_groups": top_attending_linkage_groups,
+        "attending_historical_link_discovery_summary": attending_historical_link_summary,
+        "top_attending_historical_link_candidates": top_attending_historical_candidates,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -565,6 +573,32 @@ def main() -> None:
         ),
         "",
         "Learning: current Penn attending pages are endpoint evidence, not trend-line facts. The current corpus has endpoint-plus-Penn-training groups but no linked historical trainee identity yet, so recent-attending trend claims should remain candidates until a historical roster, alumni page, CV, or independent profile supplies the missing dated Penn trainee link.",
+        "",
+        "## Attending Historical Link Discovery",
+        "",
+        f"Groups considered: {attending_historical_link_summary.get('groups_considered', 0)}. Seeded source rows: {attending_historical_link_summary.get('seeded_source_rows', 0)}. Search observations: {attending_historical_link_summary.get('search_observations', 0)}. Search skipped: {attending_historical_link_summary.get('search_skipped', '')}. Candidate rows: {attending_historical_link_summary.get('candidate_rows', 0)}.",
+        "",
+        "Candidate statuses:",
+        "",
+        *md_table(attending_historical_status_counts, ["candidate_status", "count"]),
+        "",
+        "Top historical-link candidates:",
+        "",
+        *md_table(
+            top_attending_historical_candidates,
+            [
+                "display_name",
+                "query_kind",
+                "candidate_status",
+                "confidence",
+                "priority",
+                "result_domain",
+                "probe_title",
+                "required_next_evidence",
+            ],
+        ),
+        "",
+        "Learning: seeded official Penn/provider URLs give a deterministic baseline for trend-link discovery, while broad web search is an optional, rate-limited enrichment utility. Even strong official profile candidates remain review candidates until the page text supplies explicit same-person, Penn-training, program, and date anchors.",
         "",
         "## Enrichment Coverage Audit",
         "",
