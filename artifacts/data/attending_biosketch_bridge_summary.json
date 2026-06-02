@@ -1,0 +1,30 @@
+{
+  "as_of_year": 2026,
+  "by_bridge_status": {
+    "dated_recent_official_biosketch_training_bridge_candidate": 3,
+    "non_penn_training_context": 6,
+    "official_biosketch_research_training_context": 1
+  },
+  "by_ten_year_trend_window": {
+    "no": 1,
+    "yes": 9
+  },
+  "by_training_type": {
+    "fellowship": 3,
+    "internship": 1,
+    "postdoctoral": 1,
+    "residency": 5
+  },
+  "candidate_rows": 10,
+  "csv": "artifacts/data/attending_biosketch_bridge_candidates.csv",
+  "generated_at": "2026-06-02T08:50:19.731594+00:00",
+  "groups_with_candidates": 3,
+  "groups_with_recent_dated_bridge_candidates": 3,
+  "index_urls": [
+    "https://www.med.upenn.edu/apps/faculty/index.php/g353"
+  ],
+  "json": "artifacts/data/attending_biosketch_bridge_candidates.json",
+  "observation_csv": "artifacts/data/attending_biosketch_source_observations.csv",
+  "source_observation_rows": 4,
+  "target_groups": 4
+}

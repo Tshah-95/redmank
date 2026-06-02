@@ -46,6 +46,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_linkage_groups.csv`: person/source-group rollup for recent-attending trend linkage candidates.
 - `artifacts/data/attending_historical_link_candidates.csv`: seeded/search-discovered source candidates that may bridge current Penn attending endpoints to dated historical trainee records.
 - `artifacts/data/attending_historical_link_search_queries.csv`: deterministic web-search query plan for attending trend identity linkage.
+- `artifacts/data/attending_biosketch_bridge_candidates.csv`: official Penn Faculty Biosketch training-line bridge candidates for current attendings with Penn-training claims.
+- `artifacts/data/attending_biosketch_bridge_summary.json`: status counts for dated recent Penn training bridge candidates, non-Penn context, and research-training context.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
 - `artifacts/data/program_enrichment_coverage.csv`: per-program/role enrichment coverage rollup and next-action summary.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
@@ -145,6 +147,7 @@ python3 scripts/audit_enrichment_coverage.py
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026
+python3 scripts/audit_attending_biosketch_bridges.py --as-of-year 2026
 python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-results 4 --probe-pages --sleep 0.2
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py

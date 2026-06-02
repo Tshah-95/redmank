@@ -1842,6 +1842,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "training_state_snapshot_rows",
         "training_state_transition_events",
         "career_events",
+        "attending_biosketch_bridge_candidates",
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",

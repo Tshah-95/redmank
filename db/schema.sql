@@ -412,6 +412,28 @@ CREATE TABLE IF NOT EXISTS medical_student_source_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS attending_biosketch_bridge_candidates (
+  candidate_key TEXT PRIMARY KEY,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  source_url TEXT NOT NULL,
+  source_title TEXT,
+  source_scope TEXT NOT NULL,
+  bridge_status TEXT NOT NULL,
+  bridge_assurance_level INTEGER NOT NULL DEFAULT 0,
+  training_line TEXT NOT NULL,
+  training_type TEXT,
+  organization_name TEXT,
+  start_year INTEGER,
+  end_year INTEGER,
+  ten_year_trend_window TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  required_next_evidence TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_training_events (
   training_event_id INTEGER PRIMARY KEY,
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,

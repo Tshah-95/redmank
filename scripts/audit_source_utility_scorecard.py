@@ -346,6 +346,28 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         for key, value in (historical_summary.get("by_candidate_status") or {}).items()
         if key in {"current_profile_training_context_candidate", "current_profile_context_candidate"}
     )
+    biosketch_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
+    biosketch_rows = scalar(conn, "SELECT COUNT(*) FROM attending_biosketch_bridge_candidates")
+    biosketch_recent_bridge = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM attending_biosketch_bridge_candidates
+        WHERE bridge_status = 'dated_recent_official_biosketch_training_bridge_candidate'
+        """,
+    )
+    biosketch_gme_context = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM attending_biosketch_bridge_candidates
+        WHERE training_type IN ('fellowship', 'residency', 'internship')
+        """,
+    )
+    biosketch_groups = scalar(
+        conn,
+        "SELECT COUNT(DISTINCT event_group_key) FROM attending_biosketch_bridge_candidates",
+    )
 
     contact_count = scalar(conn, "SELECT COUNT(*) FROM person_contacts")
     contact_by_verification = counter_query(
@@ -665,6 +687,38 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             ],
             recommended_next_action="run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits",
             evidence=historical_summary,
+        ),
+        make_row(
+            scorecard_key="official_faculty_biosketch_training_bridges",
+            utility_key="official_profile",
+            utility_label="Official Penn faculty biosketch training bridges",
+            source_family="official_institutional_web",
+            claim_surface="dated post-graduate training lines from official Penn Faculty Biosketch pages",
+            input_records=int(biosketch_summary.get("source_observation_rows") or 0),
+            output_records=biosketch_rows,
+            candidate_records=biosketch_rows,
+            needs_review_records=biosketch_rows,
+            review_ready_records=biosketch_recent_bridge,
+            low_signal_records=max(biosketch_rows - biosketch_gme_context, 0),
+            score=79.0,
+            strengths=[
+                "Official Penn Faculty Biosketch pages expose structured post-graduate training sections",
+                "Date ranges make ten-year attending-flow timing auditable",
+                "Bridges current Penn attending endpoints to explicit Penn training claims without relying on search snippets",
+            ],
+            limitations=[
+                "Biosketch lines are profile evidence, not historical roster membership by themselves",
+                "Faculty index recall is bounded by matched current-attending groups",
+                "Postdoctoral research lines are useful context but should not count as GME trainee-flow bridges",
+            ],
+            recommended_next_action="review_dated_biosketch_bridges_before_accepting_recent_attending_trends",
+            evidence={
+                "summary": biosketch_summary,
+                "candidate_rows": biosketch_rows,
+                "groups_with_candidates": biosketch_groups,
+                "recent_dated_gme_bridge_rows": biosketch_recent_bridge,
+                "gme_context_rows": biosketch_gme_context,
+            },
         ),
         make_row(
             scorecard_key="public_contact_candidate_extraction",

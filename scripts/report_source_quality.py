@@ -229,12 +229,14 @@ def main() -> None:
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
+    attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
     top_attending_linkage_groups = read_csv(ARTIFACTS / "attending_trend_linkage_groups.csv", limit=20)
     top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
+    top_attending_biosketch_bridges = read_csv(ARTIFACTS / "attending_biosketch_bridge_candidates.csv", limit=25)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     top_reconciliation_decisions = [
         row
@@ -296,6 +298,10 @@ def main() -> None:
         {"candidate_status": status, "count": count}
         for status, count in sorted((attending_historical_link_summary.get("by_candidate_status") or {}).items())
     ]
+    attending_biosketch_status_counts = [
+        {"bridge_status": status, "count": count}
+        for status, count in sorted((attending_biosketch_bridge_summary.get("by_bridge_status") or {}).items())
+    ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
         for status, count in sorted((hup_gap_probe_summary.get("by_candidate_status") or {}).items())
@@ -351,6 +357,8 @@ def main() -> None:
         "top_attending_trend_linkage_groups": top_attending_linkage_groups,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "top_attending_historical_link_candidates": top_attending_historical_candidates,
+        "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,
+        "top_attending_biosketch_bridges": top_attending_biosketch_bridges,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
         "medical_student_source_audit_summary": med_student_source_audit_summary,
@@ -656,6 +664,32 @@ def main() -> None:
         ),
         "",
         "Learning: seeded official Penn/provider URLs give a deterministic baseline for trend-link discovery, while broad web search is an optional, rate-limited enrichment utility. Even strong official profile candidates remain review candidates until the page text supplies explicit same-person, Penn-training, program, and date anchors.",
+        "",
+        "## Official Faculty Biosketch Bridge Audit",
+        "",
+        f"Target Penn-training current-attending groups: {attending_biosketch_bridge_summary.get('target_groups', 0)}. Source observations: {attending_biosketch_bridge_summary.get('source_observation_rows', 0)}. Candidate rows: {attending_biosketch_bridge_summary.get('candidate_rows', 0)}. Groups with recent dated bridge candidates: {attending_biosketch_bridge_summary.get('groups_with_recent_dated_bridge_candidates', 0)}.",
+        "",
+        "Bridge statuses:",
+        "",
+        *md_table(attending_biosketch_status_counts, ["bridge_status", "count"]),
+        "",
+        "Top biosketch bridge candidates:",
+        "",
+        *md_table(
+            top_attending_biosketch_bridges,
+            [
+                "display_name",
+                "bridge_status",
+                "training_type",
+                "start_year",
+                "end_year",
+                "ten_year_trend_window",
+                "training_line",
+                "source_url",
+            ],
+        ),
+        "",
+        "Learning: official Penn Faculty Biosketch pages are a high-quality bridge utility when they provide dated Penn residency/fellowship lines for current faculty. They still remain review candidates rather than accepted trend facts because a profile training line is not the same evidence class as a historical roster or alumni record. Postdoctoral research lines are retained as context, not counted as GME trainee-flow bridges.",
         "",
         "## Enrichment Coverage Audit",
         "",

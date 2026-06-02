@@ -207,6 +207,10 @@ The seeded mode is intentionally reproducible and uses only already-known offici
 
 Historical-link candidates are also classified by source surface. Current Penn provider or faculty pages can remain useful profile/training context, but they are not accepted as historical trainee bridges unless a dated roster, alumni page, CV, or independent profile source supplies same-person Penn-training evidence.
 
+`scripts/audit_attending_biosketch_bridges.py` adds a narrower official-profile bridge utility. It uses the Penn Faculty Biosketch index for current-attending groups that already have Penn-training claims, fetches matched official biosketches, and extracts dated post-graduate training lines. Recent dated Penn residency/fellowship lines become `dated_recent_official_biosketch_training_bridge_candidate`; non-Penn lines stay background; Penn postdoctoral research lines are retained as research-training context rather than GME trainee-flow evidence.
+
+This bridge audit is still non-mutating. A faculty biosketch is much stronger than a search result because it is official, dated, and profile-attached, but it is still not the same source class as a historical roster or alumni record. The trend layer should treat it as review-ready bridge evidence until the reconciliation policy explicitly accepts official biosketch training lines as sufficient for a given trend analysis.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.
@@ -220,7 +224,7 @@ The current acceptance rule is deliberately strict: accept research enrichment o
 
 `scripts/audit_source_utility_scorecard.py` turns those observations into an operational scorecard:
 
-- `source_utility_scorecard.csv` / `.json`: one row per utility surface, including official roster truth, official denominator coverage, gap-roster extraction, Penn-wide source discovery, PubMed author discovery, PubMed article reconciliation, OpenAlex, attending profiles, historical-link discovery, public contacts, organization normalization, and training state-machine readiness.
+- `source_utility_scorecard.csv` / `.json`: one row per utility surface, including official roster truth, official denominator coverage, gap-roster extraction, Penn-wide source discovery, PubMed author discovery, PubMed article reconciliation, OpenAlex, attending profiles, faculty-biosketch bridge evidence, historical-link discovery, public contacts, organization normalization, and training state-machine readiness.
 - `source_utility_scorecard_summary.json`: counts by quality band, source family, and recommended next action.
 - SQLite table `source_utility_scorecard`: queryable version of the same ledger.
 

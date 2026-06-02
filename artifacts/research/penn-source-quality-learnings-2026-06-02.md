@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T08:39:07.892256+00:00
+Generated: 2026-06-02T08:50:49.553000+00:00
 
 ## What This Pass Did
 
@@ -490,7 +490,7 @@ Learning: annual diffs should be state-machine informed before they are person-t
 
 ## Source Utility Scorecard
 
-Scorecard rows: 13.
+Scorecard rows: 14.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -504,6 +504,7 @@ Scorecard rows: 13.
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 0 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
+| Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 66.0 | useful_candidate_layer | verify_contact_channels_against_current_official_source_before_use |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
@@ -702,6 +703,35 @@ Top historical-link candidates:
 | Timothy Buckey, MD, MBE | existing_linkage_source_url | penn_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
 
 Learning: seeded official Penn/provider URLs give a deterministic baseline for trend-link discovery, while broad web search is an optional, rate-limited enrichment utility. Even strong official profile candidates remain review candidates until the page text supplies explicit same-person, Penn-training, program, and date anchors.
+
+## Official Faculty Biosketch Bridge Audit
+
+Target Penn-training current-attending groups: 4. Source observations: 4. Candidate rows: 10. Groups with recent dated bridge candidates: 3.
+
+Bridge statuses:
+
+| bridge_status | count |
+| --- | --- |
+| dated_recent_official_biosketch_training_bridge_candidate | 3 |
+| non_penn_training_context | 6 |
+| official_biosketch_research_training_context | 1 |
+
+Top biosketch bridge candidates:
+
+| display_name | bridge_status | training_type | start_year | end_year | ten_year_trend_window | training_line | source_url |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Patrick Kevin Gleeson, MD, MSCE | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2018 | 2020 | yes | Fellowship, Allergy and Immunology, Hospital of the University of Pennsylvania, Chief Fellow 2019, 2018-2020. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 |
+| Patrick Kevin Gleeson, MD, MSCE | official_biosketch_research_training_context | postdoctoral | 2020 | 2022 | yes | Post-doctoral Fellow, University of Pennsylvania, 2020-2022. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 |
+| Patrick Kevin Gleeson, MD, MSCE | non_penn_training_context | residency | 2015 | 2018 | yes | Categorical Internal Medicine Residency, Temple University Hospital, 2015-2018. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 |
+| Priya Patel, MD | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2017 | 2019 | yes | Fellow, Allergy & Immunology, Hospital of the University of Pennsylvania, Philadelphia, PA, 2017-2019. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
+| Priya Patel, MD | non_penn_training_context | residency | 2016 | 2017 | yes | Chief Resident, Internal Medicine, VA NJ Health Care System, East Orange Campus, Rutgers New Jersey Medical School, 2016-2017. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
+| Priya Patel, MD | non_penn_training_context | residency | 2015 | 2016 | yes | Chief Resident, Pediatric and Internal Medicine, Rutgers New Jersey Medical School, Newark, NJ, 2015-2016. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
+| Priya Patel, MD | non_penn_training_context | internship | 2012 | 2013 | no | Intern, Pediatrics and Internal Medicine, UMDNJ New Jersey Medical School, Newark, NJ, 2012-2013. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
+| Priya Patel, MD | non_penn_training_context | residency | 2013 | 2016 | yes | Resident, Pediatrics and Internal Medicine, Rutgers (former UMDNJ) New Jersey Medical School, Newark, NJ, 2013-2016. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
+| Timothy Buckey, MD, MBE | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2022 | 2024 | yes | Fellowship, Allergy and Immunology, Perelman School of Medicine, University of Pennsylvania, The Children’s Hospital of Philadelphia, 2022-2024. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 |
+| Timothy Buckey, MD, MBE | non_penn_training_context | residency | 2019 | 2022 | yes | Residency, Internal Medicine, Katz School of Medicine, Temple University Hospital, Philadelphia, PA, 2019-2022. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 |
+
+Learning: official Penn Faculty Biosketch pages are a high-quality bridge utility when they provide dated Penn residency/fellowship lines for current faculty. They still remain review candidates rather than accepted trend facts because a profile training line is not the same evidence class as a historical roster or alumni record. Postdoctoral research lines are retained as context, not counted as GME trainee-flow bridges.
 
 ## Enrichment Coverage Audit
 
