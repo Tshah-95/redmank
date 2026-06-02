@@ -136,6 +136,30 @@ def program_terms(program_name: str) -> list[str]:
     return terms[:6]
 
 
+def provider_profile_slug_candidates(display_name: str) -> list[str]:
+    tokens = [token.lower() for token in clean_name(display_name).split() if token]
+    if len(tokens) < 2:
+        return []
+    without_single_letter_middle = [
+        token for index, token in enumerate(tokens) if not (0 < index < len(tokens) - 1 and len(token) == 1)
+    ]
+    variants = [
+        tokens,
+        without_single_letter_middle,
+        [tokens[0], tokens[-1]],
+    ]
+    output = []
+    seen = set()
+    for variant in variants:
+        if len(variant) < 2:
+            continue
+        candidate = slug("-".join(variant), 96)
+        if candidate and candidate not in seen:
+            output.append(candidate)
+            seen.add(candidate)
+    return output
+
+
 def load_people(conn: sqlite3.Connection, limit: int | None) -> list[dict]:
     conn.row_factory = sqlite3.Row
     sql = """
@@ -239,7 +263,7 @@ def ddg_results(
     return rows, observation
 
 
-def probe_page(session: requests.Session, result: dict) -> dict:
+def probe_page(session: requests.Session, result: dict, timeout: float = 20.0) -> dict:
     fetched_at = datetime.now(timezone.utc).isoformat()
     probe = {
         "probe_http_status": "",
@@ -257,7 +281,11 @@ def probe_page(session: requests.Session, result: dict) -> dict:
         probe["probe_error"] = "non_http_url"
         return probe
     try:
-        response = session.get(result["result_url"], timeout=20, allow_redirects=True)
+        response = session.get(
+            result["result_url"],
+            timeout=(min(timeout, 2.0), timeout),
+            allow_redirects=True,
+        )
         probe["probe_http_status"] = response.status_code
         probe["probe_content_type"] = response.headers.get("content-type", "")
         probe["probe_sha256"] = hashlib.sha256(response.content).hexdigest()
@@ -283,6 +311,40 @@ def probe_page(session: requests.Session, result: dict) -> dict:
     except requests.RequestException as exc:
         probe["probe_error"] = f"{type(exc).__name__}: {str(exc)[:220]}"
     return probe
+
+
+def direct_provider_profile_results(person: dict, max_slugs: int) -> list[dict]:
+    raw = json.loads(person.get("raw_json") or "{}")
+    programs = raw.get("program_memberships") or [raw.get("program") or ""]
+    program = next((item for item in programs if item), "")
+    results = []
+    for rank, candidate_slug in enumerate(provider_profile_slug_candidates(person["display_name"])[:max_slugs], start=1):
+        url = f"https://www3.pennmedicine.org/providers/profile/{candidate_slug}"
+        query = f"direct_provider_profile_slug_probe:{candidate_slug}"
+        results.append(
+            {
+                "query_key": key_for("trainee_profile_direct_provider_query", person["person_key"], candidate_slug),
+                "person_key": person["person_key"],
+                "display_name": person["display_name"],
+                "role": person.get("role") or "",
+                "program_name": program,
+                "task_key": person.get("task_key") or "",
+                "query_kind": "direct_provider_profile_slug_probe",
+                "query": query,
+                "query_url": url,
+                "priority": person.get("priority") or "",
+                "priority_band": person.get("priority_band") or "",
+                "result_rank": rank,
+                "result_url": url,
+                "result_domain": "www3.pennmedicine.org",
+                "result_title": "",
+                "result_snippet": "Deterministic Penn Medicine provider-profile slug probe; candidate status depends on fetched page evidence.",
+                "search_status": "direct_probe",
+                "searched_at": datetime.now(timezone.utc).isoformat(),
+                "search_http_status": "",
+            }
+        )
+    return results
 
 
 def classify_candidate(row: dict) -> tuple[str, float, list[str], str]:
@@ -317,6 +379,11 @@ def classify_candidate(row: dict) -> tuple[str, float, list[str], str]:
     if row.get("probe_sha256"):
         features.append("content_hash_recorded")
 
+    direct_probe_without_page = (
+        row.get("query_kind") == "direct_provider_profile_slug_probe"
+        and str(row.get("probe_http_status") or "") != "200"
+    )
+
     score = 0.12
     score += 0.22 if "name_present" in features else 0
     score += 0.22 if "official_domain" in features else 0
@@ -327,7 +394,10 @@ def classify_candidate(row: dict) -> tuple[str, float, list[str], str]:
     if row.get("result_rank") and int(row["result_rank"]) <= 2:
         score += 0.03
 
-    if {"official_domain", "name_present", "profile_path"} <= set(features):
+    if direct_probe_without_page:
+        status = "low_signal_search_result"
+        score = 0.05
+    elif {"official_domain", "name_present", "profile_path"} <= set(features):
         status = "official_profile_candidate"
     elif "official_domain" in features and "name_present" in features:
         status = "official_profile_context_candidate"
@@ -430,6 +500,11 @@ def main() -> None:
     parser.add_argument("--search-timeout", type=float, default=8.0)
     parser.add_argument("--max-search-queries", type=int)
     parser.add_argument("--probe-pages", action="store_true")
+    parser.add_argument("--probe-timeout", type=float, default=20.0)
+    parser.add_argument("--direct-provider-slug-probes", action="store_true")
+    parser.add_argument("--max-provider-slugs-per-person", type=int, default=2)
+    parser.add_argument("--max-direct-probes", type=int)
+    parser.add_argument("--direct-progress-every", type=int, default=10)
     parser.add_argument("--skip-search", action="store_true")
     parser.add_argument("--resume-existing", action="store_true")
     parser.add_argument("--sleep", type=float, default=0.2)
@@ -456,6 +531,62 @@ def main() -> None:
     if args.max_search_queries:
         search_specs = search_specs[: args.max_search_queries]
     searched_this_run = 0
+    direct_results = []
+    if args.direct_provider_slug_probes:
+        direct_results = [
+            result
+            for person in people
+            for result in direct_provider_profile_results(person, args.max_provider_slugs_per_person)
+        ]
+        if args.max_direct_probes:
+            direct_results = direct_results[: args.max_direct_probes]
+    direct_probed_this_run = 0
+    for result in direct_results:
+        result.update(probe_page(session, result, args.probe_timeout))
+        direct_probed_this_run += 1
+        status, confidence, features, required = classify_candidate(result)
+        candidate_url = result["result_url"]
+        candidate = {
+            "candidate_key": key_for("trainee_profile_candidate", result["person_key"], candidate_url),
+            "person_key": result["person_key"],
+            "display_name": result["display_name"],
+            "role": result["role"],
+            "program_name": result.get("program_name") or "",
+            "task_key": result.get("task_key") or "",
+            "query_key": result["query_key"],
+            "query_kind": result["query_kind"],
+            "query": result["query"],
+            "candidate_status": status,
+            "priority": int(round(confidence * 100)) + (10 if status == "official_profile_candidate" else 0),
+            "confidence": confidence,
+            "candidate_title": result["result_title"] or result.get("probe_title") or "",
+            "candidate_url": candidate_url,
+            "result_rank": result["result_rank"],
+            "result_domain": result["result_domain"],
+            "result_snippet": result["result_snippet"],
+            "http_status": result.get("probe_http_status") or "",
+            "content_type": result.get("probe_content_type") or "",
+            "text_length": result.get("probe_text_length") or 0,
+            "sha256": result.get("probe_sha256") or "",
+            "probed_at": result.get("probed_at") or "",
+            "page_term_hits": result.get("page_term_hits") or "",
+            "match_features_json": dumps(features),
+            "required_next_evidence": required,
+            "source_key": key_for("trainee_profile_discovery", candidate_url),
+            "evidence_json": dumps(result),
+            "discovered_at": generated_at,
+        }
+        current = candidates_by_key.get(candidate["candidate_key"])
+        if better_candidate(candidate, current):
+            candidates_by_key[candidate["candidate_key"]] = candidate
+        if args.direct_progress_every and direct_probed_this_run % args.direct_progress_every == 0:
+            print(
+                f"direct_provider_probes={direct_probed_this_run} "
+                f"last_status={candidate['candidate_status']} "
+                f"http={candidate['http_status'] or 'none'}",
+                flush=True,
+            )
+        time.sleep(args.sleep)
     for spec in search_specs:
         try:
             results, observation = ddg_results(session, spec, args.max_results, args.search_timeout)
@@ -472,7 +603,7 @@ def main() -> None:
         searched_this_run += 1
         for result in results:
             if args.probe_pages:
-                result.update(probe_page(session, result))
+                result.update(probe_page(session, result, args.probe_timeout))
                 time.sleep(args.sleep)
             else:
                 result.update(
@@ -561,6 +692,8 @@ def main() -> None:
         "resume_existing": args.resume_existing,
         "search_observations": len(observations),
         "searched_this_run": searched_this_run,
+        "direct_provider_slug_probe_rows": len(direct_results),
+        "direct_provider_slug_probed_this_run": direct_probed_this_run,
         "unsearched_query_rows": max(len(queries) - len(observations), 0),
         "candidate_rows": len(candidates),
         "claim_rows": len(claims),

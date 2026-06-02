@@ -292,6 +292,12 @@ python3 scripts/discover_trainee_official_profiles.py --resume-existing --max-se
 
 Use `--resume-existing` with `--max-search-queries` for bounded live passes; this preserves the full planned query manifest while adding observations only for unsearched queries. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
 
+The same collector also supports a bounded direct Penn Medicine provider-profile slug probe. Use it as an optional fallback when broad search is throttled, not as a default corpus-wide step. Direct URL guesses remain low-signal unless the page fetches with HTTP 200 evidence:
+
+```bash
+python3 scripts/discover_trainee_official_profiles.py --skip-search --resume-existing --direct-provider-slug-probes --max-provider-slugs-per-person 1 --max-direct-probes 25 --probe-timeout 3 --sleep 0.05 --direct-progress-every 1
+```
+
 Prior-training background discovery uses the same queue-driven pattern for medical-school and residency-background gaps. The committed artifact is a no-network manifest; run the collector separately when refreshing public search candidates:
 
 ```bash
