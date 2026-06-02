@@ -222,12 +222,15 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
 
 def contact_actions(generated_at: str) -> list[dict]:
     rows = []
+    decision_queue_path = ARTIFACTS / "contact_verification_reviewer_decision_queue.csv"
     contract_path = ARTIFACTS / "contact_verification_contracts.csv"
-    source_path = contract_path if contract_path.exists() else ARTIFACTS / "contact_assurance_audit.csv"
+    source_path = decision_queue_path if decision_queue_path.exists() else contract_path if contract_path.exists() else ARTIFACTS / "contact_assurance_audit.csv"
     source = str(source_path.relative_to(ROOT))
     for item in read_csv(source_path):
-        status = item.get("verification_lane") or item.get("assurance_status") or ""
-        if status == "fresh_official_reobservation_required":
+        status = item.get("queue_status") or item.get("verification_lane") or item.get("assurance_status") or ""
+        if status == "ready_for_reviewer_verification":
+            base_priority = 330
+        elif status == "fresh_official_reobservation_required":
             base_priority = 290
         elif status == "official_public_unverified_contact":
             base_priority = 290
@@ -238,20 +241,33 @@ def contact_actions(generated_at: str) -> list[dict]:
                 action_surface="contact_verification",
                 action_scope=status,
                 entity_type="person_contact",
-                entity_key=item.get("contact_contract_key") or item.get("contact_assurance_key") or item.get("contact_key") or "",
+                entity_key=item.get("reviewer_decision_key") or item.get("contact_contract_key") or item.get("contact_assurance_key") or item.get("contact_key") or "",
                 display_label=item.get("display_name") or "",
                 role=item.get("role") or "",
                 program_name="",
                 priority=base_priority + as_int(item.get("assurance_level")) * 10,
                 impact_count=1,
                 readiness_status=item.get("operational_use_status") or item.get("display_safety_status") or "",
-                blocker_status=item.get("required_reviewer_action") or item.get("required_next_check") or "",
+                blocker_status=item.get("queue_status") or item.get("required_reviewer_action") or item.get("required_next_check") or "",
                 required_next_evidence=item.get("evidence_required_to_verify") or "Verify current official source, person identity, contact domain, and intended contact scope before treating as a verified contact fact.",
-                recommended_next_action=item.get("required_reviewer_action") or item.get("recommended_next_action") or "",
+                recommended_next_action=item.get("recommended_next_action") or item.get("required_reviewer_action") or "",
                 source_artifact=source,
-                target_artifact="artifacts/data/contact_verification_contracts.csv",
-                downstream_tables=["contact_verification_contracts", "contact_assurance_audit", "person_contacts"],
+                target_artifact=(
+                    "artifacts/data/contact_verification_reviewer_decisions.csv"
+                    if source_path == decision_queue_path
+                    else "artifacts/data/contact_verification_contracts.csv"
+                ),
+                downstream_tables=[
+                    "contact_verification_reviewer_decision_queue",
+                    "contact_verification_reviewer_decision_audit",
+                    "accepted_verified_contact_facts",
+                    "contact_verification_contracts",
+                    "contact_assurance_audit",
+                    "person_contacts",
+                ],
                 evidence={
+                    "reviewer_decision_key": item.get("reviewer_decision_key"),
+                    "contact_fingerprint": item.get("contact_fingerprint"),
                     "contact_type": item.get("contact_type"),
                     "contact_domain": item.get("contact_domain"),
                     "domain_status": item.get("domain_status"),
@@ -262,6 +278,7 @@ def contact_actions(generated_at: str) -> list[dict]:
                     "stale_after_date": item.get("stale_after_date"),
                     "if_reobserved_same_value_change_type": item.get("if_reobserved_same_value_change_type"),
                     "if_missing_on_refresh_change_type": item.get("if_missing_on_refresh_change_type"),
+                    "review_question": item.get("review_question"),
                 },
                 generated_at=generated_at,
             )

@@ -26,6 +26,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_accepted_enrichment.py"],
     ["python3", "scripts/audit_contact_assurance.py"],
     ["python3", "scripts/materialize_contact_verification_contracts.py", "--as-of-date", "2026-06-02"],
+    ["python3", "scripts/materialize_contact_verification_reviewer_decisions.py"],
     ["python3", "scripts/materialize_attending_trend_review_claims.py"],
     ["python3", "scripts/audit_attending_trend_acceptance.py"],
     ["python3", "scripts/materialize_attending_trend_reviewer_decisions.py"],

@@ -149,6 +149,12 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/contact_assurance_audit.csv`: non-mutating assurance ledger for public contact candidates, including domain/source checks, display-safety status, freshness policy, and required next verification.
 - `artifacts/data/contact_assurance_summary.json`: public-contact assurance counts by status, role, domain, source class, and display policy.
+- `artifacts/data/contact_verification_contracts.csv`: per-contact freshness/verification contracts that define stale dates, allowed refresh outcomes, and evidence required before verified use.
+- `artifacts/data/contact_verification_reviewer_decision_queue.csv`: reviewer-decision queue for public contact verification, including contact fingerprints and required confirmation fields.
+- `artifacts/data/contact_verification_reviewer_decisions.csv`: manual reviewer decision input file for accepting/rejecting verified contact facts.
+- `artifacts/data/contact_verification_reviewer_decision_audit.csv`: audit of manual contact decisions against the current contact fingerprint and confirmation requirements.
+- `artifacts/data/accepted_verified_contact_facts.csv`: accepted public-source-backed verified contact facts; currently empty until explicit reviewer acceptance records current official reobservation.
+- `artifacts/data/contact_verification_reviewer_decision_summary.json`: contact-decision queue, pending, rejected/deferred, and accepted-contact counts.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
 - `artifacts/data/source_utility_scorecard.csv`: empirical source-utility scorecard across roster truth, denominator coverage, source discovery, research enrichment, attending trends, contact evidence, normalization, and longitudinal state-machine readiness.
@@ -267,6 +273,8 @@ python3 scripts/materialize_person_evidence_reviewer_decisions.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py
+python3 scripts/materialize_contact_verification_contracts.py --as-of-date 2026-06-02
+python3 scripts/materialize_contact_verification_reviewer_decisions.py
 python3 scripts/materialize_attending_trend_review_claims.py
 python3 scripts/audit_attending_trend_acceptance.py
 python3 scripts/materialize_attending_trend_reviewer_decisions.py

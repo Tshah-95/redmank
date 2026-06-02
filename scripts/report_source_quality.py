@@ -264,6 +264,24 @@ def main() -> None:
         ORDER BY count DESC, assurance_status
         """,
     )
+    contact_reviewer_decision_counts = rows(
+        conn,
+        """
+        SELECT decision_status, reviewer_decision, COUNT(*) AS count
+        FROM contact_verification_reviewer_decision_audit
+        GROUP BY decision_status, reviewer_decision
+        ORDER BY count DESC, decision_status, reviewer_decision
+        """,
+    )
+    accepted_contact_counts = rows(
+        conn,
+        """
+        SELECT contact_type, display_safety_status, operational_use_status, COUNT(*) AS count
+        FROM accepted_verified_contact_facts
+        GROUP BY contact_type, display_safety_status, operational_use_status
+        ORDER BY count DESC, contact_type
+        """,
+    )
     reconciliation_queue_counts = rows(
         conn,
         """
@@ -594,6 +612,8 @@ def main() -> None:
         "top_person_evidence_reviewer_decisions": top_person_evidence_reviewer_decisions,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
+        "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
+        "accepted_contact_counts": accepted_contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
         "hup_gme_gap_source_probe_summary": hup_gap_probe_summary,
@@ -1438,7 +1458,11 @@ def main() -> None:
         "",
         *md_table(contact_assurance_counts, ["assurance_status", "display_safety_status", "required_next_check", "count", "avg_confidence"]),
         "",
-        "Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. The assurance layer keeps public contacts as candidates until current-source verification, and it catches domain or format anomalies before display or outreach use.",
+        *md_table(contact_reviewer_decision_counts, ["decision_status", "reviewer_decision", "count"]),
+        "",
+        *md_table(accepted_contact_counts, ["contact_type", "display_safety_status", "operational_use_status", "count"]),
+        "",
+        "Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. The assurance layer keeps public contacts as candidates until current-source verification, and it catches domain or format anomalies before display or outreach use. Verified contact facts require explicit reviewer acceptance, current official reobservation, and matching contact fingerprints.",
         "",
         "## Reconciliation Rule Update",
         "",

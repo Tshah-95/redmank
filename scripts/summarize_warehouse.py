@@ -79,6 +79,10 @@ def main() -> None:
         "person_contacts",
         "contact_assurance_audit",
         "contact_verification_contracts",
+        "contact_verification_reviewer_decisions",
+        "contact_verification_reviewer_decision_queue",
+        "contact_verification_reviewer_decision_audit",
+        "accepted_verified_contact_facts",
         "evidence_claims",
         "evidence_reconciliation_decisions",
         "person_reconciliation_decisions",
@@ -629,6 +633,36 @@ def main() -> None:
             SELECT operational_use_status, COUNT(*) AS count
             FROM contact_verification_contracts
             GROUP BY operational_use_status
+            """
+        )
+    }
+    contact_reviewer_decision_counts = {
+        row["decision_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT decision_status, COUNT(*) AS count
+            FROM contact_verification_reviewer_decision_audit
+            GROUP BY decision_status
+            """
+        )
+    }
+    contact_reviewer_queue_counts = {
+        row["queue_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT queue_status, COUNT(*) AS count
+            FROM contact_verification_reviewer_decision_queue
+            GROUP BY queue_status
+            """
+        )
+    }
+    accepted_contact_counts = {
+        row["contact_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT contact_type, COUNT(*) AS count
+            FROM accepted_verified_contact_facts
+            GROUP BY contact_type
             """
         )
     }
@@ -1213,6 +1247,13 @@ def main() -> None:
         )
     else:
         contact_verification_contract_summary = {}
+    contact_reviewer_decision_summary_path = ARTIFACTS / "contact_verification_reviewer_decision_summary.json"
+    if contact_reviewer_decision_summary_path.exists():
+        contact_reviewer_decision_summary = json.loads(
+            contact_reviewer_decision_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        contact_reviewer_decision_summary = {}
     person_enrichment_dossier_summary_path = ARTIFACTS / "person_enrichment_dossier_summary.json"
     if person_enrichment_dossier_summary_path.exists():
         person_enrichment_dossier_summary = json.loads(
@@ -1411,6 +1452,9 @@ def main() -> None:
         "contact_display_safety_counts": contact_display_safety_counts,
         "contact_verification_lane_counts": contact_verification_lane_counts,
         "contact_operational_use_counts": contact_operational_use_counts,
+        "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
+        "contact_reviewer_queue_counts": contact_reviewer_queue_counts,
+        "accepted_verified_contact_counts": accepted_contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "official_program_gap_reason_counts": official_program_gap_reason_counts,
@@ -1479,6 +1523,7 @@ def main() -> None:
         "accepted_enrichment_summary": accepted_enrichment_summary,
         "contact_assurance_summary": contact_assurance_summary,
         "contact_verification_contract_summary": contact_verification_contract_summary,
+        "contact_verification_reviewer_decision_summary": contact_reviewer_decision_summary,
         "person_enrichment_dossier_summary": person_enrichment_dossier_summary,
         "person_enrichment_execution_readiness_summary": person_enrichment_execution_readiness_summary,
         "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,

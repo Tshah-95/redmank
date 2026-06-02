@@ -629,9 +629,13 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     )
     contact_assurance_summary = read_json(ARTIFACTS / "contact_assurance_summary.json", {})
     contact_verification_contract_summary = read_json(ARTIFACTS / "contact_verification_contract_summary.json", {})
+    contact_reviewer_decision_summary = read_json(
+        ARTIFACTS / "contact_verification_reviewer_decision_summary.json",
+        {},
+    )
     contact_assurance_status = contact_assurance_summary.get("by_assurance_status") or {}
     contact_review_required = int(contact_assurance_summary.get("review_required_rows") or 0)
-    contact_verified = int(contact_assurance_summary.get("verified_contact_fact_rows") or 0)
+    contact_verified = scalar(conn, "SELECT COUNT(*) FROM accepted_verified_contact_facts")
 
     org_count = scalar(conn, "SELECT COUNT(*) FROM organizations")
     org_review = scalar(conn, "SELECT COUNT(*) FROM organizations WHERE resolver_status = 'cleaned_label'")
@@ -1444,6 +1448,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Retains source, scope, verification status, confidence, and candidate status",
                 "Classifies public contacts into display-safety and verification-required tiers without dropping public data",
                 "Adds non-mutating verification contracts with stale dates and future refresh outcomes",
+                "Gates verified contact facts through explicit reviewer decisions and current-source reobservation",
             ],
             limitations=[
                 "Current contacts are public-directory/profile unverified candidates, not verified contact facts",
@@ -1456,6 +1461,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "by_verification_status": contact_by_verification,
                 "contact_assurance_summary": contact_assurance_summary,
                 "contact_verification_contract_summary": contact_verification_contract_summary,
+                "contact_verification_reviewer_decision_summary": contact_reviewer_decision_summary,
                 "contact_assurance_status": contact_assurance_status,
             },
         ),

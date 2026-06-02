@@ -320,6 +320,8 @@ The current warehouse stores 313 public email candidates:
 
 These are not flattened into `people`. They live in `person_contacts` because contact channels can be multiple, stale, source-specific, or attached to a named candidate who has not yet been reconciled into the core identity table. Raw HTML snapshots remain redacted; only structured public contact candidates are committed.
 
+`scripts/materialize_contact_verification_contracts.py` turns each public contact candidate into a freshness contract with stale dates, expected refresh outcomes, domain checks, and evidence required to verify or reject the value. `scripts/materialize_contact_verification_reviewer_decisions.py` adds the explicit acceptance gate: a verified contact fact requires a reviewer decision, matching contact fingerprint, current official reobservation URL/date, confirmed person identity, same value, institutional domain, and person-specific scope. Accepted rows are stored in `accepted_verified_contact_facts`; they do not overwrite raw contact candidates and do not imply outreach permission.
+
 ## Program Categorization
 
 Broad Penn roster pages cannot always use the page title as the program name. Some official pages are titled only `Residents` or `Fellows`, and some pages, especially Radiology, contain several fellowship sections on one source page. The broad Penn scraper therefore infers program labels from the URL path plus section heading. This removed generic `Residents`/`Fellows` program labels from the warehouse and corrected Ophthalmology fellows that share a `Current Residents & Fellows` page with residents.

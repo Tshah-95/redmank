@@ -268,6 +268,15 @@ def materialize(conn: sqlite3.Connection) -> list[dict]:
         ORDER BY person_key, contact_type, normalized_contact_value
         """,
     )
+    accepted_contacts = grouped(
+        conn,
+        """
+        SELECT *
+        FROM accepted_verified_contact_facts
+        WHERE person_key IS NOT NULL AND person_key != ''
+        ORDER BY person_key, contact_type, normalized_contact_value
+        """,
+    )
 
     rows = []
     for person in people:
@@ -276,6 +285,7 @@ def materialize(conn: sqlite3.Connection) -> list[dict]:
         decision_rows = decisions.get(person_key, [])
         packet_rows = packets.get(person_key, [])
         contact_rows = contacts.get(person_key, [])
+        accepted_contact_rows = accepted_contacts.get(person_key, [])
         training_rows = training.get(person_key, [])
         temporal_rows = temporal.get(person_key, [])
 
@@ -300,11 +310,7 @@ def materialize(conn: sqlite3.Connection) -> list[dict]:
             in {"education_history_candidate", "prior_training_history_candidate", "research_interest_candidate", "personal_profile_candidate"}
         )
         accepted_publications = sum(1 for row in accepted_rows if (row.get("enrichment_type") or "") == "publication")
-        verified_contacts = sum(
-            1
-            for row in contact_rows
-            if (row.get("operational_use_status") or "") == "verified_contact_fact"
-        )
+        verified_contacts = len(accepted_contact_rows)
         best_packet = top_review_packet(packet_rows)
         source_urls = []
         for row in decision_rows[:8]:
@@ -313,6 +319,8 @@ def materialize(conn: sqlite3.Connection) -> list[dict]:
             source_urls.extend(split_semicolon(row.get("top_source_urls")))
         for row in accepted_rows:
             source_urls.extend(split_semicolon(row.get("source_url")))
+        for row in accepted_contact_rows:
+            source_urls.extend(split_semicolon(row.get("reobserved_source_url") or row.get("source_url")))
         missing = []
         if not person.get("profile_url"):
             missing.append("official_profile_url")
@@ -356,11 +364,13 @@ def materialize(conn: sqlite3.Connection) -> list[dict]:
             "decision_counts": dict(sorted(decision_counts.items())),
             "top_review_packet": best_packet,
             "contacts": contact_values(contact_rows),
+            "accepted_verified_contacts": accepted_contact_rows,
             "accepted_enrichment": accepted_values(accepted_rows),
             "policy": {
                 "non_mutating": True,
                 "candidate_fields_are_not_accepted_facts": True,
                 "contacts_require_verification_contract": True,
+                "verified_contact_facts_require_reviewer_acceptance": True,
             },
         }
         row = {

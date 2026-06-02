@@ -1,0 +1,36 @@
+{
+  "acceptance_policy": "Accepted verified contact facts require explicit reviewer acceptance, a matching contact fingerprint, a current official reobserved source URL/date, and all required confirmation fields set to 1.",
+  "accepted_contacts_csv": "artifacts/data/accepted_verified_contact_facts.csv",
+  "accepted_verified_contact_people": 0,
+  "accepted_verified_contact_rows": 0,
+  "audit_csv": "artifacts/data/contact_verification_reviewer_decision_audit.csv",
+  "audit_rows": 313,
+  "by_decision_status": {
+    "not_ready_for_reviewer_decision": 1,
+    "pending_reviewer_decision": 312
+  },
+  "by_queue_status": {
+    "domain_review_required_before_decision": 1,
+    "ready_for_reviewer_verification": 312
+  },
+  "by_recommended_next_action": {
+    "record_accept_reject_or_needs_more_evidence_decision": 312,
+    "resolve_domain_anomaly_before_contact_acceptance": 1
+  },
+  "by_reviewer_decision": {
+    "pending": 313
+  },
+  "by_verification_lane": {
+    "domain_review_before_contact_use": 1,
+    "fresh_official_reobservation_required": 312
+  },
+  "display_policy": "Public contacts are not private contact discovery and do not imply outreach permission.",
+  "domain_review_rows": 1,
+  "generated_at": "2026-06-02T18:29:22.775668+00:00",
+  "manual_decision_csv": "artifacts/data/contact_verification_reviewer_decisions.csv",
+  "manual_decision_rows": 0,
+  "pending_reviewer_decision_rows": 312,
+  "queue_csv": "artifacts/data/contact_verification_reviewer_decision_queue.csv",
+  "queue_rows": 313,
+  "ready_queue_rows": 312
+}
