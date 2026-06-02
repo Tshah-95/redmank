@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T06:09:23.558120+00:00",
+  "generated_at": "2026-06-02T06:17:05.459813+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -842,9 +842,23 @@
     {
       "source_key": "pubmed_eutilities",
       "status": "candidate",
+      "claim_type": "pubmed_article_candidate",
+      "count": 1008,
+      "avg_confidence": 0.652
+    },
+    {
+      "source_key": "pubmed_eutilities",
+      "status": "candidate",
       "claim_type": "pubmed_author_query_candidate",
       "count": 1111,
       "avg_confidence": 0.204
+    },
+    {
+      "source_key": "pubmed_eutilities",
+      "status": "needs_review",
+      "claim_type": "pubmed_article_candidate",
+      "count": 850,
+      "avg_confidence": 0.841
     },
     {
       "source_key": "pulmonary_critical_care_current_fellows",
@@ -893,13 +907,22 @@
       "metrics_json": "{\"collector_resume_supported\": true, \"current_claims\": 0, \"rate_limit_observed\": true}"
     },
     {
-      "utility_key": "pubmed_eutilities",
-      "sample_size": 1111,
-      "candidate_claims": 1111,
+      "utility_key": "pubmed_article_reconciliation",
+      "sample_size": 297,
+      "candidate_claims": 1008,
       "accepted_claims": 0,
       "rejected_claims": 0,
-      "ambiguous_claims": 0,
-      "metrics_json": "{\"claims\": 1111, \"mean_confidence\": 0.2041}"
+      "ambiguous_claims": 850,
+      "metrics_json": "{\"artifact\": \"pubmed_article_candidate_claims.json\", \"claims\": 1858, \"mean_confidence\": 0.7386, \"summary\": {\"article_claims\": 1858, \"by_feature\": {\"article_author_name_match\": 1858, \"bounded_author_query\": 1858, \"penn_affiliation\": 11, \"prior_training_or_education_affiliation\": 843, \"program_topic_match\": 215, \"recent_publication\": 1647}, \"by_status\": {\"candidate\": 1008, \"needs_review\": 850}, \"generated_at\": \"2026-06-02T06:14:49.049485+00:00\", \"include_high_collision\": false, \"max_author_count\": 20, \"query_claims_considered\": 305, \"unique_pmids_fetched\": 1879}}"
+    },
+    {
+      "utility_key": "pubmed_eutilities",
+      "sample_size": 1111,
+      "candidate_claims": 2119,
+      "accepted_claims": 0,
+      "rejected_claims": 0,
+      "ambiguous_claims": 850,
+      "metrics_json": "{\"claims\": 2969, \"mean_confidence\": 0.5386}"
     }
   ],
   "openalex_feature_distribution": [],
@@ -920,6 +943,83 @@
       "avg_confidence": 0.1
     }
   ],
+  "pubmed_article_feature_distribution": [
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"recent_publication\"]",
+      "count": 719,
+      "avg_confidence": 0.65
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"prior_training_or_education_affiliation\", \"recent_publication\"]",
+      "count": 706,
+      "avg_confidence": 0.83
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\"]",
+      "count": 187,
+      "avg_confidence": 0.62
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"prior_training_or_education_affiliation\", \"program_topic_match\", \"recent_publication\"]",
+      "count": 111,
+      "avg_confidence": 0.91
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"program_topic_match\", \"recent_publication\"]",
+      "count": 100,
+      "avg_confidence": 0.73
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"prior_training_or_education_affiliation\"]",
+      "count": 21,
+      "avg_confidence": 0.8
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"penn_affiliation\", \"recent_publication\"]",
+      "count": 6,
+      "avg_confidence": 0.87
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"penn_affiliation\", \"prior_training_or_education_affiliation\", \"recent_publication\"]",
+      "count": 4,
+      "avg_confidence": 0.95
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"program_topic_match\"]",
+      "count": 2,
+      "avg_confidence": 0.7
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"prior_training_or_education_affiliation\", \"program_topic_match\"]",
+      "count": 1,
+      "avg_confidence": 0.88
+    },
+    {
+      "match_features_json": "[\"article_author_name_match\", \"bounded_author_query\", \"penn_affiliation\", \"program_topic_match\", \"recent_publication\"]",
+      "count": 1,
+      "avg_confidence": 0.95
+    }
+  ],
+  "pubmed_article_candidate_summary": {
+    "article_claims": 1858,
+    "by_feature": {
+      "article_author_name_match": 1858,
+      "bounded_author_query": 1858,
+      "penn_affiliation": 11,
+      "prior_training_or_education_affiliation": 843,
+      "program_topic_match": 215,
+      "recent_publication": 1647
+    },
+    "by_status": {
+      "candidate": 1008,
+      "needs_review": 850
+    },
+    "generated_at": "2026-06-02T06:14:49.049485+00:00",
+    "include_high_collision": false,
+    "max_author_count": 20,
+    "query_claims_considered": 305,
+    "unique_pmids_fetched": 1879
+  },
   "penn_affiliated_discovery": [
     {
       "classification": "trainee_roster_candidate",

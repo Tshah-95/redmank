@@ -44,10 +44,22 @@
       "default_tier": "silver",
       "default_status": "candidate",
       "default_confidence": 0.4,
-      "claim_types": ["publication_candidate", "pubmed_author_candidate"],
+      "claim_types": ["publication_candidate", "pubmed_author_candidate", "pubmed_article_candidate"],
       "strengths": ["Official PubMed API", "High-value biomedical publication coverage", "Stable PubMed identifiers"],
       "limitations": ["Author names are ambiguous", "Affiliation coverage varies by article/year", "Name-only result counts can be misleading"],
-      "acceptance_rule": "Accept only when article author/affiliation/topic evidence agrees with roster identity."
+      "acceptance_rule": "Author-query counts are discovery evidence only. Article-level candidates can advance to review when the target author, affiliation, topic, or prior-institution anchors agree; accept only after identity review confirms at least two non-name anchors."
+    },
+    {
+      "utility_key": "pubmed_article_reconciliation",
+      "display_name": "PubMed article-level reconciliation",
+      "source_family": "scholarly_api",
+      "default_tier": "silver",
+      "default_status": "needs_review",
+      "default_confidence": 0.55,
+      "claim_types": ["pubmed_article_candidate", "publication_candidate", "affiliation_anchor", "topic_anchor"],
+      "strengths": ["Uses stable PMIDs", "Checks target author against article author XML", "Can inspect affiliation, publication year, journal, and topic evidence"],
+      "limitations": ["Still name-sensitive", "Affiliations may be missing or attached only to first/corresponding authors", "Prior-institution and topic matches are suggestive, not identity proof"],
+      "acceptance_rule": "Promote to review when article author matches and at least one non-name anchor appears. Accept only after manual or automated reconciliation finds two independent non-name anchors."
     },
     {
       "utility_key": "orcid_public_api",

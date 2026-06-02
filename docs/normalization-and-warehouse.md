@@ -110,6 +110,7 @@ This lets the method improve without quietly poisoning the corpus.
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.
 
 - PubMed E-utilities generated 759 author-query candidates with zero rejected API errors after retry cleanup. It is useful for discovery, but author-query counts alone are weak evidence because common names collide heavily.
+- PubMed article-level reconciliation now fetches PubMed XML for bounded author-query candidates and stores per-article candidates with target-author, affiliation, topic, and recency features. This is stronger than count evidence but still not accepted automatically.
 - OpenAlex author search is implemented, retryable, and resumable, but the latest full-corpus run hit sustained 429 throttling. The current warehouse records this as a source-quality observation rather than as rejected person evidence.
 - No research claims were accepted automatically.
 

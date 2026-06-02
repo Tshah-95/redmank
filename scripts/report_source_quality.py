@@ -83,8 +83,22 @@ def main() -> None:
                ROUND(AVG(confidence), 3) AS avg_confidence
         FROM evidence_claims
         WHERE source_key = 'pubmed_eutilities'
+          AND claim_type = 'pubmed_author_query_candidate'
         GROUP BY match_features_json
         ORDER BY count DESC
+        """,
+    )
+    pubmed_article_features = rows(
+        conn,
+        """
+        SELECT match_features_json, COUNT(*) AS count,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM evidence_claims
+        WHERE source_key = 'pubmed_eutilities'
+          AND claim_type = 'pubmed_article_candidate'
+        GROUP BY match_features_json
+        ORDER BY count DESC
+        LIMIT 30
         """,
     )
     broad_discovery = rows(
@@ -176,6 +190,7 @@ def main() -> None:
     hup_gap_probe_summary = read_json(ARTIFACTS / "penn_gme_gap_source_probe_summary.json", {})
     hup_gap_candidates = read_json(ARTIFACTS / "penn_gme_gap_source_candidates.json", [])
     hup_gap_roster_summary = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
+    pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
@@ -215,6 +230,8 @@ def main() -> None:
         "utility_observations": utility_observations,
         "openalex_feature_distribution": openalex_features,
         "pubmed_feature_distribution": pubmed_features,
+        "pubmed_article_feature_distribution": pubmed_article_features,
+        "pubmed_article_candidate_summary": pubmed_article_summary,
         "penn_affiliated_discovery": broad_discovery,
         "career_event_counts": career_events,
         "broad_program_counts": broad_program_counts,
@@ -355,6 +372,26 @@ def main() -> None:
         *md_table(pubmed_features, ["match_features_json", "count", "avg_confidence"]),
         "",
         "Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.",
+        "",
+        "## PubMed Article-Level Reconciliation",
+        "",
+        f"Bounded query claims considered: {pubmed_article_summary.get('query_claims_considered', 0)}. Unique PMIDs fetched: {pubmed_article_summary.get('unique_pmids_fetched', 0)}. Article candidates: {pubmed_article_summary.get('article_claims', 0)}.",
+        "",
+        "Article candidate statuses:",
+        "",
+        *md_table(
+            [
+                {"status": status, "count": count}
+                for status, count in sorted((pubmed_article_summary.get("by_status") or {}).items())
+            ],
+            ["status", "count"],
+        ),
+        "",
+        "Article candidate feature distribution:",
+        "",
+        *md_table(pubmed_article_features, ["match_features_json", "count", "avg_confidence"]),
+        "",
+        "Learning: article-level PubMed XML is materially better than author-query counts because it exposes the target author, affiliation strings, publication year, journal/title, and topic hints. It is still candidate evidence: many records have one strong non-name anchor, but acceptance should require at least two independent anchors or a human review step.",
         "",
         "## Career / Attending Trend Candidates",
         "",

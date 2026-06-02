@@ -8,7 +8,7 @@
   },
   "counts": {
     "career_events": 85,
-    "evidence_claims": 2772,
+    "evidence_claims": 4630,
     "official_program_coverage_audit": 91,
     "official_program_source_candidates": 214,
     "official_program_source_probes": 43,
@@ -22,8 +22,8 @@
     "person_training_states": 1483,
     "program_lifecycle_rules": 13,
     "programs": 78,
-    "source_quality_observations": 2,
-    "source_utilities": 8,
+    "source_quality_observations": 3,
+    "source_utilities": 9,
     "sources": 1374
   },
   "database_path": "artifacts/data/redmank.sqlite",
@@ -76,13 +76,14 @@
     "penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b": 80,
     "penn_gme_gap_departments_and_centers_physical_medicine_and_rehabilitation_education_7d5742c85a": 22,
     "penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d": 34,
-    "pubmed_eutilities": 1111,
+    "pubmed_eutilities": 2969,
     "pulmonary_critical_care_current_fellows": 68,
     "rheumatology_current_fellows": 45
   },
   "evidence_status_counts": {
     "accepted": 1661,
-    "candidate": 1111
+    "candidate": 2119,
+    "needs_review": 850
   },
   "expected_transition_type_counts": {
     "expected_annual_advancement": 657,
@@ -90,7 +91,7 @@
     "source_refresh_required": 555,
     "stage_outside_nominal_duration_review": 21
   },
-  "generated_at": "2026-06-02T06:09:23.586540+00:00",
+  "generated_at": "2026-06-02T06:17:05.484480+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,

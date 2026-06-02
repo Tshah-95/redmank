@@ -45,6 +45,8 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_gme_gap_source_probes.json",
     ARTIFACTS / "research_candidate_claims.json",
     ARTIFACTS / "research_candidate_summary.json",
+    ARTIFACTS / "pubmed_article_candidate_claims.json",
+    ARTIFACTS / "pubmed_article_candidate_summary.json",
     ARTIFACTS / "manual_source_quality_observations.json",
 ]
 
@@ -478,10 +480,16 @@ def insert_manual_source_quality_observations(conn: sqlite3.Connection) -> None:
 
 
 def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
-    path = ARTIFACTS / "research_candidate_claims.json"
-    if not path.exists():
+    claim_paths = [
+        ARTIFACTS / "research_candidate_claims.json",
+        ARTIFACTS / "pubmed_article_candidate_claims.json",
+    ]
+    paths = [path for path in claim_paths if path.exists()]
+    if not paths:
         return
-    claims = load_json(path)
+    claims = []
+    for path in paths:
+        claims.extend(load_json(path))
     if not claims:
         return
     upsert_scholarly_sources(conn)
@@ -508,8 +516,14 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
             ),
         )
     generated_at = datetime.now(timezone.utc).isoformat()
-    summary_path = ARTIFACTS / "research_candidate_summary.json"
-    summary = load_json(summary_path) if summary_path.exists() else {}
+    summaries = {
+        "research_candidate_claims.json": load_json(ARTIFACTS / "research_candidate_summary.json")
+        if (ARTIFACTS / "research_candidate_summary.json").exists()
+        else {},
+        "pubmed_article_candidate_claims.json": load_json(ARTIFACTS / "pubmed_article_candidate_summary.json")
+        if (ARTIFACTS / "pubmed_article_candidate_summary.json").exists()
+        else {},
+    }
     for source_key in sorted({row["source_key"] for row in claims}):
         source_claims = [row for row in claims if row["source_key"] == source_key]
         source_people = len({row["person_key"] for row in source_claims})
@@ -522,13 +536,13 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
             """,
             (
                 source_key,
-                summary.get("generated_at") or generated_at,
+                generated_at,
                 source_people,
                 sum(1 for row in source_claims if row["status"] == "candidate"),
                 sum(1 for row in source_claims if row["status"] == "accepted"),
                 sum(1 for row in source_claims if row["status"] == "rejected"),
                 sum(1 for row in source_claims if row["status"] == "needs_review"),
-                "Replayed durable research-candidate artifact; no claims accepted automatically.",
+                "Replayed durable research evidence artifacts; no claims accepted automatically.",
                 dumps(
                     {
                         "claims": len(source_claims),
@@ -537,6 +551,42 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
                         )
                         if source_claims
                         else 0,
+                    }
+                ),
+            ),
+        )
+    for path in paths:
+        summary = summaries.get(path.name, {})
+        path_claims = load_json(path)
+        if not path_claims:
+            continue
+        if path.name != "pubmed_article_candidate_claims.json":
+            continue
+        utility_key = "pubmed_article_reconciliation"
+        conn.execute(
+            """
+            INSERT INTO source_quality_observations
+            (utility_key, observed_at, sample_size, candidate_claims, accepted_claims,
+             rejected_claims, ambiguous_claims, notes, metrics_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                utility_key,
+                summary.get("generated_at") or generated_at,
+                len({row["person_key"] for row in path_claims}),
+                sum(1 for row in path_claims if row["status"] == "candidate"),
+                sum(1 for row in path_claims if row["status"] == "accepted"),
+                sum(1 for row in path_claims if row["status"] == "rejected"),
+                sum(1 for row in path_claims if row["status"] == "needs_review"),
+                "Replayed durable research evidence artifact; candidate and needs-review claims are not accepted automatically.",
+                dumps(
+                    {
+                        "claims": len(path_claims),
+                        "mean_confidence": round(
+                            sum(float(row["confidence"]) for row in path_claims) / len(path_claims), 4
+                        ),
+                        "artifact": path.name,
+                        "summary": summary,
                     }
                 ),
             ),

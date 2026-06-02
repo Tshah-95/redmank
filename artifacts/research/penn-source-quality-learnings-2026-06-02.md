@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:09:23.558120+00:00
+Generated: 2026-06-02T06:17:05.459813+00:00
 
 ## What This Pass Did
 
@@ -394,7 +394,9 @@ Learning: roster strings should become normalized state observations with explic
 | penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | graduate_school | 2 | 0.75 |
 | penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | medical_school | 16 | 0.887 |
 | penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | undergraduate_school | 16 | 0.825 |
+| pubmed_eutilities | candidate | pubmed_article_candidate | 1008 | 0.652 |
 | pubmed_eutilities | candidate | pubmed_author_query_candidate | 1111 | 0.204 |
+| pubmed_eutilities | needs_review | pubmed_article_candidate | 850 | 0.841 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
@@ -406,7 +408,8 @@ Learning: roster strings should become normalized state observations with explic
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
-| pubmed_eutilities | 1111 | 1111 | 0 | 0 | 0 | {"claims": 1111, "mean_confidence": 0.2041} |
+| pubmed_article_reconciliation | 297 | 1008 | 0 | 0 | 850 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 1858, "mean_confidence": 0.7386, "summary": {"article_claims": 1858, "by_feature": {"article_author_name_match": 1858, "bounded_author_query": 1858, "penn_affiliation": 11, "prior_training_or_education_affiliation": 843, "program_topic_match": 215, "recent_publication": 1647}, "by_status": {"candidate": 1008, "needs_review": 850}, "generated_at": "2026-06-02T06:14:49.049485+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 305, "unique_pmids_fetched": 1879}} |
+| pubmed_eutilities | 1111 | 2119 | 0 | 0 | 850 | {"claims": 2969, "mean_confidence": 0.5386} |
 
 ## OpenAlex Feature Distribution
 
@@ -424,6 +427,35 @@ Learning: OpenAlex remains a promising author-disambiguation utility, but the cu
 | ["author_query", "no_results"] | 137 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
+
+## PubMed Article-Level Reconciliation
+
+Bounded query claims considered: 305. Unique PMIDs fetched: 1879. Article candidates: 1858.
+
+Article candidate statuses:
+
+| status | count |
+| --- | --- |
+| candidate | 1008 |
+| needs_review | 850 |
+
+Article candidate feature distribution:
+
+| match_features_json | count | avg_confidence |
+| --- | --- | --- |
+| ["article_author_name_match", "bounded_author_query", "recent_publication"] | 719 | 0.65 |
+| ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation", "recent_publication"] | 706 | 0.83 |
+| ["article_author_name_match", "bounded_author_query"] | 187 | 0.62 |
+| ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation", "program_topic_match", "recent_publication"] | 111 | 0.91 |
+| ["article_author_name_match", "bounded_author_query", "program_topic_match", "recent_publication"] | 100 | 0.73 |
+| ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation"] | 21 | 0.8 |
+| ["article_author_name_match", "bounded_author_query", "penn_affiliation", "recent_publication"] | 6 | 0.87 |
+| ["article_author_name_match", "bounded_author_query", "penn_affiliation", "prior_training_or_education_affiliation", "recent_publication"] | 4 | 0.95 |
+| ["article_author_name_match", "bounded_author_query", "program_topic_match"] | 2 | 0.7 |
+| ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation", "program_topic_match"] | 1 | 0.88 |
+| ["article_author_name_match", "bounded_author_query", "penn_affiliation", "program_topic_match", "recent_publication"] | 1 | 0.95 |
+
+Learning: article-level PubMed XML is materially better than author-query counts because it exposes the target author, affiliation strings, publication year, journal/title, and topic hints. It is still candidate evidence: many records have one strong non-name anchor, but acceptance should require at least two independent anchors or a human review step.
 
 ## Career / Attending Trend Candidates
 

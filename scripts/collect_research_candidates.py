@@ -38,7 +38,12 @@ def dumps(value) -> str:
 
 def clean_name(name: str) -> str:
     name = re.sub(r"\([^)]*\)", " ", name)
-    name = re.sub(r"\b(MD|DO|PhD|MPH|MBA|MSc|MS|MSEd|MBBS|MBChB|MPhil|PharmD)\b", " ", name, flags=re.I)
+    name = re.sub(
+        r"\b(MD|DO|DPM|DDS|DMD|PhD|MPH|MBA|MSc|MS|MSEd|MBBS|MBChB|MPhil|PharmD)\b",
+        " ",
+        name,
+        flags=re.I,
+    )
     name = re.sub(r"[^A-Za-z' -]+", " ", name)
     return re.sub(r"\s+", " ", name).strip()
 
@@ -301,6 +306,12 @@ def current_research_claims(conn: sqlite3.Connection) -> list[dict]:
         FROM evidence_claims e
         JOIN people p ON p.person_key = e.person_key
         WHERE e.source_key IN ('openalex_author_search', 'pubmed_eutilities')
+          AND e.claim_type IN (
+            'research_author_candidate',
+            'research_author_candidate_error',
+            'pubmed_author_query_candidate',
+            'pubmed_author_query_candidate_error'
+          )
         ORDER BY e.source_key, p.display_name, e.claim_type, e.claim_value
         """
     ).fetchall()
