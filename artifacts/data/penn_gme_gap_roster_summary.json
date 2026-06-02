@@ -1,9 +1,7 @@
 {
   "by_extraction_status": {
-    "http_error": 3,
-    "no_supported_person_structure": 2,
-    "preserved_previous_records_after_refresh_error": 15,
-    "records_extracted": 16
+    "no_supported_person_structure": 5,
+    "records_extracted": 31
   },
   "by_program": {
     "Adult Reconstructive Orthopedics Fellowship": 3,
@@ -55,7 +53,7 @@
     "fellow": 82,
     "resident": 494
   },
-  "generated_at": "2026-06-02T13:45:37.543628+00:00",
+  "generated_at": "2026-06-02T18:03:33.248707+00:00",
   "person_records": 576,
   "skipped_already_captured_sources": 5,
   "skipped_sources": [

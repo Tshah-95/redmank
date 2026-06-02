@@ -117,7 +117,7 @@ Plastic Surgery Residency,resident,US_GME_RESIDENCY_6Y,deterministic_expected_co
 Plastic Surgery Residency,resident,US_GME_RESIDENCY_6Y,source_refresh_required,unchanged,2
 Podiatric Surgery Residency,resident,US_GME_RESIDENCY_4Y,deterministic_expected_advancement,unchanged,12
 Podiatric Surgery Residency,resident,US_GME_RESIDENCY_4Y,deterministic_expected_completion,unchanged,4
-Psychiatry Residency,resident,US_GME_RESIDENCY_DURATION_UNKNOWN,manual_review_required,added,52
+Psychiatry Residency,resident,US_GME_RESIDENCY_DURATION_UNKNOWN,manual_review_required,unchanged,52
 Pulmonary and Critical Care Fellowship,fellow,US_GME_FELLOWSHIP_3Y,deterministic_expected_advancement,unchanged,16
 Pulmonary and Critical Care Fellowship,fellow,US_GME_FELLOWSHIP_3Y,deterministic_expected_completion,unchanged,9
 Pulmonary and Critical Care Fellowship,fellow,US_GME_FELLOWSHIP_3Y,manual_review_required,unchanged,6

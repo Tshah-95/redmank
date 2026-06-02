@@ -1,17 +1,16 @@
 {
   "by_change_type": {
-    "added": 52,
-    "unchanged": 1558
+    "unchanged": 1610
   },
   "by_rollup_scope": {
-    "corpus": 2,
-    "institution": 4,
-    "institution_role": 5,
-    "lifecycle_code": 14,
+    "corpus": 1,
+    "institution": 3,
+    "institution_role": 4,
+    "lifecycle_code": 13,
     "program": 95,
     "program_role": 96,
-    "role": 4,
-    "trainee_category": 4
+    "role": 3,
+    "trainee_category": 3
   },
   "canonical_key_count": 1610,
   "compare_date": "2026-06-02",
@@ -19,14 +18,14 @@
   "duplicate_canonical_key_count": 72,
   "new_snapshot_as_of_date": "2026-06-02",
   "old_snapshot_as_of_date": "2026-06-02",
-  "previous_snapshot_id": "training_states_2026-06-02_dffa6e406d83",
+  "previous_snapshot_id": "training_states_2026-06-02_ed87f34b0e2f",
   "row_count": 1682,
   "snapshot_comparison_kind": "same_day_corpus_revision",
-  "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_ed87f34b0e2f.csv",
-  "snapshot_id": "training_states_2026-06-02_ed87f34b0e2f",
-  "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_ed87f34b0e2f.json",
+  "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_51568c30e857.csv",
+  "snapshot_id": "training_states_2026-06-02_51568c30e857",
+  "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_51568c30e857.json",
   "transition_event_rows": 1610,
   "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
-  "transition_rollup_rows": 224,
+  "transition_rollup_rows": 218,
   "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
 }

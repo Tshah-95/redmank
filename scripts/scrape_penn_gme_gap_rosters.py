@@ -1127,7 +1127,18 @@ def main() -> None:
         rows, meta = parse_candidate(session, candidate)
         previous_rows = previous_records_by_url.get(url, [])
         previous_source = previous_sources_by_url.get(url, {})
-        if meta.get("extraction_status") == "http_error" and previous_rows:
+        preservation_reasons = {
+            "http_error": {
+                "status": "preserved_previous_records_after_refresh_error",
+                "policy": "Retain previously captured public roster rows when a later refresh has a transport-level fetch error; stale/refresh status is handled by the training state machine.",
+            },
+            "no_supported_person_structure": {
+                "status": "preserved_previous_records_after_structure_loss",
+                "policy": "Retain previously captured public roster rows when a later reachable page no longer exposes parser-supported roster structure; stale/refresh status is handled by the training state machine.",
+            },
+        }
+        if meta.get("extraction_status") in preservation_reasons and previous_rows:
+            preservation = preservation_reasons[meta.get("extraction_status")]
             rows = previous_rows
             meta = {
                 **previous_source,
@@ -1143,9 +1154,9 @@ def main() -> None:
                     "latest_refresh_http_status": meta.get("http_status"),
                     "latest_refresh_error": meta.get("error", ""),
                     "latest_refresh_attempted_at": meta.get("fetched_at"),
-                    "extraction_status": "preserved_previous_records_after_refresh_error",
+                    "extraction_status": preservation["status"],
                     "records_extracted": len(rows),
-                    "preservation_policy": "Retain previously captured public roster rows when a later refresh has a transport-level fetch error; stale/refresh status is handled by the training state machine.",
+                    "preservation_policy": preservation["policy"],
                 },
             }
         records.extend(rows)

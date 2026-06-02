@@ -7,14 +7,12 @@
   },
   "by_extraction_status": {
     "already_loaded_as_official_roster_source": 4,
-    "http_error": 3,
-    "no_supported_person_structure": 2,
-    "preserved_previous_records_after_refresh_error": 15,
-    "records_extracted": 16,
+    "no_supported_person_structure": 5,
+    "records_extracted": 31,
     "student_fellows_directory_not_gme_roster": 1
   },
   "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-  "generated_at": "2026-06-02T17:54:31.838432+00:00",
+  "generated_at": "2026-06-02T18:04:13.088463+00:00",
   "json": "artifacts/data/official_gap_roster_reconciliation.json",
   "loaded_membership_count": 551,
   "loaded_person_count": 551,

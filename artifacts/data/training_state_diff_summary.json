@@ -1,7 +1,6 @@
 {
   "by_change_type": {
-    "added": 52,
-    "unchanged": 1558
+    "unchanged": 1610
   },
   "by_lifecycle_code_and_change_type": {
     ":unchanged": 13,
@@ -16,22 +15,19 @@
     "US_GME_RESIDENCY_5Y:unchanged": 309,
     "US_GME_RESIDENCY_6Y:unchanged": 56,
     "US_GME_RESIDENCY_7Y:unchanged": 21,
-    "US_GME_RESIDENCY_DURATION_UNKNOWN:added": 52,
-    "US_GME_RESIDENCY_DURATION_UNKNOWN:unchanged": 52,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN:unchanged": 104,
     "US_MD_PHD_MSTP_VARIABLE:unchanged": 225
   },
   "by_role_and_change_type": {
     "fellow:unchanged": 387,
     "medical_student:unchanged": 225,
-    "resident:added": 52,
-    "resident:unchanged": 946
+    "resident:unchanged": 998
   },
   "by_temporal_policy_lane_and_change_type": {
     "carry_forward_no_change:unchanged": 13,
     "deterministic_expected_advancement:unchanged": 608,
     "deterministic_expected_completion:unchanged": 234,
-    "manual_review_required:added": 52,
-    "manual_review_required:unchanged": 76,
+    "manual_review_required:unchanged": 128,
     "source_refresh_required:unchanged": 627
   },
   "compare_date": "2026-06-02",
@@ -42,10 +38,10 @@
   "new_canonical_keys": 1610,
   "new_duplicate_keys_collapsed": 72,
   "new_input_rows": 1682,
-  "old": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.csv",
-  "old_canonical_keys": 1558,
+  "old": "artifacts/data/training_state_snapshots/training_states_2026-06-02_ed87f34b0e2f.csv",
+  "old_canonical_keys": 1610,
   "old_duplicate_keys_collapsed": 72,
-  "old_input_rows": 1630,
+  "old_input_rows": 1682,
   "rollup_csv": "artifacts/data/training_state_diff_rollups.csv",
   "rows": 1610
 }
