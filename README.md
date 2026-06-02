@@ -26,6 +26,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/program_identifier_candidate_summary.json`: ACGME identifier candidate counts by status and program type.
 - `artifacts/data/program_identifier_reconciliation.csv`: ACGME candidate reconciliation ledger separating accepted identifiers from facility/track/affiliate review states.
 - `artifacts/data/official_program_identifiers.csv`: accepted external program identifiers for unambiguous official Penn/HUP program rows.
+- `artifacts/data/program_lifecycle_consistency_audit.csv`: accepted-identifier audit for whether current roster coverage and lifecycle rules support program-level state-machine rollups.
+- `artifacts/data/program_lifecycle_consistency_summary.json`: lifecycle-consistency counts for accepted program identifiers, including unvalidated, unknown-duration, mixed-missing, and consistent rows.
 - `artifacts/data/person_enrichment_queue.csv`: per-person recursive enrichment tasks.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
 - `artifacts/data/penn_gme_program_universe.json`: official HUP GME program denominator parsed from the public Penn Medicine program list.
@@ -150,6 +152,7 @@ python3 scripts/audit_penn_med_student_sources.py
 python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 python3 scripts/discover_acgme_program_identifier_candidates.py
 python3 scripts/audit_program_identifier_reconciliation.py
+python3 scripts/audit_program_lifecycle_consistency.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py

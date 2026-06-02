@@ -210,6 +210,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     )
     acgme_observation_summary = read_json(ARTIFACTS / "program_identifier_candidate_summary.json", {})
     acgme_reconciliation_summary = read_json(ARTIFACTS / "program_identifier_reconciliation_summary.json", {})
+    program_lifecycle_consistency_summary = read_json(
+        ARTIFACTS / "program_lifecycle_consistency_summary.json",
+        {},
+    )
     gap_roster_people = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     roster_extracted = int(gap_roster_people.get("person_records") or 0)
     roster_sources_attempted = int(gap_roster_people.get("sources_attempted") or 0)
@@ -522,11 +526,12 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             strengths=[
                 "Uses the official ACGME public program search as the identifier source",
                 "Adds source-backed ACGME codes for many Penn/HUP denominator programs",
-                "Separates strong, ambiguous, review, and no-ACGME-found outcomes before lifecycle mutation",
+                "Separates strong, ambiguous, review, no-ACGME-found, and lifecycle-consistency outcomes before mutation",
             ],
             limitations=[
                 "ACGME is not trainee roster truth and does not identify individual residents or fellows",
                 "UPHS has duplicate or facility-specific rows for some specialties",
+                "Accepted identifiers still need roster coverage and lifecycle-rule agreement before annual roll-forward use",
                 "Non-ACGME, dental, selective, and locally named fellowship programs legitimately have no ACGME code",
             ],
             recommended_next_action="use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities",
@@ -537,6 +542,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "no_acgme_identifier_rows": no_acgme_identifiers,
                 "candidate_summary": acgme_observation_summary,
                 "reconciliation_summary": acgme_reconciliation_summary,
+                "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
             },
         ),
         make_row(
@@ -948,17 +954,20 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Turns PGY/MS/fellowship labels into explicit lifecycle states",
                 "Separates expected advancement, expected completion, source refresh, and review-required changes",
                 "Supports person, program, institution, and category diff views",
+                "Audits accepted external program identifiers against local lifecycle state coverage before program-level rollups",
             ],
             limitations=[
                 "Lifecycle codes are local until external program identifiers are verified",
                 "Unknown-duration, research, chief, postdoc, and PhD states require fresh source evidence",
                 "Annual clocks are assumptions attached to program lifecycle rules, not source facts",
+                "Program-level auto-advancement is withheld when accepted identifiers lack current roster validation or complete lifecycle mapping",
             ],
             recommended_next_action="use_state_machine_expectations_before_mutating_next_year_roster_diffs",
             evidence={
                 "state_rows": state_rows,
                 "machine_status": machine_status,
                 "longitudinal_readiness_status": readiness_status,
+                "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
             },
         ),
     ]

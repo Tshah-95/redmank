@@ -53,6 +53,7 @@ def main() -> None:
         "program_identifier_candidates",
         "program_identifier_reconciliation",
         "official_program_identifiers",
+        "program_lifecycle_consistency_audit",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -273,6 +274,16 @@ def main() -> None:
             """
         )
     }
+    program_lifecycle_consistency_counts = {
+        row["lifecycle_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT lifecycle_status, COUNT(*) AS count
+            FROM program_lifecycle_consistency_audit
+            GROUP BY lifecycle_status
+            """
+        )
+    }
     source_utility_scorecard_counts = {
         row["quality_band"]: row["count"]
         for row in conn.execute(
@@ -402,6 +413,13 @@ def main() -> None:
         )
     else:
         program_identifier_reconciliation_summary = {}
+    program_lifecycle_consistency_summary_path = ARTIFACTS / "program_lifecycle_consistency_summary.json"
+    if program_lifecycle_consistency_summary_path.exists():
+        program_lifecycle_consistency_summary = json.loads(
+            program_lifecycle_consistency_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        program_lifecycle_consistency_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -433,6 +451,7 @@ def main() -> None:
         "program_identifier_source_counts": program_identifier_source_counts,
         "program_identifier_reconciliation_counts": program_identifier_reconciliation_counts,
         "official_program_identifier_counts": official_program_identifier_counts,
+        "program_lifecycle_consistency_counts": program_lifecycle_consistency_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "medical_student_source_audit_counts": medical_student_source_audit_counts,
@@ -453,6 +472,7 @@ def main() -> None:
         "medical_student_source_audit_summary": medical_student_source_audit_summary,
         "program_identifier_candidate_summary": program_identifier_candidate_summary,
         "program_identifier_reconciliation_summary": program_identifier_reconciliation_summary,
+        "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

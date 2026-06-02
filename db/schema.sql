@@ -267,6 +267,32 @@ CREATE TABLE IF NOT EXISTS program_identifier_reconciliation (
   reconciled_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS program_lifecycle_consistency_audit (
+  audit_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  matched_program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  identifier_key TEXT REFERENCES official_program_identifiers(identifier_key) ON DELETE SET NULL,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  matched_program_name TEXT,
+  identifier_type TEXT,
+  identifier_value TEXT,
+  source_program_specialty TEXT,
+  coverage_status TEXT,
+  lifecycle_status TEXT NOT NULL,
+  recommended_action TEXT NOT NULL,
+  lifecycle_confidence REAL NOT NULL DEFAULT 0.0,
+  state_row_count INTEGER NOT NULL DEFAULT 0,
+  coded_state_row_count INTEGER NOT NULL DEFAULT 0,
+  unclassified_state_row_count INTEGER NOT NULL DEFAULT 0,
+  lifecycle_code_count INTEGER NOT NULL DEFAULT 0,
+  lifecycle_codes_json TEXT NOT NULL,
+  rule_keys_json TEXT NOT NULL,
+  rationale TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
   packet_key TEXT PRIMARY KEY,
   person_or_name_key TEXT NOT NULL,

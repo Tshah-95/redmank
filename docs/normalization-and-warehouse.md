@@ -59,6 +59,7 @@ Core tables:
 - `program_identifier_candidates`: non-mutating ACGME program-code candidates for official denominator rows, classified as strong, ambiguous, review, or no-code-found.
 - `program_identifier_reconciliation`: per-candidate decision ledger for accepted, duplicate-facility, affiliate, track, and no-code states.
 - `official_program_identifiers`: accepted external program identifiers for unambiguous official program rows.
+- `program_lifecycle_consistency_audit`: accepted-identifier audit that checks current roster coverage and lifecycle-rule completeness before program-level state-machine rollups.
 - `medical_student_source_audit`: source-access audit for public MSTP, protected MD-student, MD Program context, and MD-PhD graduate-directory cross-check sources.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
@@ -146,6 +147,8 @@ The accepted finding is conservative: the public MSTP directory is a partial cur
 `scripts/discover_acgme_program_identifier_candidates.py` queries the public ACGME program search once for Pennsylvania and reconciles the returned code/specialty/name/city rows against the official Penn/HUP GME denominator. It stores the ACGME page response as a source observation with a content hash, then writes candidate rows rather than mutating program records.
 
 `scripts/audit_program_identifier_reconciliation.py` is the acceptance gate. It writes `official_program_identifiers` only when a program has a single strong top ACGME candidate with no close competing Penn/UPHS facility, affiliate, or track sibling. Duplicate identifiers across multiple official program rows are demoted back to review, because they usually signal track or denominator ambiguity.
+
+`scripts/audit_program_lifecycle_consistency.py` is the next gate. It does not infer duration from ACGME alone. Instead, it checks whether each accepted identifier also has current roster coverage and complete local training-state lifecycle mapping. Rows with no current roster validation, default/unknown duration rules, mixed uncoded state rows, or multiple lifecycle codes stay in review before any program-level annual roll-forward or diff mutation.
 
 The current pass produces strong candidates when the ACGME specialty, Penn/UPHS naming, city, and inferred residency/fellowship family agree. It keeps duplicate UPHS facilities, combined programs, CHOP-affiliate rows, and broad specialty families in ambiguous or review states. Non-ACGME, selective, dental, and locally named programs can legitimately be `no_acgme_identifier_found`.
 
