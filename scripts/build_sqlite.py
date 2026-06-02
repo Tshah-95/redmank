@@ -17,6 +17,7 @@ SCHEMA = ROOT / "db" / "schema.sql"
 ARTIFACTS = ROOT / "artifacts" / "data"
 DEFAULT_DB = ARTIFACTS / "redmank.sqlite"
 ORG_SEEDS = ROOT / "config" / "organization_seed_aliases.json"
+ENRICHMENT_SOURCES = ROOT / "config" / "enrichment_sources.json"
 
 PERSON_FILES = [
     ARTIFACTS / "penn_training_people_unique.json",
@@ -25,6 +26,9 @@ PERSON_FILES = [
 SOURCE_FILES = [
     ARTIFACTS / "penn_training_sources.json",
     ARTIFACTS / "penn_source_discovery.json",
+]
+OPTIONAL_SOURCE_FILES = [
+    ARTIFACTS / "penn_affiliated_source_discovery.json",
 ]
 
 TRAINING_FIELDS = {
@@ -70,6 +74,8 @@ def key_for(prefix: str, text: str) -> str:
 def fingerprint(paths: list[Path]) -> str:
     h = hashlib.sha256()
     for path in paths:
+        if not path.exists():
+            continue
         h.update(path.name.encode("utf-8"))
         h.update(path.read_bytes())
     return h.hexdigest()
@@ -231,6 +237,27 @@ def insert_sources(conn: sqlite3.Connection) -> None:
                 dumps(row),
             ),
         )
+    affiliated = ARTIFACTS / "penn_affiliated_source_discovery.json"
+    if affiliated.exists():
+        payload = load_json(affiliated)
+        for row in payload["findings"]:
+            source_key = f"affiliated_discovery:{key_for('source', row['url'])}"
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO sources
+                (source_key, source_url, source_type, title, classification, sha256, metadata_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    source_key,
+                    row.get("url"),
+                    "penn_affiliated_source_discovery",
+                    row.get("title"),
+                    row.get("classification"),
+                    row.get("sha256"),
+                    dumps(row),
+                ),
+            )
     conn.execute(
         """
         INSERT OR IGNORE INTO sources
@@ -245,6 +272,33 @@ def insert_sources(conn: sqlite3.Connection) -> None:
             "{}",
         ),
     )
+
+
+def insert_source_utilities(conn: sqlite3.Connection) -> None:
+    payload = load_json(ENRICHMENT_SOURCES)
+    for utility in payload["utilities"]:
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO source_utilities
+            (utility_key, display_name, source_family, default_tier, default_status,
+             default_confidence, claim_types_json, strengths_json, limitations_json,
+             acceptance_rule, metadata_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                utility["utility_key"],
+                utility["display_name"],
+                utility["source_family"],
+                utility["default_tier"],
+                utility["default_status"],
+                utility["default_confidence"],
+                dumps(utility["claim_types"]),
+                dumps(utility["strengths"]),
+                dumps(utility["limitations"]),
+                utility["acceptance_rule"],
+                dumps({"seed_version": payload.get("version")}),
+            ),
+        )
 
 
 def program_key(program_name: str, role: str | None) -> str:
@@ -365,8 +419,8 @@ def insert_training_events(conn: sqlite3.Connection, resolver: OrganizationResol
             """
             INSERT INTO evidence_claims
             (person_key, claim_type, claim_value, source_key, source_url, source_type,
-             confidence, status, evidence_json)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+             confidence, status, match_features_json, reconciliation_notes, evidence_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 person_key,
@@ -377,7 +431,22 @@ def insert_training_events(conn: sqlite3.Connection, resolver: OrganizationResol
                 row.get("source_type"),
                 0.95 if status == "seeded_alias" else 0.75,
                 "accepted",
-                dumps({"origin": "roster_field", "resolver_status": status}),
+                dumps(
+                    [
+                        "official_roster_source",
+                        "direct_structured_field",
+                        "person_program_context",
+                        status,
+                    ]
+                ),
+                "Accepted as roster-published training field; organization canonicalization remains separately reviewable when resolver_status is cleaned_label.",
+                dumps(
+                    {
+                        "origin": "roster_field",
+                        "resolver_status": status,
+                        "utility_key": "official_roster",
+                    }
+                ),
             ),
         )
 
@@ -408,12 +477,14 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
     for table in [
         "people",
         "sources",
+        "source_utilities",
         "programs",
         "organizations",
         "organization_aliases",
         "organization_identifiers",
         "person_training_events",
         "evidence_claims",
+        "source_quality_observations",
     ]:
         counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
     resolver_counts = {
@@ -448,11 +519,12 @@ def main() -> None:
             "INSERT INTO load_runs (loaded_at, input_fingerprint, notes) VALUES (?, ?, ?)",
             (
                 datetime.now(timezone.utc).isoformat(),
-                fingerprint(PERSON_FILES + SOURCE_FILES + [ORG_SEEDS, SCHEMA]),
+                fingerprint(PERSON_FILES + SOURCE_FILES + OPTIONAL_SOURCE_FILES + [ORG_SEEDS, ENRICHMENT_SOURCES, SCHEMA]),
                 "Penn first-pass warehouse build",
             ),
         )
         insert_sources(conn)
+        insert_source_utilities(conn)
         resolver = OrganizationResolver(conn, ORG_SEEDS)
         load_people(conn, resolver)
         export_review_queue(conn)

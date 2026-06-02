@@ -47,6 +47,8 @@ Core tables:
 - `organization_identifiers`: external IDs.
 - `person_training_events`: medical school, residency, undergraduate, graduate-school events.
 - `evidence_claims`: accepted and candidate claims for recursive enrichment.
+- `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
+- `source_quality_observations`: empirical notes from enrichment runs.
 
 Useful views:
 
@@ -67,6 +69,16 @@ The intended loop:
 6. Repeat until the remaining queue is mostly low-confidence or low-value.
 
 This lets the method improve without quietly poisoning the corpus.
+
+## First Research Utility Learnings
+
+The first full resident/fellow research pass processed 453 Penn resident/fellow people.
+
+- OpenAlex generated 1,201 author candidates. Of those, 116 reached `needs_review` because name plus Penn/prior-institution/ORCID features clustered strongly enough to merit human or stricter automated reconciliation.
+- PubMed E-utilities generated 453 author-query candidates. It is useful for discovery, but author-query counts alone are weak evidence because common names collide heavily.
+- No research claims were accepted automatically.
+
+The current acceptance rule is deliberately strict: accept research enrichment only when at least two non-name anchors agree, such as official profile link plus ORCID, OpenAlex Penn affiliation plus specialty-topic match, PubMed affiliation plus coauthor cluster, or NPI specialty/location plus official profile.
 
 ## Next Programs
 

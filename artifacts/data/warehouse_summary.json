@@ -1,1 +1,60 @@
-{"counts": {"evidence_claims": 720, "organization_aliases": 429, "organization_identifiers": 1, "organizations": 409, "people": 678, "person_training_events": 720, "programs": 28, "sources": 423}, "database_path": "artifacts/data/redmank.sqlite", "generated_at": "2026-06-02T03:14:05.218972+00:00", "organization_category_counts": {"clinical_training_site": 127, "graduate_institution": 6, "medical_school": 242, "undergraduate_institution": 34}, "resolver_counts": {"cleaned_label": 399, "seeded_alias": 321}}
+{
+  "counts": {
+    "evidence_claims": 2374,
+    "organization_aliases": 429,
+    "organization_identifiers": 1,
+    "organizations": 409,
+    "people": 678,
+    "person_training_events": 720,
+    "programs": 28,
+    "source_quality_observations": 2,
+    "source_utilities": 8,
+    "sources": 1303
+  },
+  "database_path": "artifacts/data/redmank.sqlite",
+  "evidence_source_counts": {
+    "allergy_immunology_current_fellows": 8,
+    "cardiology_adult_congenital_current_fellows": 4,
+    "cardiology_advanced_heart_failure_current_fellows": 4,
+    "cardiology_advanced_imaging_current_fellows": 4,
+    "cardiology_cardio_oncology_current_fellows": 4,
+    "cardiology_current_fellows": 66,
+    "cardiology_electrophysiology_current_fellows": 24,
+    "cardiology_interventional_current_fellows": 8,
+    "endocrinology_current_fellows": 42,
+    "gastroenterology_advanced_current_fellows": 5,
+    "gastroenterology_current_fellows": 54,
+    "geriatrics_current_fellows": 6,
+    "hematology_oncology_current_fellows": 64,
+    "infectious_diseases_current_fellows": 49,
+    "internal_medicine_categorical": 170,
+    "internal_medicine_global_health_equities": 8,
+    "internal_medicine_healthcare_quality": 3,
+    "internal_medicine_med_derm": 3,
+    "internal_medicine_med_peds": 16,
+    "internal_medicine_physician_scientist": 3,
+    "internal_medicine_primary_care": 8,
+    "nephrology_current_fellows": 44,
+    "openalex_author_search": 1201,
+    "palliative_current_fellows": 10,
+    "pubmed_eutilities": 453,
+    "pulmonary_critical_care_current_fellows": 68,
+    "rheumatology_current_fellows": 45
+  },
+  "evidence_status_counts": {
+    "accepted": 720,
+    "candidate": 1538,
+    "needs_review": 116
+  },
+  "generated_at": "2026-06-02T03:43:12.059853+00:00",
+  "organization_category_counts": {
+    "clinical_training_site": 127,
+    "graduate_institution": 6,
+    "medical_school": 242,
+    "undergraduate_institution": 34
+  },
+  "resolver_counts": {
+    "cleaned_label": 399,
+    "seeded_alias": 321
+  }
+}

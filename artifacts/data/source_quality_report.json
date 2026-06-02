@@ -1,0 +1,583 @@
+{
+  "generated_at": "2026-06-02T03:43:11.997564+00:00",
+  "source_counts": [
+    {
+      "source_type": "official_public_student_directory",
+      "classification": null,
+      "count": 1
+    },
+    {
+      "source_type": "official_roster_or_context",
+      "classification": null,
+      "count": 28
+    },
+    {
+      "source_type": "penn_affiliated_source_discovery",
+      "classification": "alumni_or_outcome_candidate",
+      "count": 173
+    },
+    {
+      "source_type": "penn_affiliated_source_discovery",
+      "classification": "attending_faculty_candidate",
+      "count": 34
+    },
+    {
+      "source_type": "penn_affiliated_source_discovery",
+      "classification": "program_context",
+      "count": 276
+    },
+    {
+      "source_type": "penn_affiliated_source_discovery",
+      "classification": "trainee_roster_candidate",
+      "count": 395
+    },
+    {
+      "source_type": "scholarly_api",
+      "classification": null,
+      "count": 2
+    },
+    {
+      "source_type": "source_discovery",
+      "classification": "context",
+      "count": 292
+    },
+    {
+      "source_type": "source_discovery",
+      "classification": "non_bio_roster_candidate",
+      "count": 67
+    },
+    {
+      "source_type": "source_discovery",
+      "classification": "review",
+      "count": 11
+    },
+    {
+      "source_type": "source_discovery",
+      "classification": "roster_candidate",
+      "count": 24
+    }
+  ],
+  "evidence_counts": [
+    {
+      "source_key": "allergy_immunology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 4,
+      "avg_confidence": 0.8
+    },
+    {
+      "source_key": "allergy_immunology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 4,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "cardiology_adult_congenital_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 2,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "cardiology_adult_congenital_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "cardiology_advanced_heart_failure_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 2,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "cardiology_advanced_heart_failure_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "cardiology_advanced_imaging_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "cardiology_advanced_imaging_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "cardiology_cardio_oncology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "cardiology_cardio_oncology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 2,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "cardiology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 33,
+      "avg_confidence": 0.871
+    },
+    {
+      "source_key": "cardiology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 33,
+      "avg_confidence": 0.877
+    },
+    {
+      "source_key": "cardiology_electrophysiology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 12,
+      "avg_confidence": 0.833
+    },
+    {
+      "source_key": "cardiology_electrophysiology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 12,
+      "avg_confidence": 0.883
+    },
+    {
+      "source_key": "cardiology_interventional_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 4,
+      "avg_confidence": 0.8
+    },
+    {
+      "source_key": "cardiology_interventional_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 4,
+      "avg_confidence": 0.8
+    },
+    {
+      "source_key": "endocrinology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 21,
+      "avg_confidence": 0.817
+    },
+    {
+      "source_key": "endocrinology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 21,
+      "avg_confidence": 0.826
+    },
+    {
+      "source_key": "gastroenterology_advanced_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "gastroenterology_advanced_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 2,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "gastroenterology_advanced_current_fellows",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "gastroenterology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 23,
+      "avg_confidence": 0.828
+    },
+    {
+      "source_key": "gastroenterology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 23,
+      "avg_confidence": 0.889
+    },
+    {
+      "source_key": "gastroenterology_current_fellows",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 8,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "geriatrics_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 3,
+      "avg_confidence": 0.883
+    },
+    {
+      "source_key": "geriatrics_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 3,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "hematology_oncology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 32,
+      "avg_confidence": 0.831
+    },
+    {
+      "source_key": "hematology_oncology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 32,
+      "avg_confidence": 0.881
+    },
+    {
+      "source_key": "infectious_diseases_current_fellows",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 5,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "infectious_diseases_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 15,
+      "avg_confidence": 0.843
+    },
+    {
+      "source_key": "infectious_diseases_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 15,
+      "avg_confidence": 0.857
+    },
+    {
+      "source_key": "infectious_diseases_current_fellows",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 14,
+      "avg_confidence": 0.779
+    },
+    {
+      "source_key": "internal_medicine_categorical",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "internal_medicine_categorical",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 169,
+      "avg_confidence": 0.865
+    },
+    {
+      "source_key": "internal_medicine_global_health_equities",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 8,
+      "avg_confidence": 0.8
+    },
+    {
+      "source_key": "internal_medicine_healthcare_quality",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 3,
+      "avg_confidence": 0.817
+    },
+    {
+      "source_key": "internal_medicine_med_derm",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 3,
+      "avg_confidence": 0.883
+    },
+    {
+      "source_key": "internal_medicine_med_peds",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 16,
+      "avg_confidence": 0.813
+    },
+    {
+      "source_key": "internal_medicine_physician_scientist",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 3,
+      "avg_confidence": 0.883
+    },
+    {
+      "source_key": "internal_medicine_primary_care",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 8,
+      "avg_confidence": 0.875
+    },
+    {
+      "source_key": "nephrology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 22,
+      "avg_confidence": 0.768
+    },
+    {
+      "source_key": "nephrology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 22,
+      "avg_confidence": 0.777
+    },
+    {
+      "source_key": "openalex_author_search",
+      "status": "candidate",
+      "claim_type": "research_author_candidate",
+      "count": 1085,
+      "avg_confidence": 0.427
+    },
+    {
+      "source_key": "openalex_author_search",
+      "status": "needs_review",
+      "claim_type": "research_author_candidate",
+      "count": 116,
+      "avg_confidence": 0.9
+    },
+    {
+      "source_key": "palliative_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 5,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "palliative_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 5,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "pubmed_eutilities",
+      "status": "candidate",
+      "claim_type": "pubmed_author_query_candidate",
+      "count": 453,
+      "avg_confidence": 0.208
+    },
+    {
+      "source_key": "pulmonary_critical_care_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 34,
+      "avg_confidence": 0.868
+    },
+    {
+      "source_key": "pulmonary_critical_care_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 34,
+      "avg_confidence": 0.832
+    },
+    {
+      "source_key": "rheumatology_current_fellows",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 15,
+      "avg_confidence": 0.817
+    },
+    {
+      "source_key": "rheumatology_current_fellows",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 15,
+      "avg_confidence": 0.83
+    },
+    {
+      "source_key": "rheumatology_current_fellows",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 15,
+      "avg_confidence": 0.777
+    }
+  ],
+  "utility_observations": [
+    {
+      "utility_key": "openalex_author_search",
+      "sample_size": 453,
+      "candidate_claims": 1085,
+      "accepted_claims": 0,
+      "rejected_claims": 0,
+      "ambiguous_claims": 116,
+      "metrics_json": "{\"claims\": 1201, \"mean_confidence\": 0.4723}"
+    },
+    {
+      "utility_key": "pubmed_eutilities",
+      "sample_size": 453,
+      "candidate_claims": 453,
+      "accepted_claims": 0,
+      "rejected_claims": 0,
+      "ambiguous_claims": 0,
+      "metrics_json": "{\"claims\": 453, \"mean_confidence\": 0.2084}"
+    }
+  ],
+  "openalex_feature_distribution": [
+    {
+      "match_features_json": "[\"name_match\"]",
+      "count": 386,
+      "avg_confidence": 0.4
+    },
+    {
+      "match_features_json": "[\"name_match\", \"orcid_present\"]",
+      "count": 206,
+      "avg_confidence": 0.5
+    },
+    {
+      "match_features_json": "[\"orcid_present\"]",
+      "count": 172,
+      "avg_confidence": 0.25
+    },
+    {
+      "match_features_json": "[]",
+      "count": 118,
+      "avg_confidence": 0.15
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\"]",
+      "count": 94,
+      "avg_confidence": 0.8
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"orcid_present\"]",
+      "count": 83,
+      "avg_confidence": 0.9
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
+      "count": 18,
+      "avg_confidence": 0.9
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\"]",
+      "count": 16,
+      "avg_confidence": 0.8
+    },
+    {
+      "match_features_json": "[\"name_match\", \"residency_program_affiliation\"]",
+      "count": 15,
+      "avg_confidence": 0.55
+    },
+    {
+      "match_features_json": "[\"penn_affiliation\", \"orcid_present\"]",
+      "count": 14,
+      "avg_confidence": 0.65
+    },
+    {
+      "match_features_json": "[\"name_match\", \"medical_school_affiliation\"]",
+      "count": 12,
+      "avg_confidence": 0.55
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\", \"orcid_present\"]",
+      "count": 11,
+      "avg_confidence": 0.9
+    },
+    {
+      "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"orcid_present\"]",
+      "count": 11,
+      "avg_confidence": 0.65
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\"]",
+      "count": 9,
+      "avg_confidence": 0.8
+    },
+    {
+      "match_features_json": "[\"penn_affiliation\"]",
+      "count": 7,
+      "avg_confidence": 0.55
+    },
+    {
+      "match_features_json": "[\"name_match\", \"residency_program_affiliation\", \"orcid_present\"]",
+      "count": 7,
+      "avg_confidence": 0.65
+    },
+    {
+      "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"residency_program_affiliation\"]",
+      "count": 7,
+      "avg_confidence": 0.55
+    },
+    {
+      "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
+      "count": 6,
+      "avg_confidence": 0.65
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
+      "count": 4,
+      "avg_confidence": 0.9
+    },
+    {
+      "match_features_json": "[\"residency_program_affiliation\", \"orcid_present\"]",
+      "count": 1,
+      "avg_confidence": 0.4
+    }
+  ],
+  "pubmed_feature_distribution": [
+    {
+      "match_features_json": "[\"author_query\", \"high_collision_risk\"]",
+      "count": 280,
+      "avg_confidence": 0.158
+    },
+    {
+      "match_features_json": "[\"author_query\", \"bounded_result_count\"]",
+      "count": 131,
+      "avg_confidence": 0.35
+    },
+    {
+      "match_features_json": "[\"author_query\", \"no_results\"]",
+      "count": 42,
+      "avg_confidence": 0.1
+    }
+  ],
+  "penn_affiliated_discovery": [
+    {
+      "classification": "trainee_roster_candidate",
+      "count": 395
+    },
+    {
+      "classification": "program_context",
+      "count": 276
+    },
+    {
+      "classification": "alumni_or_outcome_candidate",
+      "count": 173
+    },
+    {
+      "classification": "attending_faculty_candidate",
+      "count": 34
+    }
+  ]
+}

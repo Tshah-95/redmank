@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "utilities": [
+    {
+      "utility_key": "official_roster",
+      "display_name": "Official roster page",
+      "source_family": "official_institutional_web",
+      "default_tier": "gold",
+      "default_status": "accepted",
+      "default_confidence": 0.95,
+      "claim_types": ["current_membership", "role", "program", "training_year", "medical_school", "residency_program"],
+      "strengths": ["Highest precision for current roster membership", "Usually includes program/year context", "Direct provenance"],
+      "limitations": ["May omit profile detail", "Can be stale until annual update", "May mix trainees and leadership on some pages"],
+      "acceptance_rule": "Accept person-program membership when the page is official and the section label is trainee-facing."
+    },
+    {
+      "utility_key": "official_profile",
+      "display_name": "Official Penn/CHOP/person profile",
+      "source_family": "official_institutional_web",
+      "default_tier": "gold",
+      "default_status": "accepted",
+      "default_confidence": 0.9,
+      "claim_types": ["education", "prior_training", "research_interests", "career_interests", "profile_text"],
+      "strengths": ["Strong identity anchor when linked from roster", "Often richer biography and education"],
+      "limitations": ["Profile pages vary by department", "Can include contact details that should be redacted", "Not every trainee has one"],
+      "acceptance_rule": "Accept if linked from an official roster or exact person/program/institution match on an official Penn/CHOP page."
+    },
+    {
+      "utility_key": "openalex_author_search",
+      "display_name": "OpenAlex author search",
+      "source_family": "scholarly_api",
+      "default_tier": "silver",
+      "default_status": "candidate",
+      "default_confidence": 0.45,
+      "claim_types": ["research_author_candidate", "publication_count", "citation_count", "institution_affiliation"],
+      "strengths": ["Open API", "Connects authors, works, institutions, topics, ORCID/ROR when available", "Good for publication/citation candidate generation"],
+      "limitations": ["Author disambiguation is imperfect", "Affiliations lag current trainee status", "Name-only matches are unsafe"],
+      "acceptance_rule": "Accept only with at least two identity anchors beyond name, such as Penn affiliation, ORCID, profile link, coauthor cluster, specialty/topic, or prior institution."
+    },
+    {
+      "utility_key": "pubmed_eutilities",
+      "display_name": "NCBI PubMed E-utilities",
+      "source_family": "scholarly_api",
+      "default_tier": "silver",
+      "default_status": "candidate",
+      "default_confidence": 0.4,
+      "claim_types": ["publication_candidate", "pubmed_author_candidate"],
+      "strengths": ["Official PubMed API", "High-value biomedical publication coverage", "Stable PubMed identifiers"],
+      "limitations": ["Author names are ambiguous", "Affiliation coverage varies by article/year", "Name-only result counts can be misleading"],
+      "acceptance_rule": "Accept only when article author/affiliation/topic evidence agrees with roster identity."
+    },
+    {
+      "utility_key": "orcid_public_api",
+      "display_name": "ORCID public API",
+      "source_family": "scholarly_api",
+      "default_tier": "gold_when_linked",
+      "default_status": "candidate",
+      "default_confidence": 0.55,
+      "claim_types": ["orcid_candidate", "self_asserted_affiliation", "works"],
+      "strengths": ["Persistent person identifier", "Can include ROR-linked affiliations", "Strong when directly linked from profile/publication"],
+      "limitations": ["Many clinicians lack ORCID", "Public records vary in completeness", "Name search alone is unsafe"],
+      "acceptance_rule": "Accept when ORCID is linked from an official profile/publication or multiple public fields match the trainee."
+    },
+    {
+      "utility_key": "nppes_npi_registry",
+      "display_name": "NPPES NPI Registry",
+      "source_family": "licensure_api",
+      "default_tier": "bronze",
+      "default_status": "candidate",
+      "default_confidence": 0.35,
+      "claim_types": ["npi_candidate", "taxonomy", "practice_location"],
+      "strengths": ["Official public provider registry", "Useful for attending/current physician verification"],
+      "limitations": ["High name-collision risk", "Locations and taxonomy can lag", "Residents/fellows may not map cleanly"],
+      "acceptance_rule": "Accept only with strong name, location, specialty, and institutional agreement; never by name alone."
+    },
+    {
+      "utility_key": "clinicaltrials_api",
+      "display_name": "ClinicalTrials.gov API",
+      "source_family": "trial_registry_api",
+      "default_tier": "silver",
+      "default_status": "candidate",
+      "default_confidence": 0.4,
+      "claim_types": ["trial_investigator_candidate", "research_area"],
+      "strengths": ["Official trial registry API", "Useful for attendings and research-intensive fellows"],
+      "limitations": ["Investigator names can collide", "Trainees are often not named", "Sponsor/investigator roles require care"],
+      "acceptance_rule": "Accept only when investigator identity is anchored by institution, specialty, profile, or publication network."
+    },
+    {
+      "utility_key": "general_web_search",
+      "display_name": "General web search",
+      "source_family": "web_search",
+      "default_tier": "bronze",
+      "default_status": "candidate",
+      "default_confidence": 0.25,
+      "claim_types": ["profile_candidate", "career_outcome_candidate", "prior_training_candidate"],
+      "strengths": ["Finds long-tail profiles, PDFs, conference abstracts, alumni pages", "Useful discovery layer"],
+      "limitations": ["Noisy", "Search rank is not evidence", "May expose stale or personal pages"],
+      "acceptance_rule": "Use for discovery; promote only after the target page itself passes source and identity checks."
+    }
+  ]
+}

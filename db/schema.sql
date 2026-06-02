@@ -20,6 +20,20 @@ CREATE TABLE IF NOT EXISTS sources (
   metadata_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS source_utilities (
+  utility_key TEXT PRIMARY KEY,
+  display_name TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  default_tier TEXT NOT NULL,
+  default_status TEXT NOT NULL,
+  default_confidence REAL NOT NULL DEFAULT 0.0,
+  claim_types_json TEXT NOT NULL,
+  strengths_json TEXT NOT NULL,
+  limitations_json TEXT NOT NULL,
+  acceptance_rule TEXT NOT NULL,
+  metadata_json TEXT
+);
+
 CREATE TABLE IF NOT EXISTS people (
   person_key TEXT PRIMARY KEY,
   display_name TEXT NOT NULL,
@@ -106,7 +120,22 @@ CREATE TABLE IF NOT EXISTS evidence_claims (
   source_type TEXT,
   confidence REAL NOT NULL DEFAULT 0.0,
   status TEXT NOT NULL DEFAULT 'accepted',
+  match_features_json TEXT,
+  reconciliation_notes TEXT,
   evidence_json TEXT
+);
+
+CREATE TABLE IF NOT EXISTS source_quality_observations (
+  observation_id INTEGER PRIMARY KEY,
+  utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,
+  observed_at TEXT NOT NULL,
+  sample_size INTEGER NOT NULL DEFAULT 0,
+  candidate_claims INTEGER NOT NULL DEFAULT 0,
+  accepted_claims INTEGER NOT NULL DEFAULT 0,
+  rejected_claims INTEGER NOT NULL DEFAULT 0,
+  ambiguous_claims INTEGER NOT NULL DEFAULT 0,
+  notes TEXT,
+  metrics_json TEXT
 );
 
 CREATE VIEW IF NOT EXISTS v_person_training AS
