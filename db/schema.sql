@@ -1588,6 +1588,57 @@ CREATE TABLE IF NOT EXISTS person_enrichment_work_queue (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_enrichment_execution_readiness (
+  readiness_key TEXT PRIMARY KEY,
+  task_key TEXT NOT NULL REFERENCES person_enrichment_work_queue(task_key) ON DELETE CASCADE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_type TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  priority INTEGER NOT NULL DEFAULT 0,
+  priority_band TEXT NOT NULL,
+  execution_lane TEXT NOT NULL,
+  automation_status TEXT NOT NULL,
+  existing_collector TEXT NOT NULL,
+  command_hint TEXT NOT NULL,
+  input_artifacts_json TEXT NOT NULL,
+  output_artifacts_json TEXT NOT NULL,
+  requires_network INTEGER NOT NULL DEFAULT 0,
+  requires_manual_review INTEGER NOT NULL DEFAULT 0,
+  requires_script_extension INTEGER NOT NULL DEFAULT 0,
+  requires_new_parser INTEGER NOT NULL DEFAULT 0,
+  batch_key TEXT NOT NULL,
+  batch_rank INTEGER NOT NULL DEFAULT 0,
+  readiness_reason TEXT NOT NULL,
+  next_system_action TEXT NOT NULL,
+  evidence_json TEXT,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS person_enrichment_execution_readiness_rollups (
+  rollup_key TEXT PRIMARY KEY,
+  rollup_scope TEXT NOT NULL,
+  rollup_value TEXT NOT NULL,
+  task_type TEXT,
+  source_family TEXT,
+  priority_band TEXT,
+  execution_lane TEXT,
+  automation_status TEXT,
+  task_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  critical_task_count INTEGER NOT NULL DEFAULT 0,
+  network_required_count INTEGER NOT NULL DEFAULT 0,
+  manual_review_required_count INTEGER NOT NULL DEFAULT 0,
+  script_extension_required_count INTEGER NOT NULL DEFAULT 0,
+  new_parser_required_count INTEGER NOT NULL DEFAULT 0,
+  top_command_hint TEXT NOT NULL,
+  next_system_action TEXT NOT NULL,
+  evidence_json TEXT,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

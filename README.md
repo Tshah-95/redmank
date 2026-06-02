@@ -31,6 +31,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/program_lifecycle_consistency_summary.json`: lifecycle-consistency counts for accepted program identifiers, including unvalidated, unknown-duration, mixed-missing, and consistent rows.
 - `artifacts/data/person_enrichment_queue.csv`: source-aware recursive enrichment work queue for residents, fellows, and medical students, including state-machine urgency, priority band, query, source targets, acceptance rule, recency policy, provenance policy, and blocking risk.
 - `artifacts/data/person_enrichment_queue_summary.json`: queue rollups by role, task type, source family, priority band, and lifecycle policy lane.
+- `artifacts/data/person_enrichment_execution_readiness.csv`: per-task execution-readiness ledger mapping queued enrichment work to existing collectors, command hints, network/review/script-extension/parser requirements, and next system action.
+- `artifacts/data/person_enrichment_execution_readiness_rollups.csv`: rollups by task type, source family, execution lane, automation status, priority band, and task-type/execution-lane pair.
+- `artifacts/data/person_enrichment_execution_readiness_summary.json`: one-glance counts for runnable collector lanes, manual-review burden, script-extension gaps, and new-parser gaps.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
 - `artifacts/data/penn_gme_program_universe.json`: official HUP GME program denominator parsed from the public Penn Medicine program list.
 - `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
@@ -163,6 +166,7 @@ Build the SQLite warehouse and review queues:
 python3 scripts/build_sqlite.py
 python3 scripts/audit_penn_med_student_sources.py
 python3 scripts/generate_enrichment_queue.py
+python3 scripts/materialize_person_enrichment_execution_readiness.py
 python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 ```
 
@@ -193,6 +197,7 @@ python3 scripts/materialize_official_program_alias_review_packets.py
 python3 scripts/materialize_official_program_alias_reviewer_decisions.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
+python3 scripts/materialize_person_enrichment_execution_readiness.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
@@ -210,6 +215,8 @@ python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/materialize_training_lifecycle_assurance.py
 python3 scripts/materialize_training_state_transition_plan.py
 python3 scripts/audit_enrichment_coverage.py
+python3 scripts/generate_enrichment_queue.py
+python3 scripts/materialize_person_enrichment_execution_readiness.py
 python3 scripts/collect_npi_candidates.py --sleep 0.03
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026

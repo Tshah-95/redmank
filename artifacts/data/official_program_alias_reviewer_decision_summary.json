@@ -20,7 +20,7 @@
   "by_reviewer_decision": {
     "pending": 32
   },
-  "generated_at": "2026-06-02T12:03:46.820584+00:00",
+  "generated_at": "2026-06-02T12:10:20.345856+00:00",
   "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "not_ready_rows": 17,

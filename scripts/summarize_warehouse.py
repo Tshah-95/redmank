@@ -38,6 +38,8 @@ def main() -> None:
         "person_enrichment_coverage",
         "program_enrichment_coverage",
         "person_enrichment_work_queue",
+        "person_enrichment_execution_readiness",
+        "person_enrichment_execution_readiness_rollups",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",
@@ -740,6 +742,40 @@ def main() -> None:
             """
         )
     }
+    person_enrichment_execution_lane_counts = {
+        row["execution_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT execution_lane, COUNT(*) AS count
+            FROM person_enrichment_execution_readiness
+            GROUP BY execution_lane
+            """
+        )
+    }
+    person_enrichment_automation_status_counts = {
+        row["automation_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT automation_status, COUNT(*) AS count
+            FROM person_enrichment_execution_readiness
+            GROUP BY automation_status
+            """
+        )
+    }
+    person_enrichment_execution_requirement_counts = {
+        "requires_network": conn.execute(
+            "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_network = 1"
+        ).fetchone()[0],
+        "requires_manual_review": conn.execute(
+            "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_manual_review = 1"
+        ).fetchone()[0],
+        "requires_script_extension": conn.execute(
+            "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_script_extension = 1"
+        ).fetchone()[0],
+        "requires_new_parser": conn.execute(
+            "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_new_parser = 1"
+        ).fetchone()[0],
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -1039,6 +1075,9 @@ def main() -> None:
         "person_enrichment_queue_task_counts": person_enrichment_queue_task_counts,
         "person_enrichment_queue_source_counts": person_enrichment_queue_source_counts,
         "person_enrichment_queue_policy_lane_counts": person_enrichment_queue_policy_lane_counts,
+        "person_enrichment_execution_lane_counts": person_enrichment_execution_lane_counts,
+        "person_enrichment_automation_status_counts": person_enrichment_automation_status_counts,
+        "person_enrichment_execution_requirement_counts": person_enrichment_execution_requirement_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "medical_student_source_audit_counts": medical_student_source_audit_counts,
         "organization_category_counts": category_counts,

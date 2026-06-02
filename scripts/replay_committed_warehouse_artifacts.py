@@ -59,6 +59,8 @@ CSV_TABLES = [
     ("person_enrichment_coverage.csv", "person_enrichment_coverage"),
     ("program_enrichment_coverage.csv", "program_enrichment_coverage"),
     ("person_enrichment_queue.csv", "person_enrichment_work_queue"),
+    ("person_enrichment_execution_readiness.csv", "person_enrichment_execution_readiness"),
+    ("person_enrichment_execution_readiness_rollups.csv", "person_enrichment_execution_readiness_rollups"),
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("warehouse_reproducibility_audit.csv", "warehouse_reproducibility_audit"),
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),

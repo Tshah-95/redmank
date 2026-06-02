@@ -1,0 +1,57 @@
+{
+  "by_automation_status": {
+    "collector_available_only_when_source_exposes_contact": 1204,
+    "collector_available_partial_role_coverage": 1186,
+    "collector_available_partial_source_coverage": 1470,
+    "collector_available_review_required": 617,
+    "general_search_required_no_dedicated_collector": 269,
+    "manual_decision_ready": 845,
+    "trainee_profile_collector_missing": 535
+  },
+  "by_execution_lane": {
+    "collector_available_with_role_gap": 1186,
+    "collector_then_manual_normalization": 617,
+    "collector_with_reconciliation_required": 1470,
+    "dependent_on_roster_or_profile_refresh": 1204,
+    "new_or_extended_collector_required": 535,
+    "reviewer_decision_required": 845,
+    "source_search_then_review": 269
+  },
+  "by_priority_band": {
+    "critical": 2315,
+    "high": 625,
+    "low": 1204,
+    "medium": 1982
+  },
+  "by_task_type": {
+    "current_roster_state_reconciliation": 1470,
+    "evidence_reconciliation_review": 845,
+    "official_profile_search": 535,
+    "organization_alias_review": 617,
+    "public_contact_verification": 1204,
+    "research_identity_search": 1186,
+    "source_medical_school_background": 179,
+    "source_residency_background": 90
+  },
+  "manual_review_required_tasks": 4195,
+  "network_required_tasks": 5281,
+  "new_parser_required_tasks": 804,
+  "person_count": 1483,
+  "readiness_csv": "artifacts/data/person_enrichment_execution_readiness.csv",
+  "readiness_json": "artifacts/data/person_enrichment_execution_readiness.json",
+  "readiness_rows": 6126,
+  "rollup_csv": "artifacts/data/person_enrichment_execution_readiness_rollups.csv",
+  "rollup_json": "artifacts/data/person_enrichment_execution_readiness_rollups.json",
+  "rollup_rows": 41,
+  "script_extension_required_tasks": 1029,
+  "top_next_system_actions": {
+    "build_official_trainee_profile_discovery_and_parser": 535,
+    "build_prior_gme_source_collector_and_review_candidate_background_claims": 90,
+    "build_prior_training_source_collector_and_review_candidate_background_claims": 179,
+    "extend_research_collector_to_queue_and_medical_students_then_run_candidate_collection": 1186,
+    "refresh_public_contact_sources_and_reaudit_display_safety": 1204,
+    "review_high_priority_evidence_packets_and_record_accept_or_reject_decisions": 845,
+    "run_identifier_candidate_collection_then_review_alias_collapses": 617,
+    "run_or_extend_official_roster_collectors_then_reconcile_state_machine": 1470
+  }
+}

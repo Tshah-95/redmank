@@ -526,6 +526,33 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
            OR policy_lane IN ('manual_review_required', 'source_refresh_required')
         """,
     )
+    execution_readiness_summary = read_json(ARTIFACTS / "person_enrichment_execution_readiness_summary.json", {})
+    readiness_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_execution_readiness")
+    readiness_existing_collector = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_execution_readiness
+        WHERE automation_status IN (
+          'collector_available_partial_source_coverage',
+          'collector_available_review_required',
+          'collector_available_only_when_source_exposes_contact',
+          'collector_available_partial_role_coverage'
+        )
+        """,
+    )
+    readiness_manual = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_manual_review = 1",
+    )
+    readiness_script_extension = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_script_extension = 1",
+    )
+    readiness_new_parser = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_new_parser = 1",
+    )
 
     return [
         make_row(
@@ -1188,6 +1215,38 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "high_or_critical_rows": enrichment_queue_high,
                 "review_or_refresh_rows": enrichment_queue_review_or_refresh,
                 "queue_summary": enrichment_queue_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="enrichment_execution_readiness",
+            utility_key="",
+            utility_label="Enrichment execution readiness",
+            source_family="orchestration",
+            claim_surface="mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements",
+            input_records=enrichment_queue_rows,
+            output_records=readiness_rows,
+            candidate_records=readiness_existing_collector,
+            needs_review_records=readiness_manual,
+            blocked_records=readiness_new_parser,
+            score=78.0,
+            strengths=[
+                "Makes collector availability and parser gaps explicit per queued person task",
+                "Separates network collection, manual review, script-extension, and new-parser requirements",
+                "Rolls execution readiness up by task type, source family, automation status, and priority band",
+            ],
+            limitations=[
+                "Readiness is an execution map, not collected evidence",
+                "Official profile and prior-training lanes still need new trainee-focused collectors",
+                "Research collection is available but still needs queue-driven and medical-student expansion",
+            ],
+            recommended_next_action="execute_existing_collector_lanes_first_then_build_missing_profile_and_prior_training_collectors",
+            evidence={
+                "readiness_rows": readiness_rows,
+                "existing_collector_or_partial_collector_rows": readiness_existing_collector,
+                "manual_review_required_rows": readiness_manual,
+                "script_extension_required_rows": readiness_script_extension,
+                "new_parser_required_rows": readiness_new_parser,
+                "execution_readiness_summary": execution_readiness_summary,
             },
         ),
     ]
