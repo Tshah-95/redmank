@@ -35,6 +35,9 @@ SOURCE_FILES = [
 OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_affiliated_source_discovery.json",
     ARTIFACTS / "penn_attending_candidate_sources.json",
+    ARTIFACTS / "penn_attending_profile_sources.json",
+    ARTIFACTS / "penn_attending_profile_claims.json",
+    ARTIFACTS / "penn_attending_profile_summary.json",
     ARTIFACTS / "penn_outcome_candidate_sources.json",
     ARTIFACTS / "penn_attending_candidates.json",
     ARTIFACTS / "penn_outcome_candidates.json",
@@ -306,6 +309,7 @@ def insert_sources(conn: sqlite3.Connection) -> None:
             )
     for optional_sources, source_type in [
         (ARTIFACTS / "penn_attending_candidate_sources.json", "official_attending_faculty_candidate"),
+        (ARTIFACTS / "penn_attending_profile_sources.json", "official_attending_profile"),
         (ARTIFACTS / "penn_outcome_candidate_sources.json", "official_outcome_context"),
     ]:
         if optional_sources.exists():
@@ -1582,6 +1586,36 @@ def insert_career_events(conn: sqlite3.Connection) -> None:
                     row.get("source_key"),
                     row.get("source_url"),
                     row.get("confidence", 0.25),
+                    row.get("status", "candidate"),
+                    dumps(row.get("match_features", [])),
+                    dumps(row),
+                ),
+            )
+    profile_claims_path = ARTIFACTS / "penn_attending_profile_claims.json"
+    if profile_claims_path.exists():
+        for row in load_json(profile_claims_path):
+            normalized_name = normalized_label(row.get("display_name"))
+            person_key = existing_people.get(normalized_name)
+            conn.execute(
+                """
+                INSERT INTO career_events
+                (person_key, display_name, event_type, role_title, organization_name,
+                 department, program_context, event_year, source_key, source_url,
+                 confidence, status, match_features_json, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    person_key,
+                    row.get("display_name") or "",
+                    row.get("event_type") or "attending_profile_training_history_candidate",
+                    row.get("claim_type") or "",
+                    row.get("organization_name") or "",
+                    row.get("department") or "",
+                    row.get("program_context") or "",
+                    row.get("event_year"),
+                    row.get("source_key"),
+                    row.get("source_url"),
+                    row.get("confidence", 0.45),
                     row.get("status", "candidate"),
                     dumps(row.get("match_features", [])),
                     dumps(row),

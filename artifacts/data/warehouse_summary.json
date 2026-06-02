@@ -1,5 +1,6 @@
 {
   "career_event_counts": {
+    "attending_profile_training_history_candidate": 20,
     "current_penn_attending_candidate": 49,
     "penn_alumni_outcome_candidate": 36
   },
@@ -7,7 +8,7 @@
     "email": 313
   },
   "counts": {
-    "career_events": 85,
+    "career_events": 105,
     "evidence_claims": 4630,
     "official_program_coverage_audit": 91,
     "official_program_source_candidates": 214,
@@ -24,7 +25,7 @@
     "programs": 78,
     "source_quality_observations": 3,
     "source_utilities": 9,
-    "sources": 1374
+    "sources": 1386
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "evidence_source_counts": {
@@ -91,7 +92,7 @@
     "source_refresh_required": 555,
     "stage_outside_nominal_duration_review": 21
   },
-  "generated_at": "2026-06-02T06:17:05.484480+00:00",
+  "generated_at": "2026-06-02T06:23:59.005642+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,

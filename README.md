@@ -25,6 +25,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_gme_gap_roster_people.json`: conservative queue-driven roster extract from supported HUP gap pages.
 - `artifacts/data/penn_gme_gap_roster_sources.json`: source provenance and extraction status for queue-driven HUP gap roster pages.
 - `artifacts/data/penn_attending_candidates.json`: conservative current Penn attending/faculty candidate layer for future career-trend reconciliation.
+- `artifacts/data/penn_attending_profile_claims.json`: official Penn profile-derived attending education/training/research/personal-profile candidate claims.
 - `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
@@ -82,6 +83,7 @@ Run Penn-wide source discovery and first-pass research candidate collection:
 python3 scripts/discover_penn_affiliated_sources.py
 python3 scripts/scrape_penn_affiliated_rosters.py
 python3 scripts/scrape_penn_attending_candidates.py
+python3 scripts/enrich_penn_attending_profiles.py
 python3 scripts/extract_penn_outcome_candidates.py
 python3 scripts/build_sqlite.py
 python3 scripts/audit_penn_gme_program_coverage.py

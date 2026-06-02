@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T06:17:05.459813+00:00",
+  "generated_at": "2026-06-02T06:23:58.981159+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -10,6 +10,11 @@
       "source_type": "official_attending_faculty_candidate",
       "classification": null,
       "count": 4
+    },
+    {
+      "source_type": "official_attending_profile",
+      "classification": null,
+      "count": 12
     },
     {
       "source_type": "official_gap_roster",
@@ -1040,6 +1045,18 @@
   ],
   "career_event_counts": [
     {
+      "event_type": "attending_profile_training_history_candidate",
+      "status": "candidate",
+      "count": 15,
+      "avg_confidence": 0.574
+    },
+    {
+      "event_type": "attending_profile_training_history_candidate",
+      "status": "needs_review",
+      "count": 5,
+      "avg_confidence": 0.756
+    },
+    {
       "event_type": "current_penn_attending_candidate",
       "status": "candidate",
       "count": 49,
@@ -1052,6 +1069,27 @@
       "avg_confidence": 0.411
     }
   ],
+  "attending_profile_summary": {
+    "by_claim_type": {
+      "education_history_candidate": 6,
+      "penn_training_history_candidate": 5,
+      "personal_profile_candidate": 2,
+      "prior_training_history_candidate": 6,
+      "research_interest_candidate": 1
+    },
+    "by_source_status": {
+      "profile_claims_extracted": 10,
+      "unusable_profile_or_404": 2
+    },
+    "by_status": {
+      "candidate": 15,
+      "needs_review": 5
+    },
+    "claims": 20,
+    "generated_at": "2026-06-02T06:23:05.323729+00:00",
+    "profiles_attempted": 12,
+    "usable_profiles": 10
+  },
   "broad_program_counts": [
     {
       "program_name": "Anesthesiology Residency",

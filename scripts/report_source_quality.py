@@ -191,6 +191,7 @@ def main() -> None:
     hup_gap_candidates = read_json(ARTIFACTS / "penn_gme_gap_source_candidates.json", [])
     hup_gap_roster_summary = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
+    attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
@@ -234,6 +235,7 @@ def main() -> None:
         "pubmed_article_candidate_summary": pubmed_article_summary,
         "penn_affiliated_discovery": broad_discovery,
         "career_event_counts": career_events,
+        "attending_profile_summary": attending_profile_summary,
         "broad_program_counts": broad_program_counts,
         "generic_program_labels": generic_program_labels,
         "training_state_counts": training_state_counts,
@@ -397,7 +399,19 @@ def main() -> None:
         "",
         *md_table(career_events, ["event_type", "status", "count", "avg_confidence"]),
         "",
-        "Learning: current faculty pages and alumni/outcome pages should feed a career-event layer, not the core current-trainee roster. Current Penn attending candidates are useful endpoints for future trend analysis, but they still need reconciliation to prior Penn training records before we claim someone 'ended up at Penn.'",
+        "Attending profile enrichment:",
+        "",
+        f"Profiles attempted: {attending_profile_summary.get('profiles_attempted', 0)}. Usable profiles: {attending_profile_summary.get('usable_profiles', 0)}. Claims extracted: {attending_profile_summary.get('claims', 0)}.",
+        "",
+        *md_table(
+            [
+                {"claim_type": claim_type, "count": count}
+                for claim_type, count in sorted((attending_profile_summary.get("by_claim_type") or {}).items())
+            ],
+            ["claim_type", "count"],
+        ),
+        "",
+        "Learning: current faculty pages, provider profiles, and alumni/outcome pages should feed a career-event layer, not the core current-trainee roster. Official profile training-history claims are stronger than source-level outcome prose, but they still remain candidates until reconciled to a prior Penn trainee identity or another independent anchor.",
         "",
         "## Public Contact Evidence",
         "",

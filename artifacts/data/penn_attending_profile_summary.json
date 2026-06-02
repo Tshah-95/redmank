@@ -1,0 +1,21 @@
+{
+  "by_claim_type": {
+    "education_history_candidate": 6,
+    "penn_training_history_candidate": 5,
+    "personal_profile_candidate": 2,
+    "prior_training_history_candidate": 6,
+    "research_interest_candidate": 1
+  },
+  "by_source_status": {
+    "profile_claims_extracted": 10,
+    "unusable_profile_or_404": 2
+  },
+  "by_status": {
+    "candidate": 15,
+    "needs_review": 5
+  },
+  "claims": 20,
+  "generated_at": "2026-06-02T06:23:05.323729+00:00",
+  "profiles_attempted": 12,
+  "usable_profiles": 10
+}

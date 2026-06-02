@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:17:05.459813+00:00
+Generated: 2026-06-02T06:23:58.981159+00:00
 
 ## What This Pass Did
 
@@ -461,10 +461,24 @@ Learning: article-level PubMed XML is materially better than author-query counts
 
 | event_type | status | count | avg_confidence |
 | --- | --- | --- | --- |
+| attending_profile_training_history_candidate | candidate | 15 | 0.574 |
+| attending_profile_training_history_candidate | needs_review | 5 | 0.756 |
 | current_penn_attending_candidate | candidate | 49 | 0.55 |
 | penn_alumni_outcome_candidate | candidate | 36 | 0.411 |
 
-Learning: current faculty pages and alumni/outcome pages should feed a career-event layer, not the core current-trainee roster. Current Penn attending candidates are useful endpoints for future trend analysis, but they still need reconciliation to prior Penn training records before we claim someone 'ended up at Penn.'
+Attending profile enrichment:
+
+Profiles attempted: 12. Usable profiles: 10. Claims extracted: 20.
+
+| claim_type | count |
+| --- | --- |
+| education_history_candidate | 6 |
+| penn_training_history_candidate | 5 |
+| personal_profile_candidate | 2 |
+| prior_training_history_candidate | 6 |
+| research_interest_candidate | 1 |
+
+Learning: current faculty pages, provider profiles, and alumni/outcome pages should feed a career-event layer, not the core current-trainee roster. Official profile training-history claims are stronger than source-level outcome prose, but they still remain candidates until reconciled to a prior Penn trainee identity or another independent anchor.
 
 ## Public Contact Evidence
 

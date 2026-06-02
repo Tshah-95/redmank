@@ -105,6 +105,16 @@ The intended loop:
 
 This lets the method improve without quietly poisoning the corpus.
 
+## Attending Trend Evidence
+
+Current Penn attending/faculty pages and official Penn provider/profile pages are loaded as career-event evidence, not as trainee roster truth. `scripts/enrich_penn_attending_profiles.py` follows profile URLs from current attending candidates and extracts only conservative official-profile claims:
+
+- structured provider-page Medical School, Residency, and Fellowship fields.
+- department biography sentences with explicit Penn/HUP training language.
+- research-interest and personal-profile sentences when the profile page publishes them directly.
+
+Penn training-history claims from current attending profiles are `needs_review`, not accepted. They are useful for the ten-year trend line only after reconciliation links the current attending identity to a prior Penn trainee record or another independent public anchor.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.

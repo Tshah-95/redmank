@@ -423,7 +423,11 @@ SELECT
   confidence,
   status
 FROM career_events
-WHERE event_type IN ('current_penn_attending_candidate', 'penn_alumni_outcome_candidate')
+WHERE event_type IN (
+  'current_penn_attending_candidate',
+  'penn_alumni_outcome_candidate',
+  'attending_profile_training_history_candidate'
+)
 ORDER BY
   event_year DESC,
   confidence DESC,
