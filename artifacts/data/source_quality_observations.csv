@@ -1,3 +1,3 @@
 utility_key,observed_at,sample_size,candidate_claims,accepted_claims,rejected_claims,ambiguous_claims,notes,metrics_json
-openalex_author_search,2026-06-02T03:36:42.507405+00:00,453,1085,0,0,116,Automated first-pass candidate generation; no claims accepted automatically.,"{""claims"": 1201, ""mean_confidence"": 0.4723}"
-pubmed_eutilities,2026-06-02T03:42:11.816812+00:00,453,453,0,0,0,Automated first-pass candidate generation; no claims accepted automatically.,"{""claims"": 453, ""mean_confidence"": 0.2084}"
+openalex_author_search,2026-06-02T03:49:28.874340+00:00,759,1723,0,0,219,Automated first-pass candidate generation; no claims accepted automatically.,"{""claims"": 1942, ""mean_confidence"": 0.4794}"
+pubmed_eutilities,2026-06-02T03:55:40.019136+00:00,759,759,0,0,0,Automated first-pass candidate generation; no claims accepted automatically.,"{""claims"": 759, ""mean_confidence"": 0.211}"

@@ -1,6 +1,11 @@
 {
-  "generated_at": "2026-06-02T03:43:11.997564+00:00",
+  "generated_at": "2026-06-02T03:55:52.870013+00:00",
   "source_counts": [
+    {
+      "source_type": "official_affiliated_roster",
+      "classification": null,
+      "count": 17
+    },
     {
       "source_type": "official_public_student_directory",
       "classification": null,
@@ -356,14 +361,14 @@
       "source_key": "openalex_author_search",
       "status": "candidate",
       "claim_type": "research_author_candidate",
-      "count": 1085,
-      "avg_confidence": 0.427
+      "count": 1723,
+      "avg_confidence": 0.426
     },
     {
       "source_key": "openalex_author_search",
       "status": "needs_review",
       "claim_type": "research_author_candidate",
-      "count": 116,
+      "count": 219,
       "avg_confidence": 0.9
     },
     {
@@ -381,11 +386,326 @@
       "avg_confidence": 0.75
     },
     {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 19,
+      "avg_confidence": 0.908
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 19,
+      "avg_confidence": 0.929
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_2ebc99cda7",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_2ebc99cda7",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 54,
+      "avg_confidence": 0.857
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_2ebc99cda7",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 47,
+      "avg_confidence": 0.844
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_4250553081",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 28,
+      "avg_confidence": 0.836
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_4250553081",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 27,
+      "avg_confidence": 0.802
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_4250553081",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 20,
+      "avg_confidence": 0.84
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_059f3f8bc0",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 1,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_059f3f8bc0",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 1,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_4ccb7e8d57",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_4ccb7e8d57",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 4,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_4ccb7e8d57",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 4,
+      "avg_confidence": 0.8
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_4ccb7e8d57",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_acebe4929a",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_acebe4929a",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_e9538572e0",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_e9538572e0",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 3,
+      "avg_confidence": 0.883
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_e9538572e0",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 3,
+      "avg_confidence": 0.817
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_e9538572e0",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 2,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_f1043500c4",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 2,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_f1043500c4",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 2,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_f1043500c4",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_fb4824f4f4",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_fb4824f4f4",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_fb4824f4f4",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_ff73f3288d",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 4,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_ff73f3288d",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 4,
+      "avg_confidence": 0.8
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_ff73f3288d",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 4,
+      "avg_confidence": 0.85
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_8726482f2e",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 9,
+      "avg_confidence": 0.906
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_8726482f2e",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 8,
+      "avg_confidence": 0.825
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b1bc5a1dae",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b1bc5a1dae",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 22,
+      "avg_confidence": 0.877
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b1bc5a1dae",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b1bc5a1dae",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 21,
+      "avg_confidence": 0.845
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b688511031",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 6,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b688511031",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 69,
+      "avg_confidence": 0.889
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b688511031",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b688511031",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 61,
+      "avg_confidence": 0.842
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b953e0b386",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 22,
+      "avg_confidence": 0.905
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b953e0b386",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 21,
+      "avg_confidence": 0.817
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 15,
+      "avg_confidence": 0.857
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 14,
+      "avg_confidence": 0.836
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 20,
+      "avg_confidence": 0.9
+    },
+    {
+      "source_key": "penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 10,
+      "avg_confidence": 0.77
+    },
+    {
       "source_key": "pubmed_eutilities",
       "status": "candidate",
       "claim_type": "pubmed_author_query_candidate",
-      "count": 453,
-      "avg_confidence": 0.208
+      "count": 759,
+      "avg_confidence": 0.211
     },
     {
       "source_key": "pulmonary_critical_care_current_fellows",
@@ -426,102 +746,102 @@
   "utility_observations": [
     {
       "utility_key": "openalex_author_search",
-      "sample_size": 453,
-      "candidate_claims": 1085,
+      "sample_size": 759,
+      "candidate_claims": 1723,
       "accepted_claims": 0,
       "rejected_claims": 0,
-      "ambiguous_claims": 116,
-      "metrics_json": "{\"claims\": 1201, \"mean_confidence\": 0.4723}"
+      "ambiguous_claims": 219,
+      "metrics_json": "{\"claims\": 1942, \"mean_confidence\": 0.4794}"
     },
     {
       "utility_key": "pubmed_eutilities",
-      "sample_size": 453,
-      "candidate_claims": 453,
+      "sample_size": 759,
+      "candidate_claims": 759,
       "accepted_claims": 0,
       "rejected_claims": 0,
       "ambiguous_claims": 0,
-      "metrics_json": "{\"claims\": 453, \"mean_confidence\": 0.2084}"
+      "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.211}"
     }
   ],
   "openalex_feature_distribution": [
     {
       "match_features_json": "[\"name_match\"]",
-      "count": 386,
+      "count": 565,
       "avg_confidence": 0.4
     },
     {
       "match_features_json": "[\"name_match\", \"orcid_present\"]",
-      "count": 206,
+      "count": 336,
       "avg_confidence": 0.5
     },
     {
       "match_features_json": "[\"orcid_present\"]",
-      "count": 172,
+      "count": 308,
       "avg_confidence": 0.25
     },
     {
       "match_features_json": "[]",
-      "count": 118,
+      "count": 180,
       "avg_confidence": 0.15
     },
     {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\"]",
-      "count": 94,
-      "avg_confidence": 0.8
-    },
-    {
       "match_features_json": "[\"name_match\", \"penn_affiliation\", \"orcid_present\"]",
-      "count": 83,
+      "count": 165,
       "avg_confidence": 0.9
     },
     {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 18,
-      "avg_confidence": 0.9
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\"]",
-      "count": 16,
+      "match_features_json": "[\"name_match\", \"penn_affiliation\"]",
+      "count": 157,
       "avg_confidence": 0.8
     },
     {
       "match_features_json": "[\"name_match\", \"residency_program_affiliation\"]",
-      "count": 15,
+      "count": 27,
       "avg_confidence": 0.55
     },
     {
-      "match_features_json": "[\"penn_affiliation\", \"orcid_present\"]",
-      "count": 14,
-      "avg_confidence": 0.65
-    },
-    {
-      "match_features_json": "[\"name_match\", \"medical_school_affiliation\"]",
-      "count": 12,
-      "avg_confidence": 0.55
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\", \"orcid_present\"]",
-      "count": 11,
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
+      "count": 26,
       "avg_confidence": 0.9
     },
     {
       "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"orcid_present\"]",
-      "count": 11,
+      "count": 26,
       "avg_confidence": 0.65
     },
     {
+      "match_features_json": "[\"name_match\", \"medical_school_affiliation\"]",
+      "count": 25,
+      "avg_confidence": 0.55
+    },
+    {
+      "match_features_json": "[\"penn_affiliation\", \"orcid_present\"]",
+      "count": 24,
+      "avg_confidence": 0.65
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\", \"orcid_present\"]",
+      "count": 24,
+      "avg_confidence": 0.9
+    },
+    {
+      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\"]",
+      "count": 18,
+      "avg_confidence": 0.8
+    },
+    {
       "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\"]",
-      "count": 9,
+      "count": 12,
       "avg_confidence": 0.8
     },
     {
       "match_features_json": "[\"penn_affiliation\"]",
-      "count": 7,
+      "count": 11,
       "avg_confidence": 0.55
     },
     {
       "match_features_json": "[\"name_match\", \"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 7,
+      "count": 10,
       "avg_confidence": 0.65
     },
     {
@@ -541,24 +861,24 @@
     },
     {
       "match_features_json": "[\"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 1,
+      "count": 2,
       "avg_confidence": 0.4
     }
   ],
   "pubmed_feature_distribution": [
     {
       "match_features_json": "[\"author_query\", \"high_collision_risk\"]",
-      "count": 280,
-      "avg_confidence": 0.158
+      "count": 466,
+      "avg_confidence": 0.16
     },
     {
       "match_features_json": "[\"author_query\", \"bounded_result_count\"]",
-      "count": 131,
+      "count": 226,
       "avg_confidence": 0.35
     },
     {
       "match_features_json": "[\"author_query\", \"no_results\"]",
-      "count": 42,
+      "count": 67,
       "avg_confidence": 0.1
     }
   ],

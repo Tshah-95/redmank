@@ -22,7 +22,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
-As of the latest local generation, the Department of Medicine corpus has 453 unique resident/fellow profiles: 220 current fellows, 219 current residents, 1 chief resident, and 13 former fellows exposed on current fellowship pages. The separate MSTP student subset has 225 public student-directory records and is intentionally not treated as an all-medical-student roster.
+As of the latest local generation, the warehouse has 984 people: 466 residents, 293 fellows, and 225 public MSTP student-directory records. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
 
 ## Reproduce
 
@@ -61,6 +61,9 @@ Run Penn-wide source discovery and first-pass research candidate collection:
 
 ```bash
 python3 scripts/discover_penn_affiliated_sources.py
+python3 scripts/scrape_penn_affiliated_rosters.py
+python3 scripts/build_sqlite.py
+python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/report_source_quality.py

@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+"""Scrape conservative Penn-wide resident/fellow roster candidates discovered outside Medicine."""
+
+from __future__ import annotations
+
+import csv
+import hashlib
+import json
+import os
+import re
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import urljoin, urlparse
+
+DEPS_PATH = Path(os.environ.get("PENN_CORPUS_DEPS", "/tmp/penn_corpus_deps"))
+if DEPS_PATH.exists():
+    sys.path.insert(0, str(DEPS_PATH))
+
+try:
+    import requests
+    from bs4 import BeautifulSoup
+except ModuleNotFoundError as exc:
+    raise SystemExit(
+        "Missing scraper dependency. Install with: "
+        "python3 -m pip install --target /tmp/penn_corpus_deps -r requirements.txt"
+    ) from exc
+
+
+OUT = Path("artifacts/data")
+DISCOVERY = OUT / "penn_affiliated_source_discovery.json"
+
+
+def norm(text: str | None) -> str:
+    if not text:
+        return ""
+    return re.sub(r"\s+", " ", text.replace("\xa0", " ")).strip()
+
+
+def redact_text(text: str) -> str:
+    return re.sub(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", "[REDACTED_EMAIL]", text)
+
+
+def absolute(base: str, maybe_url: str | None) -> str:
+    if not maybe_url:
+        return ""
+    return urljoin(base, maybe_url)
+
+
+def source_key_for(url: str) -> str:
+    path = urlparse(url).path.strip("/").replace("/", "_")
+    path = re.sub(r"[^a-zA-Z0-9_]+", "_", path).lower()
+    digest = hashlib.sha1(url.encode("utf-8")).hexdigest()[:10]
+    return f"penn_affiliated_{path[:70]}_{digest}"
+
+
+def should_scrape_source(row: dict) -> bool:
+    if row.get("classification") != "trainee_roster_candidate":
+        return False
+    if int(row.get("bio_count") or 0) <= 0:
+        return False
+    title_url = f"{row.get('title', '')} {row.get('url', '')}".lower()
+    if "/department-of-medicine/" in title_url:
+        return False
+    reject_tokens = [
+        "/faculty",
+        "faculty -",
+        "meet our faculty",
+        "leadership",
+        "how to apply",
+        "application",
+        "welcome message",
+        "advanced practice",
+        "nurse anesthetists",
+        "administrative staff",
+    ]
+    if any(token in title_url for token in reject_tokens):
+        return False
+    include_tokens = [
+        "current residents",
+        "current residents and fellows",
+        "meet our residents",
+        "meet our fellows",
+        "current fellows",
+        "/residents",
+        "/fellows",
+        "diagnostic-radiology-residents",
+        "ir-integrated-residents",
+    ]
+    return any(token in title_url for token in include_tokens)
+
+
+def parse_info_sets(bio) -> dict:
+    fields = {}
+    for span in bio.select(".bio__info-set"):
+        key_node = span.select_one(".bio__info-key")
+        if not key_node:
+            continue
+        key = norm(key_node.get_text()).rstrip(":").lower().replace(" ", "_").replace("/", "_")
+        if key == "email":
+            continue
+        key_node.extract()
+        value = redact_text(norm(span.get_text(" ")))
+        if value:
+            fields[key] = value
+    return fields
+
+
+def infer_role(title: str, url: str) -> str:
+    haystack = f"{title} {url}".lower()
+    if "resident" in haystack:
+        return "resident"
+    if "fellow" in haystack:
+        return "fellow"
+    return "trainee"
+
+
+def infer_program(title: str, url: str) -> str:
+    title = re.sub(r"\s*[-|]\s*Penn Medicine.*$", "", title).strip()
+    title = re.sub(r"^Meet Our\s+", "", title, flags=re.I)
+    title = title.replace("Current Residents & Fellows", "Ophthalmology Residency and Fellowship")
+    if title:
+        return title
+    path = urlparse(url).path.strip("/").split("/")
+    return " ".join(part.replace("-", " ").title() for part in path[-3:])
+
+
+def infer_status(label: str) -> str:
+    lower = label.lower()
+    if any(token in lower for token in ["alumni", "former", "graduate"]):
+        return "former"
+    return "current"
+
+
+def parse_source(session: requests.Session, source: dict) -> tuple[list[dict], dict]:
+    url = source["url"]
+    response = session.get(url, timeout=30)
+    meta = {
+        "source_key": source_key_for(url),
+        "url": url,
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "http_status": response.status_code,
+        "effective_url": response.url,
+        "sha256": hashlib.sha256(response.text.encode("utf-8")).hexdigest(),
+        "discovery_classification": source.get("classification"),
+    }
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "lxml")
+    title = source.get("title") or (norm(soup.title.get_text(" ")) if soup.title else "")
+    program = infer_program(title, url)
+    role = infer_role(title, url)
+    rows = []
+    for group in soup.select(".bio-list"):
+        heading = group.find(["h1", "h2"], recursive=False)
+        label = norm(heading.get_text(" ")) if heading else ""
+        if not label:
+            label_node = group.find_previous(["h1", "h2"])
+            label = norm(label_node.get_text(" ")) if label_node else ""
+        for bio in group.select(".bio"):
+            name_node = bio.select_one(".bio__name")
+            if not name_node:
+                continue
+            image = bio.select_one("img")
+            profile = bio.select_one("a[href]")
+            record = {
+                "source_key": meta["source_key"],
+                "source_url": url,
+                "source_type": "official_roster",
+                "institution": "University of Pennsylvania / Penn Medicine",
+                "unit": "Penn Medicine",
+                "program": program,
+                "population": "penn_affiliated_current_trainees",
+                "role": role,
+                "training_year_label": label,
+                "current_status": infer_status(label),
+                "name": norm(name_node.get_text(" ")),
+                "profile_url": absolute(url, profile.get("href") if profile else ""),
+                "headshot_url": absolute(url, image.get("src") if image else ""),
+                "headshot_alt": norm(image.get("alt") if image else ""),
+                "extraction_method": "penn_affiliated_bio_component",
+                "quality_tier": "medium",
+                "quality_notes": ["broad_affiliated_scrape_needs_review"],
+            }
+            record.update(parse_info_sets(bio))
+            rows.append(record)
+    return rows, meta
+
+
+def write_outputs(records: list[dict], source_meta: list[dict]) -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "penn_affiliated_people.json").write_text(
+        json.dumps(records, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    (OUT / "penn_affiliated_sources.json").write_text(
+        json.dumps(source_meta, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    fields = sorted({key for row in records for key in row})
+    with (OUT / "penn_affiliated_people.csv").open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(records)
+    summary = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "sources_scraped": len(source_meta),
+        "person_records": len(records),
+        "by_source": {
+            meta["source_key"]: sum(1 for row in records if row["source_key"] == meta["source_key"])
+            for meta in source_meta
+        },
+    }
+    (OUT / "penn_affiliated_summary.json").write_text(
+        json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+
+def main() -> None:
+    discovery = json.loads(DISCOVERY.read_text(encoding="utf-8"))
+    candidates = [row for row in discovery["findings"] if should_scrape_source(row)]
+    session = requests.Session()
+    session.headers["User-Agent"] = "redmank-penn-affiliated-roster-scraper/0.1"
+    records = []
+    sources = []
+    for candidate in candidates:
+        rows, meta = parse_source(session, candidate)
+        records.extend(rows)
+        sources.append(meta)
+    write_outputs(records, sources)
+    print(f"sources={len(sources)} records={len(records)}")
+
+
+if __name__ == "__main__":
+    main()

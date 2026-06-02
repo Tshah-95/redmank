@@ -3,6 +3,9 @@ aardra rajendran,"Aardra Rajendran, MD",fellow,medical_school,Duke University Sc
 aardra rajendran,"Aardra Rajendran, MD",fellow,residency_program,Johns Hopkins Hospital,Johns Hopkins Hospital,clinical_training_site,cleaned_label,0.55
 aaron cheng,"Aaron Cheng, MD",fellow,medical_school,Harvard,Harvard,medical_school,cleaned_label,0.55
 aaron cheng,"Aaron Cheng, MD",fellow,residency_program,Mass General,Massachusetts General Hospital,clinical_training_site,seeded_alias,0.98
+person_abdalnasir-limay-md_2cb7f0691ac6,"Abdalnasir Limay, MD",fellow,medical_school,Medical College of Georgia,Medical College of Georgia,medical_school,seeded_alias,0.98
+person_abdalnasir-limay-md_2cb7f0691ac6,"Abdalnasir Limay, MD",fellow,residency_program,George Washington University,George Washington University,clinical_training_site,cleaned_label,0.55
+person_abdalnasir-limay-md_2cb7f0691ac6,"Abdalnasir Limay, MD",fellow,undergraduate_school,Georgia State University,Georgia State University,undergraduate_institution,cleaned_label,0.55
 abhishek gami,"Abhishek Gami, MD",fellow,medical_school,Johns Hopkins University,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
 abhishek gami,"Abhishek Gami, MD",fellow,residency_program,Johns Hopkins University,Johns Hopkins University,clinical_training_site,cleaned_label,0.55
 adam tuchinsky,"Adam Tuchinsky, DO",fellow,medical_school,"Touro College of Osteopathic Medicine, New York, NY","Touro College of Osteopathic Medicine, New York, NY",medical_school,cleaned_label,0.55
@@ -10,18 +13,28 @@ adam tuchinsky,"Adam Tuchinsky, DO",fellow,residency_program,"UPMC-Lititz, Litit
 adrian alonzo,"Adrian Alonzo, MD",fellow,medical_school,Creighton University School of Medicine,Creighton University School of Medicine,medical_school,cleaned_label,0.55
 adrian alonzo,"Adrian Alonzo, MD",fellow,residency_program,University of Florida,University of Florida,clinical_training_site,cleaned_label,0.55
 adrian alonzo,"Adrian Alonzo, MD",fellow,undergraduate_school,Wake Forest University,Wake Forest University,undergraduate_institution,cleaned_label,0.55
+person_ahmed-moawad-mbbch_2e7ac92d2895,"Ahmed Moawad, MBBCh",fellow,medical_school,University of Cairo,University of Cairo,medical_school,cleaned_label,0.55
+person_ahmed-moawad-mbbch_2e7ac92d2895,"Ahmed Moawad, MBBCh",fellow,residency_program,Mercy Catholic Medical Center,Mercy Catholic Medical Center,clinical_training_site,seeded_alias,0.98
+person_ahmed-moawad-mbbch_2e7ac92d2895,"Ahmed Moawad, MBBCh",fellow,undergraduate_school,University of Cairo,University of Cairo,undergraduate_institution,cleaned_label,0.55
 aili klein,"Aili Klein, MD, PhD",fellow,medical_school,Columbia Un College of Physicians and Surgeons,Columbia Un College of Physicians and Surgeons,medical_school,cleaned_label,0.55
 aili klein,"Aili Klein, MD, PhD",fellow,residency_program,University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 alan tang,"Alan Tang, MD, PhD",fellow,medical_school,"Perelman School of Medicine, University of Pennsylvania",Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 alan tang,"Alan Tang, MD, PhD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_alejandro-suarez-pierre-md_b4ded20c952b,"Alejandro Suarez-Pierre, MD",fellow,medical_school,Tec de Monterrey,Tec de Monterrey,medical_school,cleaned_label,0.55
+person_alejandro-suarez-pierre-md_b4ded20c952b,"Alejandro Suarez-Pierre, MD",fellow,residency_program,University of Colorado,University of Colorado,clinical_training_site,seeded_alias,0.98
 alexa tabackman,"Alexa Tabackman, MD",fellow,medical_school,University of Virginia School of Medicine,University of Virginia School of Medicine,medical_school,cleaned_label,0.55
 alexa tabackman,"Alexa Tabackman, MD",fellow,residency_program,Boston Medical Center,Boston Medical Center,clinical_training_site,cleaned_label,0.55
 alexa tabackman,"Alexa Tabackman, MD",fellow,undergraduate_school,Christopher Newport University,Christopher Newport University,undergraduate_institution,cleaned_label,0.55
+person_alexander-mazal-md_722e6d3f9400,"Alexander Mazal, MD",fellow,medical_school,UT Southwestern Medical Center,UT Southwestern Medical Center,medical_school,cleaned_label,0.55
+person_alexander-mazal-md_722e6d3f9400,"Alexander Mazal, MD",fellow,residency_program,Stanford,Stanford,clinical_training_site,cleaned_label,0.55
+person_alexander-mazal-md_722e6d3f9400,"Alexander Mazal, MD",fellow,undergraduate_school,The University of Texas at Austin,"University of Texas, Austin",undergraduate_institution,seeded_alias,0.98
 alexander ortiz,"Alexander Ortiz, MD",fellow,medical_school,"University of Chicago, Pritzker School of Medicine",The University of Chicago Pritzker School of Medicine,medical_school,seeded_alias,0.98
 alexander ortiz,"Alexander Ortiz, MD",fellow,residency_program,Yale School of Medicine,Yale School of Medicine,clinical_training_site,cleaned_label,0.55
 alexandra leto,"Alexandra Leto, MD",fellow,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
 alexandra leto,"Alexandra Leto, MD",fellow,residency_program,Penn Internal Medicine,Penn Internal Medicine,clinical_training_site,cleaned_label,0.55
 alexandra leto,"Alexandra Leto, MD",fellow,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,cleaned_label,0.55
+person_aly-hassaballa-md-msc-phd_334218c81e5f,"Aly Hassaballa, MD, MSc, PhD",fellow,graduate_school,"Faculty of Medicine Ain Shams University, Cairo, Egypt","Faculty of Medicine Ain Shams University, Cairo, Egypt",graduate_institution,cleaned_label,0.55
+person_aly-hassaballa-md-msc-phd_334218c81e5f,"Aly Hassaballa, MD, MSc, PhD",fellow,medical_school,"Faculty of Medicine Ain Shams University, Cairo, Egypt","Faculty of Medicine Ain Shams University, Cairo, Egypt",medical_school,cleaned_label,0.55
 amber meservey,"Amber Meservey, MD",fellow,medical_school,Robert Larner College of Medicine at the University of Vermont,Robert Larner College of Medicine at the University of Vermont,medical_school,cleaned_label,0.55
 amber meservey,"Amber Meservey, MD",fellow,residency_program,Duke University,Duke University,clinical_training_site,cleaned_label,0.55
 amir heravi,"Amir Heravi, MD",fellow,medical_school,Johns Hopkins University,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
@@ -42,6 +55,8 @@ angela liu,"Angela Liu, MD",fellow,medical_school,Yale School of Medicine,Yale S
 angela liu,"Angela Liu, MD",fellow,residency_program,Vanderbilt University,Vanderbilt University,clinical_training_site,cleaned_label,0.55
 anjali agarwalla,"Anjali Agarwalla, MD",fellow,medical_school,"Perelman School of Medicine, University of Pennsylvania",Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 anjali agarwalla,"Anjali Agarwalla, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_anna-e-garcia-whitlock-md-phd_d1f3fedfc3c4,"Anna E. Garcia Whitlock, MD, PhD",fellow,medical_school,Vanderbilt University School of Medicine,Vanderbilt University School of Medicine,medical_school,seeded_alias,0.98
+person_anna-e-garcia-whitlock-md-phd_d1f3fedfc3c4,"Anna E. Garcia Whitlock, MD, PhD",fellow,undergraduate_school,University of North Carolina at Chapel Hill,University of North Carolina at Chapel Hill,undergraduate_institution,seeded_alias,0.98
 anna wing m d,Anna Wing M.D.,fellow,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 anna wing m d,Anna Wing M.D.,fellow,residency_program,University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 anne song,"Anne Song, MD, MS",fellow,medical_school,Case Western Reserve University School of Medicine,Case Western Reserve University School of Medicine,medical_school,cleaned_label,0.55
@@ -56,6 +71,8 @@ ashlee randolph,"Ashlee Randolph, DO",fellow,medical_school,Arkansas College of 
 ashlee randolph,"Ashlee Randolph, DO",fellow,residency_program,"Lehigh Valley Health Network, Family Medicine","Lehigh Valley Health Network, Family Medicine",clinical_training_site,cleaned_label,0.55
 ashley ezema,"Ashley Ezema, MD",fellow,medical_school,Northwestern University Feinberg School of Medicine,Northwestern University Feinberg School of Medicine,medical_school,cleaned_label,0.55
 ashley ezema,"Ashley Ezema, MD",fellow,residency_program,NY Presbyterian - Weill Cornell Medicine,NY Presbyterian - Weill Cornell Medicine,clinical_training_site,cleaned_label,0.55
+person_ashley-sweet-md-mbe_429706ccfd3c,"Ashley Sweet, MD, MBE",fellow,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_ashley-sweet-md-mbe_429706ccfd3c,"Ashley Sweet, MD, MBE",fellow,residency_program,Oregan Health & Science University,Oregan Health & Science University,clinical_training_site,cleaned_label,0.55
 augusta alwang,"Augusta Alwang, MD",fellow,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,cleaned_label,0.55
 augusta alwang,"Augusta Alwang, MD",fellow,residency_program,Boston Medical Center,Boston Medical Center,clinical_training_site,seeded_alias,0.98
 austin triana,"Austin Triana, MD, MBA",fellow,medical_school,Vanderbilt University,Vanderbilt University,medical_school,cleaned_label,0.55
@@ -65,6 +82,8 @@ ayesha khan,"Ayesha Khan, MD",fellow,residency_program,University of Texas Rio G
 bachir ghandour,"Bachir Ghandour, MD",fellow,medical_school,American University of Beirut - Lebanon,American University of Beirut - Lebanon,medical_school,cleaned_label,0.55
 bachir ghandour,"Bachir Ghandour, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 bachir ghandour,"Bachir Ghandour, MD",fellow,undergraduate_school,American University of Beirut - Lebanon,American University of Beirut - Lebanon,undergraduate_institution,cleaned_label,0.55
+person_basem-jaber-md_27986e142c39,"Basem Jaber, MD",fellow,medical_school,Faculty of Medicine of Damascus University,Faculty of Medicine of Damascus University,medical_school,cleaned_label,0.55
+person_basem-jaber-md_27986e142c39,"Basem Jaber, MD",fellow,residency_program,Mercy Catholic Medical Center,Mercy Catholic Medical Center,clinical_training_site,cleaned_label,0.55
 bassam alhamer,"Bassam AlHamer, MBChB",fellow,medical_school,Royal College of Surgeons in Ireland - Medical University of Bahrain,Royal College of Surgeons in Ireland - Medical University of Bahrain,medical_school,cleaned_label,0.55
 bassam alhamer,"Bassam AlHamer, MBChB",fellow,residency_program,Pennsylvania Hospital of the University of Pennsylvania,Pennsylvania Hospital of the University of Pennsylvania,clinical_training_site,cleaned_label,0.55
 benjamin bleiberg,"Benjamin Bleiberg, MD",fellow,medical_school,Univ of Texas Southwestern Medical School,Univ of Texas Southwestern Medical School,medical_school,cleaned_label,0.55
@@ -103,10 +122,16 @@ carli peters,"Carli Peters, MD",fellow,residency_program,Hospital of the Univers
 carolina garcia mzd,"Carolina Garcia, MZD, PhD",fellow,medical_school,University of Puerto Rico,University of Puerto Rico,medical_school,cleaned_label,0.55
 carolina garcia mzd,"Carolina Garcia, MZD, PhD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 carolina garcia mzd,"Carolina Garcia, MZD, PhD",fellow,undergraduate_school,University of Puerto Rico,University of Puerto Rico,undergraduate_institution,cleaned_label,0.55
+person_caroline-adams-md-phd_a1c0f38f7ceb,"Caroline Adams, MD, PhD",fellow,medical_school,University of Michigan,University of Michigan Medical School,medical_school,seeded_alias,0.98
+person_caroline-adams-md-phd_a1c0f38f7ceb,"Caroline Adams, MD, PhD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_caroline-adams-md-phd_a1c0f38f7ceb,"Caroline Adams, MD, PhD",fellow,undergraduate_school,Colgate University,Colgate University,undergraduate_institution,cleaned_label,0.55
 catherine katie vanchiere ma,"Catherine “Katie” Vanchiere, MD, MA",fellow,medical_school,Louisiana State University School of Medicine,Louisiana State University School of Medicine,medical_school,cleaned_label,0.55
 catherine katie vanchiere ma,"Catherine “Katie” Vanchiere, MD, MA",fellow,residency_program,Temple University Hospital,Temple University Hospital,clinical_training_site,cleaned_label,0.55
 chanel jonas,"Chanel Jonas, MD, MS",fellow,medical_school,State University of New York Downstate,State University of New York Downstate,medical_school,cleaned_label,0.55
 chanel jonas,"Chanel Jonas, MD, MS",fellow,residency_program,New York-Presbyterian Weill Cornell,New York-Presbyterian Weill Cornell,clinical_training_site,cleaned_label,0.55
+person_charles-vasquez-md_98527aa6f8e8,"Charles Vasquez, MD",fellow,medical_school,David Geffen School of Medicine at UCLA,David Geffen School of Medicine at UCLA,medical_school,cleaned_label,0.55
+person_charles-vasquez-md_98527aa6f8e8,"Charles Vasquez, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_charles-vasquez-md_98527aa6f8e8,"Charles Vasquez, MD",fellow,undergraduate_school,University of Minnesota-Twin Cities,University of Minnesota-Twin Cities,undergraduate_institution,cleaned_label,0.55
 chih huan lu,"Chih-Huan (Jack) Lu, MD",fellow,medical_school,University of Virginia School of Medicine,University of Virginia School of Medicine,medical_school,seeded_alias,0.98
 chih huan lu,"Chih-Huan (Jack) Lu, MD",fellow,residency_program,University of North Carolina,University of North Carolina,clinical_training_site,cleaned_label,0.55
 christopher banach,"Christopher Banach, DO",fellow,medical_school,"Philadelphia College of Osteopathic Medicine, Philadelphia, PA","Philadelphia College of Osteopathic Medicine, Philadelphia, PA",medical_school,cleaned_label,0.55
@@ -123,8 +148,14 @@ colin blumenthal,"Colin Blumenthal, MD, MSc",fellow,medical_school,Case Western 
 colin blumenthal,"Colin Blumenthal, MD, MSc",fellow,residency_program,Johns Hopkins University,Johns Hopkins University,clinical_training_site,seeded_alias,0.98
 colin godwin,"Colin Godwin, MD",fellow,medical_school,"University of North Carolina at Chapel Hill, Chapel Hill, NC","University of North Carolina at Chapel Hill, Chapel Hill, NC",medical_school,cleaned_label,0.55
 colin godwin,"Colin Godwin, MD",fellow,residency_program,"Brown Internal Medicine, Providence, RI","Brown Internal Medicine, Providence, RI",clinical_training_site,cleaned_label,0.55
+person_connor-w-crowley-md_e4ee077febe1,Connor W Crowley MD,fellow,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_connor-w-crowley-md_e4ee077febe1,Connor W Crowley MD,fellow,residency_program,Northwell Health,Northwell Health,clinical_training_site,cleaned_label,0.55
+person_connor-w-crowley-md_e4ee077febe1,Connor W Crowley MD,fellow,undergraduate_school,Wake Forest University,Wake Forest University,undergraduate_institution,seeded_alias,0.98
 cydney nichols m d,"Cydney Nichols, M.D.",fellow,medical_school,New York Medical College,New York Medical College,medical_school,cleaned_label,0.55
 cydney nichols m d,"Cydney Nichols, M.D.",fellow,residency_program,Indiana University,Indiana University,clinical_training_site,cleaned_label,0.55
+person_cyrus-farzmand-md_783e8268fc96,"Cyrus Farzmand, MD",fellow,medical_school,University of South Florida,University of South Florida,medical_school,seeded_alias,0.98
+person_cyrus-farzmand-md_783e8268fc96,"Cyrus Farzmand, MD",fellow,residency_program,Perelman School of Medicine,Perelman School of Medicine,clinical_training_site,cleaned_label,0.55
+person_cyrus-farzmand-md_783e8268fc96,"Cyrus Farzmand, MD",fellow,undergraduate_school,University of Chicago,University of Chicago,undergraduate_institution,cleaned_label,0.55
 daisuke hasegawa,"Daisuke Hasegawa, MD, PhD",fellow,medical_school,Nagoya University School of Medicine,Nagoya University School of Medicine,medical_school,cleaned_label,0.55
 daisuke hasegawa,"Daisuke Hasegawa, MD, PhD",fellow,residency_program,Mount Sinai Beth Israel,Mount Sinai Beth Israel,clinical_training_site,cleaned_label,0.55
 dania salih bacha,"Dania Salih Bacha, MD",fellow,medical_school,American University of Beirut Faculty of Medicine,American University of Beirut Faculty of Medicine,medical_school,cleaned_label,0.55
@@ -141,6 +172,12 @@ daria madeeva,"Daria Madeeva, MD",fellow,medical_school,First Moscow State Medic
 daria madeeva,"Daria Madeeva, MD",fellow,residency_program,Yale,Yale,clinical_training_site,cleaned_label,0.55
 david choi m d,"David Choi, M.D.",fellow,medical_school,Morehouse School of Medicine,Morehouse School of Medicine,medical_school,cleaned_label,0.55
 david choi m d,"David Choi, M.D.",fellow,residency_program,Johns Hopkins,Johns Hopkins,clinical_training_site,cleaned_label,0.55
+person_david-kupshik-md_0cd58726293a,"David Kupshik, MD",fellow,medical_school,Mercer University School of Medicine,Mercer University School of Medicine,medical_school,cleaned_label,0.55
+person_david-kupshik-md_0cd58726293a,"David Kupshik, MD",fellow,residency_program,Memorial Health University Medical Center,Memorial Health University Medical Center,clinical_training_site,cleaned_label,0.55
+person_david-kupshik-md_0cd58726293a,"David Kupshik, MD",fellow,undergraduate_school,University of Georgia,University of Georgia,undergraduate_institution,cleaned_label,0.55
+person_david-oommen-md_6eee42912af5,"David Oommen, MD",fellow,medical_school,Rutgers New Jersey Medical School,Rutgers New Jersey Medical School,medical_school,seeded_alias,0.98
+person_david-oommen-md_6eee42912af5,"David Oommen, MD",fellow,residency_program,Diagnostic Radiology at Rutgers New Jersey Medical School,Diagnostic Radiology at Rutgers New Jersey Medical School,clinical_training_site,cleaned_label,0.55
+person_david-oommen-md_6eee42912af5,"David Oommen, MD",fellow,undergraduate_school,The College of New Jersey,The College of New Jersey,undergraduate_institution,cleaned_label,0.55
 diana he,"Diana He, MD",fellow,medical_school,"JS Weill Medical College, Cornell University","JS Weill Medical College, Cornell University",medical_school,cleaned_label,0.55
 diana he,"Diana He, MD",fellow,residency_program,Montefiore Medical Center/Albert Einstein College of Medicine,Montefiore Medical Center/Albert Einstein College of Medicine,clinical_training_site,cleaned_label,0.55
 dilara hatipoglu,"Dilara Hatipoglu, MD",fellow,medical_school,Case Western Reserve University,Case Western Reserve University,medical_school,cleaned_label,0.55
@@ -167,6 +204,8 @@ esteban urias,"Esteban Urias, MD",fellow,medical_school,University of Michigan,U
 esteban urias,"Esteban Urias, MD",fellow,residency_program,University of Michigan,University of Michigan,clinical_training_site,cleaned_label,0.55
 ethan pani,"Ethan Pani, MD",fellow,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 ethan pani,"Ethan Pani, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_eva-urrechaga-md_c63a4553e894,"Eva Urrechaga, MD",fellow,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,seeded_alias,0.98
+person_eva-urrechaga-md_c63a4553e894,"Eva Urrechaga, MD",fellow,residency_program,University of Miami,University of Miami,clinical_training_site,seeded_alias,0.98
 fatimah alkhunaizi,"Fatimah Alkhunaizi, MD, MS",fellow,medical_school,Columbia University,Columbia University,medical_school,cleaned_label,0.55
 fatimah alkhunaizi,"Fatimah Alkhunaizi, MD, MS",fellow,residency_program,Johns Hopkins University,Johns Hopkins University,clinical_training_site,seeded_alias,0.98
 gabriel aleixo,"Gabriel Aleixo, MD",fellow,medical_school,Universidade do Oeste Paulista,Universidade do Oeste Paulista,medical_school,cleaned_label,0.55
@@ -187,6 +226,11 @@ gianna toglia,"Gianna Toglia, DO",fellow,residency_program,"Lankenau Medical Cen
 gladys obaji,"Gladys Obaji, MD",fellow,medical_school,City University of New York School of Medicine,City University of New York School of Medicine,medical_school,cleaned_label,0.55
 gladys obaji,"Gladys Obaji, MD",fellow,residency_program,Brown University Health Internal Medicine,Brown University Health Internal Medicine,clinical_training_site,cleaned_label,0.55
 gladys obaji,"Gladys Obaji, MD",fellow,undergraduate_school,City College of New York/Sophie Davis School of Biomedical Education,City College of New York/Sophie Davis School of Biomedical Education,undergraduate_institution,cleaned_label,0.55
+person_gregg-blumberg-do_68f9d46d7274,"Gregg Blumberg, DO",fellow,medical_school,NYIT College of Osteopathic Medicine,NYIT College of Osteopathic Medicine,medical_school,seeded_alias,0.98
+person_gregg-blumberg-do_68f9d46d7274,"Gregg Blumberg, DO",fellow,residency_program,NYU Langone Hospital - Long Island,NYU Langone Hospital - Long Island,clinical_training_site,cleaned_label,0.55
+person_gregg-blumberg-do_68f9d46d7274,"Gregg Blumberg, DO",fellow,undergraduate_school,Binghamton University,Binghamton University,undergraduate_institution,cleaned_label,0.55
+person_hagar-mahmoud-mbbch_c16cb5f241fe,"Hagar Mahmoud, MBBCh",fellow,medical_school,"University of Alexandria, Egypt","University of Alexandria, Egypt",medical_school,cleaned_label,0.55
+person_hagar-mahmoud-mbbch_c16cb5f241fe,"Hagar Mahmoud, MBBCh",fellow,residency_program,Yale New Haven Health/Bridgeport Hospital,Yale New Haven Health/Bridgeport Hospital,clinical_training_site,cleaned_label,0.55
 hannah lee,"Hannah Lee, MD",fellow,medical_school,Renaissance School of Medicine at Stony Brook,Renaissance School of Medicine at Stony Brook,medical_school,cleaned_label,0.55
 hannah lee,"Hannah Lee, MD",fellow,residency_program,University of Texas Southwestern Medical Center,University of Texas Southwestern Medical Center,clinical_training_site,cleaned_label,0.55
 hansol kang,"Hansol Kang, MD",fellow,medical_school,University of Florida College of Medicine,University of Florida College of Medicine,medical_school,seeded_alias,0.98
@@ -200,6 +244,8 @@ henry litt m d,"Henry Litt, M.D.",fellow,medical_school,University of Chicago Pr
 henry litt m d,"Henry Litt, M.D.",fellow,residency_program,University of California San Francisco,University of California San Francisco,clinical_training_site,cleaned_label,0.55
 ian mccurry,"Ian McCurry, MD",fellow,medical_school,"Perelman School of Medicine at the University of Pennsylvania Residency: Surgery, University of Texas Southwestern","Perelman School of Medicine at the University of Pennsylvania Residency: Surgery, University of Texas Southwestern",medical_school,cleaned_label,0.55
 ian mccurry,"Ian McCurry, MD",fellow,residency_program,"Surgery, University of Texas Southwestern","Surgery, University of Texas Southwestern",clinical_training_site,cleaned_label,0.55
+person_iman-yazdani-nia-md_a6157a7d780d,"Iman Yazdani Nia, MD",fellow,medical_school,Tabriz University of Medical Sciences,Tabriz University of Medical Sciences,medical_school,cleaned_label,0.55
+person_iman-yazdani-nia-md_a6157a7d780d,"Iman Yazdani Nia, MD",fellow,residency_program,"Tabriz University of Medical Sciences, Imam Reza Hospital","Tabriz University of Medical Sciences, Imam Reza Hospital",clinical_training_site,cleaned_label,0.55
 jacob michalski m d,"Jacob Michalski, M.D.",fellow,medical_school,University of Colorado School of Medicine Denver,University of Colorado School of Medicine Denver,medical_school,cleaned_label,0.55
 jacob michalski m d,"Jacob Michalski, M.D.",fellow,residency_program,Stanford Health Care,Stanford Health Care,clinical_training_site,seeded_alias,0.98
 james davis,"James Davis, MD",fellow,medical_school,University of Florida,University of Florida,medical_school,cleaned_label,0.55
@@ -216,6 +262,9 @@ javier ocampo mascaro,"Javier Ocampo Mascaro, MD",fellow,medical_school,Universi
 javier ocampo mascaro,"Javier Ocampo Mascaro, MD",fellow,residency_program,"University of Miami, Jackson Health System","University of Miami, Jackson Health System",clinical_training_site,cleaned_label,0.55
 jenna b spears,"Jenna B Spears, MBChB",fellow,medical_school,University College Dublin School of Medicine,University College Dublin School of Medicine,medical_school,cleaned_label,0.55
 jenna b spears,"Jenna B Spears, MBChB",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_jennifer-l-alejo-md_381bc1451d0f,"Jennifer L. Alejo, MD",fellow,medical_school,The University of Virginia,University of Virginia,medical_school,seeded_alias,0.98
+person_jennifer-l-alejo-md_381bc1451d0f,"Jennifer L. Alejo, MD",fellow,residency_program,New York University (NYU) Langone Health,New York University (NYU) Langone Health,clinical_training_site,cleaned_label,0.55
+person_jennifer-l-alejo-md_381bc1451d0f,"Jennifer L. Alejo, MD",fellow,undergraduate_school,The Johns Hopkins University,Johns Hopkins University,undergraduate_institution,seeded_alias,0.98
 jeremy feng,"Jeremy Feng, MD",fellow,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
 jeremy feng,"Jeremy Feng, MD",fellow,residency_program,Massachusetts General Hospital,Massachusetts General Hospital,clinical_training_site,seeded_alias,0.98
 jessica oribabor,"Jessica Oribabor, MD, MS",fellow,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
@@ -225,6 +274,8 @@ jessica o neil,"Jessica O’Neil, MD",fellow,medical_school,Case Western Reserve
 jessica o neil,"Jessica O’Neil, MD",fellow,residency_program,Massachusetts General Hospital,Massachusetts General Hospital,clinical_training_site,seeded_alias,0.98
 jetmir vojnika,"Jetmir Vojnika, MD",fellow,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
 jetmir vojnika,"Jetmir Vojnika, MD",fellow,residency_program,Thomas Jefferson University Hospital,Thomas Jefferson University Hospital,clinical_training_site,cleaned_label,0.55
+person_joav-birjiniuk-md_a574408e4d22,"Joav Birjiniuk, MD",fellow,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_joav-birjiniuk-md_a574408e4d22,"Joav Birjiniuk, MD",fellow,residency_program,NYU Langone Health Surgery,NYU Langone Health Surgery,clinical_training_site,cleaned_label,0.55
 john h bertot,"John H. Bertot, MD",fellow,medical_school,Rutgers NJ Medical School,Rutgers NJ Medical School,medical_school,cleaned_label,0.55
 john h bertot,"John H. Bertot, MD",fellow,residency_program,Massachusetts General - Brigham and Women's Hospital,Massachusetts General - Brigham and Women's Hospital,clinical_training_site,seeded_alias,0.98
 john szendrey,"John Szendrey, MD",fellow,medical_school,"University College Dublin, Ireland","University College Dublin, Ireland",medical_school,cleaned_label,0.55
@@ -242,10 +293,15 @@ joseph ladines lim,"Joseph Ladines Lim, MD",fellow,graduate_school,Massachusetts
 joseph ladines lim,"Joseph Ladines Lim, MD",fellow,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
 joseph ladines lim,"Joseph Ladines Lim, MD",fellow,residency_program,"Combined Medicine-Pediatrics at Michigan Medicine, University of Michigan","Combined Medicine-Pediatrics at Michigan Medicine, University of Michigan",clinical_training_site,cleaned_label,0.55
 joseph ladines lim,"Joseph Ladines Lim, MD",fellow,undergraduate_school,University of Maryland,University of Maryland,undergraduate_institution,cleaned_label,0.55
+person_joseph-t-tarr-md-phd_3757c7234e91,"Joseph T. Tarr, MD, PhD",fellow,medical_school,Lewis Katz School of Medicine at Temple University,Lewis Katz School of Medicine at Temple University,medical_school,seeded_alias,0.98
+person_joseph-t-tarr-md-phd_3757c7234e91,"Joseph T. Tarr, MD, PhD",fellow,residency_program,Integrated Plastic Surgery Residency at Northwell Health,Integrated Plastic Surgery Residency at Northwell Health,clinical_training_site,cleaned_label,0.55
+person_joseph-t-tarr-md-phd_3757c7234e91,"Joseph T. Tarr, MD, PhD",fellow,undergraduate_school,Ramapo College of New Jersey,Ramapo College of New Jersey,undergraduate_institution,cleaned_label,0.55
 joseph young,"Joseph Young, MD",fellow,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 joseph young,"Joseph Young, MD",fellow,residency_program,"Hospital of the University of Pennsylvania, Internal Medicine","Hospital of the University of Pennsylvania, Internal Medicine",clinical_training_site,cleaned_label,0.55
 julia hyman,"Julia Hyman, MD",fellow,medical_school,"Harvard Medical School Residency: Internal Medicine, UMass Chan Medical School","Harvard Medical School Residency: Internal Medicine, UMass Chan Medical School",medical_school,cleaned_label,0.55
 julia hyman,"Julia Hyman, MD",fellow,residency_program,"Internal Medicine, UMass Chan Medical School","Internal Medicine, UMass Chan Medical School",clinical_training_site,cleaned_label,0.55
+person_juliano-lentz-carvalho-md_2ed2a8cc0fab,"Juliano Lentz Carvalho, MD",fellow,medical_school,Universidade Federal de Santa Catarina,Universidade Federal de Santa Catarina,medical_school,cleaned_label,0.55
+person_juliano-lentz-carvalho-md_2ed2a8cc0fab,"Juliano Lentz Carvalho, MD",fellow,residency_program,The University of Texas Medical Branch,The University of Texas Medical Branch,clinical_training_site,cleaned_label,0.55
 julie cooper,"Julie Cooper, MD",fellow,medical_school,University of Pennsylvania School of Medicine Residency: Northwestern Memorial Hospital,University of Pennsylvania School of Medicine Residency: Northwestern Memorial Hospital,medical_school,cleaned_label,0.55
 julie cooper,"Julie Cooper, MD",fellow,residency_program,Northwestern Memorial Hospital,Northwestern Memorial Hospital,clinical_training_site,cleaned_label,0.55
 jung min seo,"Jung Min Seo, MD",fellow,medical_school,Rutgers University,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
@@ -265,6 +321,9 @@ kanan shah m d,"Kanan Shah, M.D.",fellow,residency_program,NYU School of Medicin
 kate lee karlin,"Kate Lee Karlin, MD, MS",fellow,medical_school,Columbia University Vagelos College of Physicians & Surgeons,Columbia University Vagelos College of Physicians and Surgeons,medical_school,seeded_alias,0.98
 kate lee karlin,"Kate Lee Karlin, MD, MS",fellow,residency_program,Duke University,Duke University,clinical_training_site,seeded_alias,0.98
 kate lee karlin,"Kate Lee Karlin, MD, MS",fellow,undergraduate_school,Harvard University,Harvard University,undergraduate_institution,cleaned_label,0.55
+person_katherine-kate-hartmann-md-phd_23e15fffa81e,"Katherine (Kate) Hartmann, MD, PhD",fellow,medical_school,The Ohio State College of Medicine,The Ohio State College of Medicine,medical_school,cleaned_label,0.55
+person_katherine-kate-hartmann-md-phd_23e15fffa81e,"Katherine (Kate) Hartmann, MD, PhD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_katherine-kate-hartmann-md-phd_23e15fffa81e,"Katherine (Kate) Hartmann, MD, PhD",fellow,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
 kenneth brand,"Kenneth Brand, MD",fellow,medical_school,Trinity School of Medicine,Trinity School of Medicine,medical_school,cleaned_label,0.55
 kenneth brand,"Kenneth Brand, MD",fellow,residency_program,LewisGale Medical Center,LewisGale Medical Center,clinical_training_site,cleaned_label,0.55
 kevin karlic,"Kevin Karlic, MD",fellow,medical_school,University of Michigan Medical School,University of Michigan Medical School,medical_school,seeded_alias,0.98
@@ -286,6 +345,9 @@ layal sayegh,"Layal Sayegh, MD",fellow,medical_school,Emory University School of
 layal sayegh,"Layal Sayegh, MD",fellow,residency_program,Emory University School of Medicine,Emory University School of Medicine,clinical_training_site,cleaned_label,0.55
 leah rethy,"Leah Rethy, MD",fellow,medical_school,"Perelman School of Medicine, University of Pennsylvania",Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 leah rethy,"Leah Rethy, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_lee-h-kilmer-md_cb1af2b21e8f,"Lee H. Kilmer, MD",fellow,medical_school,Stony Brook School of Medicine,Stony Brook School of Medicine,medical_school,cleaned_label,0.55
+person_lee-h-kilmer-md_cb1af2b21e8f,"Lee H. Kilmer, MD",fellow,residency_program,University of Virginia,University of Virginia,clinical_training_site,cleaned_label,0.55
+person_lee-h-kilmer-md_cb1af2b21e8f,"Lee H. Kilmer, MD",fellow,undergraduate_school,"Interdisciplinary Center / Reichmann University Herzliya, Israel","Interdisciplinary Center / Reichmann University Herzliya, Israel",undergraduate_institution,cleaned_label,0.55
 leon mirson,"Leon Mirson, MD",fellow,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,seeded_alias,0.98
 leon mirson,"Leon Mirson, MD",fellow,residency_program,Johns Hopkins Hospital Osler Medical Residency,Johns Hopkins Hospital Osler Medical Residency,clinical_training_site,cleaned_label,0.55
 lukas ronner mscr,"Lukas Ronner, MD, MSCR",fellow,medical_school,Icahn School of Medicine at Mount Sinai,Icahn School of Medicine at Mount Sinai,medical_school,seeded_alias,0.98
@@ -300,6 +362,10 @@ madison rosen,"Madison Rosen, MD",fellow,medical_school,Sidney Kimmel medical co
 madison rosen,"Madison Rosen, MD",fellow,residency_program,Lankenau Hospital,Lankenau Hospital,clinical_training_site,cleaned_label,0.55
 madison wilson,"Madison Wilson, MD",fellow,medical_school,University of Chicago Pritzker School of Medicine,The University of Chicago Pritzker School of Medicine,medical_school,seeded_alias,0.98
 madison wilson,"Madison Wilson, MD",fellow,residency_program,"University of California, San Francisco",University of California San Francisco,clinical_training_site,seeded_alias,0.98
+person_mahmoud-shalaby-md_4fba9145ffe9,"Mahmoud Shalaby, MD",fellow,medical_school,Alexandria University School of Medicine,Alexandria University School of Medicine,medical_school,cleaned_label,0.55
+person_mahmoud-shalaby-md_4fba9145ffe9,"Mahmoud Shalaby, MD",fellow,residency_program,Trinity Health Mid-Atlantic Hospitals,Trinity Health Mid-Atlantic Hospitals,clinical_training_site,cleaned_label,0.55
+person_mahyar-daskareh-md_a9b9c8ece191,"Mahyar Daskareh, MD",fellow,medical_school,Guilan University of Medical Sciences,Guilan University of Medical Sciences,medical_school,cleaned_label,0.55
+person_mahyar-daskareh-md_a9b9c8ece191,"Mahyar Daskareh, MD",fellow,residency_program,Tehran University of Medical Sciences,Tehran University of Medical Sciences,clinical_training_site,cleaned_label,0.55
 maliza namude,"Maliza Namude, MD",fellow,medical_school,Washington University School of Medicine,Washington University School of Medicine,medical_school,seeded_alias,0.98
 maliza namude,"Maliza Namude, MD",fellow,residency_program,Brigham & Women's Hospital,Brigham and Women's Hospital,clinical_training_site,seeded_alias,0.98
 marah alsayed hasan mbbs,"Marah Alsayed Hasan, MBBS",fellow,medical_school,University of Limerick Graduate Medical School,University of Limerick Graduate Medical School,medical_school,cleaned_label,0.55
@@ -319,11 +385,23 @@ mary barrosse antle,"Mary Barrosse-Antle, MD",fellow,residency_program,Hospital 
 mary ferranti,"Mary Ferranti, MD",fellow,medical_school,Jefferson University,Jefferson University,medical_school,cleaned_label,0.55
 mary ferranti,"Mary Ferranti, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 mary ferranti,"Mary Ferranti, MD",fellow,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
+person_matthew-generotti-do_b7f7fb3f5d81,"Matthew Generotti, DO",fellow,medical_school,Burrell College of Osteopathic Medicine,Burrell College of Osteopathic Medicine,medical_school,cleaned_label,0.55
+person_matthew-generotti-do_b7f7fb3f5d81,"Matthew Generotti, DO",fellow,residency_program,Penn State College of Medicine,Penn State College of Medicine,clinical_training_site,cleaned_label,0.55
+person_matthew-generotti-do_b7f7fb3f5d81,"Matthew Generotti, DO",fellow,undergraduate_school,Ursinus College,Ursinus College,undergraduate_institution,cleaned_label,0.55
+person_matthew-goldshore-md-phd-mph_ebf865f94063,"Matthew Goldshore, MD, PhD, MPH",fellow,graduate_school,Johns Hopkins Bloomberg School of Public Health,Johns Hopkins Bloomberg School of Public Health,graduate_institution,cleaned_label,0.55
+person_matthew-goldshore-md-phd-mph_ebf865f94063,"Matthew Goldshore, MD, PhD, MPH",fellow,medical_school,GW School of Medicine and Health Sciences,GW School of Medicine and Health Sciences,medical_school,cleaned_label,0.55
+person_matthew-goldshore-md-phd-mph_ebf865f94063,"Matthew Goldshore, MD, PhD, MPH",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_matthew-goldshore-md-phd-mph_ebf865f94063,"Matthew Goldshore, MD, PhD, MPH",fellow,undergraduate_school,University of Texas at Austin,"University of Texas, Austin",undergraduate_institution,seeded_alias,0.98
 matthew ho,"Matthew Ho, MBChB",fellow,medical_school,Univ College Dublin,Univ College Dublin,medical_school,cleaned_label,0.55
 matthew ho,"Matthew Ho, MBChB",fellow,residency_program,Mayo,Mayo,clinical_training_site,cleaned_label,0.55
+person_matthew-simon-md_ad7726d24067,"Matthew Simon, MD",fellow,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
+person_matthew-simon-md_ad7726d24067,"Matthew Simon, MD",fellow,residency_program,Jefferson-Einstein,Jefferson-Einstein,clinical_training_site,cleaned_label,0.55
+person_matthew-simon-md_ad7726d24067,"Matthew Simon, MD",fellow,undergraduate_school,Syracuse University,Syracuse University,undergraduate_institution,cleaned_label,0.55
 max krall,"Max Krall, MD",fellow,medical_school,Sidney Kimmel Medical College/Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
 max krall,"Max Krall, MD",fellow,residency_program,UCLA Medical Center,UCLA Medical Center,clinical_training_site,cleaned_label,0.55
 max krall,"Max Krall, MD",fellow,undergraduate_school,UC Berkeley,UC Berkeley,undergraduate_institution,cleaned_label,0.55
+person_mclean-davies-md_8fa832b35742,"McLean Davies, MD",fellow,medical_school,Washington University in St. Louis,Washington University in St. Louis,medical_school,seeded_alias,0.98
+person_mclean-davies-md_8fa832b35742,"McLean Davies, MD",fellow,undergraduate_school,Georgia Institute of Technology,Georgia Institute of Technology,undergraduate_institution,seeded_alias,0.98
 megan barrett,"Megan Barrett, MD, MS",fellow,medical_school,Virginia Commonwealth University,Virginia Commonwealth University,medical_school,seeded_alias,0.98
 megan barrett,"Megan Barrett, MD, MS",fellow,residency_program,Duke University,Duke University,clinical_training_site,seeded_alias,0.98
 megan dunleavy,"Megan Dunleavy, MD",fellow,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
@@ -332,6 +410,9 @@ megan garver,"Megan Garver, MD",fellow,medical_school,Sidney Kimmel Medical Coll
 megan garver,"Megan Garver, MD",fellow,residency_program,Temple University Hospital,Temple University Hospital,clinical_training_site,seeded_alias,0.98
 michael chau,"Michael Chau, MD",fellow,medical_school,"Rowan-Virtua School of Osteopathic Medicine, Stratford, NJ","Rowan-Virtua School of Osteopathic Medicine, Stratford, NJ",medical_school,cleaned_label,0.55
 michael chau,"Michael Chau, MD",fellow,residency_program,"Cooper University Hospital, Camden, NJ","Cooper University Hospital, Camden, NJ",clinical_training_site,cleaned_label,0.55
+person_michael-enea-do_13b38d79f937,"Michael Enea, DO",fellow,medical_school,Philadelphia College of Osteopathic Medicine,Philadelphia College of Osteopathic Medicine,medical_school,seeded_alias,0.98
+person_michael-enea-do_13b38d79f937,"Michael Enea, DO",fellow,residency_program,Jefferson Einstein Philadelphia Hospital,Jefferson Einstein Philadelphia Hospital,clinical_training_site,cleaned_label,0.55
+person_michael-enea-do_13b38d79f937,"Michael Enea, DO",fellow,undergraduate_school,Pennsylvania State University,Pennsylvania State University,undergraduate_institution,seeded_alias,0.98
 michael litt,"Michael Litt, MD, PhD",fellow,medical_school,Vanderbilt University,Vanderbilt University,medical_school,seeded_alias,0.98
 michael litt,"Michael Litt, MD, PhD",fellow,residency_program,Brigham and Women's Hospital,Brigham and Women's Hospital,clinical_training_site,seeded_alias,0.98
 michael o shaughnessy,"Michael O’Shaughnessy, MD",fellow,medical_school,Rutgers NJ Medical School,Rutgers NJ Medical School,medical_school,seeded_alias,0.98
@@ -354,6 +435,9 @@ monica tung,"Monica Tung, MD",fellow,medical_school,John Hopkins University,John
 monica tung,"Monica Tung, MD",fellow,residency_program,"University of California, San Francisco CA.","University of California, San Francisco CA.",clinical_training_site,cleaned_label,0.55
 monique m monita,"Monique M. Monita, MD, MPH",fellow,medical_school,SUNY Upstate Medical University,SUNY Upstate Medical University,medical_school,seeded_alias,0.98
 monique m monita,"Monique M. Monita, MD, MPH",fellow,residency_program,SUNY Upstate Medical University,SUNY Upstate Medical University,clinical_training_site,cleaned_label,0.55
+person_murat-yildiz-md_01a175d7de18,"Murat Yildiz, MD",fellow,graduate_school,"University of Bern, Switzerland","University of Bern, Switzerland",graduate_institution,cleaned_label,0.55
+person_murat-yildiz-md_01a175d7de18,"Murat Yildiz, MD",fellow,medical_school,"University of Bern, Switzerland","University of Bern, Switzerland",medical_school,cleaned_label,0.55
+person_murat-yildiz-md_01a175d7de18,"Murat Yildiz, MD",fellow,undergraduate_school,"University of Bern, Switzerland","University of Bern, Switzerland",undergraduate_institution,cleaned_label,0.55
 natalie a barrett,"Natalie A. Barrett, DO",fellow,medical_school,Philadelphia College of Osteopathic Medicine,Philadelphia College of Osteopathic Medicine,medical_school,seeded_alias,0.98
 natalie a barrett,"Natalie A. Barrett, DO",fellow,residency_program,"Inspira Health Network - Mullica Hill, Internal Medicine","Inspira Health Network - Mullica Hill, Internal Medicine",clinical_training_site,cleaned_label,0.55
 natalie dapas,"Natalie Dapas, MD",fellow,medical_school,The University of Texas Health Science Center at San Antonio Joe R. and Teresa Lozano Long School of Medicine,The University of Texas Health Science Center at San Antonio Joe R. and Teresa Lozano Long School of Medicine,medical_school,cleaned_label,0.55
@@ -370,11 +454,19 @@ nicholas wilcox mhs,"Nicholas Wilcox, MD, MHS",fellow,medical_school,Yale Univer
 nicholas wilcox mhs,"Nicholas Wilcox, MD, MHS",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 nikita dave,"Nikita Dave, MD",fellow,medical_school,Rutgers,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
 nikita dave,"Nikita Dave, MD",fellow,residency_program,Univ of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_nikita-o-shulzhenko-md_7c98f355060f,"Nikita O. Shulzhenko, MD",fellow,medical_school,"University of Wisconsin-Madison, School of Medicine and Public Health","University of Wisconsin-Madison, School of Medicine and Public Health",medical_school,cleaned_label,0.55
+person_nikita-o-shulzhenko-md_7c98f355060f,"Nikita O. Shulzhenko, MD",fellow,residency_program,Rutgers New Jersey Medical School,Rutgers New Jersey Medical School,clinical_training_site,seeded_alias,0.98
+person_nikita-o-shulzhenko-md_7c98f355060f,"Nikita O. Shulzhenko, MD",fellow,undergraduate_school,Northwestern University,Northwestern University,undergraduate_institution,seeded_alias,0.98
 nnenia francis,"Nnenia Francis, MD",fellow,medical_school,St. George’s University Medical School,St. George’s University Medical School,medical_school,cleaned_label,0.55
 nnenia francis,"Nnenia Francis, MD",fellow,residency_program,Medstar Georgetown University Hospital,MedStar Georgetown University Hospital,clinical_training_site,seeded_alias,0.98
 noah silverstein,"Noah Silverstein, MD, PhD",fellow,medical_school,University of Massachusetts Medical School,University of Massachusetts Medical School,medical_school,cleaned_label,0.55
 noah silverstein,"Noah Silverstein, MD, PhD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 noah silverstein,"Noah Silverstein, MD, PhD",fellow,undergraduate_school,Middlebury College,Middlebury College,undergraduate_institution,cleaned_label,0.55
+person_noah-wasserman-md_b8f678bb7d26,"Noah Wasserman, MD",fellow,medical_school,Washington University School of Medicine,Washington University School of Medicine,medical_school,seeded_alias,0.98
+person_noah-wasserman-md_b8f678bb7d26,"Noah Wasserman, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_noah-wasserman-md_b8f678bb7d26,"Noah Wasserman, MD",fellow,undergraduate_school,University of Chicago,University of Chicago,undergraduate_institution,seeded_alias,0.98
+person_onur-simsek-md_9ece3d0c9fa6,"Onur Simsek, MD",fellow,medical_school,Ankara University,Ankara University,medical_school,cleaned_label,0.55
+person_onur-simsek-md_9ece3d0c9fa6,"Onur Simsek, MD",fellow,residency_program,"University of Health Sciences, Turkey","University of Health Sciences, Turkey",clinical_training_site,cleaned_label,0.55
 pamela anne dolnik,"Pamela Anne Dolnik, MD",fellow,medical_school,"The Feinberg School of Medicine, Northwestern University","The Feinberg School of Medicine, Northwestern University",medical_school,cleaned_label,0.55
 pamela anne dolnik,"Pamela Anne Dolnik, MD",fellow,residency_program,McGraw Medical Center of Northwestern University,McGraw Medical Center of Northwestern University,clinical_training_site,cleaned_label,0.55
 patricia valda toro,"Patricia Valda Toro, MD",fellow,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
@@ -387,6 +479,10 @@ pedro ochoa allemant,"Pedro Ochoa Allemant, MD",fellow,medical_school,Universida
 pedro ochoa allemant,"Pedro Ochoa Allemant, MD",fellow,residency_program,Yale-New Haven Hospital,Yale New Haven Hospital,clinical_training_site,seeded_alias,0.98
 putzer hung,"Putzer Hung, MD, PhD",fellow,medical_school,Washington University School of Medicine,Washington University School of Medicine,medical_school,seeded_alias,0.98
 putzer hung,"Putzer Hung, MD, PhD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_qiudong-kevin-chen-md_71c9abe87719,"Qiudong (Kevin) Chen, MD",fellow,graduate_school,Boston University School of Medicine,Boston University School of Medicine,graduate_institution,cleaned_label,0.55
+person_qiudong-kevin-chen-md_71c9abe87719,"Qiudong (Kevin) Chen, MD",fellow,medical_school,Case Western Reserve University School of Medicine,Case Western Reserve University School of Medicine,medical_school,seeded_alias,0.98
+person_qiudong-kevin-chen-md_71c9abe87719,"Qiudong (Kevin) Chen, MD",fellow,residency_program,Cedars-Sinai Medical Center,Cedars-Sinai Medical Center,clinical_training_site,cleaned_label,0.55
+person_qiudong-kevin-chen-md_71c9abe87719,"Qiudong (Kevin) Chen, MD",fellow,undergraduate_school,Cedarville University,Cedarville University,undergraduate_institution,cleaned_label,0.55
 raashi mamtani,"Raashi Mamtani, DO",fellow,medical_school,Touro College of Osteopathic Medicine - New York,Touro College of Osteopathic Medicine - New York,medical_school,cleaned_label,0.55
 raashi mamtani,"Raashi Mamtani, DO",fellow,residency_program,Thomas Jefferson University Hospital,Thomas Jefferson University Hospital,clinical_training_site,seeded_alias,0.98
 rachel galvao,"Rachel Galvao, MD",fellow,medical_school,University of Pennsylvania Perelman School of Medicine,University of Pennsylvania Perelman School of Medicine,medical_school,cleaned_label,0.55
@@ -394,6 +490,9 @@ rachel galvao,"Rachel Galvao, MD",fellow,residency_program,Yale New Haven Hospit
 rachel galvao,"Rachel Galvao, MD",fellow,undergraduate_school,Yale University,Yale University,undergraduate_institution,cleaned_label,0.55
 rachel hirshorn,"Rachel Hirshorn, MD",fellow,medical_school,Boston University School of Medicine,Boston University School of Medicine,medical_school,cleaned_label,0.55
 rachel hirshorn,"Rachel Hirshorn, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_rachel-saks-md_fe67c1aef7ad,"Rachel Saks, MD",fellow,medical_school,CUNY School of Medicine,CUNY School of Medicine,medical_school,seeded_alias,0.98
+person_rachel-saks-md_fe67c1aef7ad,"Rachel Saks, MD",fellow,residency_program,Northwell Lenox Hill Hospital,Northwell Lenox Hill Hospital,clinical_training_site,cleaned_label,0.55
+person_rachel-saks-md_fe67c1aef7ad,"Rachel Saks, MD",fellow,undergraduate_school,Sophie Davis School of Biomedical Education,Sophie Davis School of Biomedical Education,undergraduate_institution,cleaned_label,0.55
 rahul myadam mbbs,"Rahul Myadam, MBBS",fellow,medical_school,Osmania Medical College,Osmania Medical College,medical_school,cleaned_label,0.55
 rahul myadam mbbs,"Rahul Myadam, MBBS",fellow,residency_program,University of Missouri-Kansas City,University of Missouri-Kansas City,clinical_training_site,cleaned_label,0.55
 randy ogbenna,"Randy Ogbenna, MD",fellow,medical_school,"Lincoln Memorial University Debusk College of Osteopathic Medicine, Harrogate , TN","Lincoln Memorial University Debusk College of Osteopathic Medicine, Harrogate , TN",medical_school,cleaned_label,0.55
@@ -402,6 +501,9 @@ rebecca brown m sc,"Rebecca Brown, MD, M.Sc",fellow,medical_school,University of
 rebecca brown m sc,"Rebecca Brown, MD, M.Sc",fellow,residency_program,University of Virgina,University of Virgina,clinical_training_site,cleaned_label,0.55
 rebecca moore,"Rebecca Moore, MD",fellow,medical_school,Tulane University School of Medicine,Tulane University School of Medicine,medical_school,seeded_alias,0.98
 rebecca moore,"Rebecca Moore, MD",fellow,residency_program,Brown University Internal Medicine/Pediatrics,Brown University Internal Medicine/Pediatrics,clinical_training_site,cleaned_label,0.55
+person_rebecca-ward-md_8777acf84cb0,"Rebecca Ward, MD",fellow,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,seeded_alias,0.98
+person_rebecca-ward-md_8777acf84cb0,"Rebecca Ward, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_rebecca-ward-md_8777acf84cb0,"Rebecca Ward, MD",fellow,undergraduate_school,Johns Hopkins University,Johns Hopkins University,undergraduate_institution,seeded_alias,0.98
 reid muenzen,"Reid Muenzen, MD",fellow,medical_school,Rutgers,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
 reid muenzen,"Reid Muenzen, MD",fellow,residency_program,University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 remy bremner,"Remy Bremner, MD",fellow,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
@@ -422,6 +524,8 @@ robert geis,"Robert Geis, MD",fellow,medical_school,Uniformed Services Universit
 robert geis,"Robert Geis, MD",fellow,residency_program,"Naval Medical Center, Portsmouth VA.","Naval Medical Center, Portsmouth VA.",clinical_training_site,cleaned_label,0.55
 rochelle prokupets,"Rochelle Prokupets, MD",fellow,medical_school,Johns Hopkins University,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
 rochelle prokupets,"Rochelle Prokupets, MD",fellow,residency_program,Vanderbilt University,Vanderbilt University,clinical_training_site,seeded_alias,0.98
+person_rupali-jain-mbbs-md_c39db237b113,"Rupali Jain, MBBS, MD",fellow,medical_school,"AIIMS (New Delhi), India","AIIMS (New Delhi), India",medical_school,cleaned_label,0.55
+person_rupali-jain-mbbs-md_c39db237b113,"Rupali Jain, MBBS, MD",fellow,residency_program,"PGIMER (Chandigarh), India","PGIMER (Chandigarh), India",clinical_training_site,cleaned_label,0.55
 ryan chow m d,"Ryan Chow, M.D.",fellow,medical_school,Yale University School of Medicine,Yale University - School of Medicine,medical_school,seeded_alias,0.98
 ryan chow m d,"Ryan Chow, M.D.",fellow,residency_program,University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 s muhammad mustafa zaidi,"S. Muhammad Mustafa Zaidi, MD",fellow,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
@@ -452,6 +556,9 @@ sarah gorvetzian,"Sarah Gorvetzian, MD",fellow,undergraduate_school,Duke Univers
 sarjukumar panchal pharmd,"Sarjukumar Panchal, MD, PharmD",fellow,medical_school,University of Missouri School of Medicine,University of Missouri School of Medicine,medical_school,cleaned_label,0.55
 sarjukumar panchal pharmd,"Sarjukumar Panchal, MD, PharmD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 sarjukumar panchal pharmd,"Sarjukumar Panchal, MD, PharmD",fellow,undergraduate_school,St. Louis College of Pharmacy,St. Louis College of Pharmacy,undergraduate_institution,cleaned_label,0.55
+person_shibin-mathews-md_e19461ec8098,"Shibin Mathews, MD",fellow,medical_school,CUNY School of Medicine,CUNY School of Medicine,medical_school,cleaned_label,0.55
+person_shibin-mathews-md_e19461ec8098,"Shibin Mathews, MD",fellow,residency_program,Maimonides Medical Center,Maimonides Medical Center,clinical_training_site,cleaned_label,0.55
+person_shibin-mathews-md_e19461ec8098,"Shibin Mathews, MD",fellow,undergraduate_school,City College of New York,City College of New York,undergraduate_institution,cleaned_label,0.55
 sofia barrios,"Sofia Barrios, MD",fellow,medical_school,Universidad Francisco Marroquin,Universidad Francisco Marroquin,medical_school,cleaned_label,0.55
 sofia barrios,"Sofia Barrios, MD",fellow,residency_program,Pennsylvania Hospital,Pennsylvania Hospital,clinical_training_site,cleaned_label,0.55
 sofia barrios,"Sofia Barrios, MD",fellow,undergraduate_school,Universidad Francisco Marroquin,Universidad Francisco Marroquin,undergraduate_institution,cleaned_label,0.55
@@ -468,12 +575,18 @@ stephanie lawanto,"Stephanie Lawanto, MD",fellow,residency_program,"University o
 stephanie lee,"Stephanie Lee, MD",fellow,medical_school,University of Oklahoma College of Medicine,University of Oklahoma College of Medicine,medical_school,cleaned_label,0.55
 stephanie lee,"Stephanie Lee, MD",fellow,residency_program,Med-Peds | University of Miami/Jackson Health Systems,Med-Peds | University of Miami/Jackson Health Systems,clinical_training_site,cleaned_label,0.55
 stephanie lee,"Stephanie Lee, MD",fellow,undergraduate_school,University of Oklahoma,University of Oklahoma,undergraduate_institution,cleaned_label,0.55
+person_stephen-chang-do_f39580801eb4,"Stephen Chang, DO",fellow,medical_school,Lake Erie College of Osteopathic Medicine – Bradenton,Lake Erie College of Osteopathic Medicine – Bradenton,medical_school,cleaned_label,0.55
+person_stephen-chang-do_f39580801eb4,"Stephen Chang, DO",fellow,residency_program,Allegheny Health Network,Allegheny Health Network,clinical_training_site,cleaned_label,0.55
+person_stephen-chang-do_f39580801eb4,"Stephen Chang, DO",fellow,undergraduate_school,University of Maryland,University of Maryland,undergraduate_institution,seeded_alias,0.98
 sujatha reddy,"Sujatha Reddy, MD",fellow,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
 sujatha reddy,"Sujatha Reddy, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
 suyu zhang mbs,"Suyu Zhang, MD, MBS",fellow,medical_school,NY Med College,NY Med College,medical_school,cleaned_label,0.55
 suyu zhang mbs,"Suyu Zhang, MD, MBS",fellow,residency_program,Emory University,Emory University,clinical_training_site,cleaned_label,0.55
 sybil watkins,"Sybil Watkins, MD, MS",fellow,medical_school,University of Tennessee Health Science Center College of Medicine,University of Tennessee Health Science Center College of Medicine,medical_school,cleaned_label,0.55
 sybil watkins,"Sybil Watkins, MD, MS",fellow,residency_program,Vanderbilt University,Vanderbilt University,clinical_training_site,seeded_alias,0.98
+person_syed-waqas-ahmad-do_3a5433627330,"Syed (Waqas) Ahmad, DO",fellow,medical_school,Nova Southeastern University College of Osteopathic Medicine,Nova Southeastern University College of Osteopathic Medicine,medical_school,cleaned_label,0.55
+person_syed-waqas-ahmad-do_3a5433627330,"Syed (Waqas) Ahmad, DO",fellow,residency_program,Cooper University Hospital,Cooper University Hospital,clinical_training_site,seeded_alias,0.98
+person_syed-waqas-ahmad-do_3a5433627330,"Syed (Waqas) Ahmad, DO",fellow,undergraduate_school,Rutgers University,Rutgers University,undergraduate_institution,seeded_alias,0.98
 tania m aguila rivera,"Tania M. Aguila Rivera, MD",fellow,medical_school,University of Puerto Rico,University of Puerto Rico,medical_school,seeded_alias,0.98
 tania m aguila rivera,"Tania M. Aguila Rivera, MD",fellow,residency_program,University of Puerto Rico,University of Puerto Rico,clinical_training_site,cleaned_label,0.55
 tania m aguila rivera,"Tania M. Aguila Rivera, MD",fellow,undergraduate_school,University of Puerto Rico,University of Puerto Rico,undergraduate_institution,seeded_alias,0.98
@@ -503,84 +616,221 @@ yasmin kamal,"Yasmin Kamal, MD, PhD",fellow,residency_program,Brigham & Women’
 yend grell,"Yendé Grell, MD",fellow,medical_school,Weill Cornell Medical College,Weill Cornell Medical College,medical_school,cleaned_label,0.55
 yend grell,"Yendé Grell, MD",fellow,residency_program,New York Presbyterian - Weill Cornell,New York-Presbyterian Weill Cornell,clinical_training_site,seeded_alias,0.98
 yend grell,"Yendé Grell, MD",fellow,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,cleaned_label,0.55
+person_yu-sakai-md_d34d94f59785,"Yu Sakai, MD",fellow,medical_school,Icahn School of Medicine at Mount Sinai,Icahn School of Medicine at Mount Sinai,medical_school,seeded_alias,0.98
+person_yu-sakai-md_d34d94f59785,"Yu Sakai, MD",fellow,residency_program,Hospital of the University of Pennsylvania,Hospital of the University of Pennsylvania,clinical_training_site,seeded_alias,0.98
+person_yu-sakai-md_d34d94f59785,"Yu Sakai, MD",fellow,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
 yvette zou,"Yvette Zou, MD",fellow,medical_school,Geisel School of Medicine at Dartmouth,Geisel School of Medicine at Dartmouth,medical_school,seeded_alias,0.98
 yvette zou,"Yvette Zou, MD",fellow,residency_program,New York Presbyterian Columbia,New York Presbyterian Columbia,clinical_training_site,cleaned_label,0.55
 zachary m hostetler,"Zachary M Hostetler, MD",fellow,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 zachary m hostetler,"Zachary M Hostetler, MD",fellow,residency_program,New York-Presbyterian Hospital/ Weill Cornell Medical Center,New York-Presbyterian Hospital/ Weill Cornell Medical Center,clinical_training_site,cleaned_label,0.55
 zachary m hostetler,"Zachary M Hostetler, MD",fellow,undergraduate_school,Pennsylvania State University,Pennsylvania State University,undergraduate_institution,cleaned_label,0.55
+person_zahraa-al-turaihi-md_de689518d59e,"Zahraa Al-Turaihi, MD",fellow,medical_school,"Kufa University, College of Medicine","Kufa University, College of Medicine",medical_school,cleaned_label,0.55
+person_zahraa-al-turaihi-md_de689518d59e,"Zahraa Al-Turaihi, MD",fellow,residency_program,Jefferson-Einstein Montgomery Hospital,Jefferson-Einstein Montgomery Hospital,clinical_training_site,cleaned_label,0.55
 abigail black,Abigail Black MD,resident,medical_school,University of Virginia Medical School,University of Virginia Medical School,medical_school,cleaned_label,0.55
 abigail taye,Abigail Taye MD,resident,medical_school,New York University Grossman School of Medicine,NYU Grossman School of Medicine,medical_school,seeded_alias,0.98
 adam barsouk,"Adam Barsouk, MD",resident,medical_school,"Sidney Kimmel Medical College, Jefferson University",Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_adele-s-ricciardi-md-phd_27a82a4b56db,"Adele S. Ricciardi, MD, PhD",resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
+person_adele-s-ricciardi-md-phd_27a82a4b56db,"Adele S. Ricciardi, MD, PhD",resident,undergraduate_school,"University of North Carolina, Chapel Hill",University of North Carolina at Chapel Hill,undergraduate_institution,seeded_alias,0.98
 ahmed gawash,Ahmed Gawash DO,resident,medical_school,Rowan University School of Osteopathic Medicine,Rowan University School of Osteopathic Medicine,medical_school,cleaned_label,0.55
 akshatha kiran,Akshatha Kiran MD,resident,medical_school,University of North Carolina at Chapel Hill,University of North Carolina at Chapel Hill,medical_school,cleaned_label,0.55
 akshayaa chittibabu,Akshayaa Chittibabu MD,resident,medical_school,UCLA David Geffen School of Medicine,UCLA David Geffen School of Medicine,medical_school,cleaned_label,0.55
+person_alan-makhoul_6664745a26d3,Alan Makhoul,resident,medical_school,Vanderbilt University School of Medicine,Vanderbilt University School of Medicine,medical_school,seeded_alias,0.98
+person_alan-makhoul_6664745a26d3,Alan Makhoul,resident,undergraduate_school,Duke University,Duke University,undergraduate_institution,seeded_alias,0.98
+person_alan-yang-md_0bf20ebe6357,"Alan Yang, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_alan-yang-md_0bf20ebe6357,"Alan Yang, MD",resident,undergraduate_school,Harvard,Harvard,undergraduate_institution,seeded_alias,0.98
 alec gayner,Alec Gayner MD,resident,medical_school,Lewis Katz School of Medicine at Temple University,Lewis Katz School of Medicine at Temple University,medical_school,cleaned_label,0.55
 alec kacew,Alec Kacew MD,resident,medical_school,The University of Chicago Pritzker School of Medicine,The University of Chicago Pritzker School of Medicine,medical_school,cleaned_label,0.55
+person_alexa-l-carreras-md_2b1b75611f60,"Alexa L. Carreras, MD",resident,residency_program,Barrow Neurological Institute,Barrow Neurological Institute,clinical_training_site,cleaned_label,0.55
 alexa larsen,"Alexa Larsen, MD, MSc",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_alexander-h-ther-md_cdd48db934fb,"Alexander Hüther, MD",resident,medical_school,Tufts School of Medicine,Tufts School of Medicine,medical_school,cleaned_label,0.55
+person_alexander-pieper-md-phd_b80c9fcdaeda,"Alexander Pieper, MD, PhD",resident,medical_school,University of Wisconsin-Madison,University of Wisconsin-Madison,medical_school,cleaned_label,0.55
+person_alexander-pieper-md-phd_b80c9fcdaeda,"Alexander Pieper, MD, PhD",resident,undergraduate_school,University of Nebraska-Lincoln,University of Nebraska - Lincoln,undergraduate_institution,seeded_alias,0.98
+person_alexander-t-wilson-md-phd_e82146be2bdc,"Alexander T. Wilson, MD, PhD",resident,graduate_school,Erasmus University Rotterdam (PhD),Erasmus University Rotterdam (PhD),graduate_institution,cleaned_label,0.55
+person_alexander-t-wilson-md-phd_e82146be2bdc,"Alexander T. Wilson, MD, PhD",resident,medical_school,Yale University,Yale University,medical_school,seeded_alias,0.98
+person_alexander-t-wilson-md-phd_e82146be2bdc,"Alexander T. Wilson, MD, PhD",resident,undergraduate_school,Wofford College,Wofford College,undergraduate_institution,cleaned_label,0.55
+person_alexandra-e-sperry-md_5326efc90610,"Alexandra E. Sperry, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_alexandra-e-sperry-md_5326efc90610,"Alexandra E. Sperry, MD",resident,undergraduate_school,Harvard University,Harvard University,undergraduate_institution,seeded_alias,0.98
 alexandria nicole tartt,Alexandria Nicole Tartt MD,resident,medical_school,Stanford University School of Medicine,Stanford University School of Medicine,medical_school,cleaned_label,0.55
+person_alexey-gurevich-md_f8a111a825d8,"Alexey Gurevich, MD",resident,medical_school,"Sackler School of Medicine, Tel Aviv University","Sackler School of Medicine, Tel Aviv University",medical_school,cleaned_label,0.55
+person_alexey-gurevich-md_f8a111a825d8,"Alexey Gurevich, MD",resident,undergraduate_school,University of Toronto,University of Toronto,undergraduate_institution,cleaned_label,0.55
 alison leslie,Alison Leslie MD,resident,medical_school,University of Minnesota Medical School,University of Minnesota Medical School,medical_school,cleaned_label,0.55
 alison ranum,Alison Ranum MD,resident,medical_school,University of Minnesota-Twin Cities,University of Minnesota-Twin Cities,medical_school,cleaned_label,0.55
+person_alvaro-ordonez-md_c0d8e74fd90e,"Alvaro Ordonez, MD",resident,medical_school,Universidad Industrial de Santander,Universidad Industrial de Santander,medical_school,cleaned_label,0.55
+person_amanda-e-jones-md_a1f960de549a,"Amanda E. Jones, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_amanda-e-jones-md_a1f960de549a,"Amanda E. Jones, MD",resident,undergraduate_school,Brown University,Brown University,undergraduate_institution,cleaned_label,0.55
+person_amanda-kraus-md_0db09032fffa,"Amanda Kraus, MD",resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
+person_amanda-kraus-md_0db09032fffa,"Amanda Kraus, MD",resident,undergraduate_school,"University of California, Davis","University of California, Davis",undergraduate_institution,cleaned_label,0.55
+person_amanda-l-bader-md-msce_d14636eb37c8,"Amanda L. Bader, MD, MSCE",resident,medical_school,Stony Brook University School of Medicine,Stony Brook University School of Medicine,medical_school,cleaned_label,0.55
+person_amanda-l-bader-md-msce_d14636eb37c8,"Amanda L. Bader, MD, MSCE",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
 amanda perez,"Amanda Perez, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_amber-simmons-md_94563180d219,"Amber Simmons, MD",resident,medical_school,Weill Cornell Medicine,Weill Cornell Medicine,medical_school,seeded_alias,0.98
+person_amber-simmons-md_94563180d219,"Amber Simmons, MD",resident,undergraduate_school,Hampton University,Hampton University,undergraduate_institution,cleaned_label,0.55
+person_amissa-brewer-hoffman-md-mph_b749915c7212,"Amissa Brewer-Hoffman, MD, MPH",resident,medical_school,Columbia University,Columbia University,medical_school,seeded_alias,0.98
+person_amissa-brewer-hoffman-md-mph_b749915c7212,"Amissa Brewer-Hoffman, MD, MPH",resident,undergraduate_school,Columbia University,Columbia University,undergraduate_institution,seeded_alias,0.98
+person_amit-iyengar-md-mse_be5601b39c25,"Amit Iyengar, MD, MSE",resident,medical_school,"University of California, Los Angeles","University of California, Los Angeles",medical_school,cleaned_label,0.55
+person_amit-iyengar-md-mse_be5601b39c25,"Amit Iyengar, MD, MSE",resident,undergraduate_school,"University of Michigan, Ann Arbor","University of Michigan, Ann Arbor",undergraduate_institution,cleaned_label,0.55
+person_amna-zubia-syeda-md_c462db134b7a,"Amna Zubia Syeda, MD",resident,medical_school,Ziauddin Medical College,Ziauddin Medical College,medical_school,cleaned_label,0.55
+person_andrea-c-yeg-ez-md_0d7ccec60bc2,"Andrea C. Yegüez, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_andrea-c-yeg-ez-md_0d7ccec60bc2,"Andrea C. Yegüez, MD",resident,undergraduate_school,Georgetown University,Georgetown University,undergraduate_institution,seeded_alias,0.98
 andrea szabo,"Andrea Szabo, MD",resident,medical_school,medical school at Case Western Reserve University,medical school at Case Western Reserve University,medical_school,cleaned_label,0.55
 andrew lin,Andrew Lin MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_andrew-m-acker-md_7dab4d69d8d1,"Andrew M. Acker, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_andrew-m-acker-md_7dab4d69d8d1,"Andrew M. Acker, MD",resident,undergraduate_school,Massachusetts Institute of Technology,Massachusetts Institute of Technology,undergraduate_institution,cleaned_label,0.55
+person_andrew-samoyedny-md_de8ad12b5234,"Andrew Samoyedny, MD",resident,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
+person_andrew-samoyedny-md_de8ad12b5234,"Andrew Samoyedny, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
 andrew siaw asamoah,Andrew Siaw Asamoah MD,resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_angela-y-chang-md_7cf2f3cf2637,"Angela Y. Chang, MD",resident,medical_school,Columbia University College of Physicians and Surgeons,Columbia University College of Physicians and Surgeons,medical_school,cleaned_label,0.55
+person_anita-kundu-md_069c268595f7,"Anita Kundu, MD",resident,medical_school,Duke University School of Medicine,Duke University School of Medicine,medical_school,seeded_alias,0.98
 anitra persaud,"Anitra Persaud, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 anjana murali,Anjana Murali MD,resident,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,cleaned_label,0.55
 anjeli manam,Anjeli Manam MD,resident,medical_school,University of Illinois at Chicago,University of Illinois at Chicago,medical_school,cleaned_label,0.55
 anna goebel,Anna Goebel MD,resident,medical_school,Emory University,Emory University,medical_school,cleaned_label,0.55
 anna maria dagher,Anna Maria Dagher MD,resident,medical_school,Duke University School of Medicine,Duke University School of Medicine,medical_school,seeded_alias,0.98
 anne albright,Anne Albright MD,resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,cleaned_label,0.55
+person_anoop-manjunath-md_bed1037475f7,"Anoop Manjunath, MD",resident,medical_school,Stanford University School of Medicine,Stanford University School of Medicine,medical_school,seeded_alias,0.98
+person_anoop-manjunath-md_bed1037475f7,"Anoop Manjunath, MD",resident,undergraduate_school,Stanford University,Stanford University,undergraduate_institution,seeded_alias,0.98
 anwesh dash,Anwesh Dash MD,resident,medical_school,University of Tennessee,University of Tennessee,medical_school,cleaned_label,0.55
+person_ariel-nehemiah-md-ms_940e7ea0a43f,"Ariel Nehemiah, MD, MS",resident,medical_school,Howard University,Howard University,medical_school,cleaned_label,0.55
+person_ariel-nehemiah-md-ms_940e7ea0a43f,"Ariel Nehemiah, MD, MS",resident,undergraduate_school,University of Maryland,University of Maryland,undergraduate_institution,seeded_alias,0.98
 armaan saith,Armaan Saith MBSS,resident,medical_school,"Maulana Azad Medical College, Delhi","Maulana Azad Medical College, Delhi",medical_school,cleaned_label,0.55
+person_artsiom-meliukh-md_0764cf7e7590,"Artsiom Meliukh, MD",resident,medical_school,Belarusian State Medical University,Belarusian State Medical University,medical_school,cleaned_label,0.55
+person_arun-venkataraman-md-phd_23eaac02f552,"Arun Venkataraman, MD, PhD",resident,medical_school,University of Rochester,University of Rochester,medical_school,cleaned_label,0.55
+person_arun-venkataraman-md-phd_23eaac02f552,"Arun Venkataraman, MD, PhD",resident,undergraduate_school,University of Rochester,University of Rochester,undergraduate_institution,cleaned_label,0.55
 ashley bo zhang,Ashley Bo Zhang MD,resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_ashley-s-shirriff-md_4d69033f8770,"Ashley S. Shirriff, MD",resident,medical_school,University of Hawaii School of Medicine,University of Hawaii School of Medicine,medical_school,cleaned_label,0.55
+person_audrey-rich-md_d5aaa37c8874,"Audrey Rich, MD",resident,medical_school,University of New Mexico,University of New Mexico,medical_school,cleaned_label,0.55
+person_audrey-rich-md_d5aaa37c8874,"Audrey Rich, MD",resident,undergraduate_school,University of Northern Colorado,University of Northern Colorado,undergraduate_institution,cleaned_label,0.55
 ava hunt,Ava Hunt MD,resident,medical_school,Rutgers Robert Wood Johnson Medical School,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
 ava wilson,"Ava Wilson, MD",resident,medical_school,Un of Texas Southwestern Medical School At Dallas,Un of Texas Southwestern Medical School At Dallas,medical_school,cleaned_label,0.55
+person_avanti-ava-rangnekar-md_38ecbeafe7d7,"Avanti (Ava) Rangnekar, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_avanti-ava-rangnekar-md_38ecbeafe7d7,"Avanti (Ava) Rangnekar, MD",resident,undergraduate_school,"University of Tennessee, Knoxville","University of Tennessee, Knoxville",undergraduate_institution,cleaned_label,0.55
+person_azfar-basunia-md_a0e090356ae6,"Azfar Basunia, MD",resident,medical_school,SUNY Upstate Medical University,SUNY Upstate Medical University,medical_school,seeded_alias,0.98
+person_azfar-basunia-md_a0e090356ae6,"Azfar Basunia, MD",resident,undergraduate_school,University of Chicago,University of Chicago,undergraduate_institution,seeded_alias,0.98
+person_bahar-ataeinia-md_84aadab2a90e,"Bahar Ataeinia, MD",resident,medical_school,Tehran University of Medical Sciences,Tehran University of Medical Sciences,medical_school,seeded_alias,0.98
+person_bahram-mohajer-md_ccd1e3523ca6,"Bahram Mohajer, MD",resident,medical_school,Tehran University,Tehran University,medical_school,cleaned_label,0.55
+person_bahram-mohajer-md_ccd1e3523ca6,"Bahram Mohajer, MD",resident,undergraduate_school,Tehran University,Tehran University,undergraduate_institution,cleaned_label,0.55
 barrington bennett,Barrington Bennett MD,resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
 bassel ghaddar,Bassel Ghaddar MD,resident,medical_school,Rutgers Rober Wood Johnson Medical School,Rutgers Rober Wood Johnson Medical School,medical_school,cleaned_label,0.55
 beau blass,Beau Blass MD,resident,medical_school,Duke,Duke,medical_school,cleaned_label,0.55
+person_benjamin-f-smood-md-ms_0226560aaa83,"Benjamin F. Smood, MD, MS",resident,medical_school,University of Alabama at Birmingham,University of Alabama at Birmingham,medical_school,cleaned_label,0.55
+person_benjamin-f-smood-md-ms_0226560aaa83,"Benjamin F. Smood, MD, MS",resident,undergraduate_school,University of Oregon,University of Oregon,undergraduate_institution,cleaned_label,0.55
 benjamin honan,Benjamin Honan MD,resident,medical_school,University of Alabama,University of Alabama,medical_school,cleaned_label,0.55
 bettina cheung,Bettina Cheung MD,resident,medical_school,Northwestern University Feinberg School of Medicine,Northwestern University Feinberg School of Medicine,medical_school,seeded_alias,0.98
 bongeka zuma,Bongeka Zuma MD,resident,medical_school,Stanford University School of Medicine,Stanford University School of Medicine,medical_school,seeded_alias,0.98
 brett biebelberg,Brett Biebelberg MD,resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
 brian andres robusto,Brian Andres Robusto MD,resident,medical_school,Wake Forest University School of Medicine,Wake Forest University School of Medicine,medical_school,cleaned_label,0.55
+person_brian-j-liu-md_d7475a0c7637,"Brian J. Liu, MD",resident,medical_school,Case Western Reserve University School of Medicine,Case Western Reserve University School of Medicine,medical_school,seeded_alias,0.98
 brice wuthrich,Brice Wuthrich MD,resident,medical_school,Indiana University School of Medicine,Indiana University School of Medicine,medical_school,cleaned_label,0.55
+person_brittany-brookner-md_cd51dbb20c30,"Brittany Brookner, MD",resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
+person_brittany-brookner-md_cd51dbb20c30,"Brittany Brookner, MD",resident,undergraduate_school,Carleton College,Carleton College,undergraduate_institution,cleaned_label,0.55
 brittany glassberg,"Brittany Glassberg, MD",resident,medical_school,Duke University,Duke University,medical_school,cleaned_label,0.55
+person_cailin-o-connell-md_0de3852976d3,"Cailin O’Connell, MD",resident,medical_school,Texas A&M School of Medicine,Texas A&M School of Medicine,medical_school,cleaned_label,0.55
+person_cailin-o-connell-md_0de3852976d3,"Cailin O’Connell, MD",resident,undergraduate_school,Texas A&M School of Engineering,Texas A&M School of Engineering,undergraduate_institution,cleaned_label,0.55
+person_carmen-de-carvajal-cebrian-md_c78ded9111c2,"Carmen de Carvajal Cebrian, MD",resident,medical_school,Universidad de Navarra Facultad de Medicina,Universidad de Navarra Facultad de Medicina,medical_school,cleaned_label,0.55
+person_caroline-b-head-md_996fa45f963f,"Caroline B. Head, MD",resident,residency_program,UAB Callahan Eye Hospital,UAB Callahan Eye Hospital,clinical_training_site,cleaned_label,0.55
+person_caroline-canning-md_79edbe6cc645,"Caroline Canning, MD",resident,medical_school,SUNY Downstate,SUNY Downstate,medical_school,cleaned_label,0.55
+person_caroline-canning-md_79edbe6cc645,"Caroline Canning, MD",resident,undergraduate_school,Dartmouth,Dartmouth,undergraduate_institution,cleaned_label,0.55
+person_caroline-l-simon-md_672bfe81e71c,"Caroline L. Simon, MD",resident,medical_school,University of Maryland School of Medicine,University of Maryland School of Medicine,medical_school,seeded_alias,0.98
 carolyn chow,"Carolyn Chow, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_carrie-zimmerman-morales-md_b9c5a903d030,"Carrie Zimmerman Morales, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_carrie-zimmerman-morales-md_b9c5a903d030,"Carrie Zimmerman Morales, MD",resident,undergraduate_school,Tufts University,Tufts University,undergraduate_institution,seeded_alias,0.98
 carson wills,"Carson Wills MD, PhD",resident,medical_school,Penn State College of Medicine,Penn State College of Medicine,medical_school,cleaned_label,0.55
 casey krickus,"Casey Krickus, MD",resident,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
+person_casey-zhang-md_aaa392e6d106,"Casey Zhang, MD",resident,medical_school,University of Pittsburgh,University of Pittsburgh,medical_school,cleaned_label,0.55
+person_casey-zhang-md_aaa392e6d106,"Casey Zhang, MD",resident,undergraduate_school,University of Pittsburgh,University of Pittsburgh,undergraduate_institution,seeded_alias,0.98
 catherine sport,Catherine Sport MD,resident,medical_school,Virginia Commonwealth University School of Medicine,Virginia Commonwealth University School of Medicine,medical_school,cleaned_label,0.55
+person_charles-crepy-d-orleans-md_d9c5803e67d6,"Charles Crepy D'Orleans, MD",resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_charles-crepy-d-orleans-md_d9c5803e67d6,"Charles Crepy D'Orleans, MD",resident,undergraduate_school,Johns Hopkins University,Johns Hopkins University,undergraduate_institution,seeded_alias,0.98
 charles odenigbo,Charles Odenigbo MD,resident,medical_school,Michigan State University College of Human Medicine,Michigan State University College of Human Medicine,medical_school,cleaned_label,0.55
+person_chase-c-alston-md-mhs_a256a0788e33,"Chase C. Alston, MD, MHS",resident,graduate_school,Johns Hopkins Bloomberg School of Public,Johns Hopkins Bloomberg School of Public,graduate_institution,cleaned_label,0.55
+person_chase-c-alston-md-mhs_a256a0788e33,"Chase C. Alston, MD, MHS",resident,medical_school,Weill Cornell Medicine,Weill Cornell Medicine,medical_school,seeded_alias,0.98
+person_chase-c-alston-md-mhs_a256a0788e33,"Chase C. Alston, MD, MHS",resident,undergraduate_school,Johns Hopkins University,Johns Hopkins University,undergraduate_institution,seeded_alias,0.98
+person_cheyenne-williams-md_90e96f7106ae,"Cheyenne Williams, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_cheyenne-williams-md_90e96f7106ae,"Cheyenne Williams, MD",resident,undergraduate_school,The College of William and Mary,College of William and Mary,undergraduate_institution,seeded_alias,0.98
 chiamaka okonkwo,Chiamaka Okonkwo MD,resident,medical_school,Johns Hopkins University School of Medicine,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
 chidiogo orizu,Chidiogo Orizu MD,resident,medical_school,Howard University College of Medicine,Howard University College of Medicine,medical_school,seeded_alias,0.98
+person_china-n-byrns-md-phd-ms_3afc193aaf5c,"China N. Byrns, MD, PhD, MS",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_china-n-byrns-md-phd-ms_3afc193aaf5c,"China N. Byrns, MD, PhD, MS",resident,undergraduate_school,Mount Holyoke College,Mount Holyoke College,undergraduate_institution,cleaned_label,0.55
 chirag patel,Chirag Patel MD,resident,medical_school,George Washington University School of Medicine & Health Sciences,George Washington University School of Medicine & Health Sciences,medical_school,cleaned_label,0.55
+person_chris-se-jung-chang-md_e7653c79f516,"Chris (Se Jung) Chang, MD",resident,medical_school,Weill Cornell Medicine,Weill Cornell Medicine,medical_school,seeded_alias,0.98
+person_chris-se-jung-chang-md_e7653c79f516,"Chris (Se Jung) Chang, MD",resident,undergraduate_school,Vassar College,Vassar College,undergraduate_institution,cleaned_label,0.55
 chris streiffer,Chris Streiffer MD,resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 christianah ademuwagun,"Christianah Ademuwagun, MD",resident,medical_school,Howard University College of Medicine,Howard University College of Medicine,medical_school,seeded_alias,0.98
 christina gonzalez gandolfi,Christina Gonzalez-Gandolfi MD,resident,medical_school,University of Washington School of Medicine,University of Washington School of Medicine,medical_school,cleaned_label,0.55
 christina murphy,"Christina Murphy, MD, MS",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 christine chen,"Christine Chen, MD",resident,medical_school,Lewis Katz School of Medicine at Temple University,Lewis Katz School of Medicine at Temple University,medical_school,seeded_alias,0.98
 christopher brokus,Christopher Brokus MD,resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_christopher-d-herrera-md-mshp_0d8197f0ddf4,"Christopher D. Herrera, MD, MSHP",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_christopher-d-herrera-md-mshp_0d8197f0ddf4,"Christopher D. Herrera, MD, MSHP",resident,undergraduate_school,Carnegie Mellon University,Carnegie Mellon University,undergraduate_institution,cleaned_label,0.55
+person_christopher-j-neylan-md_dc31eb1bec22,"Christopher J. Neylan, MD",resident,medical_school,Rutgers Robert Wood Johnson Medical School,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
+person_christopher-j-neylan-md_dc31eb1bec22,"Christopher J. Neylan, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_christopher-m-anthony-do_caa0231e681b,"Christopher M. Anthony, DO",resident,residency_program,Brooke Army Medical Center,Brooke Army Medical Center,clinical_training_site,cleaned_label,0.55
+person_cindy-song-md_859fe206ba32,"Cindy Song, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_cindy-song-md_859fe206ba32,"Cindy Song, MD",resident,undergraduate_school,Rutgers University,Rutgers University,undergraduate_institution,seeded_alias,0.98
 claire fishman,Claire Fishman MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 claudio salinas,Claudio Salinas MD,resident,medical_school,Anne Burnett Mario School of Medicine at TCU,Anne Burnett Mario School of Medicine at TCU,medical_school,cleaned_label,0.55
 cricket gullickson,Cricket Gullickson MD,resident,medical_school,Emory School of Medicine,Emory School of Medicine,medical_school,cleaned_label,0.55
+person_crystal-an-md_da79c10904b9,"Crystal An, MD",resident,medical_school,Case Western,Case Western,medical_school,cleaned_label,0.55
+person_crystal-an-md_da79c10904b9,"Crystal An, MD",resident,undergraduate_school,Case Western,Case Western,undergraduate_institution,cleaned_label,0.55
 cynthia nguyen,Cynthia Nguyen MD,resident,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
+person_damien-medrano-md_c7a3e75b51c4,"Damien Medrano, MD",resident,medical_school,Kirk Kerkorian School of Medicine at UNLV,Kirk Kerkorian School of Medicine at UNLV,medical_school,cleaned_label,0.55
+person_damien-medrano-md_c7a3e75b51c4,"Damien Medrano, MD",resident,undergraduate_school,Loyola Marymount University,Loyola Marymount University,undergraduate_institution,cleaned_label,0.55
 dan bisno,Dan Bisno MD,resident,medical_school,"Rutgers, Robert Wood Johnson Medical School",Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
+person_daniel-b-armstrong-md_73e601abbbbb,"Daniel B Armstrong, MD",resident,medical_school,Uniformed Services University of the Health Sciences,Uniformed Services University of the Health Sciences,medical_school,seeded_alias,0.98
+person_daniel-b-armstrong-md_73e601abbbbb,"Daniel B Armstrong, MD",resident,undergraduate_school,Virginia Tech,Virginia Tech,undergraduate_institution,cleaned_label,0.55
+person_daniel-kim-md_a6a321b50356,"Daniel Kim, MD",resident,medical_school,Warren Alpert Medical School of Brown University,Warren Alpert Medical School of Brown University,medical_school,seeded_alias,0.98
+person_daniel-kim-md_a6a321b50356,"Daniel Kim, MD",resident,undergraduate_school,Brown University,Brown University,undergraduate_institution,seeded_alias,0.98
 daniel lai,Daniel Lai MD,resident,medical_school,Weill Cornell Medical School,Weill Cornell Medical School,medical_school,cleaned_label,0.55
 danielle brown,Danielle Brown MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 danielle murashige,"Danielle Murashige, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 danny sack,"Danny Sack MD, PhD",resident,medical_school,Vanderbilt University School of Medicine,Vanderbilt University School of Medicine,medical_school,seeded_alias,0.98
 daphne campbell,"Daphne Campbell, DO",resident,medical_school,Rowan-Virta School of Osteopathic Medicine,Rowan-Virta School of Osteopathic Medicine,medical_school,cleaned_label,0.55
+person_dasha-savage-md_c90788cb1160,"Dasha Savage, MD",resident,medical_school,Stanford University,Stanford University,medical_school,cleaned_label,0.55
 david amici,David Amici MD,resident,medical_school,Northwestern University Feinberg School of Medicine,Northwestern University Feinberg School of Medicine,medical_school,seeded_alias,0.98
+person_david-b-rekhtman-md_64170f84d7ed,"David B. Rekhtman, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_david-b-rekhtman-md_64170f84d7ed,"David B. Rekhtman, MD",resident,undergraduate_school,"University of Maryland, College Park","University of Maryland, College Park",undergraduate_institution,cleaned_label,0.55
 david bickford,David Bickford MD,resident,medical_school,Medical College of Wisconsin,Medical College of Wisconsin,medical_school,cleaned_label,0.55
+person_david-ostrowski-md_fb9984c793e3,"David Ostrowski, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_david-ostrowski-md_fb9984c793e3,"David Ostrowski, MD",resident,undergraduate_school,Wake Forrest,Wake Forrest,undergraduate_institution,cleaned_label,0.55
+person_debora-h-lee-md_0eda9ea9bc01,"Debora H. Lee, MD",resident,residency_program,University of Texas Health Science Center Houston,University of Texas Health Science Center Houston,clinical_training_site,cleaned_label,0.55
 denysia allen,"Denysia Allen, MD",resident,medical_school,Drexel University,Drexel University,medical_school,cleaned_label,0.55
+person_dhruv-goyal-md_d5de0b91fbb6,"Dhruv Goyal, MD",resident,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
+person_dhruv-goyal-md_d5de0b91fbb6,"Dhruv Goyal, MD",resident,undergraduate_school,Washington University in St. Louis,Washington University in St. Louis,undergraduate_institution,seeded_alias,0.98
+person_dillan-f-villavisanis-md_5f70479b9d38,"Dillan F. Villavisanis, MD",resident,medical_school,Icahn School of Medicine at Mount Sinai,Icahn School of Medicine at Mount Sinai,medical_school,seeded_alias,0.98
+person_dillan-f-villavisanis-md_5f70479b9d38,"Dillan F. Villavisanis, MD",resident,undergraduate_school,Johns Hopkins University,Johns Hopkins University,undergraduate_institution,seeded_alias,0.98
+person_domingo-ernesto-uceda-md_d99f9c48e7aa,"Domingo Ernesto Uceda, MD",resident,medical_school,Indiana University School of Medicine,Indiana University School of Medicine,medical_school,seeded_alias,0.98
+person_domingo-ernesto-uceda-md_d99f9c48e7aa,"Domingo Ernesto Uceda, MD",resident,undergraduate_school,Georgia Institute of Technology,Georgia Institute of Technology,undergraduate_institution,seeded_alias,0.98
 dong weilai,Dong Weilai,resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
+person_drew-w-goldberg-md-mstr_f5272d930422,"Drew W. Goldberg, MD, MSTR",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_drew-w-goldberg-md-mstr_f5272d930422,"Drew W. Goldberg, MD, MSTR",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_dustin-t-crystal-md_0b50e7757b07,"Dustin T. Crystal, MD",resident,medical_school,Rutgers Robert Wood Johnson Medical School,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
+person_dustin-t-crystal-md_0b50e7757b07,"Dustin T. Crystal, MD",resident,undergraduate_school,"University of California, San Diego","University of California, San Diego",undergraduate_institution,cleaned_label,0.55
 eamonn brace,Eamonn Brace DO,resident,medical_school,Rowan University School of Osteopathic Medicine,Rowan University School of Osteopathic Medicine,medical_school,seeded_alias,0.98
+person_edward-p-esposito-iii-md_c66a4e398a17,"Edward P. Esposito, III, MD",resident,medical_school,Johns Hopkins University School of Medicine,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
 elena martin,Elena Martin MD,resident,medical_school,Renaissance School of Medicine at Stony Brook University,Renaissance School of Medicine at Stony Brook University,medical_school,cleaned_label,0.55
+person_eliana-marostica-md-mbi_b9c320a35aff,"Eliana Marostica, MD, MBI",resident,graduate_school,Harvard Medical School,Harvard Medical School,graduate_institution,cleaned_label,0.55
+person_eliana-marostica-md-mbi_b9c320a35aff,"Eliana Marostica, MD, MBI",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_eliana-marostica-md-mbi_b9c320a35aff,"Eliana Marostica, MD, MBI",resident,undergraduate_school,Wellesley College,Wellesley College,undergraduate_institution,cleaned_label,0.55
+person_elisabeth-elise-seyferth-md_6bace447cecf,"Elisabeth (Elise) Seyferth, MD",resident,medical_school,Duke School of Medicine,Duke School of Medicine,medical_school,cleaned_label,0.55
+person_elisabeth-elise-seyferth-md_6bace447cecf,"Elisabeth (Elise) Seyferth, MD",resident,undergraduate_school,Dartmouth College,Dartmouth College,undergraduate_institution,seeded_alias,0.98
+person_elizabeth-b-card-md_1b6bda8d6e2f,"Elizabeth B. Card, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_elizabeth-b-card-md_1b6bda8d6e2f,"Elizabeth B. Card, MD",resident,undergraduate_school,Tufts University,Tufts University,undergraduate_institution,seeded_alias,0.98
 elizabeth cordell,Elizabeth Cordell MD,resident,medical_school,Washington University School of Medicine,Washington University School of Medicine,medical_school,cleaned_label,0.55
+person_elizabeth-l-malphrus-md-mpp_24b2995264cb,"Elizabeth L. Malphrus, MD, MPP",resident,medical_school,George Washington University,George Washington University,medical_school,seeded_alias,0.98
+person_elizabeth-l-malphrus-md-mpp_24b2995264cb,"Elizabeth L. Malphrus, MD, MPP",resident,undergraduate_school,Columbia University,Columbia University,undergraduate_institution,cleaned_label,0.55
+person_elizabeth-m-de-jesus-md_c1afd6b5e88d,"Elizabeth M. De Jesus, MD",resident,medical_school,Tufts University School of Medicine,Tufts University School of Medicine,medical_school,seeded_alias,0.98
+person_elizabeth-m-de-jesus-md_c1afd6b5e88d,"Elizabeth M. De Jesus, MD",resident,undergraduate_school,Temple University,Temple University,undergraduate_institution,seeded_alias,0.98
 ella van deventer,"Ella van Deventer, MD",resident,medical_school,Brown University,Brown University,medical_school,seeded_alias,0.98
 ellen boakye,"Ellen Boakye MBChB, MPH",resident,medical_school,University of Ghana Medical School,University of Ghana Medical School,medical_school,cleaned_label,0.55
+person_emann-rabie-md-phd_63adf0695778,"Emann Rabie, MD, PhD",resident,medical_school,Robert Wood Johnson Medical School,Robert Wood Johnson Medical School,medical_school,cleaned_label,0.55
+person_emann-rabie-md-phd_63adf0695778,"Emann Rabie, MD, PhD",resident,undergraduate_school,Rutgers University,Rutgers University,undergraduate_institution,seeded_alias,0.98
+person_emily-gudbranson-md_cf1683efe11d,"Emily Gudbranson, MD",resident,medical_school,Yale,Yale,medical_school,cleaned_label,0.55
+person_emily-gudbranson-md_cf1683efe11d,"Emily Gudbranson, MD",resident,undergraduate_school,Yale,Yale,undergraduate_institution,cleaned_label,0.55
 emily ishak,Emily Ishak MD,resident,medical_school,Columbia University Vagelos College of Physicians and Surgeons,Columbia University Vagelos College of Physicians and Surgeons,medical_school,cleaned_label,0.55
 emma akman greenstreet,Emma Akman Greenstreet MD,resident,medical_school,University of California San Francisco School of Medicine,University of California San Francisco School of Medicine,medical_school,cleaned_label,0.55
 emma hollenberg,Emma Hollenberg MD,resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_emna-bakillah-md_9ced58b96fb7,"Emna Bakillah, MD",resident,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
+person_emna-bakillah-md_9ced58b96fb7,"Emna Bakillah, MD",resident,undergraduate_school,Drexel University,Drexel University,undergraduate_institution,cleaned_label,0.55
 eric winter,"Eric Winter, MD, MBA",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 erica onwuegbuchu,"Erica Onwuegbuchu, MD",resident,medical_school,medical school at the University,medical school at the University,medical_school,cleaned_label,0.55
 erick ditmars,Erick Ditmars MD,resident,medical_school,University of Texas Medical Branch,University of Texas Medical Branch,medical_school,cleaned_label,0.55
@@ -590,132 +840,441 @@ esther duqueney,Esther Duqueney MD,resident,medical_school,University of Florida
 faisal masood,Faisal Masood MD,resident,medical_school,University of Illinois College of Medicine,University of Illinois College of Medicine,medical_school,seeded_alias,0.98
 farinaz ghodrati,Farinaz Ghodrati MD,resident,medical_school,UCLA David Geffen School of Medicine,UCLA David Geffen School of Medicine,medical_school,seeded_alias,0.98
 feyisope eweje,Feyisope Eweje MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_gabriella-n-tortorello-md_d89ce3655afb,"Gabriella N. Tortorello, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_gabriella-n-tortorello-md_d89ce3655afb,"Gabriella N. Tortorello, MD",resident,undergraduate_school,Yale University,Yale University,undergraduate_institution,seeded_alias,0.98
 gordon farley,Gordon Farley MD,resident,medical_school,Rutgers Robert Wood Johnson Medical School,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
+person_gracia-m-vargas-md_e3e33b31d69c,"Gracia M. Vargas, MD",resident,medical_school,University of Michigan,University of Michigan Medical School,medical_school,seeded_alias,0.98
+person_gracia-m-vargas-md_e3e33b31d69c,"Gracia M. Vargas, MD",resident,undergraduate_school,Yale University,Yale University,undergraduate_institution,seeded_alias,0.98
+person_greg-whittemore-md_77876953254d,"Greg Whittemore, MD",resident,medical_school,Columbia,Columbia,medical_school,seeded_alias,0.98
+person_greg-whittemore-md_77876953254d,"Greg Whittemore, MD",resident,undergraduate_school,Carnegie Mellon,Carnegie Mellon,undergraduate_institution,cleaned_label,0.55
 gurbani singh,Gurbani Singh MD,resident,medical_school,University of Maryland School of Medicine,University of Maryland School of Medicine,medical_school,seeded_alias,0.98
+person_haley-leopold-md_5499bc3d82f9,"Haley Leopold, MD",resident,medical_school,Ichan School of Medicine at Mount Sinai,Ichan School of Medicine at Mount Sinai,medical_school,cleaned_label,0.55
+person_haley-leopold-md_5499bc3d82f9,"Haley Leopold, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_halil-beqaj-md_5ac85236edb9,"Halil Beqaj, MD",resident,medical_school,Columbia University Vagelos College of Physicians and Surgeons,Columbia University Vagelos College of Physicians and Surgeons,medical_school,seeded_alias,0.98
+person_halil-beqaj-md_5ac85236edb9,"Halil Beqaj, MD",resident,undergraduate_school,"University of California, Berkeley","University of California, Berkeley",undergraduate_institution,cleaned_label,0.55
+person_hannah-rose-calvelli-md-maub_d6f6e3496f98,"Hannah Rose Calvelli, MD, MAUB",resident,medical_school,Lewis Katz School of Medicine at Temple University,Lewis Katz School of Medicine at Temple University,medical_school,seeded_alias,0.98
+person_hannah-rose-calvelli-md-maub_d6f6e3496f98,"Hannah Rose Calvelli, MD, MAUB",resident,undergraduate_school,Rutgers University,Rutgers University,undergraduate_institution,seeded_alias,0.98
+person_harrison-davis-md_28fa61188f46,"Harrison Davis, MD",resident,medical_school,Temple Medical School,Temple Medical School,medical_school,cleaned_label,0.55
+person_harrison-davis-md_28fa61188f46,"Harrison Davis, MD",resident,undergraduate_school,Lasalle,Lasalle,undergraduate_institution,cleaned_label,0.55
 heejin cheon,"HeeJin Cheon MD, PhD",resident,medical_school,University of Virginia School of Medicine,University of Virginia School of Medicine,medical_school,seeded_alias,0.98
+person_henry-d-seidel-md_da12b48fdfe8,"Henry D. Seidel, MD",resident,medical_school,University of Chicago Pritzker School of Medicine,The University of Chicago Pritzker School of Medicine,medical_school,seeded_alias,0.98
+person_henry-d-seidel-md_da12b48fdfe8,"Henry D. Seidel, MD",resident,undergraduate_school,Tufts University,Tufts University,undergraduate_institution,cleaned_label,0.55
 heta patel,Heta Patel MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 hunter hewlett,Hunter Hewlett MD,resident,medical_school,Virginia Commonwealth University School of Medicine,Virginia Commonwealth University School of Medicine,medical_school,seeded_alias,0.98
+person_ianto-xi-md_c7e4ef59cd6f,"Ianto Xi, MD",resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_ianto-xi-md_c7e4ef59cd6f,"Ianto Xi, MD",resident,undergraduate_school,"University of California, Berkeley","University of California, Berkeley",undergraduate_institution,seeded_alias,0.98
 irena balzekas,Irena Balzekas,resident,medical_school,Mayo Clinic Alix School of Medicine,Mayo Clinic Alix School of Medicine,medical_school,cleaned_label,0.55
+person_isaac-s-alderete-md-mhs_f1fa75cd20bc,"Isaac S. Alderete, MD, MHS",resident,graduate_school,Duke University,Duke University,graduate_institution,cleaned_label,0.55
+person_isaac-s-alderete-md-mhs_f1fa75cd20bc,"Isaac S. Alderete, MD, MHS",resident,medical_school,Duke University,Duke University,medical_school,seeded_alias,0.98
+person_isaac-s-alderete-md-mhs_f1fa75cd20bc,"Isaac S. Alderete, MD, MHS",resident,undergraduate_school,University of New Mexico,University of New Mexico,undergraduate_institution,cleaned_label,0.55
 isadora guarino,"Isadora Guarino MD, MEng",resident,medical_school,Dartmouth Geisel School of Medicine,Dartmouth Geisel School of Medicine,medical_school,cleaned_label,0.55
+person_iulia-barbur-md_854d218581b1,"Iulia Barbur, MD",resident,medical_school,Johns Hopkins University School of Medicine,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
+person_iulia-barbur-md_854d218581b1,"Iulia Barbur, MD",resident,undergraduate_school,Case Western Reserve,Case Western Reserve,undergraduate_institution,cleaned_label,0.55
+person_j-nate-diehl-md-phd_882c4e6c81db,"J. Nate Diehl, MD, PhD",resident,medical_school,UNC - Chapel Hill,UNC - Chapel Hill,medical_school,cleaned_label,0.55
+person_j-nate-diehl-md-phd_882c4e6c81db,"J. Nate Diehl, MD, PhD",resident,undergraduate_school,Clemson University,Clemson University,undergraduate_institution,cleaned_label,0.55
 jk vervilles,"JK Vervilles, MD, MPH",resident,medical_school,Sidney Kimmel Medical College,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_jack-s-depaolo-md-phd_569b35b16e92,"Jack S. DePaolo, MD, PhD",resident,medical_school,Louisiana State University Health Sciences Center New Orleans,Louisiana State University Health Sciences Center New Orleans,medical_school,cleaned_label,0.55
 jack stylli,Jack Stylli MD,resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,cleaned_label,0.55
 jackie hao,Jackie Hao DO,resident,medical_school,Midwestern University,Midwestern University,medical_school,cleaned_label,0.55
 jacqueline xu,Jacqueline Xu MD,resident,medical_school,Kaiser Permanente,Kaiser Permanente,medical_school,cleaned_label,0.55
+person_james-m-ding-md_1c50d4f4dab7,"James M. Ding, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_james-m-ding-md_1c50d4f4dab7,"James M. Ding, MD",resident,undergraduate_school,University of Texas at Austin,"University of Texas, Austin",undergraduate_institution,seeded_alias,0.98
+person_james-wester-md_472b89f2804e,"James Wester, MD",resident,medical_school,Northwestern,Northwestern,medical_school,cleaned_label,0.55
+person_james-wester-md_472b89f2804e,"James Wester, MD",resident,undergraduate_school,Northwestern,Northwestern,undergraduate_institution,cleaned_label,0.55
 jane hinkle,"Jane Hinkle, MD",resident,medical_school,medical school at Case Western Reserve University,medical school at Case Western Reserve University,medical_school,seeded_alias,0.98
+person_jared-alswang-md_930826e78aec,"Jared Alswang, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_jared-alswang-md_930826e78aec,"Jared Alswang, MD",resident,undergraduate_school,University of Southern California,University of Southern California,undergraduate_institution,seeded_alias,0.98
+person_jasmine-hwang-md-ms_02ca41210e2d,"Jasmine Hwang, MD, MS",resident,medical_school,University of Pennsylvania Perelman School of Medicine,University of Pennsylvania Perelman School of Medicine,medical_school,seeded_alias,0.98
+person_jasmine-hwang-md-ms_02ca41210e2d,"Jasmine Hwang, MD, MS",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_jasmine-taylor-md-mba_11de98e87f0b,"Jasmine Taylor, MD, MBA",resident,medical_school,Tulane University School of Medicine,Tulane University School of Medicine,medical_school,seeded_alias,0.98
+person_jasmine-taylor-md-mba_11de98e87f0b,"Jasmine Taylor, MD, MBA",resident,undergraduate_school,Vanderbilt University,Vanderbilt University,undergraduate_institution,seeded_alias,0.98
+person_jason-yuan-md_5eb958fc8665,"Jason Yuan, MD",resident,medical_school,Saint Louis University School of Medicine,Saint Louis University School of Medicine,medical_school,seeded_alias,0.98
+person_jason-yuan-md_5eb958fc8665,"Jason Yuan, MD",resident,undergraduate_school,Washington University in St. Louis,Washington University in St. Louis,undergraduate_institution,seeded_alias,0.98
 javier eli sierra pagan,Javier Eli Sierra-Pagan MD,resident,medical_school,University of Minnesota Medical School,University of Minnesota Medical School,medical_school,seeded_alias,0.98
+person_jayne-r-rice-md_7ab0f0d85942,"Jayne R. Rice, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_jayne-r-rice-md_7ab0f0d85942,"Jayne R. Rice, MD",resident,undergraduate_school,Spelman College,Spelman College,undergraduate_institution,cleaned_label,0.55
+person_jeffrey-l-roberson-md_f913a3291aa8,"Jeffrey L. Roberson, MD",resident,medical_school,George Washington University School of Medicine and Health Sciences,George Washington University School of Medicine & Health Sciences,medical_school,seeded_alias,0.98
+person_jeffrey-l-roberson-md_f913a3291aa8,"Jeffrey L. Roberson, MD",resident,undergraduate_school,University of Virginia,University of Virginia,undergraduate_institution,cleaned_label,0.55
+person_jennifer-e-chung-md_e61467496845,"Jennifer E. Chung, MD",resident,medical_school,"Washington University School of Medicine, St. Louis","Washington University School of Medicine, St. Louis",medical_school,cleaned_label,0.55
+person_jerica-c-tidwell-do_fab0637e2b71,"Jerica C Tidwell, DO",resident,medical_school,Philadelphia College of Osteopathic Medicine,Philadelphia College of Osteopathic Medicine,medical_school,seeded_alias,0.98
+person_jerica-c-tidwell-do_fab0637e2b71,"Jerica C Tidwell, DO",resident,undergraduate_school,San Diego State University,San Diego State University,undergraduate_institution,cleaned_label,0.55
+person_jerry-zhu-md_6ed9465e7c05,"Jerry Zhu, MD",resident,medical_school,Icahn School of Medicine at Mount Sinai,Icahn School of Medicine at Mount Sinai,medical_school,seeded_alias,0.98
+person_jerry-zhu-md_6ed9465e7c05,"Jerry Zhu, MD",resident,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
+person_jesse-e-passman-md-mph_0d44ef9f41b7,"Jesse E. Passman, MD, MPH",resident,medical_school,University of Pennsylvania Perelman School of Medicine,University of Pennsylvania Perelman School of Medicine,medical_school,seeded_alias,0.98
+person_jesse-e-passman-md-mph_0d44ef9f41b7,"Jesse E. Passman, MD, MPH",resident,undergraduate_school,Rice University,Rice University,undergraduate_institution,cleaned_label,0.55
 jessica campanile,"Jessica Campanile, MD",resident,medical_school,Dartmouth College,Dartmouth College,medical_school,cleaned_label,0.55
 jessica vadaketh,"Jessica Vadaketh, MD",resident,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
+person_joe-behnke-md-phd_8dc253e24682,"Joe Behnke, MD, PhD",resident,medical_school,Emory University,Emory University,medical_school,seeded_alias,0.98
+person_joe-behnke-md-phd_8dc253e24682,"Joe Behnke, MD, PhD",resident,undergraduate_school,Rutgers University,Rutgers University,undergraduate_institution,seeded_alias,0.98
+person_joey-s-kurtzman-md_b533bdd5ad37,"Joey S. Kurtzman, MD",resident,medical_school,Wake Forest University School of Medicine,Wake Forest University School of Medicine,medical_school,seeded_alias,0.98
+person_joey-s-kurtzman-md_b533bdd5ad37,"Joey S. Kurtzman, MD",resident,undergraduate_school,Tulane University,Tulane University,undergraduate_institution,cleaned_label,0.55
+person_john-jack-c-mcvey-md_2bb1d4c380e0,"John (Jack) C. McVey, MD",resident,medical_school,Cleveland Clinic Lerner College of Medicine,Cleveland Clinic Lerner College of Medicine,medical_school,seeded_alias,0.98
+person_john-jack-c-mcvey-md_2bb1d4c380e0,"John (Jack) C. McVey, MD",resident,undergraduate_school,University of Colorado at Boulder,University of Colorado at Boulder,undergraduate_institution,cleaned_label,0.55
+person_john-a-sobieski-md_c51a1567a0e2,"John A. Sobieski, MD",resident,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
+person_john-a-sobieski-md_c51a1567a0e2,"John A. Sobieski, MD",resident,undergraduate_school,University of Richmond,University of Richmond,undergraduate_institution,cleaned_label,0.55
+person_john-j-kelly-md_9615e7efdf4f,"John J. Kelly, MD",resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_john-j-kelly-md_9615e7efdf4f,"John J. Kelly, MD",resident,undergraduate_school,College of William & Mary,College of William and Mary,undergraduate_institution,seeded_alias,0.98
+person_john-karp-mb-bch_21af4a158f1f,"John Karp, MB BCh",resident,medical_school,Royal College of Surgeons in Ireland,Royal College of Surgeons in Ireland,medical_school,seeded_alias,0.98
+person_john-karp-mb-bch_21af4a158f1f,"John Karp, MB BCh",resident,undergraduate_school,Royal College of Surgeons in Ireland,Royal College of Surgeons in Ireland,undergraduate_institution,cleaned_label,0.55
+person_john-walsh-md-phd_7504f2918417,"John Walsh, MD, PhD",resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
+person_john-walsh-md-phd_7504f2918417,"John Walsh, MD, PhD",resident,undergraduate_school,Florida State University,Florida State University,undergraduate_institution,cleaned_label,0.55
+person_jonathan-scott-md-phd_5317a9c18848,"Jonathan Scott, MD, PhD",resident,medical_school,Mayo Clinic Alix School of Medicine,Mayo Clinic Alix School of Medicine,medical_school,seeded_alias,0.98
+person_jonathan-scott-md-phd_5317a9c18848,"Jonathan Scott, MD, PhD",resident,undergraduate_school,Washington State University,Washington State University,undergraduate_institution,cleaned_label,0.55
 jordana brown,Jordana Brown MD,resident,medical_school,Oregon Health and Science University,Oregon Health and Science University,medical_school,cleaned_label,0.55
+person_jose-rodriguez-md_44dbdf998f86,"Jose Rodriguez, MD",resident,medical_school,National Autonomous University of Honduras,National Autonomous University of Honduras,medical_school,cleaned_label,0.55
+person_joseph-a-kern-md_5f554f91b7a5,"Joseph A. Kern, MD",resident,medical_school,University of Chicago Pritzker School of Medicine,The University of Chicago Pritzker School of Medicine,medical_school,seeded_alias,0.98
+person_joseph-a-kern-md_5f554f91b7a5,"Joseph A. Kern, MD",resident,undergraduate_school,University of Pittsburgh,University of Pittsburgh,undergraduate_institution,seeded_alias,0.98
 joshua pirl,Joshua Pirl MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 joyce liu,Joyce Liu MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_juan-esteban-perez-md_3b4be69e6f73,"Juan Esteban Perez, MD",resident,medical_school,Universidad Internacional del Ecuador,Universidad Internacional del Ecuador,medical_school,cleaned_label,0.55
+person_juan-esteban-perez-md_3b4be69e6f73,"Juan Esteban Perez, MD",resident,undergraduate_school,Villanova University,Villanova University,undergraduate_institution,cleaned_label,0.55
+person_julia-anna-gasior-md_db39cc467fca,"Julia Anna Gasior, MD",resident,medical_school,"Perelman School of Medicine, University of Pennsylvania",Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_julia-anna-gasior-md_db39cc467fca,"Julia Anna Gasior, MD",resident,undergraduate_school,Georgetown University,Georgetown University,undergraduate_institution,cleaned_label,0.55
+person_juliana-castrillon-md_58b5706d9a37,"Juliana Castrillon, MD",resident,medical_school,Columbia,Columbia,medical_school,cleaned_label,0.55
+person_juliana-castrillon-md_58b5706d9a37,"Juliana Castrillon, MD",resident,undergraduate_school,Harvard,Harvard,undergraduate_institution,cleaned_label,0.55
 juliana qin,Juliana Qin MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_jungeun-greg-ahn-md_ad88e29cde9b,"JungEun 'Greg' Ahn, MD",resident,medical_school,University of Virginia,University of Virginia,medical_school,seeded_alias,0.98
+person_jungeun-greg-ahn-md_ad88e29cde9b,"JungEun 'Greg' Ahn, MD",resident,undergraduate_school,Cornell,Cornell,undergraduate_institution,cleaned_label,0.55
 justin montague,Justin Montague MD,resident,medical_school,Rutgers RW Johnson Medical School,Rutgers RW Johnson Medical School,medical_school,cleaned_label,0.55
+person_justin-shanahan-md_880ad20cfde4,"Justin Shanahan, MD",resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_justin-shanahan-md_880ad20cfde4,"Justin Shanahan, MD",resident,undergraduate_school,Ohio State University,Ohio State University,undergraduate_institution,cleaned_label,0.55
 justin thomas,Justin Thomas MD MS,resident,medical_school,Rush Medical College of Rush University Medical Center,Rush Medical College of Rush University Medical Center,medical_school,cleaned_label,0.55
+person_kaamya-varagur-md_2bde394db286,"Kaamya Varagur, MD",resident,medical_school,Washington University Saint Louis Medical School,Washington University Saint Louis Medical School,medical_school,cleaned_label,0.55
+person_kaamya-varagur-md_2bde394db286,"Kaamya Varagur, MD",resident,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,seeded_alias,0.98
 kai fu,Kai Fu MD,resident,medical_school,Florida International University Herbert Wertheim College of Medicine,Florida International University Herbert Wertheim College of Medicine,medical_school,cleaned_label,0.55
 kaitlin demarest,Kaitlin Demarest MD,resident,medical_school,Sidney Kimmell at Thomas Jefferson University,Sidney Kimmell at Thomas Jefferson University,medical_school,cleaned_label,0.55
 karen ha,Karen Ha MD,resident,medical_school,Warren Alpert Medical School of Brown University,Warren Alpert Medical School of Brown University,medical_school,seeded_alias,0.98
+person_kari-williams-md_f6cdd767bb9a,"Kari Williams, MD",resident,medical_school,University of Texas - Medical Branch,University of Texas Medical Branch,medical_school,seeded_alias,0.98
+person_kari-williams-md_f6cdd767bb9a,"Kari Williams, MD",resident,undergraduate_school,University of Texas Pan American,University of Texas Pan American,undergraduate_institution,cleaned_label,0.55
+person_karissa-tauber-md_374f40d42ea1,"Karissa Tauber, MD",resident,medical_school,Dartmouth,Dartmouth,medical_school,cleaned_label,0.55
+person_karole-t-collier-md_7d2fe993cb73,"Karole T. Collier, MD",resident,medical_school,"University at Buffalo, Jacobs School of Medicine & Biomedical Sciences","University at Buffalo, Jacobs School of Medicine & Biomedical Sciences",medical_school,cleaned_label,0.55
+person_karole-t-collier-md_7d2fe993cb73,"Karole T. Collier, MD",resident,undergraduate_school,"Barnard College, Columbia University","Barnard College, Columbia University",undergraduate_institution,cleaned_label,0.55
+person_katerina-lee-md_5320f6a1d7a9,"Katerina Lee, MD",resident,medical_school,McGovern Medical School,McGovern Medical School,medical_school,cleaned_label,0.55
+person_katerina-lee-md_5320f6a1d7a9,"Katerina Lee, MD",resident,undergraduate_school,University of Texas at Austin,"University of Texas, Austin",undergraduate_institution,seeded_alias,0.98
+person_katharine-f-michel-md_542af37142c7,"Katharine F. Michel, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_katharine-f-michel-md_542af37142c7,"Katharine F. Michel, MD",resident,undergraduate_school,Yale College,Yale College,undergraduate_institution,cleaned_label,0.55
+person_katharine-l-krupp-md_0deb2831deb8,"Katharine L. Krupp, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_katharine-l-krupp-md_0deb2831deb8,"Katharine L. Krupp, MD",resident,undergraduate_school,Bowdoin College,Bowdoin College,undergraduate_institution,cleaned_label,0.55
+person_katherine-luo-md-phd_71eae07ebc3e,"Katherine Luo, MD, PhD",resident,medical_school,Columbia,Columbia,medical_school,seeded_alias,0.98
+person_katherine-luo-md-phd_71eae07ebc3e,"Katherine Luo, MD, PhD",resident,undergraduate_school,MIT,MIT,undergraduate_institution,seeded_alias,0.98
+person_kathleen-davin-md_ee0640112cab,"Kathleen Davin, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_kathleen-davin-md_ee0640112cab,"Kathleen Davin, MD",resident,undergraduate_school,Notre Dame,Notre Dame,undergraduate_institution,cleaned_label,0.55
+person_kathleen-xu-md_ea7d4a34d398,"Kathleen Xu, MD",resident,medical_school,Saint Louis University School of Medicine,Saint Louis University School of Medicine,medical_school,cleaned_label,0.55
+person_kathleen-xu-md_ea7d4a34d398,"Kathleen Xu, MD",resident,undergraduate_school,Washington University in St. Louis,Washington University in St. Louis,undergraduate_institution,seeded_alias,0.98
+person_katie-lattanzio-md_a30a32fcd3b3,"Katie Lattanzio, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_katie-lattanzio-md_a30a32fcd3b3,"Katie Lattanzio, MD",resident,undergraduate_school,Northwestern,Northwestern,undergraduate_institution,seeded_alias,0.98
 kendall major,Kendall Major MD,resident,medical_school,Eastern Virginia Medical School,Eastern Virginia Medical School,medical_school,cleaned_label,0.55
+person_kevin-r-zhang-md-phd_d5ee648c9482,"Kevin R. Zhang, MD, PhD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_kiara-m-corcoran-ruiz-md_b94bf88bc166,"Kiara M. Corcoran Ruiz, MD",resident,medical_school,Warren Alpert Medical School Brown University,Warren Alpert Medical School of Brown University,medical_school,seeded_alias,0.98
 kingsley fortin leung,"Kingsley Fortin-Leung, MD, MS",resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
 kinnari karia,Kinnari Karia MD,resident,medical_school,University of Iowa Roy J and Lucille A Carver College of Medicine,University of Iowa Roy J and Lucille A Carver College of Medicine,medical_school,cleaned_label,0.55
 kinza khan,Kinza Khan MD,resident,medical_school,University of Tennessee Health Sciences Center,University of Tennessee Health Sciences Center,medical_school,cleaned_label,0.55
+person_kirstyn-c-taylor-md_d219155af646,"Kirstyn C. Taylor, MD",resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
 klevi golloshi,"Klevi Golloshi, MD",resident,medical_school,Emory School of Medicine,Emory School of Medicine,medical_school,seeded_alias,0.98
 konnie guo,Konnie Guo MD,resident,medical_school,Stanford University School of Medicine,Stanford University School of Medicine,medical_school,seeded_alias,0.98
 krishna patel,Krishna Patel MD,resident,medical_school,Pern State College of Medicine,Pern State College of Medicine,medical_school,cleaned_label,0.55
 krishna ravindra,Krishna Ravindra MD,resident,medical_school,Virginia Commonwealth University,Virginia Commonwealth University,medical_school,cleaned_label,0.55
 kushaghar singla,Kushaghar Singla MD,resident,medical_school,"North Delhi Municipal Corporation Medical College, Hindu Rao Hospital","North Delhi Municipal Corporation Medical College, Hindu Rao Hospital",medical_school,cleaned_label,0.55
 kyle storm,Kyle Storm MD,resident,medical_school,University of Toledo College of Medicine,University of Toledo College of Medicine,medical_school,cleaned_label,0.55
+person_lauren-shreve-md-mba_14a3dc8d0e25,"Lauren Shreve, MD, MBA",resident,medical_school,"University of California, Irvine School of Medicine","University of California, Irvine School of Medicine",medical_school,cleaned_label,0.55
+person_lauren-shreve-md-mba_14a3dc8d0e25,"Lauren Shreve, MD, MBA",resident,undergraduate_school,University of Michigan,University of Michigan,undergraduate_institution,seeded_alias,0.98
+person_lev-barinov-md-phd_33ce05a11be6,"Lev Barinov, MD, PhD",resident,medical_school,Rutgers Robert Wood Johnson for MD; Princeton University for PhD,Rutgers Robert Wood Johnson for MD; Princeton University for PhD,medical_school,cleaned_label,0.55
+person_lev-barinov-md-phd_33ce05a11be6,"Lev Barinov, MD, PhD",resident,undergraduate_school,Rutgers University for BME and EE,Rutgers University for BME and EE,undergraduate_institution,cleaned_label,0.55
 lev krasnovsky,Lev Krasnovsky MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 lexi suberi,Lexi Suberi MD,resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
 lila bilsky,Lila Bilsky MD,resident,medical_school,McGovern Medical School at the University of Texas,McGovern Medical School at the University of Texas,medical_school,cleaned_label,0.55
 lila gutstein,"Lila Gutstein, MD",resident,medical_school,University of South Florida Morsani College of Medicine,University of South Florida Morsani College of Medicine,medical_school,cleaned_label,0.55
+person_lillian-chien-md_0923b3ba3536,"Lillian Chien, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_lily-owei-md_6d5ad4be3585,"Lily Owei, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_lily-owei-md_6d5ad4be3585,"Lily Owei, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
 lina yagan,Lina Yagan MD,resident,medical_school,Weill Cornell Medical College in Qatar,Weill Cornell Medical College in Qatar,medical_school,cleaned_label,0.55
+person_lindsay-j-nitsche-md_d1f609689e80,Lindsay J. Nitsche MD,resident,medical_school,Jacobs School of Medicine and Biomedical Sciences,Jacobs School of Medicine and Biomedical Sciences,medical_school,cleaned_label,0.55
+person_lindsay-j-nitsche-md_d1f609689e80,Lindsay J. Nitsche MD,resident,undergraduate_school,Biochemistry SUNY Buffalo,Biochemistry SUNY Buffalo,undergraduate_institution,cleaned_label,0.55
+person_lindsey-claus-md_0c85a6dea974,"Lindsey Claus, MD",resident,medical_school,Boston University School of Medicine,Boston University School of Medicine,medical_school,seeded_alias,0.98
+person_lindsey-claus-md_0c85a6dea974,"Lindsey Claus, MD",resident,undergraduate_school,Harvard College,Harvard College,undergraduate_institution,cleaned_label,0.55
 lucy wang,Lucy Wang MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_luis-o-tierradentro-garcia-md_b8f5a2231bf7,"Luis O. Tierradentro Garcia, MD",resident,medical_school,Universidad del Rosario,Universidad del Rosario,medical_school,cleaned_label,0.55
 luke bonanni,Luke Bonanni MD,resident,medical_school,New York University Grossman School of Medicine,NYU Grossman School of Medicine,medical_school,seeded_alias,0.98
 luke maillie,"Luke Maillie, MD",resident,medical_school,Icahn School of Medicine at Mount Sinai,Icahn School of Medicine at Mount Sinai,medical_school,seeded_alias,0.98
 lydia federico,"Lydia Federico MD, MPhil",resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 maani kamal,Maani Kamal MD,resident,medical_school,University of Alabama,University of Alabama,medical_school,seeded_alias,0.98
 mackenzie mcdonald,"Mackenzie McDonald, MD",resident,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,seeded_alias,0.98
 macy early,Macy Early MD,resident,medical_school,Johns Hopkins University School of Medicine,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
+person_macy-m-goldbach-md_186fede879e6,"Macy M. Goldbach, MD",resident,medical_school,University of Rochester School of Medicine & Dentistry,University of Rochester School of Medicine & Dentistry,medical_school,cleaned_label,0.55
+person_macy-m-goldbach-md_186fede879e6,"Macy M. Goldbach, MD",resident,undergraduate_school,Haverford College,Haverford College,undergraduate_institution,cleaned_label,0.55
 madeline danforth,Madeline Danforth MD,resident,medical_school,Washington University in St. Louis,Washington University in St. Louis,medical_school,cleaned_label,0.55
 madelyn hurwitz,Madelyn Hurwitz MD,resident,medical_school,University of Virginia School of Medicine,University of Virginia School of Medicine,medical_school,seeded_alias,0.98
+person_madhumita-parmar-md_271190059270,"Madhumita Parmar, MD",resident,medical_school,University of Miami Miller School of Medicine,University of Miami Miller School of Medicine,medical_school,cleaned_label,0.55
+person_madhumita-parmar-md_271190059270,"Madhumita Parmar, MD",resident,undergraduate_school,University of Miami,University of Miami,undergraduate_institution,cleaned_label,0.55
+person_madison-grasty-md-ms_79e09b11976e,"Madison Grasty, MD, MS",resident,medical_school,Wayne State University School of Medicine,Wayne State University School of Medicine,medical_school,seeded_alias,0.98
+person_madison-grasty-md-ms_79e09b11976e,"Madison Grasty, MD, MS",resident,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
 maggie rowe,Maggie Rowe MD,resident,medical_school,University of Virginia,University of Virginia,medical_school,cleaned_label,0.55
 malak hoballah,Malak Hoballah MD,resident,medical_school,American University of Beirut,American University of Beirut,medical_school,cleaned_label,0.55
 maleeha ahmad,"Maleeha Ahmad MD, MS",resident,medical_school,Cleveland Clinic Lerner College of Medicine,Cleveland Clinic Lerner College of Medicine,medical_school,seeded_alias,0.98
+person_margaret-s-pichardo-md-phd-mph_3f63e7d5e8d8,"Margaret S. Pichardo, MD, PhD, MPH",resident,medical_school,Howard University College of Medicine,Howard University College of Medicine,medical_school,seeded_alias,0.98
+person_margaret-s-pichardo-md-phd-mph_3f63e7d5e8d8,"Margaret S. Pichardo, MD, PhD, MPH",resident,undergraduate_school,New York University,New York University,undergraduate_institution,cleaned_label,0.55
+person_marine-ayan-ibrahim-aibo-md_bad911c75341,"Marine-Ayan Ibrahim Aibo, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 martin kurian,Martin Kurian MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_matthew-a-brown-md_aac7b69edc74,"Matthew A. Brown, MD",resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
+person_matthew-a-brown-md_aac7b69edc74,"Matthew A. Brown, MD",resident,undergraduate_school,Utica College of Syracuse University,Utica College of Syracuse University,undergraduate_institution,cleaned_label,0.55
+person_matthew-j-rabinowitz-md_3b912a079b75,"Matthew J. Rabinowitz, MD",resident,medical_school,Johns Hopkins,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
+person_matthew-j-rabinowitz-md_3b912a079b75,"Matthew J. Rabinowitz, MD",resident,undergraduate_school,University of Michigan,University of Michigan,undergraduate_institution,seeded_alias,0.98
 max king,Max King MD,resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
 max schechter,Max Schechter MD,resident,medical_school,Albert Einstein College of Medicine,Albert Einstein College of Medicine,medical_school,cleaned_label,0.55
+person_max-shin-md_7001937104f7,"Max Shin, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_max-shin-md_7001937104f7,"Max Shin, MD",resident,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
+person_may-bayomi-md_95e7aa90e383,"May Bayomi, MD",resident,medical_school,Georgetown University,Georgetown University,medical_school,cleaned_label,0.55
 meena tadros,Meena Tadros MD,resident,medical_school,University of Texas Southwestern Medical Center at Dallas,University of Texas Southwestern Medical Center at Dallas,medical_school,cleaned_label,0.55
+person_melina-r-recarey-md_99ce9d804090,"Melina R. Recarey, MD",resident,medical_school,George Washington School of Medicine and Health Sciences,George Washington School of Medicine and Health Sciences,medical_school,cleaned_label,0.55
+person_melina-r-recarey-md_99ce9d804090,"Melina R. Recarey, MD",resident,undergraduate_school,St. Bonaventure University,St. Bonaventure University,undergraduate_institution,cleaned_label,0.55
+person_melody-o-gomez-md_1956712b80c6,"Melody O. Gomez, MD",resident,medical_school,"Columbia University, Vagelos College of Physicians & Surgeons",Columbia University Vagelos College of Physicians and Surgeons,medical_school,seeded_alias,0.98
+person_melody-o-gomez-md_1956712b80c6,"Melody O. Gomez, MD",resident,undergraduate_school,Harvard University,Harvard University,undergraduate_institution,seeded_alias,0.98
+person_michael-a-catalano-md_8b4319c560d4,"Michael A. Catalano, MD",resident,medical_school,Donald and Barbara Zucker School of Medicine at Hofstra/Northwell,Donald and Barbara Zucker School of Medicine at Hofstra/Northwell,medical_school,cleaned_label,0.55
+person_michael-a-catalano-md_8b4319c560d4,"Michael A. Catalano, MD",resident,undergraduate_school,University of North Carolina at Chapel Hill,University of North Carolina at Chapel Hill,undergraduate_institution,cleaned_label,0.55
+person_michael-corbin-md_26c202ca5f20,"Michael Corbin, MD",resident,medical_school,Eastern Virginia Medical School,Eastern Virginia Medical School,medical_school,seeded_alias,0.98
+person_michael-corbin-md_26c202ca5f20,"Michael Corbin, MD",resident,undergraduate_school,Virginia Polytechnic Institute and State University (Virginia Tech),Virginia Polytechnic Institute and State University (Virginia Tech),undergraduate_institution,cleaned_label,0.55
+person_michael-duong-md-phd_2f4fec5a6969,"Michael Duong, MD, PhD",resident,medical_school,The Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_michael-duong-md-phd_2f4fec5a6969,"Michael Duong, MD, PhD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_michael-g-clark-md_b4c60b3989c8,"Michael G. Clark, MD",resident,medical_school,Vanderbilt University School of Medicine,Vanderbilt University School of Medicine,medical_school,seeded_alias,0.98
+person_michael-g-clark-md_b4c60b3989c8,"Michael G. Clark, MD",resident,undergraduate_school,Johns Hopkins University,Johns Hopkins University,undergraduate_institution,cleaned_label,0.55
+person_michael-j-morano-md_c7a3fde181bf,"Michael J. Morano, MD",resident,medical_school,Sidney Kimmel Medical College/Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_mohammad-saad-farooq-md-ms_8ed713957aaa,"Mohammad Saad Farooq, MD, MS",resident,medical_school,New York University School of Medicine,New York University School of Medicine,medical_school,seeded_alias,0.98
+person_mohammad-saad-farooq-md-ms_8ed713957aaa,"Mohammad Saad Farooq, MD, MS",resident,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
 mohammad zahwi,Mohammad Zahwi MD,resident,medical_school,LAU Gilbert and Rose-Marie Chagoury School of Medicine,LAU Gilbert and Rose-Marie Chagoury School of Medicine,medical_school,cleaned_label,0.55
+person_monica-matsumoto-md_50b7fd2fa5b2,"Monica Matsumoto, MD",resident,medical_school,University of Chicago Pritzker School of Medicine,The University of Chicago Pritzker School of Medicine,medical_school,seeded_alias,0.98
+person_monica-matsumoto-md_50b7fd2fa5b2,"Monica Matsumoto, MD",resident,undergraduate_school,Rice University,Rice University,undergraduate_institution,seeded_alias,0.98
 monica wei,Monica Wei MD,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_moses-flash-md_c272b71de772,"Moses Flash, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_moses-flash-md_c272b71de772,"Moses Flash, MD",resident,undergraduate_school,Williams College,Williams College,undergraduate_institution,cleaned_label,0.55
+person_mounika-naidu-boya-md_25ed697c5683,"Mounika Naidu Boya, MD",resident,medical_school,"All India Institute of Medical Sciences, Bhubaneswar","All India Institute of Medical Sciences, Bhubaneswar",medical_school,cleaned_label,0.55
+person_mystie-chen-md_1a9bfe02853b,"Mystie Chen, MD",resident,medical_school,Geisinger,Geisinger,medical_school,cleaned_label,0.55
+person_mystie-chen-md_1a9bfe02853b,"Mystie Chen, MD",resident,undergraduate_school,University of Virginia,University of Virginia,undergraduate_institution,seeded_alias,0.98
 namrah aziz,Namrah Aziz MD,resident,medical_school,Aga Khan University Medical College,Aga Khan University Medical College,medical_school,cleaned_label,0.55
 natalia salinas parra,Natalia Salinas Parra MD,resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_natalie-a-moreno-md_02114adb1e92,"Natalie A. Moreno, MD",resident,medical_school,University of Michigan Medical School,University of Michigan Medical School,medical_school,seeded_alias,0.98
+person_natalie-a-moreno-md_02114adb1e92,"Natalie A. Moreno, MD",resident,undergraduate_school,Johns Hopkins University,Johns Hopkins University,undergraduate_institution,seeded_alias,0.98
 natalie connell,Natalie Connell MD,resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
 natalie morris,Natalie Morris MD,resident,medical_school,Cooper Medical School of Rowan University,Cooper Medical School of Rowan University,medical_school,seeded_alias,0.98
 natasha dass,"Natasha Dass, MD",resident,medical_school,Dell Medical School,Dell Medical School,medical_school,cleaned_label,0.55
 natasha kafai,Natasha Kafai MD,resident,medical_school,Washington University Saint Louis School of Medicine,Washington University Saint Louis School of Medicine,medical_school,cleaned_label,0.55
+person_nathan-s-kau-md_448193d757d9,"Nathan S. Kau, MD",resident,medical_school,Washington University School of Medicine,Washington University School of Medicine,medical_school,seeded_alias,0.98
+person_nathan-s-kau-md_448193d757d9,"Nathan S. Kau, MD",resident,undergraduate_school,Washington University in St. Louis,Washington University in St. Louis,undergraduate_institution,cleaned_label,0.55
+person_navpreet-kaur-khurana-md-mbbs_267520fa6d00,"Navpreet Kaur Khurana, MD, MBBS",resident,medical_school,Indira Gandhi Govt Medical College,Indira Gandhi Govt Medical College,medical_school,cleaned_label,0.55
 neha arora,Neha Arora MD,resident,medical_school,Tulane University School of Medicine,Tulane University School of Medicine,medical_school,seeded_alias,0.98
 neha hafeez,"Neha Hafeez, MD",resident,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,seeded_alias,0.98
 neha pondicherry,Neha Pondicherry,resident,medical_school,UCSF School of Medicine,UCSF School of Medicine,medical_school,cleaned_label,0.55
+person_neha-shafique-md_cdf608c3a195,"Neha Shafique, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_neha-shafique-md_cdf608c3a195,"Neha Shafique, MD",resident,undergraduate_school,Wesleyan University,Wesleyan University,undergraduate_institution,cleaned_label,0.55
+person_neophytos-christodoulou-md_a0f024a562f0,"Neophytos Christodoulou, MD",resident,medical_school,University of Cambridge,University of Cambridge,medical_school,cleaned_label,0.55
+person_nicholas-auteri-md_0c5e3a89fd87,"Nicholas Auteri, MD",resident,medical_school,University of Cincinnati College of Medicine,University of Cincinnati College of Medicine,medical_school,cleaned_label,0.55
+person_nicholas-j-goel-md_4100853f8d03,"Nicholas J. Goel, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_nicholas-j-goel-md_4100853f8d03,"Nicholas J. Goel, MD",resident,undergraduate_school,Yale University,Yale University,undergraduate_institution,seeded_alias,0.98
 nicholas smith,Nicholas Smith MD MBA,resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
 nick forelli,Nick Forelli MD,resident,medical_school,Albert Einstein College of Medicine,Albert Einstein College of Medicine,medical_school,seeded_alias,0.98
 nicol tugarinov,Nicol Tugarinov MD,resident,medical_school,University of Maryland School of Medicine,University of Maryland School of Medicine,medical_school,seeded_alias,0.98
+person_nicolas-mu-oz-md_dbe3758f31ec,"Nicolas Muñoz, MD",resident,medical_school,Yale University School of Medicine,Yale University - School of Medicine,medical_school,seeded_alias,0.98
+person_nicolas-mu-oz-md_dbe3758f31ec,"Nicolas Muñoz, MD",resident,undergraduate_school,"University of Texas, Austin","University of Texas, Austin",undergraduate_institution,cleaned_label,0.55
+person_nicole-nikki-curnes-md_1bd06c2eb74e,"Nicole (Nikki) Curnes, MD",resident,medical_school,Perelman School of Medicine at University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_nicole-nikki-curnes-md_1bd06c2eb74e,"Nicole (Nikki) Curnes, MD",resident,undergraduate_school,University of North Carolina Chapel Hill,University of North Carolina at Chapel Hill,undergraduate_institution,seeded_alias,0.98
 nicole ackerman,Nicole Ackerman MD,resident,medical_school,SUNY Downstate College of Medicine,SUNY Downstate College of Medicine,medical_school,cleaned_label,0.55
+person_nicole-charland-md_14b4b256fd5d,"Nicole Charland, MD",resident,medical_school,"University of California, Los Angeles","University of California, Los Angeles",medical_school,seeded_alias,0.98
+person_nicole-charland-md_14b4b256fd5d,"Nicole Charland, MD",resident,undergraduate_school,Fordham College at Lincoln Center,Fordham College at Lincoln Center,undergraduate_institution,cleaned_label,0.55
+person_nicole-kim-md_06fe14165465,"Nicole Kim, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_nicole-kim-md_06fe14165465,"Nicole Kim, MD",resident,undergraduate_school,Harvard College,Harvard College,undergraduate_institution,seeded_alias,0.98
 nicolette johnson,Nicolette Johnson MD,resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 niki von krusenstiern,"Niki Von Krusenstiern, MD, DPhil",resident,medical_school,Columbia University Vagelos College of Physicians and Surgeons,Columbia University Vagelos College of Physicians and Surgeons,medical_school,seeded_alias,0.98
 nishwant swami,Nishwant Swami MD MPH,resident,medical_school,University of Massachusetts T.H. Chan School of Medicine,University of Massachusetts T.H. Chan School of Medicine,medical_school,cleaned_label,0.55
+person_nithya-kanagasegar-md_45b9ce5b6129,"Nithya Kanagasegar, MD",resident,medical_school,Case Western Reserve,Case Western Reserve,medical_school,cleaned_label,0.55
+person_nithya-kanagasegar-md_45b9ce5b6129,"Nithya Kanagasegar, MD",resident,undergraduate_school,Case Western Reserve,Case Western Reserve,undergraduate_institution,seeded_alias,0.98
+person_nithya-s-shanmugam-md_bf869e21b4ba,"Nithya S. Shanmugam, MD",resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_nuvid-bhuiyan-md_66981b9b9bad,"Nuvid Bhuiyan, MD",resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_nuvid-bhuiyan-md_66981b9b9bad,"Nuvid Bhuiyan, MD",resident,undergraduate_school,University of Pennsylvania/Wharton,University of Pennsylvania/Wharton,undergraduate_institution,cleaned_label,0.55
+person_n-ria-llu-s-md-phd_33e30e1bf409,"Núria Lluís, MD, PhD",resident,medical_school,Miguel Hernández University,Miguel Hernández University,medical_school,cleaned_label,0.55
+person_n-ria-llu-s-md-phd_33e30e1bf409,"Núria Lluís, MD, PhD",resident,residency_program,"Bellvitge Hospital, University of Barcelona, Catalonia, Spain","Bellvitge Hospital, University of Barcelona, Catalonia, Spain",clinical_training_site,cleaned_label,0.55
 olivia duffield,"Olivia Duffield, MD",resident,medical_school,Lewis Katz School of Medicine at Temple University,Lewis Katz School of Medicine at Temple University,medical_school,seeded_alias,0.98
 omar ani,Omar Ani MD,resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_omar-bushara-md-mph_bba9a4fef2ee,"Omar Bushara, MD, MPH",resident,medical_school,"Northwestern University, Feinberg School of Medicine",Northwestern University Feinberg School of Medicine,medical_school,seeded_alias,0.98
+person_omar-bushara-md-mph_bba9a4fef2ee,"Omar Bushara, MD, MPH",resident,undergraduate_school,Harvard University,Harvard University,undergraduate_institution,seeded_alias,0.98
 omar elghawy,Omar Elghawy MD,resident,medical_school,University of Virginia School of Medicine,University of Virginia School of Medicine,medical_school,seeded_alias,0.98
+person_omar-toubat-md-phd_e3ad6a94dd29,"Omar Toubat, MD, PhD",resident,medical_school,Keck - University of Southern California,Keck - University of Southern California,medical_school,cleaned_label,0.55
+person_omar-toubat-md-phd_e3ad6a94dd29,"Omar Toubat, MD, PhD",resident,undergraduate_school,University of Southern California,University of Southern California,undergraduate_institution,cleaned_label,0.55
 pearl subramanian,Pearl Subramanian MD,resident,medical_school,Zucker School of Medicine,Zucker School of Medicine,medical_school,cleaned_label,0.55
+person_perry-kerner-md_cb36b3e5ef1b,"Perry Kerner, MD",resident,medical_school,SUNY Downstate,SUNY Downstate,medical_school,seeded_alias,0.98
+person_perry-kerner-md_cb36b3e5ef1b,"Perry Kerner, MD",resident,undergraduate_school,Columbia,Columbia,undergraduate_institution,cleaned_label,0.55
 peter daniels,Peter Daniels MD,resident,medical_school,Virginia Commonwealth University School of Medicine,Virginia Commonwealth University School of Medicine,medical_school,seeded_alias,0.98
+person_peter-makhoul-md_9acd8399ff1d,"Peter Makhoul, MD",resident,medical_school,UMass Medical School,UMass Medical School,medical_school,cleaned_label,0.55
+person_peter-makhoul-md_9acd8399ff1d,"Peter Makhoul, MD",resident,undergraduate_school,UMass Amherst,UMass Amherst,undergraduate_institution,cleaned_label,0.55
+person_peter-park-md_1baf63ee2b57,"Peter Park, MD",resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_peter-park-md_1baf63ee2b57,"Peter Park, MD",resident,undergraduate_school,Cornell University,Cornell University,undergraduate_institution,seeded_alias,0.98
+person_peter-qiao-md-phd_2f93e6c5c0aa,"Peter Qiao, MD, PhD",resident,medical_school,Case Western Reserve University,Case Western Reserve University,medical_school,seeded_alias,0.98
+person_peter-qiao-md-phd_2f93e6c5c0aa,"Peter Qiao, MD, PhD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_peyton-terry_5c0ad67391c4,Peyton Terry,resident,medical_school,University of Virginia,University of Virginia,medical_school,seeded_alias,0.98
+person_peyton-terry_5c0ad67391c4,Peyton Terry,resident,undergraduate_school,University of Tennessee,University of Tennessee,undergraduate_institution,cleaned_label,0.55
+person_phoebe-mcauliffe-md_e1efa8e3eddf,"Phoebe McAuliffe, MD",resident,medical_school,Stonybrook University,Stonybrook University,medical_school,cleaned_label,0.55
+person_phoebe-mcauliffe-md_e1efa8e3eddf,"Phoebe McAuliffe, MD",resident,undergraduate_school,Brown,Brown,undergraduate_institution,cleaned_label,0.55
+person_pooja-humar-md_638ee56d087d,"Pooja Humar, MD",resident,medical_school,University of Pittsburgh Medical School,University of Pittsburgh Medical School,medical_school,cleaned_label,0.55
+person_pooja-humar-md_638ee56d087d,"Pooja Humar, MD",resident,undergraduate_school,University of Pittsburgh,University of Pittsburgh,undergraduate_institution,seeded_alias,0.98
 pranav mellacheruvu,Pranav Mellacheruvu MD,resident,medical_school,Washington State University,Washington State University,medical_school,cleaned_label,0.55
 pranav rekapalli,Pranav Rekapalli MD,resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_priscilla-stecher-md_e4604eafe9ab,"Priscilla Stecher, MD",resident,medical_school,Washington University in St. Louis School of Medicine,Washington University in St. Louis School of Medicine,medical_school,cleaned_label,0.55
+person_priscilla-stecher-md_e4604eafe9ab,"Priscilla Stecher, MD",resident,undergraduate_school,University of Denver,University of Denver,undergraduate_institution,cleaned_label,0.55
+person_pulak-goswami-md-phd_8d7bb7736528,"Pulak Goswami, MD, PhD",resident,graduate_school,University of Texas at Austin (PhD),University of Texas at Austin (PhD),graduate_institution,cleaned_label,0.55
+person_pulak-goswami-md-phd_8d7bb7736528,"Pulak Goswami, MD, PhD",resident,medical_school,Vanderbilt University School of Medicine,Vanderbilt University School of Medicine,medical_school,seeded_alias,0.98
+person_pulak-goswami-md-phd_8d7bb7736528,"Pulak Goswami, MD, PhD",resident,undergraduate_school,Carnegie Mellon University (BS),Carnegie Mellon University (BS),undergraduate_institution,cleaned_label,0.55
+person_quincy-hathaway-md-phd_31521472d251,"Quincy Hathaway, MD, PhD",resident,medical_school,West Virginia University,West Virginia University,medical_school,cleaned_label,0.55
+person_quincy-hathaway-md-phd_31521472d251,"Quincy Hathaway, MD, PhD",resident,undergraduate_school,Waynesburg University,Waynesburg University,undergraduate_institution,cleaned_label,0.55
+person_rachael-c-acker-md_6cfa1dd1ce36,"Rachael C. Acker, MD",resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
+person_rachael-c-acker-md_6cfa1dd1ce36,"Rachael C. Acker, MD",resident,undergraduate_school,"University of California, Berkeley","University of California, Berkeley",undergraduate_institution,seeded_alias,0.98
 rachel jaber chehayeb,Rachel Jaber Chehayeb MD,resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
 rachel lutz,Rachel Lutz,resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
+person_rachel-todd-md_73624d39daa6,"Rachel Todd, MD",resident,medical_school,Icahn School of Medicine at Mount Sinai,Icahn School of Medicine at Mount Sinai,medical_school,seeded_alias,0.98
+person_rachel-todd-md_73624d39daa6,"Rachel Todd, MD",resident,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,seeded_alias,0.98
 rajashri manjunatha,"Rajashri Manjunatha, MD",resident,medical_school,Medical College of Georgia,Medical College of Georgia,medical_school,cleaned_label,0.55
 ranvir bhatia,Ranvir Bhatia MD,resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_reagan-a-collins-md_414704abbb63,"Reagan A. Collins, MD",resident,medical_school,Texas Tech University Health Sciences Center School of Medicine,Texas Tech University Health Sciences Center School of Medicine,medical_school,cleaned_label,0.55
+person_reagan-a-collins-md_414704abbb63,"Reagan A. Collins, MD",resident,undergraduate_school,Texas Tech University,Texas Tech University,undergraduate_institution,cleaned_label,0.55
+person_rebecca-zhang-md_e49e4371caff,"Rebecca Zhang, MD",resident,medical_school,University of Maryland,University of Maryland,medical_school,cleaned_label,0.55
+person_rebecca-zhang-md_e49e4371caff,"Rebecca Zhang, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_richard-wu-md_f3c8d41c7d20,"Richard Wu, MD",resident,medical_school,Emory University School of Medicine,Emory University School of Medicine,medical_school,seeded_alias,0.98
+person_richard-wu-md_f3c8d41c7d20,"Richard Wu, MD",resident,undergraduate_school,University of Michigan,University of Michigan,undergraduate_institution,seeded_alias,0.98
 robert monsour,"Robert Monsour, MD",resident,medical_school,USF Health Morsani College of Medicine,USF Health Morsani College of Medicine,medical_school,cleaned_label,0.55
+person_robert-romano-md_9e9732a6e1d4,"Robert Romano, MD",resident,medical_school,University of Connecticut School of Medicine,The University of Connecticut School of Medicine,medical_school,seeded_alias,0.98
+person_robert-romano-md_9e9732a6e1d4,"Robert Romano, MD",resident,undergraduate_school,Springfield College,Springfield College,undergraduate_institution,cleaned_label,0.55
+person_robert-t-james-md_b09236dfc0c4,"Robert T. James, MD",resident,medical_school,New York University School of Medicine,New York University School of Medicine,medical_school,seeded_alias,0.98
+person_roby-daniel-md_5c30dfc5886a,"Roby Daniel, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_roby-daniel-md_5c30dfc5886a,"Roby Daniel, MD",resident,undergraduate_school,City University of New York: Brooklyn College,City University of New York: Brooklyn College,undergraduate_institution,cleaned_label,0.55
+person_robyn-n-rubenstein-md_1bec5a28f078,"Robyn N. Rubenstein, MD",resident,medical_school,Sidney Kimmel Medical College,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_robyn-n-rubenstein-md_1bec5a28f078,"Robyn N. Rubenstein, MD",resident,residency_program,Lankenau Medical Center,Lankenau Medical Center,clinical_training_site,cleaned_label,0.55
+person_robyn-n-rubenstein-md_1bec5a28f078,"Robyn N. Rubenstein, MD",resident,undergraduate_school,Emory University,Emory University,undergraduate_institution,cleaned_label,0.55
+person_rohan-savoor-md_f7cb03306a6a,"Rohan Savoor, MD",resident,medical_school,Northwestern University,Northwestern University,medical_school,cleaned_label,0.55
+person_rohan-savoor-md_f7cb03306a6a,"Rohan Savoor, MD",resident,undergraduate_school,Northwestern University,Northwestern University,undergraduate_institution,seeded_alias,0.98
+person_rohan-shad-md_d3948ccba85a,"Rohan Shad, MD",resident,medical_school,University College of Medical Sciences,University College of Medical Sciences,medical_school,cleaned_label,0.55
 rohi gheewala,Rohi Gheewala MD,resident,medical_school,Oregon Health & Science University,Oregon Health and Science University,medical_school,seeded_alias,0.98
 roxanna fouladi,Roxanna Fouladi MD,resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_rucha-alur-md-ml_931d95d81a5e,"Rucha Alur, MD/ML",resident,graduate_school,"Carey School of Law, University of Pennsylvania","Carey School of Law, University of Pennsylvania",graduate_institution,cleaned_label,0.55
+person_rucha-alur-md-ml_931d95d81a5e,"Rucha Alur, MD/ML",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_rucha-alur-md-ml_931d95d81a5e,"Rucha Alur, MD/ML",resident,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,seeded_alias,0.98
+person_russell-a-simons-md-mph_1e6ca18fc72f,"Russell A. Simons, MD, MPH",resident,medical_school,University of Chicago,University of Chicago,medical_school,cleaned_label,0.55
+person_russell-a-simons-md-mph_1e6ca18fc72f,"Russell A. Simons, MD, MPH",resident,undergraduate_school,Boston College,Boston College,undergraduate_institution,seeded_alias,0.98
+person_ryan-g-mcqueen-md_96157200316a,"Ryan G. McQueen, MD",resident,graduate_school,Chapman University,Chapman University,graduate_institution,cleaned_label,0.55
+person_ryan-g-mcqueen-md_96157200316a,"Ryan G. McQueen, MD",resident,medical_school,Medical College of Wisconsin,Medical College of Wisconsin,medical_school,seeded_alias,0.98
+person_ryan-g-mcqueen-md_96157200316a,"Ryan G. McQueen, MD",resident,undergraduate_school,Loyola University Maryland,Loyola University Maryland,undergraduate_institution,cleaned_label,0.55
+person_sabhyta-sabharwal-md-mph_b0dd90c51e9d,"Sabhyta Sabharwal, MD, MPH",resident,residency_program,Scheie Eye Institute,Scheie Eye Institute,clinical_training_site,cleaned_label,0.55
+person_safiya-lahlaf-md_4dc5f3c57362,"Safiya Lahlaf, MD",resident,medical_school,David Geffen School of Medicine at UCLA,David Geffen School of Medicine at UCLA,medical_school,seeded_alias,0.98
+person_safiya-lahlaf-md_4dc5f3c57362,"Safiya Lahlaf, MD",resident,undergraduate_school,Northeastern,Northeastern,undergraduate_institution,cleaned_label,0.55
 sai aung phyo,"Sai Aung Phyo MD, PhD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 samuel braza,Samuel Braza MD,resident,medical_school,University of Iowa Roy J and Lucille A Carver College,University of Iowa Roy J and Lucille A Carver College,medical_school,cleaned_label,0.55
+person_samuel-kim-md_0648733cb581,"Samuel Kim, MD",resident,medical_school,University of California Los Angeles School of Medicine,University of California Los Angeles School of Medicine,medical_school,cleaned_label,0.55
+person_samuel-kim-md_0648733cb581,"Samuel Kim, MD",resident,undergraduate_school,Dartmouth College,Dartmouth College,undergraduate_institution,seeded_alias,0.98
+person_samyuktha-guttha-md_04cb17170727,"Samyuktha Guttha, MD",resident,residency_program,NYU Langone Hospitals,NYU Langone Hospitals,clinical_training_site,cleaned_label,0.55
 sanchit kumar mbbs,"Sanchit Kumar, MBBS, MD",resident,medical_school,Maulana Azad Medical College (IN),Maulana Azad Medical College (IN),medical_school,cleaned_label,0.55
+person_sarah-berg-md_da2a55dfd8d5,"Sarah Berg, MD",resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
+person_sarah-berg-md_da2a55dfd8d5,"Sarah Berg, MD",resident,undergraduate_school,Georgetown University,Georgetown University,undergraduate_institution,seeded_alias,0.98
+person_sarah-i-landau-md_2bb5495aaa32,"Sarah I. Landau, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_sarah-i-landau-md_2bb5495aaa32,"Sarah I. Landau, MD",resident,undergraduate_school,Yale University,Yale University,undergraduate_institution,seeded_alias,0.98
 sarah marion,Sarah Marion MD,resident,medical_school,University of Virginia School of Medicine,University of Virginia School of Medicine,medical_school,seeded_alias,0.98
 sarah phillips,Sarah Phillips MD,resident,medical_school,Eastern Virginia Medical School,Eastern Virginia Medical School,medical_school,seeded_alias,0.98
+person_sarah-santucci-md_186c74f0368e,"Sarah Santucci, MD",resident,medical_school,Perelman School of Medicine,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_sarah-santucci-md_186c74f0368e,"Sarah Santucci, MD",resident,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,seeded_alias,0.98
 sarah turecamo,"Sarah Turecamo, MD",resident,medical_school,New York University Grossman School of Medicine,NYU Grossman School of Medicine,medical_school,seeded_alias,0.98
 savannah alvarado,"Savannah Alvarado, MD",resident,medical_school,The University of Connecticut School of Medicine,The University of Connecticut School of Medicine,medical_school,cleaned_label,0.55
+person_sebasti-n-le-n-espinoza-md_6c667dc58bfa,"Sebastián León Espinoza, MD",resident,medical_school,Universidad Internacional del Ecuador,Universidad Internacional del Ecuador,medical_school,seeded_alias,0.98
+person_sebasti-n-le-n-espinoza-md_6c667dc58bfa,"Sebastián León Espinoza, MD",resident,undergraduate_school,Dalhousie University/Universidad San Francisco de Quito,Dalhousie University/Universidad San Francisco de Quito,undergraduate_institution,cleaned_label,0.55
 seiichi villalona,Seiichi Villalona MD,resident,medical_school,"Rutgers, Robert Wood Johnson","Rutgers, Robert Wood Johnson",medical_school,cleaned_label,0.55
+person_shahriar-faghani-md_e19747ab0e3f,"Shahriar Faghani, MD",resident,medical_school,Tehran University of Medical Sciences,Tehran University of Medical Sciences,medical_school,cleaned_label,0.55
+person_sharbel-elhage-md_7012ff852c9d,"Sharbel Elhage, MD",resident,medical_school,Medical University of South Carolina,Medical University of South Carolina,medical_school,cleaned_label,0.55
+person_sharbel-elhage-md_7012ff852c9d,"Sharbel Elhage, MD",resident,undergraduate_school,Clemson University,Clemson University,undergraduate_institution,seeded_alias,0.98
+person_sharika-bamezai-md_929edd79719d,"Sharika Bamezai, MD",resident,medical_school,University of Michigan Medical School,University of Michigan Medical School,medical_school,seeded_alias,0.98
+person_sharika-bamezai-md_929edd79719d,"Sharika Bamezai, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
 sharon rose nartey,"Sharon-Rose Nartey, MD",resident,medical_school,the University,the University,medical_school,cleaned_label,0.55
+person_shawn-s-ahn-md-phd_1c5877bf1000,"Shawn S. Ahn, MD, PhD",resident,graduate_school,Yale University,Yale University,graduate_institution,cleaned_label,0.55
+person_shawn-s-ahn-md-phd_1c5877bf1000,"Shawn S. Ahn, MD, PhD",resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
+person_shawn-s-ahn-md-phd_1c5877bf1000,"Shawn S. Ahn, MD, PhD",resident,undergraduate_school,University of Illinois at Urbana-Champaign,University of Illinois at Urbana-Champaign,undergraduate_institution,cleaned_label,0.55
+person_shirley-l-wang-md_6853be41e404,"Shirley L. Wang, MD",resident,medical_school,Johns Hopkins University,Johns Hopkins University School of Medicine,medical_school,seeded_alias,0.98
+person_shirley-l-wang-md_6853be41e404,"Shirley L. Wang, MD",resident,undergraduate_school,Northeastern University,Northeastern University,undergraduate_institution,cleaned_label,0.55
+person_shivam-gulhar-md_f5356fb64a11,"Shivam Gulhar, MD",resident,residency_program,Virginia Commonwealth University,Virginia Commonwealth University,clinical_training_site,cleaned_label,0.55
+person_siddharth-sid-guha-md_185224138a8a,"Siddharth (Sid) Guha, MD",resident,medical_school,Columbia University Vagelos College of Physicians and Surgeons,Columbia University Vagelos College of Physicians and Surgeons,medical_school,seeded_alias,0.98
+person_siddharth-sid-guha-md_185224138a8a,"Siddharth (Sid) Guha, MD",resident,undergraduate_school,MIT,MIT,undergraduate_institution,seeded_alias,0.98
 siddhi nadkarni,Siddhi Nadkarni MD,resident,graduate_school,Yale School of Medicine,Yale School of Medicine,graduate_institution,cleaned_label,0.55
 siva sreedhar,Siva Sreedhar MD,resident,medical_school,Northwestern University Feinberg School of Medicine,Northwestern University Feinberg School of Medicine,medical_school,seeded_alias,0.98
 snehitha talugula,Snehitha Talugula MD,resident,medical_school,University of Illinois at Chicago College of Medicine,University of Illinois at Chicago College of Medicine,medical_school,cleaned_label,0.55
+person_sonny-caplash-md_e9ac3c30ed7f,"Sonny Caplash, MD",resident,residency_program,University of Pittsburgh Medical School,University of Pittsburgh Medical School,clinical_training_site,cleaned_label,0.55
+person_sriharsha-voleti-md_fec1528cc502,"Sriharsha Voleti, MD",resident,medical_school,Northeast Ohio Medical University,Northeast Ohio Medical University,medical_school,cleaned_label,0.55
+person_sriharsha-voleti-md_fec1528cc502,"Sriharsha Voleti, MD",resident,undergraduate_school,University of Akron,University of Akron,undergraduate_institution,cleaned_label,0.55
+person_srinidhi-shanmugasundaram-md_fea8ad7add8a,"Srinidhi Shanmugasundaram, MD",resident,medical_school,Rutgers New Jersey Medical School,Rutgers New Jersey Medical School,medical_school,seeded_alias,0.98
+person_srinidhi-shanmugasundaram-md_fea8ad7add8a,"Srinidhi Shanmugasundaram, MD",resident,undergraduate_school,The College of New Jersey,The College of New Jersey,undergraduate_institution,seeded_alias,0.98
+person_sriram-deivasigamani-mbbs-ms_db82b40d6eb3,"Sriram Deivasigamani, MBBS, MS",resident,medical_school,"Post Graduate Institute of Medical Education and Research, India","Post Graduate Institute of Medical Education and Research, India",medical_school,cleaned_label,0.55
 srivarsha kaloth,Srivarsha Kaloth MD,resident,medical_school,Rutgers Robert Wood Johnson Medical School,Rutgers Robert Wood Johnson Medical School,medical_school,seeded_alias,0.98
 stefan olsen,Stefan Olsen MD,resident,medical_school,Harvard Medical School,Harvard Medical School,medical_school,seeded_alias,0.98
 stephanie cho,Stephanie Cho MD,resident,medical_school,The University of Texas Southwestern Medical School,Univ of Texas Southwestern Medical School,medical_school,seeded_alias,0.98
 stephanie jiang,Stephanie Jiang MD,resident,medical_school,Medical College of Georgia at Augusta University,Medical College of Georgia at Augusta University,medical_school,cleaned_label,0.55
 stephen petropoulos,Stephen Petropoulos MD,resident,medical_school,Royal College of Surgeons in Ireland,Royal College of Surgeons in Ireland,medical_school,cleaned_label,0.55
 steven chen,"Steven Chen, MD",resident,medical_school,Renaissance School of Medicine at Stony Brook University,Renaissance School of Medicine at Stony Brook University,medical_school,seeded_alias,0.98
+person_steven-pan-md_e0ddcab95aa0,"Steven Pan, MD",resident,medical_school,Weill Cornell Medicine,Weill Cornell Medicine,medical_school,seeded_alias,0.98
+person_steven-pan-md_e0ddcab95aa0,"Steven Pan, MD",resident,undergraduate_school,Yale University,Yale University,undergraduate_institution,seeded_alias,0.98
+person_steven-r-skula-md_056125e900d5,"Steven R. Skula, MD",resident,residency_program,Rutgers New Jersey Medical School,Rutgers New Jersey Medical School,clinical_training_site,seeded_alias,0.98
 steven sher,Steven Sher MD,resident,medical_school,Ohio State University College of Medicine,Ohio State University College of Medicine,medical_school,cleaned_label,0.55
 stevie barry,"Stevie Barry, MBChB",resident,medical_school,Royal College of Surgeons in Ireland School of Medicine,Royal College of Surgeons in Ireland School of Medicine,medical_school,cleaned_label,0.55
 sujal manohar,Sujal Manohar MD,resident,medical_school,Baylor College of Medicine,Baylor College of Medicine,medical_school,cleaned_label,0.55
 suzy landon,"Suzy Landon MD, MSc",resident,medical_school,New York University Grossman School of Medicine,NYU Grossman School of Medicine,medical_school,seeded_alias,0.98
+person_sydney-chambule-md_fc2cc9ab649b,"Sydney Chambule, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_sydney-chambule-md_fc2cc9ab649b,"Sydney Chambule, MD",resident,undergraduate_school,Allegheny College,Allegheny College,undergraduate_institution,cleaned_label,0.55
+person_sydney-l-castellanos-md_83c07bf2d17f,"Sydney L Castellanos, MD",resident,medical_school,The Ohio State University College of Medicine,Ohio State University College of Medicine,medical_school,seeded_alias,0.98
+person_sydney-l-castellanos-md_83c07bf2d17f,"Sydney L Castellanos, MD",resident,undergraduate_school,Indiana University,Indiana University,undergraduate_institution,cleaned_label,0.55
 tanzim bhuiya,"Tanzim Bhuiya MD, MPH",resident,medical_school,Donald and Barbara Zucker School of Medicine at Hofstra/Norhwell,Donald and Barbara Zucker School of Medicine at Hofstra/Norhwell,medical_school,cleaned_label,0.55
 taylor aguiar,Taylor Aguiar MD,resident,medical_school,Hackensack Meridian School of Medicine,Hackensack Meridian School of Medicine,medical_school,cleaned_label,0.55
 taylor figgs,Taylor Figgs MD,resident,medical_school,Eastern Virginia Medical School,Eastern Virginia Medical School,medical_school,seeded_alias,0.98
+person_theodore-e-habarth-morales-md_2a0bbc7479c3,"Theodore E. Habarth-Morales, MD",resident,medical_school,Jefferson Medical College at Thomas Jefferson University,Jefferson Medical College at Thomas Jefferson University,medical_school,cleaned_label,0.55
+person_theodore-e-habarth-morales-md_2a0bbc7479c3,"Theodore E. Habarth-Morales, MD",resident,undergraduate_school,Arcadia University,Arcadia University,undergraduate_institution,cleaned_label,0.55
 thomas luo,Thomas Luo MD,resident,medical_school,Medical College of Wisconsin,Medical College of Wisconsin,medical_school,seeded_alias,0.98
 thomas vazquez,Thomas Vazquez MD,resident,medical_school,Florida International University Herbert Wertheim College of Medicine,Florida International University Herbert Wertheim College of Medicine,medical_school,seeded_alias,0.98
+person_timothy-j-goblirsch-md_5db348cc05b7,"Timothy J. Goblirsch, MD",resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
 timothy mcauliffe,Timothy McAuliffe MD,resident,medical_school,Geisel School of Medicine at Dartmouth,Geisel School of Medicine at Dartmouth,medical_school,cleaned_label,0.55
+person_tuan-vu-md_f3aee5ee9555,"Tuan Vu, MD",resident,medical_school,Penn State College of Medicine,Penn State College of Medicine,medical_school,seeded_alias,0.98
+person_tuan-vu-md_f3aee5ee9555,"Tuan Vu, MD",resident,undergraduate_school,The College of William and Mary,College of William and Mary,undergraduate_institution,seeded_alias,0.98
+person_tzvia-pinkhasov-md-phd_1f2efbb6a56f,"Tzvia Pinkhasov, MD, PhD",resident,medical_school,Washington University School of Medicine in St Louis,Washington University School of Medicine in St Louis,medical_school,cleaned_label,0.55
+person_tzvia-pinkhasov-md-phd_1f2efbb6a56f,"Tzvia Pinkhasov, MD, PhD",resident,undergraduate_school,Stony Brook University,Stony Brook University,undergraduate_institution,cleaned_label,0.55
 uttara gadde,Uttara Gadde MD,resident,medical_school,Rutgers New Jersey Medical School,Rutgers New Jersey Medical School,medical_school,seeded_alias,0.98
+person_vedant-acharya-md_ce305edae21a,"Vedant Acharya, MD",resident,medical_school,"University of Miami, Miller School of Medicine",University of Miami Miller School of Medicine,medical_school,seeded_alias,0.98
+person_vedant-acharya-md_ce305edae21a,"Vedant Acharya, MD",resident,undergraduate_school,University of Miami,University of Miami,undergraduate_institution,seeded_alias,0.98
 verna curfman,Verna Curfman MD,resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
+person_victor-f-cox-md_1dd85aa64bc3,"Victor F. Cox, MD",resident,medical_school,Georgetown University School of Medicine,Georgetown University School of Medicine,medical_school,seeded_alias,0.98
 victoria moffitt,"Victoria Moffitt, MD, MPH",resident,medical_school,medical school at the Perelman School of Medicine,medical school at the Perelman School of Medicine,medical_school,cleaned_label,0.55
 victoria powers,Victoria Powers MD,resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_vikram-s-pothuri-md-mphs_e562e069d4af,"Vikram S. Pothuri, MD, MPHS",resident,medical_school,Washington University School of Medicine,Washington University School of Medicine,medical_school,seeded_alias,0.98
+person_vikram-s-pothuri-md-mphs_e562e069d4af,"Vikram S. Pothuri, MD, MPHS",resident,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,seeded_alias,0.98
+person_vincent-huang-md_fd2182517e2d,"Vincent Huang, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 vincent pepe,"Vincent Pepe MD, MPH",resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_vineeth-gangaram-md_d9dcd12b6a4d,"Vineeth Gangaram, MD",resident,medical_school,Vagelos College of Physicians and Surgeons - Columbia University,Vagelos College of Physicians and Surgeons - Columbia University,medical_school,cleaned_label,0.55
+person_vineeth-gangaram-md_d9dcd12b6a4d,"Vineeth Gangaram, MD",resident,undergraduate_school,Stanford University,Stanford University,undergraduate_institution,seeded_alias,0.98
 vismaya kharkar,Vismaya Kharkar,resident,medical_school,the Spencer Fox Eccles School of Medicine,the Spencer Fox Eccles School of Medicine,medical_school,cleaned_label,0.55
 vivek singh,Vivek Singh MD,resident,medical_school,Boston University School of Medicine,Boston University School of Medicine,medical_school,seeded_alias,0.98
 vivian chen,Vivian Chen MD,resident,medical_school,Duke University School of Medicine,Duke University School of Medicine,medical_school,seeded_alias,0.98
+person_waseem-lutfi-md_44fe1c19ee0d,"Waseem Lutfi, MD",resident,medical_school,University of Pittsburgh School of Medicine,University of Pittsburgh School of Medicine,medical_school,seeded_alias,0.98
+person_waseem-lutfi-md_44fe1c19ee0d,"Waseem Lutfi, MD",resident,undergraduate_school,"University of California, Santa Cruz","University of California, Santa Cruz",undergraduate_institution,cleaned_label,0.55
 weilai dong,Weilai Dong MD,resident,medical_school,Yale School of Medicine,Yale School of Medicine,medical_school,seeded_alias,0.98
 will ohley,Will Ohley MD,resident,medical_school,Lewis Katz School of Medicine at Temple University,Lewis Katz School of Medicine at Temple University,medical_school,seeded_alias,0.98
+person_william-d-piwnica-worms-md_8f5d5a93ef47,"William D. Piwnica-Worms, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_william-d-piwnica-worms-md_8f5d5a93ef47,"William D. Piwnica-Worms, MD",resident,undergraduate_school,Duke University,Duke University,undergraduate_institution,seeded_alias,0.98
+person_william-r-johnston-md_0e403cd3330c,"William R. Johnston, MD",resident,medical_school,"Washington University, St. Louis","Washington University, St. Louis",medical_school,cleaned_label,0.55
+person_william-r-johnston-md_0e403cd3330c,"William R. Johnston, MD",resident,undergraduate_school,Vanderbilt University,Vanderbilt University,undergraduate_institution,cleaned_label,0.55
+person_woodlynn-daniel-md_1494ccb12116,"Woodlynn Daniel, MD",resident,medical_school,Zucker School of Medicine at Hofstra/Northwell,Zucker School of Medicine at Hofstra/Northwell,medical_school,cleaned_label,0.55
+person_woodlynn-daniel-md_1494ccb12116,"Woodlynn Daniel, MD",resident,undergraduate_school,Harvard University,Harvard University,undergraduate_institution,seeded_alias,0.98
+person_yangzi-clarissa-liu-md_310a85906243,"Yangzi Clarissa Liu, MD",resident,medical_school,Vanderbilt University,Vanderbilt University,medical_school,seeded_alias,0.98
+person_yangzi-clarissa-liu-md_310a85906243,"Yangzi Clarissa Liu, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_yasaman-ataei-md_44f399d30bcf,"Yasaman Ataei, MD",resident,residency_program,Medical College of Wisconsin,Medical College of Wisconsin,clinical_training_site,cleaned_label,0.55
+person_yash-b-shah-md_2b7cc2b9e00c,"Yash B. Shah, MD",resident,medical_school,Sidney Kimmel Medical College at Thomas Jefferson University,Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,seeded_alias,0.98
+person_yash-b-shah-md_2b7cc2b9e00c,"Yash B. Shah, MD",resident,undergraduate_school,The Pennsylvania State University,Pennsylvania State University,undergraduate_institution,seeded_alias,0.98
+person_yash-kadakia-md_c91fd3de7d42,"Yash Kadakia, MD",resident,medical_school,University of Texas - Southwestern,University of Texas - Southwestern,medical_school,cleaned_label,0.55
+person_yash-kadakia-md_c91fd3de7d42,"Yash Kadakia, MD",resident,undergraduate_school,University of Texas - Dallas,University of Texas - Dallas,undergraduate_institution,cleaned_label,0.55
 yi wei hang,Yi Wei Hang MD,resident,medical_school,Virginia Commonwealth University School of Medicine,Virginia Commonwealth University School of Medicine,medical_school,seeded_alias,0.98
+person_yinan-zheng-md_0085f69d7c4f,"Yinan Zheng, MD",resident,medical_school,Vanderbilt University School of Medicine,Vanderbilt University School of Medicine,medical_school,seeded_alias,0.98
+person_yinan-zheng-md_0085f69d7c4f,"Yinan Zheng, MD",resident,undergraduate_school,Princeton University,Princeton University,undergraduate_institution,seeded_alias,0.98
 yulei cao,Yulei Cao MD MS,resident,medical_school,Drexel University College of Medicine,Drexel University College of Medicine,medical_school,seeded_alias,0.98
+person_yun-ke-tracy-du-md_77a3b81e37ce,"Yun Ke (Tracy) Du, MD",resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
+person_yun-ke-tracy-du-md_77a3b81e37ce,"Yun Ke (Tracy) Du, MD",resident,undergraduate_school,Brown University,Brown University,undergraduate_institution,seeded_alias,0.98
+person_zachariah-l-lee-md_2a8d816dc48a,"Zachariah L. Lee, MD",resident,medical_school,University of Maryland School of Medicine,University of Maryland School of Medicine,medical_school,seeded_alias,0.98
+person_zachariah-l-lee-md_2a8d816dc48a,"Zachariah L. Lee, MD",resident,undergraduate_school,University of Pennsylvania,University of Pennsylvania,undergraduate_institution,seeded_alias,0.98
+person_zachary-zapatero_3d2a8a45a7e2,Zachary Zapatero,resident,medical_school,Perelman School of Medicine at the University of Pennsylvania,Perelman School of Medicine at the University of Pennsylvania,medical_school,seeded_alias,0.98
 zak kolkey,Zak Kolkey MD,resident,medical_school,Eastern Virginia Medical School,Eastern Virginia Medical School,medical_school,seeded_alias,0.98
 zoe barbati,Zoe Barbati MD,resident,medical_school,Rush Medical College of Rush University Medical Center,Rush Medical College of Rush University Medical Center,medical_school,seeded_alias,0.98

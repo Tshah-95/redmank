@@ -21,10 +21,12 @@ ENRICHMENT_SOURCES = ROOT / "config" / "enrichment_sources.json"
 
 PERSON_FILES = [
     ARTIFACTS / "penn_training_people_unique.json",
+    ARTIFACTS / "penn_affiliated_people.json",
     ARTIFACTS / "penn_mstp_students.json",
 ]
 SOURCE_FILES = [
     ARTIFACTS / "penn_training_sources.json",
+    ARTIFACTS / "penn_affiliated_sources.json",
     ARTIFACTS / "penn_source_discovery.json",
 ]
 OPTIONAL_SOURCE_FILES = [
@@ -219,6 +221,25 @@ def insert_sources(conn: sqlite3.Connection) -> None:
                 dumps(source),
             ),
         )
+    affiliated_sources = ARTIFACTS / "penn_affiliated_sources.json"
+    if affiliated_sources.exists():
+        for source in load_json(affiliated_sources):
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO sources
+                (source_key, source_url, source_type, fetched_at, http_status, sha256, metadata_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    source["source_key"],
+                    source.get("url"),
+                    "official_affiliated_roster",
+                    source.get("fetched_at"),
+                    source.get("http_status"),
+                    source.get("sha256"),
+                    dumps(source),
+                ),
+            )
     discovery = load_json(ARTIFACTS / "penn_source_discovery.json")
     for row in discovery["findings"]:
         source_key = f"discovery:{key_for('source', row['url'])}"

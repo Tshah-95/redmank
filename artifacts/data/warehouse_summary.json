@@ -1,15 +1,15 @@
 {
   "counts": {
-    "evidence_claims": 2374,
-    "organization_aliases": 429,
+    "evidence_claims": 3980,
+    "organization_aliases": 695,
     "organization_identifiers": 1,
-    "organizations": 409,
-    "people": 678,
-    "person_training_events": 720,
-    "programs": 28,
+    "organizations": 675,
+    "people": 984,
+    "person_training_events": 1279,
+    "programs": 34,
     "source_quality_observations": 2,
     "source_utilities": 8,
-    "sources": 1303
+    "sources": 1320
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "evidence_source_counts": {
@@ -35,26 +35,42 @@
     "internal_medicine_physician_scientist": 3,
     "internal_medicine_primary_care": 8,
     "nephrology_current_fellows": 44,
-    "openalex_author_search": 1201,
+    "openalex_author_search": 1942,
     "palliative_current_fellows": 10,
-    "pubmed_eutilities": 453,
+    "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299": 38,
+    "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_2ebc99cda7": 102,
+    "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_4250553081": 75,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_059f3f8bc0": 2,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_4ccb7e8d57": 10,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_acebe4929a": 2,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_e9538572e0": 9,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_f1043500c4": 5,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_fb4824f4f4": 3,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_ff73f3288d": 12,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_8726482f2e": 17,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b1bc5a1dae": 45,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b688511031": 137,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b953e0b386": 43,
+    "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7": 29,
+    "penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532": 30,
+    "pubmed_eutilities": 759,
     "pulmonary_critical_care_current_fellows": 68,
     "rheumatology_current_fellows": 45
   },
   "evidence_status_counts": {
-    "accepted": 720,
-    "candidate": 1538,
-    "needs_review": 116
+    "accepted": 1279,
+    "candidate": 2482,
+    "needs_review": 219
   },
-  "generated_at": "2026-06-02T03:43:12.059853+00:00",
+  "generated_at": "2026-06-02T03:55:52.891236+00:00",
   "organization_category_counts": {
-    "clinical_training_site": 127,
-    "graduate_institution": 6,
-    "medical_school": 242,
-    "undergraduate_institution": 34
+    "clinical_training_site": 166,
+    "graduate_institution": 18,
+    "medical_school": 343,
+    "undergraduate_institution": 148
   },
   "resolver_counts": {
-    "cleaned_label": 399,
-    "seeded_alias": 321
+    "cleaned_label": 665,
+    "seeded_alias": 614
   }
 }
