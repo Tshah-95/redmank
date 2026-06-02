@@ -17,15 +17,20 @@ Maggie Rowe MD,resident,maggie rowe,1,1,1,review_required_window,100,not_in_offi
 "Mary Barrosse-Antle, MD",fellow,mary barrosse antle,1,1,1,review_required_window,100,covered_current_roster,0,0,0,1,0,0,1,0,review_lifecycle_or_source_before_mutation
 "Michelle Munyikwa, MD, PhD",fellow,michelle munyikwa,1,2,4,review_required_window,100,covered_current_roster,1,0,0,1,2,1,3,0,review_lifecycle_or_source_before_mutation
 "Okechi Boms, MD",resident,okechi boms,1,2,4,review_required_window,100,not_in_official_hup_audit,1,2,0,1,0,1,1,2,review_lifecycle_or_source_before_mutation
+"Benjamin J. Peipert, MD",fellow,person_benjamin-j-peipert-md_0ac20aba515c,1,1,1,review_required_window,100,covered_current_roster,0,0,0,1,0,0,1,0,review_lifecycle_or_source_before_mutation
+"Margaret A. Rush, MD",fellow,person_margaret-a-rush-md_8109eb4cc901,1,1,1,review_required_window,100,covered_current_roster,0,0,0,1,0,0,1,0,review_lifecycle_or_source_before_mutation
 "Roshni Bhat, MD",resident,roshni bhat,1,2,4,review_required_window,100,not_in_official_hup_audit,0,2,0,2,0,0,2,2,review_lifecycle_or_source_before_mutation
 Uttara Gadde MD,resident,uttara gadde,1,1,1,review_required_window,100,not_in_official_hup_audit,0,0,0,1,0,0,1,0,review_lifecycle_or_source_before_mutation
 "Abiana Adamson, MD",resident,person_abiana-adamson-md_0a7e3b1fed59,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Alessandro Brunetti, MD",resident,person_alessandro-brunetti-md_e4e1e1898d7c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Alexandra Tatarian, MD",resident,person_alexandra-tatarian-md_0314dd1f955b,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Amber Lachaud, MD",fellow,person_amber-lachaud-md_f9850f07311d,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Anna Davidian, MD",resident,person_anna-davidian-md_20d387dd1d0d,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Anne Wang, MD",resident,person_anne-wang-md_cecd9c14a858,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Catherine Klammer, MD",fellow,person_catherine-klammer-md_b62f136a2f65,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Charles Danan, MD, PhD",resident,person_charles-danan-md-phd_e660b8a28550,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Chenxu Shi, MD, PhD",resident,person_chenxu-shi-md-phd_863fe312fbb4,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Christine Miguel, MD",fellow,person_christine-miguel-md_c12f826bfdc4,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Chuan Hao Chen, MD, PhD",resident,person_chuan-hao-chen-md-phd_e76197b8a085,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Cooper Schwartz, MD",resident,person_cooper-schwartz-md_323028d4490f,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Daniel Akuma, MD, PhD",resident,person_daniel-akuma-md-phd_ceb3194375a6,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
@@ -37,14 +42,19 @@ Uttara Gadde MD,resident,uttara gadde,1,1,1,review_required_window,100,not_in_of
 "Fernanda Tirado, DO",resident,person_fernanda-tirado-do_e97fc743570a,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Frederick Allen, MD",resident,person_frederick-allen-md_f53e4c1a1a78,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Gregory Chen, MD, PhD",resident,person_gregory-chen-md-phd_3ecd5cd8fd45,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Gregory Kirschen, MD",fellow,person_gregory-kirschen-md_cd9c3ce31472,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Henry Sanchez, MD, PhD",resident,person_henry-sanchez-md-phd_fc3437a3ee36,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Iniobong Ntukidem, MD",resident,person_iniobong-ntukidem-md_987543622955,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Jaslyn Piggott, MD",fellow,person_jaslyn-piggott-md_a13aabd941a5,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "John Sagrati, DO",resident,person_john-sagrati-do_e09dc47ef6f0,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Jonathan Hunt, MD",fellow,person_jonathan-hunt-md_756673680239,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Jose Manuel Martin Castelli, MD",resident,person_jose-manuel-martin-castelli-md_c89eef2950d2,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Kelly Zafman, MD",fellow,person_kelly-zafman-md_c9b144e65b65,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Keshia Mora, MD, PhD",resident,person_keshia-mora-md-phd_9dbea1b24de1,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Kevin Yang, MD, PhD",resident,person_kevin-yang-md-phd_16e15949fb1c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Lamarque Coke, MD",resident,person_lamarque-coke-md_8bd77fdc2b5f,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Leslie Roman, MD, MS",resident,person_leslie-roman-md-ms_ab3fd46bf578,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Madeline Perry, MD",fellow,person_madeline-perry-md_9def03f479ce,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Maria Arisi, MD",resident,person_maria-arisi-md_ad2cc64d0982,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Matthew Miller, MD",resident,person_matthew-miller-md_2571285255f8,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Meaghan Dougher, MD",resident,person_meaghan-dougher-md_63c06ef9a28c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
@@ -104,6 +114,7 @@ Anna Wing M.D.,fellow,anna wing m d,1,1,1,source_refresh_required_window,85,cove
 "Nicholas Wilcox, MD, MHS",fellow,nicholas wilcox mhs,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Pedro Ochoa Allemant, MD",fellow,pedro ochoa allemant,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Aaron M. Williams, MD, PhD",resident,person_aaron-m-williams-md-phd_56bee93fa9c4,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Aavishi Arora, BDS",resident,person_aavishi-arora-bds_eda79e1b7d2e,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Abdalnasir Limay, MD",fellow,person_abdalnasir-limay-md_2cb7f0691ac6,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Abigail Knowles MD,resident,person_abigail-knowles-md_c84b46d26789,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Abigail Pepin, MD",resident,person_abigail-pepin-md_7e33f3d92ca5,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -120,6 +131,7 @@ Akshay Govindan,medical_student,person_akshay-govindan_3e0e9dcb1355,1,1,1,source
 "Alejandro Suarez-Pierre, MD",fellow,person_alejandro-suarez-pierre-md_b4ded20c952b,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Aleksia Barka,medical_student,person_aleksia-barka_502450d1212e,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Alex Chen, MD",resident,person_alex-chen-md_5a775a6faca7,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Alex Qin, MD",fellow,person_alex-qin-md_6031f6659683,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Alexa L. Carreras, MD",fellow,person_alexa-l-carreras-md_2b1b75611f60,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Alexander Hüther, MD",resident,person_alexander-h-ther-md_cdd48db934fb,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Alexander Mazal, MD",fellow,person_alexander-mazal-md_722e6d3f9400,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -130,6 +142,7 @@ Alexandria Adigun,medical_student,person_alexandria-adigun_99afa8f7b390,1,1,1,so
 "Alexey Gurevich, MD",resident,person_alexey-gurevich-md_f8a111a825d8,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Alfredo Lucas,medical_student,person_alfredo-lucas_69ae3b33513a,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Ali Nabavizadeh, MD",fellow,person_ali-nabavizadeh-md_a5de64836416,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Allan Huang, MD",fellow,person_allan-huang-md_8ad007f09368,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Allan Stolarski, MD, MS",fellow,person_allan-stolarski-md-ms_bb615dd872ac,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Allison Reeder, M.D.",fellow,person_allison-reeder-m-d_b5a2fca0dfa2,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Alvaro Ordonez, MD",resident,person_alvaro-ordonez-md_c0d8e74fd90e,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -150,6 +163,7 @@ Angela Gong,medical_student,person_angela-gong_a44c6daffedd,1,1,1,source_refresh
 Anika Nerella,medical_student,person_anika-nerella_181dcd6c3400,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Anita Kundu, MD",resident,person_anita-kundu-md_069c268595f7,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Ankita Reddy,medical_student,person_ankita-reddy_7fb0f0e18fd5,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Ann Cathcart, MD",fellow,person_ann-cathcart-md_bf901cae05f1,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Ann Powers, M.D.",fellow,person_ann-powers-m-d_b6887347f2f4,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Anna E. Garcia Whitlock, MD, PhD",fellow,person_anna-e-garcia-whitlock-md-phd_d1f3fedfc3c4,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Anne T. Taylor, MD",resident,person_anne-t-taylor-md_8db8aa44b0b8,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -179,6 +193,7 @@ Ben Kahn,medical_student,person_ben-kahn_0dc98c693a19,1,1,1,source_refresh_requi
 Benjamin Creekmore,medical_student,person_benjamin-creekmore_6165a59b465b,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Benjamin F. Smood, MD, MS",resident,person_benjamin-f-smood-md-ms_0226560aaa83,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Beth Thompson,medical_student,person_beth-thompson_669fa0f5e5d3,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Bidisha Ray, BDS",resident,person_bidisha-ray-bds_223befb19c2e,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Blake Jardin,medical_student,person_blake-jardin_a8929634ad9a,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Brandon Klein, DO",fellow,person_brandon-klein-do_d2dad3acd231,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Brendan Zotter, MD, PhD",resident,person_brendan-zotter-md-phd_757fd70fcdb4,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -191,6 +206,7 @@ Briana Macedo,medical_student,person_briana-macedo_69613808e071,1,1,1,source_ref
 "Brittney Boles, MD",fellow,person_brittney-boles-md_dfce926e7cd8,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Byron Gottschalk, MD",fellow,person_byron-gottschalk-md_535d98f436c9,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Cailin O’Connell, MD",resident,person_cailin-o-connell-md_0de3852976d3,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Camille McCallister, MD",fellow,person_camille-mccallister-md_2caa4c9fc980,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Carl Bannerman,medical_student,person_carl-bannerman_07aa69f8eebf,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Carlos Rodriguez,medical_student,person_carlos-rodriguez_d33080a90933,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Caroline Adams, MD, PhD",fellow,person_caroline-adams-md-phd_a1c0f38f7ceb,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -210,9 +226,11 @@ Chloe Winston,medical_student,person_chloe-winston_4f9e8d60c0ef,1,1,1,source_ref
 Christina Chen,medical_student,person_christina-chen_3a07ca85fcc7,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Christopher M. Anthony, DO",fellow,person_christopher-m-anthony-do_caa0231e681b,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Christopher McLauglin, MD, MBA",fellow,person_christopher-mclauglin-md-mba_79de540aacfa,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Christy Ng, DDS",resident,person_christy-ng-dds_d01d8c27bf69,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Claire Millett,medical_student,person_claire-millett_ae20240bfe2b,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Claudia Heymach,medical_student,person_claudia-heymach_12442ff09594,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Claudia Lovell,medical_student,person_claudia-lovell_8a5552cef309,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Clayton Blackwell, DDS",resident,person_clayton-blackwell-dds_5c80853aad08,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Cole Friedes, MD",resident,person_cole-friedes-md_01a93c133463,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Cole Rinehart, MD",resident,person_cole-rinehart-md_914c8895830d,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Connor W Crowley MD,fellow,person_connor-w-crowley-md_e4ee077febe1,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -291,6 +309,7 @@ Griffin Spychalski,medical_student,person_griffin-spychalski_bbfc5bf9ed2e,1,1,1,
 "Hammam Kayali, MD",fellow,person_hammam-kayali-md_9456781b51a8,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Han-Seul Ryu,medical_student,person_han-seul-ryu_54d7c6f139a9,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Harry Dang,medical_student,person_harry-dang_a39ff62d9f75,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Hayden Han, DDS",resident,person_hayden-han-dds_092009d1cbee,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Heather Kregel, MD, MSCR",fellow,person_heather-kregel-md-mscr_d6a88c53e2f8,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Hefei Liu, MD",resident,person_hefei-liu-md_2e2a4bfb9681,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Henry Utset,medical_student,person_henry-utset_6c513fa2d9fc,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -391,9 +410,11 @@ Kevin Sun,medical_student,person_kevin-sun_0f383a28ccb0,1,1,1,source_refresh_req
 "Kinnari Karia, MD",resident,person_kinnari-karia-md_2f1af0f99b3d,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Kirstyn C. Taylor, MD",resident,person_kirstyn-c-taylor-md_d219155af646,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Krishna Dasari,medical_student,person_krishna-dasari_e72e9ff6480a,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Kristen Horstmann, DDS",resident,person_kristen-horstmann-dds_ca5225fbb659,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Kristen Park,medical_student,person_kristen-park_cdc07f13b0d3,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Kurshaad Cheenibass, MD",fellow,person_kurshaad-cheenibass-md_dfa6749be27e,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Kyle G. Wicker, MD",resident,person_kyle-g-wicker-md_db3db7ef1497,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Lakeisha Mulugeta-Gordon, MD",fellow,person_lakeisha-mulugeta-gordon-md_9dae96913118,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Lance Murphy,medical_student,person_lance-murphy_88d0a61b7aeb,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Laura Barnes, MD",fellow,person_laura-barnes-md_503959d8cc53,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Lauren Herzog, MD",resident,person_lauren-herzog-md_eaaf2fc7a7f4,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -505,6 +526,7 @@ Noah Cheng,medical_student,person_noah-cheng_ac930cba0b69,1,1,1,source_refresh_r
 "Nuvid Bhuiyan, MD",resident,person_nuvid-bhuiyan-md_66981b9b9bad,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Octavio Lopez,medical_student,person_octavio-lopez_8c35c606655d,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Omar Bushara, MD, MPH",resident,person_omar-bushara-md-mph_bba9a4fef2ee,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Omar Najjar, MD",fellow,person_omar-najjar-md_3b3210adf2a4,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Onur Simsek, MD",fellow,person_onur-simsek-md_9ece3d0c9fa6,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Orlando Arevalo,medical_student,person_orlando-arevalo_f2f75d5d674f,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Ozichi C. Osuoha, MD",resident,person_ozichi-c-osuoha-md_bda73f2ea14d,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -537,7 +559,9 @@ Raymond Ng,medical_student,person_raymond-ng_d4d122928912,1,1,1,source_refresh_r
 Rex Kung,medical_student,person_rex-kung_f59f90ae9608,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Richard Wu, MD",resident,person_richard-wu-md_f3c8d41c7d20,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Rico Carale,medical_student,person_rico-carale_1df5728d69f8,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Ridhima Seth, BDS",resident,person_ridhima-seth-bds_91a0711616a0,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Rishi Shridharan,medical_student,person_rishi-shridharan_ced59740434d,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Rita Sartor, MD",fellow,person_rita-sartor-md_6c8c0adec932,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Robert Colbourn, MD, PhD",fellow,person_robert-colbourn-md-phd_31286de767d8,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Robert Eisinger, MD, PhD",resident,person_robert-eisinger-md-phd_c42b07988a1d,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Robert Hapke,medical_student,person_robert-hapke_1630d186a236,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -562,11 +586,13 @@ Sabrina DaSilva,medical_student,person_sabrina-dasilva_7c991793547b,1,1,1,source
 "Safiya Lahlaf, MD",resident,person_safiya-lahlaf-md_4dc5f3c57362,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sagar Gupta,medical_student,person_sagar-gupta_0bc4ee758035,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sai Chaluvadi,medical_student,person_sai-chaluvadi_cf03e834c7b4,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Sai Vejella, BDS",resident,person_sai-vejella-bds_ea3814189f8e,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sajeev Kohli,medical_student,person_sajeev-kohli_8f4171ff11e3,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sam Barnett Dubensky,medical_student,person_sam-barnett-dubensky_794bf98f7e2d,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sam Garfinkle,medical_student,person_sam-garfinkle_02f4e969a253,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sam Kim,medical_student,person_sam-kim_cab6d3fca602,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sam McCright,medical_student,person_sam-mccright_e5198232fc02,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Samhita Nelamangala, MD",fellow,person_samhita-nelamangala-md_61780380b969,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Samuel Braza, MD",resident,person_samuel-braza-md_c3933afee2e3,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Samuel Chauvin,medical_student,person_samuel-chauvin_1a07257418b6,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Samuel Neuman,medical_student,person_samuel-neuman_a66366c9991f,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -592,6 +618,7 @@ Shridhar Parthasarathy,medical_student,person_shridhar-parthasarathy_6d15a0647a4
 "Shunsuke Koga, MD, PhD",fellow,person_shunsuke-koga-md-phd_da6f3890dfa6,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Siddharth (Sid) Guha, MD",resident,person_siddharth-sid-guha-md_185224138a8a,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Sidharth Ramesh, MD",resident,person_sidharth-ramesh-md_6c45a79160d3,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Simone Reaves, MD",fellow,person_simone-reaves-md_e7a0bffd05a2,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Skylar Montague Redecke,medical_student,person_skylar-montague-redecke_d11fc64a43d4,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Sonny Caplash, MD",fellow,person_sonny-caplash-md_e9ac3c30ed7f,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Sophie Liebergall,medical_student,person_sophie-liebergall_7a48806ee13d,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -613,6 +640,7 @@ Sydney Alderfer,medical_student,person_sydney-alderfer_2196fca4ac56,1,1,1,source
 "Syed (Waqas) Ahmad, DO",fellow,person_syed-waqas-ahmad-do_3a5433627330,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Sylvia Rhodes, MD",resident,person_sylvia-rhodes-md_bdfb3aaf25f4,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Tai Nguyen,medical_student,person_tai-nguyen_855a91203b43,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+"Tal Cantor, MD",fellow,person_tal-cantor-md_6fc8b8a61855,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Tanya F. Panwala, MD",resident,person_tanya-f-panwala-md_3133a4fd1e28,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Tavian Sanchez,medical_student,person_tavian-sanchez_d887d34225ad,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 Taylor Phillips-Jones,medical_student,person_taylor-phillips-jones_9b64f395b742,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
@@ -782,6 +810,7 @@ Amulya Raju,resident,person_amulya-raju_422aed7e2ede,1,1,1,expected_completion_w
 "Andrew Percy, MD",resident,person_andrew-percy-md_c4f212534f7a,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Arthur Thomas, MD",resident,person_arthur-thomas-md_4c4f6e4f501e,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Artsiom Meliukh, MD",resident,person_artsiom-meliukh-md_0764cf7e7590,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
+"Austin B. Gardner, MD",fellow,person_austin-b-gardner-md_8ef71fde2ff8,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Barry Kriegsman, M.D., Ph.D.",resident,person_barry-kriegsman-m-d-ph-d_68dc341ed709,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Beatrice Go, M.D",resident,person_beatrice-go-m-d_ccc69fa288a5,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Benjamin Fisher, MD",resident,person_benjamin-fisher-md_748a3992a0cb,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
@@ -793,6 +822,7 @@ Camara Perkins,resident,person_camara-perkins_da35b8221ee7,1,1,1,expected_comple
 "Carmen de Carvajal Cebrian, MD",resident,person_carmen-de-carvajal-cebrian-md_c78ded9111c2,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Caroline Antonacci, MD",resident,person_caroline-antonacci-md_b0f10b8bc27c,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Caroline Granruth, MD",resident,person_caroline-granruth-md_75118e3d87bd,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
+"Cassie L. Hobbs, MD",fellow,person_cassie-l-hobbs-md_e1fdc9139d74,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Chase C. Alston, MD, MHS",resident,person_chase-c-alston-md-mhs_a256a0788e33,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Cody Sacks, MD",resident,person_cody-sacks-md_97a6e7081831,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
 "Daniel Hu, MD",resident,person_daniel-hu-md_b016203dcaa1,1,1,1,expected_completion_window,70,covered_current_roster,0,1,0,0,0,0,0,1,allow_completion_absence_or_confirm_alumni_endpoint
@@ -1079,6 +1109,7 @@ Alan Makhoul,resident,person_alan-makhoul_6664745a26d3,1,1,1,expected_advancemen
 "Alexander Wahl, MD",resident,person_alexander-wahl-md_466865137dfc,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Alexandra Hart, DO",resident,person_alexandra-hart-do_f4c6b4fdce3b,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Alexandria Irace, M.D.",resident,person_alexandria-irace-m-d_9b1035c74be5,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
+"Alexandria N. Young, MD",fellow,person_alexandria-n-young-md_6fae2d34fabc,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Allysa Vavra, DPM",resident,person_allysa-vavra-dpm_b7d3750ba2f8,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Alyssa Thorman, MD",resident,person_alyssa-thorman-md_4a03f0b740e3,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Aman Prasad, M.D.",resident,person_aman-prasad-m-d_acc7775f67c3,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
@@ -1233,6 +1264,7 @@ Kelsey Shimamoto,resident,person_kelsey-shimamoto_5dcb8474523d,1,1,1,expected_ad
 "Khaila Ramey-Collier, MD",resident,person_khaila-ramey-collier-md_54c173c12973,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Kush Panara, M.D.",resident,person_kush-panara-m-d_8f990f51741d,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Kyra Illuzzi, DPM",resident,person_kyra-illuzzi-dpm_1f4b74702d21,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
+"Lauren A. Pace, MD",fellow,person_lauren-a-pace-md_3c1c92c7a86b,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Lauren De La Ossa, MD",resident,person_lauren-de-la-ossa-md_c6048c839ed9,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 Lauren Havens,resident,person_lauren-havens_2639cc6afe2d,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement
 "Lauren Ladehoff, MD",resident,person_lauren-ladehoff-md_0a1846312780,1,1,1,expected_advancement_window,60,covered_current_roster,1,0,0,0,0,1,0,0,reconcile_expected_stage_advancement

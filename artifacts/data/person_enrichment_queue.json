@@ -108,6 +108,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_alex-qin-md_6031f6659683",
+    "name": "Alex Qin, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Mt. Sinai Hospital",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Alex Qin, MD\" \"Penn Medicine\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_alexa-l-carreras-md_2b1b75611f60",
     "name": "Alexa L. Carreras, MD",
     "role": "fellow",
@@ -144,6 +156,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_alexandria-n-young-md_6fae2d34fabc",
+    "name": "Alexandria N. Young, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of Illinois",
+    "residency_program": "Mass General Brigham",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Alexandria N. Young, MD\" \"Penn Medicine\" \"Reproductive Endocrinology and Infertility Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_ali-nabavizadeh-md_a5de64836416",
     "name": "Ali Nabavizadeh, MD",
     "role": "fellow",
@@ -153,6 +177,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Ali Nabavizadeh, MD\" \"Penn Medicine\" \"ABR Alternate Pathway to Certification\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_allan-huang-md_8ad007f09368",
+    "name": "Allan Huang, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Allan Huang, MD\" \"Penn Medicine\" \"Gynecologic Oncology Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -177,6 +213,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Allison Reeder, M.D.\" \"Penn Medicine\" \"CHOP Otolaryngology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_amber-lachaud-md_f9850f07311d",
+    "name": "Amber Lachaud, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Amber Lachaud, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -285,6 +333,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Anjali Agarwalla, MD\" \"Penn Medicine\" \"Cardiovascular Disease Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_ann-cathcart-md_bf901cae05f1",
+    "name": "Ann Cathcart, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Ann Cathcart, MD\" \"Penn Medicine\" \"Gynecologic Oncology Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -420,6 +480,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_austin-b-gardner-md_8ef71fde2ff8",
+    "name": "Austin B. Gardner, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of California, Irvine",
+    "residency_program": "University of Alabama at Birmingham",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Austin B. Gardner, MD\" \"Penn Medicine\" \"Reproductive Endocrinology and Infertility Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "austin triana",
     "name": "Austin Triana, MD, MBA",
     "role": "fellow",
@@ -465,6 +537,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Benjamin Bleiberg, MD\" \"Penn Medicine\" \"Hematology/Oncology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_benjamin-j-peipert-md_0ac20aba515c",
+    "name": "Benjamin J. Peipert, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Northwestern University",
+    "residency_program": "Duke University",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Benjamin J. Peipert, MD\" \"Penn Medicine\" \"Reproductive Endocrinology and Infertility Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -600,6 +684,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_camille-mccallister-md_2caa4c9fc980",
+    "name": "Camille McCallister, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Camille McCallister, MD\" \"Penn Medicine\" \"Gynecologic Oncology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "carissa e livingston",
     "name": "Carissa E. Livingston, MD",
     "role": "fellow",
@@ -633,6 +729,30 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Caroline B. Head, MD\" \"Penn Medicine\" \"Ophthalmology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_cassie-l-hobbs-md_e1fdc9139d74",
+    "name": "Cassie L. Hobbs, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Duke University",
+    "residency_program": "Brown University",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Cassie L. Hobbs, MD\" \"Penn Medicine\" \"Reproductive Endocrinology and Infertility Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_catherine-klammer-md_b62f136a2f65",
+    "name": "Catherine Klammer, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Catherine Klammer, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -681,6 +801,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Christian Zhang, MD\" \"Penn Medicine\" \"Sleep Medicine Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_christine-miguel-md_c12f826bfdc4",
+    "name": "Christine Miguel, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Christine Miguel, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -1092,6 +1224,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_gregory-kirschen-md_cd9c3ce31472",
+    "name": "Gregory Kirschen, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Gregory Kirschen, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_hammam-kayali-md_9456781b51a8",
     "name": "Hammam Kayali, MD",
     "role": "fellow",
@@ -1260,6 +1404,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_jaslyn-piggott-md_a13aabd941a5",
+    "name": "Jaslyn Piggott, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Jaslyn Piggott, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "jasmine malhi",
     "name": "Jasmine Malhi, MD",
     "role": "fellow",
@@ -1365,6 +1521,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"John Szendrey, MD\" \"Penn Medicine\" \"Nephrology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_jonathan-hunt-md_756673680239",
+    "name": "Jonathan Hunt, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Jonathan Hunt, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -1500,6 +1668,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_kelly-zafman-md_c9b144e65b65",
+    "name": "Kelly Zafman, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Kelly Zafman, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "kenneth brand",
     "name": "Kenneth Brand, MD",
     "role": "fellow",
@@ -1584,6 +1764,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_lakeisha-mulugeta-gordon-md_9dae96913118",
+    "name": "Lakeisha Mulugeta-Gordon, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Lakeisha Mulugeta-Gordon, MD\" \"Penn Medicine\" \"Gynecologic Oncology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_laura-barnes-md_503959d8cc53",
     "name": "Laura Barnes, MD",
     "role": "fellow",
@@ -1593,6 +1785,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Laura Barnes, MD\" \"Penn Medicine\" \"Microvascular Reconstructive Surgery Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_lauren-a-pace-md_3c1c92c7a86b",
+    "name": "Lauren A. Pace, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of Maryland",
+    "residency_program": "University of Alabama at Birmingham",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Lauren A. Pace, MD\" \"Penn Medicine\" \"Reproductive Endocrinology and Infertility Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -1716,6 +1920,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_madeline-perry-md_9def03f479ce",
+    "name": "Madeline Perry, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Madeline Perry, MD\" \"Penn Medicine\" \"Maternal Fetal Medicine Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "madia ampey",
     "name": "Madia Ampey, MD",
     "role": "fellow",
@@ -1785,6 +2001,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Marah Alsayed Hasan, MBBS\" \"Penn Medicine\" \"Endocrinology, Diabetes and Metabolism Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_margaret-a-rush-md_8109eb4cc901",
+    "name": "Margaret A. Rush, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Temple University",
+    "residency_program": "Hospital of the University of Pennsylvania",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Margaret A. Rush, MD\" \"Penn Medicine\" \"Reproductive Endocrinology and Infertility Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -2280,6 +2508,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_omar-najjar-md_3b3210adf2a4",
+    "name": "Omar Najjar, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Women and Infant's Hospital of Rhode Island",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Omar Najjar, MD\" \"Penn Medicine\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "pamela anne dolnik",
     "name": "Pamela Anne Dolnik, MD",
     "role": "fellow",
@@ -2460,6 +2700,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_rita-sartor-md_6c8c0adec932",
+    "name": "Rita Sartor, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Rita Sartor, MD\" \"Penn Medicine\" \"Gynecologic Oncology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "robert benson jones jr",
     "name": "Robert Benson Jones, Jr., MD",
     "role": "fellow",
@@ -2604,6 +2856,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_samhita-nelamangala-md_61780380b969",
+    "name": "Samhita Nelamangala, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Vanderbilt University Medical Center",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Samhita Nelamangala, MD\" \"Penn Medicine\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_samyuktha-guttha-md_04cb17170727",
     "name": "Samyuktha Guttha, MD",
     "role": "fellow",
@@ -2673,6 +2937,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Shunsuke Koga, MD, PhD\" \"Penn Medicine\" \"Neuropathology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_simone-reaves-md_e7a0bffd05a2",
+    "name": "Simone Reaves, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Jefferson University Hospital",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Simone Reaves, MD\" \"Penn Medicine\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -2805,6 +3081,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Sydney Stanley, PhD\" \"Penn Medicine\" \"Clinical Microbiology Fellowship\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_tal-cantor-md_6fc8b8a61855",
+    "name": "Tal Cantor, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Tal Cantor, MD\" \"Penn Medicine\" \"Gynecologic Oncology Fellowship\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -2961,6 +3249,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Aashish Bhardwaj, MD\" \"Penn Medicine\" \"Physical Medicine and Rehabilitation Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_aavishi-arora-bds_eda79e1b7d2e",
+    "name": "Aavishi Arora, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Aavishi Arora, BDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -3480,6 +3780,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_bidisha-ray-bds_223befb19c2e",
+    "name": "Bidisha Ray, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Bidisha Ray, BDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "bongeka zuma",
     "name": "Bongeka Zuma MD",
     "role": "resident",
@@ -3744,6 +4056,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_christy-ng-dds_d01d8c27bf69",
+    "name": "Christy Ng, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Christy Ng, DDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_claudio-velardo-do_765102665033",
     "name": "Claudio Velardo, DO",
     "role": "resident",
@@ -3753,6 +4077,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Claudio Velardo, DO\" \"Penn Medicine\" \"Physical Medicine and Rehabilitation Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_clayton-blackwell-dds_5c80853aad08",
+    "name": "Clayton Blackwell, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Clayton Blackwell, DDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -4173,6 +4509,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Harrison Charwat, MD\" \"Penn Medicine\" \"Anesthesiology Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_hayden-han-dds_092009d1cbee",
+    "name": "Hayden Han, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Hayden Han, DDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -4677,6 +5025,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Klevi Golloshi, MD\" \"Penn Medicine\" \"Penn-CHOP Internal Medicine-Pediatrics Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_kristen-horstmann-dds_ca5225fbb659",
+    "name": "Kristen Horstmann, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Kristen Horstmann, DDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -5436,6 +5796,18 @@
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
+    "person_key": "person_ridhima-seth-bds_91a0711616a0",
+    "name": "Ridhima Seth, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Ridhima Seth, BDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
     "person_key": "person_rita-anne-falconio-dpm_3bf277092bf7",
     "name": "Rita-Anne Falconio, DPM",
     "role": "resident",
@@ -5505,6 +5877,18 @@
     "task_type": "official_profile_search",
     "priority": 90,
     "query": "\"Sai Aung Phyo MD, PhD\" \"Penn Medicine\" \"Internal Medicine Physician-Scientist Pathway\" profile",
+    "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
+  },
+  {
+    "person_key": "person_sai-vejella-bds_ea3814189f8e",
+    "name": "Sai Vejella, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "official_profile_search",
+    "priority": 90,
+    "query": "\"Sai Vejella, BDS\" \"Penn Medicine\" \"Oral Medicine Residency\" profile",
     "acceptance_rule": "Accept only if the page is official Penn/Penn Medicine/CHOP or directly linked from an official roster."
   },
   {
@@ -6204,6 +6588,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_alex-qin-md_6031f6659683",
+    "name": "Alex Qin, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Mt. Sinai Hospital",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Alex Qin, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_alexa-l-carreras-md_2b1b75611f60",
     "name": "Alexa L. Carreras, MD",
     "role": "fellow",
@@ -6264,6 +6660,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_alexandria-n-young-md_6fae2d34fabc",
+    "name": "Alexandria N. Young, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of Illinois",
+    "residency_program": "Mass General Brigham",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Alexandria N. Young, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Reproductive Endocrinology and Infertility Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_ali-nabavizadeh-md_a5de64836416",
     "name": "Ali Nabavizadeh, MD",
     "role": "fellow",
@@ -6273,6 +6681,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Ali Nabavizadeh, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"ABR Alternate Pathway to Certification\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_allan-huang-md_8ad007f09368",
+    "name": "Allan Huang, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Allan Huang, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Gynecologic Oncology Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -6309,6 +6729,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Aly Hassaballa, MD, MSc, PhD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Cardiothoracic Transplantation Surgery Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_amber-lachaud-md_f9850f07311d",
+    "name": "Amber Lachaud, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Amber Lachaud, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -6441,6 +6873,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Anjali Agarwalla, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Cardiovascular Disease Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_ann-cathcart-md_bf901cae05f1",
+    "name": "Ann Cathcart, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Ann Cathcart, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Gynecologic Oncology Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -6612,6 +7056,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_austin-b-gardner-md_8ef71fde2ff8",
+    "name": "Austin B. Gardner, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of California, Irvine",
+    "residency_program": "University of Alabama at Birmingham",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Austin B. Gardner, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Reproductive Endocrinology and Infertility Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "austin triana",
     "name": "Austin Triana, MD, MBA",
     "role": "fellow",
@@ -6681,6 +7137,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Benjamin Bleiberg, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Hematology/Oncology Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_benjamin-j-peipert-md_0ac20aba515c",
+    "name": "Benjamin J. Peipert, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Northwestern University",
+    "residency_program": "Duke University",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Benjamin J. Peipert, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Reproductive Endocrinology and Infertility Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -6864,6 +7332,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_camille-mccallister-md_2caa4c9fc980",
+    "name": "Camille McCallister, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Camille McCallister, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Gynecologic Oncology Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "carissa e livingston",
     "name": "Carissa E. Livingston, MD",
     "role": "fellow",
@@ -6924,6 +7404,30 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_cassie-l-hobbs-md_e1fdc9139d74",
+    "name": "Cassie L. Hobbs, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Duke University",
+    "residency_program": "Brown University",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Cassie L. Hobbs, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Reproductive Endocrinology and Infertility Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_catherine-klammer-md_b62f136a2f65",
+    "name": "Catherine Klammer, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Catherine Klammer, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "catherine katie vanchiere ma",
     "name": "Catherine “Katie” Vanchiere, MD, MA",
     "role": "fellow",
@@ -6981,6 +7485,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Christian Zhang, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Sleep Medicine Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_christine-miguel-md_c12f826bfdc4",
+    "name": "Christine Miguel, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Christine Miguel, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -7620,6 +8136,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_gregory-kirschen-md_cd9c3ce31472",
+    "name": "Gregory Kirschen, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Gregory Kirschen, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_hagar-mahmoud-mbbch_c16cb5f241fe",
     "name": "Hagar Mahmoud, MBBCh",
     "role": "fellow",
@@ -7860,6 +8388,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_jaslyn-piggott-md_a13aabd941a5",
+    "name": "Jaslyn Piggott, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Jaslyn Piggott, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_jasmine-bhinder-md_bc207e109575",
     "name": "Jasmine Bhinder, MD",
     "role": "fellow",
@@ -8025,6 +8565,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Jonas Kwok, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Nephrology Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_jonathan-hunt-md_756673680239",
+    "name": "Jonathan Hunt, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Jonathan Hunt, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -8292,6 +8844,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_kelly-zafman-md_c9b144e65b65",
+    "name": "Kelly Zafman, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Kelly Zafman, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "kenneth brand",
     "name": "Kenneth Brand, MD",
     "role": "fellow",
@@ -8376,6 +8940,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_lakeisha-mulugeta-gordon-md_9dae96913118",
+    "name": "Lakeisha Mulugeta-Gordon, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Lakeisha Mulugeta-Gordon, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Gynecologic Oncology Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_laura-barnes-md_503959d8cc53",
     "name": "Laura Barnes, MD",
     "role": "fellow",
@@ -8385,6 +8961,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Laura Barnes, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Microvascular Reconstructive Surgery Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_lauren-a-pace-md_3c1c92c7a86b",
+    "name": "Lauren A. Pace, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of Maryland",
+    "residency_program": "University of Alabama at Birmingham",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Lauren A. Pace, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Reproductive Endocrinology and Infertility Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -8544,6 +9132,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_madeline-perry-md_9def03f479ce",
+    "name": "Madeline Perry, MD",
+    "role": "fellow",
+    "program": "Maternal Fetal Medicine Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Madeline Perry, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Maternal Fetal Medicine Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "madia ampey",
     "name": "Madia Ampey, MD",
     "role": "fellow",
@@ -8637,6 +9237,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Marah Alsayed Hasan, MBBS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Endocrinology, Diabetes and Metabolism Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_margaret-a-rush-md_8109eb4cc901",
+    "name": "Margaret A. Rush, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Temple University",
+    "residency_program": "Hospital of the University of Pennsylvania",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Margaret A. Rush, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Reproductive Endocrinology and Infertility Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -9324,6 +9936,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_omar-najjar-md_3b3210adf2a4",
+    "name": "Omar Najjar, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Women and Infant's Hospital of Rhode Island",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Omar Najjar, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_onur-simsek-md_9ece3d0c9fa6",
     "name": "Onur Simsek, MD",
     "role": "fellow",
@@ -9600,6 +10224,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_rita-sartor-md_6c8c0adec932",
+    "name": "Rita Sartor, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Rita Sartor, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Gynecologic Oncology Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "riya madan",
     "name": "Riya Madan, MD",
     "role": "fellow",
@@ -9792,6 +10428,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_samhita-nelamangala-md_61780380b969",
+    "name": "Samhita Nelamangala, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Vanderbilt University Medical Center",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Samhita Nelamangala, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_samyuktha-guttha-md_04cb17170727",
     "name": "Samyuktha Guttha, MD",
     "role": "fellow",
@@ -9909,6 +10557,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Shunsuke Koga, MD, PhD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Neuropathology Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_simone-reaves-md_e7a0bffd05a2",
+    "name": "Simone Reaves, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Jefferson University Hospital",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Simone Reaves, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Urogynecology and Reconstructive Pelvic Surgery Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -10125,6 +10785,18 @@
     "task_type": "publication_identity_search",
     "priority": 70,
     "query": "\"Syed Jaffery, DO, MS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Trauma and Surgical Critical Care Fellowship\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_tal-cantor-md_6fc8b8a61855",
+    "name": "Tal Cantor, MD",
+    "role": "fellow",
+    "program": "Gynecologic Oncology Fellowship",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 70,
+    "query": "\"Tal Cantor, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Gynecologic Oncology Fellowship\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -10413,6 +11085,18 @@
     "task_type": "publication_identity_search",
     "priority": 55,
     "query": "\"Aashish Bhardwaj, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Physical Medicine and Rehabilitation Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_aavishi-arora-bds_eda79e1b7d2e",
+    "name": "Aavishi Arora, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Aavishi Arora, BDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -11880,6 +12564,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_bidisha-ray-bds_223befb19c2e",
+    "name": "Bidisha Ray, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Bidisha Ray, BDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_bijan-dehghani-md_368f580004c7",
     "name": "Bijan Dehghani, MD*",
     "role": "resident",
@@ -12660,6 +13356,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_christy-ng-dds_d01d8c27bf69",
+    "name": "Christy Ng, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Christy Ng, DDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_chuan-hao-chen-md-phd_e76197b8a085",
     "name": "Chuan Hao Chen, MD, PhD",
     "role": "resident",
@@ -12717,6 +13425,18 @@
     "task_type": "publication_identity_search",
     "priority": 55,
     "query": "\"Claudio Velardo, DO\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Physical Medicine and Rehabilitation Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_clayton-blackwell-dds_5c80853aad08",
+    "name": "Clayton Blackwell, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Clayton Blackwell, DDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -14289,6 +15009,18 @@
     "task_type": "publication_identity_search",
     "priority": 55,
     "query": "\"Hasan Ahmad, MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Neurological Surgery Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_hayden-han-dds_092009d1cbee",
+    "name": "Hayden Han, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Hayden Han, DDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -16029,6 +16761,18 @@
     "task_type": "publication_identity_search",
     "priority": 55,
     "query": "\"Krishna Ravindra MD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Internal Medicine Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_kristen-horstmann-dds_ca5225fbb659",
+    "name": "Kristen Horstmann, DDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Kristen Horstmann, DDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -18648,6 +19392,18 @@
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
+    "person_key": "person_ridhima-seth-bds_91a0711616a0",
+    "name": "Ridhima Seth, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Ridhima Seth, BDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
     "person_key": "person_rishab-ramapriyan-md_3dba0705089f",
     "name": "Rishab Ramapriyan, MD",
     "role": "resident",
@@ -18921,6 +19677,18 @@
     "task_type": "publication_identity_search",
     "priority": 55,
     "query": "\"Sai Aung Phyo MD, PhD\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Internal Medicine Physician-Scientist Pathway\"",
+    "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
+  },
+  {
+    "person_key": "person_sai-vejella-bds_ea3814189f8e",
+    "name": "Sai Vejella, BDS",
+    "role": "resident",
+    "program": "Oral Medicine Residency",
+    "medical_school": "",
+    "residency_program": "",
+    "task_type": "publication_identity_search",
+    "priority": 55,
+    "query": "\"Sai Vejella, BDS\" PubMed OR ORCID OR OpenAlex \"University of Pennsylvania\" \"Oral Medicine Residency\"",
     "acceptance_rule": "Attach publications only with at least two identity anchors beyond name."
   },
   {
@@ -20868,6 +21636,18 @@
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
+    "person_key": "person_alex-qin-md_6031f6659683",
+    "name": "Alex Qin, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Mt. Sinai Hospital",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Alex Qin, MD\" \"Mt. Sinai Hospital\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
     "person_key": "person_alexa-l-carreras-md_2b1b75611f60",
     "name": "Alexa L. Carreras, MD",
     "role": "fellow",
@@ -20925,6 +21705,18 @@
     "task_type": "prior_training_profile_search",
     "priority": 45,
     "query": "\"Alexandra Leto, MD\" \"Penn Internal Medicine\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
+    "person_key": "person_alexandria-n-young-md_6fae2d34fabc",
+    "name": "Alexandria N. Young, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of Illinois",
+    "residency_program": "Mass General Brigham",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Alexandria N. Young, MD\" \"Mass General Brigham\" resident OR fellow OR profile",
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
@@ -21156,6 +21948,18 @@
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
+    "person_key": "person_austin-b-gardner-md_8ef71fde2ff8",
+    "name": "Austin B. Gardner, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of California, Irvine",
+    "residency_program": "University of Alabama at Birmingham",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Austin B. Gardner, MD\" \"University of Alabama at Birmingham\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
     "person_key": "austin triana",
     "name": "Austin Triana, MD, MBA",
     "role": "fellow",
@@ -21225,6 +22029,18 @@
     "task_type": "prior_training_profile_search",
     "priority": 45,
     "query": "\"Benjamin Bleiberg, MD\" \"Hospital of the University of Pennsylvania\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
+    "person_key": "person_benjamin-j-peipert-md_0ac20aba515c",
+    "name": "Benjamin J. Peipert, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Northwestern University",
+    "residency_program": "Duke University",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Benjamin J. Peipert, MD\" \"Duke University\" resident OR fellow OR profile",
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
@@ -21429,6 +22245,18 @@
     "task_type": "prior_training_profile_search",
     "priority": 45,
     "query": "\"Caroline B. Head, MD\" \"UAB Callahan Eye Hospital\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
+    "person_key": "person_cassie-l-hobbs-md_e1fdc9139d74",
+    "name": "Cassie L. Hobbs, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Duke University",
+    "residency_program": "Brown University",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Cassie L. Hobbs, MD\" \"Brown University\" resident OR fellow OR profile",
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
@@ -22608,6 +23436,18 @@
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
+    "person_key": "person_lauren-a-pace-md_3c1c92c7a86b",
+    "name": "Lauren A. Pace, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "University of Maryland",
+    "residency_program": "University of Alabama at Birmingham",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Lauren A. Pace, MD\" \"University of Alabama at Birmingham\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
     "person_key": "lauren hogshire",
     "name": "Lauren Hogshire, MD",
     "role": "fellow",
@@ -22785,6 +23625,18 @@
     "task_type": "prior_training_profile_search",
     "priority": 45,
     "query": "\"Marah Alsayed Hasan, MBBS\" \"Main Line Health System/Lankenau Medical Center\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
+    "person_key": "person_margaret-a-rush-md_8109eb4cc901",
+    "name": "Margaret A. Rush, MD",
+    "role": "fellow",
+    "program": "Reproductive Endocrinology and Infertility Fellowship",
+    "medical_school": "Temple University",
+    "residency_program": "Hospital of the University of Pennsylvania",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Margaret A. Rush, MD\" \"Hospital of the University of Pennsylvania\" resident OR fellow OR profile",
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
@@ -23256,6 +24108,18 @@
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
+    "person_key": "person_omar-najjar-md_3b3210adf2a4",
+    "name": "Omar Najjar, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Women and Infant's Hospital of Rhode Island",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Omar Najjar, MD\" \"Women and Infant's Hospital of Rhode Island\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
     "person_key": "person_onur-simsek-md_9ece3d0c9fa6",
     "name": "Onur Simsek, MD",
     "role": "fellow",
@@ -23676,6 +24540,18 @@
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {
+    "person_key": "person_samhita-nelamangala-md_61780380b969",
+    "name": "Samhita Nelamangala, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Vanderbilt University Medical Center",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Samhita Nelamangala, MD\" \"Vanderbilt University Medical Center\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
     "person_key": "person_samyuktha-guttha-md_04cb17170727",
     "name": "Samyuktha Guttha, MD",
     "role": "fellow",
@@ -23781,6 +24657,18 @@
     "task_type": "prior_training_profile_search",
     "priority": 45,
     "query": "\"Shivam Gulhar, MD\" \"Virginia Commonwealth University\" resident OR fellow OR profile",
+    "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
+  },
+  {
+    "person_key": "person_simone-reaves-md_e7a0bffd05a2",
+    "name": "Simone Reaves, MD",
+    "role": "fellow",
+    "program": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "medical_school": "",
+    "residency_program": "Jefferson University Hospital",
+    "task_type": "prior_training_profile_search",
+    "priority": 45,
+    "query": "\"Simone Reaves, MD\" \"Jefferson University Hospital\" resident OR fellow OR profile",
     "acceptance_rule": "Treat prior profile pages as enrichment candidates, not current-roster truth."
   },
   {

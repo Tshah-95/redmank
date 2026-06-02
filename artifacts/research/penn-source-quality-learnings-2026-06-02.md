@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T07:17:17.023288+00:00
+Generated: 2026-06-02T07:25:39.553312+00:00
 
 ## What This Pass Did
 
@@ -25,9 +25,9 @@ Official HUP programs parsed: 91.
 
 | coverage_status | count |
 | --- | --- |
-| covered_current_roster | 59 |
+| covered_current_roster | 64 |
 | discovered_no_current_roster | 12 |
-| not_discovered | 20 |
+| not_discovered | 15 |
 
 Sample uncovered or partially covered official programs:
 
@@ -50,12 +50,7 @@ Sample uncovered or partially covered official programs:
 | fellowship | Neurology | Neuromuscular Medicine | not_discovered | none |
 | fellowship | Neurology | Vascular Neurology | not_discovered | none |
 | fellowship | Obstetrics and Gynecology | Complex Family Planning | not_discovered | none |
-| fellowship | Obstetrics and Gynecology | Gynecologic Oncology | not_discovered | none |
-| fellowship | Obstetrics and Gynecology | Maternal Fetal Medicine | not_discovered | none |
-| fellowship | Obstetrics and Gynecology | Reproductive Endocrinology and Infertility | not_discovered | none |
-| fellowship | Obstetrics and Gynecology | Urogynecology and Reconstructive Pelvic Surgery | not_discovered | none |
 | residency | Oral and Maxillofacial Surgery | Oral and Maxillofacial Surgery | not_discovered | none |
-| residency | Oral and Maxillofacial Surgery | Oral Medicine | not_discovered | none |
 | fellowship | Pathology and Laboratory Medicine | Soft Tissue/Bone (Selective) | discovered_no_current_roster | source_discovery |
 | fellowship | Physical Medicine and Rehabilitation | Brain Injury Medicine | discovered_no_current_roster | source_discovery |
 | residency | Psychiatry | Psychiatry | not_discovered | none |
@@ -70,13 +65,13 @@ Learning: source discovery is not coverage. An official program-universe table g
 
 ## HUP Gap Source Queue
 
-Gap programs probed: 32. Source pages probed: 28. Candidate URLs queued: 82.
+Gap programs probed: 27. Source pages probed: 23. Candidate URLs queued: 72.
 
 | candidate_status | count |
 | --- | --- |
 | low_value_candidate | 5 |
-| program_context_candidate | 53 |
-| roster_source_candidate | 24 |
+| program_context_candidate | 52 |
+| roster_source_candidate | 15 |
 
 Top roster-source candidates:
 
@@ -86,10 +81,6 @@ Top roster-source candidates:
 | Plastic Surgery | Surgery | roster_source_candidate | 135 | Meet Our Residents | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents |
 | Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
 | Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
-| Neurology | Neurology | roster_source_candidate | 125 | Class of 2026 | https://neuroresidency.uphs.upenn.edu/residents/2026 |
-| Neurology | Neurology | roster_source_candidate | 125 | Class of 2027 | https://neuroresidency.uphs.upenn.edu/residents/2027 |
-| Neurology | Neurology | roster_source_candidate | 125 | Class of 2028 | https://neuroresidency.uphs.upenn.edu/residents/2028 |
-| Neurology | Neurology | roster_source_candidate | 125 | Class of 2029 | https://neuroresidency.uphs.upenn.edu/residents/2029 |
 | Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 125 | Fellows | https://pathology.med.upenn.edu/education/fellowships/fellows |
 | Radiology - Interventional, Independent | Radiology | roster_source_candidate | 125 | Meet our Integrated IR residents | https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/ir-integrated-residents |
 | Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 120 | Student Fellows | https://pathology.med.upenn.edu/department/people/students-fellows |
@@ -99,11 +90,6 @@ Top roster-source candidates:
 | Transplant Hepatology | Internal Medicine | roster_source_candidate | 115 | Advanced Gastroenterology and Hepatology Fellows | https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows |
 | Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 115 | Current | https://pathology.med.upenn.edu/education/residency/residents/current |
 | Neurocritical Care | Neurology | roster_source_candidate | 90 | Neurocritical Care \| Penn Neurology Fellowship Programs | https://neurofellowships.uphs.upenn.edu/p/neurocritical-care_17.html |
-| Neurology | Neurology | roster_source_candidate | 90 | Penn Neurology Residency Program | https://neuroresidency.uphs.upenn.edu/ |
-| Gynecologic Oncology | Obstetrics and Gynecology | roster_source_candidate | 90 | Gynecologic Oncology - Penn Medicine | https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/gynecologic-oncology |
-| Maternal Fetal Medicine | Obstetrics and Gynecology | roster_source_candidate | 90 | Maternal Fetal Medicine - Penn Medicine | https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/maternal-fetal-medicine |
-| Reproductive Endocrinology and Infertility | Obstetrics and Gynecology | roster_source_candidate | 90 | Reproductive Endocrinology - Penn Medicine | https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/reproductive-endocrinology |
-| Urogynecology and Reconstructive Pelvic Surgery | Obstetrics and Gynecology | roster_source_candidate | 90 | Urogynecology - Penn Medicine | https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/urogynecology |
 | Radiology - Interventional, Independent | Radiology | roster_source_candidate | 80 | Interventional Radiology Integrated and Independent Residency | https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology |
 | Plastic Surgery | Surgery | roster_source_candidate | 80 | Plastic Surgery Integrated & Independent Residency - Penn Medicine | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery |
 
@@ -111,21 +97,21 @@ Learning: coverage gaps need their own crawl state. Official program URLs, disco
 
 ## HUP Gap Roster Extraction
 
-Supported gap roster sources attempted: 26. Sources with records: 22. Person records extracted: 492.
+Supported gap roster sources attempted: 32. Sources with records: 27. Person records extracted: 524.
 
 Records by role:
 
 | role | count |
 | --- | --- |
-| fellow | 58 |
-| resident | 434 |
+| fellow | 82 |
+| resident | 442 |
 
 Extraction statuses:
 
 | extraction_status | count |
 | --- | --- |
-| no_supported_person_structure | 4 |
-| records_extracted | 22 |
+| no_supported_person_structure | 5 |
+| records_extracted | 27 |
 
 Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records.
 
@@ -156,23 +142,23 @@ Learning: queue-driven extraction should stay template-aware. Pages without supp
 | Ophthalmology Fellowship | fellow | 10 |
 | Abdominal Imaging Fellowship | fellow | 9 |
 | Vascular Surgery Integrated Residency | resident | 9 |
+| Maternal Fetal Medicine Fellowship | fellow | 8 |
+| Oral Medicine Residency | resident | 8 |
 | Sleep Medicine Fellowship | fellow | 7 |
+| Gynecologic Oncology Fellowship | fellow | 6 |
+| Reproductive Endocrinology and Infertility Fellowship | fellow | 6 |
 | Surgical Pathology Fellowship | fellow | 6 |
 | Microvascular Reconstructive Surgery Fellowship | fellow | 5 |
 | CHOP Otolaryngology Fellowship | fellow | 4 |
 | Hematopathology Fellowship | fellow | 4 |
 | Thoracic Surgery Fellowship - Cardiac Track | fellow | 4 |
+| Urogynecology and Reconstructive Pelvic Surgery Fellowship | fellow | 4 |
 | Vascular Surgery Fellowship | fellow | 4 |
 | Adult Reconstructive Orthopedics Fellowship | fellow | 3 |
 | Advanced Musculoskeletal Fellowship | fellow | 3 |
 | Transplant Surgery Fellowship | fellow | 3 |
 | Aortic Surgery Fellowship | fellow | 2 |
 | Clinical Chemistry Fellowship | fellow | 2 |
-| Clinical Microbiology Fellowship | fellow | 2 |
-| Cytopathology Fellowship | fellow | 2 |
-| Foot and Ankle Fellowship | fellow | 2 |
-| GI/Hepatic Pathology Fellowship | fellow | 2 |
-| Hand Surgery Fellowship | fellow | 2 |
 
 Generic `Residents`/`Fellows` program labels remaining: 0.
 
@@ -199,12 +185,12 @@ Learning: program names often require URL-plus-section inference. Page titles al
 | clinical_postgraduate | GME_PGY_7 | current | 3 | 0.9 |
 | clinical_postgraduate | GME_PRELIMINARY_RESIDENT | current | 13 | 0.66 |
 | clinical_postgraduate | GME_RESIDENT_CLASS_YEAR | current | 73 | 0.62 |
-| clinical_postgraduate | GME_RESIDENT_YEAR_UNKNOWN | current | 86 | 0.426 |
+| clinical_postgraduate | GME_RESIDENT_YEAR_UNKNOWN | current | 94 | 0.429 |
 | clinical_postgraduate_research | GME_RESEARCH_OR_LAB_YEAR | current | 25 | 0.68 |
-| fellowship | FELLOWSHIP_CURRENT_YEAR_UNKNOWN | current | 175 | 0.499 |
-| fellowship | FELLOWSHIP_YEAR_1 | current | 66 | 0.82 |
-| fellowship | FELLOWSHIP_YEAR_2 | current | 59 | 0.82 |
-| fellowship | FELLOWSHIP_YEAR_3 | current | 36 | 0.82 |
+| fellowship | FELLOWSHIP_CURRENT_YEAR_UNKNOWN | current | 185 | 0.5 |
+| fellowship | FELLOWSHIP_YEAR_1 | current | 72 | 0.82 |
+| fellowship | FELLOWSHIP_YEAR_2 | current | 63 | 0.82 |
+| fellowship | FELLOWSHIP_YEAR_3 | current | 40 | 0.82 |
 | fellowship | FELLOWSHIP_YEAR_4 | current | 7 | 0.82 |
 | medical_school | MEDICAL_SCHOOL_MS1 | current | 22 | 0.85 |
 | medical_school | MEDICAL_SCHOOL_MS2 | current | 31 | 0.85 |
@@ -218,8 +204,8 @@ Transition rules observed:
 | transition_rule | count |
 | --- | --- |
 | expected GME annual advancement around Jul 1 unless program-specific exception | 618 |
-| expected fellowship annual advancement around Jul 1; terminal year requires program-length context | 168 |
-| current fellow but year not normalized; refresh on next roster and use program-specific duration if available | 131 |
+| expected fellowship annual advancement around Jul 1; terminal year requires program-length context | 182 |
+| current fellow but year not normalized; refresh on next roster and use program-specific duration if available | 141 |
 | MSTP PhD phase duration is individualized; refresh from public directory annually | 123 |
 | expected anesthesia clinical-year advancement around Jul 1; map to PGY with program review | 75 |
 | class-year resident label; derive exact PGY only with program-duration context | 73 |
@@ -231,8 +217,8 @@ Transition rules observed:
 | intern label maps to PGY1; expected annual advancement around Jul 1 | 36 |
 | expected clinical-year advancement around Jul 1; map to PGY with program review | 28 |
 | research/lab resident state is program-specific; refresh from roster rather than auto-advance | 25 |
+| current resident but exact year not visible on source; refresh on next roster | 21 |
 | chief year is terminal/program-specific; refresh on next academic-year roster | 16 |
-| current resident but exact year not visible on source; refresh on next roster | 13 |
 | preliminary resident label usually maps to a one-year GME state; verify against program context | 13 |
 | terminal_or_historical_state; do not auto-advance | 13 |
 | fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available | 8 |
@@ -248,16 +234,16 @@ Lifecycle semantics observed:
 | US_GME_ANESTHESIA_CA_PHASE_3Y | expected_completion | annual_clock | 23 | 0.74 |
 | US_GME_FELLOWSHIP_1Y | source_refresh_required | source_refresh_required | 91 | 0.509 |
 | US_GME_FELLOWSHIP_1Y | stage_outside_nominal_duration_review | review_required | 1 | 0.82 |
-| US_GME_FELLOWSHIP_2Y | expected_annual_advancement | annual_clock | 26 | 0.82 |
-| US_GME_FELLOWSHIP_2Y | expected_completion | annual_clock | 24 | 0.82 |
+| US_GME_FELLOWSHIP_2Y | expected_annual_advancement | annual_clock | 28 | 0.82 |
+| US_GME_FELLOWSHIP_2Y | expected_completion | annual_clock | 26 | 0.82 |
 | US_GME_FELLOWSHIP_2Y | source_refresh_required | source_refresh_required | 27 | 0.567 |
-| US_GME_FELLOWSHIP_2Y | stage_outside_nominal_duration_review | review_required | 3 | 0.873 |
+| US_GME_FELLOWSHIP_2Y | stage_outside_nominal_duration_review | review_required | 5 | 0.852 |
 | US_GME_FELLOWSHIP_3Y | expected_annual_advancement | annual_clock | 72 | 0.82 |
 | US_GME_FELLOWSHIP_3Y | expected_completion | annual_clock | 35 | 0.82 |
 | US_GME_FELLOWSHIP_3Y | source_refresh_required | source_refresh_required | 10 | 0.52 |
 | US_GME_FELLOWSHIP_3Y | stage_outside_nominal_duration_review | review_required | 7 | 0.82 |
-| US_GME_FELLOWSHIP_DURATION_UNKNOWN | source_refresh_required | annual_clock | 4 | 0.86 |
-| US_GME_FELLOWSHIP_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 54 | 0.471 |
+| US_GME_FELLOWSHIP_DURATION_UNKNOWN | source_refresh_required | annual_clock | 12 | 0.833 |
+| US_GME_FELLOWSHIP_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 64 | 0.478 |
 | US_GME_PRELIMINARY_1Y | expected_completion | annual_clock | 13 | 0.66 |
 | US_GME_RESIDENCY_3Y | expected_annual_advancement | annual_clock | 234 | 0.9 |
 | US_GME_RESIDENCY_3Y | expected_completion | annual_clock | 107 | 0.9 |
@@ -274,64 +260,65 @@ Lifecycle semantics observed:
 | US_GME_RESIDENCY_7Y | expected_annual_advancement | annual_clock | 18 | 0.9 |
 | US_GME_RESIDENCY_7Y | expected_completion | annual_clock | 3 | 0.9 |
 | US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | annual_clock | 44 | 0.9 |
+| US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 8 | 0.46 |
 | US_MD_PHD_MSTP_VARIABLE | source_refresh_required | source_refresh_required | 225 | 0.762 |
 
 State-machine audit status:
 
 | state_machine_status | count |
 | --- | --- |
-| annual_clock_active | 657 |
-| current_observation | 61 |
-| review_required | 21 |
-| source_refresh_required | 609 |
-| terminal_year_active | 250 |
+| annual_clock_active | 659 |
+| current_observation | 69 |
+| review_required | 23 |
+| source_refresh_required | 627 |
+| terminal_year_active | 252 |
 
 Clock models:
 
 | clock_model | count |
 | --- | --- |
-| annual_gme_july | 955 |
+| annual_gme_july | 967 |
 | refresh_from_source | 13 |
-| review_required | 21 |
-| source_refresh_required | 609 |
+| review_required | 23 |
+| source_refresh_required | 627 |
 
-Auto-advance candidate rows: 657. Completion candidate rows: 250. Stale/review rows: 21.
+Auto-advance candidate rows: 659. Completion candidate rows: 252. Stale/review rows: 23.
 
 Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.
 
 ## Longitudinal Change Readiness
 
-Projected refresh date: 2027-08-15. State rows: 1598. Person rows: 1451. Program rows: 90.
+Projected refresh date: 2027-08-15. State rows: 1630. Person rows: 1483. Program rows: 95.
 
 Readiness statuses:
 
 | readiness_status | count |
 | --- | --- |
 | active_no_change_expected | 13 |
-| expected_advancement_window | 657 |
-| expected_completion_window | 250 |
-| review_required_window | 21 |
-| source_refresh_required_window | 609 |
-| stale_without_transition_review | 48 |
+| expected_advancement_window | 659 |
+| expected_completion_window | 252 |
+| review_required_window | 23 |
+| source_refresh_required_window | 627 |
+| stale_without_transition_review | 56 |
 
 Missing-on-refresh expectations:
 
 | missing_expectation | count |
 | --- | --- |
-| absence_requires_source_reconciliation | 678 |
-| expected_absence_after_completion | 250 |
-| unexpected_absence_review | 670 |
+| absence_requires_source_reconciliation | 706 |
+| expected_absence_after_completion | 252 |
+| unexpected_absence_review | 672 |
 
 Same-stage-on-refresh expectations:
 
 | same_stage_expectation | count |
 | --- | --- |
-| same_stage_after_expected_transition_review | 657 |
+| same_stage_after_expected_transition_review | 659 |
 | same_stage_expected | 13 |
-| same_stage_requires_fresh_source | 678 |
-| same_terminal_stage_after_completion_review | 250 |
+| same_stage_requires_fresh_source | 706 |
+| same_terminal_stage_after_completion_review | 252 |
 
-Advancement due rows: 1414. Completion-window rows: 250. Source-refresh-required rows: 609. Human-review rows: 69.
+Advancement due rows: 1446. Completion-window rows: 252. Source-refresh-required rows: 627. Human-review rows: 79.
 
 Learning: annual diffs should be state-machine informed before they are person-table mutations. A missing terminal-year fellow after the stale-after date is likely completion; a missing PGY-2 before the expected exit is a review item; an unchanged MSTP PhD-phase student needs a fresh source rather than an inferred clock advancement.
 
@@ -438,22 +425,26 @@ Learning: annual diffs should be state-machine informed before they are person-t
 | penn_gme_gap_departments_and_centers_family_medicine_and_community_health_education_3e2990eebf | accepted | medical_school | 34 | 0.897 |
 | penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4 | accepted | medical_school | 21 | 0.94 |
 | penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4 | accepted | undergraduate_school | 21 | 0.912 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_291e92d34d | accepted | residency_program | 4 | 0.85 |
 | penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d | accepted | graduate_school | 6 | 0.817 |
 | penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d | accepted | medical_school | 32 | 0.912 |
 | penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d | accepted | undergraduate_school | 29 | 0.929 |
-| penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b | accepted | medical_school | 40 | 0.89 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_9f2f64f93c | accepted | medical_school | 6 | 0.883 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_9f2f64f93c | accepted | residency_program | 6 | 0.85 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_9f2f64f93c | accepted | undergraduate_school | 6 | 0.917 |
+| penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b | accepted | medical_school | 40 | 0.895 |
 | penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b | accepted | undergraduate_school | 40 | 0.845 |
 | penn_gme_gap_departments_and_centers_physical_medicine_and_rehabilitation_education_7d5742c85a | accepted | medical_school | 22 | 0.841 |
 | penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | graduate_school | 2 | 0.75 |
 | penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | medical_school | 16 | 0.887 |
 | penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | undergraduate_school | 16 | 0.825 |
 | penn_gme_gap_education_residency_residents_current_5a6a4942f1 | accepted | medical_school | 38 | 0.876 |
-| penn_gme_gap_residents_2026_a44d511002 | accepted | medical_school | 14 | 0.936 |
+| penn_gme_gap_residents_2026_a44d511002 | accepted | medical_school | 14 | 0.921 |
 | penn_gme_gap_residents_2027_15a734ed51 | accepted | medical_school | 14 | 0.821 |
 | penn_gme_gap_residents_2028_420d5a86f8 | accepted | medical_school | 14 | 0.879 |
 | penn_gme_gap_residents_2029_3396e9a918 | accepted | medical_school | 12 | 0.917 |
 | pubmed_eutilities | candidate | pubmed_article_candidate | 1008 | 0.652 |
-| pubmed_eutilities | candidate | pubmed_author_query_candidate | 1103 | 0.205 |
+| pubmed_eutilities | candidate | pubmed_author_query_candidate | 1111 | 0.204 |
 | pubmed_eutilities | needs_review | pubmed_article_candidate | 850 | 0.841 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
@@ -474,7 +465,7 @@ Learning: annual diffs should be state-machine informed before they are person-t
 | career_event | candidate | personal_profile_candidate | 2 | 39.0 | 0.45 |
 | career_event | candidate | current_penn_attending_candidate | 49 | 35.0 | 0.55 |
 | career_event | candidate | penn_alumni_outcome_candidate | 36 | 23.6 | 0.411 |
-| evidence_claim | candidate | pubmed_author_query_candidate | 1103 | 13.7 | 0.205 |
+| evidence_claim | candidate | pubmed_author_query_candidate | 1111 | 13.7 | 0.204 |
 
 Top queued records:
 
@@ -515,7 +506,7 @@ Learning: candidate evidence needs a ranked reconciliation surface. The queue se
 
 ## Reconciliation Decision Ledger
 
-Decision rows: 3066. Review-ready rows: 120. Person/name rollups: 1153.
+Decision rows: 3074. Review-ready rows: 120. Person/name rollups: 1161.
 
 Decision counts:
 
@@ -525,7 +516,7 @@ Decision counts:
 | attending_training_claim_review_ready | 3 |
 | candidate_with_partial_anchor | 102 |
 | current_attending_endpoint_candidate | 49 |
-| discovery_only | 1103 |
+| discovery_only | 1111 |
 | low_signal_candidate | 912 |
 | needs_secondary_identity_anchor | 727 |
 | outcome_context_only | 36 |
@@ -654,27 +645,27 @@ Learning: seeded official Penn/provider URLs give a deterministic baseline for t
 
 ## Enrichment Coverage Audit
 
-People audited: 1451. Program/role groups audited: 90. Average coverage score: 59.17.
+People audited: 1483. Program/role groups audited: 95. Average coverage score: 58.52.
 
 Coverage bands:
 
 | coverage_band | count |
 | --- | --- |
 | broad_enrichment_surface | 95 |
-| moderate_enrichment_surface | 1155 |
-| thin_enrichment_surface | 201 |
+| moderate_enrichment_surface | 1158 |
+| thin_enrichment_surface | 230 |
 
 Recommended next actions:
 
 | recommended_next_action | count |
 | --- | --- |
-| collect_article_level_research_candidates | 255 |
+| collect_article_level_research_candidates | 254 |
 | monitor_refresh_and_diff | 205 |
-| official_profile_search | 484 |
-| organization_alias_review | 386 |
+| official_profile_search | 514 |
+| organization_alias_review | 387 |
 | public_contact_search | 33 |
 | reconcile_high_priority_evidence | 49 |
-| review_training_state_machine | 20 |
+| review_training_state_machine | 22 |
 | source_medical_school_background | 15 |
 | source_residency_background | 4 |
 
@@ -687,7 +678,9 @@ Lowest-scoring program/role surfaces:
 | Clinical Microbiology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Cytopathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | GI/Hepatic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Gynecologic Oncology Fellowship | fellow | 6 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Hematopathology Fellowship | fellow | 4 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Maternal Fetal Medicine Fellowship | fellow | 8 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Molecular Genetic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Neuropathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Soft Tissue/Bone Pathology Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
@@ -703,10 +696,8 @@ Lowest-scoring program/role surfaces:
 | Shoulder and Elbow Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Sleep Medicine and Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Spine Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Oral Medicine Residency | resident | 8 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Otorhinolaryngology Residency | resident | 31 | 25.65 | 0.0 | 0.0 | 0.065 | official_profile_search |
-| Sleep Medicine Fellowship | fellow | 7 | 26.43 | 0.0 | 0.0 | 0.143 | official_profile_search |
-| Radiation Oncology Residency | resident | 17 | 27.35 | 0.0 | 0.0 | 0.235 | official_profile_search |
-| ABR Alternate Pathway to Certification | fellow | 1 | 30.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 
 Learning: coverage needs to be audited separately from evidence acceptance. This pass shows where the recursive loop should work next: official profile search, organization alias review, article-level research collection, and high-priority reconciliation.
 
@@ -716,7 +707,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 | --- | --- | --- | --- | --- | --- | --- |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_article_reconciliation | 297 | 1008 | 0 | 0 | 850 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 1858, "mean_confidence": 0.7386, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 1858, "summary": {"article_claims": 1858, "by_feature": {"article_author_name_match": 1858, "bounded_author_query": 1858, "penn_affiliation": 11, "prior_training_or_education_affiliation": 843, "program_topic_match": 215, "recent_publication": 1647}, "by_status": {"candidate": 1008, "needs_review": 850}, "generated_at": "2026-06-02T06:14:49.049485+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 305, "unique_pmids_fetched": 1879}} |
-| pubmed_eutilities | 1103 | 2111 | 0 | 0 | 850 | {"claims": 2961, "mean_confidence": 0.5398, "orphan_claims_skipped": 8, "orphan_people_skipped": 8, "raw_claims": 2969} |
+| pubmed_eutilities | 1111 | 2119 | 0 | 0 | 850 | {"claims": 2969, "mean_confidence": 0.5386, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2969} |
 
 ## OpenAlex Feature Distribution
 
@@ -731,7 +722,7 @@ Learning: OpenAlex remains a promising author-disambiguation utility, but the cu
 | --- | --- | --- |
 | ["author_query", "high_collision_risk"] | 669 | 0.159 |
 | ["author_query", "bounded_result_count"] | 305 | 0.35 |
-| ["author_query", "no_results"] | 129 | 0.1 |
+| ["author_query", "no_results"] | 137 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
 

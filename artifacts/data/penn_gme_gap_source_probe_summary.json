@@ -1,17 +1,17 @@
 {
   "by_candidate_status": {
     "low_value_candidate": 5,
-    "program_context_candidate": 53,
-    "roster_source_candidate": 24
+    "program_context_candidate": 52,
+    "roster_source_candidate": 15
   },
   "by_coverage_status": {
     "discovered_no_current_roster": 54,
-    "not_discovered": 28
+    "not_discovered": 18
   },
-  "candidate_urls": 82,
-  "gap_programs": 32,
-  "generated_at": "2026-06-02T06:50:26.083737+00:00",
-  "source_pages_probed": 28,
+  "candidate_urls": 72,
+  "gap_programs": 27,
+  "generated_at": "2026-06-02T07:25:19.375219+00:00",
+  "source_pages_probed": 23,
   "top_roster_candidates": [
     {
       "candidate_title": "Current Residents",
@@ -44,38 +44,6 @@
       "department": "Pathology and Laboratory Medicine",
       "priority": 130,
       "program_name": "Soft Tissue/Bone (Selective)"
-    },
-    {
-      "candidate_title": "Class of 2026",
-      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2026",
-      "confidence": 0.55,
-      "department": "Neurology",
-      "priority": 125,
-      "program_name": "Neurology"
-    },
-    {
-      "candidate_title": "Class of 2027",
-      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2027",
-      "confidence": 0.55,
-      "department": "Neurology",
-      "priority": 125,
-      "program_name": "Neurology"
-    },
-    {
-      "candidate_title": "Class of 2028",
-      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2028",
-      "confidence": 0.55,
-      "department": "Neurology",
-      "priority": 125,
-      "program_name": "Neurology"
-    },
-    {
-      "candidate_title": "Class of 2029",
-      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2029",
-      "confidence": 0.55,
-      "department": "Neurology",
-      "priority": 125,
-      "program_name": "Neurology"
     },
     {
       "candidate_title": "Fellows",
@@ -148,46 +116,6 @@
       "department": "Neurology",
       "priority": 90,
       "program_name": "Neurocritical Care"
-    },
-    {
-      "candidate_title": "Penn Neurology Residency Program",
-      "candidate_url": "https://neuroresidency.uphs.upenn.edu/",
-      "confidence": 0.45,
-      "department": "Neurology",
-      "priority": 90,
-      "program_name": "Neurology"
-    },
-    {
-      "candidate_title": "Gynecologic Oncology - Penn Medicine",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/gynecologic-oncology",
-      "confidence": 0.45,
-      "department": "Obstetrics and Gynecology",
-      "priority": 90,
-      "program_name": "Gynecologic Oncology"
-    },
-    {
-      "candidate_title": "Maternal Fetal Medicine - Penn Medicine",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/maternal-fetal-medicine",
-      "confidence": 0.45,
-      "department": "Obstetrics and Gynecology",
-      "priority": 90,
-      "program_name": "Maternal Fetal Medicine"
-    },
-    {
-      "candidate_title": "Reproductive Endocrinology - Penn Medicine",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/reproductive-endocrinology",
-      "confidence": 0.45,
-      "department": "Obstetrics and Gynecology",
-      "priority": 90,
-      "program_name": "Reproductive Endocrinology and Infertility"
-    },
-    {
-      "candidate_title": "Urogynecology - Penn Medicine",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/urogynecology",
-      "confidence": 0.45,
-      "department": "Obstetrics and Gynecology",
-      "priority": 90,
-      "program_name": "Urogynecology and Reconstructive Pelvic Surgery"
     },
     {
       "candidate_title": "Interventional Radiology Integrated and Independent Residency",

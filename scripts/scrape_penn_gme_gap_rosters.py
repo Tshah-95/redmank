@@ -80,6 +80,41 @@ SEED_ROSTER_CANDIDATES = [
     },
     {
         "candidate_title": "Current Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/family-planning",
+        "department": "Obstetrics and Gynecology",
+        "program_name": "Complex Family Planning",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/gynecologic-oncology",
+        "department": "Obstetrics and Gynecology",
+        "program_name": "Gynecologic Oncology",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/maternal-fetal-medicine",
+        "department": "Obstetrics and Gynecology",
+        "program_name": "Maternal Fetal Medicine",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/reproductive-endocrinology",
+        "department": "Obstetrics and Gynecology",
+        "program_name": "Reproductive Endocrinology and Infertility",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/urogynecology",
+        "department": "Obstetrics and Gynecology",
+        "program_name": "Urogynecology and Reconstructive Pelvic Surgery",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Fellows",
         "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows",
         "department": "Orthopedic Surgery",
         "program_name": "Adult Reconstructive Orthopedics",
@@ -104,6 +139,34 @@ SEED_ROSTER_CANDIDATES = [
         "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency/residents",
         "department": "Neurological Surgery",
         "program_name": "Neurological Surgery",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Class of 2026",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2026",
+        "department": "Neurology",
+        "program_name": "Neurology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Class of 2027",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2027",
+        "department": "Neurology",
+        "program_name": "Neurology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Class of 2028",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2028",
+        "department": "Neurology",
+        "program_name": "Neurology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Class of 2029",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2029",
+        "department": "Neurology",
+        "program_name": "Neurology",
         "program_type": "residency",
     },
     {
@@ -168,6 +231,34 @@ SEED_ROSTER_CANDIDATES = [
         "department": "Internal Medicine",
         "program_name": "Sleep Medicine",
         "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "department": "Pathology and Laboratory Medicine",
+        "program_name": "Pathology Fellowships",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "department": "Pathology and Laboratory Medicine",
+        "program_name": "Pathology - Anatomic and Clinical",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/education/residency/residents/current",
+        "department": "Pathology and Laboratory Medicine",
+        "program_name": "Pathology - Anatomic and Clinical",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://www.dental.upenn.edu/departments/oral-medicine/resident-profiles",
+        "department": "Oral and Maxillofacial Surgery",
+        "program_name": "Oral Medicine",
+        "program_type": "residency",
     },
 ]
 
@@ -386,12 +477,87 @@ def class_or_pgy_label(text: str) -> str:
     return text
 
 
+def extract_name_prefix(value: str) -> str:
+    value = clean_name(value)
+    match = NAME_LINE_PATTERN.search(value)
+    if not match:
+        return value
+    return clean_name(match.group(0))
+
+
+def parse_colon_fields(value: str) -> dict:
+    value = norm(value)
+    fields = {}
+    aliases = {
+        "Undergraduate": "undergraduate_school",
+        "Medical School": "medical_school",
+        "Residency": "residency_program",
+    }
+    for label, key in aliases.items():
+        pattern = rf"{re.escape(label)}:\s*(.+?)(?=\s+(?:Undergraduate|Medical School|Residency):|$)"
+        match = re.search(pattern, value, re.I)
+        if match:
+            fields[key] = clean_school_value(match.group(1))
+    return {key: val for key, val in fields.items() if val}
+
+
 def clean_school_value(value: str) -> str:
     value = norm(value)
     value = re.sub(r"\s+See Profile$", "", value, flags=re.I)
     value = re.sub(r",?\s+\d{4}(?:\s*\([^)]*\))?(?:\s+and\s+[’']\d{2}\s*\([^)]*\))?$", "", value)
     value = re.sub(r",?\s+[’']\d{2}\s*\([^)]*\)$", "", value)
     return norm(value)
+
+
+def extract_obgyn_current_fellows(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
+    if "obstetrics-and-gynecology/education-and-training/fellowship-programs" not in source_url:
+        return []
+    rows = []
+    for heading in soup.find_all(["h2", "h3"]):
+        heading_text = norm(heading.get_text(" "))
+        if not re.search(r"\bCurrent Fellows\b", heading_text, re.I):
+            continue
+        current_label = ""
+        node = heading
+        for _ in range(40):
+            node = node.find_next_sibling()
+            if not node:
+                break
+            if node.name in {"h2"}:
+                break
+            text = norm(node.get_text(" "))
+            if not text:
+                continue
+            if node.name == "h3":
+                current_label = class_or_pgy_label(text)
+                continue
+            candidate_texts = []
+            if node.name == "ul":
+                candidate_texts = [norm(li.get_text(" ")) for li in node.find_all("li")]
+            elif node.name == "p":
+                candidate_texts = [text]
+            for raw in candidate_texts:
+                if not raw or not looks_like_person_name(raw):
+                    continue
+                name = extract_name_prefix(raw)
+                if not looks_like_person_name(name):
+                    continue
+                year_match = re.search(r"\b([1-4](?:st|nd|rd|th)\s+Year\s+Fellow)\b", raw, re.I)
+                training_label = class_or_pgy_label(year_match.group(1) if year_match else current_label or heading_text)
+                rows.append(
+                    record_for(
+                        candidate,
+                        source_key,
+                        source_url,
+                        name,
+                        program_for_candidate(candidate, source_url, training_label),
+                        "fellow",
+                        training_label,
+                        "gap_queue_obgyn_current_fellows",
+                        fields=parse_colon_fields(raw),
+                    )
+                )
+    return rows
 
 
 def extract_bio_cards(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
@@ -513,6 +679,8 @@ def iter_heading_sections(soup: BeautifulSoup):
 
 
 def extract_heading_name_lists(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
+    if "obstetrics-and-gynecology/education-and-training/fellowship-programs" in source_url:
+        return []
     rows = []
     for label, text in iter_heading_sections(soup) or []:
         if not label or STOP_HEADING_RE.search(label):
@@ -767,6 +935,7 @@ def parse_candidate(session: requests.Session, candidate: dict) -> tuple[list[di
         ("neurology_archive_card", extract_neurology_archive_cards(soup, candidate, meta["source_key"], url)),
         ("pathology_current_resident_accordion", extract_pathology_current_residents(soup, candidate, meta["source_key"], url)),
         ("pathology_people_accordion", extract_pathology_people_accordion(soup, candidate, meta["source_key"], url)),
+        ("obgyn_current_fellows", extract_obgyn_current_fellows(soup, candidate, meta["source_key"], url)),
     ]
     records = []
     seen = set()

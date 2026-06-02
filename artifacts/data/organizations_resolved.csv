@@ -9,6 +9,7 @@ org_clinical-training-site-boston-medical-center_0acc9df9b41f,Boston Medical Cen
 org_clinical-training-site-brigham-women-s-hospital_568719c55ffa,Brigham and Women's Hospital,brigham women s hospital,clinical_training_site,Mass General Brigham,seeded_alias,0.98
 org_clinical-training-site-brooke-army-medical-cente_afecad08bfd2,Brooke Army Medical Center,brooke army medical center,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-brown-internal-medicine-p_550bf668bb44,"Brown Internal Medicine, Providence, RI",brown internal medicine providence ri,clinical_training_site,,cleaned_label,0.55
+org_clinical-training-site-brown-university_d604f16c4f24,Brown University,brown university,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-brown-university-health-i_1397092f4e42,Brown University Health Internal Medicine,brown university health internal medicine,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-brown-university-internal_d4f0e83b3f85,Brown University Internal Medicine,brown university internal medicine,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-brown-university-internal_11cf41e7a2c4,Brown University Internal Medicine/Pediatrics,brown university internal medicine pediatrics,clinical_training_site,,cleaned_label,0.55
@@ -39,6 +40,7 @@ org_clinical-training-site-integrated-plastic-surger_99bf3d28805d,Integrated Pla
 org_clinical-training-site-internal-medicine-umass-c_ef6fcd7d1b06,"Internal Medicine, UMass Chan Medical School",internal medicine umass chan medical school,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-internal-medicine-weill-c_c3090a1df717,"Internal Medicine, Weill Cornell Medical School - New York Presbyterian",internal medicine weill cornell medical school new york presbyterian,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-jefferson-einstein-philad_79ccd358852c,Jefferson Einstein Philadelphia Hospital,jefferson einstein philadelphia hospital,clinical_training_site,,cleaned_label,0.55
+org_clinical-training-site-jefferson-university-hosp_6a939af24d05,Jefferson University Hospital,jefferson university hospital,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-jefferson-einstein_d46c52c1385c,Jefferson-Einstein,jefferson einstein,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-jefferson-einstein-montgo_948744b2b968,Jefferson-Einstein Montgomery Hospital,jefferson einstein montgomery hospital,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-johns-hopkins_84b5c3834062,Johns Hopkins,johns hopkins,clinical_training_site,,cleaned_label,0.55
@@ -54,6 +56,7 @@ org_clinical-training-site-lehigh-valley-health-netw_bb76cd837dc6,"Lehigh Valley
 org_clinical-training-site-lewisgale-medical-center_7d9e45a26401,LewisGale Medical Center,lewisgale medical center,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-maimonides-medical-center_35f85074865c,Maimonides Medical Center,maimonides medical center,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-main-line-health-system-l_7cc7e9d7ff4f,Main Line Health System/Lankenau Medical Center,main line health system lankenau medical center,clinical_training_site,,cleaned_label,0.55
+org_clinical-training-site-mass-general-brigham_2ab9ca47d0b7,Mass General Brigham,mass general brigham,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-massachusetts-general-bri_2c807e44cfdc,Massachusetts General - Brigham and Women's Hospital,massachusetts general brigham women s hospital,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-massachusetts-general-hos_550a31df0ca9,Massachusetts General Hospital,massachusetts general hospital,clinical_training_site,Mass General Brigham,seeded_alias,0.98
 org_clinical-training-site-massachusetts-general-hos_e1a7e0c7bb5e,"Massachusetts General Hospital, Boston",massachusetts general hospital boston,clinical_training_site,,cleaned_label,0.55
@@ -126,6 +129,7 @@ org_clinical-training-site-umass-chan-medical-school_981c95de10ac,UMass Chan Med
 org_clinical-training-site-upmc-lititz-lititz-pa_86104d9bba72,"UPMC-Lititz, Lititz, PA",upmc lititz lititz pa,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-usc-medical-center-los-an_61bb4d687e44,"USC Medical Center, Los Angeles, CA",usc medical center los angeles ca,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-united-health-services-wi_fbea0b23166a,"United Health Services, Wilson Medical Center",united health services wilson medical center,clinical_training_site,,cleaned_label,0.55
+org_clinical-training-site-university-alabama-birmin_c0a63b6c4126,University of Alabama at Birmingham,university alabama birmingham,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-university-alberta_094e5e021211,University of Alberta,university alberta,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-university-arizona-phoeni_2c07c034b552,University of Arizona-Phoenix,university arizona phoenix,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-university-arkansas-medic_5dbe64ec636f,University of Arkansas Medical Sciences,university arkansas medical sciences,clinical_training_site,,cleaned_label,0.55
@@ -161,6 +165,7 @@ org_clinical-training-site-university-washington-chi_755711ed2498,"University of
 org_clinical-training-site-vanderbilt-university_369299f2b940,Vanderbilt University,vanderbilt university,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-vanderbilt-university-med_39a415383014,Vanderbilt University Medical Center,vanderbilt university medical center,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-virginia-commonwealth-uni_bce150a51ea4,Virginia Commonwealth University,virginia commonwealth university,clinical_training_site,,cleaned_label,0.55
+org_clinical-training-site-women-infant-s-hospital-r_a9507a4bca61,Women and Infant's Hospital of Rhode Island,women infant s hospital rhode island,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-wright-state-university-b_a60a77272b5b,Wright State University Boonshoft School of Medicine,wright state university boonshoft school medicine,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-yale_aec1691c4206,Yale,yale,clinical_training_site,,cleaned_label,0.55
 org_clinical-training-site-yale-new-haven-health-bri_b7bbabbb0643,Yale New Haven Health/Bridgeport Hospital,yale new haven health bridgeport hospital,clinical_training_site,,cleaned_label,0.55
@@ -511,6 +516,7 @@ org_medical-school-university-bern-switzerland_abdad55f915d,"University of Bern,
 org_medical-school-university-cairo_bf34583a911b,University of Cairo,university cairo,medical_school,,cleaned_label,0.55
 org_medical-school-university-california-los-angeles_17d881514b56,University of California Los Angeles School of Medicine,university california los angeles school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-california-san-francis_91c4541d71ad,University of California San Francisco School of Medicine,university california san francisco school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-university-california-irvine_f7e03f7a0403,"University of California, Irvine",university california irvine,medical_school,,cleaned_label,0.55
 org_medical-school-university-california-irvine-scho_034f60077216,"University of California, Irvine School of Medicine",university california irvine school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-california-los-angeles_080e688ec574,"University of California, Los Angeles",university california los angeles,medical_school,,cleaned_label,0.55
 org_medical-school-university-california-san-francis_b6494045b29f,"University of California, San Francisco",university california san francisco,medical_school,,cleaned_label,0.55
@@ -527,6 +533,7 @@ org_medical-school-university-florida_a91fe24edaa4,University of Florida,univers
 org_medical-school-university-florida-college-medici_29050077c4f6,University of Florida College of Medicine,university florida college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-ghana-medical-school_09384eabe8a6,University of Ghana Medical School,university ghana medical school,medical_school,,cleaned_label,0.55
 org_medical-school-university-hawaii-school-medicine_4bf33419846a,University of Hawaii School of Medicine,university hawaii school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-university-illinois_860142d89649,University of Illinois,university illinois,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-college-medic_6027633cac30,University of Illinois College of Medicine,university illinois college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-college-medic_baef4882f414,University of Illinois College of Medicine at Chicago,university illinois college medicine chicago,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-school-medici_013b96e706ad,University of Illinois School of Medicine,university illinois school medicine,medical_school,,cleaned_label,0.55
@@ -678,6 +685,7 @@ org_undergraduate-institution-dartmouth-college_db94f96fac4e,Dartmouth College,d
 org_undergraduate-institution-drexel-university_7a4add6a5fcd,Drexel University,drexel university,undergraduate_institution,,cleaned_label,0.55
 org_undergraduate-institution-duke-university_5094aec6ea1f,Duke University,duke university,undergraduate_institution,,cleaned_label,0.55
 org_undergraduate-institution-emory-university_3e68056c44c0,Emory University,emory university,undergraduate_institution,,cleaned_label,0.55
+org_undergraduate-institution-florida-a-m-university_44358ac54555,Florida A&M University,florida a m university,undergraduate_institution,,cleaned_label,0.55
 org_undergraduate-institution-florida-gulf-coast-uni_b05ceea95235,"Florida Gulf Coast University, BS",florida gulf coast university bs,undergraduate_institution,,cleaned_label,0.55
 org_undergraduate-institution-florida-international-_8cc371d05b3f,Florida International University,florida international university,undergraduate_institution,,cleaned_label,0.55
 org_undergraduate-institution-florida-state-universi_c8ee3a84087e,Florida State University,florida state university,undergraduate_institution,,cleaned_label,0.55

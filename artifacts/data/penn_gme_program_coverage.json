@@ -1020,16 +1020,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-gynecologic-oncology-fellowship_f87d447ae076",
+    "matched_program_name": "Gynecologic Oncology Fellowship",
+    "captured_people_count": 6,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_maternal-fetal-medicine_fa13cced70c8",
@@ -1044,16 +1044,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-maternal-fetal-medicine-fellowship_aac8233c0211",
+    "matched_program_name": "Maternal Fetal Medicine Fellowship",
+    "captured_people_count": 8,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_reproductive-endocrinology-and-infertility_2a70bffffe74",
@@ -1068,16 +1068,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-reproductive-endocrinology-infertility-fe_c64b8d7641be",
+    "matched_program_name": "Reproductive Endocrinology and Infertility Fellowship",
+    "captured_people_count": 6,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_urogynecology-and-reconstructive-pelvic-surgery_cd33cc4131ec",
@@ -1092,16 +1092,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-urogynecology-reconstructive-pelvic-surge_2d3c63a10e6b",
+    "matched_program_name": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+    "captured_people_count": 4,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_ophthalmology_35ee6848ce23",
@@ -1188,16 +1188,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-oral-medicine-residency_1f20e709cc55",
+    "matched_program_name": "Oral Medicine Residency",
+    "captured_people_count": 8,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_orthopedic-surgery_330c2c3b2f0f",

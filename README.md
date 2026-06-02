@@ -54,11 +54,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
-As of the latest local generation, the warehouse has 1,451 people: 865 residents, 361 fellows, and 225 public MSTP student-directory records. It also has 1,753 accepted roster/training event rows, 1,103 PubMed author-query research candidates, 313 public contact candidates, and 105 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
+As of the latest local generation, the warehouse has 1,483 people: 873 residents, 385 fellows, and 225 public MSTP student-directory records. It also has 1,775 accepted roster/training event rows, 1,111 PubMed author-query research candidates, 313 public contact candidates, and 105 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
 
-The official HUP GME coverage audit currently parses 91 public HUP programs: 59 have captured current roster people, 12 are discovered as program/source pages without current roster capture, and 20 are not yet discovered by the current Penn-wide crawl.
+The official HUP GME coverage audit currently parses 91 public HUP programs: 64 have captured current roster people, 12 are discovered as program/source pages without current roster capture, and 15 are not yet discovered by the current Penn-wide crawl.
 
-The HUP gap-source probe currently inspects the 32 official programs without captured roster people and queues 82 candidate URLs, including 24 roster-source candidates, for the next scraper pass. The queue-driven HUP gap roster scraper currently retains 492 conservative person records from 22 official public sources with extracted records.
+The HUP gap-source probe currently inspects the 27 official programs without captured roster people and queues 72 candidate URLs, including 15 roster-source candidates, for the next scraper pass. The queue-driven HUP gap roster scraper currently retains 524 conservative person records from 27 official public sources with extracted records.
 
 ## Reproduce
 

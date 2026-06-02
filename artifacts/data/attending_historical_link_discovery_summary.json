@@ -13,7 +13,7 @@
   },
   "candidate_csv": "artifacts/data/attending_historical_link_candidates.csv",
   "candidate_rows": 8,
-  "generated_at": "2026-06-02T07:17:11.238047+00:00",
+  "generated_at": "2026-06-02T07:25:31.988010+00:00",
   "groups_considered": 4,
   "observation_csv": "artifacts/data/attending_historical_link_search_observations.csv",
   "query_csv": "artifacts/data/attending_historical_link_search_queries.csv",

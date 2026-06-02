@@ -1,7 +1,7 @@
 {
   "by_extraction_status": {
-    "no_supported_person_structure": 4,
-    "records_extracted": 22
+    "no_supported_person_structure": 5,
+    "records_extracted": 27
   },
   "by_program": {
     "Adult Reconstructive Orthopedics Fellowship": 3,
@@ -17,21 +17,25 @@
     "Family Medicine Residency": 35,
     "Foot and Ankle Fellowship": 2,
     "GI/Hepatic Pathology Fellowship": 2,
+    "Gynecologic Oncology Fellowship": 6,
     "Hand Surgery Fellowship": 2,
     "Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship": 2,
     "Hematopathology Fellowship": 4,
+    "Maternal Fetal Medicine Fellowship": 8,
     "Molecular Genetic Pathology Fellowship": 2,
     "Neurological Surgery Residency": 21,
     "Neurology Residency": 54,
     "Neuropathology Fellowship": 2,
     "Neurotology Fellowship": 1,
     "Obstetrics and Gynecology Residency": 32,
+    "Oral Medicine Residency": 8,
     "Orthopedic Surgery Residency": 40,
     "Otorhinolaryngology Residency": 31,
     "Pathology - Anatomic and Clinical Residency": 69,
     "Physical Medicine and Rehabilitation Residency": 22,
     "Podiatric Surgery Residency": 16,
     "Radiation Oncology Residency": 17,
+    "Reproductive Endocrinology and Infertility Fellowship": 6,
     "Rhinology and Skull Base Surgery Fellowship": 2,
     "Shoulder and Elbow Fellowship": 1,
     "Sleep Medicine Fellowship": 7,
@@ -41,14 +45,15 @@
     "Sports Medicine Fellowship": 2,
     "Surgical Pathology Fellowship": 6,
     "Thoracic Surgery - Thoracic Track Fellowship": 1,
-    "Transfusion Medicine/Blood Bank Fellowship": 1
+    "Transfusion Medicine/Blood Bank Fellowship": 1,
+    "Urogynecology and Reconstructive Pelvic Surgery Fellowship": 4
   },
   "by_role": {
-    "fellow": 58,
-    "resident": 434
+    "fellow": 82,
+    "resident": 442
   },
-  "generated_at": "2026-06-02T06:52:02.169849+00:00",
-  "person_records": 492,
+  "generated_at": "2026-06-02T07:24:45.406857+00:00",
+  "person_records": 524,
   "skipped_already_captured_sources": 5,
   "skipped_sources": [
     {
@@ -82,7 +87,7 @@
       "reason": "already_loaded_as_official_roster_source"
     }
   ],
-  "sources_attempted": 26,
-  "sources_with_records": 22,
-  "unique_names": 467
+  "sources_attempted": 32,
+  "sources_with_records": 27,
+  "unique_names": 499
 }

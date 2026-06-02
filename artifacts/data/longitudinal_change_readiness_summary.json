@@ -1,68 +1,68 @@
 {
-  "advance_due_by_refresh_rows": 1414,
+  "advance_due_by_refresh_rows": 1446,
   "by_category_and_readiness_status": {
     "fellow:active_no_change_expected": 13,
-    "fellow:expected_advancement_window": 98,
-    "fellow:expected_completion_window": 59,
-    "fellow:review_required_window": 11,
-    "fellow:source_refresh_required_window": 182,
-    "fellow:stale_without_transition_review": 4,
+    "fellow:expected_advancement_window": 100,
+    "fellow:expected_completion_window": 61,
+    "fellow:review_required_window": 13,
+    "fellow:source_refresh_required_window": 192,
+    "fellow:stale_without_transition_review": 12,
     "medical_student:source_refresh_required_window": 225,
     "resident:expected_advancement_window": 559,
     "resident:expected_completion_window": 191,
     "resident:review_required_window": 10,
-    "resident:source_refresh_required_window": 202,
+    "resident:source_refresh_required_window": 210,
     "resident:stale_without_transition_review": 44
   },
   "by_missing_expectation": {
-    "absence_requires_source_reconciliation": 678,
-    "expected_absence_after_completion": 250,
-    "unexpected_absence_review": 670
+    "absence_requires_source_reconciliation": 706,
+    "expected_absence_after_completion": 252,
+    "unexpected_absence_review": 672
   },
   "by_next_stage_expectation": {
-    "early_expected_next_stage_review": 400,
-    "expected_next_stage_accept_candidate": 657,
-    "no_expected_next_stage": 541
+    "early_expected_next_stage_review": 410,
+    "expected_next_stage_accept_candidate": 659,
+    "no_expected_next_stage": 561
   },
   "by_readiness_status": {
     "active_no_change_expected": 13,
-    "expected_advancement_window": 657,
-    "expected_completion_window": 250,
-    "review_required_window": 21,
-    "source_refresh_required_window": 609,
-    "stale_without_transition_review": 48
+    "expected_advancement_window": 659,
+    "expected_completion_window": 252,
+    "review_required_window": 23,
+    "source_refresh_required_window": 627,
+    "stale_without_transition_review": 56
   },
   "by_role_and_readiness_status": {
     "fellow:active_no_change_expected": 13,
-    "fellow:expected_advancement_window": 98,
-    "fellow:expected_completion_window": 59,
-    "fellow:review_required_window": 11,
-    "fellow:source_refresh_required_window": 182,
-    "fellow:stale_without_transition_review": 4,
+    "fellow:expected_advancement_window": 100,
+    "fellow:expected_completion_window": 61,
+    "fellow:review_required_window": 13,
+    "fellow:source_refresh_required_window": 192,
+    "fellow:stale_without_transition_review": 12,
     "medical_student:source_refresh_required_window": 225,
     "resident:expected_advancement_window": 559,
     "resident:expected_completion_window": 191,
     "resident:review_required_window": 10,
-    "resident:source_refresh_required_window": 202,
+    "resident:source_refresh_required_window": 210,
     "resident:stale_without_transition_review": 44
   },
   "by_same_stage_expectation": {
-    "same_stage_after_expected_transition_review": 657,
+    "same_stage_after_expected_transition_review": 659,
     "same_stage_expected": 13,
-    "same_stage_requires_fresh_source": 678,
-    "same_terminal_stage_after_completion_review": 250
+    "same_stage_requires_fresh_source": 706,
+    "same_terminal_stage_after_completion_review": 252
   },
   "category_csv": "artifacts/data/category_refresh_expectations.csv",
   "category_rows": 3,
-  "completion_window_by_refresh_rows": 250,
+  "completion_window_by_refresh_rows": 252,
   "person_csv": "artifacts/data/person_refresh_expectations.csv",
-  "person_rows": 1451,
+  "person_rows": 1483,
   "program_csv": "artifacts/data/program_refresh_expectations.csv",
-  "program_rows": 90,
+  "program_rows": 95,
   "projected_refresh_date": "2027-08-15",
-  "requires_human_review_by_refresh_rows": 69,
-  "requires_source_refresh_by_refresh_rows": 609,
-  "stale_by_refresh_rows": 1585,
+  "requires_human_review_by_refresh_rows": 79,
+  "requires_source_refresh_by_refresh_rows": 627,
+  "stale_by_refresh_rows": 1617,
   "state_csv": "artifacts/data/training_state_refresh_expectations.csv",
-  "state_rows": 1598
+  "state_rows": 1630
 }

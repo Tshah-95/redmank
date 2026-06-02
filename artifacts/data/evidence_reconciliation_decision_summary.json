@@ -8,7 +8,7 @@
     "personal_profile_candidate": 2,
     "prior_training_history_candidate": 6,
     "pubmed_article_candidate": 1858,
-    "pubmed_author_query_candidate": 1103,
+    "pubmed_author_query_candidate": 1111,
     "research_interest_candidate": 1
   },
   "by_decision": {
@@ -16,7 +16,7 @@
     "attending_training_claim_review_ready": 3,
     "candidate_with_partial_anchor": 102,
     "current_attending_endpoint_candidate": 49,
-    "discovery_only": 1103,
+    "discovery_only": 1111,
     "low_signal_candidate": 912,
     "needs_secondary_identity_anchor": 727,
     "outcome_context_only": 36,
@@ -26,7 +26,7 @@
   },
   "by_record_type": {
     "career_event": 105,
-    "evidence_claim": 2961
+    "evidence_claim": 2969
   },
   "by_ten_year_trend_window": {
     "no": 3,
@@ -34,8 +34,8 @@
     "yes": 2
   },
   "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
-  "decision_rows": 3066,
-  "person_or_name_rows": 1153,
+  "decision_rows": 3074,
+  "person_or_name_rows": 1161,
   "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
   "review_ready_rows": 120
 }
