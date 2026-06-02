@@ -30,7 +30,7 @@
   "current_endpoint_missing_training_groups": 43,
   "dossier_rows": 70,
   "event_group_count": 70,
-  "generated_at": "2026-06-02T19:11:17.274261+00:00",
+  "generated_at": "2026-06-02T19:52:23.043350+00:00",
   "json": "artifacts/data/attending_trend_dossiers.json",
   "policy": "Attending trend dossiers are non-mutating group summaries. They separate current endpoint evidence, Penn training evidence, dated biosketch bridges, review claims, reviewer queues, and accepted trend facts.",
   "review_ready_groups": 2,

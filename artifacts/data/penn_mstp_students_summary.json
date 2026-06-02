@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-02T04:13:07.398182+00:00",
+  "generated_at": "2026-06-02T19:47:31.675921+00:00",
   "source": {
     "source_key": "perelman_mstp_student_directory",
     "url": "https://www.med.upenn.edu/mstp/student-directory/",
-    "fetched_at": "2026-06-02T04:13:07.256891+00:00",
+    "fetched_at": "2026-06-02T19:47:31.556414+00:00",
     "http_status": 200,
     "effective_url": "https://www.med.upenn.edu/mstp/student-directory/"
   },

@@ -491,6 +491,70 @@ def official_roster_refresh_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
+    rows = []
+    source_path = ARTIFACTS / "official_roster_refresh_batches.csv"
+    if not source_path.exists():
+        return rows
+    source = "artifacts/data/official_roster_refresh_batches.csv"
+    for item in read_csv(source_path):
+        priority = 860 + as_int(item.get("max_refresh_priority")) // 4 + min(as_int(item.get("contract_count")), 100)
+        if item.get("batch_status") == "blocked_needs_parser_support_review":
+            priority -= 120
+        rows.append(
+            row(
+                action_surface="official_roster_refresh_execution",
+                action_scope=item.get("batch_lane") or item.get("batch_status") or "official_roster_refresh_batch",
+                entity_type="roster_refresh_batch",
+                entity_key=item.get("roster_batch_key") or "",
+                display_label=" | ".join(
+                    part
+                    for part in [
+                        item.get("collector_hint"),
+                        item.get("source_domain"),
+                        f"batch {item.get('execution_order')}",
+                    ]
+                    if part
+                ),
+                role="",
+                program_name="",
+                priority=priority,
+                impact_count=max(as_int(item.get("contract_count")), as_int(item.get("source_program_count")), 1),
+                readiness_status=item.get("batch_status") or "",
+                blocker_status=item.get("blocked_reason") or item.get("parser_status") or "",
+                required_next_evidence=item.get("evidence_required") or "",
+                recommended_next_action=item.get("recommended_next_action") or "",
+                source_artifact=source,
+                target_artifact="artifacts/data/training_state_transition_events.csv",
+                downstream_tables=[
+                    "official_roster_refresh_batches",
+                    "official_roster_refresh_workbench",
+                    "training_temporal_contracts",
+                    "training_state_snapshots",
+                    "training_state_transition_events",
+                    "person_training_states",
+                    "sources",
+                ],
+                evidence={
+                    "collector_hint": item.get("collector_hint"),
+                    "parser_status": item.get("parser_status"),
+                    "source_domain": item.get("source_domain"),
+                    "source_count": item.get("source_count"),
+                    "source_program_count": item.get("source_program_count"),
+                    "contract_count": item.get("contract_count"),
+                    "expected_advancement_count": item.get("expected_advancement_count"),
+                    "expected_completion_count": item.get("expected_completion_count"),
+                    "source_refresh_required_count": item.get("source_refresh_required_count"),
+                    "manual_review_required_count": item.get("manual_review_required_count"),
+                    "command_hint": item.get("command_hint"),
+                    "source_urls_json": item.get("source_urls_json"),
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def official_profile_discovery_actions(generated_at: str) -> list[dict]:
     rows = []
     source_path = ARTIFACTS / "official_profile_discovery_workbench.csv"
@@ -784,7 +848,8 @@ def main() -> None:
     rows.extend(contact_actions(generated_at))
     rows.extend(search_utility_actions(generated_at))
     rows.extend(temporal_contract_actions(generated_at))
-    rows.extend(official_roster_refresh_actions(generated_at))
+    roster_batch_rows = official_roster_refresh_batch_actions(generated_at)
+    rows.extend(roster_batch_rows if roster_batch_rows else official_roster_refresh_actions(generated_at))
     rows.extend(official_profile_discovery_actions(generated_at))
     rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))

@@ -28,7 +28,7 @@
   "contract_count": 1669,
   "csv": "artifacts/data/official_roster_refresh_workbench.csv",
   "fresh_observation_required_count": 1669,
-  "generated_at": "2026-06-02T19:33:26.261536+00:00",
+  "generated_at": "2026-06-02T19:52:25.182890+00:00",
   "json": "artifacts/data/official_roster_refresh_workbench.json",
   "person_count_policy": "Summed source/program person counts, not deduplicated unique people; one trainee can correctly appear in multiple source/program refresh contracts.",
   "policy": "This artifact is non-mutating. It turns person-level temporal contracts into source/program refresh contracts so official roster collectors can refresh the right public URL and classify changes through the state machine.",

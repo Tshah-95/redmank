@@ -147,6 +147,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_temporal_contract_summary.json`: one-glance stale-policy, guardrail, and next-refresh contract counts.
 - `artifacts/data/official_roster_refresh_workbench.csv`: source/program-level refresh contracts for official trainee rosters, derived from temporal contracts and source provenance.
 - `artifacts/data/official_roster_refresh_workbench_summary.json`: roster-refresh counts by lane, difficulty, role, source, program, and top source URLs for next collector runs.
+- `artifacts/data/official_roster_refresh_batches.csv`: bounded collector/parser/domain execution batches over roster-refresh contracts, preserving source URLs and expected state-machine outcomes before any mutation.
+- `artifacts/data/official_roster_refresh_batch_summary.json`: batch counts by collector, lane, status, source-program burden, and top execution packets.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
 - `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, country, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
@@ -170,6 +172,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_triage.csv` when available, so person-evidence actions are grouped by review lane rather than only by raw packet kind.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
+- The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `official_profile_discovery_workbench.csv` when available, so missing-profile work becomes person-level review/search/probe actions instead of a broad `official_profile_search` enrichment bucket.
 - `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
@@ -268,6 +271,7 @@ python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/materialize_training_lifecycle_assurance.py
 python3 scripts/materialize_training_state_transition_plan.py
+python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
@@ -291,6 +295,7 @@ python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
 python3 scripts/materialize_official_profile_discovery_workbench.py
+python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/materialize_corpus_action_worklist.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
@@ -353,6 +358,8 @@ python3 scripts/diff_training_states.py \
 If `--old` is omitted, the script reads `artifacts/data/training_state_snapshot_summary.json` and compares against the recorded `previous_snapshot_id`.
 
 The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, temporal policy lane, and change type. By default it also reads `artifacts/data/training_temporal_contracts.csv`, so each row carries the contract key, policy lane, next-refresh contract, evidence requirement, review triggers, and expected-vs-review assurance used to classify the transition. The durable snapshot materializer also writes `artifacts/data/training_state_transition_rollups.csv`, which preserves transition views across corpus, country, institution, trainee category, role, program, program-role, institution-role, and lifecycle-code scopes. Snapshot transition events and rollups include `snapshot_comparison_kind`, snapshot as-of dates, and `days_between_snapshots` so same-day corpus revisions are not confused with annual advancement/completion flows.
+
+`scripts/materialize_official_roster_refresh_batches.py` turns the source/program refresh contracts into execution packets by collector script, parser support, source domain, and bounded source-program count. These batches are operational only: they tell the next collector run what to refresh and why, while actual person/program state changes still require rebuilt source observations plus the snapshot/transition/reviewer gates.
 
 Materialize a durable state snapshot:
 

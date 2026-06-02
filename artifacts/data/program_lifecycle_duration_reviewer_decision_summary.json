@@ -21,7 +21,7 @@
     "pending": 10
   },
   "context_review_rows": 3,
-  "generated_at": "2026-06-02T19:11:15.233696+00:00",
+  "generated_at": "2026-06-02T19:52:21.018795+00:00",
   "manual_decision_csv": "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "not_ready_rows": 4,

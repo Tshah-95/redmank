@@ -1,0 +1,189 @@
+{
+  "batch_rows": 14,
+  "blocked_batch_rows": 1,
+  "by_batch_lane": {
+    "expected_transition_reconciliation": 1,
+    "mixed_expected_and_source_refresh": 2,
+    "mixed_refresh_with_manual_review": 5,
+    "source_reobservation_required": 6
+  },
+  "by_batch_status": {
+    "blocked_needs_parser_support_review": 1,
+    "network_refresh_ready": 8,
+    "network_refresh_then_manual_lifecycle_review": 5
+  },
+  "by_collector": {
+    "python3 scripts/scrape_penn_gme_gap_rosters.py": 4,
+    "python3 scripts/scrape_penn_mstp_students.py": 1,
+    "python3 scripts/scrape_penn_training.py": 9
+  },
+  "contract_count": 1669,
+  "csv": "artifacts/data/official_roster_refresh_batches.csv",
+  "expected_advancement_count": 659,
+  "expected_completion_count": 252,
+  "generated_at": "2026-06-02T19:52:25.275989+00:00",
+  "json": "artifacts/data/official_roster_refresh_batches.json",
+  "manual_review_required_count": 131,
+  "person_count_policy": "Summed source/program person counts, not deduplicated unique people.",
+  "policy": "This artifact batches official roster refresh work for execution. It is non-mutating and must feed fresh observations back through the state-machine diff and review gates before changing trainee state.",
+  "ready_batch_rows": 13,
+  "source_count": 83,
+  "source_program_count": 114,
+  "source_refresh_required_count": 627,
+  "top_batches": [
+    {
+      "batch_lane": "source_reobservation_required",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_mstp_students.py",
+      "contract_count": 225,
+      "execution_order": 1,
+      "max_refresh_priority": 970,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "www.med.upenn.edu",
+      "source_program_count": 1
+    },
+    {
+      "batch_lane": "mixed_refresh_with_manual_review",
+      "batch_status": "network_refresh_then_manual_lifecycle_review",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 552,
+      "execution_order": 2,
+      "max_refresh_priority": 952,
+      "recommended_next_action": "run_roster_collector_then_route_lifecycle_label_changes_to_review",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "mixed_refresh_with_manual_review",
+      "batch_status": "network_refresh_then_manual_lifecycle_review",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 56,
+      "execution_order": 3,
+      "max_refresh_priority": 850,
+      "recommended_next_action": "run_roster_collector_then_route_lifecycle_label_changes_to_review",
+      "source_domain": "www.chop.edu",
+      "source_program_count": 4
+    },
+    {
+      "batch_lane": "mixed_refresh_with_manual_review",
+      "batch_status": "network_refresh_then_manual_lifecycle_review",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 280,
+      "execution_order": 4,
+      "max_refresh_priority": 827,
+      "recommended_next_action": "run_roster_collector_then_route_lifecycle_label_changes_to_review",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "mixed_refresh_with_manual_review",
+      "batch_status": "network_refresh_then_manual_lifecycle_review",
+      "collector_hint": "python3 scripts/scrape_penn_gme_gap_rosters.py",
+      "contract_count": 69,
+      "execution_order": 5,
+      "max_refresh_priority": 824,
+      "recommended_next_action": "run_roster_collector_then_route_lifecycle_label_changes_to_review",
+      "source_domain": "pathology.med.upenn.edu",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "mixed_refresh_with_manual_review",
+      "batch_status": "network_refresh_then_manual_lifecycle_review",
+      "collector_hint": "python3 scripts/scrape_penn_gme_gap_rosters.py",
+      "contract_count": 76,
+      "execution_order": 6,
+      "max_refresh_priority": 794,
+      "recommended_next_action": "run_roster_collector_then_route_lifecycle_label_changes_to_review",
+      "source_domain": "www.med.upenn.edu",
+      "source_program_count": 6
+    },
+    {
+      "batch_lane": "mixed_expected_and_source_refresh",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_gme_gap_rosters.py",
+      "contract_count": 43,
+      "execution_order": 7,
+      "max_refresh_priority": 791,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "oto.med.upenn.edu",
+      "source_program_count": 7
+    },
+    {
+      "batch_lane": "expected_transition_reconciliation",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 144,
+      "execution_order": 8,
+      "max_refresh_priority": 783,
+      "recommended_next_action": "run_roster_collector_then_compare_against_expected_advancement_or_completion",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "mixed_expected_and_source_refresh",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 82,
+      "execution_order": 9,
+      "max_refresh_priority": 764,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "source_reobservation_required",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 52,
+      "execution_order": 10,
+      "max_refresh_priority": 754,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "source_reobservation_required",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_gme_gap_rosters.py",
+      "contract_count": 8,
+      "execution_order": 11,
+      "max_refresh_priority": 753,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "www.dental.upenn.edu",
+      "source_program_count": 1
+    },
+    {
+      "batch_lane": "source_reobservation_required",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 21,
+      "execution_order": 12,
+      "max_refresh_priority": 747,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 12
+    },
+    {
+      "batch_lane": "source_reobservation_required",
+      "batch_status": "network_refresh_ready",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 7,
+      "execution_order": 13,
+      "max_refresh_priority": 746,
+      "recommended_next_action": "run_roster_collector_then_reconfirm_or_retire_source_bound_states",
+      "source_domain": "www3.pennmedicine.org",
+      "source_program_count": 7
+    },
+    {
+      "batch_lane": "source_reobservation_required",
+      "batch_status": "blocked_needs_parser_support_review",
+      "collector_hint": "python3 scripts/scrape_penn_training.py",
+      "contract_count": 54,
+      "execution_order": 14,
+      "max_refresh_priority": 759,
+      "recommended_next_action": "review_or_extend_parser_support_before_refreshing_this_batch",
+      "source_domain": "neuroresidency.uphs.upenn.edu",
+      "source_program_count": 4
+    }
+  ]
+}
