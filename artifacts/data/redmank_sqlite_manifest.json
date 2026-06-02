@@ -1,12 +1,12 @@
 {
   "artifact_path": "artifacts/data/redmank.sqlite",
-  "byte_size": 59293696,
-  "generated_at": "2026-06-02T10:45:37.218863+00:00",
+  "byte_size": 59518976,
+  "generated_at": "2026-06-02T10:54:00.085397+00:00",
   "git_tracked": false,
   "notes": "The SQLite warehouse is generated locally from committed flat artifacts and is intentionally ignored by Git once it exceeds normal repository blob size. Committed CSV/JSON artifacts plus this manifest preserve provenance and rebuild verification without pushing the binary.",
   "rebuild_command": "python3 scripts/rebuild_local_warehouse.py",
   "row_count_status": "ok",
-  "sha256": "e797d4fbffd32328323fdd316e7cd72a86f897324a50dda75856c19211360f74",
+  "sha256": "732b05fdc5765967032abf9b36290214c633655a72c97f3feef510ed04403b5a",
   "sha256_scope": "post_reproducibility_audit_sqlite_file",
   "storage_policy": "generated_untracked_sqlite_warehouse",
   "validation_commands": [

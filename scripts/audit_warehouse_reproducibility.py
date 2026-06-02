@@ -117,6 +117,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/training_lifecycle_assurance_rollups.csv",
+        "longitudinal_lifecycle_assurance_ledger",
+        "csv",
+        "training_lifecycle_assurance_rollups",
+        True,
+    ),
+    (
         "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
         "longitudinal_snapshot_ledger",
         "json_object",

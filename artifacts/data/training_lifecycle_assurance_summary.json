@@ -1,0 +1,42 @@
+{
+  "by_assurance_status": {
+    "deterministic_clock_supported": 36,
+    "mixed_with_human_review": 40,
+    "source_refresh_bound": 151,
+    "stable_or_no_change_expected": 3
+  },
+  "by_diff_readiness_status": {
+    "diff_can_classify_but_missing_rows_need_review": 64,
+    "diff_expected_change_supported": 3,
+    "diff_requires_fresh_source_before_retention": 123,
+    "diff_requires_review_queue": 40
+  },
+  "by_rollup_scope": {
+    "corpus": 1,
+    "lifecycle_code": 14,
+    "program": 94,
+    "program_role": 95,
+    "readiness_status": 6,
+    "role": 3,
+    "role_lifecycle_code": 14,
+    "trainee_category": 3
+  },
+  "corpus_assurance_status": "mixed_with_human_review",
+  "corpus_counts": {
+    "expected_advancement_count": 659,
+    "expected_completion_count": 252,
+    "human_review_required_count": 79,
+    "person_count": 1483,
+    "program_count": 94,
+    "source_refresh_required_count": 627,
+    "stale_by_refresh_count": 1617,
+    "state_observation_count": 1630
+  },
+  "corpus_diff_readiness_status": "diff_requires_review_queue",
+  "corpus_recommended_operator_action": "review_lifecycle_rule_source_label_or_identity_before_mutation",
+  "corpus_stale_information_policy": "do_not_auto_mutate; stale rows enter review",
+  "csv": "artifacts/data/training_lifecycle_assurance_rollups.csv",
+  "projected_refresh_date": "2027-08-15",
+  "rollup_rows": 230,
+  "source_state_rows": 1630
+}

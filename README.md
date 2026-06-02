@@ -82,6 +82,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_refresh_expectations.csv`: per-person longitudinal readiness rollup for future diff/reconciliation runs.
 - `artifacts/data/program_refresh_expectations.csv`: per-program/role longitudinal readiness rollup.
 - `artifacts/data/category_refresh_expectations.csv`: resident/fellow/student category rollup for institution-level monitoring.
+- `artifacts/data/training_lifecycle_assurance_rollups.csv`: compact lifecycle/state-machine assurance rollups across corpus, role, category, program, program-role, lifecycle code, and readiness status.
+- `artifacts/data/training_lifecycle_assurance_summary.json`: one-glance answer for stale-information policy, expected next-year changes, and review/source-refresh burden.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
 - `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
@@ -174,6 +176,7 @@ python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
+python3 scripts/materialize_training_lifecycle_assurance.py
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/collect_npi_candidates.py --sleep 0.03
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
@@ -241,6 +244,14 @@ python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 
 The readiness audit writes state-, person-, program-, and category-level CSVs plus `artifacts/data/longitudinal_change_readiness_summary.json`. It describes how the next refresh should interpret missing, unchanged, or advanced rows before mutating the person table: expected completion, expected advancement, source-refresh-required, human-review-required, or no-change-expected.
 
+Materialize lifecycle assurance rollups:
+
+```bash
+python3 scripts/materialize_training_lifecycle_assurance.py
+```
+
+The assurance materializer writes `artifacts/data/training_lifecycle_assurance_rollups.csv` plus `artifacts/data/training_lifecycle_assurance_summary.json` and reloads the rollups into SQLite. It summarizes whether each corpus/program/category slice is deterministic-clock-supported, source-refresh-bound, or review-bound, and states the stale-information policy to use before next-year mutations.
+
 ## Data Policy
 
 This project uses public web sources only. It does not bypass login walls, private directories, robots exclusions, or application-only systems. Public institutional contact channels may be stored only as structured contact candidates with source URL, scope, verification status, confidence, and candidate status; raw HTML remains redacted and ignored by Git. Records should retain source URLs and quality notes so downstream users can distinguish official roster facts from inferred categorization and enrichment candidates.
@@ -257,6 +268,7 @@ The initial methodology is conservative:
 - Normalize training labels into state observations with transition rules and stale-after dates so future runs can distinguish expected annual advancement from surprising changes.
 - Attach conservative lifecycle semantics to state observations so PGY/fellowship-year labels can be interpreted as annual advancement, terminal completion, unknown-duration refresh, or review-required states.
 - Project state observations into refresh expectations so future annual runs can produce person-, program-, and category-level diffs with expected-vs-surprising change semantics.
+- Summarize state-machine assurance into corpus-, program-, category-, and lifecycle-code rollups so future reruns can show flow/change views without treating stale public roster facts as current truth.
 - Classify official denominator gaps by evidence-backed reason before treating them as missing people: context-only public page, parser/manual-review candidate, low-content official page, related-program alias review, or broader-discovery-needed.
 - Keep official-program alias/denominator reconciliation as a candidate ledger until the relation is strong enough to mutate coverage or split a loaded broad program into a narrower official program.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.

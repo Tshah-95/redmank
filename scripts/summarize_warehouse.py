@@ -42,6 +42,7 @@ def main() -> None:
         "person_refresh_expectations",
         "program_refresh_expectations",
         "category_refresh_expectations",
+        "training_lifecycle_assurance_rollups",
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
@@ -330,6 +331,26 @@ def main() -> None:
             """
         )
     }
+    lifecycle_assurance_counts = {
+        row["assurance_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT assurance_status, COUNT(*) AS count
+            FROM training_lifecycle_assurance_rollups
+            GROUP BY assurance_status
+            """
+        )
+    }
+    lifecycle_assurance_diff_counts = {
+        row["diff_readiness_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT diff_readiness_status, COUNT(*) AS count
+            FROM training_lifecycle_assurance_rollups
+            GROUP BY diff_readiness_status
+            """
+        )
+    }
     contact_counts = {
         row["contact_type"]: row["count"]
         for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
@@ -500,6 +521,13 @@ def main() -> None:
         training_state_snapshot_summary = json.loads(training_state_snapshot_summary_path.read_text(encoding="utf-8"))
     else:
         training_state_snapshot_summary = {}
+    training_lifecycle_assurance_summary_path = ARTIFACTS / "training_lifecycle_assurance_summary.json"
+    if training_lifecycle_assurance_summary_path.exists():
+        training_lifecycle_assurance_summary = json.loads(
+            training_lifecycle_assurance_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        training_lifecycle_assurance_summary = {}
     attending_trend_linkage_summary_path = ARTIFACTS / "attending_trend_linkage_summary.json"
     if attending_trend_linkage_summary_path.exists():
         attending_trend_linkage_summary = json.loads(attending_trend_linkage_summary_path.read_text(encoding="utf-8"))
@@ -641,6 +669,8 @@ def main() -> None:
         "state_machine_status_counts": state_machine_status_counts,
         "training_state_transition_rollup_scope_counts": transition_rollup_scope_counts,
         "refresh_readiness_counts": refresh_readiness_counts,
+        "lifecycle_assurance_counts": lifecycle_assurance_counts,
+        "lifecycle_assurance_diff_counts": lifecycle_assurance_diff_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
@@ -662,6 +692,7 @@ def main() -> None:
         "evidence_reconciliation_decision_summary": reconciliation_decision_summary,
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
         "training_state_snapshot_summary": training_state_snapshot_summary,
+        "training_lifecycle_assurance_summary": training_lifecycle_assurance_summary,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,

@@ -679,6 +679,35 @@ CREATE TABLE IF NOT EXISTS category_refresh_expectations (
   PRIMARY KEY (trainee_category, role)
 );
 
+CREATE TABLE IF NOT EXISTS training_lifecycle_assurance_rollups (
+  rollup_key TEXT PRIMARY KEY,
+  rollup_scope TEXT NOT NULL,
+  rollup_value TEXT NOT NULL,
+  role TEXT,
+  trainee_category TEXT,
+  program_name TEXT,
+  lifecycle_code TEXT,
+  projected_refresh_date TEXT NOT NULL,
+  state_observation_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  program_count INTEGER NOT NULL DEFAULT 0,
+  annual_clock_count INTEGER NOT NULL DEFAULT 0,
+  expected_advancement_count INTEGER NOT NULL DEFAULT 0,
+  expected_completion_count INTEGER NOT NULL DEFAULT 0,
+  source_refresh_required_count INTEGER NOT NULL DEFAULT 0,
+  human_review_required_count INTEGER NOT NULL DEFAULT 0,
+  stale_by_refresh_count INTEGER NOT NULL DEFAULT 0,
+  unexpected_absence_review_count INTEGER NOT NULL DEFAULT 0,
+  deterministic_transition_count INTEGER NOT NULL DEFAULT 0,
+  source_bound_transition_count INTEGER NOT NULL DEFAULT 0,
+  review_bound_transition_count INTEGER NOT NULL DEFAULT 0,
+  assurance_status TEXT NOT NULL,
+  diff_readiness_status TEXT NOT NULL,
+  stale_information_policy TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,
