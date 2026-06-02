@@ -17,12 +17,16 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/organization_review_queue.csv`: organization labels that need alias/identifier review.
 - `artifacts/data/person_enrichment_queue.csv`: per-person recursive enrichment tasks.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
+- `artifacts/data/penn_attending_candidates.json`: conservative current Penn attending/faculty candidate layer for future career-trend reconciliation.
+- `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
+- `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
+- `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
-As of the latest local generation, the warehouse has 984 people: 466 residents, 293 fellows, and 225 public MSTP student-directory records. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
+As of the latest local generation, the warehouse has 984 people: 466 residents, 293 fellows, and 225 public MSTP student-directory records. It also has 1,279 accepted roster/training evidence claims, 759 PubMed author-query research candidates, 292 public contact candidates, and 85 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
 
 ## Reproduce
 
@@ -62,12 +66,20 @@ Run Penn-wide source discovery and first-pass research candidate collection:
 ```bash
 python3 scripts/discover_penn_affiliated_sources.py
 python3 scripts/scrape_penn_affiliated_rosters.py
+python3 scripts/scrape_penn_attending_candidates.py
+python3 scripts/extract_penn_outcome_candidates.py
 python3 scripts/build_sqlite.py
 python3 scripts/generate_enrichment_queue.py
-python3 scripts/collect_research_candidates.py
+python3 scripts/collect_research_candidates.py --only pubmed --replace-source pubmed_eutilities --sleep 0.34
 python3 scripts/export_warehouse_views.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
+```
+
+OpenAlex author search is implemented as a candidate utility, but the latest full-corpus run hit sustained OpenAlex 429 throttling. Keep it as a resumable/polite enrichment lane rather than a default blocking rebuild step:
+
+```bash
+python3 scripts/collect_research_candidates.py --only openalex --skip-existing-source openalex_author_search --sleep 0.5
 ```
 
 Validate scripts:
@@ -78,7 +90,7 @@ python3 -m py_compile scripts/*.py
 
 ## Data Policy
 
-This project uses public web sources only. It does not bypass login walls, private directories, robots exclusions, or application-only systems. Public student-directory email links are intentionally not extracted. Records should retain source URLs and quality notes so downstream users can distinguish official roster facts from inferred categorization and enrichment candidates.
+This project uses public web sources only. It does not bypass login walls, private directories, robots exclusions, or application-only systems. Public institutional contact channels may be stored only as structured contact candidates with source URL, scope, verification status, confidence, and candidate status; raw HTML remains redacted and ignored by Git. Records should retain source URLs and quality notes so downstream users can distinguish official roster facts from inferred categorization and enrichment candidates.
 
 ## Method
 
@@ -89,6 +101,7 @@ The initial methodology is conservative:
 - Deduplicate by normalized person name with manual aliases only when the same public corpus shows the variant.
 - Keep track and fellowship memberships as multi-valued fields instead of forcing one person into one category.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
+- Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.

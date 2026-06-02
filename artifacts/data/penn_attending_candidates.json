@@ -1,0 +1,1643 @@
+[
+  {
+    "source_key": "penn_attending_departments_and_centers_anesthesiology_and_critical_care_education_and_e746ff17cc",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/leadership",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Anesthesiology and Critical Care",
+    "program_context": "Department of Anesthesiology Education Leadership Team",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Emily Gordon, MD, MSEd",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/leadership/emily-gordon",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/anesthesiology/headshots/faculty%20headshots/gordon_emily.ashx?mw=120&mh=161",
+    "headshot_alt": "Emily Gordon headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_anesthesiology_and_critical_care_education_and_e746ff17cc",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/leadership",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Anesthesiology and Critical Care",
+    "program_context": "Department of Anesthesiology Education Leadership Team",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Jesse Kiefer MD MSEd",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/leadership/kiefer-jesse",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/kiefer_jesse.ashx?mw=120&mh=161",
+    "headshot_alt": "Head shot of Jesse Kiefer",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Alison Wakoff Loren, MD, MSCE",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/loren_alison.ashx?mw=120&mh=161",
+    "headshot_alt": "Alison Loren, MD, MS",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "alison.loren@pennmedicine.upenn.edu",
+        "contact_label": "alison.loren@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Christine Ciunci, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/ciunci_christine.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Christine A. Ciunci, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "christine.ciunci@pennmedicine.upenn.edu",
+        "contact_label": "Christine.Ciunci@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Michael Costello, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/costello_michael.ashx?mw=120&mh=161",
+    "headshot_alt": "Michael R. Costello, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "michael.costello@pennmedicine.upenn.edu",
+        "contact_label": "michael.costello@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Priya P. Gor, MD, MSCE",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/gor_priya.ashx?mw=120&mh=161",
+    "headshot_alt": "Priya P. Gor, MD, MSCE",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "priya.gor@pennmedicine.upenn.edu",
+        "contact_label": "priya.gor@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Douglas Eric Guggenheim, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/guggenheim_douglas.ashx?mw=120&mh=161",
+    "headshot_alt": "Douglas Eric Guggenheim, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "douglas_guggenheim@pennmedicine.upenn.edu",
+        "contact_label": "douglas_guggenheim@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Peter S. Klein, MD, PhD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/peter-klein",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/klein_peter_s.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Peter S. Klein, MD, PhD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Yehoda M. Martei, MD, MSCE",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/martei_yehoda.ashx?mw=120&mh=161",
+    "headshot_alt": "Headshot of Yehoda Martei, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ymartei@pennmedicine.upenn.edu",
+        "contact_label": "ymartei@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Daniel J. Landsburg, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/landsburg_daniel.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Daniel J. Landsburg, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "daniel.landsburg@pennmedicine.upenn.edu",
+        "contact_label": "Daniel.Landsburg@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Rebecca L. Hirsh, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/hirsch_rebecca.ashx?mw=120&mh=161",
+    "headshot_alt": "Rebecca L. Hirsh, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rebecca.hirsh@pennmedicine.upenn.edu",
+        "contact_label": "Rebecca.Hirsh@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Erin O. Aakhus, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/aakhus_erin.ashx?mw=120&mh=161",
+    "headshot_alt": "Erin O. Aakhus, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "erin.aakhus@pennmedine.upenn.edu",
+        "contact_label": "Erin.Aakhus@pennmedine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Roger B. Cohen, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/cohen_roger.ashx?mw=120&mh=161",
+    "headshot_alt": "Roger B. Cohen, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "roger.cohen@pennmedicine.upenn.edu",
+        "contact_label": "Roger.Cohen@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Edward A. Stadtmauer, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/stadtmauer_edward.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Edward A. Stadtmauer, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "edward.stadtmauer@pennmedicine.upenn.edu",
+        "contact_label": "Edward.Stadtmauer@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Nevena Damjanov, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/damjanov_nevena.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Nevena Damjanov, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nevena.damjanov@pennmedicine.upenn.edu",
+        "contact_label": "Nevena.Damjanov@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Christopher A. D'Avella, MD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/christopher-davella",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/hematology/davellachristopher.ashx?mw=120&mh=161",
+    "headshot_alt": "Christopher D'Avella headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "David M. Mintzer, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/mintzer_david.ashx?mw=120&mh=161",
+    "headshot_alt": "David M. Mintzer, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "david.mintzer@pennmedicine.upenn.edu",
+        "contact_label": "David.Mintzer@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Maureen R. Hewitt, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/hewitt_maureen.ashx?mw=120&mh=161",
+    "headshot_alt": "Maureen R. Hewitt, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "maureen.hewitt@pennmedicine.upenn.edu",
+        "contact_label": "Maureen.Hewitt@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Leadership Team - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Tracy S. d’Entremont, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/dentremont_tracy.ashx?mw=120&mh=161",
+    "headshot_alt": "Tracy S. d'Entremont, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Andrea J. Apter, MD, MA, MSc",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/pulmonology%20allergy%20and%20critical%20care/headshots/apter_andrea.ashx?mw=120&mh=161",
+    "headshot_alt": "Andrea Apter headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Timothy Buckey, MD, MBE",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/timothy-buckey",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/pulmonology%20allergy%20and%20critical%20care/headshots/buckey_tim.ashx?mw=120&mh=161",
+    "headshot_alt": "Tim Buckley headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Anar A. Dossumbekova, MD, PhD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/anar-dossumbekova",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/dossumbekova_anar.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Anar A. Dossumbekova, MD, PhD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Olajumoke O. Fadugba, MD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/fadugba-olajumoke",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/fadugba_olajumoke.ashx?mw=120&mh=161",
+    "headshot_alt": "Olajumoke O. Fadugba, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Scott Feldman, MD, PhD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/scott-feldman",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/feldman_scott.ashx?mw=120&mh=161",
+    "headshot_alt": "Scott Feldman, MD, PhD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Patrick Kevin Gleeson, MD, MSCE",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/patrick-gleeson",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/gleeson_patrick.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Patrick Kevin Gleeson, MD, MSCE",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Pavle S. Milutinovic, MD, PhD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/pavle-milutinovic",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/milutinovic_pavle.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Pavle S. Milutinovic, MD, PhD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Geeta Ravi Patel, MD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/geeta-patel",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/patel_geeta.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Geeta Ravi Patel, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Section of Allergy and Immunology Faculty",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Priya Patel, MD",
+    "role_title": "",
+    "profile_url": "https://www3.pennmedicine.org/providers/profile/priya-patel",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/patel_priya.ashx?mw=120&mh=161",
+    "headshot_alt": "Headshot of Priya Patel, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Niharika Ganta, MD, MPH",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/ganta_niharika.ashx?mw=120&mh=161",
+    "headshot_alt": "Niharika Ganta headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "niharika.ganta@pennmedicine.upenn.edu",
+        "contact_label": "Niharika.Ganta@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Emily Chan, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/chan_emily.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Emily Chan, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "emily.chan@pennmedicine.upenn.edu",
+        "contact_label": "Emily.Chan@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Katherine Courtright, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/courtright_katherine.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Katherine Courtright, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "katherine.courtright@pennmedicine.upenn.edu",
+        "contact_label": "Katherine.Courtright@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Laura Dingfield, MD, MSEd",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/dingfield_laura.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Laura Dingfield, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "laura.dingfield@pennmedicine.upenn.edu",
+        "contact_label": "Laura.Dingfield@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Bridget Durkin, MD, MBE",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/durkin_bridget.ashx?mw=120&mh=161",
+    "headshot_alt": "Bridget Durkin headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training"
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Nicholas Woods Freedman, DO",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/freedman_nicholas.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Nicholas Woods Freedman, DO",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nicholas.freedman@pennmedicine.upenn.edu",
+        "contact_label": "Nicholas.Freedman@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Roshni T. Guerry, MD, FACP",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/guerry_roshni.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Roshni Guerry, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "roshni.guerry@pennmedicine.upenn.edu",
+        "contact_label": "Roshni.Guerry@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Denis Hadjiliadis, MD, PhD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/hadjiliadis_denis.ashx?mw=120&mh=161",
+    "headshot_alt": "Denis Hadjiliadis, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "denis.hadjiliadis@pennmedicine.upenn.edu",
+        "contact_label": "Denis.Hadjiliadis@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Lindsay Haines, MD, MSHP",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/haines_lindsay.ashx?mw=120&mh=161",
+    "headshot_alt": "headshot of Lindsay K. Haines, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "lindsay.haines@pennmedicine.upenn.edu",
+        "contact_label": "Lindsay.Haines@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Pallavi Kumar, MD, MPH",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/kumar_pallavi.ashx?mw=120&mh=161",
+    "headshot_alt": "Pallavi Kumar, MD, MPH",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "pallavi.kumar@pennmedicine.upenn.edu",
+        "contact_label": "Pallavi.Kumar@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Kathryn A. McGrath, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/mcgrath_kathryn.ashx?mw=120&mh=161",
+    "headshot_alt": "Headshot of Kathryn McGrath, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kathryn.mcgrath@pennmedicine.upenn.edu",
+        "contact_label": "Kathryn.McGrath@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Matthew Mendlik, MD, PhD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/mendlik_matthew.ashx?mw=120&mh=161",
+    "headshot_alt": "Matthew T. Mendlik, MD, PhD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "matthew.mendlik@pennmedicine.upenn.edu",
+        "contact_label": "Matthew.Mendlik@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Miguel A Paniagua, MD, FACP, FAAHPM",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/paniagua_miguel.ashx?mw=120&mh=161",
+    "headshot_alt": "Miguel Paniagua headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "miguel.paniagua@pennmedicine.upenn.edu",
+        "contact_label": "Miguel.Paniagua@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Alana Sagin, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/sagin_alana.ashx?mw=120&mh=161",
+    "headshot_alt": "Alana Sagin, MD",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "alana.sagin@pennmedicine.upenn.edu",
+        "contact_label": "Alana.Sagin@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Stanley Savinese, DO",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/savinese_stanley_whitecoat.ashx?mw=120&mh=161",
+    "headshot_alt": "Stanley Savinese headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "stanley.savinese@pennmedicine.upenn.edu",
+        "contact_label": "Stanley.Savinese@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Ann Soliman, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/solimanannwhitecoatright.ashx?mw=120&mh=161",
+    "headshot_alt": "Ann Soliman headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ann.soliman@pennmedicine.upenn.edu",
+        "contact_label": "Ann.Soliman@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Sara Ann Van Calcar, MD",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/mpd/providers/vancalcar_sara.ashx?mw=120&mh=161",
+    "headshot_alt": "Headshot of Sara VanCalcar",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sara.vancalcar@pennmedicine.upenn.edu",
+        "contact_label": "Sara.VanCalcar@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Vincent J. Vanston, MD, FAAHPM",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/vanston_jay.ashx?mw=120&mh=161",
+    "headshot_alt": "Jay Vanston headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "vincent.vanston@pennmedicine.upenn.edu",
+        "contact_label": "Vincent.Vanston@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Barbara A. Carr",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/carr_barbara.ashx?mw=120&mh=161",
+    "headshot_alt": "Barbara Carr headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "barbara.carr1@pennmedicine.upenn.edu",
+        "contact_label": "Barbara.Carr1@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Janet Long",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/long_janet.ashx?mw=120&mh=161",
+    "headshot_alt": "Janet Long headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "janet.long@pennmedicine.upenn.edu",
+        "contact_label": "Janet.Long@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "source_type": "official_attending_faculty_candidate",
+    "institution": "University of Pennsylvania / Penn Medicine",
+    "department": "Department of Medicine",
+    "program_context": "Faculty and Administration - Penn Medicine",
+    "event_type": "current_penn_attending_candidate",
+    "role": "attending",
+    "current_status": "current",
+    "name": "Rachael Lutgen",
+    "role_title": "",
+    "profile_url": "",
+    "headshot_url": "https://www3.pennmedicine.org/-/media/academic%20departments/palliative%20care/rachel_lutgen.ashx?mw=120&mh=161",
+    "headshot_alt": "Rachel Lutgen headshot",
+    "extraction_method": "penn_attending_bio_component",
+    "quality_tier": "candidate",
+    "quality_notes": [
+      "current_faculty_candidate_not_linked_to_prior_training",
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rachael.lutgen@pennmedicine.upenn.edu",
+        "contact_label": "Rachael.Lutgen@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+        "source_type": "official_attending_faculty_candidate",
+        "verification_status": "public_profile_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_profile",
+          "mailto_link"
+        ]
+      }
+    ]
+  }
+]

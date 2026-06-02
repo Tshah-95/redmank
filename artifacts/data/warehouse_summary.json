@@ -1,15 +1,24 @@
 {
+  "career_event_counts": {
+    "current_penn_attending_candidate": 49,
+    "penn_alumni_outcome_candidate": 36
+  },
+  "contact_counts": {
+    "email": 292
+  },
   "counts": {
-    "evidence_claims": 3980,
+    "career_events": 85,
+    "evidence_claims": 2038,
     "organization_aliases": 695,
     "organization_identifiers": 1,
     "organizations": 675,
     "people": 984,
+    "person_contacts": 292,
     "person_training_events": 1279,
     "programs": 34,
     "source_quality_observations": 2,
     "source_utilities": 8,
-    "sources": 1320
+    "sources": 1345
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "evidence_source_counts": {
@@ -35,7 +44,6 @@
     "internal_medicine_physician_scientist": 3,
     "internal_medicine_primary_care": 8,
     "nephrology_current_fellows": 44,
-    "openalex_author_search": 1942,
     "palliative_current_fellows": 10,
     "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299": 38,
     "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_2ebc99cda7": 102,
@@ -59,10 +67,9 @@
   },
   "evidence_status_counts": {
     "accepted": 1279,
-    "candidate": 2482,
-    "needs_review": 219
+    "candidate": 759
   },
-  "generated_at": "2026-06-02T03:55:52.891236+00:00",
+  "generated_at": "2026-06-02T04:34:01.603520+00:00",
   "organization_category_counts": {
     "clinical_training_site": 166,
     "graduate_institution": 18,

@@ -116,10 +116,11 @@ def main() -> None:
     }
     (OUT / "penn_source_discovery.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     with (OUT / "penn_source_discovery.csv").open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["classification", "bio_count", "title", "url", "headings"])
+        writer = csv.DictWriter(f, fieldnames=["classification", "bio_count", "title", "url", "headings"], lineterminator="\n")
         writer.writeheader()
         for row in findings:
-            writer.writerow({**row, "headings": " | ".join(row["headings"])})
+            headings = [heading for heading in row["headings"] if heading.strip()]
+            writer.writerow({**row, "headings": " | ".join(headings).strip()})
     print(f"seen={len(seen)} findings={len(findings)}")
 
 

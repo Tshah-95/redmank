@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-01T23:00:09.377015+00:00",
+  "generated_at": "2026-06-02T04:13:07.398182+00:00",
   "source": {
     "source_key": "perelman_mstp_student_directory",
     "url": "https://www.med.upenn.edu/mstp/student-directory/",
-    "fetched_at": "2026-06-01T23:00:09.246491+00:00",
+    "fetched_at": "2026-06-02T04:13:07.256891+00:00",
     "http_status": 200,
     "effective_url": "https://www.med.upenn.edu/mstp/student-directory/"
   },
@@ -16,6 +16,7 @@
     "academic_interests": 186,
     "hobbies_and_interests": 177,
     "other": 99,
-    "publications_url": 4
+    "publications_url": 4,
+    "contacts": 205
   }
 }

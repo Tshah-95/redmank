@@ -64,16 +64,30 @@ def exactish_name_match(candidate: str, target: str) -> bool:
     return bool(cl and tl and cl.lower() == tl.lower() and cf[:1].lower() == tf[:1].lower() and ci[:1].lower() == ti[:1].lower())
 
 
-def people(conn: sqlite3.Connection, limit: int | None) -> list[sqlite3.Row]:
+def people(conn: sqlite3.Connection, limit: int | None, skip_existing_source: str | None = None) -> list[sqlite3.Row]:
     sql = """
         SELECT person_key, display_name, role, raw_json
         FROM people
         WHERE role IN ('resident', 'fellow')
+    """
+    params: list[str] = []
+    if skip_existing_source:
+        sql += """
+          AND NOT EXISTS (
+            SELECT 1
+            FROM evidence_claims e
+            WHERE e.person_key = people.person_key
+              AND e.source_key = ?
+              AND e.status != 'rejected'
+          )
+        """
+        params.append(skip_existing_source)
+    sql += """
         ORDER BY role, display_name
     """
     if limit:
         sql += f" LIMIT {int(limit)}"
-    return conn.execute(sql).fetchall()
+    return conn.execute(sql, params).fetchall()
 
 
 def profile_context(raw: dict) -> dict:
@@ -113,7 +127,7 @@ def upsert_api_sources(conn: sqlite3.Connection) -> None:
 
 def openalex_candidates(session: requests.Session, person: sqlite3.Row) -> list[dict]:
     url = f"https://api.openalex.org/authors?search={quote(clean_name(person['display_name']))}&per-page=5"
-    response = session.get(url, timeout=20)
+    response = request_with_retry(session, url)
     response.raise_for_status()
     payload = response.json()
     candidates = []
@@ -210,12 +224,14 @@ def pubmed_candidate(session: requests.Session, person: sqlite3.Row) -> dict:
     }
 
 
-def request_with_retry(session: requests.Session, url: str, attempts: int = 4) -> requests.Response:
+def request_with_retry(session: requests.Session, url: str, attempts: int = 5) -> requests.Response:
+    retryable_statuses = {429, 500, 502, 503, 504}
     for attempt in range(attempts):
         response = session.get(url, timeout=20)
-        if response.status_code != 429:
+        if response.status_code not in retryable_statuses:
             return response
-        time.sleep(1.0 + attempt)
+        if attempt < attempts - 1:
+            time.sleep(1.0 + attempt)
     return response
 
 
@@ -244,6 +260,8 @@ def insert_claim(conn: sqlite3.Connection, person_key: str, claim: dict) -> None
 
 
 def record_quality(conn: sqlite3.Connection, utility_key: str, claims: list[dict], sample_size: int) -> None:
+    if sample_size == 0 and not claims:
+        return
     conn.execute(
         """
         INSERT INTO source_quality_observations
@@ -280,13 +298,19 @@ def main() -> None:
     parser.add_argument("--sleep", type=float, default=0.34)
     parser.add_argument("--only", choices=["all", "openalex", "pubmed"], default="all")
     parser.add_argument("--replace-source", action="append", default=[])
+    parser.add_argument(
+        "--skip-existing-source",
+        choices=["openalex_author_search", "pubmed_eutilities"],
+        default=None,
+        help="Skip people with at least one non-rejected claim from this source.",
+    )
     args = parser.parse_args()
 
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-research-enrichment/0.1 (candidate evidence only)"
-    selected = people(conn, args.limit)
+    selected = people(conn, args.limit, args.skip_existing_source)
     all_claims: list[dict] = []
     with conn:
         upsert_api_sources(conn)
@@ -352,6 +376,28 @@ def main() -> None:
                 [claim for claim in all_claims if claim["source_key"] == "pubmed_eutilities"],
                 len(selected),
             )
+    current_counts = {
+        row["source_key"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT source_key, COUNT(*) AS count
+            FROM evidence_claims
+            WHERE source_key IN ('openalex_author_search', 'pubmed_eutilities')
+            GROUP BY source_key
+            """
+        )
+    }
+    current_status_counts = {
+        f"{row['source_key']}:{row['status']}": row["count"]
+        for row in conn.execute(
+            """
+            SELECT source_key, status, COUNT(*) AS count
+            FROM evidence_claims
+            WHERE source_key IN ('openalex_author_search', 'pubmed_eutilities')
+            GROUP BY source_key, status
+            """
+        )
+    }
     conn.close()
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -361,6 +407,8 @@ def main() -> None:
             source: sum(1 for claim in all_claims if claim["source_key"] == source)
             for source in sorted({claim["source_key"] for claim in all_claims})
         },
+        "current_database_by_source": current_counts,
+        "current_database_by_source_status": current_status_counts,
     }
     (OUT / "research_candidate_summary.json").write_text(dumps(summary) + "\n", encoding="utf-8")
     print(dumps(summary))

@@ -1,0 +1,38 @@
+[
+  {
+    "source_key": "penn_attending_departments_and_centers_anesthesiology_and_critical_care_education_and_e746ff17cc",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/leadership",
+    "fetched_at": "2026-06-02T04:13:07.770155+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/leadership",
+    "sha256": "95cf183c02e70a526bdfeb3e22cc11d2ca3d3269184a9e1187933dc29ae462cc",
+    "discovery_classification": "attending_faculty_candidate"
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_hematology_an_9c7dd893d1",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "fetched_at": "2026-06-02T04:13:07.938060+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/about-us/leadership-team",
+    "sha256": "39a6cdc36ecfeafc35e864fac8c7330940ff1c02b3908e11f90b4e3606b51d94",
+    "discovery_classification": "attending_faculty_candidate"
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_pulmonology_a_eb928a342a",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "fetched_at": "2026-06-02T04:13:08.095825+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-and-immunology-faculty",
+    "sha256": "67d95d05fb251bf43bd98e13489f65c716d7a42312717a9b0c3af044330641ed",
+    "discovery_classification": "attending_faculty_candidate"
+  },
+  {
+    "source_key": "penn_attending_departments_and_centers_department_of_medicine_divisions_program_in_pa_9180afb3e4",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "fetched_at": "2026-06-02T04:13:08.220167+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/faculty-and-administration",
+    "sha256": "3cc0b4cc6423ecc0399697eb20405f8de8f87f7ad5620930eaf519b050454935",
+    "discovery_classification": "attending_faculty_candidate"
+  }
+]

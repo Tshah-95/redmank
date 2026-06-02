@@ -11,7 +11,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 
 DEPS_PATH = Path(os.environ.get("PENN_CORPUS_DEPS", "/tmp/penn_corpus_deps"))
 if DEPS_PATH.exists():
@@ -45,6 +45,30 @@ def absolute(base: str, maybe_url: str | None) -> str:
     if not maybe_url:
         return ""
     return urljoin(base, maybe_url)
+
+
+def email_from_href(href: str | None) -> str:
+    if not href or not href.lower().startswith("mailto:"):
+        return ""
+    address = unquote(href.split(":", 1)[1].split("?", 1)[0]).strip()
+    if not re.fullmatch(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", address):
+        return ""
+    return address.lower()
+
+
+def contact_from_email(email: str, label: str, source_url: str) -> dict:
+    return {
+        "contact_type": "email",
+        "value": email,
+        "contact_label": label or "Email",
+        "contact_scope": "institutional" if email.endswith((".edu", ".org")) else "public_unknown",
+        "source_url": source_url,
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82 if email.endswith((".edu", ".org")) else 0.62,
+        "status": "candidate",
+        "match_features": ["public_official_roster", "mailto_link"],
+    }
 
 
 def source_key_for(url: str) -> str:
@@ -90,20 +114,25 @@ def should_scrape_source(row: dict) -> bool:
     return any(token in title_url for token in include_tokens)
 
 
-def parse_info_sets(bio) -> dict:
+def parse_info_sets(bio, source_url: str) -> tuple[dict, list[dict]]:
     fields = {}
+    contacts = []
     for span in bio.select(".bio__info-set"):
         key_node = span.select_one(".bio__info-key")
         if not key_node:
             continue
         key = norm(key_node.get_text()).rstrip(":").lower().replace(" ", "_").replace("/", "_")
         if key == "email":
+            for link in span.select('a[href^="mailto:"]'):
+                email = email_from_href(link.get("href"))
+                if email:
+                    contacts.append(contact_from_email(email, norm(link.get_text(" ")) or "Email", source_url))
             continue
         key_node.extract()
         value = redact_text(norm(span.get_text(" ")))
         if value:
             fields[key] = value
-    return fields
+    return fields, contacts
 
 
 def infer_role(title: str, url: str) -> str:
@@ -162,6 +191,7 @@ def parse_source(session: requests.Session, source: dict) -> tuple[list[dict], d
                 continue
             image = bio.select_one("img")
             profile = bio.select_one("a[href]")
+            fields, contacts = parse_info_sets(bio, url)
             record = {
                 "source_key": meta["source_key"],
                 "source_url": url,
@@ -181,7 +211,10 @@ def parse_source(session: requests.Session, source: dict) -> tuple[list[dict], d
                 "quality_tier": "medium",
                 "quality_notes": ["broad_affiliated_scrape_needs_review"],
             }
-            record.update(parse_info_sets(bio))
+            if contacts:
+                record["contacts"] = contacts
+                record["quality_notes"].append("public_contact_candidates_extracted")
+            record.update(fields)
             rows.append(record)
     return rows, meta
 
@@ -198,7 +231,7 @@ def write_outputs(records: list[dict], source_meta: list[dict]) -> None:
     )
     fields = sorted({key for row in records for key in row})
     with (OUT / "penn_affiliated_people.csv").open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(records)
     summary = {

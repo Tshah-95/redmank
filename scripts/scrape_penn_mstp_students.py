@@ -10,7 +10,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import unquote, urljoin
 
 DEPS_PATH = Path(os.environ.get("PENN_CORPUS_DEPS", "/tmp/penn_corpus_deps"))
 if DEPS_PATH.exists():
@@ -58,6 +58,30 @@ def display_name(directory_name: str) -> str:
     return norm(f"{first} {last}")
 
 
+def email_from_href(href: str | None) -> str:
+    if not href or not href.lower().startswith("mailto:"):
+        return ""
+    address = unquote(href.split(":", 1)[1].split("?", 1)[0]).strip()
+    if not re.fullmatch(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", address):
+        return ""
+    return address.lower()
+
+
+def contact_from_email(email: str, label: str, source_url: str) -> dict:
+    return {
+        "contact_type": "email",
+        "value": email,
+        "contact_label": label or "Email",
+        "contact_scope": "institutional" if email.endswith((".edu", ".org")) else "public_unknown",
+        "source_url": source_url,
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82 if email.endswith((".edu", ".org")) else 0.62,
+        "status": "candidate",
+        "match_features": ["public_official_student_directory", "mailto_link"],
+    }
+
+
 def parse_detail_paragraph(paragraph) -> tuple[str, str]:
     title = paragraph.select_one(".profile-card__details-title")
     if not title:
@@ -77,6 +101,11 @@ def parse_students(html: str) -> list[dict]:
         directory_name = norm(name_node.get_text(" "))
         image = card.select_one("img")
         publication_link = card.find("a", string=re.compile("Publications", re.I))
+        contacts = []
+        for link in card.select('a[href^="mailto:"]'):
+            email = email_from_href(link.get("href"))
+            if email:
+                contacts.append(contact_from_email(email, norm(link.get_text(" ")) or "Email", SOURCE_URL))
         row = {
             "source_key": "perelman_mstp_student_directory",
             "source_url": SOURCE_URL,
@@ -96,9 +125,11 @@ def parse_students(html: str) -> list[dict]:
             "quality_tier": "medium",
             "quality_notes": [
                 "partial_medical_student_population_mstp_only",
-                "email_links_intentionally_not_extracted",
+                "public_contact_candidates_extracted" if contacts else "no_public_contact_link_seen",
             ],
         }
+        if contacts:
+            row["contacts"] = contacts
         for paragraph in card.select("p"):
             key, value = parse_detail_paragraph(paragraph)
             if value:
@@ -114,7 +145,7 @@ def write_outputs(records: list[dict], source_meta: dict) -> None:
     )
     fields = sorted({key for row in records for key in row.keys()})
     with (OUT / "penn_mstp_students.csv").open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(records)
     summary = {
@@ -132,6 +163,7 @@ def write_outputs(records: list[dict], source_meta: dict) -> None:
                 "hobbies_and_interests",
                 "other",
                 "publications_url",
+                "contacts",
             ]
         },
     }

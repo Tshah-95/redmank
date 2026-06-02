@@ -1,0 +1,212 @@
+[
+  {
+    "source_key": "penn_outcome_cb38c6bd51ff",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights",
+    "title": "Alumni Spotlights - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:08.573766+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights",
+    "sha256": "952cbc775d39cf668b5291a2117d924189ddf4d8225223fad1f5b393eb2a3d72",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_8610e1794b15",
+    "url": "https://pathology.med.upenn.edu/education/graduate-studies",
+    "title": "Graduate Studies | University of Pennsylvania | Pathology and Laboratory Medicine",
+    "fetched_at": "2026-06-02T04:13:08.871631+00:00",
+    "http_status": 200,
+    "effective_url": "https://pathology.med.upenn.edu/education/graduate-studies",
+    "sha256": "582530ad78bcbc3cf33f47bf86a1b001e32106901f3453680e52bd530e1aaf56",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_dfa1e124d18d",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information/internal-medicine-graduates",
+    "title": "Internal Medicine Graduates - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:08.987608+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information/internal-medicine-graduates",
+    "sha256": "52fdae8665bb4bea84ac1f0576fd2645ae766e1b33f5f9ceb2e09eaaba04bc6d",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_426ab7252001",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/residency-program/alumni",
+    "title": "Alumni - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.121327+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/residency-program/alumni",
+    "sha256": "dd2d521c878a712c9cc8b8f511f7c57d7616f1a60369d43c185d22101faa997b",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_b30bd4cae8ea",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/oem-residency-program/alumni",
+    "title": "Alumni - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.249936+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/oem-residency-program/alumni",
+    "sha256": "f8301e64a1eb77046f01c9011b7c5a85f53a791b66a2b626ee1b257f4eb4aee2",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_db7d66d05261",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/about-our-graduates",
+    "title": "About our Graduates - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.363564+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/about-our-graduates",
+    "sha256": "7fb6f4739bf62bc53fa4c10202e96c84ecffcc9b9f4856a353db26b640146d87",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_60c64193841a",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/myron-yanoff",
+    "title": "Myron Yanoff, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.536089+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/myron-yanoff",
+    "sha256": "4760eaaef175f24dae43dc4dc272af9382891f51345c1c35d15f4bd5ca63ffde",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_483cb9a8578e",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/jennifer-thorne",
+    "title": "Jennifer E. Thorne, MD, PhD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.661487+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/jennifer-thorne",
+    "sha256": "52ce6bc4693241aaba2425eaf54245d902fe943ce9a4770cce95b7d71a258430",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_00d58f2dceeb",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/jonathan-prenner",
+    "title": "Jonathan Prenner, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.800450+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/jonathan-prenner",
+    "sha256": "c8ddaf3d7a974f5e0db8735807518ea42370a128cbd19b4838b3f12dd7f3c258",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_0e011bcf68a3",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/raymond-douglas",
+    "title": "Raymond Douglas, MD, PhD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:09.940586+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/raymond-douglas",
+    "sha256": "0eea634b08e4f6ea3629761e3544e48114de8edae32af4822d39533dfd5e5047",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_af03308e6294",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/sepideh-tara-rousta",
+    "title": "Sepideh Tara Rousta, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.078205+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/sepideh-tara-rousta",
+    "sha256": "724830347e62f2e283e6dc668a98c80cafcb08e61ff2dd9bb54b3fd7fc1f6d31",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_7ba016dac584",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/steve-rubin",
+    "title": "Steve Rubin, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.209767+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/steve-rubin",
+    "sha256": "5570aec07562bad11c0fd722fccba49ae87243f49430235c1cfd9653988a51ac",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_94444048245b",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/william-trattler",
+    "title": "William Trattler, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.343971+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/william-trattler",
+    "sha256": "dbe0c41a32855d151ed0b7f516f4fb52cdadf0cf2caa8014a2f957bd5e724c63",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_8fa49015c5d6",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/daniel-gombos",
+    "title": "Daniel Gombos, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.474571+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/daniel-gombos",
+    "sha256": "7b7236ddbcfdfd476d7bd4160218661e5212391bb8a07d99dda409a2c725efa5",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_4e51edb85819",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/donald-budenz",
+    "title": "Donald Budenz, MD, MPH - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.599193+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/donald-budenz",
+    "sha256": "4061857f212fe59b6d1f8a33a5f77a613a1c1db50854125a00fe2e385b97709f",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_67e68621abd9",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/robert-weisenthal",
+    "title": "Robert Weisenthal, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.713448+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/robert-weisenthal",
+    "sha256": "1e22cdeb1470caf405308d21426839c2b810959c56ef402f6ea7901299c275e0",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_126a793a29f6",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/marvin-greenbaum",
+    "title": "Marvin Greenbaum, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.856210+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/marvin-greenbaum",
+    "sha256": "ca46bc8a5eefa6748ab84206e7658366db49195ca42f5efd8aa51eb366828bb2",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_d82dca1e92b6",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/richard-prince",
+    "title": "Richard Prince, MD - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:10.988811+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/about-us/news/department-news/alumni-spotlights/richard-prince",
+    "sha256": "8fde31808e74eb158d2f915b09dfee1217fafe9260003b0f31b6247c69a528cb",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_91061df13303",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program/alumni",
+    "title": "Alumni - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:11.115113+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program/alumni",
+    "sha256": "d52100d354d6f278e4363edb1da31815227f90774c65390357c24eea00b6d9db",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_0d0d1a20fa3e",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/graduates",
+    "title": "Primary Care Program Graduates - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:11.239111+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/graduates",
+    "sha256": "69f27524723523cacca25d7a65f2e4ed019abf8e0d751775daab47e840d83655",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  },
+  {
+    "source_key": "penn_outcome_364fe37083c4",
+    "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/graduates",
+    "title": "Graduates - Penn Medicine",
+    "fetched_at": "2026-06-02T04:13:11.383813+00:00",
+    "http_status": 200,
+    "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/graduates",
+    "sha256": "21d92a268de9fa38d717bb5b2255b3ddbf435bd29c2481ea3888d035bd606ec9",
+    "discovery_classification": "alumni_or_outcome_candidate"
+  }
+]

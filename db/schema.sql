@@ -110,6 +110,45 @@ CREATE TABLE IF NOT EXISTS person_training_events (
   evidence_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS career_events (
+  career_event_id INTEGER PRIMARY KEY,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  event_type TEXT NOT NULL,
+  role_title TEXT,
+  organization_name TEXT,
+  department TEXT,
+  program_context TEXT,
+  event_year INTEGER,
+  source_key TEXT REFERENCES sources(source_key) ON DELETE SET NULL,
+  source_url TEXT,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  status TEXT NOT NULL DEFAULT 'candidate',
+  match_features_json TEXT,
+  evidence_json TEXT
+);
+
+CREATE TABLE IF NOT EXISTS person_contacts (
+  contact_id INTEGER PRIMARY KEY,
+  contact_key TEXT NOT NULL UNIQUE,
+  person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  subject_type TEXT NOT NULL DEFAULT 'person',
+  contact_type TEXT NOT NULL,
+  contact_value TEXT NOT NULL,
+  contact_label TEXT,
+  contact_scope TEXT NOT NULL DEFAULT 'institutional',
+  source_key TEXT REFERENCES sources(source_key) ON DELETE SET NULL,
+  source_url TEXT,
+  source_type TEXT,
+  verification_status TEXT NOT NULL DEFAULT 'public_unverified',
+  confidence REAL NOT NULL DEFAULT 0.0,
+  status TEXT NOT NULL DEFAULT 'candidate',
+  match_features_json TEXT,
+  evidence_json TEXT,
+  UNIQUE (person_key, display_name, subject_type, contact_type, contact_value, source_key)
+);
+
 CREATE TABLE IF NOT EXISTS evidence_claims (
   evidence_id INTEGER PRIMARY KEY,
   person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
@@ -167,3 +206,44 @@ ORDER BY
   CASE e.resolver_status WHEN 'unresolved' THEN 0 WHEN 'cleaned_label' THEN 1 ELSE 2 END,
   mention_count DESC,
   e.raw_value;
+
+CREATE VIEW IF NOT EXISTS v_recent_attending_trend_candidates AS
+SELECT
+  career_event_id,
+  person_key,
+  display_name,
+  event_type,
+  role_title,
+  organization_name,
+  department,
+  program_context,
+  event_year,
+  source_url,
+  confidence,
+  status
+FROM career_events
+WHERE event_type IN ('current_penn_attending_candidate', 'penn_alumni_outcome_candidate')
+ORDER BY
+  event_year DESC,
+  confidence DESC,
+  display_name;
+
+CREATE VIEW IF NOT EXISTS v_public_person_contacts AS
+SELECT
+  c.contact_id,
+  c.person_key,
+  COALESCE(p.display_name, c.display_name) AS display_name,
+  COALESCE(p.role, c.subject_type) AS role,
+  c.contact_type,
+  c.contact_value,
+  c.contact_label,
+  c.contact_scope,
+  c.source_key,
+  c.source_url,
+  c.verification_status,
+  c.confidence,
+  c.status
+FROM person_contacts c
+LEFT JOIN people p ON p.person_key = c.person_key
+WHERE c.status IN ('accepted', 'candidate', 'needs_review')
+ORDER BY COALESCE(p.display_name, c.display_name), c.contact_type, c.confidence DESC;

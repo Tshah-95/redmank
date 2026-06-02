@@ -3265,7 +3265,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sakthi.gautham@pennmedicine.upenn.edu",
+        "contact_label": "Sakthi.Gautham@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "International American University College of Medicine St. Lucia",
     "residency_program": "MedStar Health Georgetown University (Baltimore)",
@@ -3289,7 +3307,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sarah.gorvetzian@pennmedicine.upenn.edu",
+        "contact_label": "Sarah.Gorvetzian@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Emory University School of Medicine",
     "residency_program": "University of Colorado",
@@ -3313,7 +3349,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kaelo.moahi@pennmedicine.upenn.edu",
+        "contact_label": "Kaelo.Moahi@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Warren Alpert Medical School of Brown University",
     "residency_program": "Hospital of the University of Pennsylvania / Children's Hospital of Philadelphia Internal Medicine-Pediatrics Program",
@@ -3337,7 +3391,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "michelle.munyikwa@pennmedicine.upenn.edu",
+        "contact_label": "Michelle.Munyikwa@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at The University of Pennsylvania",
     "graduate_school": "University of Pennsylvania",
@@ -3362,7 +3434,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "daniel.sack@pennmedicine.upenn.edu",
+        "contact_label": "Daniel.Sack@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Vanderbilt University School of Medicine",
     "graduate_school": "Vanderbilt University",
@@ -3387,7 +3477,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "alexa.tabackman@pennmedicine.upenn.edu",
+        "contact_label": "Alexa.Tabackman@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Virginia School of Medicine",
     "residency_program": "Boston Medical Center",
@@ -3410,7 +3518,26 @@
     "headshot_alt": "Gabrielle Aquino headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "gabrielle.aquino@pennmedicine.upenn.edu",
+        "contact_label": "gabrielle.aquino@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "George Washington University",
     "residency_program": "Mount Sinai Hospital",
     "undergraduate_school": "Boston College",
@@ -3434,7 +3561,26 @@
     "headshot_alt": "Joseph Lim headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "joseph.ladines-lim@pennmedicine.upenn.edu",
+        "contact_label": "joseph.ladines-lim@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Yale School of Medicine",
     "graduate_school": "Massachusetts Institute of Technology",
     "residency_program": "Combined Medicine-Pediatrics at Michigan Medicine, University of Michigan",
@@ -3459,7 +3605,26 @@
     "headshot_alt": "Jung Min Seo headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jung.seo@pennmedicine.upenn.edu",
+        "contact_label": "jung.seo@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Rutgers University",
     "residency_program": "Baylor College of Medicine",
     "undergraduate_school": "Rutgers University",
@@ -3484,7 +3649,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kurt.koehler@pennmedicine.upenn.edu",
+        "contact_label": "Kurt.Koehler@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Temple University School of Medicine",
     "residency_program": "Hospital of the University of Pennsylvania",
@@ -3507,7 +3690,26 @@
     "headshot_alt": "Mary Ferranti headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "mary.ferranti@pennmedicine.upenn.edu",
+        "contact_label": "mary.ferranti@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Jefferson University",
     "residency_program": "Hospital of the University of Pennsylvania",
     "undergraduate_school": "Cornell University",
@@ -3531,7 +3733,26 @@
     "headshot_alt": "Sofia Barrios headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sofia.barrios@pennmedicine.upenn.edu",
+        "contact_label": "sofia.barrios@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Universidad Francisco Marroquin",
     "residency_program": "Pennsylvania Hospital",
     "undergraduate_school": "Universidad Francisco Marroquin",
@@ -3555,7 +3776,26 @@
     "headshot_alt": "Zachary Hostetler headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "zhost@upenn.edu",
+        "contact_label": "zhost@upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "New York-Presbyterian Hospital/ Weill Cornell Medical Center",
     "undergraduate_school": "Pennsylvania State University",
@@ -3579,7 +3819,26 @@
     "headshot_alt": "Jessica O'Neil headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jessica.oneil@pennmedicine.upenn.edu",
+        "contact_label": "Jessica.Oneil@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Case Western Reserve University",
     "graduate_school": "Johns Hopkins University",
     "residency_program": "Massachusetts General Hospital",
@@ -3603,7 +3862,26 @@
     "headshot_alt": "Elle Saine headshot",
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
-    "quality_notes": [],
+    "quality_notes": [
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "msaine@pennmedicine.upenn.edu",
+        "contact_label": "msaine@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
+    ],
     "medical_school": "Perelman School of Medicine",
     "graduate_school": "New York University",
     "residency_program": "Hospital of the University of Pennsylvania",
@@ -3629,7 +3907,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "augusta.alwang@pennmedicine.upenn.edu",
+        "contact_label": "augusta.alwang@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Cooper Medical School of Rowan University",
     "residency_program": "Boston Medical Center"
@@ -3652,7 +3948,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sanjeethan.baksh@pennmedicine.upenn.edu",
+        "contact_label": "sanjeethan.baksh@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Weill Cornell Medicine",
     "residency_program": "Massachusetts General Hospital"
@@ -3675,7 +3989,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rebecca.brown2@pennmedicine.upenn.edu",
+        "contact_label": "rebecca.brown2@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Pittsburgh School of Medicine",
     "residency_program": "University of Virgina"
@@ -3698,7 +4030,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "angela.liu@pennmedicine.upenn.edu",
+        "contact_label": "angela.liu@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Yale School of Medicine",
     "residency_program": "Vanderbilt University"
@@ -3721,7 +4071,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "andrew.pham2@pennmedicine.upenn.edu",
+        "contact_label": "andrew.pham2@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Colorado Medical School",
     "residency_program": "University of Colorado"
@@ -3744,7 +4112,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "erin.tully@pennmedicine.upenn.edu",
+        "contact_label": "erin.tully@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "Hospital of the University/Children’s Hospital of Philadelphia"
@@ -3767,7 +4153,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sybil.watkins@pennmedicine.upenn.edu",
+        "contact_label": "sybil.watkins@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Tennessee Health Science Center College of Medicine",
     "residency_program": "Vanderbilt University"
@@ -3790,7 +4194,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "madison.wilson@pennmedicine.upenn.edu",
+        "contact_label": "madison.wilson@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Chicago Pritzker School of Medicine",
     "residency_program": "University of California, San Francisco"
@@ -3813,7 +4235,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "caitlyn.ahlberg@pennmedicine.upenn.edu",
+        "contact_label": "caitlyn.ahlberg@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Case Western Reserve University SOM",
     "residency_program": "Johns Hopkins Bayview Medical Center"
@@ -3836,7 +4276,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "tyler.boyce@pennmedicine.upenn.edu",
+        "contact_label": "tyler.boyce@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Sidney Kimmel Medical College at Thomas Jefferson University",
     "residency_program": "Hospital of the University of Pennsylvania"
@@ -3859,7 +4317,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "remy.bremner@pennmedicine.upenn.edu",
+        "contact_label": "remy.bremner@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "McGaw Medical Center at Northwestern University"
@@ -3882,7 +4358,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "daisuke.hasegawa@pennmedicine.upenn.edu",
+        "contact_label": "daisuke.hasegawa@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Nagoya University School of Medicine",
     "residency_program": "Mount Sinai Beth Israel"
@@ -3905,7 +4399,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kevin.karlic@pennmedicine.upenn.edu",
+        "contact_label": "kevin.karlic@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Michigan Medical School",
     "residency_program": "University of Michigan"
@@ -3928,7 +4440,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "andrew.mcbride@pennmedicine.upenn.edu",
+        "contact_label": "andrew.mcbride@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Tennessee Health Science",
     "residency_program": "University of Miami-Jackson"
@@ -3951,7 +4481,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "gabriella.primera@pennmedicine.upenn.edu",
+        "contact_label": "gabriella.primera@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Kirksville College of Osteopathic Medicine",
     "residency_program": "Baystate Medical Center"
@@ -3974,7 +4522,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "yvette.zou@pennmedicine.upenn.edu",
+        "contact_label": "Yvette.Zou@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Geisel School of Medicine at Dartmouth",
     "residency_program": "New York Presbyterian Columbia"
@@ -3997,7 +4563,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nicholas.kuhl@pennmedicine.upenn.edu",
+        "contact_label": "Nicholas.Kuhl@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Vanderbilt University School of Medicine",
     "residency_program": "University of Pennsylvania, Chief Resident"
@@ -4020,7 +4604,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "breanne.mccarthy@pennmedicine.upenn.edu",
+        "contact_label": "Breanne.McCarthy@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "John Hopkins University School of Medicine",
     "residency_program": "Hospital of the University of Pennsylvania"
@@ -4043,7 +4645,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "gabrielle.mezochow@pennmedicine.upenn.edu",
+        "contact_label": "Gabrielle.Mezochow@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "Massachusetts General Hospital, Boston"
@@ -4066,7 +4686,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "leonid.mirson@pennmedicine.upenn.edu",
+        "contact_label": "Leonid.Mirson@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Pittsburgh School of Medicine",
     "residency_program": "Johns Hopkins Hospital Osler Medical Residency"
@@ -4089,7 +4727,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "alexander.ortiz@pennmedicine.upenn.edu",
+        "contact_label": "Alexander.Ortiz@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Chicago, Pritzker School of Medicine",
     "residency_program": "Yale School of Medicine"
@@ -4112,7 +4768,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ethan.pani@pennmedicine.upenn.edu",
+        "contact_label": "Ethan.Pani@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "Hospital of the University of Pennsylvania"
@@ -4135,7 +4809,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "anne.song@pennmedicine.upenn.edu",
+        "contact_label": "Anne.Song@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Case Western Reserve University School of Medicine",
     "residency_program": "Hospital of the University of Pennsylvania"
@@ -4158,7 +4850,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "hao.tong@pennmedicine.upenn.edu",
+        "contact_label": "Hao.Tong@Pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Washington School of Medicine",
     "residency_program": "University of Washington, Chief Resident"
@@ -4181,7 +4891,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "patricia.valdatoro@pennmedicine.upenn.edu",
+        "contact_label": "Patricia.ValdaToro@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Yale School of Medicine",
     "residency_program": "University of California, San Francisco"
@@ -4204,7 +4932,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "madia.ampey@pennmedicine.upenn.edu",
+        "contact_label": "Madia.Ampey@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Minnesota Medical School",
     "residency_program": "Rutgers New Jersey Medical School"
@@ -4227,7 +4973,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "mary.barrosse-antle@pennmedicine.upenn.edu",
+        "contact_label": "Mary.Barrosse-Antle@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "Hospital of the University of Pennsylvania"
@@ -4250,7 +5014,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "christopher.caruso1@pennmedicine.upenn.edu",
+        "contact_label": "Christopher.Caruso1@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Tufts University School of Medicine",
     "residency_program": "University of Colorado"
@@ -4273,7 +5055,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "amber.meservey@pennmedicine.upenn.edu",
+        "contact_label": "Amber.Meservey@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Robert Larner College of Medicine at the University of Vermont",
     "residency_program": "Duke University"
@@ -4296,7 +5096,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "emily.moin@pennmedicine.upenn.edu",
+        "contact_label": "Emily.Moin@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Perelman School of Medicine at the University of Pennsylvania",
     "residency_program": "Massachusetts General Hospital"
@@ -4319,7 +5137,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "layal.sayegh@pennmedicine.upenn.edu",
+        "contact_label": "Layal.Sayegh@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Emory University School of Medicine",
     "residency_program": "Emory University School of Medicine"
@@ -4342,7 +5178,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "chih-huan.lu@pennmedicine.upenn.edu",
+        "contact_label": "chih-huan.lu@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Virginia School of Medicine",
     "residency_program": "University of North Carolina"
@@ -4365,7 +5219,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "krishna.pandya1@pennmedicine.upenn.edu",
+        "contact_label": "Krishna.Pandya1@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Tulane University School of Medicine",
     "residency_program": "Massachusetts General Hospital"
@@ -4388,7 +5260,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "renuka.reddy@pennmedicine.upenn.edu",
+        "contact_label": "renuka.reddy@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Central Florida College of Medicine",
     "residency_program": "University of Miami"
@@ -4411,7 +5301,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sonia.joshi@pennmedicine.upenn.edu",
+        "contact_label": "sonia.joshi@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Renaissance School of Medicine at Stony Brook",
     "residency_program": "Med/Peds University of Rochester Medical Center"
@@ -4434,7 +5342,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "divya.shah2@pennmedicine.upenn.edu",
+        "contact_label": "divya.shah2@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "University of Maryland School of Medicine",
     "residency_program": "University of Arizona-Phoenix"
@@ -4457,7 +5383,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "dara.bakar@pennmedicine.upenn.edu",
+        "contact_label": "dara.bakar@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Brown University",
     "residency_program": "NYU Langone Hospital"
@@ -4480,7 +5424,25 @@
     "extraction_method": "penn_medicine_bio_component",
     "quality_tier": "high",
     "quality_notes": [
+      "public_contact_candidates_extracted",
       "no_individual_profile_link_on_roster"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "hannah.lee@pennmedicine.upenn.edu",
+        "contact_label": "hannah.lee@pennmedicine.upenn.edu",
+        "contact_scope": "institutional",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
+        "source_type": "official_roster",
+        "verification_status": "public_roster_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_roster",
+          "mailto_link"
+        ]
+      }
     ],
     "medical_school": "Renaissance School of Medicine at Stony Brook",
     "residency_program": "University of Texas Southwestern Medical Center"

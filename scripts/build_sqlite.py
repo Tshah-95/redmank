@@ -31,6 +31,11 @@ SOURCE_FILES = [
 ]
 OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_affiliated_source_discovery.json",
+    ARTIFACTS / "penn_attending_candidate_sources.json",
+    ARTIFACTS / "penn_outcome_candidate_sources.json",
+    ARTIFACTS / "penn_attending_candidates.json",
+    ARTIFACTS / "penn_outcome_candidates.json",
+    ARTIFACTS / "manual_source_quality_observations.json",
 ]
 
 TRAINING_FIELDS = {
@@ -240,6 +245,29 @@ def insert_sources(conn: sqlite3.Connection) -> None:
                     dumps(source),
                 ),
             )
+    for optional_sources, source_type in [
+        (ARTIFACTS / "penn_attending_candidate_sources.json", "official_attending_faculty_candidate"),
+        (ARTIFACTS / "penn_outcome_candidate_sources.json", "official_outcome_context"),
+    ]:
+        if optional_sources.exists():
+            for source in load_json(optional_sources):
+                conn.execute(
+                    """
+                    INSERT OR REPLACE INTO sources
+                    (source_key, source_url, source_type, title, fetched_at, http_status, sha256, metadata_json)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        source["source_key"],
+                        source.get("url"),
+                        source_type,
+                        source.get("title"),
+                        source.get("fetched_at"),
+                        source.get("http_status"),
+                        source.get("sha256"),
+                        dumps(source),
+                    ),
+                )
     discovery = load_json(ARTIFACTS / "penn_source_discovery.json")
     for row in discovery["findings"]:
         source_key = f"discovery:{key_for('source', row['url'])}"
@@ -322,6 +350,32 @@ def insert_source_utilities(conn: sqlite3.Connection) -> None:
         )
 
 
+def insert_manual_source_quality_observations(conn: sqlite3.Connection) -> None:
+    path = ARTIFACTS / "manual_source_quality_observations.json"
+    if not path.exists():
+        return
+    for row in load_json(path):
+        conn.execute(
+            """
+            INSERT INTO source_quality_observations
+            (utility_key, observed_at, sample_size, candidate_claims, accepted_claims,
+             rejected_claims, ambiguous_claims, notes, metrics_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                row["utility_key"],
+                row.get("observed_at") or datetime.now(timezone.utc).isoformat(),
+                int(row.get("sample_size", 0)),
+                int(row.get("candidate_claims", 0)),
+                int(row.get("accepted_claims", 0)),
+                int(row.get("rejected_claims", 0)),
+                int(row.get("ambiguous_claims", 0)),
+                row.get("notes", ""),
+                dumps(row.get("metrics", {})),
+            ),
+        )
+
+
 def program_key(program_name: str, role: str | None) -> str:
     return key_for("program", f"{role or ''}:{program_name}")
 
@@ -383,6 +437,90 @@ def listish(value) -> list[str]:
     if isinstance(value, list):
         return [norm_space(v) for v in value if norm_space(v)]
     return [norm_space(value)]
+
+
+def normalize_contact_type(value: str | None) -> str:
+    normalized = normalized_label(value)
+    if normalized in {"email", "e mail", "mail"}:
+        return "email"
+    if normalized in {"phone", "telephone", "tel"}:
+        return "phone"
+    return normalized.replace(" ", "_") or "unknown"
+
+
+def normalize_contact_value(contact_type: str, value: str | None) -> str:
+    value = norm_space(value)
+    if contact_type == "email":
+        return value.lower()
+    if contact_type == "phone":
+        return re.sub(r"\s+", " ", value)
+    return value
+
+
+def insert_contacts(
+    conn: sqlite3.Connection,
+    row: dict,
+    person_key: str | None = None,
+    subject_type: str = "person",
+    allow_unmatched_person: bool = False,
+) -> None:
+    if person_key is None and not allow_unmatched_person:
+        person_key = row.get("person_key") or key_for("person", row["name"])
+    display_name = norm_space(row.get("name") or row.get("display_name"))
+    contacts = row.get("contacts") or []
+    if not isinstance(contacts, list):
+        return
+    for contact in contacts:
+        if not isinstance(contact, dict):
+            continue
+        contact_type = normalize_contact_type(contact.get("contact_type") or contact.get("type"))
+        contact_value = normalize_contact_value(contact_type, contact.get("value") or contact.get("contact_value"))
+        if not contact_value:
+            continue
+        source_key = contact.get("source_key") or row.get("source_key")
+        source_url = contact.get("source_url") or row.get("profile_url") or row.get("source_url")
+        contact_key = key_for(
+            "contact",
+            f"{person_key or ''}:{display_name}:{subject_type}:{source_key}:{contact_type}:{contact_value}",
+        )
+        conn.execute(
+            """
+            INSERT OR IGNORE INTO person_contacts
+            (contact_key, person_key, display_name, subject_type,
+             contact_type, contact_value, contact_label, contact_scope,
+             source_key, source_url, source_type, verification_status, confidence,
+             status, match_features_json, evidence_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                contact_key,
+                person_key,
+                display_name,
+                subject_type,
+                contact_type,
+                contact_value,
+                norm_space(contact.get("contact_label") or contact.get("label")),
+                contact.get("contact_scope") or "institutional",
+                source_key,
+                source_url,
+                contact.get("source_type") or row.get("source_type"),
+                contact.get("verification_status") or "public_unverified",
+                float(contact.get("confidence", 0.5)),
+                contact.get("status") or "candidate",
+                dumps(contact.get("match_features", [])),
+                dumps(
+                    {
+                        "origin": "person_contact",
+                        "source_record": {
+                            "source_key": row.get("source_key"),
+                            "source_url": row.get("source_url"),
+                            "profile_url": row.get("profile_url") or row.get("profile_anchor_url"),
+                        },
+                        "contact": contact,
+                    }
+                ),
+            ),
+        )
 
 
 def insert_memberships(conn: sqlite3.Connection, row: dict) -> None:
@@ -472,14 +610,97 @@ def insert_training_events(conn: sqlite3.Connection, resolver: OrganizationResol
         )
 
 
+def person_key_by_normalized_name(conn: sqlite3.Connection) -> dict[str, str]:
+    mapping = {}
+    for row in conn.execute("SELECT person_key, display_name FROM people"):
+        mapping[normalized_label(row["display_name"])] = row["person_key"]
+    return mapping
+
+
+def insert_career_events(conn: sqlite3.Connection) -> None:
+    existing_people = person_key_by_normalized_name(conn)
+    attending_path = ARTIFACTS / "penn_attending_candidates.json"
+    if attending_path.exists():
+        for row in load_json(attending_path):
+            normalized_name = normalized_label(row.get("name"))
+            person_key = existing_people.get(normalized_name)
+            conn.execute(
+                """
+                INSERT INTO career_events
+                (person_key, display_name, event_type, role_title, organization_name,
+                 department, program_context, event_year, source_key, source_url,
+                 confidence, status, match_features_json, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    person_key,
+                    row.get("name", ""),
+                    "current_penn_attending_candidate",
+                    row.get("role_title") or row.get("title") or "",
+                    "University of Pennsylvania / Penn Medicine",
+                    row.get("department"),
+                    row.get("program_context"),
+                    None,
+                    row.get("source_key"),
+                    row.get("source_url"),
+                    0.7 if person_key else 0.55,
+                    "needs_review" if person_key else "candidate",
+                    dumps(
+                        [
+                            "official_penn_faculty_page",
+                            "exact_current_person_name_match" if person_key else "not_linked_to_existing_person",
+                        ]
+                    ),
+                    dumps(row),
+                ),
+            )
+            insert_contacts(
+                conn,
+                row,
+                person_key=person_key,
+                subject_type="current_penn_attending_candidate",
+                allow_unmatched_person=True,
+            )
+    outcome_path = ARTIFACTS / "penn_outcome_candidates.json"
+    if outcome_path.exists():
+        for row in load_json(outcome_path):
+            conn.execute(
+                """
+                INSERT INTO career_events
+                (person_key, display_name, event_type, role_title, organization_name,
+                 department, program_context, event_year, source_key, source_url,
+                 confidence, status, match_features_json, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    None,
+                    row.get("display_name") or "",
+                    "penn_alumni_outcome_candidate",
+                    "",
+                    "",
+                    "",
+                    row.get("program_context"),
+                    None,
+                    row.get("source_key"),
+                    row.get("source_url"),
+                    row.get("confidence", 0.25),
+                    row.get("status", "candidate"),
+                    dumps(row.get("match_features", [])),
+                    dumps(row),
+                ),
+            )
+
+
 def load_people(conn: sqlite3.Connection, resolver: OrganizationResolver) -> None:
     people = []
     for path in PERSON_FILES:
         people.extend(load_json(path))
     for row in people:
         insert_person(conn, row)
+        insert_contacts(conn, row)
         insert_memberships(conn, row)
         insert_training_events(conn, resolver, row)
+    insert_career_events(conn)
 
 
 def export_review_queue(conn: sqlite3.Connection) -> None:
@@ -488,6 +709,7 @@ def export_review_queue(conn: sqlite3.Connection) -> None:
         writer = csv.DictWriter(
             f,
             fieldnames=["raw_value", "event_type", "mention_count", "resolver_status", "canonical_name"],
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows([dict(row) for row in rows])
@@ -504,6 +726,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "organization_aliases",
         "organization_identifiers",
         "person_training_events",
+        "career_events",
+        "person_contacts",
         "evidence_claims",
         "source_quality_observations",
     ]:
@@ -546,6 +770,7 @@ def main() -> None:
         )
         insert_sources(conn)
         insert_source_utilities(conn)
+        insert_manual_source_quality_observations(conn)
         resolver = OrganizationResolver(conn, ORG_SEEDS)
         load_people(conn, resolver)
         export_review_queue(conn)

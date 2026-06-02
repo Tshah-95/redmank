@@ -46,6 +46,8 @@ Core tables:
 - `organization_aliases`: raw and curated aliases.
 - `organization_identifiers`: external IDs.
 - `person_training_events`: medical school, residency, undergraduate, graduate-school events.
+- `career_events`: candidate current Penn attending and alumni/outcome events used for future trend reconciliation.
+- `person_contacts`: public contact candidates with source, scope, verification status, confidence, and candidate status.
 - `evidence_claims`: accepted and candidate claims for recursive enrichment.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
@@ -54,6 +56,8 @@ Useful views:
 
 - `v_person_training`: joined person-training-organization view.
 - `v_organization_review_queue`: organization aliases that need review.
+- `v_recent_attending_trend_candidates`: career-event candidates for current Penn attending and alumni/outcome trend work.
+- `v_public_person_contacts`: public structured contact candidates joined to reconciled people when possible.
 
 ## Recursive Enrichment Loop
 
@@ -74,11 +78,21 @@ This lets the method improve without quietly poisoning the corpus.
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.
 
-- OpenAlex generated 1,942 author candidates. Of those, 219 reached `needs_review` because name plus Penn/prior-institution/ORCID features clustered strongly enough to merit human or stricter automated reconciliation.
-- PubMed E-utilities generated 759 author-query candidates. It is useful for discovery, but author-query counts alone are weak evidence because common names collide heavily.
+- PubMed E-utilities generated 759 author-query candidates with zero rejected API errors after retry cleanup. It is useful for discovery, but author-query counts alone are weak evidence because common names collide heavily.
+- OpenAlex author search is implemented, retryable, and resumable, but the latest full-corpus run hit sustained 429 throttling. The current warehouse records this as a source-quality observation rather than as rejected person evidence.
 - No research claims were accepted automatically.
 
 The current acceptance rule is deliberately strict: accept research enrichment only when at least two non-name anchors agree, such as official profile link plus ORCID, OpenAlex Penn affiliation plus specialty-topic match, PubMed affiliation plus coauthor cluster, or NPI specialty/location plus official profile.
+
+## Public Contact Evidence
+
+The current warehouse stores 292 public email candidates:
+
+- 205 from the official public Penn MSTP student directory.
+- 53 from official Medicine roster pages.
+- 34 from current Penn attending/faculty candidate pages.
+
+These are not flattened into `people`. They live in `person_contacts` because contact channels can be multiple, stale, source-specific, or attached to a named candidate who has not yet been reconciled into the core identity table. Raw HTML snapshots remain redacted; only structured public contact candidates are committed.
 
 ## Next Programs
 

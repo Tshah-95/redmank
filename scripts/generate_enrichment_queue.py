@@ -167,7 +167,7 @@ def main() -> None:
             "query",
             "acceptance_rule",
         ]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(queue)
     print(f"wrote {len(queue)} enrichment tasks")

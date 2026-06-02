@@ -26,6 +26,8 @@ def main() -> None:
         "organization_aliases",
         "organization_identifiers",
         "person_training_events",
+        "career_events",
+        "person_contacts",
         "evidence_claims",
         "source_quality_observations",
     ]
@@ -44,6 +46,14 @@ def main() -> None:
         row["source_key"]: row["count"]
         for row in conn.execute("SELECT source_key, COUNT(*) AS count FROM evidence_claims GROUP BY source_key")
     }
+    career_event_counts = {
+        row["event_type"]: row["count"]
+        for row in conn.execute("SELECT event_type, COUNT(*) AS count FROM career_events GROUP BY event_type")
+    }
+    contact_counts = {
+        row["contact_type"]: row["count"]
+        for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -56,6 +66,8 @@ def main() -> None:
         "resolver_counts": resolver_counts,
         "evidence_status_counts": evidence_status_counts,
         "evidence_source_counts": evidence_source_counts,
+        "career_event_counts": career_event_counts,
+        "contact_counts": contact_counts,
         "organization_category_counts": category_counts,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(

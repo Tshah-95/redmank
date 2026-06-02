@@ -1,10 +1,20 @@
 {
-  "generated_at": "2026-06-02T03:55:52.870013+00:00",
+  "generated_at": "2026-06-02T04:34:01.624396+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
       "classification": null,
       "count": 17
+    },
+    {
+      "source_type": "official_attending_faculty_candidate",
+      "classification": null,
+      "count": 4
+    },
+    {
+      "source_type": "official_outcome_context",
+      "classification": null,
+      "count": 21
     },
     {
       "source_type": "official_public_student_directory",
@@ -356,20 +366,6 @@
       "claim_type": "residency_program",
       "count": 22,
       "avg_confidence": 0.777
-    },
-    {
-      "source_key": "openalex_author_search",
-      "status": "candidate",
-      "claim_type": "research_author_candidate",
-      "count": 1723,
-      "avg_confidence": 0.426
-    },
-    {
-      "source_key": "openalex_author_search",
-      "status": "needs_review",
-      "claim_type": "research_author_candidate",
-      "count": 219,
-      "avg_confidence": 0.9
     },
     {
       "source_key": "palliative_current_fellows",
@@ -746,12 +742,12 @@
   "utility_observations": [
     {
       "utility_key": "openalex_author_search",
-      "sample_size": 759,
-      "candidate_claims": 1723,
+      "sample_size": 0,
+      "candidate_claims": 0,
       "accepted_claims": 0,
       "rejected_claims": 0,
-      "ambiguous_claims": 219,
-      "metrics_json": "{\"claims\": 1942, \"mean_confidence\": 0.4794}"
+      "ambiguous_claims": 0,
+      "metrics_json": "{\"collector_resume_supported\": true, \"current_claims\": 0, \"rate_limit_observed\": true}"
     },
     {
       "utility_key": "pubmed_eutilities",
@@ -763,108 +759,7 @@
       "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.211}"
     }
   ],
-  "openalex_feature_distribution": [
-    {
-      "match_features_json": "[\"name_match\"]",
-      "count": 565,
-      "avg_confidence": 0.4
-    },
-    {
-      "match_features_json": "[\"name_match\", \"orcid_present\"]",
-      "count": 336,
-      "avg_confidence": 0.5
-    },
-    {
-      "match_features_json": "[\"orcid_present\"]",
-      "count": 308,
-      "avg_confidence": 0.25
-    },
-    {
-      "match_features_json": "[]",
-      "count": 180,
-      "avg_confidence": 0.15
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"orcid_present\"]",
-      "count": 165,
-      "avg_confidence": 0.9
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\"]",
-      "count": 157,
-      "avg_confidence": 0.8
-    },
-    {
-      "match_features_json": "[\"name_match\", \"residency_program_affiliation\"]",
-      "count": 27,
-      "avg_confidence": 0.55
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 26,
-      "avg_confidence": 0.9
-    },
-    {
-      "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"orcid_present\"]",
-      "count": 26,
-      "avg_confidence": 0.65
-    },
-    {
-      "match_features_json": "[\"name_match\", \"medical_school_affiliation\"]",
-      "count": 25,
-      "avg_confidence": 0.55
-    },
-    {
-      "match_features_json": "[\"penn_affiliation\", \"orcid_present\"]",
-      "count": 24,
-      "avg_confidence": 0.65
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\", \"orcid_present\"]",
-      "count": 24,
-      "avg_confidence": 0.9
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"residency_program_affiliation\"]",
-      "count": 18,
-      "avg_confidence": 0.8
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\"]",
-      "count": 12,
-      "avg_confidence": 0.8
-    },
-    {
-      "match_features_json": "[\"penn_affiliation\"]",
-      "count": 11,
-      "avg_confidence": 0.55
-    },
-    {
-      "match_features_json": "[\"name_match\", \"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 10,
-      "avg_confidence": 0.65
-    },
-    {
-      "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"residency_program_affiliation\"]",
-      "count": 7,
-      "avg_confidence": 0.55
-    },
-    {
-      "match_features_json": "[\"name_match\", \"medical_school_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 6,
-      "avg_confidence": 0.65
-    },
-    {
-      "match_features_json": "[\"name_match\", \"penn_affiliation\", \"medical_school_affiliation\", \"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 4,
-      "avg_confidence": 0.9
-    },
-    {
-      "match_features_json": "[\"residency_program_affiliation\", \"orcid_present\"]",
-      "count": 2,
-      "avg_confidence": 0.4
-    }
-  ],
+  "openalex_feature_distribution": [],
   "pubmed_feature_distribution": [
     {
       "match_features_json": "[\"author_query\", \"high_collision_risk\"]",
@@ -898,6 +793,46 @@
     {
       "classification": "attending_faculty_candidate",
       "count": 34
+    }
+  ],
+  "career_event_counts": [
+    {
+      "event_type": "current_penn_attending_candidate",
+      "status": "candidate",
+      "count": 49,
+      "avg_confidence": 0.55
+    },
+    {
+      "event_type": "penn_alumni_outcome_candidate",
+      "status": "candidate",
+      "count": 36,
+      "avg_confidence": 0.411
+    }
+  ],
+  "contact_counts": [
+    {
+      "contact_type": "email",
+      "contact_scope": "institutional",
+      "verification_status": "public_directory_unverified",
+      "status": "candidate",
+      "count": 205,
+      "avg_confidence": 0.82
+    },
+    {
+      "contact_type": "email",
+      "contact_scope": "institutional",
+      "verification_status": "public_profile_unverified",
+      "status": "candidate",
+      "count": 34,
+      "avg_confidence": 0.82
+    },
+    {
+      "contact_type": "email",
+      "contact_scope": "institutional",
+      "verification_status": "public_roster_unverified",
+      "status": "candidate",
+      "count": 53,
+      "avg_confidence": 0.82
     }
   ]
 }

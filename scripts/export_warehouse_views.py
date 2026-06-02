@@ -47,6 +47,25 @@ EXPORTS = {
         FROM source_quality_observations
         ORDER BY observed_at, utility_key
     """,
+    "career_events.csv": """
+        SELECT career_event_id, person_key, display_name, event_type, role_title,
+               organization_name, department, program_context, event_year, source_key,
+               source_url, confidence, status, match_features_json
+        FROM career_events
+        ORDER BY event_type, confidence DESC, display_name, source_url
+    """,
+    "person_contacts.csv": """
+        SELECT contact_id, person_key, display_name, role, contact_type,
+               contact_value, contact_label, contact_scope, source_key, source_url,
+               verification_status, confidence, status
+        FROM v_public_person_contacts
+    """,
+    "recent_attending_trend_candidates.csv": """
+        SELECT career_event_id, person_key, display_name, event_type, role_title,
+               organization_name, department, program_context, event_year, source_url,
+               confidence, status
+        FROM v_recent_attending_trend_candidates
+    """,
 }
 
 
@@ -54,7 +73,7 @@ def write_csv(conn: sqlite3.Connection, name: str, query: str) -> int:
     rows = conn.execute(query).fetchall()
     path = ARTIFACTS / name
     with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow([description[0] for description in conn.execute(query).description])
         for row in rows:
             writer.writerow(row)

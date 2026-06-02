@@ -2,215 +2,215 @@
   {
     "source_key": "cardiology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/current-fellows",
-    "fetched_at": "2026-06-01T22:59:30.640292+00:00",
+    "fetched_at": "2026-06-02T04:12:21.207637+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/current-fellows",
-    "sha256": "6cd5d619c31215043bf1a88a15357491fe876b779fd8eaa9202b775c27401781"
+    "sha256": "aa060d54c28567678179a40546a6688b1ecadb5cf647e814d7d62f7d5cf24f3c"
   },
   {
     "source_key": "cardiology_alumni",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/alumni",
-    "fetched_at": "2026-06-01T22:59:30.830370+00:00",
+    "fetched_at": "2026-06-02T04:12:21.409615+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/alumni",
-    "sha256": "e73000f3536bef927d351919e98c91f0514e9afb07a696ff2930c97083567fa6"
+    "sha256": "0c9fcec5ccad836f109aba9eb20d376e601038e5e0206ad674f612bce82224bc"
   },
   {
     "source_key": "cardiology_adult_congenital_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/adult-congenital-heart-disease-fellowship",
-    "fetched_at": "2026-06-01T22:59:30.994777+00:00",
+    "fetched_at": "2026-06-02T04:12:21.561984+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/adult-congenital-heart-disease-fellowship",
-    "sha256": "54775c1b738c6d902825b8172f925efd32e87f48520f29aac038d450972f424c"
+    "sha256": "352f055752842d907ab9480d88067308a4850d68bdb40cc26ff5353a4625378d"
   },
   {
     "source_key": "cardiology_advanced_heart_failure_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/advanced-heart-failure-transplant-cardiology-fellowship",
-    "fetched_at": "2026-06-01T22:59:31.175007+00:00",
+    "fetched_at": "2026-06-02T04:12:21.726082+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/advanced-heart-failure-transplant-cardiology-fellowship",
-    "sha256": "5fa3632d64234c461ccf38d26d421086ed33e826ec0ccec9b13ced993a90b6c8"
+    "sha256": "5fe14dbc2c5197a0707bd3e143814a8bee68de28712caf278a953bf60f5b1076"
   },
   {
     "source_key": "cardiology_electrophysiology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/electrophysiology-fellowship",
-    "fetched_at": "2026-06-01T22:59:31.385324+00:00",
+    "fetched_at": "2026-06-02T04:12:21.893799+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/electrophysiology-fellowship",
-    "sha256": "efc20f37164ae5fa8949b2fde1cad02b0d77ae826f3808531e710ee6bfdb8031"
+    "sha256": "f0ec553cc67cb17e1ea619a1ffdd31c4f5ffeb172560fd6d6fcfd21efb2798c6"
   },
   {
     "source_key": "cardiology_interventional_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/interventional-fellowship",
-    "fetched_at": "2026-06-01T22:59:31.583197+00:00",
+    "fetched_at": "2026-06-02T04:12:22.052454+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/interventional-fellowship",
-    "sha256": "14eecd09c00cb48411bb9e8e9b5853abe0881ddf632fe09614882a8027228d4d"
+    "sha256": "e9ded0c6371c0fa7f866f39e74118b3dbb4462e811a115e69cd8be4c4c943d93"
   },
   {
     "source_key": "cardiology_cardio_oncology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardio-oncology-fellowship-program",
-    "fetched_at": "2026-06-01T22:59:31.788295+00:00",
+    "fetched_at": "2026-06-02T04:12:22.201361+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardio-oncology-fellowship-program",
-    "sha256": "e2bf1de3dcae94049ad5a84bbaa118606140c26cd18d790bd0e40707091a115b"
+    "sha256": "9ec2f87ab8b7cfe4cea99cec00463d12224e4a199b37b01be10b948dc9110802"
   },
   {
     "source_key": "cardiology_advanced_imaging_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/advanced-imaging-cardiology-fellowship",
-    "fetched_at": "2026-06-01T22:59:31.974122+00:00",
+    "fetched_at": "2026-06-02T04:12:22.345478+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/advanced-imaging-cardiology-fellowship",
-    "sha256": "8ea66ae563026cbe0294e45aea9ed76ae2f8bea38ec47af5530a9350a9fe2d5d"
+    "sha256": "694afb7e7aafdc924ca07419eb41364a2aa9ed7dbb420f204a5c3ae42e319cec"
   },
   {
     "source_key": "endocrinology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/fellows",
-    "fetched_at": "2026-06-01T22:59:32.179617+00:00",
+    "fetched_at": "2026-06-02T04:12:22.500296+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-endocrinology-diabetes-and-metabolism/education-and-training/endcrinology-fellowship-programs/fellows",
-    "sha256": "6d5eee12e4949163f7ad7ed37500fc7179432735ffb46361c3148eb455f1c626"
+    "sha256": "762a0b88d9b4dbaf1cebd208babfdf5e6b0cd225f03c8093dbf992790dbfe829"
   },
   {
     "source_key": "gastroenterology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles",
-    "fetched_at": "2026-06-01T22:59:32.387053+00:00",
+    "fetched_at": "2026-06-02T04:12:22.681564+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/gastroenterology-and-hepatology-fellow-profiles",
-    "sha256": "74ccde560e7fa3b7f67e5340f84a2493d5dad31d0b5ece441173f3fce39e382d"
+    "sha256": "7317878d6f60732a148089a24b3456c0faa6fbbb76b038b1a338e89987a7d316"
   },
   {
     "source_key": "gastroenterology_advanced_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
-    "fetched_at": "2026-06-01T22:59:32.587812+00:00",
+    "fetched_at": "2026-06-02T04:12:22.860921+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
-    "sha256": "e7ee48df474ed5091f952dea6e5d0cf7f7856c4d9cc7e544d32646d01f41831a"
+    "sha256": "9d9a86e447ff80eb17a66bb6510b2ba0ca1052d9c4bb62b6414fc811255bbc39"
   },
   {
     "source_key": "geriatrics_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/our-fellows",
-    "fetched_at": "2026-06-01T22:59:32.741340+00:00",
+    "fetched_at": "2026-06-02T04:12:23.003178+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/our-fellows",
-    "sha256": "36607e6c31089929526cd8f0516877207a92c40030870676920a7a4a2dffcff4"
+    "sha256": "a32048ec3fea3a40dc7acc71bd29810517c8db074adba435eecf4f41b40a5eec"
   },
   {
     "source_key": "hematology_oncology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/fellows",
-    "fetched_at": "2026-06-01T22:59:32.916189+00:00",
+    "fetched_at": "2026-06-02T04:12:23.151324+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/fellows",
-    "sha256": "95b28c675a1df1f4543c886ae80dd5ee5cbf476dd9460c53e685456208ef3e57"
+    "sha256": "de9acea434d20e541cd623524f72c7947bdd598027c4722baacd55db09acde95"
   },
   {
     "source_key": "infectious_diseases_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
-    "fetched_at": "2026-06-01T22:59:33.095925+00:00",
+    "fetched_at": "2026-06-02T04:12:23.308998+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
-    "sha256": "f717b721099403d18ebbe5e25d27698c4e4db4306ff7f7768a084322dde6b3f8"
+    "sha256": "2398ff5acf8583b525f9c7c3e68880d2d71d7dced96d9f229e286d32a6155ac4"
   },
   {
     "source_key": "pulmonary_critical_care_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
-    "fetched_at": "2026-06-01T22:59:33.300947+00:00",
+    "fetched_at": "2026-06-02T04:12:23.479492+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
-    "sha256": "a4e9ebea5e962381fc568e88cfdaed37435a677c508d7c4267571682eedc41ac"
+    "sha256": "092dc19f4df280c5d649cff7b5f5fa46fd94dfc75052c3560e6a9ecf67c78f35"
   },
   {
     "source_key": "allergy_immunology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
-    "fetched_at": "2026-06-01T22:59:33.503647+00:00",
+    "fetched_at": "2026-06-02T04:12:23.651531+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/allergy-and-immunology/allergy-immunology-fellowship/fellows",
-    "sha256": "6cb14704ec466a675a412e6b9f09b2f14942838a37b7313bc6871761aa580bef"
+    "sha256": "b0b839a02f90003047d3a080d0cad582590a7df5723f675b7cc8e7f8f46c6481"
   },
   {
     "source_key": "nephrology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows",
-    "fetched_at": "2026-06-01T22:59:33.698022+00:00",
+    "fetched_at": "2026-06-02T04:12:23.847654+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows",
-    "sha256": "f1409badf42450fdd0d10e9ab0b65c741bcc664469b2e0531a86f74535b07a94"
+    "sha256": "b3963582c3cbd3c77033b6a69ed3a77268f741dca95d95700e4c3fd1b82311bf"
   },
   {
     "source_key": "rheumatology_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows",
-    "fetched_at": "2026-06-01T22:59:33.865129+00:00",
+    "fetched_at": "2026-06-02T04:12:24.011138+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows",
-    "sha256": "e87b223a2b0b93b944453a0906c4f896fab483a77d31e8ebb9ec026c2a0fdd87"
+    "sha256": "671123eb4db607f9e5233963d70966f86d2fdef5f773ea33edcd603effd8798f"
   },
   {
     "source_key": "palliative_current_fellows",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine/current-fellows",
-    "fetched_at": "2026-06-01T22:59:34.026559+00:00",
+    "fetched_at": "2026-06-02T04:12:24.165104+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/program-in-palliative-care/education-and-training/fellowship-program-in-hospice-and-palliative-medicine/current-fellows",
-    "sha256": "add40a6213b5a92f8357cc1c3b50201ee85f1388bdceff0539345652445e22bd"
+    "sha256": "5f081d25e30077bb912143166f82a652404ee587c24c6be13fc1684e307364dc"
   },
   {
     "source_key": "internal_medicine_categorical",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents",
-    "fetched_at": "2026-06-01T22:59:34.206176+00:00",
+    "fetched_at": "2026-06-02T04:12:24.318509+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents",
-    "sha256": "55921e7535c0ef96536e6e8005f3d6505505feaf53e86b92acb3f30159b6cd0a"
+    "sha256": "cfc5e9a0d181aad93ad8916ce337ea4e00595878c70455d03bf8f35fe4f9f6d1"
   },
   {
     "source_key": "internal_medicine_physician_scientist",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/physician-scientist-pathway/physician-scientist-residents",
-    "fetched_at": "2026-06-01T22:59:34.448516+00:00",
+    "fetched_at": "2026-06-02T04:12:24.539273+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/physician-scientist-pathway/physician-scientist-residents",
-    "sha256": "66fbec7303e6b75a375cffb0c7f69c59da08f46ff32d13c7ee69812660aab121"
+    "sha256": "5947e5bfa95f9097d79b7688829cc69af8fbf1d729694544311f0f91d4320327"
   },
   {
     "source_key": "internal_medicine_primary_care",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/primary-care-residents",
-    "fetched_at": "2026-06-01T22:59:34.612126+00:00",
+    "fetched_at": "2026-06-02T04:12:24.681679+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/primary-care-program/primary-care-residents",
-    "sha256": "fe962b793b54fe52e736173999a7e15e792de25c49ba60458a5b622f51252225"
+    "sha256": "1af4c6b5219e8573a1ed155a96850e0d84b7160b0856a63c49ba4541bbe33410"
   },
   {
     "source_key": "internal_medicine_med_derm",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program/medicine-dermatology-residents",
-    "fetched_at": "2026-06-01T22:59:34.808699+00:00",
+    "fetched_at": "2026-06-02T04:12:24.840153+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program/medicine-dermatology-residents",
-    "sha256": "295689c5eeb7eb78db3fffc9aef1c8647de0bc7249cdb01893f24ffb37db1c45"
+    "sha256": "fe99cd276be6a2a5172973ff9537009b8b731bbec7158e7327eb229d09844046"
   },
   {
     "source_key": "internal_medicine_medical_education",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/medical-education/medical-education-residents",
-    "fetched_at": "2026-06-01T22:59:34.964919+00:00",
+    "fetched_at": "2026-06-02T04:12:24.982822+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/medical-education/medical-education-residents",
-    "sha256": "db8e2109401408dcd85b8a14de89d3fe7372773482f00d693c1f0fadc1e2f0ed"
+    "sha256": "dd0cf971a3ad7bb604758e16e34d9de0565c2d31d2cfa339b4ecf871f683c170"
   },
   {
     "source_key": "internal_medicine_healthcare_quality",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/healthcare-quality-in-leadership/healthcare-leadership-in-quality-residents",
-    "fetched_at": "2026-06-01T22:59:35.158576+00:00",
+    "fetched_at": "2026-06-02T04:12:25.147381+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/healthcare-quality-in-leadership/healthcare-leadership-in-quality-residents",
-    "sha256": "134cbd5158e02bb695a8caf62b75c7e6df3bfdc62ba381800d85e64d01fedbc9"
+    "sha256": "9d90bb317468125ab650940926e74eceb9129bc4675fb5db721955f2e7c07c5b"
   },
   {
     "source_key": "internal_medicine_global_health_equities",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/global-health-equities-residents",
-    "fetched_at": "2026-06-01T22:59:35.342784+00:00",
+    "fetched_at": "2026-06-02T04:12:25.311175+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/global-health-equities-residents",
-    "sha256": "66b07de7db208c9d4ae5c5592053435b3cd7627d80cfecc721a97122f15cc5e0"
+    "sha256": "b397db4a4cdd3302eabe3cc68167d86b19cb8dde2f1a49dfe5712c7b60f51678"
   },
   {
     "source_key": "internal_medicine_med_peds",
     "url": "https://www.chop.edu/med-peds-residency/current-residents",
-    "fetched_at": "2026-06-01T22:59:35.562048+00:00",
+    "fetched_at": "2026-06-02T04:12:30.186675+00:00",
     "http_status": 200,
     "effective_url": "https://www.chop.edu/med-peds-residency/current-residents",
     "sha256": "7f0b76a42abf34820fe5a804dc3f0bb6d1666e226adaf86ac9dde014cac17b42"
@@ -218,9 +218,9 @@
   {
     "source_key": "internal_medicine_faq",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information/faqs",
-    "fetched_at": "2026-06-01T22:59:35.750592+00:00",
+    "fetched_at": "2026-06-02T04:12:30.374858+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/application-information/faqs",
-    "sha256": "c29743ecc86ffff88d76419da97bfb1aebb62214fb8193e50beb2427878a98ef"
+    "sha256": "1d834ecea533458164a9f1ff0385fc6fc7be36d048cd8f628a09cf58da80e464"
   }
 ]

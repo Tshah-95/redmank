@@ -189,6 +189,7 @@ def main() -> None:
         writer = csv.DictWriter(
             f,
             fieldnames=["classification", "bio_count", "title", "url", "signals", "headings", "sha256"],
+            lineterminator="\n",
         )
         writer.writeheader()
         for row in findings:

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T03:55:52.870013+00:00
+Generated: 2026-06-02T04:34:01.624396+00:00
 
 ## What This Pass Did
 
@@ -63,8 +63,6 @@ Interpretation: `trainee_roster_candidate` is a review queue, not a canonical ro
 | internal_medicine_primary_care | accepted | medical_school | 8 | 0.875 |
 | nephrology_current_fellows | accepted | medical_school | 22 | 0.768 |
 | nephrology_current_fellows | accepted | residency_program | 22 | 0.777 |
-| openalex_author_search | candidate | research_author_candidate | 1723 | 0.426 |
-| openalex_author_search | needs_review | research_author_candidate | 219 | 0.9 |
 | palliative_current_fellows | accepted | medical_school | 5 | 0.75 |
 | palliative_current_fellows | accepted | residency_program | 5 | 0.75 |
 | penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299 | accepted | medical_school | 19 | 0.908 |
@@ -123,35 +121,15 @@ Interpretation: `trainee_roster_candidate` is a review queue, not a canonical ro
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| openalex_author_search | 759 | 1723 | 0 | 0 | 219 | {"claims": 1942, "mean_confidence": 0.4794} |
+| openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_eutilities | 759 | 759 | 0 | 0 | 0 | {"claims": 759, "mean_confidence": 0.211} |
 
 ## OpenAlex Feature Distribution
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
-| ["name_match"] | 565 | 0.4 |
-| ["name_match", "orcid_present"] | 336 | 0.5 |
-| ["orcid_present"] | 308 | 0.25 |
-| [] | 180 | 0.15 |
-| ["name_match", "penn_affiliation", "orcid_present"] | 165 | 0.9 |
-| ["name_match", "penn_affiliation"] | 157 | 0.8 |
-| ["name_match", "residency_program_affiliation"] | 27 | 0.55 |
-| ["name_match", "penn_affiliation", "residency_program_affiliation", "orcid_present"] | 26 | 0.9 |
-| ["name_match", "medical_school_affiliation", "orcid_present"] | 26 | 0.65 |
-| ["name_match", "medical_school_affiliation"] | 25 | 0.55 |
-| ["penn_affiliation", "orcid_present"] | 24 | 0.65 |
-| ["name_match", "penn_affiliation", "medical_school_affiliation", "orcid_present"] | 24 | 0.9 |
-| ["name_match", "penn_affiliation", "residency_program_affiliation"] | 18 | 0.8 |
-| ["name_match", "penn_affiliation", "medical_school_affiliation"] | 12 | 0.8 |
-| ["penn_affiliation"] | 11 | 0.55 |
-| ["name_match", "residency_program_affiliation", "orcid_present"] | 10 | 0.65 |
-| ["name_match", "medical_school_affiliation", "residency_program_affiliation"] | 7 | 0.55 |
-| ["name_match", "medical_school_affiliation", "residency_program_affiliation", "orcid_present"] | 6 | 0.65 |
-| ["name_match", "penn_affiliation", "medical_school_affiliation", "residency_program_affiliation", "orcid_present"] | 4 | 0.9 |
-| ["residency_program_affiliation", "orcid_present"] | 2 | 0.4 |
 
-Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks.
+Learning: OpenAlex remains a promising author-disambiguation utility, but the current full-corpus run hit sustained 429 throttling. Record that as source availability/operations evidence, not as rejected person identity evidence.
 
 ## PubMed Feature Distribution
 
@@ -162,6 +140,25 @@ Learning: OpenAlex is useful for generating review candidates when name, Penn af
 | ["author_query", "no_results"] | 67 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
+
+## Career / Attending Trend Candidates
+
+| event_type | status | count | avg_confidence |
+| --- | --- | --- | --- |
+| current_penn_attending_candidate | candidate | 49 | 0.55 |
+| penn_alumni_outcome_candidate | candidate | 36 | 0.411 |
+
+Learning: current faculty pages and alumni/outcome pages should feed a career-event layer, not the core current-trainee roster. Current Penn attending candidates are useful endpoints for future trend analysis, but they still need reconciliation to prior Penn training records before we claim someone 'ended up at Penn.'
+
+## Public Contact Evidence
+
+| contact_type | contact_scope | verification_status | status | count | avg_confidence |
+| --- | --- | --- | --- | --- | --- |
+| email | institutional | public_directory_unverified | candidate | 205 | 0.82 |
+| email | institutional | public_profile_unverified | candidate | 34 | 0.82 |
+| email | institutional | public_roster_unverified | candidate | 53 | 0.82 |
+
+Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. Raw HTML remains redacted; only structured, source-linked public contact candidates are stored.
 
 ## Reconciliation Rule Update
 

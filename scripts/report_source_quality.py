@@ -91,6 +91,26 @@ def main() -> None:
         ORDER BY count DESC
         """,
     )
+    career_events = rows(
+        conn,
+        """
+        SELECT event_type, status, COUNT(*) AS count,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM career_events
+        GROUP BY event_type, status
+        ORDER BY event_type, status
+        """,
+    )
+    contact_counts = rows(
+        conn,
+        """
+        SELECT contact_type, contact_scope, verification_status, status,
+               COUNT(*) AS count, ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM person_contacts
+        GROUP BY contact_type, contact_scope, verification_status, status
+        ORDER BY contact_type, contact_scope, verification_status, status
+        """,
+    )
     conn.close()
 
     report = {
@@ -101,7 +121,13 @@ def main() -> None:
         "openalex_feature_distribution": openalex_features,
         "pubmed_feature_distribution": pubmed_features,
         "penn_affiliated_discovery": broad_discovery,
+        "career_event_counts": career_events,
+        "contact_counts": contact_counts,
     }
+    if openalex_features:
+        openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
+    else:
+        openalex_learning = "Learning: OpenAlex remains a promising author-disambiguation utility, but the current full-corpus run hit sustained 429 throttling. Record that as source availability/operations evidence, not as rejected person identity evidence."
     (ARTIFACTS / "source_quality_report.json").write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -134,13 +160,25 @@ def main() -> None:
         "",
         *md_table(openalex_features, ["match_features_json", "count", "avg_confidence"]),
         "",
-        "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks.",
+        openalex_learning,
         "",
         "## PubMed Feature Distribution",
         "",
         *md_table(pubmed_features, ["match_features_json", "count", "avg_confidence"]),
         "",
         "Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.",
+        "",
+        "## Career / Attending Trend Candidates",
+        "",
+        *md_table(career_events, ["event_type", "status", "count", "avg_confidence"]),
+        "",
+        "Learning: current faculty pages and alumni/outcome pages should feed a career-event layer, not the core current-trainee roster. Current Penn attending candidates are useful endpoints for future trend analysis, but they still need reconciliation to prior Penn training records before we claim someone 'ended up at Penn.'",
+        "",
+        "## Public Contact Evidence",
+        "",
+        *md_table(contact_counts, ["contact_type", "contact_scope", "verification_status", "status", "count", "avg_confidence"]),
+        "",
+        "Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. Raw HTML remains redacted; only structured, source-linked public contact candidates are stored.",
         "",
         "## Reconciliation Rule Update",
         "",

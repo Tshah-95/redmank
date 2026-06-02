@@ -18,7 +18,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "diana.abraham@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "PhD Phase",
@@ -47,7 +64,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "aya.abu-alfa@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS1",
@@ -74,7 +108,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "alexandria.adigun@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Developmental, Stem Cell, and Regenerative Biology",
     "phase": "PhD Phase",
@@ -103,7 +154,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sydney.alderfer@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS2"
@@ -127,7 +195,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "eda.algur@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "PhD Phase",
@@ -155,7 +240,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jessica.anderson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -183,7 +285,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "seth.anderson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS2",
@@ -211,7 +330,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "orlando.arevalo@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "PhD Phase",
@@ -240,7 +376,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "vinay.ayyappan@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -268,7 +421,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "shovik.bandyopadhyay@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -296,7 +466,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "carl.bannerman@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "PhD Phase",
@@ -325,7 +512,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "aleksia.barka@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "phase": "PhD Phase",
     "thesis_advisor": "Rahul Kohli",
@@ -353,7 +557,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "vasia.barka@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "phase": "PhD Phase",
     "thesis_advisor": "Rajan Jain",
@@ -381,7 +602,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "thomas.barnettdubensky@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -410,7 +648,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jamie.benson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "GGEB - Epidemiology",
     "phase": "PhD Phase",
@@ -438,7 +693,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "elizabeth.bernstein@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -466,7 +738,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kesshni.bhasiin@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS2",
@@ -494,7 +783,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "natalie.brown1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cell Biology, Physiology, and Metabolism",
     "phase": "PhD Phase",
@@ -523,7 +829,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "randall.burson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Anthropology",
     "phase": "MS3/4",
@@ -552,7 +875,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ricardoroman.carale@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS1",
@@ -579,7 +919,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -607,7 +947,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sai.chaluvadi@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -635,7 +992,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "samuel.chauvin@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase"
@@ -659,7 +1033,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "chenang@wharton.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "MS3/4",
@@ -687,7 +1078,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "chase.chen@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -714,7 +1122,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -742,7 +1150,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "christina.chen@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -767,7 +1192,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "noah.cheng@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -794,7 +1236,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "julia.chini@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS3/4",
@@ -822,7 +1281,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "joy.chiu@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -850,7 +1326,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "yuenting.chow@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase",
@@ -877,7 +1370,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -905,7 +1398,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ian.cohn@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "MS3/4",
@@ -932,7 +1442,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "vasiliki.courelli@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -960,7 +1487,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "timothy.cox@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -989,7 +1533,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "benjamin.creekmore@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "MS3/4",
@@ -1014,7 +1575,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "aidan.crowley@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "PhD Phase",
@@ -1043,7 +1621,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "david.dai@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -1072,7 +1667,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "harry.dang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Pharmacology",
     "phase": "PhD Phase",
@@ -1098,7 +1710,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "krishna.dasari@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS1",
@@ -1125,7 +1754,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sabrina.dasilva@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -1154,7 +1800,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "bernadette.deschaine@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -1181,7 +1844,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ether.dharmesh@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS2",
@@ -1209,7 +1889,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "walla.disbennett@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "PhD Phase",
@@ -1238,7 +1935,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "royce.dong@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase"
@@ -1262,7 +1976,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "katherine.dorfman@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -1287,7 +2018,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "dubyj@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "MS1",
@@ -1315,7 +2063,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "islam.elsaid@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -1344,7 +2109,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "noa.erlitzki@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -1372,7 +2154,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ethan.fein@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -1399,7 +2198,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jordan.feldman@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS1",
@@ -1425,7 +2241,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "andres.fernandezdelcastillo@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase",
@@ -1453,7 +2286,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sarah.finstuen-magro@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -1481,7 +2331,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "maxwell.frankfurter@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -1508,7 +2375,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "brian.franklin1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -1533,7 +2417,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jonathan.gaither@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS2",
@@ -1558,7 +2459,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "daniel.gao@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS1",
@@ -1585,7 +2503,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "william.gao@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "PhD Phase",
@@ -1613,7 +2548,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "julia.gardner@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Pharmacology",
     "phase": "PhD Phase",
@@ -1641,7 +2593,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "zachary.gardner@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -1669,7 +2638,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "samuel.garfinkle@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase",
@@ -1698,7 +2684,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "brian.goldspiel@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "MS3/4",
@@ -1727,7 +2730,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "angela.gong@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Chemistry",
     "phase": "PhD Phase",
@@ -1755,7 +2775,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "elizabeth.gonzalez@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -1784,7 +2821,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "akshay.govindan@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "phase": "MS2",
     "academic_interests": "Protein structure and dynamics",
@@ -1810,7 +2864,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Immunology",
     "phase": "MS3/4",
@@ -1838,7 +2892,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sagar.gupta@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "phase": "MS2",
     "academic_interests": "Structural biology, immunology, computational biology",
@@ -1864,7 +2935,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "robert.hapke@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -1889,7 +2977,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -1916,7 +3004,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "giang.hoang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -1945,7 +3050,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "erin.hollander@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS3/4",
@@ -1974,7 +3096,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "zahraa.hotait@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS2",
@@ -2001,7 +3140,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "fengling.hu@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biostatistics",
     "phase": "MS3/4",
@@ -2028,7 +3184,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "evan.iliakis@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -2053,7 +3226,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "deniz.ince@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Chemistry",
     "phase": "MS1",
@@ -2081,7 +3271,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "william.jackson2@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS1",
@@ -2107,7 +3314,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "blake.jardin@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "PhD Phase"
@@ -2131,7 +3355,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "evan.jiang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -2158,7 +3399,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kate.jones@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS2",
@@ -2185,7 +3443,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "eren.kafadar@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -2214,7 +3489,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "benjamin.kahn@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS1",
@@ -2240,7 +3532,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "paul.kaminski@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -2267,7 +3576,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ashwin.kammula@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS2",
@@ -2293,7 +3619,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sanam.kavari@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -2322,7 +3665,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "danielle.kellier@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "GGEB - Epidemiology",
     "phase": "MS3/4"
@@ -2346,7 +3706,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kamren.khan@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS1",
@@ -2372,7 +3749,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rohit.khurana@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS1",
@@ -2398,7 +3792,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "minjae.kim@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -2424,7 +3835,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "samuel.kim1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -2452,7 +3880,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kathryn.kixmoeller@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "MS3/4",
@@ -2479,7 +3924,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics, CAMB - Gene Therapy and Vaccines",
     "phase": "MS2",
@@ -2506,7 +3951,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "likhitha.kolla@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biostatistics",
     "phase": "PhD Phase",
@@ -2534,7 +3996,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sumasri.kotha@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS2",
@@ -2561,7 +4040,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nipun.kottage@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Anthropology",
     "phase": "PhD Phase",
@@ -2589,7 +4085,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "maria.kovalik@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -2617,7 +4130,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kathleen.krauss@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS3/4"
@@ -2641,7 +4171,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rachit.kumar@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS3/4",
@@ -2670,7 +4217,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rex.kung@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS1",
@@ -2697,7 +4261,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "napasorn.kuprasertkul@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -2725,7 +4306,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "leonie.kurzlechner@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -2753,7 +4351,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jessica.lam@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS3/4",
@@ -2780,7 +4395,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jasmine.larrick@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -2809,7 +4441,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "thijs.larson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS1",
@@ -2836,7 +4485,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "casey.lee@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS3/4",
@@ -2862,7 +4528,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "amelia.li@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS1",
@@ -2890,7 +4573,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jialiu.liang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -2918,7 +4618,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sophie.liebergall@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -2945,7 +4662,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS3/4",
@@ -2972,7 +4689,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "mariia.alibekova@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -2998,7 +4732,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -3027,7 +4761,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -3055,7 +4789,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "claudia.lovell@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -3083,7 +4834,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jenny.lu1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biostatistics",
     "phase": "MS2",
@@ -3109,7 +4877,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "emily.lubin@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -3138,7 +4923,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "alfredo.lucas@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -3167,7 +4969,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "audrey.luo@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -3195,7 +5014,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "briana.macedo@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "PhD Phase",
@@ -3223,7 +5059,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rohin.maganti@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase"
@@ -3247,7 +5100,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "mattia.mahmoud@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "GGEB - Epidemiology",
     "phase": "MS3/4"
@@ -3271,7 +5141,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "neha.mani@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS1",
@@ -3298,7 +5185,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "quinlen.marshall@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -3326,7 +5230,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -3354,7 +5258,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nicolas.marzolini@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -3383,7 +5304,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "samuel.mccright@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS3/4",
@@ -3409,7 +5347,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "joseph.mcgaunn@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -3438,7 +5393,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "louis.mckinnon@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "MS1",
@@ -3464,7 +5436,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "pedro.mendezfernandez@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -3492,7 +5481,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "maria.merolle@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -3521,7 +5527,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "claire.millett@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS2",
@@ -3546,7 +5569,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "charlotte.monsour@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Chemistry",
     "phase": "PhD Phase",
@@ -3574,7 +5614,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "skylar.montagueredecke@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "MS1",
@@ -3601,7 +5658,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "david.moon@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS2",
@@ -3628,7 +5702,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jeremy.morrissette@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase"
@@ -3652,7 +5743,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rachana.mudipalli@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "phase": "MS2",
     "affinity_groups_and_student_orgs": "Elizabeth Blackwell Society (EBS), South Asian Medical Student Association (SAMoSA), Whisktakers (Baking Club), Cornfeld Pediatrics Society",
@@ -3678,7 +5786,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "vainavi.mukkamala@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -3705,7 +5830,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "lance.murphy@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -3734,7 +5876,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sweta.narayan@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Developmental, Stem Cell, and Regenerative Biology",
     "phase": "PhD Phase",
@@ -3762,7 +5921,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "joseph.nelson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase",
@@ -3789,7 +5965,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "anerella@upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "MS2",
@@ -3817,7 +6010,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "samuel.neuman@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS2",
@@ -3845,7 +6055,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "raymond.ng@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -3872,7 +6099,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "erica.nguyen@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Developmental, Stem Cell, and Regenerative Biology",
     "phase": "PhD Phase"
@@ -3896,7 +6140,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "hiep.tai.nguyen@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -3923,7 +6184,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "michelle.onyekaba@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "PhD Phase"
@@ -3947,7 +6225,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "margo.orlen@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS3/4",
@@ -3975,7 +6270,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "gabriel.otubu@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS1",
@@ -4003,7 +6315,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jesse.pace@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -4030,7 +6359,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rohan.palanki@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -4059,7 +6405,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rachel.palmer@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Chemistry",
     "phase": "MS2",
@@ -4086,7 +6449,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "isabella.panse@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "PhD Phase",
@@ -4113,7 +6493,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Immunology",
     "phase": "MS2",
@@ -4140,7 +6520,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -4168,7 +6548,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jailene.paredescasado@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "PhD Phase",
@@ -4196,7 +6593,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kristen.park@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4222,7 +6636,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "shridhar.parthasarathy@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "PhD Phase",
@@ -4249,7 +6680,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sayalee.patankar@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Track to be determined",
     "phase": "MS1",
@@ -4276,7 +6724,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "margaret.pecsok@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4302,7 +6767,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "cooper.penner@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase"
@@ -4326,7 +6808,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jonathan.pham@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Pharmacology",
     "phase": "PhD Phase",
@@ -4354,7 +6853,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kenneth.pham@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -4379,7 +6895,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "taylor.phillips-jones@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4408,7 +6941,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "carson.poltorack@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -4433,7 +6983,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "sriya.potluri@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "PhD Phase",
@@ -4461,7 +7028,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "diane.rafizadeh@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Chemistry",
     "phase": "PhD Phase",
@@ -4490,7 +7074,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rahmanr@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4519,7 +7120,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS2",
@@ -4545,7 +7146,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "pavithran.ravindran@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "PhD Phase",
@@ -4572,7 +7190,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "ankita.reddy@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Anthropology",
     "phase": "PhD Phase",
@@ -4600,7 +7235,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "PhD Phase",
@@ -4627,7 +7262,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "carlos.rodriguez@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4654,7 +7306,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "martin.rosenfeld@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4682,7 +7351,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "elizabeth.rubin1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Developmental, Stem Cell, and Regenerative Biology",
     "phase": "MS2",
@@ -4710,7 +7396,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "han-seul.ryu@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase",
@@ -4738,7 +7441,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "tavian.sanchez@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -4766,7 +7486,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jsastry@upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "PhD Phase",
@@ -4793,7 +7530,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "michelle.schroeder@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -4819,7 +7573,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jake.shapira@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS2",
@@ -4847,7 +7618,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "daniel.shapiro1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Gene Therapy and Vaccines",
     "phase": "PhD Phase",
@@ -4874,7 +7662,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "prateek.sharma@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS3/4",
@@ -4902,7 +7707,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kalil.shaw@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase"
@@ -4926,7 +7748,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "emily.shea@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cancer Biology",
     "phase": "MS3/4",
@@ -4954,7 +7793,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kaitlyn.shen@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS3/4",
@@ -4982,7 +7838,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rishi.shridharan@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS2",
@@ -5010,7 +7883,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "niharika.shukla@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase",
@@ -5038,7 +7928,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "msielski@upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "PhD Phase",
@@ -5063,7 +7970,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nicholas.simpson@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Anthropology",
     "phase": "MS2",
@@ -5091,7 +8015,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -5120,7 +8044,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "miranda.song@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS2",
@@ -5146,7 +8087,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "yentli.sotoalbrecht@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Microbiology, Virology, and Parasitology",
     "phase": "MS3/4",
@@ -5175,7 +8133,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "montita.sowapark@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Anthropology",
     "phase": "PhD Phase",
@@ -5204,7 +8179,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -5229,7 +8204,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kashyap.sreeram@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS1",
@@ -5256,7 +8248,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "madhav.subramanian@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -5283,7 +8292,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "matthew.sullivan-hatfield@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase"
@@ -5307,7 +8333,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "kevin.sun@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -5332,7 +8375,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "lillian.sun@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -5359,7 +8419,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "yusha.sun@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS3/4",
@@ -5387,7 +8464,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jonathan.sussman@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS3/4",
@@ -5415,7 +8509,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "maryia.svirydava@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -5444,7 +8555,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "mclean.taggart@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS1",
@@ -5471,7 +8599,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "margaret.tamburro@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -5499,7 +8644,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "amelia.taylor@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Pharmacology",
     "phase": "PhD Phase",
@@ -5527,7 +8689,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "saba.tegegne@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase"
@@ -5551,7 +8730,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "zachary.templeton@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Health Care Management",
     "phase": "MS3/4",
@@ -5577,7 +8773,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -5605,7 +8801,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "josephine.thrasher@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "PhD Phase",
@@ -5633,7 +8846,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "henry.utset@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "PhD Phase",
@@ -5661,7 +8891,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jose.velarde@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS2",
@@ -5689,7 +8936,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "seth.walensky@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Biochemistry, Biophysics and Chemical Biology",
     "phase": "PhD Phase",
@@ -5717,7 +8981,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "eric.wang1@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Immunology",
     "phase": "MS2",
@@ -5744,7 +9025,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "nathan.wang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS2",
@@ -5769,7 +9067,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "caroline.wechsler@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "History and Sociology of Science",
     "phase": "PhD Phase",
@@ -5797,7 +9112,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Neuroscience",
     "phase": "PhD Phase",
@@ -5823,7 +9138,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "david.wu@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "PhD Phase",
@@ -5852,7 +9184,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "katherine.xia@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Cell Biology, Physiology, and Metabolism",
     "phase": "PhD Phase",
@@ -5881,7 +9230,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Bioengineering",
     "phase": "PhD Phase"
@@ -5905,7 +9254,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "rachel.xiang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Genetics and Epigenetics",
     "phase": "MS2",
@@ -5932,7 +9298,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "barbara.xiong@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "PhD Phase",
@@ -5960,7 +9343,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "erica.xiong@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Neuroscience",
     "phase": "MS1"
@@ -5984,7 +9384,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "karen.xu@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -6009,7 +9426,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "michael.yao@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Bioengineering",
     "phase": "MS3/4",
@@ -6034,7 +9468,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "danielpy@upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Developmental, Stem Cell, and Regenerative Biology",
     "phase": "PhD Phase",
@@ -6063,7 +9514,7 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "no_public_contact_link_seen"
     ],
     "graduate_group": "Immunology",
     "phase": "MS2"
@@ -6087,7 +9538,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "jack.you@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "CAMB - Developmental, Stem Cell, and Regenerative Biology",
     "phase": "PhD Phase",
@@ -6113,7 +9581,24 @@
     "quality_tier": "medium",
     "quality_notes": [
       "partial_medical_student_population_mstp_only",
-      "email_links_intentionally_not_extracted"
+      "public_contact_candidates_extracted"
+    ],
+    "contacts": [
+      {
+        "contact_type": "email",
+        "value": "david.zhang@pennmedicine.upenn.edu",
+        "contact_label": "Email",
+        "contact_scope": "institutional",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "source_type": "official_public_student_directory",
+        "verification_status": "public_directory_unverified",
+        "confidence": 0.82,
+        "status": "candidate",
+        "match_features": [
+          "public_official_student_directory",
+          "mailto_link"
+        ]
+      }
     ],
     "graduate_group": "Genomics and Computational Biology",
     "phase": "MS3/4",
