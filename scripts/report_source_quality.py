@@ -283,6 +283,10 @@ def main() -> None:
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
     enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
     reconciliation_decision_summary = read_json(ARTIFACTS / "evidence_reconciliation_decision_summary.json", {})
+    person_evidence_reviewer_decision_summary = read_json(
+        ARTIFACTS / "person_evidence_reviewer_decision_summary.json",
+        {},
+    )
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
@@ -308,6 +312,10 @@ def main() -> None:
     top_attending_trend_acceptance = read_csv(ARTIFACTS / "attending_trend_acceptance_audit.csv", limit=25)
     top_attending_trend_reviewer_decisions = read_csv(
         ARTIFACTS / "attending_trend_reviewer_decision_audit.csv",
+        limit=25,
+    )
+    top_person_evidence_reviewer_decisions = read_csv(
+        ARTIFACTS / "person_evidence_reviewer_decision_audit.csv",
         limit=25,
     )
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
@@ -369,6 +377,16 @@ def main() -> None:
     trend_window_counts = [
         {"ten_year_trend_window": window, "count": count}
         for window, count in sorted((reconciliation_decision_summary.get("by_ten_year_trend_window") or {}).items())
+    ]
+    person_evidence_reviewer_status_counts = [
+        {"decision_status": status, "count": count}
+        for status, count in sorted(
+            (person_evidence_reviewer_decision_summary.get("by_decision_status") or {}).items()
+        )
+    ]
+    person_evidence_reviewer_kind_counts = [
+        {"review_kind": kind, "count": count}
+        for kind, count in sorted((person_evidence_reviewer_decision_summary.get("by_review_kind") or {}).items())
     ]
     attending_linkage_counts = [
         {"linkage_status": status, "count": count}
@@ -461,6 +479,7 @@ def main() -> None:
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
+        "person_evidence_reviewer_decision_summary": person_evidence_reviewer_decision_summary,
         "top_reconciliation_decisions": top_reconciliation_decisions,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "top_attending_trend_linkage_groups": top_attending_linkage_groups,
@@ -485,6 +504,7 @@ def main() -> None:
         "medical_student_source_audit": med_student_source_audit,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
+        "top_person_evidence_reviewer_decisions": top_person_evidence_reviewer_decisions,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
@@ -858,6 +878,36 @@ def main() -> None:
         ),
         "",
         "Learning: reconciliation should be an explicit decision ledger, not a side effect of queue priority. Review-ready means enough anchors exist for efficient review; accepted truth still requires a manual or stronger automated identity verifier.",
+        "",
+        "## Person Evidence Reviewer Decisions",
+        "",
+        f"Queue rows: {person_evidence_reviewer_decision_summary.get('queue_rows', 0)}. Audit rows: {person_evidence_reviewer_decision_summary.get('audit_rows', 0)}. Pending reviewer decisions: {person_evidence_reviewer_decision_summary.get('pending_reviewer_decision_rows', 0)}. Accepted candidate facts: {person_evidence_reviewer_decision_summary.get('accepted_candidate_fact_rows', 0)}.",
+        "",
+        "Decision statuses:",
+        "",
+        *md_table(person_evidence_reviewer_status_counts, ["decision_status", "count"]),
+        "",
+        "Review kinds:",
+        "",
+        *md_table(person_evidence_reviewer_kind_counts, ["review_kind", "count"]),
+        "",
+        "Top packet-level reviewer rows:",
+        "",
+        *md_table(
+            top_person_evidence_reviewer_decisions,
+            [
+                "display_name",
+                "role",
+                "packet_status",
+                "review_kind",
+                "decision_status",
+                "review_priority",
+                "best_decision",
+                "best_source_url",
+            ],
+        ),
+        "",
+        "Learning: packet-level reviewer decisions are now a first-class ledger. The system can separate candidate evidence that is merely review-ready from evidence that a reviewer explicitly accepted, rejected, or deferred against a stable packet fingerprint.",
         "",
         "## Attending Trend Linkage Assurance",
         "",

@@ -536,6 +536,78 @@ CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_evidence_reviewer_decision_queue (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  packet_key TEXT NOT NULL REFERENCES person_evidence_review_packets(packet_key) ON DELETE CASCADE,
+  person_or_name_key TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  packet_status TEXT NOT NULL,
+  review_kind TEXT NOT NULL,
+  queue_status TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  best_decision TEXT,
+  best_source_url TEXT,
+  top_source_urls TEXT,
+  top_claim_types TEXT,
+  top_match_features TEXT,
+  required_reviewer_action TEXT NOT NULL,
+  acceptance_blocker TEXT NOT NULL,
+  display_safety_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS person_evidence_reviewer_decisions (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  packet_key TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  identity_confirmed INTEGER NOT NULL DEFAULT 0,
+  source_context_confirmed INTEGER NOT NULL DEFAULT 0,
+  non_name_anchors_confirmed INTEGER NOT NULL DEFAULT 0,
+  display_safety_confirmed INTEGER NOT NULL DEFAULT 0,
+  decision_notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS person_evidence_reviewer_decision_audit (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  packet_key TEXT NOT NULL REFERENCES person_evidence_review_packets(packet_key) ON DELETE CASCADE,
+  person_or_name_key TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  packet_status TEXT NOT NULL,
+  review_kind TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  accepted_candidate_fact INTEGER NOT NULL DEFAULT 0,
+  decision_blocker TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  decision_packet_fingerprint TEXT,
+  identity_confirmed INTEGER NOT NULL DEFAULT 0,
+  source_context_confirmed INTEGER NOT NULL DEFAULT 0,
+  non_name_anchors_confirmed INTEGER NOT NULL DEFAULT 0,
+  display_safety_confirmed INTEGER NOT NULL DEFAULT 0,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  best_decision TEXT,
+  best_source_url TEXT,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,

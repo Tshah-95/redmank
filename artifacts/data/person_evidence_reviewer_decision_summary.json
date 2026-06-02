@@ -1,0 +1,27 @@
+{
+  "acceptance_policy": "Person evidence packets do not mutate accepted enrichment facts without an explicit reviewer decision, a matching packet fingerprint, and all required confirmation fields set to 1.",
+  "accepted_candidate_fact_rows": 0,
+  "audit_csv": "artifacts/data/person_evidence_reviewer_decision_audit.csv",
+  "audit_rows": 686,
+  "by_decision_status": {
+    "pending_reviewer_decision": 686
+  },
+  "by_packet_status": {
+    "review_ready_mixed_identity_anchor_packet": 658,
+    "review_ready_mixed_packet": 5,
+    "review_ready_publication_packet": 23
+  },
+  "by_recommended_next_action": {
+    "record_accept_reject_or_needs_more_evidence_decision": 686
+  },
+  "by_review_kind": {
+    "mixed_identity_anchor_review": 663,
+    "publication_identity_review": 23
+  },
+  "generated_at": "2026-06-02T14:46:35.319216+00:00",
+  "manual_decision_csv": "artifacts/data/person_evidence_reviewer_decisions.csv",
+  "manual_decision_rows": 0,
+  "pending_reviewer_decision_rows": 686,
+  "queue_csv": "artifacts/data/person_evidence_reviewer_decision_queue.csv",
+  "queue_rows": 686
+}

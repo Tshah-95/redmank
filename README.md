@@ -74,6 +74,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - SQLite tables `evidence_reconciliation_decisions` and `person_reconciliation_decisions`: queryable versions of the item-level and person/name-level reconciliation ledgers.
 - `artifacts/data/person_evidence_review_packets.csv`: person/name-level evidence packets with top evidence, review kind, accepted-fact state, blocker, and next action.
 - `artifacts/data/person_evidence_review_packet_summary.json`: packet counts for review-ready publication, attending-trend, secondary-anchor, and discovery-only work.
+- `artifacts/data/person_evidence_reviewer_decision_queue.csv`: fingerprinted reviewer-decision queue for review-ready person evidence packets.
+- `artifacts/data/person_evidence_reviewer_decisions.csv`: manual reviewer decision input file for accepting, rejecting, or deferring person evidence packets.
+- `artifacts/data/person_evidence_reviewer_decision_audit.csv`: audit of manual person-evidence decisions against current packet fingerprints and confirmation requirements.
 - `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.
 - `artifacts/data/enrichment_acceptance_summary.json`: acceptance-tier counts, including cross-source publication machine-acceptance candidates.
 - `artifacts/data/accepted_enrichment_claims.csv`: strict machine-accepted enrichment facts, currently non-roster-mutating publication claims with provenance, acceptance policy, and final display-sanity checks attached.
@@ -242,6 +245,7 @@ python3 scripts/audit_attending_biosketch_bridges.py --as-of-year 2026
 python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-results 4 --probe-pages --sleep 0.2
 python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
+python3 scripts/materialize_person_evidence_reviewer_decisions.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py

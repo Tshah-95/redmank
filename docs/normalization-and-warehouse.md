@@ -80,6 +80,7 @@ Core tables:
 - `evidence_reconciliation_decisions`: queryable item-level decision ledger for candidate evidence and career events.
 - `person_reconciliation_decisions`: queryable person/name-level reconciliation burden and review-readiness rollup.
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
+- `person_evidence_reviewer_decision_queue`, `person_evidence_reviewer_decisions`, `person_evidence_reviewer_decision_audit`: explicit reviewer-decision loop for review-ready person evidence packets.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
@@ -193,6 +194,7 @@ The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor`
 - `person_evidence_review_packets.csv`: one row per person/name with packet status, review kind, top evidence URLs, claim types, match features, acceptance blocker, and recommended next action.
 - `person_evidence_review_packets.json`: same rows with top evidence records in structured JSON.
 - `person_evidence_review_packet_summary.json`: counts by packet status, review kind, and next action.
+- `scripts/materialize_person_evidence_reviewer_decisions.py` turns review-ready packets into a fingerprinted reviewer-decision queue, keeps a manual decision input CSV, and audits decisions against the current packet fingerprint plus identity/source/non-name-anchor/display-safety confirmations.
 
 Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge. Once a later acceptance ledger materializes a publication or attending-trend fact, packet generation reclassifies the matching person/name packet into an accepted/monitor state instead of continuing to ask for the same reviewer decision.
 
