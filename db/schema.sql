@@ -3392,6 +3392,46 @@ CREATE TABLE IF NOT EXISTS person_enrichment_action_execution_plan (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS research_identity_corroboration (
+  corroboration_key TEXT PRIMARY KEY,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  current_training_states TEXT,
+  research_identity_status TEXT NOT NULL,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  scholarly_source_count INTEGER NOT NULL DEFAULT 0,
+  research_candidate_count INTEGER NOT NULL DEFAULT 0,
+  research_review_ready_count INTEGER NOT NULL DEFAULT 0,
+  accepted_research_count INTEGER NOT NULL DEFAULT 0,
+  pubmed_article_candidate_count INTEGER NOT NULL DEFAULT 0,
+  pubmed_review_ready_count INTEGER NOT NULL DEFAULT 0,
+  openalex_author_candidate_count INTEGER NOT NULL DEFAULT 0,
+  openalex_review_ready_count INTEGER NOT NULL DEFAULT 0,
+  orcid_profile_candidate_count INTEGER NOT NULL DEFAULT 0,
+  orcid_work_candidate_count INTEGER NOT NULL DEFAULT 0,
+  orcid_pubmed_article_candidate_count INTEGER NOT NULL DEFAULT 0,
+  npi_candidate_count INTEGER NOT NULL DEFAULT 0,
+  profile_candidate_count INTEGER NOT NULL DEFAULT 0,
+  contact_candidate_count INTEGER NOT NULL DEFAULT 0,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  name_only_candidate_count INTEGER NOT NULL DEFAULT 0,
+  penn_affiliation_anchor_count INTEGER NOT NULL DEFAULT 0,
+  prior_training_anchor_count INTEGER NOT NULL DEFAULT 0,
+  persistent_identifier_count INTEGER NOT NULL DEFAULT 0,
+  publication_identifier_count INTEGER NOT NULL DEFAULT 0,
+  conflicting_identifier_count INTEGER NOT NULL DEFAULT 0,
+  best_confidence REAL NOT NULL DEFAULT 0.0,
+  top_source_keys TEXT,
+  top_claim_types TEXT,
+  recommended_review_route TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

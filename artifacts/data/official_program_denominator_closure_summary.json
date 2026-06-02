@@ -11,7 +11,7 @@
   "csv": "artifacts/data/official_program_denominator_closure_audit.csv",
   "denominator_closed_people_count": 389,
   "denominator_closed_rows": 13,
-  "generated_at": "2026-06-02T23:17:31.205627+00:00",
+  "generated_at": "2026-06-02T23:29:24.204069+00:00",
   "json": "artifacts/data/official_program_denominator_closure_audit.json",
   "policy": "Accepted alias denominator closure is a reporting/crosswalk layer. It can close official denominator coverage for source-backed reporting, but it does not rewrite people, program labels, or roster truth.",
   "roster_truth_mutation_allowed_rows": 0

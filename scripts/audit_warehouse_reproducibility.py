@@ -519,6 +519,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/research_identity_corroboration.csv",
+        "research_identity_corroboration_ledger",
+        "csv",
+        "research_identity_corroboration",
+        True,
+    ),
+    (
         "artifacts/data/penn_trainee_profile_claims.csv",
         "trainee_profile_enrichment_ledger",
         "csv",

@@ -306,6 +306,8 @@ The current readiness ledger now treats profile, research, and prior-training di
 
 `scripts/materialize_person_enrichment_action_execution_plan.py` is the batch-level operator layer above action packets and member fingerprints. It groups ready/manual-review/collector batches by lane, records pending, blocked, executed, and stale-decision counts, preserves command hints and expected downstream artifacts, and emits member-level decision templates with current fingerprints. Like the member execution audit, it is non-mutating: execution notes show work performed, while factual changes still require source-specific artifacts plus reviewer and acceptance ledgers.
 
+`scripts/materialize_research_identity_corroboration.py` adds the cross-source research identity review layer. It rolls PubMed, OpenAlex, ORCID, NPI, trainee profile discovery, contact candidates, and current training-state context into one person-level ledger. The output ranks review routes such as multi-source research identity review, research plus secondary identity anchor review, single-source publication review, or conflict reconciliation. This is intentionally not an acceptance engine: corroboration can prioritize and explain review, but accepted person facts still require source-specific reviewer and acceptance ledgers.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.

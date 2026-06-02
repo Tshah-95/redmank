@@ -1,0 +1,289 @@
+{
+  "by_recommended_review_route": {
+    "collect_secondary_identity_anchors_before_review": 1239,
+    "manual_conflict_reconciliation_before_any_acceptance": 24,
+    "no_research_action_until_higher_priority_sources_complete": 12,
+    "prioritize_publication_identity_review": 17,
+    "review_cross_source_identity_agreement": 7,
+    "review_research_with_secondary_identity_anchor": 157,
+    "review_single_source_publication_candidate": 72,
+    "run_research_identity_search_if_research_relevant": 7
+  },
+  "by_research_identity_status": {
+    "conflict_review_required": 24,
+    "multi_source_candidate_review": 7,
+    "no_public_research_identity_signal": 12,
+    "research_candidate_only": 1239,
+    "research_plus_secondary_identity_anchor_review": 157,
+    "secondary_anchor_without_research_signal": 7,
+    "single_source_research_review_ready": 72,
+    "strong_multi_source_research_identity_review": 17
+  },
+  "by_role": {
+    "fellow": 385,
+    "medical_student": 225,
+    "resident": 925
+  },
+  "corroboration_rows": 1535,
+  "csv": "artifacts/data/research_identity_corroboration.csv",
+  "generated_at": "2026-06-02T23:32:47.900815+00:00",
+  "json": "artifacts/data/research_identity_corroboration.json",
+  "people_with_multi_source_research": 48,
+  "people_with_npi_secondary_anchor": 832,
+  "people_with_profile_candidate": 201,
+  "people_with_research_signal": 1516,
+  "people_with_review_ready_research": 277,
+  "policy": "Corroboration ranks review and conflict routing only; no person fact is accepted from this ledger.",
+  "top_review_priorities": [
+    {
+      "display_name": "Aaron M. Williams, MD, PhD",
+      "non_name_anchor_count": 18,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 8,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Ahmed Gawash DO",
+      "non_name_anchor_count": 29,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 9,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Alec Gibson, MD, PhD",
+      "non_name_anchor_count": 108,
+      "recommended_review_route": "prioritize_publication_identity_review",
+      "research_identity_status": "strong_multi_source_research_identity_review",
+      "research_review_ready_count": 40,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Alessandro Brunetti, MD",
+      "non_name_anchor_count": 86,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 37,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Alex Chen, MD",
+      "non_name_anchor_count": 3,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 1,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 2
+    },
+    {
+      "display_name": "Alison Ranum MD",
+      "non_name_anchor_count": 24,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 7,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Amber Meservey, MD",
+      "non_name_anchor_count": 30,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 6,
+      "review_priority": 100,
+      "role": "fellow",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Andreas Tzavelis, MD",
+      "non_name_anchor_count": 29,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 9,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Andrew M. Acker, MD",
+      "non_name_anchor_count": 17,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 5,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Andrew Samoyedny, MD",
+      "non_name_anchor_count": 14,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 5,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Anne Wang, MD",
+      "non_name_anchor_count": 4,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 2,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 2
+    },
+    {
+      "display_name": "Anthony R. Angueira, MD, PhD",
+      "non_name_anchor_count": 28,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 10,
+      "review_priority": 100,
+      "role": "fellow",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Armaan Singh, MD, MBA",
+      "non_name_anchor_count": 16,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 8,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Ashna Aggarwal, MD",
+      "non_name_anchor_count": 25,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 12,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Benjamin J. Peipert, MD",
+      "non_name_anchor_count": 107,
+      "recommended_review_route": "prioritize_publication_identity_review",
+      "research_identity_status": "strong_multi_source_research_identity_review",
+      "research_review_ready_count": 40,
+      "review_priority": 100,
+      "role": "fellow",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Bradley Osemwengie, MD",
+      "non_name_anchor_count": 24,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 6,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Brendan Ho, MD",
+      "non_name_anchor_count": 8,
+      "recommended_review_route": "prioritize_publication_identity_review",
+      "research_identity_status": "strong_multi_source_research_identity_review",
+      "research_review_ready_count": 4,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Brett Croen, MD",
+      "non_name_anchor_count": 25,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 5,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Carissa E. Livingston, MD",
+      "non_name_anchor_count": 26,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 5,
+      "review_priority": 100,
+      "role": "fellow",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Cassie L. Hobbs, MD",
+      "non_name_anchor_count": 14,
+      "recommended_review_route": "prioritize_publication_identity_review",
+      "research_identity_status": "strong_multi_source_research_identity_review",
+      "research_review_ready_count": 6,
+      "review_priority": 100,
+      "role": "fellow",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Catherine Sport MD",
+      "non_name_anchor_count": 15,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 5,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Charikleia Kalliora, MD, MSc",
+      "non_name_anchor_count": 24,
+      "recommended_review_route": "review_research_with_secondary_identity_anchor",
+      "research_identity_status": "research_plus_secondary_identity_anchor_review",
+      "research_review_ready_count": 6,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 1
+    },
+    {
+      "display_name": "Charles Danan, MD, PhD",
+      "non_name_anchor_count": 5,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 1,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 2
+    },
+    {
+      "display_name": "Chenxu Shi, MD, PhD",
+      "non_name_anchor_count": 34,
+      "recommended_review_route": "manual_conflict_reconciliation_before_any_acceptance",
+      "research_identity_status": "conflict_review_required",
+      "research_review_ready_count": 15,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    },
+    {
+      "display_name": "Chidinma Wilson, MD",
+      "non_name_anchor_count": 13,
+      "recommended_review_route": "prioritize_publication_identity_review",
+      "research_identity_status": "strong_multi_source_research_identity_review",
+      "research_review_ready_count": 6,
+      "review_priority": 100,
+      "role": "resident",
+      "scholarly_source_count": 3
+    }
+  ]
+}

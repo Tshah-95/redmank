@@ -995,6 +995,100 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
+    source_path = ARTIFACTS / "research_identity_corroboration.csv"
+    if not source_path.exists():
+        return []
+    grouped: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
+    for item in read_csv(source_path):
+        status = item.get("research_identity_status") or ""
+        route = item.get("recommended_review_route") or ""
+        if status == "no_public_research_identity_signal":
+            continue
+        grouped[(status, route, item.get("role") or "")].append(item)
+
+    priority_by_status = {
+        "conflict_review_required": 970,
+        "strong_multi_source_research_identity_review": 940,
+        "multi_source_candidate_review": 880,
+        "research_plus_secondary_identity_anchor_review": 865,
+        "single_source_research_review_ready": 805,
+        "research_candidate_only": 610,
+        "secondary_anchor_without_research_signal": 420,
+    }
+    rows = []
+    for (status, route, role), group in grouped.items():
+        max_priority = max(as_int(item.get("review_priority")) for item in group)
+        review_ready = sum(as_int(item.get("research_review_ready_count")) for item in group)
+        multi_source = sum(1 for item in group if as_int(item.get("scholarly_source_count")) >= 2)
+        priority = priority_by_status.get(status, 500) + min(max_priority, 100) + min(review_ready, 150)
+        if status == "research_candidate_only":
+            priority += min(len(group), 120)
+        sample = sorted(
+            group,
+            key=lambda item: (
+                -as_int(item.get("review_priority")),
+                -as_int(item.get("research_review_ready_count")),
+                item.get("display_name") or "",
+            ),
+        )[0]
+        rows.append(
+            row(
+                action_surface="research_identity_corroboration",
+                action_scope=f"{status}:{route}",
+                entity_type="person_research_identity_group",
+                entity_key=stable_key(status, route, role),
+                display_label=" | ".join(part for part in [role or "all roles", status, route] if part),
+                role=role,
+                program_name="",
+                priority=priority,
+                impact_count=len(group),
+                readiness_status=status,
+                blocker_status="conflict_blocks_acceptance" if status == "conflict_review_required" else route,
+                required_next_evidence=sample.get("required_next_evidence") or "",
+                recommended_next_action=route,
+                source_artifact="artifacts/data/research_identity_corroboration.csv",
+                target_artifact="artifacts/data/person_evidence_reviewer_decisions.csv",
+                downstream_tables=[
+                    "research_identity_corroboration",
+                    "person_evidence_review_triage",
+                    "person_evidence_reviewer_decision_audit",
+                    "enrichment_acceptance_audit",
+                    "accepted_enrichment_claims",
+                    "evidence_temporal_contracts",
+                ],
+                evidence={
+                    "research_identity_status": status,
+                    "recommended_review_route": route,
+                    "person_count": len(group),
+                    "review_ready_record_count": review_ready,
+                    "multi_source_people": multi_source,
+                    "top_people": [
+                        {
+                            "person_key": item.get("person_key"),
+                            "display_name": item.get("display_name"),
+                            "review_priority": item.get("review_priority"),
+                            "scholarly_source_count": item.get("scholarly_source_count"),
+                            "research_review_ready_count": item.get("research_review_ready_count"),
+                            "non_name_anchor_count": item.get("non_name_anchor_count"),
+                            "top_claim_types": item.get("top_claim_types"),
+                        }
+                        for item in sorted(
+                            group,
+                            key=lambda item: (
+                                -as_int(item.get("review_priority")),
+                                -as_int(item.get("research_review_ready_count")),
+                                item.get("display_name") or "",
+                            ),
+                        )[:10]
+                    ],
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def action_member_execution_actions(generated_at: str) -> list[dict]:
     audit_path = ARTIFACTS / "person_enrichment_action_member_execution_audit.csv"
     if not audit_path.exists():
@@ -1141,6 +1235,7 @@ def main() -> None:
     rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))
     rows.extend(action_member_execution_actions(generated_at))
+    rows.extend(research_identity_corroboration_actions(generated_at))
     attending_discovery_rows = attending_trend_discovery_actions(generated_at)
     rows.extend(attending_discovery_rows if attending_discovery_rows else attending_trend_actions(generated_at))
     rows.sort(key=lambda item: (-as_int(item["priority"]), -as_int(item["impact_count"]), item["action_surface"], item["display_label"]))

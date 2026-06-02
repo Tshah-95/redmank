@@ -57,6 +57,7 @@ def main() -> None:
         "person_enrichment_action_member_execution_queue",
         "person_enrichment_action_member_execution_audit",
         "person_enrichment_action_execution_plan",
+        "research_identity_corroboration",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",

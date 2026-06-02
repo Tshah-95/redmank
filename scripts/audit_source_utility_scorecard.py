@@ -847,6 +847,55 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         WHERE execution_status = 'executed_outputs_routed'
         """,
     )
+    research_corroboration_summary = read_json(ARTIFACTS / "research_identity_corroboration_summary.json", {})
+    research_corroboration_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_corroboration")
+    research_signal_people = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_corroboration
+        WHERE research_candidate_count > 0
+        """,
+    )
+    research_review_ready_people = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_corroboration
+        WHERE research_review_ready_count > 0
+        """,
+    )
+    research_multi_source_people = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_corroboration
+        WHERE scholarly_source_count >= 2
+        """,
+    )
+    research_conflict_people = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_corroboration
+        WHERE conflicting_identifier_count > 0
+        """,
+    )
+    research_secondary_anchor_people = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_corroboration
+        WHERE npi_candidate_count > 0 OR profile_candidate_count > 0 OR contact_candidate_count > 0
+        """,
+    )
+    research_review_ready_records = scalar(
+        conn,
+        """
+        SELECT COALESCE(SUM(research_review_ready_count), 0)
+        FROM research_identity_corroboration
+        """,
+    )
 
     return [
         make_row(
@@ -1959,6 +2008,44 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "blocked_execution_rows": action_member_execution_blocked,
                 "executed_outputs_routed_rows": action_member_execution_routed,
                 "execution_summary": action_member_execution_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="research_identity_corroboration_ledger",
+            utility_key="",
+            utility_label="Research identity corroboration ledger",
+            source_family="evidence_reconciliation",
+            claim_surface="person-level cross-source agreement, secondary anchors, conflicts, and review routing for scholarly identity enrichment",
+            input_records=scalar(conn, "SELECT COUNT(*) FROM evidence_claims")
+            + scalar(conn, "SELECT COUNT(*) FROM npi_candidate_claims")
+            + scalar(conn, "SELECT COUNT(*) FROM trainee_profile_discovery_candidates")
+            + scalar(conn, "SELECT COUNT(*) FROM person_contacts"),
+            output_records=research_corroboration_rows,
+            candidate_records=research_signal_people,
+            needs_review_records=research_review_ready_people + research_conflict_people,
+            review_ready_records=research_multi_source_people,
+            blocked_records=research_conflict_people,
+            score=83.0 if research_corroboration_rows and not research_conflict_people else 76.0 if research_corroboration_rows else 25.0,
+            strengths=[
+                "Rolls PubMed, OpenAlex, ORCID, NPI, official profile, contact, and training-state context into one person-level review surface",
+                "Separates multi-source agreement, non-name anchors, persistent identifiers, secondary anchors, and conflicts",
+                "Ranks review routes without accepting person facts from corroboration alone",
+            ],
+            limitations=[
+                "Corroboration is only as current as the upstream candidate collectors and profile/contact artifacts",
+                "Multi-source evidence can still share upstream name-collision risk and needs reviewer acceptance",
+                "Conflicts are intentionally review-blocking until source-specific evidence is resolved",
+            ],
+            recommended_next_action="prioritize_multi_source_research_identity_reviews_and_resolve_conflicts_before_acceptance",
+            evidence={
+                "summary": research_corroboration_summary,
+                "corroboration_rows": research_corroboration_rows,
+                "people_with_research_signal": research_signal_people,
+                "people_with_review_ready_research": research_review_ready_people,
+                "people_with_multi_source_research": research_multi_source_people,
+                "people_with_secondary_anchor": research_secondary_anchor_people,
+                "conflict_people": research_conflict_people,
+                "research_review_ready_records": research_review_ready_records,
             },
         ),
     ]
