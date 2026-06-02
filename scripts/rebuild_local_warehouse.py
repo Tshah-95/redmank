@@ -33,6 +33,7 @@ PIPELINE = [
     ["python3", "scripts/audit_attending_trend_acceptance.py"],
     ["python3", "scripts/materialize_attending_trend_reviewer_decisions.py"],
     ["python3", "scripts/materialize_attending_trend_dossiers.py"],
+    ["python3", "scripts/materialize_attending_historical_link_query_plan.py"],
     ["python3", "scripts/materialize_attending_trend_discovery_workbench.py"],
     ["python3", "scripts/audit_person_evidence_review_packets.py"],
     ["python3", "scripts/materialize_person_evidence_reviewer_decisions.py"],

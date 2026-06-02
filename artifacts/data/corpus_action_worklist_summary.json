@@ -20,7 +20,7 @@
   },
   "critical_rows": 110,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T22:43:50.829238+00:00",
+  "generated_at": "2026-06-02T22:50:25.521713+00:00",
   "high_rows": 696,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
@@ -48,7 +48,7 @@
     "person_evidence_review:publication_with_secondary_identity_anchor_review": 23,
     "person_evidence_review:secondary_identity_anchor_context_review": 6,
     "recent_attending_trend_discovery:context_only_monitor": 21,
-    "recent_attending_trend_discovery:current_endpoint_query_plan_missing": 43,
+    "recent_attending_trend_discovery:current_endpoint_training_bridge_search": 43,
     "training_temporal_contract:manual_review_required": 12,
     "training_temporal_contract:source_refresh_required": 74
   },
@@ -304,6 +304,6 @@
       "role": "resident"
     }
   ],
-  "total_impact_count": 13713,
+  "total_impact_count": 14399,
   "worklist_rows": 1274
 }

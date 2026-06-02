@@ -266,6 +266,8 @@ The assurance ledger is deliberately not an accepted trend table. A current Penn
 - `attending_historical_link_search_observations.csv`: search-endpoint observations, including rate-limit or non-200 behavior.
 - `attending_historical_link_discovery_summary.json`: counts by candidate status, query kind, result domain, searched group, and seeded/search rows.
 
+`scripts/materialize_attending_historical_link_query_plan.py` is the no-network planning layer for the same lane. It merges deterministic historical-link queries for every current Penn attending endpoint and Penn-training-claim group into `attending_historical_link_search_queries.csv` without overwriting existing observations or candidates. This keeps endpoint-only groups measurable as planned search/probe work before any broad search utility runs.
+
 The seeded mode is intentionally reproducible and uses only already-known official source URLs. Broad search is useful, but it is a source utility with availability constraints; non-200, throttled, or empty search responses are recorded as source-quality evidence rather than silently treated as no historical evidence.
 
 Historical-link candidates are also classified by source surface. Current Penn provider or faculty pages can remain useful profile/training context, but they are not accepted as historical trainee bridges unless a dated roster, alumni page, CV, or independent profile source supplies same-person Penn-training evidence.
