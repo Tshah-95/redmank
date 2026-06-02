@@ -1,24 +1,24 @@
 {
-  "acceptance_rows": 7814,
+  "acceptance_rows": 7865,
   "acceptance_rule": "Do not mutate roster truth. A PubMed article becomes a machine-acceptance candidate only with review_ready_high_anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person.",
-  "audited_at": "2026-06-02T16:51:21.946148+00:00",
+  "audited_at": "2026-06-02T17:17:53.949165+00:00",
   "by_acceptance_status": {
     "attending_endpoint_only": 49,
     "context_or_review_queue_only": 36,
-    "low_signal_or_discovery_only": 3035,
+    "low_signal_or_discovery_only": 3046,
     "machine_acceptance_candidate_cross_source": 5,
-    "needs_secondary_identity_anchor": 867,
+    "needs_secondary_identity_anchor": 899,
     "partial_anchor_candidate": 402,
     "profile_context_candidate": 1709,
     "review_ready_attending_training_claim": 3,
     "review_ready_profile_background": 795,
     "review_ready_publication_identity": 112,
-    "secondary_identity_anchor_available": 801
+    "secondary_identity_anchor_available": 809
   },
   "by_assurance_level": {
-    "0": 3035,
+    "0": 3046,
     "1": 2196,
-    "2": 2463,
+    "2": 2503,
     "3": 115,
     "4": 5
   },
@@ -27,6 +27,7 @@
     "current_penn_attending_candidate": 49,
     "education_history_candidate": 1254,
     "npi_candidate": 1073,
+    "orcid_profile_candidate": 51,
     "penn_alumni_outcome_candidate": 36,
     "penn_training_history_candidate": 5,
     "personal_profile_candidate": 785,
@@ -38,8 +39,8 @@
   },
   "by_recommended_action": {
     "collect_additional_identity_anchors": 402,
-    "collect_profile_identifier_coauthor_or_historical_bridge_evidence": 867,
-    "deprioritize_until_stronger_independent_source_appears": 3035,
+    "collect_profile_identifier_coauthor_or_historical_bridge_evidence": 899,
+    "deprioritize_until_stronger_independent_source_appears": 3046,
     "find_training_history_or_start_date_evidence_before_trend_use": 49,
     "promote_to_accepted_enrichment_after_final_duplicate_author_position_check": 5,
     "retain_in_reconciliation_queue": 36,
@@ -47,7 +48,7 @@
     "review_article_author_affiliation_topic_and_secondary_identity_anchors": 112,
     "review_profile_background_field_before_acceptance": 795,
     "seek_historical_roster_cv_or_biosketch_bridge_before_accepting_trend": 3,
-    "use_as_secondary_identity_anchor_with_profile_publication_or_roster_context": 801
+    "use_as_secondary_identity_anchor_with_profile_publication_or_roster_context": 809
   },
   "csv": "artifacts/data/enrichment_acceptance_audit.csv",
   "json": "artifacts/data/enrichment_acceptance_audit.json",
@@ -55,5 +56,5 @@
   "machine_acceptance_candidate_rows": 5,
   "person_rows": 1578,
   "review_ready_publication_rows": 112,
-  "secondary_identity_anchor_rows": 801
+  "secondary_identity_anchor_rows": 809
 }

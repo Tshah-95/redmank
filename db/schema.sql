@@ -2494,6 +2494,7 @@ SELECT
   + CASE WHEN e.source_type = 'official_trainee_profile' AND e.match_features_json LIKE '%roster_structured_field_crosscheck%' THEN 8 ELSE 0 END
   + CASE WHEN e.source_type = 'official_trainee_profile' AND e.match_features_json LIKE '%structured_profile_field%' THEN 5 ELSE 0 END
   + CASE
+      WHEN e.claim_type = 'orcid_profile_candidate' THEN 35
       WHEN e.claim_type = 'pubmed_article_candidate' THEN 30
       WHEN e.claim_type = 'research_author_candidate' THEN 20
       WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 2
@@ -2503,6 +2504,9 @@ SELECT
   + CASE WHEN e.match_features_json LIKE '%prior_training_or_education_affiliation%' THEN 12 ELSE 0 END
   + CASE WHEN e.match_features_json LIKE '%program_topic_match%' THEN 8 ELSE 0 END
   + CASE WHEN e.match_features_json LIKE '%orcid_present%' THEN 15 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%orcid_penn_affiliation%' THEN 15 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%orcid_external_ids_present%' THEN 10 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%orcid_works_present%' THEN 8 ELSE 0 END
   + CASE WHEN e.match_features_json LIKE '%bounded_author_query%' THEN 5 ELSE 0 END
   + CAST(e.confidence * 10 AS INTEGER) AS priority,
   CASE
@@ -2519,6 +2523,7 @@ SELECT
     WHEN e.claim_type = 'pubmed_article_candidate' THEN 'Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment.'
     WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 'Use only as discovery input; fetch/review article-level evidence before accepting.'
     WHEN e.claim_type = 'research_author_candidate' THEN 'Review OpenAlex/ORCID/affiliation anchors before accepting author identity.'
+    WHEN e.claim_type = 'orcid_profile_candidate' THEN 'Review public ORCID profile, works, external identifiers, and source linkage before using as secondary identity evidence.'
     ELSE 'Review candidate evidence against person identity before accepting.'
   END AS review_action
 FROM evidence_claims e
@@ -2529,6 +2534,8 @@ WHERE e.status IN ('candidate', 'needs_review')
     'pubmed_author_query_candidate',
     'research_author_candidate',
     'research_author_candidate_error',
+    'orcid_profile_candidate',
+    'orcid_profile_candidate_error',
     'official_profile_url_candidate',
     'education_history_candidate',
     'prior_training_history_candidate',
@@ -2542,7 +2549,9 @@ WHERE e.status IN ('candidate', 'needs_review')
       'pubmed_article_candidate',
       'pubmed_author_query_candidate',
       'research_author_candidate',
-      'research_author_candidate_error'
+      'research_author_candidate_error',
+      'orcid_profile_candidate',
+      'orcid_profile_candidate_error'
     )
   )
 UNION ALL

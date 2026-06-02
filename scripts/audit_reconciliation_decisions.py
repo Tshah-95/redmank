@@ -32,6 +32,14 @@ NPI_REVIEW_FEATURES = {
     "student_or_training_taxonomy",
     "program_taxonomy_topic_match",
 }
+ORCID_REVIEW_FEATURES = {
+    "orcid_penn_affiliation",
+    "orcid_external_ids_present",
+    "orcid_works_present",
+    "orcid_researcher_urls_present",
+    "orcid_keywords_present",
+    "orcid_from_openalex_author_candidate",
+}
 PROFILE_REVIEW_FEATURES = {
     "official_trainee_profile",
     "official_student_directory",
@@ -46,6 +54,7 @@ PROFILE_REVIEW_FEATURES = {
 NON_NAME_FEATURES = (
     REVIEW_READY_PUBMED_FEATURES
     | NPI_REVIEW_FEATURES
+    | ORCID_REVIEW_FEATURES
     | PROFILE_REVIEW_FEATURES
     | {"recent_publication", "bounded_author_query"}
 )
@@ -242,6 +251,31 @@ def npi_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
     )
 
 
+def orcid_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
+    confidence = float(row.get("confidence") or 0)
+    has_name = "orcid_name_match" in features
+    has_identifier = "orcid_external_ids_present" in features
+    has_works = "orcid_works_present" in features
+    has_penn = "orcid_penn_affiliation" in features
+    if row["status"] == "needs_review" and confidence >= 0.8 and has_name and has_works and (has_identifier or has_penn):
+        return (
+            "orcid_secondary_identity_anchor_review",
+            "ORCID profile has name agreement plus public works and a non-name identifier or Penn affiliation anchor.",
+            "Use as a secondary identity anchor; accept person enrichment only when official profile, roster, publication, or another independent source also agrees.",
+        )
+    if row["status"] in {"needs_review", "candidate"} and has_name and (has_works or has_identifier or has_penn):
+        return (
+            "orcid_profile_with_partial_anchor",
+            "ORCID profile has name agreement plus at least one public non-name anchor, but not enough evidence for secondary-anchor status.",
+            "Reconcile with official profile, publication DOI/PMID, coauthor cluster, or current-program affiliation before accepting.",
+        )
+    return (
+        "orcid_low_signal_candidate",
+        "ORCID record is public but lacks enough public non-name evidence for identity support.",
+        "Do not use without stronger independent anchors.",
+    )
+
+
 def profile_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
     claim_type = row.get("claim_type") or ""
     confidence = float(row.get("confidence") or 0)
@@ -295,7 +329,9 @@ def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
         features = set(parse_json(row.get("match_features_json"), []))
         name_matches = names.get(normalized_person_name(row.get("display_name")), [])
         if row["record_type"] == "evidence_claim":
-            if row.get("source_type") in {"official_trainee_profile", "prior_training_background_discovery"}:
+            if row.get("source_key") == "orcid_public_api":
+                decision, rationale, required = orcid_decision(row, features)
+            elif row.get("source_type") in {"official_trainee_profile", "prior_training_background_discovery"}:
                 decision, rationale, required = profile_decision(row, features)
             else:
                 decision, rationale, required = pubmed_decision(row, features)

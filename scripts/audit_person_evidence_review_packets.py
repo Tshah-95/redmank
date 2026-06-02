@@ -31,6 +31,7 @@ REVIEW_READY_DECISIONS = {
     "attending_training_claim_linkable_name_match",
     "trend_review_ready_official_biosketch_bridge",
     "npi_secondary_identity_anchor_review",
+    "orcid_secondary_identity_anchor_review",
 }
 ACCEPTED_DECISIONS = {
     "accepted_publication_enrichment_fact",
@@ -41,6 +42,7 @@ SECONDARY_ANCHOR_DECISIONS = {
     "attending_training_claim_needs_identity_link",
     "trend_profile_claim_still_needs_dated_bridge",
     "npi_candidate_with_partial_anchor",
+    "orcid_profile_with_partial_anchor",
 }
 ATTENDING_DECISIONS = {
     "attending_training_claim_review_ready",
@@ -67,6 +69,11 @@ NPI_DECISIONS = {
     "npi_secondary_identity_anchor_review",
     "npi_candidate_with_partial_anchor",
     "npi_low_signal_candidate",
+}
+ORCID_DECISIONS = {
+    "orcid_secondary_identity_anchor_review",
+    "orcid_profile_with_partial_anchor",
+    "orcid_low_signal_candidate",
 }
 
 
@@ -274,11 +281,16 @@ def review_kind(decisions: Counter) -> str:
     has_attending = any(decision in ATTENDING_DECISIONS for decision in decisions)
     has_publication = any(decision in PUBLICATION_DECISIONS for decision in decisions)
     has_npi = any(decision in NPI_DECISIONS for decision in decisions)
-    if has_npi and not has_attending and not has_publication:
+    has_orcid = any(decision in ORCID_DECISIONS for decision in decisions)
+    if has_npi and not has_orcid and not has_attending and not has_publication:
         return "npi_identity_anchor_review"
+    if has_orcid and not has_npi and not has_attending and not has_publication:
+        return "orcid_identity_anchor_review"
     if has_attending and has_publication:
         return "mixed_publication_and_attending_trend"
-    if has_npi and (has_attending or has_publication):
+    if (has_npi or has_orcid) and (has_attending or has_publication):
+        return "mixed_identity_anchor_review"
+    if has_npi and has_orcid:
         return "mixed_identity_anchor_review"
     if has_attending:
         return "attending_trend_identity_link"
@@ -337,11 +349,25 @@ def classify_packet(items: list[dict], decisions: Counter) -> tuple[str, str, st
             "Needs official profile, roster, publication, or another independent source before accepted enrichment.",
             max_priority + 10,
         )
+    if decisions.get("orcid_secondary_identity_anchor_review", 0) and kind == "orcid_identity_anchor_review":
+        return (
+            "orcid_secondary_identity_anchor_packet",
+            "use_orcid_as_secondary_identity_anchor",
+            "Needs official profile, roster, publication, or another independent source before accepted enrichment.",
+            max_priority + 10,
+        )
     if decisions.get("npi_secondary_identity_anchor_review", 0):
         return (
             "review_ready_mixed_identity_anchor_packet",
             "manual_review_for_candidate_acceptance",
             "NPI may corroborate identity, but acceptance still needs the non-NPI source context checked.",
+            max_priority + 12,
+        )
+    if decisions.get("orcid_secondary_identity_anchor_review", 0):
+        return (
+            "review_ready_mixed_identity_anchor_packet",
+            "manual_review_for_candidate_acceptance",
+            "ORCID may corroborate identity, but acceptance still needs the non-ORCID source context checked.",
             max_priority + 12,
         )
     if review_ready and kind == "attending_trend_identity_link":
@@ -423,7 +449,7 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
             active_review_ready_count = unresolved_publication_review_ready_count
         accepted_count = sum(decision_counts.get(decision, 0) for decision in ACCEPTED_DECISIONS)
         secondary_count = sum(decision_counts.get(decision, 0) for decision in SECONDARY_ANCHOR_DECISIONS)
-        publication_count = sum(1 for row in items if row.get("claim_type") in {"pubmed_article_candidate", "pubmed_author_query_candidate"})
+        publication_count = sum(1 for row in items if row.get("claim_type") in {"pubmed_article_candidate", "pubmed_author_query_candidate", "orcid_profile_candidate"})
         npi_count = sum(1 for row in items if row.get("claim_type") == "npi_candidate")
         attending_count = sum(1 for row in items if row.get("record_type") == "career_event")
         endpoint_count = sum(1 for row in items if row.get("decision") == "current_attending_endpoint_candidate")

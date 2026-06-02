@@ -54,9 +54,10 @@ REVIEW_READY_PUBMED_DECISIONS = {"review_ready_high_anchor", "review_ready_train
 SECONDARY_DECISIONS = {
     "needs_secondary_identity_anchor",
     "npi_candidate_with_partial_anchor",
+    "orcid_profile_with_partial_anchor",
     "attending_training_claim_needs_identity_link",
 }
-LOW_SIGNAL_DECISIONS = {"low_signal_candidate", "npi_low_signal_candidate", "discovery_only"}
+LOW_SIGNAL_DECISIONS = {"low_signal_candidate", "npi_low_signal_candidate", "orcid_low_signal_candidate", "discovery_only"}
 PROFILE_CONTEXT_DECISIONS = {
     "profile_background_candidate",
     "profile_interest_context_candidate",
@@ -246,6 +247,13 @@ def classify(row: dict, corroborating_sources: list[dict]) -> tuple[str, int, st
             "secondary_identity_anchor_available",
             2,
             "NPI is useful corroborating evidence but not accepted roster or publication truth by itself.",
+            "use_as_secondary_identity_anchor_with_profile_publication_or_roster_context",
+        )
+    if record_type == "evidence_claim" and claim_type == "orcid_profile_candidate" and decision == "orcid_secondary_identity_anchor_review":
+        return (
+            "secondary_identity_anchor_available",
+            2,
+            "ORCID is useful corroborating evidence but not accepted roster or publication truth by itself.",
             "use_as_secondary_identity_anchor_with_profile_publication_or_roster_context",
         )
     if decision == "attending_training_claim_review_ready":

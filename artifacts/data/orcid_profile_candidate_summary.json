@@ -1,0 +1,28 @@
+{
+  "by_role": {
+    "fellow": 11,
+    "resident": 40
+  },
+  "by_status": {
+    "candidate": 11,
+    "needs_review": 40
+  },
+  "claims_generated": 51,
+  "durable_claim_rows": 51,
+  "generated_at": "2026-06-02T17:14:43.835256+00:00",
+  "json": "artifacts/data/orcid_profile_candidate_claims.json",
+  "orcids_considered": 51,
+  "people_with_durable_claims": 48,
+  "policy": "ORCID profile evidence remains candidate/needs-review evidence unless independently linked or reconciled with multiple public non-name anchors.",
+  "source_key": "orcid_public_api",
+  "top_match_features": {
+    "openalex_author_candidate_needs_review": 51,
+    "orcid_external_ids_present": 9,
+    "orcid_from_openalex_author_candidate": 51,
+    "orcid_keywords_present": 4,
+    "orcid_name_match": 50,
+    "orcid_record_public": 51,
+    "orcid_researcher_urls_present": 1,
+    "orcid_works_present": 39
+  }
+}

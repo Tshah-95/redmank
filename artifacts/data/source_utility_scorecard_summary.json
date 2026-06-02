@@ -4,7 +4,7 @@
     "discovery_or_review_only": 3,
     "high_utility": 3,
     "strong_with_known_limits": 13,
-    "useful_candidate_layer": 5
+    "useful_candidate_layer": 6
   },
   "by_recommended_next_action": {
     "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
@@ -29,6 +29,7 @@
     "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers": 1,
     "use_npi_candidates_as_secondary_identity_anchors_only": 1,
     "use_only_to_seed_article_level_reconciliation": 1,
+    "use_orcid_as_secondary_identity_anchor_then_reconcile_with_pubmed_profile_or_roster": 1,
     "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
     "verify_current_source_before_display_or_outreach_and_review_domain_anomalies": 1
   },
@@ -40,17 +41,17 @@
     "normalization": 1,
     "official_institutional_web": 8,
     "orchestration": 3,
-    "scholarly_api": 3,
+    "scholarly_api": 4,
     "state_machine": 1,
     "warehouse_provenance": 1,
     "web_search": 2
   },
-  "candidate_or_discovery_rows": 8,
+  "candidate_or_discovery_rows": 9,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T17:10:03.021157+00:00",
+  "generated_at": "2026-06-02T17:19:21.063529+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
-  "scorecard_rows": 24,
+  "scorecard_rows": 25,
   "top_rows": [
     {
       "quality_band": "high_utility",

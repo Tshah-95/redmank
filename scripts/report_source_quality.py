@@ -85,6 +85,19 @@ def main() -> None:
         LIMIT 20
         """,
     )
+    orcid_features = rows(
+        conn,
+        """
+        SELECT match_features_json, COUNT(*) AS count,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM evidence_claims
+        WHERE source_key = 'orcid_public_api'
+          AND claim_type = 'orcid_profile_candidate'
+        GROUP BY match_features_json
+        ORDER BY count DESC
+        LIMIT 20
+        """,
+    )
     pubmed_features = rows(
         conn,
         """
@@ -278,6 +291,7 @@ def main() -> None:
         {},
     )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
+    orcid_profile_summary = read_json(ARTIFACTS / "orcid_profile_candidate_summary.json", {})
     trainee_profile_summary = read_json(ARTIFACTS / "penn_trainee_profile_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -466,6 +480,8 @@ def main() -> None:
         "evidence_counts": evidence_counts,
         "utility_observations": utility_observations,
         "openalex_feature_distribution": openalex_features,
+        "orcid_feature_distribution": orcid_features,
+        "orcid_profile_candidate_summary": orcid_profile_summary,
         "pubmed_feature_distribution": pubmed_features,
         "pubmed_article_feature_distribution": pubmed_article_features,
         "pubmed_article_candidate_summary": pubmed_article_summary,
@@ -1203,6 +1219,26 @@ def main() -> None:
         *md_table(openalex_features, ["match_features_json", "count", "avg_confidence"]),
         "",
         openalex_learning,
+        "",
+        "## ORCID Public Profile Reconciliation",
+        "",
+        f"ORCID profiles considered: {orcid_profile_summary.get('orcids_considered', 0)}. Profile candidates: {orcid_profile_summary.get('durable_claim_rows', 0)}. People with candidates: {orcid_profile_summary.get('people_with_durable_claims', 0)}.",
+        "",
+        "ORCID candidate statuses:",
+        "",
+        *md_table(
+            [
+                {"status": status, "count": count}
+                for status, count in sorted((orcid_profile_summary.get("by_status") or {}).items())
+            ],
+            ["status", "count"],
+        ),
+        "",
+        "ORCID feature distribution:",
+        "",
+        *md_table(orcid_features, ["match_features_json", "count", "avg_confidence"]),
+        "",
+        "Learning: ORCID is useful as a secondary identity and publication-corroboration layer when it is linked from a high-confidence author candidate. In this Penn sample it exposed public works far more often than public education/employment, so it should support reconciliation rather than replace official profile/background sources.",
         "",
         "## PubMed Feature Distribution",
         "",
