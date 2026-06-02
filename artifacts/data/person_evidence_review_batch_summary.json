@@ -1,28 +1,29 @@
 {
-  "batch_rows": 39,
+  "batch_rows": 42,
   "by_batch_status": {
-    "ready_for_reviewer_decision_batch": 39
+    "ready_for_reviewer_decision_batch": 42
   },
   "by_risk_level": {
     "display_safety_sensitive": 4,
-    "identity_anchor_verification_risk": 16,
-    "mixed_evidence_review_risk": 19
+    "identity_anchor_verification_risk": 17,
+    "mixed_evidence_review_risk": 21
   },
   "by_triage_lane": {
+    "attending_trend_bridge_review": 4,
     "official_profile_context_display_review": 3,
     "publication_identity_final_check": 4,
     "publication_with_official_profile_anchor_review": 2,
-    "publication_with_secondary_identity_anchor_review": 24,
+    "publication_with_secondary_identity_anchor_review": 23,
     "secondary_identity_anchor_context_review": 6
   },
   "csv": "artifacts/data/person_evidence_review_batches.csv",
-  "evidence_record_count": 5268,
-  "generated_at": "2026-06-02T20:14:34.162234+00:00",
+  "evidence_record_count": 5281,
+  "generated_at": "2026-06-02T20:56:09.651633+00:00",
   "json": "artifacts/data/person_evidence_review_batches.json",
   "packet_count": 792,
   "person_count_policy": "Summed batch person counts are not deduplicated across lanes.",
   "policy": "This artifact batches person evidence review work only; it does not accept enrichment, contact, trend, or roster facts.",
-  "ready_batch_rows": 39,
+  "ready_batch_rows": 42,
   "review_ready_record_count": 1469,
   "top_batches": [
     {
@@ -172,9 +173,9 @@
       "decision_difficulty": "moderate_manual_review",
       "execution_order": 14,
       "max_triage_priority": 144,
-      "packet_count": 31,
+      "packet_count": 30,
       "review_instructions": "Review author identity, secondary identifier ownership, author position/topic fit, and same-person roster/profile anchors before accepting publication enrichment.",
-      "review_ready_record_count": 33,
+      "review_ready_record_count": 32,
       "risk_level": "mixed_evidence_review_risk",
       "role": "resident",
       "triage_lane": "publication_with_secondary_identity_anchor_review"
@@ -293,9 +294,9 @@
       "decision_difficulty": "quick_manual_review",
       "execution_order": 25,
       "max_triage_priority": 136,
-      "packet_count": 35,
+      "packet_count": 33,
       "review_instructions": "Review author identity, secondary identifier ownership, author position/topic fit, and same-person roster/profile anchors before accepting publication enrichment.",
-      "review_ready_record_count": 35,
+      "review_ready_record_count": 33,
       "risk_level": "identity_anchor_verification_risk",
       "role": "resident",
       "triage_lane": "publication_with_secondary_identity_anchor_review"

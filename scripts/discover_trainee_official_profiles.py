@@ -377,19 +377,25 @@ def probe_page(session: requests.Session, result: dict, timeout: float = 20.0) -
         "probed_at": fetched_at,
         "page_term_hits": "",
         "page_name_present": 0,
+        "redirect_location": "",
     }
     parsed = urlparse(result["result_url"])
     if parsed.scheme not in {"http", "https"}:
         probe["probe_error"] = "non_http_url"
         return probe
     try:
+        # Direct profile probes are testing a specific candidate URL. Following
+        # invalid Penn profile paths to slow generic redirect targets adds no
+        # identity evidence and can make large confirmation passes hang.
+        allow_redirects = not (result.get("query_kind") or "").startswith("direct_")
         response = session.get(
             result["result_url"],
             timeout=(min(timeout, 2.0), timeout),
-            allow_redirects=True,
+            allow_redirects=allow_redirects,
         )
         probe["probe_http_status"] = response.status_code
         probe["probe_content_type"] = response.headers.get("content-type", "")
+        probe["redirect_location"] = response.headers.get("location", "")
         probe["probe_sha256"] = hashlib.sha256(response.content).hexdigest()
         if "text/html" not in probe["probe_content_type"]:
             return probe
@@ -655,6 +661,18 @@ def better_candidate(new: dict, old: dict | None) -> bool:
     return new_rank < old_rank
 
 
+def without_existing_direct_candidates(results: list[dict], candidates_by_key: dict[str, dict]) -> tuple[list[dict], int]:
+    filtered = []
+    skipped = 0
+    for result in results:
+        candidate_key = key_for("trainee_profile_candidate", result["person_key"], result["result_url"])
+        if candidate_key in candidates_by_key:
+            skipped += 1
+            continue
+        filtered.append(result)
+    return filtered, skipped
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", type=Path, default=DB)
@@ -703,12 +721,16 @@ def main() -> None:
     direct_results = []
     direct_provider_results = []
     direct_roster_results = []
+    direct_skipped_existing = 0
     if args.direct_provider_slug_probes:
         direct_provider_results = [
             result
             for person in people
             for result in direct_provider_profile_results(person, args.max_provider_slugs_per_person)
         ]
+        if args.resume_existing:
+            direct_provider_results, skipped = without_existing_direct_candidates(direct_provider_results, candidates_by_key)
+            direct_skipped_existing += skipped
         if args.max_direct_probes:
             direct_provider_results = direct_provider_results[: args.max_direct_probes]
     if args.direct_roster_profile_sibling_probes:
@@ -722,6 +744,9 @@ def main() -> None:
                 args.max_roster_slugs_per_person,
             )
         ]
+        if args.resume_existing:
+            direct_roster_results, skipped = without_existing_direct_candidates(direct_roster_results, candidates_by_key)
+            direct_skipped_existing += skipped
         if args.max_direct_roster_probes:
             direct_roster_results = direct_roster_results[: args.max_direct_roster_probes]
     direct_results = direct_provider_results + direct_roster_results
@@ -885,6 +910,7 @@ def main() -> None:
         "direct_roster_profile_sibling_probe_rows": len(direct_roster_results),
         "roster_profile_base_program_role_keys": len(roster_profile_base_index),
         "direct_probed_this_run": direct_probed_this_run,
+        "direct_skipped_existing": direct_skipped_existing,
         "direct_provider_slug_probed_this_run": direct_probed_by_kind.get("direct_provider_profile_slug_probe", 0),
         "direct_roster_profile_sibling_probed_this_run": direct_probed_by_kind.get(
             "direct_roster_profile_sibling_probe", 0

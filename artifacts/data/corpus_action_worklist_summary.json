@@ -5,29 +5,29 @@
     "official_program_coverage": 42,
     "official_roster_refresh_execution": 14,
     "person_enrichment_execution": 45,
-    "person_evidence_review": 39,
+    "person_evidence_review": 42,
     "program_lifecycle_duration_review": 10,
     "recent_attending_trend_discovery": 70,
     "search_utility_assurance": 4,
     "training_temporal_contract": 86
   },
   "by_priority_band": {
-    "critical": 78,
+    "critical": 81,
     "high": 685,
     "low": 30,
     "medium": 438
   },
-  "critical_rows": 78,
+  "critical_rows": 81,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T20:29:59.906951+00:00",
+  "generated_at": "2026-06-02T20:56:34.030554+00:00",
   "high_rows": 685,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
   "top_action_scope_counts": {
     "contact_verification:ready_for_reviewer_verification": 312,
-    "official_profile_discovery:direct_probe_low_signal_review": 49,
-    "official_profile_discovery:planned_search_not_executed": 523,
+    "official_profile_discovery:direct_probe_low_signal_review": 174,
+    "official_profile_discovery:planned_search_not_executed": 398,
     "official_profile_discovery:review_official_profile_candidate": 27,
     "official_profile_discovery:search_endpoint_blocked_retry": 8,
     "official_program_coverage:accepted_alias_denominator_policy": 13,
@@ -39,11 +39,11 @@
     "person_enrichment_execution:contact:public_contact_verification": 15,
     "person_enrichment_execution:normalization:organization_alias_review": 7,
     "person_enrichment_execution:prior_training:source_medical_school_background": 5,
-    "person_enrichment_execution:prior_training:source_residency_background": 3,
     "person_enrichment_execution:research:research_identity_search": 15,
+    "person_evidence_review:attending_trend_bridge_review": 4,
     "person_evidence_review:official_profile_context_display_review": 3,
     "person_evidence_review:publication_identity_final_check": 4,
-    "person_evidence_review:publication_with_secondary_identity_anchor_review": 24,
+    "person_evidence_review:publication_with_secondary_identity_anchor_review": 23,
     "person_evidence_review:secondary_identity_anchor_context_review": 6,
     "program_lifecycle_duration_review:not_ready_for_reviewer_decision": 4,
     "recent_attending_trend_discovery:context_only_monitor": 21,
@@ -205,19 +205,9 @@
     {
       "action_scope": "publication_with_secondary_identity_anchor_review",
       "action_surface": "person_evidence_review",
-      "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 25",
-      "impact_count": 35,
-      "priority": 1086,
-      "program_name": "",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "role": "resident"
-    },
-    {
-      "action_scope": "publication_with_secondary_identity_anchor_review",
-      "action_surface": "person_evidence_review",
       "display_label": "publication_with_secondary_identity_anchor_review | resident | moderate_manual_review | batch 14",
-      "impact_count": 33,
-      "priority": 1086,
+      "impact_count": 32,
+      "priority": 1084,
       "program_name": "",
       "recommended_next_action": "review_batch_and_record_packet_decisions",
       "role": "resident"
@@ -231,6 +221,16 @@
       "program_name": "",
       "recommended_next_action": "review_batch_and_record_packet_decisions",
       "role": "fellow"
+    },
+    {
+      "action_scope": "publication_with_secondary_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 25",
+      "impact_count": 33,
+      "priority": 1082,
+      "program_name": "",
+      "recommended_next_action": "review_batch_and_record_packet_decisions",
+      "role": "resident"
     },
     {
       "action_scope": "publication_with_secondary_identity_anchor_review",
@@ -285,9 +285,9 @@
     {
       "action_scope": "publication_with_secondary_identity_anchor_review",
       "action_surface": "person_evidence_review",
-      "display_label": "publication_with_secondary_identity_anchor_review | resident | complex_packet_review | batch 26",
-      "impact_count": 30,
-      "priority": 1072,
+      "display_label": "publication_with_secondary_identity_anchor_review | resident | careful_manual_review | batch 18",
+      "impact_count": 22,
+      "priority": 1066,
       "program_name": "",
       "recommended_next_action": "review_batch_and_record_packet_decisions",
       "role": "resident"
@@ -295,14 +295,14 @@
     {
       "action_scope": "publication_with_secondary_identity_anchor_review",
       "action_surface": "person_evidence_review",
-      "display_label": "publication_with_secondary_identity_anchor_review | resident | careful_manual_review | batch 18",
-      "impact_count": 22,
+      "display_label": "publication_with_secondary_identity_anchor_review | fellow | moderate_manual_review | batch 10",
+      "impact_count": 20,
       "priority": 1066,
       "program_name": "",
       "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "role": "resident"
+      "role": "fellow"
     }
   ],
-  "total_impact_count": 11362,
-  "worklist_rows": 1231
+  "total_impact_count": 12181,
+  "worklist_rows": 1234
 }

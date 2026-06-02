@@ -39,14 +39,14 @@
     "source_residency_background": 1
   },
   "csv": "artifacts/data/person_enrichment_execution_batches.csv",
-  "generated_at": "2026-06-02T20:29:47.827411+00:00",
+  "generated_at": "2026-06-02T20:56:31.404556+00:00",
   "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
   "json": "artifacts/data/person_enrichment_execution_batches.json",
   "manual_review_batch_rows": 7,
   "network_batch_rows": 7,
   "policy": "Execution batches are non-mutating. They make collection and review work resumable; accepted facts only change through downstream assurance ledgers.",
   "ready_batch_rows": 8,
-  "task_rows": 6335,
+  "task_rows": 6342,
   "top_batches": [
     {
       "batch_key": "enrichment_batch_9dd14a59cae2785ff41b",
@@ -68,10 +68,10 @@
       "execution_order": 2,
       "max_priority": 99,
       "next_system_action": "review_high_priority_evidence_packets_and_record_accept_or_reject_decisions",
-      "person_count": 868,
+      "person_count": 875,
       "priority_band": "critical",
       "source_family": "review_queue",
-      "task_count": 868,
+      "task_count": 875,
       "task_type": "evidence_reconciliation_review"
     },
     {
@@ -153,5 +153,5 @@
       "task_type": "public_contact_verification"
     }
   ],
-  "total_batch_person_impact_count": 6335
+  "total_batch_person_impact_count": 6342
 }

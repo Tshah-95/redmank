@@ -5,7 +5,7 @@
     "current_penn_attending_candidate": 49,
     "education_history_candidate": 1254,
     "npi_candidate": 1073,
-    "official_profile_url_candidate": 6,
+    "official_profile_url_candidate": 27,
     "orcid_profile_candidate": 51,
     "orcid_pubmed_article_candidate": 295,
     "orcid_work_candidate": 354,
@@ -36,7 +36,7 @@
     "orcid_work_publication_review": 338,
     "outcome_context_only": 36,
     "profile_background_candidate": 561,
-    "profile_context_candidate": 21,
+    "profile_context_candidate": 42,
     "profile_interest_context_candidate": 350,
     "profile_personal_context_display_review": 783,
     "review_ready_high_anchor": 5,
@@ -46,7 +46,7 @@
   },
   "by_record_type": {
     "career_event": 105,
-    "evidence_claim": 7342,
+    "evidence_claim": 7363,
     "npi_candidate": 1073
   },
   "by_ten_year_trend_window": {
@@ -54,9 +54,9 @@
     "unknown": 100,
     "yes": 2
   },
-  "decided_at": "2026-06-02T18:52:37.959972+00:00",
+  "decided_at": "2026-06-02T20:56:06.241229+00:00",
   "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
-  "decision_rows": 8520,
+  "decision_rows": 8541,
   "person_or_name_rows": 1578,
   "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
   "review_ready_rows": 1936,

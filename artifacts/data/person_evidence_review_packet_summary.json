@@ -1,7 +1,7 @@
 {
   "accepted_attending_trend_fact_packets": 3,
   "accepted_enrichment_fact_packets": 3,
-  "attending_trend_packets": 56,
+  "attending_trend_packets": 77,
   "by_packet_status": {
     "accepted_attending_trend_fact_packet": 3,
     "accepted_enrichment_fact_packet": 3,
@@ -29,16 +29,16 @@
   "by_review_kind": {
     "attending_trend_identity_link": 50,
     "general_evidence_review": 5,
-    "mixed_identity_anchor_review": 841,
-    "mixed_publication_and_attending_trend": 6,
+    "mixed_identity_anchor_review": 826,
+    "mixed_publication_and_attending_trend": 27,
     "npi_identity_anchor_review": 7,
-    "publication_identity_review": 669
+    "publication_identity_review": 663
   },
   "csv": "artifacts/data/person_evidence_review_packets.csv",
-  "generated_at": "2026-06-02T18:52:38.202683+00:00",
+  "generated_at": "2026-06-02T20:56:06.517350+00:00",
   "json": "artifacts/data/person_evidence_review_packets.json",
   "needs_secondary_anchor_packets": 91,
   "packet_rows": 1578,
-  "publication_review_packets": 675,
+  "publication_review_packets": 690,
   "review_ready_packets": 794
 }

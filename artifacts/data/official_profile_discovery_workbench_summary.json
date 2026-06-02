@@ -1,9 +1,9 @@
 {
   "blocked_query_count": 28,
   "by_discovery_lane": {
-    "direct_probe_low_signal_review": 49,
+    "direct_probe_low_signal_review": 174,
     "no_candidate_after_search": 1,
-    "planned_search_not_executed": 523,
+    "planned_search_not_executed": 398,
     "review_official_profile_candidate": 27,
     "search_endpoint_blocked_retry": 8
   },
@@ -13,13 +13,13 @@
     "fellow:planned_search_not_executed": 223,
     "fellow:review_official_profile_candidate": 15,
     "fellow:search_endpoint_blocked_retry": 8,
-    "resident:direct_probe_low_signal_review": 27,
-    "resident:planned_search_not_executed": 300,
+    "resident:direct_probe_low_signal_review": 152,
+    "resident:planned_search_not_executed": 175,
     "resident:review_official_profile_candidate": 12
   },
-  "candidate_count": 500,
+  "candidate_count": 2643,
   "csv": "artifacts/data/official_profile_discovery_workbench.csv",
-  "generated_at": "2026-06-02T20:29:59.754663+00:00",
+  "generated_at": "2026-06-02T20:56:31.443496+00:00",
   "json": "artifacts/data/official_profile_discovery_workbench.json",
   "observed_query_count": 30,
   "official_candidate_count": 27,
@@ -30,7 +30,7 @@
   "top_profile_workbench_rows": [
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/allan-stolarski",
-      "candidate_count": 4,
+      "candidate_count": 5,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 1040,
       "display_name": "Allan Stolarski, MD, MS",
@@ -42,7 +42,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/vascular-surgery-fellowship/fellows/jackie-zhang",
-      "candidate_count": 4,
+      "candidate_count": 5,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 1040,
       "display_name": "Jackie Zhang, MD",
@@ -54,7 +54,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/microvascular-reconstructive-surgery-fellowship/fellows/laura-barnes",
-      "candidate_count": 4,
+      "candidate_count": 5,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 1040,
       "display_name": "Laura Barnes, MD",
@@ -66,7 +66,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/madison-harris",
-      "candidate_count": 4,
+      "candidate_count": 5,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 1040,
       "display_name": "Madison Harris, DO",
@@ -78,7 +78,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/mary-decoteau",
-      "candidate_count": 4,
+      "candidate_count": 5,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 1000,
       "display_name": "Mary Decoteau, MD",
@@ -90,7 +90,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/michael-weykamp",
-      "candidate_count": 4,
+      "candidate_count": 5,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 1000,
       "display_name": "Michael Weykamp, MD, MS",
@@ -198,7 +198,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program/current-residents/pgy2/bhardwaj-aashish",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Aashish Bhardwaj, MD",
@@ -210,7 +210,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/black-abigail",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Abigail Black MD",
@@ -222,7 +222,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-1/taye-abigail",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Abigail Taye MD",
@@ -234,7 +234,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-1/gawash-ahmed",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Ahmed Gawash DO",
@@ -246,7 +246,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/gayner-alec",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Alec Gayner MD",
@@ -258,7 +258,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents/ca3/swanger-alex",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Alex Swanger, MD",
@@ -270,7 +270,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/larsen-alexa",
-      "candidate_count": 12,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Alexa Larsen, MD, MSc",
@@ -282,7 +282,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents/ca3/makhoul-alexandra",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Alexandra Makhoul, MD, MBA",
@@ -294,7 +294,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/persaud-anitra",
-      "candidate_count": 12,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Anitra Persaud, MD",
@@ -306,7 +306,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/albright-anne",
-      "candidate_count": 12,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Anne Albright MD",
@@ -318,7 +318,7 @@
     },
     {
       "best_candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents/ca3/thomas-arthur",
-      "candidate_count": 8,
+      "candidate_count": 15,
       "discovery_lane": "review_official_profile_candidate",
       "discovery_priority": 980,
       "display_name": "Arthur Thomas, MD",

@@ -15,10 +15,11 @@
     "record_accept_reject_or_needs_more_evidence_decision": 792
   },
   "by_review_kind": {
-    "mixed_identity_anchor_review": 769,
+    "mixed_identity_anchor_review": 756,
+    "mixed_publication_and_attending_trend": 13,
     "publication_identity_review": 23
   },
-  "generated_at": "2026-06-02T20:14:33.908894+00:00",
+  "generated_at": "2026-06-02T20:56:09.364846+00:00",
   "manual_decision_csv": "artifacts/data/person_evidence_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "pending_reviewer_decision_rows": 792,

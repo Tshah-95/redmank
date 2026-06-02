@@ -2,8 +2,8 @@
   "by_decision_difficulty": {
     "careful_manual_review": 116,
     "complex_packet_review": 238,
-    "moderate_manual_review": 240,
-    "quick_manual_review": 198
+    "moderate_manual_review": 248,
+    "quick_manual_review": 190
   },
   "by_risk_level": {
     "display_safety_sensitive": 116,
@@ -11,25 +11,28 @@
     "mixed_evidence_review_risk": 308
   },
   "by_role_and_triage_lane": {
+    "fellow:attending_trend_bridge_review": 3,
     "fellow:publication_identity_final_check": 18,
     "fellow:publication_with_official_profile_anchor_review": 1,
-    "fellow:publication_with_secondary_identity_anchor_review": 127,
+    "fellow:publication_with_secondary_identity_anchor_review": 124,
     "fellow:secondary_identity_anchor_context_review": 13,
+    "resident:attending_trend_bridge_review": 10,
     "resident:official_profile_context_display_review": 53,
     "resident:publication_identity_final_check": 30,
     "resident:publication_with_official_profile_anchor_review": 5,
-    "resident:publication_with_secondary_identity_anchor_review": 540,
+    "resident:publication_with_secondary_identity_anchor_review": 530,
     "resident:secondary_identity_anchor_context_review": 5
   },
   "by_triage_lane": {
+    "attending_trend_bridge_review": 13,
     "official_profile_context_display_review": 53,
     "publication_identity_final_check": 48,
     "publication_with_official_profile_anchor_review": 6,
-    "publication_with_secondary_identity_anchor_review": 667,
+    "publication_with_secondary_identity_anchor_review": 654,
     "secondary_identity_anchor_context_review": 18
   },
   "csv": "artifacts/data/person_evidence_review_triage.csv",
-  "generated_at": "2026-06-02T20:14:34.053270+00:00",
+  "generated_at": "2026-06-02T20:56:09.529729+00:00",
   "json": "artifacts/data/person_evidence_review_triage.json",
   "person_count": 792,
   "policy": "This artifact is non-mutating decision support. It ranks and classifies person-evidence review packets, but accepted enrichment/trend/contact facts still require the explicit reviewer-decision gate.",
