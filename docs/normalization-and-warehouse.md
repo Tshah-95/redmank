@@ -57,6 +57,8 @@ Core tables:
 - `official_program_alias_reconciliation_candidates`: non-mutating candidate ledger for official denominator rows that may correspond to related loaded program labels.
 - `program_identifier_source_observations`: ACGME public-search query observations with HTTP status, result count, relevant-result count, and content hash.
 - `program_identifier_candidates`: non-mutating ACGME program-code candidates for official denominator rows, classified as strong, ambiguous, review, or no-code-found.
+- `program_identifier_reconciliation`: per-candidate decision ledger for accepted, duplicate-facility, affiliate, track, and no-code states.
+- `official_program_identifiers`: accepted external program identifiers for unambiguous official program rows.
 - `medical_student_source_audit`: source-access audit for public MSTP, protected MD-student, MD Program context, and MD-PhD graduate-directory cross-check sources.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
@@ -143,9 +145,11 @@ The accepted finding is conservative: the public MSTP directory is a partial cur
 
 `scripts/discover_acgme_program_identifier_candidates.py` queries the public ACGME program search once for Pennsylvania and reconciles the returned code/specialty/name/city rows against the official Penn/HUP GME denominator. It stores the ACGME page response as a source observation with a content hash, then writes candidate rows rather than mutating program records.
 
+`scripts/audit_program_identifier_reconciliation.py` is the acceptance gate. It writes `official_program_identifiers` only when a program has a single strong top ACGME candidate with no close competing Penn/UPHS facility, affiliate, or track sibling. Duplicate identifiers across multiple official program rows are demoted back to review, because they usually signal track or denominator ambiguity.
+
 The current pass produces strong candidates when the ACGME specialty, Penn/UPHS naming, city, and inferred residency/fellowship family agree. It keeps duplicate UPHS facilities, combined programs, CHOP-affiliate rows, and broad specialty families in ambiguous or review states. Non-ACGME, selective, dental, and locally named programs can legitimately be `no_acgme_identifier_found`.
 
-ACGME identifiers are useful for accreditation and lifecycle grounding, but they are not roster truth. They should be attached to canonical program/track records only after review confirms the local Penn program row maps to that ACGME row and not to a facility-specific sibling, combined track, or non-ACGME training offering.
+ACGME identifiers are useful for accreditation and lifecycle grounding, but they are not roster truth. Accepted identifiers can support program normalization; ambiguous/review/no-code rows remain evidence for source-quality and coverage work. They should be attached to canonical program/track records only after review confirms the local Penn program row maps to that ACGME row and not to a facility-specific sibling, combined track, or non-ACGME training offering.
 
 ## Recursive Enrichment Loop
 

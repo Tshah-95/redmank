@@ -191,20 +191,13 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         "SELECT COUNT(*) FROM official_program_source_candidates WHERE candidate_status = 'roster_source_candidate'",
     )
     program_identifier_candidates = scalar(conn, "SELECT COUNT(*) FROM program_identifier_candidates")
-    strong_program_identifiers = scalar(
+    accepted_program_identifiers = scalar(conn, "SELECT COUNT(*) FROM official_program_identifiers")
+    review_program_identifiers = scalar(
         conn,
         """
         SELECT COUNT(*)
-        FROM program_identifier_candidates
-        WHERE candidate_status = 'strong_acgme_identifier_candidate'
-        """,
-    )
-    ambiguous_program_identifiers = scalar(
-        conn,
-        """
-        SELECT COUNT(*)
-        FROM program_identifier_candidates
-        WHERE candidate_status = 'ambiguous_acgme_identifier_candidate'
+        FROM program_identifier_reconciliation
+        WHERE reconciliation_status != 'accepted_official_program_identifier'
         """,
     )
     no_acgme_identifiers = scalar(
@@ -216,6 +209,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     acgme_observation_summary = read_json(ARTIFACTS / "program_identifier_candidate_summary.json", {})
+    acgme_reconciliation_summary = read_json(ARTIFACTS / "program_identifier_reconciliation_summary.json", {})
     gap_roster_people = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     roster_extracted = int(gap_roster_people.get("person_records") or 0)
     roster_sources_attempted = int(gap_roster_people.get("sources_attempted") or 0)
@@ -520,9 +514,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             claim_surface="program accreditation code, specialty, sponsoring program name, city, and accreditation-row context",
             input_records=official_programs,
             output_records=program_identifier_candidates,
-            accepted_records=strong_program_identifiers,
+            accepted_records=accepted_program_identifiers,
             candidate_records=program_identifier_candidates,
-            needs_review_records=ambiguous_program_identifiers,
+            needs_review_records=review_program_identifiers,
             blocked_records=no_acgme_identifiers,
             score=82.0,
             strengths=[
@@ -535,13 +529,14 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "UPHS has duplicate or facility-specific rows for some specialties",
                 "Non-ACGME, dental, selective, and locally named fellowship programs legitimately have no ACGME code",
             ],
-            recommended_next_action="review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records",
+            recommended_next_action="use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities",
             evidence={
                 "candidate_rows": program_identifier_candidates,
-                "strong_identifier_rows": strong_program_identifiers,
-                "ambiguous_identifier_rows": ambiguous_program_identifiers,
+                "accepted_identifier_rows": accepted_program_identifiers,
+                "review_or_no_code_rows": review_program_identifiers,
                 "no_acgme_identifier_rows": no_acgme_identifiers,
-                "summary": acgme_observation_summary,
+                "candidate_summary": acgme_observation_summary,
+                "reconciliation_summary": acgme_reconciliation_summary,
             },
         ),
         make_row(

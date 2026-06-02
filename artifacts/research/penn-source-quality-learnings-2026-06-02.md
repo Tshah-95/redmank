@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T09:29:04.441323+00:00
+Generated: 2026-06-02T09:34:38.742478+00:00
 
 ## What This Pass Did
 
@@ -496,7 +496,7 @@ Scorecard rows: 17.
 | --- | --- | --- | --- | --- | --- | --- |
 | Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 78 | 1558 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
 | Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 64 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
-| ACGME public program identifier candidates | program accreditation code, specialty, sponsoring program name, city, and accreditation-row context | 91 | 113 | 82.0 | strong_with_known_limits | review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records |
+| ACGME public program identifier candidates | program accreditation code, specialty, sponsoring program name, city, and accreditation-row context | 91 | 113 | 82.0 | strong_with_known_limits | use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities |
 | Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
 | Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 32 | 524 | 81.0 | strong_with_known_limits | add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage |
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |

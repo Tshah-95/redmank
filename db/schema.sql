@@ -228,6 +228,45 @@ CREATE TABLE IF NOT EXISTS program_identifier_candidates (
   observed_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_identifiers (
+  identifier_key TEXT PRIMARY KEY,
+  official_program_key TEXT NOT NULL REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  identifier_type TEXT NOT NULL,
+  identifier_value TEXT NOT NULL,
+  identifier_source TEXT NOT NULL,
+  source_url TEXT,
+  acceptance_status TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  accepted_from_candidate_key TEXT REFERENCES program_identifier_candidates(candidate_key) ON DELETE SET NULL,
+  accepted_at TEXT NOT NULL,
+  evidence_json TEXT,
+  UNIQUE(official_program_key, identifier_type, identifier_value)
+);
+
+CREATE TABLE IF NOT EXISTS program_identifier_reconciliation (
+  reconciliation_key TEXT PRIMARY KEY,
+  candidate_key TEXT REFERENCES program_identifier_candidates(candidate_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  identifier_type TEXT NOT NULL,
+  identifier_value TEXT,
+  identifier_source TEXT NOT NULL,
+  source_program_specialty TEXT,
+  source_program_name TEXT,
+  source_city TEXT,
+  candidate_status TEXT NOT NULL,
+  reconciliation_status TEXT NOT NULL,
+  recommended_action TEXT NOT NULL,
+  reconciliation_confidence REAL NOT NULL DEFAULT 0.0,
+  rank_in_official_program INTEGER NOT NULL DEFAULT 0,
+  candidate_count_for_program INTEGER NOT NULL DEFAULT 0,
+  close_candidate_count INTEGER NOT NULL DEFAULT 0,
+  rationale TEXT NOT NULL,
+  evidence_json TEXT,
+  reconciled_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
   packet_key TEXT PRIMARY KEY,
   person_or_name_key TEXT NOT NULL,

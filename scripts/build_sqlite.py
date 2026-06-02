@@ -1858,6 +1858,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "official_program_alias_reconciliation_candidates",
         "program_identifier_source_observations",
         "program_identifier_candidates",
+        "program_identifier_reconciliation",
+        "official_program_identifiers",
     ]:
         counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
     resolver_counts = {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T09:29:04.441323+00:00",
+  "generated_at": "2026-06-02T09:34:38.742478+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -5846,11 +5846,11 @@
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
-      "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
       "run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits": 1,
       "seek_historical_identity_bridge_before_accepting_trend_links": 1,
       "treat_as_queue_then_probe_and_parse_only_source_backed_rosters": 1,
+      "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities": 1,
       "use_npi_candidates_as_secondary_identity_anchors_only": 1,
       "use_only_to_seed_article_level_reconciliation": 1,
       "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
@@ -5868,7 +5868,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T09:29:04.366807+00:00",
+    "generated_at": "2026-06-02T09:34:38.677010+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 17,
@@ -5896,7 +5896,7 @@
       },
       {
         "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records",
+        "recommended_next_action": "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities",
         "score": 82.0,
         "scorecard_key": "acgme_program_identifier_candidates",
         "utility_label": "ACGME public program identifier candidates"
@@ -5988,9 +5988,9 @@
       "claim_surface": "program accreditation code, specialty, sponsoring program name, city, and accreditation-row context",
       "input_records": "91",
       "output_records": "113",
-      "accepted_records": "75",
+      "accepted_records": "69",
       "candidate_records": "113",
-      "needs_review_records": "20",
+      "needs_review_records": "44",
       "review_ready_records": "0",
       "discovery_only_records": "0",
       "low_signal_records": "0",
@@ -6000,9 +6000,9 @@
       "quality_band": "strong_with_known_limits",
       "strengths": "Uses the official ACGME public program search as the identifier source; Adds source-backed ACGME codes for many Penn/HUP denominator programs; Separates strong, ambiguous, review, and no-ACGME-found outcomes before lifecycle mutation",
       "limitations": "ACGME is not trainee roster truth and does not identify individual residents or fellows; UPHS has duplicate or facility-specific rows for some specialties; Non-ACGME, dental, selective, and locally named fellowship programs legitimately have no ACGME code",
-      "recommended_next_action": "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records",
-      "evidence_json": "{\"ambiguous_identifier_rows\": 20, \"candidate_rows\": 113, \"no_acgme_identifier_rows\": 7, \"strong_identifier_rows\": 75, \"summary\": {\"acceptance_rule\": \"Use ACGME code as a program identifier candidate only; do not mutate trainee roster truth or lifecycle rules without review when local tracks, duplicate sites, or non-ACGME programs are possible.\", \"audited_at\": \"2026-06-02T09:29:04.298829+00:00\", \"by_candidate_status\": {\"ambiguous_acgme_identifier_candidate\": 20, \"no_acgme_identifier_found\": 7, \"review_acgme_identifier_candidate\": 11, \"strong_acgme_identifier_candidate\": 75}, \"by_official_program_type\": {\"fellowship\": 71, \"residency\": 42}, \"candidate_rows\": 113, \"csv\": \"artifacts/data/program_identifier_candidates.csv\", \"json\": \"artifacts/data/program_identifier_candidates.json\", \"observation\": {\"content_sha256\": \"68a261c786e6fa7f8eec7526864195a6ba37e77360d2a701451c6f4f63fc2c09\", \"error_text\": \"\", \"fetched_at\": \"2026-06-02T09:29:00.531218+00:00\", \"http_status\": 200, \"identifier_source\": \"acgme_public_program_search\", \"observation_key\": \"acgme_observation_pennsylvania-2026-06-02t09-29-00-531218-00-00_660b931de7a26a93\", \"query_params_json\": \"{\\\"CaptureProgramId\\\": \\\"\\\", \\\"ShowProgramsList\\\": \\\"True\\\", \\\"accreditationTypeId\\\": \\\"2\\\", \\\"city\\\": \\\"\\\", \\\"g-recaptcha-response\\\": \\\"\\\", \\\"numCode\\\": \\\"\\\", \\\"specialtyCategoryTypeId\\\": \\\"\\\", \\\"specialtyId\\\": \\\"\\\", \\\"stateId\\\": \\\"39\\\"}\", \"query_scope\": \"state:pennsylvania\", \"query_url\": \"https://apps.acgme.org/ads/Public/Programs/Search\", \"relevant_result_count\": 151, \"result_count\": 1105, \"source_status\": \"ok\"}, \"observation_csv\": \"artifacts/data/program_identifier_source_observations.csv\", \"official_program_rows\": 91, \"rows_with_identifier\": 106, \"source\": \"ACGME public program search\", \"source_url\": \"https://apps.acgme.org/ads/Public/Programs/Search\", \"strong_or_review_identifier_rows\": 86}}",
-      "audited_at": "2026-06-02T09:29:04.366807+00:00"
+      "recommended_next_action": "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities",
+      "evidence_json": "{\"accepted_identifier_rows\": 69, \"candidate_rows\": 113, \"candidate_summary\": {\"acceptance_rule\": \"Use ACGME code as a program identifier candidate only; do not mutate trainee roster truth or lifecycle rules without review when local tracks, duplicate sites, or non-ACGME programs are possible.\", \"audited_at\": \"2026-06-02T09:29:04.298829+00:00\", \"by_candidate_status\": {\"ambiguous_acgme_identifier_candidate\": 20, \"no_acgme_identifier_found\": 7, \"review_acgme_identifier_candidate\": 11, \"strong_acgme_identifier_candidate\": 75}, \"by_official_program_type\": {\"fellowship\": 71, \"residency\": 42}, \"candidate_rows\": 113, \"csv\": \"artifacts/data/program_identifier_candidates.csv\", \"json\": \"artifacts/data/program_identifier_candidates.json\", \"observation\": {\"content_sha256\": \"68a261c786e6fa7f8eec7526864195a6ba37e77360d2a701451c6f4f63fc2c09\", \"error_text\": \"\", \"fetched_at\": \"2026-06-02T09:29:00.531218+00:00\", \"http_status\": 200, \"identifier_source\": \"acgme_public_program_search\", \"observation_key\": \"acgme_observation_pennsylvania-2026-06-02t09-29-00-531218-00-00_660b931de7a26a93\", \"query_params_json\": \"{\\\"CaptureProgramId\\\": \\\"\\\", \\\"ShowProgramsList\\\": \\\"True\\\", \\\"accreditationTypeId\\\": \\\"2\\\", \\\"city\\\": \\\"\\\", \\\"g-recaptcha-response\\\": \\\"\\\", \\\"numCode\\\": \\\"\\\", \\\"specialtyCategoryTypeId\\\": \\\"\\\", \\\"specialtyId\\\": \\\"\\\", \\\"stateId\\\": \\\"39\\\"}\", \"query_scope\": \"state:pennsylvania\", \"query_url\": \"https://apps.acgme.org/ads/Public/Programs/Search\", \"relevant_result_count\": 151, \"result_count\": 1105, \"source_status\": \"ok\"}, \"observation_csv\": \"artifacts/data/program_identifier_source_observations.csv\", \"official_program_rows\": 91, \"rows_with_identifier\": 106, \"source\": \"ACGME public program search\", \"source_url\": \"https://apps.acgme.org/ads/Public/Programs/Search\", \"strong_or_review_identifier_rows\": 86}, \"no_acgme_identifier_rows\": 7, \"reconciliation_summary\": {\"acceptance_rule\": \"Accept only a single strong top ACGME candidate with no close competing Penn/UPHS facility, affiliate, or track sibling.\", \"accepted_identifier_csv\": \"artifacts/data/official_program_identifiers.csv\", \"accepted_identifier_rows\": 69, \"accepted_official_program_rows\": 69, \"by_recommended_action\": {\"attach_identifier_to_official_program_record\": 69, \"record_no_acgme_code_and_keep_program_as_local_or_non_acgme_until_better_source\": 7, \"review_affiliate_specialty_alias_or_chop_context_before_accepting\": 11, \"review_duplicate_facility_or_track_specific_acgme_rows\": 20, \"review_facility_track_or_affiliate_context_before_accepting_identifier\": 4, \"review_track_mapping_before_reusing_identifier_across_official_programs\": 2}, \"by_reconciliation_status\": {\"accepted_official_program_identifier\": 69, \"manual_review_required_ambiguous_identifier\": 20, \"manual_review_required_competing_strong_identifier\": 4, \"manual_review_required_duplicate_identifier_across_programs\": 2, \"no_external_identifier_supported\": 7, \"review_affiliate_or_specialty_alias_identifier\": 11}, \"candidate_rows\": 113, \"official_program_rows\": 91, \"reconciled_at\": \"2026-06-02T09:32:56.800704+00:00\", \"reconciliation_csv\": \"artifacts/data/program_identifier_reconciliation.csv\", \"reconciliation_json\": \"artifacts/data/program_identifier_reconciliation.json\"}, \"review_or_no_code_rows\": 44}",
+      "audited_at": "2026-06-02T09:34:38.677010+00:00"
     },
     {
       "scorecard_key": "medical_student_public_source_audit",

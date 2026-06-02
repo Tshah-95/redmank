@@ -166,6 +166,7 @@
     "official_program_alias_reconciliation_candidates": 16,
     "official_program_coverage_audit": 91,
     "official_program_gap_reason_audit": 27,
+    "official_program_identifiers": 69,
     "official_program_source_candidates": 72,
     "official_program_source_probes": 29,
     "official_program_universe": 91,
@@ -179,6 +180,7 @@
     "person_training_events": 1775,
     "person_training_states": 1630,
     "program_identifier_candidates": 113,
+    "program_identifier_reconciliation": 113,
     "program_identifier_source_observations": 1,
     "program_lifecycle_rules": 13,
     "programs": 95,
@@ -364,7 +366,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T09:29:04.486748+00:00",
+  "generated_at": "2026-06-02T09:34:38.791365+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -643,6 +645,9 @@
     "public_program_context_no_current_roster": 19,
     "source_already_loaded_related_program_review": 5
   },
+  "official_program_identifier_counts": {
+    "acgme_program_code": 69
+  },
   "official_program_source_candidate_counts": {
     "low_value_candidate": 5,
     "program_context_candidate": 55,
@@ -783,6 +788,41 @@
     "source_url": "https://apps.acgme.org/ads/Public/Programs/Search",
     "strong_or_review_identifier_rows": 86
   },
+  "program_identifier_reconciliation_counts": {
+    "accepted_official_program_identifier": 69,
+    "manual_review_required_ambiguous_identifier": 20,
+    "manual_review_required_competing_strong_identifier": 4,
+    "manual_review_required_duplicate_identifier_across_programs": 2,
+    "no_external_identifier_supported": 7,
+    "review_affiliate_or_specialty_alias_identifier": 11
+  },
+  "program_identifier_reconciliation_summary": {
+    "acceptance_rule": "Accept only a single strong top ACGME candidate with no close competing Penn/UPHS facility, affiliate, or track sibling.",
+    "accepted_identifier_csv": "artifacts/data/official_program_identifiers.csv",
+    "accepted_identifier_rows": 69,
+    "accepted_official_program_rows": 69,
+    "by_recommended_action": {
+      "attach_identifier_to_official_program_record": 69,
+      "record_no_acgme_code_and_keep_program_as_local_or_non_acgme_until_better_source": 7,
+      "review_affiliate_specialty_alias_or_chop_context_before_accepting": 11,
+      "review_duplicate_facility_or_track_specific_acgme_rows": 20,
+      "review_facility_track_or_affiliate_context_before_accepting_identifier": 4,
+      "review_track_mapping_before_reusing_identifier_across_official_programs": 2
+    },
+    "by_reconciliation_status": {
+      "accepted_official_program_identifier": 69,
+      "manual_review_required_ambiguous_identifier": 20,
+      "manual_review_required_competing_strong_identifier": 4,
+      "manual_review_required_duplicate_identifier_across_programs": 2,
+      "no_external_identifier_supported": 7,
+      "review_affiliate_or_specialty_alias_identifier": 11
+    },
+    "candidate_rows": 113,
+    "official_program_rows": 91,
+    "reconciled_at": "2026-06-02T09:32:56.800704+00:00",
+    "reconciliation_csv": "artifacts/data/program_identifier_reconciliation.csv",
+    "reconciliation_json": "artifacts/data/program_identifier_reconciliation.json"
+  },
   "program_identifier_source_counts": {
     "acgme_public_program_search": 113
   },
@@ -820,11 +860,11 @@
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
-      "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
       "run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits": 1,
       "seek_historical_identity_bridge_before_accepting_trend_links": 1,
       "treat_as_queue_then_probe_and_parse_only_source_backed_rosters": 1,
+      "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities": 1,
       "use_npi_candidates_as_secondary_identity_anchors_only": 1,
       "use_only_to_seed_article_level_reconciliation": 1,
       "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
@@ -842,7 +882,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T09:29:04.366807+00:00",
+    "generated_at": "2026-06-02T09:34:38.677010+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 17,
@@ -870,7 +910,7 @@
       },
       {
         "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records",
+        "recommended_next_action": "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities",
         "score": 82.0,
         "scorecard_key": "acgme_program_identifier_candidates",
         "utility_label": "ACGME public program identifier candidates"
