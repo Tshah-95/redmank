@@ -42,6 +42,7 @@ Core tables:
 - `sources`: official roster, context, and discovery source records.
 - `programs`: local program entities.
 - `person_program_memberships`: many-to-many membership links.
+- `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
 - `organization_identifiers`: external IDs.
@@ -55,6 +56,7 @@ Core tables:
 Useful views:
 
 - `v_person_training`: joined person-training-organization view.
+- `v_current_training_states`: normalized state-machine view for annual refresh/diff work.
 - `v_organization_review_queue`: organization aliases that need review.
 - `v_recent_attending_trend_candidates`: career-event candidates for current Penn attending and alumni/outcome trend work.
 - `v_public_person_contacts`: public structured contact candidates joined to reconciled people when possible.
@@ -97,6 +99,20 @@ These are not flattened into `people`. They live in `person_contacts` because co
 ## Program Categorization
 
 Broad Penn roster pages cannot always use the page title as the program name. Some official pages are titled only `Residents` or `Fellows`, and some pages, especially Radiology, contain several fellowship sections on one source page. The broad Penn scraper therefore infers program labels from the URL path plus section heading. This removed generic `Residents`/`Fellows` program labels from the warehouse and corrected Ophthalmology fellows that share a `Current Residents & Fellows` page with residents.
+
+## Training State Machine
+
+Training labels are stored as state observations, not just strings. `person_training_states` keeps the raw source label plus a normalized stage, family, index, academic year, expected next stage/date, stale-after date, transition rule, confidence, and evidence JSON.
+
+The current rules are intentionally conservative:
+
+- PGY, CY, intern, and fellowship-year labels use a GME annual-clock assumption around July 1.
+- MS1/MS2/MS3-4 labels use a medical-student annual-refresh clock around August 1.
+- MSTP PhD phase, lab/research residents, postdoc fellows, chief residents, and unknown-year fellows/residents are not auto-advanced. They become stale on a refresh schedule and require a new public source observation.
+
+This creates the future diff surface: when the corpus is rerun, we can compare person/program/institution/category state observations, identify expected transitions, flag surprising disappearances or regressions, and separate obvious stale data from genuinely changed records.
+
+`scripts/diff_training_states.py` compares exported state snapshots. It collapses multiple raw observations for the same person/program into a canonical comparison key and reports how many duplicate keys were collapsed, so the diff view stays readable while the warehouse still preserves raw state observations.
 
 ## Next Programs
 

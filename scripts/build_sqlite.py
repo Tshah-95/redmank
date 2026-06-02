@@ -8,7 +8,7 @@ import hashlib
 import json
 import re
 import sqlite3
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -549,6 +549,467 @@ def insert_memberships(conn: sqlite3.Connection, row: dict) -> None:
         )
 
 
+def academic_year(as_of: date, rollover_month: int) -> tuple[str, date, date]:
+    start_year = as_of.year if as_of.month >= rollover_month else as_of.year - 1
+    start = date(start_year, rollover_month, 1)
+    end = date(start_year + 1, rollover_month, 1) - timedelta(days=1)
+    return f"{start_year}-{start_year + 1}", start, end
+
+
+def next_date_for(as_of: date, rollover_month: int) -> date:
+    start_year = as_of.year if as_of.month < rollover_month else as_of.year + 1
+    return date(start_year, rollover_month, 1)
+
+
+def stage_result(
+    raw_label: str,
+    normalized_stage: str,
+    stage_family: str,
+    stage_index: int | None,
+    stage_rank: int | None,
+    trainee_category: str,
+    transition_rule: str,
+    confidence: float,
+    status: str = "current",
+    academic_year_value: str | None = None,
+    estimated_start_date: date | None = None,
+    estimated_end_date: date | None = None,
+    expected_next_stage: str | None = None,
+    expected_next_date: date | None = None,
+    stale_after_date: date | None = None,
+) -> dict:
+    return {
+        "raw_stage_label": raw_label,
+        "normalized_stage": normalized_stage,
+        "stage_family": stage_family,
+        "stage_index": stage_index,
+        "stage_rank": stage_rank,
+        "trainee_category": trainee_category,
+        "academic_year": academic_year_value,
+        "estimated_start_date": estimated_start_date.isoformat() if estimated_start_date else None,
+        "estimated_end_date": estimated_end_date.isoformat() if estimated_end_date else None,
+        "expected_next_stage": expected_next_stage,
+        "expected_next_date": expected_next_date.isoformat() if expected_next_date else None,
+        "stale_after_date": stale_after_date.isoformat() if stale_after_date else None,
+        "transition_rule": transition_rule,
+        "status": status,
+        "confidence": confidence,
+    }
+
+
+def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
+    label = norm_space(raw_label)
+    lower = label.lower()
+    role = (row.get("role") or "").lower()
+    current_status = (row.get("current_status") or "").lower()
+    if current_status in {"former", "alumni"} or any(token in lower for token in ["recent graduate", "alumni", "former"]):
+        return stage_result(
+            label,
+            "COMPLETED_OR_FORMER",
+            "post_training_or_alumni",
+            None,
+            900,
+            role or "trainee",
+            "terminal_or_historical_state; do not auto-advance",
+            0.75,
+            status="former",
+        )
+    if role == "medical_student":
+        phase = norm_space(row.get("phase") or label)
+        phase_lower = phase.lower()
+        ay, start, end = academic_year(as_of, 8)
+        stale_after = end + timedelta(days=45)
+        if phase_lower == "ms1":
+            return stage_result(
+                phase,
+                "MEDICAL_SCHOOL_MS1",
+                "medical_school",
+                1,
+                101,
+                "medical_student",
+                "expected annual medical-school class advancement around Aug 1",
+                0.85,
+                academic_year_value=ay,
+                estimated_start_date=start,
+                estimated_end_date=end,
+                expected_next_stage="MEDICAL_SCHOOL_MS2",
+                expected_next_date=next_date_for(as_of, 8),
+                stale_after_date=stale_after,
+            )
+        if phase_lower == "ms2":
+            return stage_result(
+                phase,
+                "MEDICAL_SCHOOL_MS2",
+                "medical_school",
+                2,
+                102,
+                "medical_student",
+                "expected annual medical-school class advancement around Aug 1",
+                0.85,
+                academic_year_value=ay,
+                estimated_start_date=start,
+                estimated_end_date=end,
+                expected_next_stage="MEDICAL_SCHOOL_CLINICAL_PHASE",
+                expected_next_date=next_date_for(as_of, 8),
+                stale_after_date=stale_after,
+            )
+        if phase_lower in {"ms3/4", "ms3", "ms4"}:
+            return stage_result(
+                phase,
+                "MEDICAL_SCHOOL_MS3_OR_MS4",
+                "medical_school",
+                3,
+                103,
+                "medical_student",
+                "clinical-phase student label is ambiguous; refresh on annual directory update rather than auto-advance",
+                0.62,
+                academic_year_value=ay,
+                estimated_start_date=start,
+                estimated_end_date=end,
+                expected_next_stage="MEDICAL_SCHOOL_CLINICAL_OR_GRADUATING_PHASE",
+                expected_next_date=next_date_for(as_of, 8),
+                stale_after_date=stale_after,
+            )
+        if "phd" in phase_lower:
+            return stage_result(
+                phase,
+                "MSTP_PHD_PHASE",
+                "research_phase",
+                None,
+                150,
+                "medical_student",
+                "MSTP PhD phase duration is individualized; refresh from public directory annually",
+                0.78,
+                stale_after_date=as_of + timedelta(days=395),
+            )
+        return stage_result(
+            phase or label,
+            "MEDICAL_SCHOOL_PHASE_UNKNOWN",
+            "medical_school",
+            None,
+            199,
+            "medical_student",
+            "unknown student phase; refresh from source",
+            0.35,
+            stale_after_date=as_of + timedelta(days=395),
+        )
+    pgy_match = re.search(r"\b(?:pgy|post graduate year)\s*[- ]?(\d+)\b", lower)
+    if pgy_match:
+        index = int(pgy_match.group(1))
+        ay, start, end = academic_year(as_of, 7)
+        next_stage = f"GME_PGY_{index + 1}" if index < 9 else None
+        return stage_result(
+            label,
+            f"GME_PGY_{index}",
+            "clinical_postgraduate",
+            index,
+            200 + index,
+            role or "resident",
+            "expected GME annual advancement around Jul 1 unless program-specific exception",
+            0.9,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage=next_stage,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    cy_match = re.search(r"\bcy\s*[- ]?(\d+)\b", lower)
+    if cy_match:
+        index = int(cy_match.group(1))
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            f"GME_CLINICAL_YEAR_{index}",
+            "clinical_postgraduate",
+            index,
+            220 + index,
+            role or "resident",
+            "expected clinical-year advancement around Jul 1; map to PGY with program review",
+            0.72,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage=f"GME_CLINICAL_YEAR_{index + 1}",
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if "intern" in lower:
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_PGY_1",
+            "clinical_postgraduate",
+            1,
+            201,
+            "resident",
+            "intern label maps to PGY1; expected annual advancement around Jul 1",
+            0.78,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage="GME_PGY_2",
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if role == "resident" and re.search(r"class of \d{4}", lower):
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_RESIDENT_CLASS_YEAR",
+            "clinical_postgraduate",
+            None,
+            260,
+            "resident",
+            "class-year resident label; derive exact PGY only with program-duration context",
+            0.62,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if role == "resident" and "preliminary" in lower:
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_PRELIMINARY_RESIDENT",
+            "clinical_postgraduate",
+            1,
+            265,
+            "resident",
+            "preliminary resident label usually maps to a one-year GME state; verify against program context",
+            0.66,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage="TRANSITION_OUT_OR_PROGRAM_SPECIFIC_NEXT_STATE",
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if role == "resident" and "independent" in lower:
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_INDEPENDENT_RESIDENT",
+            "clinical_postgraduate",
+            None,
+            270,
+            "resident",
+            "independent-resident track is program-specific; refresh annually and map with specialty rules",
+            0.62,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if "lab resident" in lower or "research resident" in lower:
+        return stage_result(
+            label,
+            "GME_RESEARCH_OR_LAB_YEAR",
+            "clinical_postgraduate_research",
+            None,
+            280,
+            "resident",
+            "research/lab resident state is program-specific; refresh from roster rather than auto-advance",
+            0.68,
+            stale_after_date=as_of + timedelta(days=395),
+        )
+    if "chief" in lower and "resident" in lower:
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_CHIEF_RESIDENT",
+            "clinical_postgraduate",
+            None,
+            290,
+            "resident",
+            "chief year is terminal/program-specific; refresh on next academic-year roster",
+            0.72,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            stale_after_date=end + timedelta(days=45),
+        )
+    fellow_year_match = re.search(r"\b(?:first|1st|second|2nd|third|3rd|fourth|4th)\b", lower)
+    if role == "fellow" and fellow_year_match:
+        token = fellow_year_match.group(0)
+        index = {
+            "first": 1,
+            "1st": 1,
+            "second": 2,
+            "2nd": 2,
+            "third": 3,
+            "3rd": 3,
+            "fourth": 4,
+            "4th": 4,
+        }[token]
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            f"FELLOWSHIP_YEAR_{index}",
+            "fellowship",
+            index,
+            300 + index,
+            "fellow",
+            "expected fellowship annual advancement around Jul 1; terminal year requires program-length context",
+            0.82,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage=f"FELLOWSHIP_YEAR_{index + 1}",
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if role == "fellow":
+        if any(
+            token in lower
+            for token in [
+                "advanced musculoskeletal",
+                "nuclear radiology",
+                "abr alternate pathway",
+                "oncologic imaging",
+            ]
+        ):
+            ay, start, end = academic_year(as_of, 7)
+            return stage_result(
+                label,
+                "FELLOWSHIP_CURRENT_YEAR_UNKNOWN",
+                "fellowship",
+                None,
+                399,
+                "fellow",
+                "fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available",
+                0.58,
+                academic_year_value=ay,
+                estimated_start_date=start,
+                estimated_end_date=end,
+                expected_next_date=next_date_for(as_of, 7),
+                stale_after_date=end + timedelta(days=45),
+            )
+        if any(token in lower for token in ["post-doc", "postdoc", "nrsa"]):
+            return stage_result(
+                label,
+                "POSTDOCTORAL_RESEARCH_FELLOW",
+                "research_phase",
+                None,
+                380,
+                "fellow",
+                "postdoctoral fellow duration is individualized; refresh annually",
+                0.7,
+                stale_after_date=as_of + timedelta(days=395),
+            )
+        if "fellow" in lower or "fellowship" in lower or not lower:
+            ay, start, end = academic_year(as_of, 7)
+            return stage_result(
+                label,
+                "FELLOWSHIP_CURRENT_YEAR_UNKNOWN",
+                "fellowship",
+                None,
+                399,
+                "fellow",
+                "current fellow but year not normalized; refresh on next roster and use program-specific duration if available",
+                0.52 if lower else 0.42,
+                academic_year_value=ay,
+                estimated_start_date=start,
+                estimated_end_date=end,
+                expected_next_date=next_date_for(as_of, 7),
+                stale_after_date=end + timedelta(days=45),
+            )
+    if role == "resident" and not lower:
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_RESIDENT_YEAR_UNKNOWN",
+            "clinical_postgraduate",
+            None,
+            299,
+            "resident",
+            "current resident but year not visible on source; refresh on next roster",
+            0.42,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    return stage_result(
+        label,
+        "TRAINING_STAGE_UNMAPPED",
+        "unknown",
+        None,
+        999,
+        role or "trainee",
+        "unmapped source label; review rule table before auto-advancing",
+        0.25,
+        stale_after_date=as_of + timedelta(days=395),
+    )
+
+
+def insert_training_states(conn: sqlite3.Connection, row: dict) -> None:
+    person_key = row.get("person_key") or key_for("person", row["name"])
+    programs = listish(row.get("program_memberships")) or listish(row.get("program"))
+    if not programs:
+        programs = [""]
+    source_key = row.get("source_key") or (listish(row.get("source_memberships")) or [""])[0]
+    labels = listish(row.get("training_year_labels_seen")) or listish(row.get("training_year_label"))
+    if not labels and row.get("role") == "medical_student":
+        labels = listish(row.get("phase"))
+    if not labels:
+        labels = [""]
+    as_of = date.today()
+    observed_at = datetime.now(timezone.utc).isoformat()
+    for program_name in programs:
+        program_id = program_key(program_name, row.get("role")) if program_name else None
+        for label in labels:
+            state = infer_training_state(row, label, as_of)
+            state_key = key_for("state", f"{person_key}:{program_id or ''}:{source_key}:{label}:{state['normalized_stage']}")
+            conn.execute(
+                """
+                INSERT OR IGNORE INTO person_training_states
+                (state_key, person_key, program_key, source_key, observed_at, as_of_date,
+                 raw_stage_label, normalized_stage, stage_family, stage_index, stage_rank,
+                 trainee_category, academic_year, estimated_start_date, estimated_end_date,
+                 expected_next_stage, expected_next_date, stale_after_date, transition_rule,
+                 status, confidence, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    state_key,
+                    person_key,
+                    program_id,
+                    source_key or None,
+                    observed_at,
+                    as_of.isoformat(),
+                    state["raw_stage_label"],
+                    state["normalized_stage"],
+                    state["stage_family"],
+                    state["stage_index"],
+                    state["stage_rank"],
+                    state["trainee_category"],
+                    state["academic_year"],
+                    state["estimated_start_date"],
+                    state["estimated_end_date"],
+                    state["expected_next_stage"],
+                    state["expected_next_date"],
+                    state["stale_after_date"],
+                    state["transition_rule"],
+                    state["status"],
+                    state["confidence"],
+                    dumps(
+                        {
+                            "origin": "source_training_label",
+                            "source_url": row.get("source_url") or row.get("profile_anchor_url"),
+                            "program": program_name,
+                            "raw_row_role": row.get("role"),
+                            "raw_current_status": row.get("current_status"),
+                        }
+                    ),
+                ),
+            )
+
+
 def insert_training_events(conn: sqlite3.Connection, resolver: OrganizationResolver, row: dict) -> None:
     person_key = row.get("person_key") or key_for("person", row["name"])
     for field, event_type in TRAINING_FIELDS.items():
@@ -699,6 +1160,7 @@ def load_people(conn: sqlite3.Connection, resolver: OrganizationResolver) -> Non
         insert_person(conn, row)
         insert_contacts(conn, row)
         insert_memberships(conn, row)
+        insert_training_states(conn, row)
         insert_training_events(conn, resolver, row)
     insert_career_events(conn)
 
@@ -726,6 +1188,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "organization_aliases",
         "organization_identifiers",
         "person_training_events",
+        "person_training_states",
         "career_events",
         "person_contacts",
         "evidence_claims",

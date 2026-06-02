@@ -27,6 +27,15 @@ EXPORTS = {
         FROM v_person_training
         ORDER BY role, display_name, event_type
     """,
+    "training_states_current.csv": """
+        SELECT state_id, person_key, display_name, role, program_name,
+               observed_at, as_of_date, raw_stage_label, normalized_stage,
+               stage_family, stage_index, stage_rank, trainee_category,
+               academic_year, estimated_start_date, estimated_end_date,
+               expected_next_stage, expected_next_date, stale_after_date,
+               transition_rule, status, confidence, source_key
+        FROM v_current_training_states
+    """,
     "organizations_resolved.csv": """
         SELECT organization_key, canonical_name, normalized_name, category,
                parent_name, resolver_status, confidence

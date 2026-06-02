@@ -1,3 +1,3 @@
 utility_key,observed_at,sample_size,candidate_claims,accepted_claims,rejected_claims,ambiguous_claims,notes,metrics_json
 openalex_author_search,2026-06-02T04:24:00+00:00,0,0,0,0,0,"Collection paused: sustained OpenAlex 429/backoff during full-corpus run. Keep OpenAlex as a resumable/polite lane, not a default blocking rebuild step.","{""collector_resume_supported"": true, ""current_claims"": 0, ""rate_limit_observed"": true}"
-pubmed_eutilities,2026-06-02T04:52:48.641262+00:00,759,759,0,0,0,Automated first-pass candidate generation; no claims accepted automatically.,"{""claims"": 759, ""mean_confidence"": 0.211}"
+pubmed_eutilities,2026-06-02T05:12:24.423702+00:00,759,759,0,0,0,Automated first-pass candidate generation; no claims accepted automatically.,"{""claims"": 759, ""mean_confidence"": 0.208}"

@@ -26,6 +26,7 @@ def main() -> None:
         "organization_aliases",
         "organization_identifiers",
         "person_training_events",
+        "person_training_states",
         "career_events",
         "person_contacts",
         "evidence_claims",
@@ -58,6 +59,24 @@ def main() -> None:
         WHERE p.program_name IN ('Residents', 'Fellows')
         """
     ).fetchone()[0]
+    training_state_family_counts = {
+        row["stage_family"]: row["count"]
+        for row in conn.execute("SELECT stage_family, COUNT(*) AS count FROM person_training_states GROUP BY stage_family")
+    }
+    normalized_stage_counts = {
+        row["normalized_stage"]: row["count"]
+        for row in conn.execute(
+            "SELECT normalized_stage, COUNT(*) AS count FROM person_training_states GROUP BY normalized_stage"
+        )
+    }
+    stale_by_next_august_count = conn.execute(
+        """
+        SELECT COUNT(*)
+        FROM person_training_states
+        WHERE stale_after_date IS NOT NULL
+          AND stale_after_date <= date('now', '+14 months')
+        """
+    ).fetchone()[0]
     career_event_counts = {
         row["event_type"]: row["count"]
         for row in conn.execute("SELECT event_type, COUNT(*) AS count FROM career_events GROUP BY event_type")
@@ -78,6 +97,9 @@ def main() -> None:
         "resolver_counts": resolver_counts,
         "role_counts": role_counts,
         "generic_program_label_count": generic_program_label_count,
+        "training_state_family_counts": training_state_family_counts,
+        "normalized_stage_counts": normalized_stage_counts,
+        "stale_by_next_august_count": stale_by_next_august_count,
         "evidence_status_counts": evidence_status_counts,
         "evidence_source_counts": evidence_source_counts,
         "career_event_counts": career_event_counts,

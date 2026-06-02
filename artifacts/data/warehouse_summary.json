@@ -15,6 +15,7 @@
     "people": 984,
     "person_contacts": 292,
     "person_training_events": 1279,
+    "person_training_states": 1131,
     "programs": 52,
     "source_quality_observations": 2,
     "source_utilities": 8,
@@ -69,8 +70,36 @@
     "accepted": 1279,
     "candidate": 759
   },
-  "generated_at": "2026-06-02T04:52:57.836456+00:00",
+  "generated_at": "2026-06-02T05:12:37.428062+00:00",
   "generic_program_label_count": 0,
+  "normalized_stage_counts": {
+    "COMPLETED_OR_FORMER": 13,
+    "FELLOWSHIP_CURRENT_YEAR_UNKNOWN": 117,
+    "FELLOWSHIP_YEAR_1": 66,
+    "FELLOWSHIP_YEAR_2": 59,
+    "FELLOWSHIP_YEAR_3": 36,
+    "FELLOWSHIP_YEAR_4": 7,
+    "GME_CHIEF_RESIDENT": 10,
+    "GME_CLINICAL_YEAR_2": 9,
+    "GME_CLINICAL_YEAR_3": 10,
+    "GME_CLINICAL_YEAR_4": 9,
+    "GME_INDEPENDENT_RESIDENT": 2,
+    "GME_PGY_1": 124,
+    "GME_PGY_2": 146,
+    "GME_PGY_3": 121,
+    "GME_PGY_4": 31,
+    "GME_PGY_5": 10,
+    "GME_PGY_6": 5,
+    "GME_PRELIMINARY_RESIDENT": 13,
+    "GME_RESEARCH_OR_LAB_YEAR": 23,
+    "GME_RESIDENT_CLASS_YEAR": 15,
+    "GME_RESIDENT_YEAR_UNKNOWN": 73,
+    "MEDICAL_SCHOOL_MS1": 22,
+    "MEDICAL_SCHOOL_MS2": 31,
+    "MEDICAL_SCHOOL_MS3_OR_MS4": 49,
+    "MSTP_PHD_PHASE": 123,
+    "POSTDOCTORAL_RESEARCH_FELLOW": 7
+  },
   "organization_category_counts": {
     "clinical_training_site": 166,
     "graduate_institution": 18,
@@ -85,5 +114,14 @@
     "fellow": 303,
     "medical_student": 225,
     "resident": 456
+  },
+  "stale_by_next_august_count": 1118,
+  "training_state_family_counts": {
+    "clinical_postgraduate": 578,
+    "clinical_postgraduate_research": 23,
+    "fellowship": 285,
+    "medical_school": 102,
+    "post_training_or_alumni": 13,
+    "research_phase": 130
   }
 }

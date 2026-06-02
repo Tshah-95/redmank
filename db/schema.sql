@@ -68,6 +68,32 @@ CREATE TABLE IF NOT EXISTS person_program_memberships (
   PRIMARY KEY (person_key, program_key, source_key, population, training_year_label)
 );
 
+CREATE TABLE IF NOT EXISTS person_training_states (
+  state_id INTEGER PRIMARY KEY,
+  state_key TEXT NOT NULL UNIQUE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  source_key TEXT REFERENCES sources(source_key) ON DELETE SET NULL,
+  observed_at TEXT NOT NULL,
+  as_of_date TEXT NOT NULL,
+  raw_stage_label TEXT,
+  normalized_stage TEXT NOT NULL,
+  stage_family TEXT NOT NULL,
+  stage_index INTEGER,
+  stage_rank INTEGER,
+  trainee_category TEXT,
+  academic_year TEXT,
+  estimated_start_date TEXT,
+  estimated_end_date TEXT,
+  expected_next_stage TEXT,
+  expected_next_date TEXT,
+  stale_after_date TEXT,
+  transition_rule TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'current',
+  confidence REAL NOT NULL DEFAULT 0.0,
+  evidence_json TEXT
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,
@@ -206,6 +232,36 @@ ORDER BY
   CASE e.resolver_status WHEN 'unresolved' THEN 0 WHEN 'cleaned_label' THEN 1 ELSE 2 END,
   mention_count DESC,
   e.raw_value;
+
+CREATE VIEW IF NOT EXISTS v_current_training_states AS
+SELECT
+  s.state_id,
+  s.person_key,
+  p.display_name,
+  p.role,
+  pr.program_name,
+  s.observed_at,
+  s.as_of_date,
+  s.raw_stage_label,
+  s.normalized_stage,
+  s.stage_family,
+  s.stage_index,
+  s.stage_rank,
+  s.trainee_category,
+  s.academic_year,
+  s.estimated_start_date,
+  s.estimated_end_date,
+  s.expected_next_stage,
+  s.expected_next_date,
+  s.stale_after_date,
+  s.transition_rule,
+  s.status,
+  s.confidence,
+  s.source_key
+FROM person_training_states s
+JOIN people p ON p.person_key = s.person_key
+LEFT JOIN programs pr ON pr.program_key = s.program_key
+ORDER BY p.display_name, pr.program_name, s.stage_rank, s.raw_stage_label;
 
 CREATE VIEW IF NOT EXISTS v_recent_attending_trend_candidates AS
 SELECT

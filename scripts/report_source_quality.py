@@ -125,6 +125,25 @@ def main() -> None:
         ORDER BY pr.program_name
         """,
     )
+    training_state_counts = rows(
+        conn,
+        """
+        SELECT stage_family, normalized_stage, status, COUNT(*) AS count,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM person_training_states
+        GROUP BY stage_family, normalized_stage, status
+        ORDER BY stage_family, normalized_stage, status
+        """,
+    )
+    transition_rule_counts = rows(
+        conn,
+        """
+        SELECT transition_rule, COUNT(*) AS count
+        FROM person_training_states
+        GROUP BY transition_rule
+        ORDER BY count DESC, transition_rule
+        """,
+    )
     contact_counts = rows(
         conn,
         """
@@ -148,6 +167,8 @@ def main() -> None:
         "career_event_counts": career_events,
         "broad_program_counts": broad_program_counts,
         "generic_program_labels": generic_program_labels,
+        "training_state_counts": training_state_counts,
+        "transition_rule_counts": transition_rule_counts,
         "contact_counts": contact_counts,
     }
     if openalex_features:
@@ -181,6 +202,16 @@ def main() -> None:
         f"Generic `Residents`/`Fellows` program labels remaining: {sum(row['count'] for row in generic_program_labels)}.",
         "",
         "Learning: program names often require URL-plus-section inference. Page titles alone are too weak because official pages can be titled `Residents` or `Fellows`, while one source page can contain multiple program sections.",
+        "",
+        "## Training State Machine",
+        "",
+        *md_table(training_state_counts, ["stage_family", "normalized_stage", "status", "count", "avg_confidence"]),
+        "",
+        "Transition rules observed:",
+        "",
+        *md_table(transition_rule_counts, ["transition_rule", "count"]),
+        "",
+        "Learning: roster strings should become normalized state observations with explicit clocks. PGY and fellowship-year states can be expected to stale around the next July academic rollover; medical-student MS states use an annual student-directory refresh clock; MSTP PhD, lab, postdoc, chief, and unknown-year states are source-refresh states, not safe auto-advancement states.",
         "",
         "## Evidence Counts",
         "",

@@ -20,6 +20,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_attending_candidates.json`: conservative current Penn attending/faculty candidate layer for future career-trend reconciliation.
 - `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
+- `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
@@ -88,6 +89,14 @@ Validate scripts:
 python3 -m py_compile scripts/*.py
 ```
 
+Compare two annual state exports:
+
+```bash
+python3 scripts/diff_training_states.py \
+  --old path/to/previous/training_states_current.csv \
+  --new artifacts/data/training_states_current.csv
+```
+
 ## Data Policy
 
 This project uses public web sources only. It does not bypass login walls, private directories, robots exclusions, or application-only systems. Public institutional contact channels may be stored only as structured contact candidates with source URL, scope, verification status, confidence, and candidate status; raw HTML remains redacted and ignored by Git. Records should retain source URLs and quality notes so downstream users can distinguish official roster facts from inferred categorization and enrichment candidates.
@@ -101,6 +110,7 @@ The initial methodology is conservative:
 - Deduplicate by normalized person name with manual aliases only when the same public corpus shows the variant.
 - Keep track and fellowship memberships as multi-valued fields instead of forcing one person into one category.
 - Infer broad Penn program names from page URL plus section heading when official roster page titles are generic, because pages like Radiology fellows contain multiple programs on one source page.
+- Normalize training labels into state observations with transition rules and stale-after dates so future runs can distinguish expected annual advancement from surprising changes.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.

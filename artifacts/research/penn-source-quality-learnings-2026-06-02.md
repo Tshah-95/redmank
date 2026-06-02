@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T04:52:57.858311+00:00
+Generated: 2026-06-02T05:12:37.450002+00:00
 
 ## What This Pass Did
 
@@ -49,6 +49,61 @@ Interpretation: `trainee_roster_candidate` is a review queue, not a canonical ro
 Generic `Residents`/`Fellows` program labels remaining: 0.
 
 Learning: program names often require URL-plus-section inference. Page titles alone are too weak because official pages can be titled `Residents` or `Fellows`, while one source page can contain multiple program sections.
+
+## Training State Machine
+
+| stage_family | normalized_stage | status | count | avg_confidence |
+| --- | --- | --- | --- | --- |
+| clinical_postgraduate | GME_CHIEF_RESIDENT | current | 10 | 0.72 |
+| clinical_postgraduate | GME_CLINICAL_YEAR_2 | current | 9 | 0.72 |
+| clinical_postgraduate | GME_CLINICAL_YEAR_3 | current | 10 | 0.72 |
+| clinical_postgraduate | GME_CLINICAL_YEAR_4 | current | 9 | 0.72 |
+| clinical_postgraduate | GME_INDEPENDENT_RESIDENT | current | 2 | 0.62 |
+| clinical_postgraduate | GME_PGY_1 | current | 124 | 0.884 |
+| clinical_postgraduate | GME_PGY_2 | current | 146 | 0.9 |
+| clinical_postgraduate | GME_PGY_3 | current | 121 | 0.9 |
+| clinical_postgraduate | GME_PGY_4 | current | 31 | 0.9 |
+| clinical_postgraduate | GME_PGY_5 | current | 10 | 0.9 |
+| clinical_postgraduate | GME_PGY_6 | current | 5 | 0.9 |
+| clinical_postgraduate | GME_PRELIMINARY_RESIDENT | current | 13 | 0.66 |
+| clinical_postgraduate | GME_RESIDENT_CLASS_YEAR | current | 15 | 0.62 |
+| clinical_postgraduate | GME_RESIDENT_YEAR_UNKNOWN | current | 73 | 0.42 |
+| clinical_postgraduate_research | GME_RESEARCH_OR_LAB_YEAR | current | 23 | 0.68 |
+| fellowship | FELLOWSHIP_CURRENT_YEAR_UNKNOWN | current | 117 | 0.498 |
+| fellowship | FELLOWSHIP_YEAR_1 | current | 66 | 0.82 |
+| fellowship | FELLOWSHIP_YEAR_2 | current | 59 | 0.82 |
+| fellowship | FELLOWSHIP_YEAR_3 | current | 36 | 0.82 |
+| fellowship | FELLOWSHIP_YEAR_4 | current | 7 | 0.82 |
+| medical_school | MEDICAL_SCHOOL_MS1 | current | 22 | 0.85 |
+| medical_school | MEDICAL_SCHOOL_MS2 | current | 31 | 0.85 |
+| medical_school | MEDICAL_SCHOOL_MS3_OR_MS4 | current | 49 | 0.62 |
+| post_training_or_alumni | COMPLETED_OR_FORMER | former | 13 | 0.75 |
+| research_phase | MSTP_PHD_PHASE | current | 123 | 0.78 |
+| research_phase | POSTDOCTORAL_RESEARCH_FELLOW | current | 7 | 0.7 |
+
+Transition rules observed:
+
+| transition_rule | count |
+| --- | --- |
+| expected GME annual advancement around Jul 1 unless program-specific exception | 420 |
+| expected fellowship annual advancement around Jul 1; terminal year requires program-length context | 168 |
+| MSTP PhD phase duration is individualized; refresh from public directory annually | 123 |
+| current fellow but year not normalized; refresh on next roster and use program-specific duration if available | 109 |
+| current resident but year not visible on source; refresh on next roster | 73 |
+| expected annual medical-school class advancement around Aug 1 | 53 |
+| clinical-phase student label is ambiguous; refresh on annual directory update rather than auto-advance | 49 |
+| expected clinical-year advancement around Jul 1; map to PGY with program review | 28 |
+| research/lab resident state is program-specific; refresh from roster rather than auto-advance | 23 |
+| intern label maps to PGY1; expected annual advancement around Jul 1 | 17 |
+| class-year resident label; derive exact PGY only with program-duration context | 15 |
+| preliminary resident label usually maps to a one-year GME state; verify against program context | 13 |
+| terminal_or_historical_state; do not auto-advance | 13 |
+| chief year is terminal/program-specific; refresh on next academic-year roster | 10 |
+| fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available | 8 |
+| postdoctoral fellow duration is individualized; refresh annually | 7 |
+| independent-resident track is program-specific; refresh annually and map with specialty rules | 2 |
+
+Learning: roster strings should become normalized state observations with explicit clocks. PGY and fellowship-year states can be expected to stale around the next July academic rollover; medical-student MS states use an annual student-directory refresh clock; MSTP PhD, lab, postdoc, chief, and unknown-year states are source-refresh states, not safe auto-advancement states.
 
 ## Evidence Counts
 
@@ -143,7 +198,7 @@ Learning: program names often require URL-plus-section inference. Page titles al
 | penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7 | accepted | undergraduate_school | 14 | 0.836 |
 | penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532 | accepted | medical_school | 20 | 0.9 |
 | penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532 | accepted | residency_program | 10 | 0.77 |
-| pubmed_eutilities | candidate | pubmed_author_query_candidate | 759 | 0.211 |
+| pubmed_eutilities | candidate | pubmed_author_query_candidate | 759 | 0.208 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
@@ -155,7 +210,7 @@ Learning: program names often require URL-plus-section inference. Page titles al
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
-| pubmed_eutilities | 759 | 759 | 0 | 0 | 0 | {"claims": 759, "mean_confidence": 0.211} |
+| pubmed_eutilities | 759 | 759 | 0 | 0 | 0 | {"claims": 759, "mean_confidence": 0.208} |
 
 ## OpenAlex Feature Distribution
 
@@ -168,9 +223,9 @@ Learning: OpenAlex remains a promising author-disambiguation utility, but the cu
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
-| ["author_query", "high_collision_risk"] | 466 | 0.16 |
-| ["author_query", "bounded_result_count"] | 226 | 0.35 |
-| ["author_query", "no_results"] | 67 | 0.1 |
+| ["author_query", "high_collision_risk"] | 452 | 0.16 |
+| ["author_query", "bounded_result_count"] | 220 | 0.35 |
+| ["author_query", "no_results"] | 87 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
 

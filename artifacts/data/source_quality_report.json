@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T04:52:57.858311+00:00",
+  "generated_at": "2026-06-02T05:12:37.450002+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -701,7 +701,7 @@
       "status": "candidate",
       "claim_type": "pubmed_author_query_candidate",
       "count": 759,
-      "avg_confidence": 0.211
+      "avg_confidence": 0.208
     },
     {
       "source_key": "pulmonary_critical_care_current_fellows",
@@ -756,24 +756,24 @@
       "accepted_claims": 0,
       "rejected_claims": 0,
       "ambiguous_claims": 0,
-      "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.211}"
+      "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.208}"
     }
   ],
   "openalex_feature_distribution": [],
   "pubmed_feature_distribution": [
     {
       "match_features_json": "[\"author_query\", \"high_collision_risk\"]",
-      "count": 466,
+      "count": 452,
       "avg_confidence": 0.16
     },
     {
       "match_features_json": "[\"author_query\", \"bounded_result_count\"]",
-      "count": 226,
+      "count": 220,
       "avg_confidence": 0.35
     },
     {
       "match_features_json": "[\"author_query\", \"no_results\"]",
-      "count": 67,
+      "count": 87,
       "avg_confidence": 0.1
     }
   ],
@@ -932,6 +932,260 @@
     }
   ],
   "generic_program_labels": [],
+  "training_state_counts": [
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CHIEF_RESIDENT",
+      "status": "current",
+      "count": 10,
+      "avg_confidence": 0.72
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CLINICAL_YEAR_2",
+      "status": "current",
+      "count": 9,
+      "avg_confidence": 0.72
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CLINICAL_YEAR_3",
+      "status": "current",
+      "count": 10,
+      "avg_confidence": 0.72
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CLINICAL_YEAR_4",
+      "status": "current",
+      "count": 9,
+      "avg_confidence": 0.72
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_INDEPENDENT_RESIDENT",
+      "status": "current",
+      "count": 2,
+      "avg_confidence": 0.62
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_1",
+      "status": "current",
+      "count": 124,
+      "avg_confidence": 0.884
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_2",
+      "status": "current",
+      "count": 146,
+      "avg_confidence": 0.9
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_3",
+      "status": "current",
+      "count": 121,
+      "avg_confidence": 0.9
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_4",
+      "status": "current",
+      "count": 31,
+      "avg_confidence": 0.9
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_5",
+      "status": "current",
+      "count": 10,
+      "avg_confidence": 0.9
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_6",
+      "status": "current",
+      "count": 5,
+      "avg_confidence": 0.9
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PRELIMINARY_RESIDENT",
+      "status": "current",
+      "count": 13,
+      "avg_confidence": 0.66
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_RESIDENT_CLASS_YEAR",
+      "status": "current",
+      "count": 15,
+      "avg_confidence": 0.62
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_RESIDENT_YEAR_UNKNOWN",
+      "status": "current",
+      "count": 73,
+      "avg_confidence": 0.42
+    },
+    {
+      "stage_family": "clinical_postgraduate_research",
+      "normalized_stage": "GME_RESEARCH_OR_LAB_YEAR",
+      "status": "current",
+      "count": 23,
+      "avg_confidence": 0.68
+    },
+    {
+      "stage_family": "fellowship",
+      "normalized_stage": "FELLOWSHIP_CURRENT_YEAR_UNKNOWN",
+      "status": "current",
+      "count": 117,
+      "avg_confidence": 0.498
+    },
+    {
+      "stage_family": "fellowship",
+      "normalized_stage": "FELLOWSHIP_YEAR_1",
+      "status": "current",
+      "count": 66,
+      "avg_confidence": 0.82
+    },
+    {
+      "stage_family": "fellowship",
+      "normalized_stage": "FELLOWSHIP_YEAR_2",
+      "status": "current",
+      "count": 59,
+      "avg_confidence": 0.82
+    },
+    {
+      "stage_family": "fellowship",
+      "normalized_stage": "FELLOWSHIP_YEAR_3",
+      "status": "current",
+      "count": 36,
+      "avg_confidence": 0.82
+    },
+    {
+      "stage_family": "fellowship",
+      "normalized_stage": "FELLOWSHIP_YEAR_4",
+      "status": "current",
+      "count": 7,
+      "avg_confidence": 0.82
+    },
+    {
+      "stage_family": "medical_school",
+      "normalized_stage": "MEDICAL_SCHOOL_MS1",
+      "status": "current",
+      "count": 22,
+      "avg_confidence": 0.85
+    },
+    {
+      "stage_family": "medical_school",
+      "normalized_stage": "MEDICAL_SCHOOL_MS2",
+      "status": "current",
+      "count": 31,
+      "avg_confidence": 0.85
+    },
+    {
+      "stage_family": "medical_school",
+      "normalized_stage": "MEDICAL_SCHOOL_MS3_OR_MS4",
+      "status": "current",
+      "count": 49,
+      "avg_confidence": 0.62
+    },
+    {
+      "stage_family": "post_training_or_alumni",
+      "normalized_stage": "COMPLETED_OR_FORMER",
+      "status": "former",
+      "count": 13,
+      "avg_confidence": 0.75
+    },
+    {
+      "stage_family": "research_phase",
+      "normalized_stage": "MSTP_PHD_PHASE",
+      "status": "current",
+      "count": 123,
+      "avg_confidence": 0.78
+    },
+    {
+      "stage_family": "research_phase",
+      "normalized_stage": "POSTDOCTORAL_RESEARCH_FELLOW",
+      "status": "current",
+      "count": 7,
+      "avg_confidence": 0.7
+    }
+  ],
+  "transition_rule_counts": [
+    {
+      "transition_rule": "expected GME annual advancement around Jul 1 unless program-specific exception",
+      "count": 420
+    },
+    {
+      "transition_rule": "expected fellowship annual advancement around Jul 1; terminal year requires program-length context",
+      "count": 168
+    },
+    {
+      "transition_rule": "MSTP PhD phase duration is individualized; refresh from public directory annually",
+      "count": 123
+    },
+    {
+      "transition_rule": "current fellow but year not normalized; refresh on next roster and use program-specific duration if available",
+      "count": 109
+    },
+    {
+      "transition_rule": "current resident but year not visible on source; refresh on next roster",
+      "count": 73
+    },
+    {
+      "transition_rule": "expected annual medical-school class advancement around Aug 1",
+      "count": 53
+    },
+    {
+      "transition_rule": "clinical-phase student label is ambiguous; refresh on annual directory update rather than auto-advance",
+      "count": 49
+    },
+    {
+      "transition_rule": "expected clinical-year advancement around Jul 1; map to PGY with program review",
+      "count": 28
+    },
+    {
+      "transition_rule": "research/lab resident state is program-specific; refresh from roster rather than auto-advance",
+      "count": 23
+    },
+    {
+      "transition_rule": "intern label maps to PGY1; expected annual advancement around Jul 1",
+      "count": 17
+    },
+    {
+      "transition_rule": "class-year resident label; derive exact PGY only with program-duration context",
+      "count": 15
+    },
+    {
+      "transition_rule": "preliminary resident label usually maps to a one-year GME state; verify against program context",
+      "count": 13
+    },
+    {
+      "transition_rule": "terminal_or_historical_state; do not auto-advance",
+      "count": 13
+    },
+    {
+      "transition_rule": "chief year is terminal/program-specific; refresh on next academic-year roster",
+      "count": 10
+    },
+    {
+      "transition_rule": "fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available",
+      "count": 8
+    },
+    {
+      "transition_rule": "postdoctoral fellow duration is individualized; refresh annually",
+      "count": 7
+    },
+    {
+      "transition_rule": "independent-resident track is program-specific; refresh annually and map with specialty rules",
+      "count": 2
+    }
+  ],
   "contact_counts": [
     {
       "contact_type": "email",
