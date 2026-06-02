@@ -53,6 +53,51 @@ SNAPSHOT_FIELDS = [
     "state_fingerprint",
 ]
 
+EVENT_FIELDS = [
+    "old_snapshot_id",
+    "new_snapshot_id",
+    "canonical_person_program_key",
+    "person_key",
+    "display_name",
+    "program_name",
+    "role",
+    "old_state_key",
+    "new_state_key",
+    "change_type",
+    "transition_assurance",
+    "expected_by_state_machine",
+    "old_stage",
+    "new_stage",
+    "old_expected_next_stage",
+    "old_expected_next_date",
+    "old_expected_exit_date",
+    "old_expected_transition_type",
+    "old_stale_after_date",
+    "review_action",
+    "notes",
+    "evidence_json",
+]
+
+ROLLUP_FIELDS = [
+    "rollup_key",
+    "old_snapshot_id",
+    "new_snapshot_id",
+    "rollup_scope",
+    "rollup_value",
+    "institution",
+    "role",
+    "trainee_category",
+    "program_name",
+    "lifecycle_code",
+    "change_type",
+    "transition_assurance",
+    "expected_by_state_machine",
+    "event_count",
+    "review_event_count",
+    "expected_event_count",
+    "evidence_json",
+]
+
 STAGE_FAMILY_PRIORITY = {
     "clinical_postgraduate": 90,
     "fellowship": 80,
@@ -149,6 +194,19 @@ def canonical_rows(rows: list[dict]) -> tuple[dict[str, dict], int]:
                 continue
         chosen[key] = row
     return chosen, duplicate_count
+
+
+def program_institution_lookup(conn: sqlite3.Connection) -> dict[tuple[str, str], str]:
+    return {
+        (row[0] or "", row[1] or ""): row[2] or ""
+        for row in conn.execute(
+            """
+            SELECT program_name, role, institution
+            FROM programs
+            WHERE program_name IS NOT NULL
+            """
+        )
+    }
 
 
 def read_export(path: Path) -> list[dict]:
@@ -386,19 +444,26 @@ def write_transition_events(
 ) -> list[dict]:
     old_canonical, _ = canonical_rows(old_rows)
     new_canonical, _ = canonical_rows(new_rows)
+    institution_lookup = program_institution_lookup(conn)
     events = []
     for key in sorted(set(old_canonical) | set(new_canonical)):
         old = old_canonical.get(key)
         new = new_canonical.get(key)
         source = new or old or {}
+        program_name = source.get("program_name") or ""
+        role = source.get("role") or ""
+        lifecycle_code = (new or {}).get("lifecycle_code") or (old or {}).get("lifecycle_code") or ""
         event = {
             "old_snapshot_id": old_snapshot_id,
             "new_snapshot_id": new_snapshot_id,
             "canonical_person_program_key": key,
             "person_key": source.get("person_key"),
             "display_name": source.get("display_name"),
-            "program_name": source.get("program_name"),
-            "role": source.get("role"),
+            "program_name": program_name,
+            "role": role,
+            "institution": institution_lookup.get((program_name, role), institution_lookup.get((program_name, ""), "")),
+            "trainee_category": source.get("trainee_category") or "",
+            "lifecycle_code": lifecycle_code,
             "old_state_key": (old or {}).get("state_key"),
             "new_state_key": (new or {}).get("state_key"),
             "old_stage": (old or {}).get("normalized_stage"),
@@ -414,6 +479,9 @@ def write_transition_events(
             {
                 "old_lifecycle_code": (old or {}).get("lifecycle_code"),
                 "new_lifecycle_code": (new or {}).get("lifecycle_code"),
+                "old_trainee_category": (old or {}).get("trainee_category"),
+                "new_trainee_category": (new or {}).get("trainee_category"),
+                "institution": event["institution"],
                 "old_state_fingerprint": (old or {}).get("state_fingerprint"),
                 "new_state_fingerprint": (new or {}).get("state_fingerprint"),
                 "compare_date": compare_date.isoformat(),
@@ -460,8 +528,103 @@ def write_transition_events(
     return events
 
 
+def rollup_key(parts: tuple) -> str:
+    basis = json.dumps(parts, ensure_ascii=True, sort_keys=True)
+    return f"transition_rollup_{sha256_bytes(basis.encode('utf-8'))[:20]}"
+
+
+def event_groups(events: list[dict]) -> list[dict]:
+    grouped: dict[tuple, dict] = {}
+    for event in events:
+        institution = event.get("institution") or "unknown_institution"
+        role = event.get("role") or ""
+        trainee_category = event.get("trainee_category") or role or ""
+        program_name = event.get("program_name") or ""
+        lifecycle_code = event.get("lifecycle_code") or ""
+        scopes = [
+            ("corpus", "United States medical trainees"),
+            ("institution", institution),
+            ("trainee_category", trainee_category),
+            ("role", role),
+            ("program", program_name),
+            ("program_role", f"{program_name}::{role}"),
+            ("lifecycle_code", lifecycle_code),
+            ("institution_role", f"{institution}::{role}"),
+        ]
+        for scope, value in scopes:
+            if not value:
+                continue
+            key = (
+                event.get("old_snapshot_id") or "",
+                event["new_snapshot_id"],
+                scope,
+                value,
+                event["change_type"],
+                event["transition_assurance"],
+                int(event["expected_by_state_machine"] or 0),
+            )
+            if key not in grouped:
+                grouped[key] = {
+                    "old_snapshot_id": event.get("old_snapshot_id") or "",
+                    "new_snapshot_id": event["new_snapshot_id"],
+                    "rollup_scope": scope,
+                    "rollup_value": value,
+                    "institution": institution if scope in {"institution", "institution_role"} else "",
+                    "role": role if scope in {"role", "program_role", "institution_role"} else "",
+                    "trainee_category": trainee_category if scope == "trainee_category" else "",
+                    "program_name": program_name if scope in {"program", "program_role"} else "",
+                    "lifecycle_code": lifecycle_code if scope == "lifecycle_code" else "",
+                    "change_type": event["change_type"],
+                    "transition_assurance": event["transition_assurance"],
+                    "expected_by_state_machine": int(event["expected_by_state_machine"] or 0),
+                    "event_count": 0,
+                    "review_event_count": 0,
+                    "expected_event_count": 0,
+                    "evidence_json": "",
+                }
+            row = grouped[key]
+            row["event_count"] += 1
+            row["review_event_count"] += int(event["transition_assurance"] == "review")
+            row["expected_event_count"] += int(event["expected_by_state_machine"] or 0)
+    rows = []
+    for key, row in grouped.items():
+        row["rollup_key"] = rollup_key(key)
+        row["evidence_json"] = json.dumps(
+            {
+                "rollup_scope": row["rollup_scope"],
+                "rollup_value": row["rollup_value"],
+                "old_snapshot_id": row["old_snapshot_id"],
+                "new_snapshot_id": row["new_snapshot_id"],
+            },
+            sort_keys=True,
+        )
+        rows.append({field: row.get(field, "") for field in ROLLUP_FIELDS})
+    return sorted(
+        rows,
+        key=lambda row: (
+            row["rollup_scope"],
+            row["rollup_value"],
+            row["change_type"],
+            row["transition_assurance"],
+        ),
+    )
+
+
+def insert_transition_rollups(conn: sqlite3.Connection, rows: list[dict]) -> None:
+    conn.execute("DELETE FROM training_state_transition_rollups")
+    if not rows:
+        return
+    placeholders = ", ".join(f":{field}" for field in ROLLUP_FIELDS)
+    fields = ", ".join(ROLLUP_FIELDS)
+    conn.executemany(
+        f"INSERT OR REPLACE INTO training_state_transition_rollups ({fields}) VALUES ({placeholders})",
+        rows,
+    )
+
+
 def load_all_snapshots(conn: sqlite3.Connection) -> dict[str, list[dict]]:
     snapshots = {}
+    conn.execute("DELETE FROM training_state_transition_rollups")
     conn.execute("DELETE FROM training_state_transition_events")
     conn.execute("DELETE FROM training_state_snapshot_rows")
     conn.execute("DELETE FROM training_state_snapshots")
@@ -480,10 +643,17 @@ def write_events_csv(events: list[dict]) -> None:
         path.write_text("", encoding="utf-8")
         return
     with path.open("w", newline="", encoding="utf-8") as f:
-        fieldnames = [key for key in events[0].keys() if key != "evidence_json"] + ["evidence_json"]
-        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        writer = csv.DictWriter(f, fieldnames=EVENT_FIELDS, lineterminator="\n", extrasaction="ignore")
         writer.writeheader()
         writer.writerows(events)
+
+
+def write_rollups_csv(rows: list[dict]) -> None:
+    path = ARTIFACTS / "training_state_transition_rollups.csv"
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=ROLLUP_FIELDS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def main() -> None:
@@ -504,6 +674,7 @@ def main() -> None:
 
     conn = sqlite3.connect(args.db)
     with conn:
+        conn.executescript((ROOT / "db" / "schema.sql").read_text(encoding="utf-8"))
         snapshots = load_all_snapshots(conn)
         snapshot_ids = sorted(snapshots)
         previous_snapshot_id = args.previous_snapshot_id
@@ -519,10 +690,14 @@ def main() -> None:
             snapshots[snapshot_id],
             date.fromisoformat(args.compare_date),
         )
+        rollups = event_groups(events)
+        insert_transition_rollups(conn, rollups)
     conn.close()
 
     write_events_csv(events)
+    write_rollups_csv(rollups)
     change_counts = Counter(event["change_type"] for event in events)
+    rollup_scope_counts = Counter(row["rollup_scope"] for row in rollups)
     summary = {
         "snapshot_id": snapshot_id,
         "previous_snapshot_id": previous_snapshot_id,
@@ -533,7 +708,10 @@ def main() -> None:
         "duplicate_canonical_key_count": manifest["duplicate_canonical_key_count"],
         "transition_event_rows": len(events),
         "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
+        "transition_rollup_rows": len(rollups),
+        "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv",
         "by_change_type": dict(sorted(change_counts.items())),
+        "by_rollup_scope": dict(sorted(rollup_scope_counts.items())),
         "compare_date": args.compare_date,
     }
     (ARTIFACTS / "training_state_snapshot_summary.json").write_text(

@@ -337,6 +337,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     machine_acceptance_candidate_people = int(enrichment_acceptance_summary.get("machine_acceptance_candidate_people") or 0)
     acceptance_review_ready_publications = int(enrichment_acceptance_summary.get("review_ready_publication_rows") or 0)
     acceptance_secondary_identity_anchors = int(enrichment_acceptance_summary.get("secondary_identity_anchor_rows") or 0)
+    accepted_enrichment_summary = read_json(ARTIFACTS / "accepted_enrichment_summary.json", {})
+    accepted_enrichment_rows = int(accepted_enrichment_summary.get("accepted_enrichment_rows") or 0)
+    accepted_enrichment_people = int(accepted_enrichment_summary.get("accepted_people") or 0)
     warehouse_reproducibility_summary = read_json(ARTIFACTS / "warehouse_reproducibility_summary.json", {})
     reproducibility_artifact_rows = int(warehouse_reproducibility_summary.get("artifact_rows") or 0)
     reproducibility_mismatch_rows = int(warehouse_reproducibility_summary.get("row_count_mismatch_rows") or 0)
@@ -719,7 +722,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             claim_surface="non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence",
             input_records=int(enrichment_acceptance_summary.get("acceptance_rows") or 0),
             output_records=int(enrichment_acceptance_summary.get("acceptance_rows") or 0),
-            accepted_records=machine_acceptance_candidate_rows,
+            accepted_records=accepted_enrichment_rows,
             candidate_records=int(enrichment_acceptance_summary.get("acceptance_rows") or 0),
             needs_review_records=acceptance_review_ready_publications,
             review_ready_records=machine_acceptance_candidate_rows,
@@ -738,6 +741,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             recommended_next_action="promote_cross_source_publication_candidates_after_final_duplicate_author_position_check",
             evidence={
                 "summary": enrichment_acceptance_summary,
+                "accepted_enrichment_summary": accepted_enrichment_summary,
+                "accepted_enrichment_rows": accepted_enrichment_rows,
+                "accepted_enrichment_people": accepted_enrichment_people,
                 "machine_acceptance_candidate_rows": machine_acceptance_candidate_rows,
                 "machine_acceptance_candidate_people": machine_acceptance_candidate_people,
                 "review_ready_publication_rows": acceptance_review_ready_publications,

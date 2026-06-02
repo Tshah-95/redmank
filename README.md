@@ -53,6 +53,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_evidence_review_packet_summary.json`: packet counts for review-ready publication, attending-trend, secondary-anchor, and discovery-only work.
 - `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.
 - `artifacts/data/enrichment_acceptance_summary.json`: acceptance-tier counts, including cross-source publication machine-acceptance candidates.
+- `artifacts/data/accepted_enrichment_claims.csv`: strict machine-accepted enrichment facts, currently non-roster-mutating publication claims with provenance, acceptance policy, and final display-sanity checks attached.
+- `artifacts/data/accepted_enrichment_summary.json`: accepted-enrichment counts by person, role, claim type, and enrichment type.
 - `artifacts/data/attending_trend_linkage_events.csv`: event-level assurance audit for whether attending/faculty/outcome evidence can support a Penn-trainee trend link.
 - `artifacts/data/attending_trend_linkage_groups.csv`: person/source-group rollup for recent-attending trend linkage candidates.
 - `artifacts/data/attending_historical_link_candidates.csv`: seeded/search-discovered source candidates that may bridge current Penn attending endpoints to dated historical trainee records.
@@ -77,6 +79,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/category_refresh_expectations.csv`: resident/fellow/student category rollup for institution-level monitoring.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
+- `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
 - `artifacts/data/training_state_snapshot_summary.json`: snapshot and transition counts for the current materialized state.
 - `config/training_lifecycle_rules.json`: local lifecycle codes and nominal-duration rules used to interpret trainee stages over time.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
@@ -174,6 +177,7 @@ python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-resu
 python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_enrichment_acceptance.py
+python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
@@ -204,7 +208,7 @@ python3 scripts/diff_training_states.py \
   --new artifacts/data/training_states_current.csv
 ```
 
-The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, and change type.
+The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, and change type. The durable snapshot materializer also writes `artifacts/data/training_state_transition_rollups.csv`, which preserves transition views across corpus, institution, trainee category, role, program, program-role, institution-role, and lifecycle-code scopes.
 
 Materialize a durable state snapshot:
 

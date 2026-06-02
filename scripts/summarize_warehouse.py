@@ -34,6 +34,7 @@ def main() -> None:
         "training_state_snapshots",
         "training_state_snapshot_rows",
         "training_state_transition_events",
+        "training_state_transition_rollups",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",
@@ -51,6 +52,7 @@ def main() -> None:
         "evidence_reconciliation_decisions",
         "person_reconciliation_decisions",
         "enrichment_acceptance_audit",
+        "accepted_enrichment_claims",
         "warehouse_reproducibility_audit",
         "source_quality_observations",
         "source_utility_scorecard",
@@ -235,6 +237,26 @@ def main() -> None:
             """
         )
     }
+    accepted_enrichment_counts = {
+        row["enrichment_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT enrichment_type, COUNT(*) AS count
+            FROM accepted_enrichment_claims
+            GROUP BY enrichment_type
+            """
+        )
+    }
+    accepted_enrichment_role_counts = {
+        row["role"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT role, COUNT(*) AS count
+            FROM accepted_enrichment_claims
+            GROUP BY role
+            """
+        )
+    }
     warehouse_reproducibility_counts = {
         row["row_count_status"]: row["count"]
         for row in conn.execute(
@@ -252,6 +274,16 @@ def main() -> None:
             SELECT state_machine_status, COUNT(*) AS count
             FROM training_state_machine_audit
             GROUP BY state_machine_status
+            """
+        )
+    }
+    transition_rollup_scope_counts = {
+        row["rollup_scope"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT rollup_scope, COUNT(*) AS count
+            FROM training_state_transition_rollups
+            GROUP BY rollup_scope
             """
         )
     }
@@ -456,6 +488,11 @@ def main() -> None:
         enrichment_acceptance_summary = json.loads(enrichment_acceptance_summary_path.read_text(encoding="utf-8"))
     else:
         enrichment_acceptance_summary = {}
+    accepted_enrichment_summary_path = ARTIFACTS / "accepted_enrichment_summary.json"
+    if accepted_enrichment_summary_path.exists():
+        accepted_enrichment_summary = json.loads(accepted_enrichment_summary_path.read_text(encoding="utf-8"))
+    else:
+        accepted_enrichment_summary = {}
     warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
     if warehouse_reproducibility_summary_path.exists():
         warehouse_reproducibility_summary = json.loads(
@@ -528,8 +565,11 @@ def main() -> None:
         "person_reconciliation_decision_counts": person_reconciliation_decision_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
         "enrichment_acceptance_counts": enrichment_acceptance_counts,
+        "accepted_enrichment_counts": accepted_enrichment_counts,
+        "accepted_enrichment_role_counts": accepted_enrichment_role_counts,
         "warehouse_reproducibility_counts": warehouse_reproducibility_counts,
         "state_machine_status_counts": state_machine_status_counts,
+        "training_state_transition_rollup_scope_counts": transition_rollup_scope_counts,
         "refresh_readiness_counts": refresh_readiness_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
@@ -557,6 +597,7 @@ def main() -> None:
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "enrichment_acceptance_summary": enrichment_acceptance_summary,
+        "accepted_enrichment_summary": accepted_enrichment_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,

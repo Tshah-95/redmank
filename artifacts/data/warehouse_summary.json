@@ -1,4 +1,37 @@
 {
+  "accepted_enrichment_counts": {
+    "publication": 5
+  },
+  "accepted_enrichment_role_counts": {
+    "fellow": 4,
+    "resident": 1
+  },
+  "accepted_enrichment_summary": {
+    "acceptance_policy": "A PubMed article candidate is materialized only when the acceptance audit marks it as machine_acceptance_candidate_cross_source: review-ready high anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person_key.",
+    "acceptance_status": "machine_acceptance_candidate_cross_source",
+    "accepted_enrichment_rows": 5,
+    "accepted_people": 3,
+    "by_claim_type": {
+      "pubmed_article_candidate": 5
+    },
+    "by_enrichment_type": {
+      "publication": 5
+    },
+    "by_person_key": {
+      "michelle munyikwa": 1,
+      "person_rachel-flaugh-md_86b3b2d22ed1": 1,
+      "samer mohandes": 3
+    },
+    "by_role": {
+      "fellow": 4,
+      "resident": 1
+    },
+    "csv": "artifacts/data/accepted_enrichment_claims.csv",
+    "display_safety_status": "accepted_for_enrichment_not_roster_truth",
+    "generated_at": "2026-06-02T10:32:10.601956+00:00",
+    "json": "artifacts/data/accepted_enrichment_claims.json",
+    "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
+  },
   "attending_biosketch_bridge_counts": {
     "dated_recent_official_biosketch_training_bridge_candidate": 3,
     "non_penn_training_context": 6,
@@ -156,6 +189,7 @@
     "email": 313
   },
   "counts": {
+    "accepted_enrichment_claims": 5,
     "attending_biosketch_bridge_candidates": 10,
     "attending_trend_reconciliation": 70,
     "career_events": 105,
@@ -202,7 +236,8 @@
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558,
-    "warehouse_reproducibility_audit": 35
+    "training_state_transition_rollups": 216,
+    "warehouse_reproducibility_audit": 37
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -463,7 +498,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T10:23:02.942386+00:00",
+  "generated_at": "2026-06-02T10:32:11.524995+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -1043,7 +1078,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T10:23:02.486414+00:00",
+    "generated_at": "2026-06-02T10:32:11.038957+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -1206,6 +1241,16 @@
     "by_change_type": {
       "added": 1558
     },
+    "by_rollup_scope": {
+      "corpus": 1,
+      "institution": 3,
+      "institution_role": 4,
+      "lifecycle_code": 13,
+      "program": 94,
+      "program_role": 95,
+      "role": 3,
+      "trainee_category": 3
+    },
     "canonical_key_count": 1558,
     "compare_date": "2026-06-02",
     "duplicate_canonical_key_count": 72,
@@ -1215,24 +1260,37 @@
     "snapshot_id": "training_states_2026-06-02_dffa6e406d83",
     "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
     "transition_event_rows": 1558,
-    "transition_events_csv": "artifacts/data/training_state_transition_events.csv"
+    "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
+    "transition_rollup_rows": 216,
+    "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
+  },
+  "training_state_transition_rollup_scope_counts": {
+    "corpus": 1,
+    "institution": 3,
+    "institution_role": 4,
+    "lifecycle_code": 13,
+    "program": 94,
+    "program_role": 95,
+    "role": 3,
+    "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 35
+    "ok": 37
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 35,
-    "audited_at": "2026-06-02T10:23:02.588672+00:00",
+    "artifact_rows": 37,
+    "audited_at": "2026-06-02T10:32:11.144387+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
+      "accepted_enrichment_ledger": 1,
       "attending_trend_input": 1,
       "attending_trend_ledger": 2,
       "contact_ledger": 1,
       "identity_enrichment_ledger": 1,
       "longitudinal_readiness_ledger": 4,
-      "longitudinal_snapshot_ledger": 3,
+      "longitudinal_snapshot_ledger": 4,
       "official_program_alias_ledger": 1,
       "official_program_denominator_ledger": 1,
       "official_program_gap_probe_ledger": 1,
@@ -1248,17 +1306,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 35
+      "ok": 37
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 58728448,
+    "sqlite_byte_size": 59097088,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "e2957514ded920bbe33b765ae120a053fcd954ec50e7b4a3ff1925a700f18bdd",
+    "sqlite_sha256": "879557db7524d05453334578a0788f96e548f98bd81082b7143fb594ab3d839f",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

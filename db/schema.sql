@@ -442,6 +442,26 @@ CREATE TABLE IF NOT EXISTS training_state_transition_events (
   UNIQUE(old_snapshot_id, new_snapshot_id, canonical_person_program_key)
 );
 
+CREATE TABLE IF NOT EXISTS training_state_transition_rollups (
+  rollup_key TEXT PRIMARY KEY,
+  old_snapshot_id TEXT,
+  new_snapshot_id TEXT NOT NULL,
+  rollup_scope TEXT NOT NULL,
+  rollup_value TEXT NOT NULL,
+  institution TEXT,
+  role TEXT,
+  trainee_category TEXT,
+  program_name TEXT,
+  lifecycle_code TEXT,
+  change_type TEXT NOT NULL,
+  transition_assurance TEXT NOT NULL,
+  expected_by_state_machine INTEGER NOT NULL DEFAULT 0,
+  event_count INTEGER NOT NULL DEFAULT 0,
+  review_event_count INTEGER NOT NULL DEFAULT 0,
+  expected_event_count INTEGER NOT NULL DEFAULT 0,
+  evidence_json TEXT
+);
+
 CREATE TABLE IF NOT EXISTS training_state_machine_audit (
   state_id INTEGER,
   person_key TEXT NOT NULL,
@@ -925,6 +945,31 @@ CREATE TABLE IF NOT EXISTS enrichment_acceptance_audit (
   recommended_next_action TEXT NOT NULL,
   evidence_json TEXT,
   audited_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS accepted_enrichment_claims (
+  accepted_enrichment_key TEXT PRIMARY KEY,
+  acceptance_key TEXT NOT NULL,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  enrichment_type TEXT NOT NULL,
+  claim_type TEXT NOT NULL,
+  claim_value TEXT NOT NULL,
+  source_key TEXT,
+  source_url TEXT,
+  acceptance_status TEXT NOT NULL,
+  assurance_level INTEGER NOT NULL DEFAULT 0,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  corroborating_source_count INTEGER NOT NULL DEFAULT 0,
+  corroborating_sources_json TEXT NOT NULL,
+  anchor_features_json TEXT NOT NULL,
+  acceptance_policy TEXT NOT NULL,
+  display_safety_status TEXT NOT NULL,
+  required_final_check TEXT NOT NULL,
+  evidence_json TEXT,
+  accepted_at TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS source_quality_observations (

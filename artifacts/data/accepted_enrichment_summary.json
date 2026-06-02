@@ -1,0 +1,26 @@
+{
+  "acceptance_policy": "A PubMed article candidate is materialized only when the acceptance audit marks it as machine_acceptance_candidate_cross_source: review-ready high anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person_key.",
+  "acceptance_status": "machine_acceptance_candidate_cross_source",
+  "accepted_enrichment_rows": 5,
+  "accepted_people": 3,
+  "by_claim_type": {
+    "pubmed_article_candidate": 5
+  },
+  "by_enrichment_type": {
+    "publication": 5
+  },
+  "by_person_key": {
+    "michelle munyikwa": 1,
+    "person_rachel-flaugh-md_86b3b2d22ed1": 1,
+    "samer mohandes": 3
+  },
+  "by_role": {
+    "fellow": 4,
+    "resident": 1
+  },
+  "csv": "artifacts/data/accepted_enrichment_claims.csv",
+  "display_safety_status": "accepted_for_enrichment_not_roster_truth",
+  "generated_at": "2026-06-02T10:32:10.601956+00:00",
+  "json": "artifacts/data/accepted_enrichment_claims.json",
+  "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
+}

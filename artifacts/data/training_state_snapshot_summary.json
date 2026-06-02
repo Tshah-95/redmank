@@ -2,6 +2,16 @@
   "by_change_type": {
     "added": 1558
   },
+  "by_rollup_scope": {
+    "corpus": 1,
+    "institution": 3,
+    "institution_role": 4,
+    "lifecycle_code": 13,
+    "program": 94,
+    "program_role": 95,
+    "role": 3,
+    "trainee_category": 3
+  },
   "canonical_key_count": 1558,
   "compare_date": "2026-06-02",
   "duplicate_canonical_key_count": 72,
@@ -11,5 +21,7 @@
   "snapshot_id": "training_states_2026-06-02_dffa6e406d83",
   "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
   "transition_event_rows": 1558,
-  "transition_events_csv": "artifacts/data/training_state_transition_events.csv"
+  "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
+  "transition_rollup_rows": 216,
+  "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
 }

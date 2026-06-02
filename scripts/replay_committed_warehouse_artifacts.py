@@ -43,8 +43,10 @@ CSV_TABLES = [
     ("program_refresh_expectations.csv", "program_refresh_expectations"),
     ("category_refresh_expectations.csv", "category_refresh_expectations"),
     ("training_state_transition_events.csv", "training_state_transition_events"),
+    ("training_state_transition_rollups.csv", "training_state_transition_rollups"),
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("warehouse_reproducibility_audit.csv", "warehouse_reproducibility_audit"),
+    ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),
 ]
 
 JSON_TABLES = [
@@ -89,6 +91,7 @@ def insert_rows(conn: sqlite3.Connection, table: str, rows: list[dict], delete_f
 def replay_training_state_snapshots(conn: sqlite3.Connection) -> dict[str, int]:
     snapshot_dir = ARTIFACTS / "training_state_snapshots"
     manifests = sorted(snapshot_dir.glob("*.json"))
+    conn.execute("DELETE FROM training_state_transition_rollups")
     conn.execute("DELETE FROM training_state_transition_events")
     conn.execute("DELETE FROM training_state_snapshot_rows")
     conn.execute("DELETE FROM training_state_snapshots")
