@@ -183,9 +183,22 @@ def write_snapshot_files(snapshot_id: str, rows: list[dict], csv_hash: str, sour
         writer.writerows(rows)
     canonical, duplicate_count = canonical_rows(rows)
     as_of_dates = sorted({row.get("as_of_date") or "" for row in rows if row.get("as_of_date")})
+    existing_manifest = {}
+    if manifest_path.exists():
+        try:
+            existing_manifest = read_manifest(manifest_path)
+        except json.JSONDecodeError:
+            existing_manifest = {}
+    created_at = datetime.now(timezone.utc).isoformat()
+    if (
+        existing_manifest.get("snapshot_id") == snapshot_id
+        and existing_manifest.get("corpus_fingerprint") == csv_hash
+        and existing_manifest.get("created_at")
+    ):
+        created_at = existing_manifest["created_at"]
     manifest = {
         "snapshot_id": snapshot_id,
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": created_at,
         "as_of_date": as_of_dates[-1] if as_of_dates else date.today().isoformat(),
         "source_export_path": str(source_path.relative_to(ROOT)),
         "snapshot_csv": str(csv_path.relative_to(ROOT)),

@@ -73,6 +73,7 @@
     "career_events": 105,
     "evidence_claims": 4744,
     "official_program_coverage_audit": 91,
+    "official_program_gap_reason_audit": 27,
     "official_program_source_candidates": 72,
     "official_program_source_probes": 29,
     "official_program_universe": 91,
@@ -255,7 +256,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T07:35:13.444919+00:00",
+  "generated_at": "2026-06-02T07:43:33.110536+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -377,6 +378,12 @@
     "covered_current_roster": 64,
     "discovered_no_current_roster": 12,
     "not_discovered": 15
+  },
+  "official_program_gap_reason_counts": {
+    "official_page_empty_or_low_content": 3,
+    "public_program_context_no_current_roster": 18,
+    "roster_source_candidate_needs_parser_or_manual_review": 1,
+    "source_already_loaded_related_program_review": 5
   },
   "official_program_source_candidate_counts": {
     "low_value_candidate": 5,

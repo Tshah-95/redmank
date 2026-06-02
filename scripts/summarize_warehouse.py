@@ -39,6 +39,7 @@ def main() -> None:
         "official_program_coverage_audit",
         "official_program_source_probes",
         "official_program_source_candidates",
+        "official_program_gap_reason_audit",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -147,6 +148,16 @@ def main() -> None:
             """
         )
     }
+    official_program_gap_reason_counts = {
+        row["gap_reason_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT gap_reason_status, COUNT(*) AS count
+            FROM official_program_gap_reason_audit
+            GROUP BY gap_reason_status
+            """
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -209,6 +220,7 @@ def main() -> None:
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
+        "official_program_gap_reason_counts": official_program_gap_reason_counts,
         "organization_category_counts": category_counts,
         "training_state_machine_summary": state_machine_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,

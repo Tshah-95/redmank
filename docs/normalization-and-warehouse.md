@@ -45,6 +45,7 @@ Core tables:
 - `official_program_coverage_audit`: comparison of official denominator programs to captured current roster memberships and discovered source pages.
 - `official_program_source_probes`: reachability, title, content hash, and page-signal observations for official program gap URLs.
 - `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
+- `official_program_gap_reason_audit`: deterministic reason ledger for uncovered official programs, separating context-only pages, parser/manual-review candidates, low-content official pages, related loaded-source alias reviews, and broader-discovery gaps.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
 - `program_lifecycle_rules`: local lifecycle codes and nominal-duration assumptions used to interpret training states over time.
@@ -83,6 +84,8 @@ It emits:
 - `penn_gme_program_coverage_summary.json`: denominator counts by program type and coverage status.
 - `penn_gme_gap_source_candidates.csv` / `.json`: prioritized next-source queue for programs without captured roster people.
 - `penn_gme_gap_source_probes.json`: page-level probe evidence, including reachability, title, content hash, roster/context term counts, and errors.
+- `hup_gap_reason_audit.csv` / `.json`: deterministic reason ledger for every uncovered official program.
+- `hup_gap_reason_summary.json`: counts by gap reason and recommended next action.
 
 This is deliberately separate from person scraping. A source crawler can find a program page without finding a usable roster, and a roster scraper can capture people without proving the full official denominator. Keeping both layers lets future runs show changes at several levels:
 
@@ -93,6 +96,16 @@ This is deliberately separate from person scraping. A source crawler can find a 
 The gap-source queue is also deliberately separate from person evidence. It lets the next scraper prioritize likely roster URLs, such as `current-residents`, `current-fellows`, `resident-profiles`, and `meet-our-fellow` pages, while keeping program overview pages and unreachable URLs out of the core person corpus until they yield named public trainees.
 
 `scripts/scrape_penn_gme_gap_rosters.py` consumes only high-priority roster-source candidates and writes a separate `penn_gme_gap_roster_people.json` layer. It currently supports explicit page structures only: Penn Medicine bio cards, PSOM profile blocks, WordPress/Elementor heading-plus-name lists, and Dental accordion headers. Unsupported pages remain queued rather than becoming weak person claims.
+
+`scripts/audit_hup_gap_reasons.py` reads the official denominator, coverage audit, source probes, source candidates, and already-loaded source URLs. Its job is not to scrape new people. It classifies why each official uncovered program remains uncovered:
+
+- `source_already_loaded_related_program_review`: the likely source URL is already represented by accepted people under a related program label, so the denominator/alias map needs review.
+- `roster_source_candidate_needs_parser_or_manual_review`: a roster-like candidate URL exists but has not yielded accepted people for the official program.
+- `official_page_empty_or_low_content`: the public official URL is reachable but effectively empty or too thin to support extraction.
+- `public_program_context_no_current_roster`: public pages describe the program but do not expose current trainee roster structure.
+- `candidate_sources_low_signal` or `not_discovered_by_current_strategy`: discovery needs to broaden before scraping should create person records.
+
+This is the reconciliation layer between source discovery and roster extraction. It prevents the corpus from interpreting all remaining official gaps as equal and gives future agents a specific next action for each program.
 
 ## Recursive Enrichment Loop
 

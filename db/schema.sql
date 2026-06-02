@@ -142,6 +142,35 @@ CREATE TABLE IF NOT EXISTS official_program_source_candidates (
   evidence_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS official_program_gap_reason_audit (
+  official_program_key TEXT PRIMARY KEY REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  department TEXT,
+  program_type TEXT NOT NULL,
+  program_name TEXT NOT NULL,
+  coverage_status TEXT NOT NULL,
+  gap_reason_status TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  reason_confidence REAL NOT NULL DEFAULT 0.0,
+  candidate_count INTEGER NOT NULL DEFAULT 0,
+  roster_candidate_count INTEGER NOT NULL DEFAULT 0,
+  context_candidate_count INTEGER NOT NULL DEFAULT 0,
+  low_value_candidate_count INTEGER NOT NULL DEFAULT 0,
+  probed_url_count INTEGER NOT NULL DEFAULT 0,
+  reachable_probe_count INTEGER NOT NULL DEFAULT 0,
+  low_content_probe_count INTEGER NOT NULL DEFAULT 0,
+  max_roster_term_count INTEGER NOT NULL DEFAULT 0,
+  max_context_term_count INTEGER NOT NULL DEFAULT 0,
+  related_loaded_source_count INTEGER NOT NULL DEFAULT 0,
+  related_loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  top_candidate_url TEXT,
+  top_candidate_title TEXT,
+  top_candidate_status TEXT,
+  top_candidate_priority INTEGER,
+  top_candidate_confidence REAL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,

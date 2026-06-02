@@ -1,0 +1,34 @@
+{
+  "by_coverage_status": {
+    "discovered_no_current_roster": 12,
+    "not_discovered": 15
+  },
+  "by_gap_reason_status": {
+    "official_page_empty_or_low_content": 3,
+    "public_program_context_no_current_roster": 18,
+    "roster_source_candidate_needs_parser_or_manual_review": 1,
+    "source_already_loaded_related_program_review": 5
+  },
+  "by_program_type_and_reason": {
+    "fellowship:official_page_empty_or_low_content": 2,
+    "fellowship:public_program_context_no_current_roster": 15,
+    "fellowship:roster_source_candidate_needs_parser_or_manual_review": 1,
+    "fellowship:source_already_loaded_related_program_review": 3,
+    "residency:official_page_empty_or_low_content": 1,
+    "residency:public_program_context_no_current_roster": 3,
+    "residency:source_already_loaded_related_program_review": 2
+  },
+  "by_recommended_next_action": {
+    "find_alternate_public_source_or_record_no_public_roster": 3,
+    "inspect_candidate_roster_page_and_add_supported_parser": 1,
+    "record_context_source_and_monitor_for_roster_or_alumni_link": 18,
+    "review_program_alias_or_official_denominator_mapping": 5
+  },
+  "csv": "artifacts/data/hup_gap_reason_audit.csv",
+  "gap_rows": 27,
+  "generated_at": "2026-06-02T07:43:33.064248+00:00",
+  "json": "artifacts/data/hup_gap_reason_audit.json",
+  "low_content_gap_rows": 3,
+  "related_loaded_source_gap_rows": 5,
+  "roster_candidate_gap_rows": 6
+}
