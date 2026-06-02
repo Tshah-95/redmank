@@ -75,6 +75,7 @@ CSV_TABLES = [
     ("person_enrichment_queue.csv", "person_enrichment_work_queue"),
     ("person_enrichment_execution_readiness.csv", "person_enrichment_execution_readiness"),
     ("person_enrichment_execution_readiness_rollups.csv", "person_enrichment_execution_readiness_rollups"),
+    ("person_enrichment_execution_batches.csv", "person_enrichment_execution_batches"),
     ("person_enrichment_dossiers.csv", "person_enrichment_dossiers"),
     ("person_evidence_reviewer_decisions.csv", "person_evidence_reviewer_decisions"),
     ("person_evidence_reviewer_decision_queue.csv", "person_evidence_reviewer_decision_queue"),

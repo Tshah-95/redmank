@@ -44,6 +44,7 @@ def main() -> None:
         "person_enrichment_work_queue",
         "person_enrichment_execution_readiness",
         "person_enrichment_execution_readiness_rollups",
+        "person_enrichment_execution_batches",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",
@@ -965,6 +966,36 @@ def main() -> None:
             "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_new_parser = 1"
         ).fetchone()[0],
     }
+    person_enrichment_execution_batch_status_counts = {
+        row["batch_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT batch_status, COUNT(*) AS count
+            FROM person_enrichment_execution_batches
+            GROUP BY batch_status
+            """
+        )
+    }
+    person_enrichment_execution_batch_task_counts = {
+        row["task_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT task_type, COUNT(*) AS count
+            FROM person_enrichment_execution_batches
+            GROUP BY task_type
+            """
+        )
+    }
+    person_enrichment_execution_batch_lane_counts = {
+        row["execution_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT execution_lane, COUNT(*) AS count
+            FROM person_enrichment_execution_batches
+            GROUP BY execution_lane
+            """
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -1143,6 +1174,20 @@ def main() -> None:
         )
     else:
         person_enrichment_dossier_summary = {}
+    person_enrichment_execution_readiness_summary_path = ARTIFACTS / "person_enrichment_execution_readiness_summary.json"
+    if person_enrichment_execution_readiness_summary_path.exists():
+        person_enrichment_execution_readiness_summary = json.loads(
+            person_enrichment_execution_readiness_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_enrichment_execution_readiness_summary = {}
+    person_enrichment_execution_batch_summary_path = ARTIFACTS / "person_enrichment_execution_batch_summary.json"
+    if person_enrichment_execution_batch_summary_path.exists():
+        person_enrichment_execution_batch_summary = json.loads(
+            person_enrichment_execution_batch_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_enrichment_execution_batch_summary = {}
     warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
     if warehouse_reproducibility_summary_path.exists():
         warehouse_reproducibility_summary = json.loads(
@@ -1338,6 +1383,9 @@ def main() -> None:
         "person_enrichment_execution_lane_counts": person_enrichment_execution_lane_counts,
         "person_enrichment_automation_status_counts": person_enrichment_automation_status_counts,
         "person_enrichment_execution_requirement_counts": person_enrichment_execution_requirement_counts,
+        "person_enrichment_execution_batch_status_counts": person_enrichment_execution_batch_status_counts,
+        "person_enrichment_execution_batch_task_counts": person_enrichment_execution_batch_task_counts,
+        "person_enrichment_execution_batch_lane_counts": person_enrichment_execution_batch_lane_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "medical_student_source_audit_counts": medical_student_source_audit_counts,
         "organization_category_counts": category_counts,
@@ -1366,6 +1414,8 @@ def main() -> None:
         "contact_assurance_summary": contact_assurance_summary,
         "contact_verification_contract_summary": contact_verification_contract_summary,
         "person_enrichment_dossier_summary": person_enrichment_dossier_summary,
+        "person_enrichment_execution_readiness_summary": person_enrichment_execution_readiness_summary,
+        "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,

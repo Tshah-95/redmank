@@ -565,7 +565,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     execution_readiness_summary = read_json(ARTIFACTS / "person_enrichment_execution_readiness_summary.json", {})
+    execution_batch_summary = read_json(ARTIFACTS / "person_enrichment_execution_batch_summary.json", {})
     readiness_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_execution_readiness")
+    execution_batch_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_execution_batches")
     readiness_existing_collector = scalar(
         conn,
         """
@@ -1398,6 +1400,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Makes collector availability and parser gaps explicit per queued person task",
                 "Separates network collection, manual review, script-extension, and new-parser requirements",
                 "Rolls execution readiness up by task type, source family, automation status, and priority band",
+                "Adds resumable execution batches with command hints, evidence gates, recency policy, provenance policy, and top people samples",
             ],
             limitations=[
                 "Readiness is an execution map, not collected evidence",
@@ -1407,11 +1410,13 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             recommended_next_action="execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile",
             evidence={
                 "readiness_rows": readiness_rows,
+                "execution_batch_rows": execution_batch_rows,
                 "existing_collector_or_partial_collector_rows": readiness_existing_collector,
                 "manual_review_required_rows": readiness_manual,
                 "script_extension_required_rows": readiness_script_extension,
                 "new_parser_required_rows": readiness_new_parser,
                 "execution_readiness_summary": execution_readiness_summary,
+                "execution_batch_summary": execution_batch_summary,
             },
         ),
     ]

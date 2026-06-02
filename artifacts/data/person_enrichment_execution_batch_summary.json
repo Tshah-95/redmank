@@ -1,0 +1,157 @@
+{
+  "batch_rows": 8,
+  "blocked_batch_rows": 0,
+  "by_batch_status": {
+    "manual_review_ready": 1,
+    "network_collection_ready": 1,
+    "network_collection_then_manual_review_ready": 6
+  },
+  "by_execution_lane": {
+    "collector_then_manual_normalization": 1,
+    "collector_with_reconciliation_required": 1,
+    "dependent_on_roster_or_profile_refresh": 1,
+    "queue_driven_collector_available": 4,
+    "reviewer_decision_required": 1
+  },
+  "by_priority_band": {
+    "critical": 2,
+    "high": 2,
+    "low": 1,
+    "medium": 3
+  },
+  "by_source_family": {
+    "contact": 1,
+    "normalization": 1,
+    "official_profile": 1,
+    "official_roster": 1,
+    "prior_training": 2,
+    "research": 1,
+    "review_queue": 1
+  },
+  "by_task_type": {
+    "current_roster_state_reconciliation": 1,
+    "evidence_reconciliation_review": 1,
+    "official_profile_search": 1,
+    "organization_alias_review": 1,
+    "public_contact_verification": 1,
+    "research_identity_search": 1,
+    "source_medical_school_background": 1,
+    "source_residency_background": 1
+  },
+  "csv": "artifacts/data/person_enrichment_execution_batches.csv",
+  "generated_at": "2026-06-02T16:28:52.762479+00:00",
+  "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
+  "json": "artifacts/data/person_enrichment_execution_batches.json",
+  "manual_review_batch_rows": 7,
+  "network_batch_rows": 7,
+  "policy": "Execution batches are non-mutating. They make collection and review work resumable; accepted facts only change through downstream assurance ledgers.",
+  "ready_batch_rows": 8,
+  "task_rows": 6346,
+  "top_batches": [
+    {
+      "batch_key": "enrichment_batch_9dd14a59cae2785ff41b",
+      "batch_status": "network_collection_then_manual_review_ready",
+      "command_hint": "python3 scripts/scrape_penn_training.py && python3 scripts/discover_penn_affiliated_sources.py && python3 scripts/scrape_penn_affiliated_rosters.py",
+      "execution_order": 1,
+      "max_priority": 100,
+      "next_system_action": "run_or_extend_official_roster_collectors_then_reconcile_state_machine",
+      "person_count": 1522,
+      "priority_band": "critical",
+      "source_family": "official_roster",
+      "task_count": 1522,
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_key": "enrichment_batch_06740d7f432ca5f28321",
+      "batch_status": "manual_review_ready",
+      "command_hint": "review artifacts/data/person_evidence_review_packets.csv and record decisions in evidence_reconciliation_decisions.csv policy lanes",
+      "execution_order": 2,
+      "max_priority": 99,
+      "next_system_action": "review_high_priority_evidence_packets_and_record_accept_or_reject_decisions",
+      "person_count": 844,
+      "priority_band": "critical",
+      "source_family": "review_queue",
+      "task_count": 844,
+      "task_type": "evidence_reconciliation_review"
+    },
+    {
+      "batch_key": "enrichment_batch_3ea2b33a1ae090b7073e",
+      "batch_status": "network_collection_ready",
+      "command_hint": "python3 scripts/discover_trainee_official_profiles.py --max-people 556 --max-results 4 --probe-pages --sleep 0.2",
+      "execution_order": 3,
+      "max_priority": 92,
+      "next_system_action": "run_official_trainee_profile_discovery_then_reconcile_candidates",
+      "person_count": 608,
+      "priority_band": "high",
+      "source_family": "official_profile",
+      "task_count": 608,
+      "task_type": "official_profile_search"
+    },
+    {
+      "batch_key": "enrichment_batch_418cebd03e14131b2e33",
+      "batch_status": "network_collection_then_manual_review_ready",
+      "command_hint": "python3 scripts/discover_prior_training_background.py --max-queries-per-task 2 --max-results 4 --search-timeout 8 --sleep 0.2",
+      "execution_order": 4,
+      "max_priority": 89,
+      "next_system_action": "run_prior_training_background_discovery_then_reconcile_candidates",
+      "person_count": 90,
+      "priority_band": "high",
+      "source_family": "prior_training",
+      "task_count": 90,
+      "task_type": "source_residency_background"
+    },
+    {
+      "batch_key": "enrichment_batch_cbe75f619aca43a94ef2",
+      "batch_status": "network_collection_then_manual_review_ready",
+      "command_hint": "python3 scripts/discover_prior_training_background.py --max-queries-per-task 2 --max-results 4 --search-timeout 8 --sleep 0.2",
+      "execution_order": 5,
+      "max_priority": 84,
+      "next_system_action": "run_prior_training_background_discovery_then_reconcile_candidates",
+      "person_count": 231,
+      "priority_band": "medium",
+      "source_family": "prior_training",
+      "task_count": 231,
+      "task_type": "source_medical_school_background"
+    },
+    {
+      "batch_key": "enrichment_batch_f379f3115fe754549865",
+      "batch_status": "network_collection_then_manual_review_ready",
+      "command_hint": "python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --skip-existing-source pubmed_eutilities --sleep 0.34",
+      "execution_order": 6,
+      "max_priority": 81,
+      "next_system_action": "run_queue_driven_research_candidate_collection_then_article_level_reconciliation",
+      "person_count": 1178,
+      "priority_band": "medium",
+      "source_family": "research",
+      "task_count": 1178,
+      "task_type": "research_identity_search"
+    },
+    {
+      "batch_key": "enrichment_batch_822cf63665421818ec14",
+      "batch_status": "network_collection_then_manual_review_ready",
+      "command_hint": "python3 scripts/discover_organization_identifier_candidates.py --limit 200 --min-mentions 2 --candidates-per-org 3 --sleep 0.05",
+      "execution_order": 7,
+      "max_priority": 78,
+      "next_system_action": "run_identifier_candidate_collection_then_review_alias_collapses",
+      "person_count": 617,
+      "priority_band": "medium",
+      "source_family": "normalization",
+      "task_count": 617,
+      "task_type": "organization_alias_review"
+    },
+    {
+      "batch_key": "enrichment_batch_ff63852d36361ac70be9",
+      "batch_status": "network_collection_then_manual_review_ready",
+      "command_hint": "refresh official roster/profile sources and run scripts/audit_contact_assurance.py",
+      "execution_order": 8,
+      "max_priority": 52,
+      "next_system_action": "refresh_public_contact_sources_and_reaudit_display_safety",
+      "person_count": 1256,
+      "priority_band": "low",
+      "source_family": "contact",
+      "task_count": 1256,
+      "task_type": "public_contact_verification"
+    }
+  ],
+  "total_batch_person_impact_count": 6346
+}

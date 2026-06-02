@@ -2143,6 +2143,44 @@ CREATE TABLE IF NOT EXISTS person_enrichment_execution_readiness_rollups (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_enrichment_execution_batches (
+  batch_key TEXT PRIMARY KEY,
+  task_type TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  priority_band TEXT NOT NULL,
+  execution_lane TEXT NOT NULL,
+  automation_status TEXT NOT NULL,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  batch_status TEXT NOT NULL,
+  task_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  role_counts_json TEXT NOT NULL,
+  program_count INTEGER NOT NULL DEFAULT 0,
+  top_programs TEXT,
+  max_priority INTEGER NOT NULL DEFAULT 0,
+  min_priority INTEGER NOT NULL DEFAULT 0,
+  critical_task_count INTEGER NOT NULL DEFAULT 0,
+  network_required_count INTEGER NOT NULL DEFAULT 0,
+  manual_review_required_count INTEGER NOT NULL DEFAULT 0,
+  script_extension_required_count INTEGER NOT NULL DEFAULT 0,
+  new_parser_required_count INTEGER NOT NULL DEFAULT 0,
+  existing_collector TEXT NOT NULL,
+  command_hint TEXT NOT NULL,
+  input_artifacts_json TEXT NOT NULL,
+  output_artifacts_json TEXT NOT NULL,
+  expected_claim_types_json TEXT NOT NULL,
+  evidence_requirement TEXT NOT NULL,
+  acceptance_rule TEXT NOT NULL,
+  recency_policy TEXT NOT NULL,
+  provenance_policy TEXT NOT NULL,
+  next_system_action TEXT NOT NULL,
+  top_people_json TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  blocked_reason TEXT,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,
