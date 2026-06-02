@@ -101,6 +101,30 @@ def main() -> None:
         ORDER BY event_type, status
         """,
     )
+    broad_program_counts = rows(
+        conn,
+        """
+        SELECT pr.program_name, p.role, COUNT(*) AS count
+        FROM person_program_memberships m
+        JOIN programs pr ON pr.program_key = m.program_key
+        JOIN people p ON p.person_key = m.person_key
+        WHERE m.population = 'penn_affiliated_current_trainees'
+        GROUP BY pr.program_name, p.role
+        ORDER BY count DESC, pr.program_name, p.role
+        LIMIT 40
+        """,
+    )
+    generic_program_labels = rows(
+        conn,
+        """
+        SELECT pr.program_name, COUNT(*) AS count
+        FROM person_program_memberships m
+        JOIN programs pr ON pr.program_key = m.program_key
+        WHERE pr.program_name IN ('Residents', 'Fellows')
+        GROUP BY pr.program_name
+        ORDER BY pr.program_name
+        """,
+    )
     contact_counts = rows(
         conn,
         """
@@ -122,6 +146,8 @@ def main() -> None:
         "pubmed_feature_distribution": pubmed_features,
         "penn_affiliated_discovery": broad_discovery,
         "career_event_counts": career_events,
+        "broad_program_counts": broad_program_counts,
+        "generic_program_labels": generic_program_labels,
         "contact_counts": contact_counts,
     }
     if openalex_features:
@@ -147,6 +173,14 @@ def main() -> None:
         *md_table(broad_discovery, ["classification", "count"]),
         "",
         "Interpretation: `trainee_roster_candidate` is a review queue, not a canonical roster count. Program-context pages can mention residents/fellows without listing people, and some faculty pages share the same bio components as trainee pages.",
+        "",
+        "## Penn-Wide Program Categorization",
+        "",
+        *md_table(broad_program_counts, ["program_name", "role", "count"]),
+        "",
+        f"Generic `Residents`/`Fellows` program labels remaining: {sum(row['count'] for row in generic_program_labels)}.",
+        "",
+        "Learning: program names often require URL-plus-section inference. Page titles alone are too weak because official pages can be titled `Residents` or `Fellows`, while one source page can contain multiple program sections.",
         "",
         "## Evidence Counts",
         "",

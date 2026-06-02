@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T04:34:01.624396+00:00
+Generated: 2026-06-02T04:52:57.858311+00:00
 
 ## What This Pass Did
 
@@ -16,6 +16,39 @@ This pass widened Penn source discovery beyond Department of Medicine, then ran 
 | attending_faculty_candidate | 34 |
 
 Interpretation: `trainee_roster_candidate` is a review queue, not a canonical roster count. Program-context pages can mention residents/fellows without listing people, and some faculty pages share the same bio components as trainee pages.
+
+## Penn-Wide Program Categorization
+
+| program_name | role | count |
+| --- | --- | --- |
+| General Surgery Residency | resident | 75 |
+| Diagnostic Radiology Residency | resident | 54 |
+| Plastic Surgery Residency | resident | 22 |
+| Urology Residency | resident | 22 |
+| Ophthalmology Residency | resident | 20 |
+| Interventional Radiology Integrated Residency | resident | 19 |
+| Cardiothoracic Surgery Residency | resident | 15 |
+| Trauma and Surgical Critical Care Fellowship | fellow | 12 |
+| Neuroradiology Fellowship | fellow | 11 |
+| Ophthalmology Fellowship | fellow | 10 |
+| Abdominal Imaging Fellowship | fellow | 9 |
+| Vascular Surgery Integrated Residency | resident | 9 |
+| Microvascular Reconstructive Surgery Fellowship | fellow | 5 |
+| Thoracic Surgery Fellowship - Cardiac Track | fellow | 4 |
+| Vascular Surgery Fellowship | fellow | 4 |
+| Advanced Musculoskeletal Fellowship | fellow | 3 |
+| Transplant Surgery Fellowship | fellow | 3 |
+| Aortic Surgery Fellowship | fellow | 2 |
+| Nuclear Radiology Fellowship | fellow | 2 |
+| ABR Alternate Pathway to Certification | fellow | 1 |
+| Advanced Nuclear Radiology Fellowship | fellow | 1 |
+| Cardiothoracic Fellowship | fellow | 1 |
+| Cardiothoracic Transplantation Surgery Fellowship | fellow | 1 |
+| Oncologic Imaging Fellowship | fellow | 1 |
+
+Generic `Residents`/`Fellows` program labels remaining: 0.
+
+Learning: program names often require URL-plus-section inference. Page titles alone are too weak because official pages can be titled `Residents` or `Fellows`, while one source page can contain multiple program sections.
 
 ## Evidence Counts
 

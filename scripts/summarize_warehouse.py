@@ -46,6 +46,18 @@ def main() -> None:
         row["source_key"]: row["count"]
         for row in conn.execute("SELECT source_key, COUNT(*) AS count FROM evidence_claims GROUP BY source_key")
     }
+    role_counts = {
+        row["role"]: row["count"]
+        for row in conn.execute("SELECT role, COUNT(*) AS count FROM people GROUP BY role")
+    }
+    generic_program_label_count = conn.execute(
+        """
+        SELECT COUNT(*)
+        FROM person_program_memberships m
+        JOIN programs p ON p.program_key = m.program_key
+        WHERE p.program_name IN ('Residents', 'Fellows')
+        """
+    ).fetchone()[0]
     career_event_counts = {
         row["event_type"]: row["count"]
         for row in conn.execute("SELECT event_type, COUNT(*) AS count FROM career_events GROUP BY event_type")
@@ -64,6 +76,8 @@ def main() -> None:
         "database_path": str(DB.relative_to(ROOT)),
         "counts": counts,
         "resolver_counts": resolver_counts,
+        "role_counts": role_counts,
+        "generic_program_label_count": generic_program_label_count,
         "evidence_status_counts": evidence_status_counts,
         "evidence_source_counts": evidence_source_counts,
         "career_event_counts": career_event_counts,

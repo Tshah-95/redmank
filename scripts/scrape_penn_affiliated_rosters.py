@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlparse
@@ -29,6 +30,20 @@ except ModuleNotFoundError as exc:
 
 OUT = Path("artifacts/data")
 DISCOVERY = OUT / "penn_affiliated_source_discovery.json"
+PROGRAM_SLUG_OVERRIDES = {
+    "aortic-surgery-fellowship": "Aortic Surgery Fellowship",
+    "cardiothoracic-residency": "Cardiothoracic Surgery Residency",
+    "cardiothoracic-transplantation-surgery-fellowship": "Cardiothoracic Transplantation Surgery Fellowship",
+    "general-surgery-residency": "General Surgery Residency",
+    "microvascular-reconstructive-surgery-fellowship": "Microvascular Reconstructive Surgery Fellowship",
+    "plastic-surgery": "Plastic Surgery Residency",
+    "thoracic-surgery-fellowship-cardiac-track": "Thoracic Surgery Fellowship - Cardiac Track",
+    "transplant-fellowship": "Transplant Surgery Fellowship",
+    "trauma-and-surgical-critical-care-fellowship": "Trauma and Surgical Critical Care Fellowship",
+    "urology-residency": "Urology Residency",
+    "vascular-surgery-fellowship": "Vascular Surgery Fellowship",
+    "vascular-surgery-integrated-residency": "Vascular Surgery Integrated Residency",
+}
 
 
 def norm(text: str | None) -> str:
@@ -144,7 +159,61 @@ def infer_role(title: str, url: str) -> str:
     return "trainee"
 
 
-def infer_program(title: str, url: str) -> str:
+def infer_role_for_group(title: str, url: str, label: str) -> str:
+    label_lower = label.lower()
+    if "fellow" in label_lower:
+        return "fellow"
+    if any(token in label_lower for token in ["resident", "pgy", "intern", "cy", "lab resident"]):
+        return "resident"
+    return infer_role(title, url)
+
+
+def title_from_slug(slug: str) -> str:
+    if slug in PROGRAM_SLUG_OVERRIDES:
+        return PROGRAM_SLUG_OVERRIDES[slug]
+    words = []
+    for index, part in enumerate(slug.split("-")):
+        if index > 0 and part in {"and", "of", "to"}:
+            words.append(part)
+        else:
+            words.append(part.title())
+    return " ".join(part for part in words if part)
+
+
+def ensure_suffix(value: str, suffix: str) -> str:
+    if suffix.lower() in value.lower():
+        return value
+    return f"{value} {suffix}"
+
+
+def program_from_path(url: str, label: str) -> str:
+    path = urlparse(url).path.strip("/")
+    parts = path.split("/")
+    if "department-of-radiology" in path:
+        if path.endswith("diagnostic-radiology-residents"):
+            return "Diagnostic Radiology Residency"
+        if path.endswith("ir-integrated-residents"):
+            return "Interventional Radiology Integrated Residency"
+        if path.endswith("fellowships/meet-our-fellows") and label:
+            return ensure_suffix(label, "Fellowship")
+    if "ophthalmology" in path and "current-residents-and-fellows" in path:
+        return "Ophthalmology Fellowship" if "fellow" in label.lower() else "Ophthalmology Residency"
+    if "department-of-surgery" in path:
+        for marker, suffix in [("residencies", "Residency"), ("fellowships", "Fellowship")]:
+            if marker not in parts:
+                continue
+            marker_index = parts.index(marker)
+            if len(parts) <= marker_index + 1:
+                continue
+            program = title_from_slug(parts[marker_index + 1])
+            return ensure_suffix(program, suffix)
+    return ""
+
+
+def infer_program(title: str, url: str, label: str = "") -> str:
+    path_program = program_from_path(url, label)
+    if path_program:
+        return path_program
     title = re.sub(r"\s*[-|]\s*Penn Medicine.*$", "", title).strip()
     title = re.sub(r"^Meet Our\s+", "", title, flags=re.I)
     title = title.replace("Current Residents & Fellows", "Ophthalmology Residency and Fellowship")
@@ -176,8 +245,6 @@ def parse_source(session: requests.Session, source: dict) -> tuple[list[dict], d
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "lxml")
     title = source.get("title") or (norm(soup.title.get_text(" ")) if soup.title else "")
-    program = infer_program(title, url)
-    role = infer_role(title, url)
     rows = []
     for group in soup.select(".bio-list"):
         heading = group.find(["h1", "h2"], recursive=False)
@@ -185,6 +252,8 @@ def parse_source(session: requests.Session, source: dict) -> tuple[list[dict], d
         if not label:
             label_node = group.find_previous(["h1", "h2"])
             label = norm(label_node.get_text(" ")) if label_node else ""
+        program = infer_program(title, url, label)
+        role = infer_role_for_group(title, url, label)
         for bio in group.select(".bio"):
             name_node = bio.select_one(".bio__name")
             if not name_node:
@@ -238,6 +307,9 @@ def write_outputs(records: list[dict], source_meta: list[dict]) -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "sources_scraped": len(source_meta),
         "person_records": len(records),
+        "by_role": dict(sorted(Counter(row.get("role", "") for row in records).items())),
+        "by_program": dict(sorted(Counter(row.get("program", "") for row in records).items())),
+        "generic_program_label_count": sum(1 for row in records if row.get("program") in {"Residents", "Fellows"}),
         "by_source": {
             meta["source_key"]: sum(1 for row in records if row["source_key"] == meta["source_key"])
             for meta in source_meta

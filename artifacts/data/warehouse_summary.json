@@ -15,7 +15,7 @@
     "people": 984,
     "person_contacts": 292,
     "person_training_events": 1279,
-    "programs": 34,
+    "programs": 52,
     "source_quality_observations": 2,
     "source_utilities": 8,
     "sources": 1345
@@ -69,7 +69,8 @@
     "accepted": 1279,
     "candidate": 759
   },
-  "generated_at": "2026-06-02T04:34:01.603520+00:00",
+  "generated_at": "2026-06-02T04:52:57.836456+00:00",
+  "generic_program_label_count": 0,
   "organization_category_counts": {
     "clinical_training_site": 166,
     "graduate_institution": 18,
@@ -79,5 +80,10 @@
   "resolver_counts": {
     "cleaned_label": 665,
     "seeded_alias": 614
+  },
+  "role_counts": {
+    "fellow": 303,
+    "medical_student": 225,
+    "resident": 456
   }
 }

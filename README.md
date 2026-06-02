@@ -26,7 +26,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
-As of the latest local generation, the warehouse has 984 people: 466 residents, 293 fellows, and 225 public MSTP student-directory records. It also has 1,279 accepted roster/training evidence claims, 759 PubMed author-query research candidates, 292 public contact candidates, and 85 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
+As of the latest local generation, the warehouse has 984 people: 456 residents, 303 fellows, and 225 public MSTP student-directory records. It also has 1,279 accepted roster/training evidence claims, 759 PubMed author-query research candidates, 292 public contact candidates, and 85 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
 
 ## Reproduce
 
@@ -100,6 +100,7 @@ The initial methodology is conservative:
 - Store source metadata, including HTTP status and content hash. Redacted raw snapshots can be regenerated locally but are ignored by Git.
 - Deduplicate by normalized person name with manual aliases only when the same public corpus shows the variant.
 - Keep track and fellowship memberships as multi-valued fields instead of forcing one person into one category.
+- Infer broad Penn program names from page URL plus section heading when official roster page titles are generic, because pages like Radiology fellows contain multiple programs on one source page.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
