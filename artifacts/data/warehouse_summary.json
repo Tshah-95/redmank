@@ -463,7 +463,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T10:12:18.313259+00:00",
+  "generated_at": "2026-06-02T10:16:57.889210+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -996,8 +996,8 @@
   "source_utility_scorecard_counts": {
     "blocked_or_low_current_utility": 1,
     "discovery_or_review_only": 2,
-    "high_utility": 2,
-    "strong_with_known_limits": 10,
+    "high_utility": 3,
+    "strong_with_known_limits": 9,
     "useful_candidate_layer": 4
   },
   "source_utility_scorecard_summary": {
@@ -1005,8 +1005,8 @@
     "by_quality_band": {
       "blocked_or_low_current_utility": 1,
       "discovery_or_review_only": 2,
-      "high_utility": 2,
-      "strong_with_known_limits": 10,
+      "high_utility": 3,
+      "strong_with_known_limits": 9,
       "useful_candidate_layer": 4
     },
     "by_recommended_next_action": {
@@ -1014,10 +1014,10 @@
       "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
       "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
       "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
-      "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest": 1,
       "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
       "promote_cross_source_publication_candidates_after_final_duplicate_author_position_check": 1,
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
+      "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
@@ -1043,8 +1043,8 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T10:12:18.008046+00:00",
-    "high_utility_rows": 2,
+    "generated_at": "2026-06-02T10:16:57.458174+00:00",
+    "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
     "top_rows": [
@@ -1054,6 +1054,13 @@
         "score": 92.0,
         "scorecard_key": "official_roster_current_membership",
         "utility_label": "Official roster current-membership extraction"
+      },
+      {
+        "quality_band": "high_utility",
+        "recommended_next_action": "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest",
+        "score": 88.0,
+        "scorecard_key": "warehouse_reproducibility_provenance_audit",
+        "utility_label": "Warehouse reproducibility provenance audit"
       },
       {
         "quality_band": "high_utility",
@@ -1068,13 +1075,6 @@
         "score": 84.0,
         "scorecard_key": "training_state_machine_longitudinal_readiness",
         "utility_label": "Training state machine and longitudinal readiness"
-      },
-      {
-        "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
-        "score": 83.0,
-        "scorecard_key": "warehouse_reproducibility_provenance_audit",
-        "utility_label": "Warehouse reproducibility provenance audit"
       },
       {
         "quality_band": "strong_with_known_limits",
@@ -1218,14 +1218,13 @@
     "transition_events_csv": "artifacts/data/training_state_transition_events.csv"
   },
   "warehouse_reproducibility_counts": {
-    "binary_size_warning": 1,
-    "ok": 31
+    "ok": 32
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     "artifact_rows": 32,
-    "audited_at": "2026-06-02T10:12:18.107981+00:00",
-    "binary_size_warning_rows": 1,
+    "audited_at": "2026-06-02T10:16:57.561719+00:00",
+    "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
       "attending_trend_input": 1,
@@ -1248,14 +1247,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "binary_size_warning": 1,
-      "ok": 31
+      "ok": 32
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 58728448
+    "sqlite_byte_size": 58728448,
+    "sqlite_git_tracked": false,
+    "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
+    "sqlite_sha256": "d00923d09a54465379276dbb42183a89d83251761c230bd9228366f368656eba",
+    "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

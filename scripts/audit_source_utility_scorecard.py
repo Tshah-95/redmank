@@ -342,6 +342,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     reproducibility_mismatch_rows = int(warehouse_reproducibility_summary.get("row_count_mismatch_rows") or 0)
     reproducibility_missing_rows = int(warehouse_reproducibility_summary.get("required_missing_artifacts") or 0)
     reproducibility_binary_warnings = int(warehouse_reproducibility_summary.get("binary_size_warning_rows") or 0)
+    reproducibility_sqlite_git_tracked = bool(warehouse_reproducibility_summary.get("sqlite_git_tracked"))
+    reproducibility_sqlite_storage_policy = warehouse_reproducibility_summary.get("sqlite_storage_policy") or ""
 
     openalex_obs = conn.execute(
         """
@@ -759,18 +761,29 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             ),
             needs_review_records=reproducibility_mismatch_rows + reproducibility_missing_rows,
             blocked_records=reproducibility_binary_warnings,
-            score=83.0 if not (reproducibility_mismatch_rows or reproducibility_missing_rows) else 60.0,
+            score=88.0
+            if not (
+                reproducibility_mismatch_rows
+                or reproducibility_missing_rows
+                or reproducibility_binary_warnings
+                or reproducibility_sqlite_git_tracked
+            )
+            else 83.0
+            if not (reproducibility_mismatch_rows or reproducibility_missing_rows)
+            else 60.0,
             strengths=[
                 "Compares major flat artifacts to SQLite table counts",
                 "Stores artifact hashes and byte sizes for provenance review",
-                "Separates data mismatches from repository storage warnings",
+                "Separates data mismatches from repository storage policy",
             ],
             limitations=[
                 "Row-count parity does not prove semantic equivalence for every field",
-                "SQLite binary remains large for ordinary Git hosting",
+                "SQLite must be rebuilt locally from committed artifacts",
                 "Network-sourced artifacts still need source-specific refresh audits",
             ],
-            recommended_next_action="move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
+            recommended_next_action="retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest"
+            if reproducibility_sqlite_storage_policy == "generated_untracked_sqlite_warehouse"
+            else "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
             evidence=warehouse_reproducibility_summary,
         ),
         make_row(

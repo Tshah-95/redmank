@@ -42,7 +42,7 @@ The important distinction is accepted identifier versus identifier candidate. `o
 
 ## SQLite Model
 
-The warehouse is generated at `artifacts/data/redmank.sqlite`.
+The warehouse is generated locally at `artifacts/data/redmank.sqlite`. The SQLite file is ignored by Git; committed flat artifacts plus `artifacts/data/redmank_sqlite_manifest.json` preserve the expected hash, size, storage policy, and validation commands for a rebuilt local warehouse.
 
 Core tables:
 
@@ -80,7 +80,7 @@ Core tables:
 - `person_reconciliation_decisions`: queryable person/name-level reconciliation burden and review-readiness rollup.
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
-- `warehouse_reproducibility_audit`: artifact hash, size, and row-count parity ledger for proving that key flat files and SQLite tables agree.
+- `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.

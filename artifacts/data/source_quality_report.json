@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T10:12:18.075396+00:00",
+  "generated_at": "2026-06-02T10:16:57.526769+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -5838,8 +5838,8 @@
     "by_quality_band": {
       "blocked_or_low_current_utility": 1,
       "discovery_or_review_only": 2,
-      "high_utility": 2,
-      "strong_with_known_limits": 10,
+      "high_utility": 3,
+      "strong_with_known_limits": 9,
       "useful_candidate_layer": 4
     },
     "by_recommended_next_action": {
@@ -5847,10 +5847,10 @@
       "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
       "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
       "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
-      "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest": 1,
       "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
       "promote_cross_source_publication_candidates_after_final_duplicate_author_position_check": 1,
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
+      "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
@@ -5876,8 +5876,8 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T10:12:18.008046+00:00",
-    "high_utility_rows": 2,
+    "generated_at": "2026-06-02T10:16:57.458174+00:00",
+    "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
     "top_rows": [
@@ -5887,6 +5887,13 @@
         "score": 92.0,
         "scorecard_key": "official_roster_current_membership",
         "utility_label": "Official roster current-membership extraction"
+      },
+      {
+        "quality_band": "high_utility",
+        "recommended_next_action": "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest",
+        "score": 88.0,
+        "scorecard_key": "warehouse_reproducibility_provenance_audit",
+        "utility_label": "Warehouse reproducibility provenance audit"
       },
       {
         "quality_band": "high_utility",
@@ -5901,13 +5908,6 @@
         "score": 84.0,
         "scorecard_key": "training_state_machine_longitudinal_readiness",
         "utility_label": "Training state machine and longitudinal readiness"
-      },
-      {
-        "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
-        "score": 83.0,
-        "scorecard_key": "warehouse_reproducibility_provenance_audit",
-        "utility_label": "Warehouse reproducibility provenance audit"
       },
       {
         "quality_band": "strong_with_known_limits",
@@ -6164,21 +6164,21 @@
       "claim_surface": "artifact existence, row-count parity, content hashes, and repository-size pressure",
       "input_records": "32",
       "output_records": "32",
-      "accepted_records": "31",
+      "accepted_records": "32",
       "candidate_records": "0",
       "needs_review_records": "0",
       "review_ready_records": "0",
       "discovery_only_records": "0",
       "low_signal_records": "0",
       "coverage_gap_records": "0",
-      "blocked_records": "1",
-      "score": "83.0",
-      "quality_band": "strong_with_known_limits",
-      "strengths": "Compares major flat artifacts to SQLite table counts; Stores artifact hashes and byte sizes for provenance review; Separates data mismatches from repository storage warnings",
-      "limitations": "Row-count parity does not prove semantic equivalence for every field; SQLite binary remains large for ordinary Git hosting; Network-sourced artifacts still need source-specific refresh audits",
-      "recommended_next_action": "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
-      "evidence_json": "{\"acceptance_rule\": \"A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.\", \"artifact_rows\": 32, \"audited_at\": \"2026-06-02T10:12:17.793691+00:00\", \"binary_size_warning_rows\": 1, \"by_artifact_role\": {\"acceptance_ledger\": 1, \"attending_trend_input\": 1, \"attending_trend_ledger\": 2, \"contact_ledger\": 1, \"identity_enrichment_ledger\": 1, \"longitudinal_readiness_ledger\": 4, \"official_program_alias_ledger\": 1, \"official_program_denominator_ledger\": 1, \"official_program_gap_probe_ledger\": 1, \"official_program_gap_reason_ledger\": 1, \"official_program_gap_source_ledger\": 1, \"program_identifier_ledger\": 3, \"program_lifecycle_ledger\": 1, \"reconciliation_ledger\": 3, \"source_observation_ledger\": 1, \"source_quality_ledger\": 1, \"sqlite_warehouse_binary\": 1, \"state_machine_ledger\": 3, \"warehouse_export\": 4}, \"by_row_count_status\": {\"binary_size_warning\": 1, \"ok\": 31}, \"csv\": \"artifacts/data/warehouse_reproducibility_audit.csv\", \"github_recommended_file_limit_bytes\": 52428800, \"json\": \"artifacts/data/warehouse_reproducibility_audit.json\", \"required_missing_artifacts\": 0, \"row_count_mismatch_rows\": 0, \"sqlite_byte_size\": 58724352}",
-      "audited_at": "2026-06-02T10:12:18.008046+00:00"
+      "blocked_records": "0",
+      "score": "88.0",
+      "quality_band": "high_utility",
+      "strengths": "Compares major flat artifacts to SQLite table counts; Stores artifact hashes and byte sizes for provenance review; Separates data mismatches from repository storage policy",
+      "limitations": "Row-count parity does not prove semantic equivalence for every field; SQLite must be rebuilt locally from committed artifacts; Network-sourced artifacts still need source-specific refresh audits",
+      "recommended_next_action": "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest",
+      "evidence_json": "{\"acceptance_rule\": \"A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.\", \"artifact_rows\": 32, \"audited_at\": \"2026-06-02T10:16:57.107388+00:00\", \"binary_size_warning_rows\": 0, \"by_artifact_role\": {\"acceptance_ledger\": 1, \"attending_trend_input\": 1, \"attending_trend_ledger\": 2, \"contact_ledger\": 1, \"identity_enrichment_ledger\": 1, \"longitudinal_readiness_ledger\": 4, \"official_program_alias_ledger\": 1, \"official_program_denominator_ledger\": 1, \"official_program_gap_probe_ledger\": 1, \"official_program_gap_reason_ledger\": 1, \"official_program_gap_source_ledger\": 1, \"program_identifier_ledger\": 3, \"program_lifecycle_ledger\": 1, \"reconciliation_ledger\": 3, \"source_observation_ledger\": 1, \"source_quality_ledger\": 1, \"sqlite_warehouse_binary\": 1, \"state_machine_ledger\": 3, \"warehouse_export\": 4}, \"by_row_count_status\": {\"ok\": 32}, \"csv\": \"artifacts/data/warehouse_reproducibility_audit.csv\", \"github_recommended_file_limit_bytes\": 52428800, \"json\": \"artifacts/data/warehouse_reproducibility_audit.json\", \"required_missing_artifacts\": 0, \"row_count_mismatch_rows\": 0, \"sqlite_byte_size\": 58728448, \"sqlite_git_tracked\": false, \"sqlite_manifest\": \"artifacts/data/redmank_sqlite_manifest.json\", \"sqlite_sha256\": \"cf29b5a23ef13150b59f9b9c27e03234feb86c0b9be50154c0bc7083cd100530\", \"sqlite_storage_policy\": \"generated_untracked_sqlite_warehouse\"}",
+      "audited_at": "2026-06-02T10:16:57.458174+00:00"
     },
     {
       "scorecard_key": "openalex_author_search",

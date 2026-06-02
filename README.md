@@ -14,7 +14,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_mstp_students.json`: separate public MSTP student-directory extract.
 - `artifacts/data/penn_med_student_source_audit.csv`: source-access audit for public MSTP, protected MD-student directory, MD Program context, and MD-PhD graduate-directory cross-checks.
 - `artifacts/data/penn_med_student_source_audit_summary.json`: student-source access and capture-status counts.
-- `artifacts/data/redmank.sqlite`: SQLite warehouse built from the generated artifacts.
+- `artifacts/data/redmank.sqlite`: local generated SQLite warehouse built from the committed artifacts; ignored by Git once generated.
+- `artifacts/data/redmank_sqlite_manifest.json`: committed manifest for the local SQLite warehouse hash, size, storage policy, and validation commands.
 - SQLite tables `official_program_universe` and `official_program_coverage_audit`: queryable official-program denominator and coverage status.
 - `artifacts/data/warehouse_summary.json`: warehouse table counts and resolver status counts.
 - `artifacts/data/organization_review_queue.csv`: organization labels that need alias/identifier review.
@@ -84,7 +85,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_utility_scorecard.csv`: empirical source-utility scorecard across roster truth, denominator coverage, source discovery, research enrichment, attending trends, contact evidence, normalization, and longitudinal state-machine readiness.
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
-- `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and SQLite binary-size warnings.
+- `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
@@ -178,6 +179,8 @@ python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```
+
+`artifacts/data/redmank.sqlite` is a generated local warehouse, not a committed data blob. Rebuild it with `python3 scripts/build_sqlite.py`, run the downstream audit scripts above, and compare the resulting hash/storage metadata in `artifacts/data/redmank_sqlite_manifest.json`.
 
 OpenAlex author search is implemented as a candidate utility, but the latest full-corpus run hit sustained OpenAlex 429 throttling. Keep it as a resumable/polite enrichment lane rather than a default blocking rebuild step:
 

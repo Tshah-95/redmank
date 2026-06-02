@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import sqlite3
+import subprocess
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,6 +22,7 @@ SCHEMA = ROOT / "db" / "schema.sql"
 CSV_PATH = ARTIFACTS / "warehouse_reproducibility_audit.csv"
 JSON_PATH = ARTIFACTS / "warehouse_reproducibility_audit.json"
 SUMMARY_PATH = ARTIFACTS / "warehouse_reproducibility_summary.json"
+SQLITE_MANIFEST_PATH = ARTIFACTS / "redmank_sqlite_manifest.json"
 
 GITHUB_RECOMMENDED_FILE_LIMIT_BYTES = 50 * 1024 * 1024
 
@@ -167,12 +169,24 @@ def sqlite_count(conn: sqlite3.Connection, table: str | None) -> int | None:
     return int(conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0])
 
 
+def is_git_tracked(rel_path: str) -> bool:
+    result = subprocess.run(
+        ["git", "ls-files", "--error-unmatch", rel_path],
+        cwd=ROOT,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    return result.returncode == 0
+
+
 def classify_row(spec: tuple, conn: sqlite3.Connection, audited_at: str) -> dict:
     rel_path, role, artifact_format, table, required = spec
     path = ROOT / rel_path
     exists = path.exists()
+    git_tracked = is_git_tracked(rel_path)
     byte_size = path.stat().st_size if exists else 0
-    file_hash = sha256_file(path) if exists else ""
+    file_hash = "" if rel_path == "artifacts/data/redmank.sqlite" else sha256_file(path) if exists else ""
     artifact_rows = None
     if exists and artifact_format == "csv":
         artifact_rows = csv_rows(path)
@@ -188,7 +202,11 @@ def classify_row(spec: tuple, conn: sqlite3.Connection, audited_at: str) -> dict
         row_status = "row_count_mismatch"
         freshness_status = "review_required"
         action = "rerun_source_script_or_investigate_csv_sqlite_count_drift"
-    elif rel_path == "artifacts/data/redmank.sqlite" and byte_size > GITHUB_RECOMMENDED_FILE_LIMIT_BYTES:
+    elif (
+        rel_path == "artifacts/data/redmank.sqlite"
+        and byte_size > GITHUB_RECOMMENDED_FILE_LIMIT_BYTES
+        and git_tracked
+    ):
         row_status = "binary_size_warning"
         freshness_status = "reproducible_with_repository_pressure"
         action = "move_sqlite_to_lfs_or_treat_as_generated_artifact_before_growth_continues"
@@ -207,6 +225,8 @@ def classify_row(spec: tuple, conn: sqlite3.Connection, audited_at: str) -> dict
         "sqlite_table": table,
         "artifact_rows": artifact_rows,
         "sqlite_rows": sqlite_rows,
+        "git_tracked": git_tracked,
+        "sha256_omitted_reason": "self_referential_sqlite_audit_table" if rel_path == "artifacts/data/redmank.sqlite" else "",
     }
     return {
         "audit_key": "warehouse_reproducibility_" + hashlib.sha1(rel_path.encode("utf-8")).hexdigest()[:16],
@@ -271,16 +291,23 @@ def write_outputs(rows: list[dict], audited_at: str) -> dict:
     required_missing = sum(1 for row in rows if row["required"] and not row["exists_on_disk"])
     mismatches = by_status.get("row_count_mismatch", 0)
     binary_warnings = by_status.get("binary_size_warning", 0)
+    sqlite_row = next((row for row in rows if row["artifact_path"] == "artifacts/data/redmank.sqlite"), None)
+    sqlite_evidence = json.loads(sqlite_row["evidence_json"]) if sqlite_row else {}
+    sqlite_git_tracked = bool(sqlite_evidence.get("git_tracked"))
+    sqlite_storage_policy = "tracked_git_blob" if sqlite_git_tracked else "generated_untracked_sqlite_warehouse"
+    sqlite_path = ROOT / "artifacts/data/redmank.sqlite"
+    sqlite_sha256 = sha256_file(sqlite_path) if sqlite_path.exists() else ""
     summary = {
         "audited_at": audited_at,
         "artifact_rows": len(rows),
         "required_missing_artifacts": required_missing,
         "row_count_mismatch_rows": mismatches,
         "binary_size_warning_rows": binary_warnings,
-        "sqlite_byte_size": next(
-            (row["byte_size"] for row in rows if row["artifact_path"] == "artifacts/data/redmank.sqlite"),
-            0,
-        ),
+        "sqlite_byte_size": sqlite_row["byte_size"] if sqlite_row else 0,
+        "sqlite_sha256": sqlite_sha256,
+        "sqlite_git_tracked": sqlite_git_tracked,
+        "sqlite_storage_policy": sqlite_storage_policy,
+        "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
         "github_recommended_file_limit_bytes": GITHUB_RECOMMENDED_FILE_LIMIT_BYTES,
         "by_row_count_status": dict(sorted(by_status.items())),
         "by_artifact_role": dict(sorted(by_role.items())),
@@ -289,6 +316,27 @@ def write_outputs(rows: list[dict], audited_at: str) -> dict:
         "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     }
     SUMMARY_PATH.write_text(json.dumps(summary, indent=2, ensure_ascii=True, sort_keys=True) + "\n", encoding="utf-8")
+    if sqlite_row:
+        manifest = {
+            "generated_at": audited_at,
+            "artifact_path": sqlite_row["artifact_path"],
+            "storage_policy": sqlite_storage_policy,
+            "git_tracked": sqlite_git_tracked,
+            "byte_size": sqlite_row["byte_size"],
+            "sha256": sqlite_sha256,
+            "row_count_status": sqlite_row["row_count_status"],
+            "sha256_scope": "post_reproducibility_audit_sqlite_file",
+            "rebuild_command": "python3 scripts/build_sqlite.py",
+            "validation_commands": [
+                "sqlite3 artifacts/data/redmank.sqlite 'PRAGMA integrity_check;'",
+                "python3 scripts/audit_warehouse_reproducibility.py",
+            ],
+            "notes": "The SQLite warehouse is generated locally from committed flat artifacts and is intentionally ignored by Git once it exceeds normal repository blob size. Committed CSV/JSON artifacts plus this manifest preserve provenance and rebuild verification without pushing the binary.",
+        }
+        SQLITE_MANIFEST_PATH.write_text(
+            json.dumps(manifest, indent=2, ensure_ascii=True, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
     return summary
 
 
