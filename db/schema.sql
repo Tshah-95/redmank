@@ -310,6 +310,94 @@ CREATE TABLE IF NOT EXISTS official_program_alias_review_packets (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_alias_reviewer_decision_queue (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  packet_key TEXT NOT NULL REFERENCES official_program_alias_review_packets(packet_key) ON DELETE CASCADE,
+  queue_key TEXT REFERENCES official_program_coverage_action_queue(queue_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  loaded_program_name TEXT,
+  loaded_role TEXT,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  loaded_source_url TEXT,
+  alias_decision_status TEXT NOT NULL,
+  alias_confidence REAL NOT NULL DEFAULT 0.0,
+  queue_status TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  required_confirmation_fields TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  review_question TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS official_program_alias_reviewer_decisions (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  packet_key TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  official_program_confirmed INTEGER NOT NULL DEFAULT 0,
+  loaded_source_scope_confirmed INTEGER NOT NULL DEFAULT 0,
+  role_scope_confirmed INTEGER NOT NULL DEFAULT 0,
+  current_roster_confirmed INTEGER NOT NULL DEFAULT 0,
+  decision_notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS official_program_alias_reviewer_decision_audit (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  packet_key TEXT NOT NULL REFERENCES official_program_alias_review_packets(packet_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  loaded_program_name TEXT,
+  loaded_role TEXT,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  reviewer_decision TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  accepted_alias_mapping INTEGER NOT NULL DEFAULT 0,
+  decision_blocker TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  decision_packet_fingerprint TEXT,
+  official_program_confirmed INTEGER NOT NULL DEFAULT 0,
+  loaded_source_scope_confirmed INTEGER NOT NULL DEFAULT 0,
+  role_scope_confirmed INTEGER NOT NULL DEFAULT 0,
+  current_roster_confirmed INTEGER NOT NULL DEFAULT 0,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS accepted_official_program_alias_mappings (
+  accepted_alias_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES official_program_alias_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,
+  packet_key TEXT NOT NULL REFERENCES official_program_alias_review_packets(packet_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  loaded_program_name TEXT NOT NULL,
+  loaded_role TEXT,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  loaded_source_url TEXT,
+  alias_decision_status TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  accepted_by TEXT,
+  accepted_at TEXT,
+  coverage_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  display_safety_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  materialized_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
   observation_key TEXT PRIMARY KEY,
   identifier_source TEXT NOT NULL,

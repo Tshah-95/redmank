@@ -188,6 +188,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         ARTIFACTS / "official_program_alias_review_packets_summary.json",
         {},
     )
+    alias_reviewer_decision_summary = read_json(
+        ARTIFACTS / "official_program_alias_reviewer_decision_summary.json",
+        {},
+    )
     level_4_covered_programs = int(coverage_assurance_summary.get("level_4_program_rows") or 0)
     level_4_covered_people = int(coverage_assurance_summary.get("level_4_people_count") or 0)
     alias_review_programs = int(coverage_assurance_summary.get("alias_review_program_rows") or 0)
@@ -573,6 +577,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "coverage_assurance_summary": coverage_assurance_summary,
                 "coverage_action_queue_summary": coverage_action_queue_summary,
                 "alias_review_packets_summary": alias_review_packets_summary,
+                "alias_reviewer_decision_summary": alias_reviewer_decision_summary,
             },
         ),
         make_row(

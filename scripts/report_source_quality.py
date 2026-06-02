@@ -251,6 +251,10 @@ def main() -> None:
         ARTIFACTS / "official_program_alias_review_packets_summary.json",
         {},
     )
+    official_program_alias_reviewer_decision_summary = read_json(
+        ARTIFACTS / "official_program_alias_reviewer_decision_summary.json",
+        {},
+    )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -286,6 +290,7 @@ def main() -> None:
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
+    top_alias_reviewer_decisions = read_csv(ARTIFACTS / "official_program_alias_reviewer_decision_audit.csv", limit=25)
     top_reconciliation_decisions = [
         row
         for row in read_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv")
@@ -380,6 +385,12 @@ def main() -> None:
         {"candidate_status": status, "count": count}
         for status, count in sorted((hup_gap_probe_summary.get("by_candidate_status") or {}).items())
     ]
+    alias_reviewer_decision_counts = [
+        {"decision_status": status, "count": count}
+        for status, count in sorted(
+            (official_program_alias_reviewer_decision_summary.get("by_decision_status") or {}).items()
+        )
+    ]
     top_hup_gap_candidates = [
         {
             "program_name": row.get("program_name", ""),
@@ -463,6 +474,8 @@ def main() -> None:
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
         "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
         "official_program_alias_review_packets_summary": official_program_alias_review_packets_summary,
+        "official_program_alias_reviewer_decision_summary": official_program_alias_reviewer_decision_summary,
+        "top_official_program_alias_reviewer_decisions": top_alias_reviewer_decisions,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -550,6 +563,25 @@ def main() -> None:
         *md_table(
             official_program_alias_review_packets_summary.get("top_packets") or [],
             ["official_program_name", "loaded_program_name", "loaded_person_count", "alias_decision_status", "reviewer_ready", "recommended_next_action"],
+        ),
+        "",
+        "Alias reviewer decisions:",
+        "",
+        f"Queue rows: {official_program_alias_reviewer_decision_summary.get('queue_rows', 0)}. Ready rows: {official_program_alias_reviewer_decision_summary.get('ready_queue_rows', 0)}. Manual decision rows: {official_program_alias_reviewer_decision_summary.get('manual_decision_rows', 0)}. Accepted alias mappings: {official_program_alias_reviewer_decision_summary.get('accepted_alias_mapping_rows', 0)}. Pending reviewer decisions: {official_program_alias_reviewer_decision_summary.get('pending_reviewer_decision_rows', 0)}.",
+        "",
+        *md_table(alias_reviewer_decision_counts, ["decision_status", "count"]),
+        "",
+        *md_table(
+            top_alias_reviewer_decisions,
+            [
+                "official_program_name",
+                "loaded_program_name",
+                "loaded_person_count",
+                "reviewer_decision",
+                "decision_status",
+                "accepted_alias_mapping",
+                "recommended_next_action",
+            ],
         ),
         "",
         "Sample uncovered or partially covered official programs:",

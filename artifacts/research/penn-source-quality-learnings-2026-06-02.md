@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T11:47:26.375137+00:00
+Generated: 2026-06-02T11:53:19.726866+00:00
 
 ## What This Pass Did
 
@@ -113,6 +113,43 @@ Top alias packets:
 | Gastrointestinal and Hepatic Pathology (Selective) | GI/Hepatic Pathology Fellowship | 2 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
 | Blood Banking and Transfusion Medicine | Transfusion Medicine/Blood Bank Fellowship | 1 | reviewer_ready_program_alias_candidate | 1 | accept_program_alias_after_source_scope_check |
 | Soft Tissue/Bone (Selective) | Soft Tissue/Bone Pathology Fellowship | 1 | reviewer_ready_same_program_alias_candidate | 1 | review_and_accept_same_program_alias_if_source_current |
+
+Alias reviewer decisions:
+
+Queue rows: 32. Ready rows: 15. Manual decision rows: 0. Accepted alias mappings: 0. Pending reviewer decisions: 15.
+
+| decision_status | count |
+| --- | --- |
+| not_ready_for_reviewer_decision | 17 |
+| pending_reviewer_decision | 15 |
+
+| official_program_name | loaded_program_name | loaded_person_count | reviewer_decision | decision_status | accepted_alias_mapping | recommended_next_action |
+| --- | --- | --- | --- | --- | --- | --- |
+| Internal Medicine - Categorical | Internal Medicine Residency | 173 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Radiology - Diagnostic | Diagnostic Radiology Residency | 54 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Pulmonary Disease and Critical Care Medicine | Pulmonary and Critical Care Fellowship | 34 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Gastroenterology | Gastroenterology and Hepatology Fellowship | 23 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Plastic Surgery - Integrated | Plastic Surgery Residency | 22 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Endocrinology | Endocrinology, Diabetes and Metabolism Fellowship | 21 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Radiology - Interventional, Integrated | Interventional Radiology Integrated Residency | 19 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Internal Medicine - Pediatrics | Penn-CHOP Internal Medicine-Pediatrics Residency | 16 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Infectious Disease | Infectious Diseases Fellowship | 15 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Surgical Pathology (Selective) | Surgical Pathology Fellowship | 6 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Internal Medicine - Dermatology | Combined Internal Medicine-Dermatology Residency | 3 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Gastrointestinal and Hepatic Pathology (Selective) | GI/Hepatic Pathology Fellowship | 2 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Transplant Hepatology | Advanced Gastroenterology and Hepatology Fellowship | 2 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Blood Banking and Transfusion Medicine | Transfusion Medicine/Blood Bank Fellowship | 1 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Soft Tissue/Bone (Selective) | Soft Tissue/Bone Pathology Fellowship | 1 | pending | pending_reviewer_decision | 0 | record_accept_reject_or_needs_more_evidence_decision |
+| Soft Tissue/Bone (Selective) | Pathology - Anatomic and Clinical Residency | 44 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Plastic Surgery | Plastic Surgery Residency | 22 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Radiology - Interventional, Independent | Interventional Radiology Integrated Residency | 19 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Thoracic Surgery - Integrated | Cardiothoracic Surgery Residency | 15 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Abdominal Radiology | Abdominal Imaging Fellowship | 9 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Soft Tissue/Bone (Selective) | Surgical Pathology Fellowship | 6 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Soft Tissue/Bone (Selective) | Hematopathology Fellowship | 4 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Adult Reconstructive Orthopedics | Adult Reconstructive Orthopedics Fellowship | 3 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Dermatology | Combined Internal Medicine-Dermatology Residency | 3 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
+| Soft Tissue/Bone (Selective) | Molecular Genetic Pathology Fellowship | 2 | pending | not_ready_for_reviewer_decision | 0 | collect_stronger_alias_or_scope_evidence |
 
 Sample uncovered or partially covered official programs:
 
@@ -635,7 +672,7 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 53 | 53 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 57 | 57 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
