@@ -31,7 +31,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T15:05:54.537563+00:00",
+    "generated_at": "2026-06-02T15:20:37.009764+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -156,7 +156,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "accepted_trend_fact_public_source_backed",
-    "generated_at": "2026-06-02T15:05:54.802881+00:00",
+    "generated_at": "2026-06-02T15:20:37.271163+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 0,
@@ -249,7 +249,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T15:05:54.644333+00:00",
+    "generated_at": "2026-06-02T15:20:37.116661+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -294,7 +294,7 @@
       "2020": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-02T15:05:54.841375+00:00",
+    "generated_at": "2026-06-02T15:20:37.308050+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 3,
     "pending_reviewer_decision_rows": 0,
@@ -344,7 +344,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T15:05:54.608097+00:00",
+    "generated_at": "2026-06-02T15:20:37.080572+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -355,6 +355,311 @@
   "contact_display_safety_counts": {
     "do_not_display_until_domain_verified": 1,
     "public_contact_candidate_not_verified": 312
+  },
+  "corpus_action_worklist_summary": {
+    "by_action_surface": {
+      "contact_verification": 313,
+      "official_program_coverage": 42,
+      "person_enrichment_execution": 78,
+      "person_evidence_review": 686,
+      "recent_attending_trend": 70,
+      "search_utility_assurance": 4,
+      "training_temporal_contract": 86
+    },
+    "by_priority_band": {
+      "critical": 16,
+      "high": 767,
+      "low": 9,
+      "medium": 487
+    },
+    "critical_rows": 16,
+    "csv": "artifacts/data/corpus_action_worklist.csv",
+    "generated_at": "2026-06-02T15:21:00.679877+00:00",
+    "high_rows": 767,
+    "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
+    "json": "artifacts/data/corpus_action_worklist.json",
+    "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
+    "top_action_scope_counts": {
+      "contact_verification:domain_review_required": 1,
+      "contact_verification:official_public_unverified_contact": 312,
+      "official_program_coverage:alias_review": 20,
+      "official_program_coverage:count_conflict_review": 1,
+      "official_program_coverage:parser_or_roster_source_review": 7,
+      "official_program_coverage:source_candidate_probe": 14,
+      "person_enrichment_execution:contact:public_contact_verification": 15,
+      "person_enrichment_execution:normalization:organization_alias_review": 7,
+      "person_enrichment_execution:official_profile:official_profile_search": 4,
+      "person_enrichment_execution:official_roster:current_roster_state_reconciliation": 17,
+      "person_enrichment_execution:prior_training:source_medical_school_background": 5,
+      "person_enrichment_execution:prior_training:source_residency_background": 3,
+      "person_enrichment_execution:research:research_identity_search": 15,
+      "person_enrichment_execution:review_queue:evidence_reconciliation_review": 12,
+      "person_evidence_review:mixed_identity_anchor_review": 663,
+      "person_evidence_review:publication_identity_review": 23,
+      "recent_attending_trend:context_only_not_trend_ready": 21,
+      "recent_attending_trend:current_endpoint_needs_training_claim": 45,
+      "recent_attending_trend:historical_link_candidate_review": 1,
+      "recent_attending_trend:review_ready_official_biosketch_bridge": 3,
+      "search_utility_assurance:official_program_gap_discovery": 1,
+      "search_utility_assurance:person_background_discovery": 1,
+      "search_utility_assurance:person_profile_discovery": 1,
+      "training_temporal_contract:manual_review_required": 12,
+      "training_temporal_contract:source_refresh_required": 74
+    },
+    "top_work_items": [
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident current_roster_state_reconciliation",
+        "impact_count": 330,
+        "priority": 1300,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident current_roster_state_reconciliation",
+        "impact_count": 286,
+        "priority": 1300,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "fellow current_roster_state_reconciliation",
+        "impact_count": 247,
+        "priority": 1297,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident current_roster_state_reconciliation",
+        "impact_count": 236,
+        "priority": 1286,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "resident"
+      },
+      {
+        "action_scope": "review_queue:evidence_reconciliation_review",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident evidence_reconciliation_review",
+        "impact_count": 236,
+        "priority": 1286,
+        "program_name": "",
+        "recommended_next_action": "review_reconciliation_packet",
+        "role": "resident"
+      },
+      {
+        "action_scope": "review_queue:evidence_reconciliation_review",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident evidence_reconciliation_review",
+        "impact_count": 206,
+        "priority": 1256,
+        "program_name": "",
+        "recommended_next_action": "review_reconciliation_packet",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "medical_student current_roster_state_reconciliation",
+        "impact_count": 203,
+        "priority": 1253,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "medical_student"
+      },
+      {
+        "action_scope": "review_queue:evidence_reconciliation_review",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident evidence_reconciliation_review",
+        "impact_count": 202,
+        "priority": 1252,
+        "program_name": "",
+        "recommended_next_action": "review_reconciliation_packet",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_profile:official_profile_search",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident official_profile_search",
+        "impact_count": 330,
+        "priority": 1120,
+        "program_name": "",
+        "recommended_next_action": "collect_official_profile_evidence",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_profile:official_profile_search",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "fellow official_profile_search",
+        "impact_count": 257,
+        "priority": 1120,
+        "program_name": "",
+        "recommended_next_action": "collect_official_profile_evidence",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "review_queue:evidence_reconciliation_review",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "fellow evidence_reconciliation_review",
+        "impact_count": 110,
+        "priority": 1116,
+        "program_name": "",
+        "recommended_next_action": "review_reconciliation_packet",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "alias_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Internal Medicine - Categorical",
+        "impact_count": 173,
+        "priority": 1093,
+        "program_name": "Internal Medicine - Categorical",
+        "recommended_next_action": "accept_or_split_alias_mapping",
+        "role": "residency"
+      },
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "fellow current_roster_state_reconciliation",
+        "impact_count": 94,
+        "priority": 1088,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "alias_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Soft Tissue/Bone (Selective)",
+        "impact_count": 69,
+        "priority": 1009,
+        "program_name": "Soft Tissue/Bone (Selective)",
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
+        "role": "fellowship"
+      },
+      {
+        "action_scope": "review_queue:evidence_reconciliation_review",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "fellow evidence_reconciliation_review",
+        "impact_count": 55,
+        "priority": 1009,
+        "program_name": "",
+        "recommended_next_action": "review_reconciliation_packet",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "count_conflict_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Adult Reconstructive Orthopedics",
+        "impact_count": 3,
+        "priority": 1003,
+        "program_name": "Adult Reconstructive Orthopedics",
+        "recommended_next_action": "review_count_conflict_before_denominator_mutation",
+        "role": "fellowship"
+      },
+      {
+        "action_scope": "official_roster:current_roster_state_reconciliation",
+        "action_surface": "person_enrichment_execution",
+        "display_label": "resident current_roster_state_reconciliation",
+        "impact_count": 49,
+        "priority": 998,
+        "program_name": "",
+        "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+        "role": "resident"
+      },
+      {
+        "action_scope": "mixed_identity_anchor_review",
+        "action_surface": "person_evidence_review",
+        "display_label": "Katharine F. Michel, MD",
+        "impact_count": 10,
+        "priority": 976,
+        "program_name": "",
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "alias_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Radiology - Diagnostic",
+        "impact_count": 54,
+        "priority": 974,
+        "program_name": "Radiology - Diagnostic",
+        "recommended_next_action": "accept_or_split_alias_mapping",
+        "role": "residency"
+      },
+      {
+        "action_scope": "alias_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Radiology - Interventional, Independent",
+        "impact_count": 19,
+        "priority": 971,
+        "program_name": "Radiology - Interventional, Independent",
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
+        "role": "residency"
+      },
+      {
+        "action_scope": "alias_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Dermatology",
+        "impact_count": 17,
+        "priority": 963,
+        "program_name": "Dermatology",
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
+        "role": "residency"
+      },
+      {
+        "action_scope": "alias_review",
+        "action_surface": "official_program_coverage",
+        "display_label": "Plastic Surgery",
+        "impact_count": 22,
+        "priority": 962,
+        "program_name": "Plastic Surgery",
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
+        "role": "fellowship"
+      },
+      {
+        "action_scope": "mixed_identity_anchor_review",
+        "action_surface": "person_evidence_review",
+        "display_label": "Pooja Humar, MD",
+        "impact_count": 7,
+        "priority": 961,
+        "program_name": "",
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "publication_identity_review",
+        "action_surface": "person_evidence_review",
+        "display_label": "Jared Alswang, MD",
+        "impact_count": 5,
+        "priority": 954,
+        "program_name": "",
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "publication_identity_review",
+        "action_surface": "person_evidence_review",
+        "display_label": "Lee H. Kilmer, MD",
+        "impact_count": 5,
+        "priority": 954,
+        "program_name": "",
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+        "role": "fellow"
+      }
+    ],
+    "total_impact_count": 11161,
+    "worklist_rows": 1279
   },
   "counts": {
     "accepted_attending_trend_facts": 3,
@@ -371,6 +676,7 @@
     "career_events": 105,
     "category_refresh_expectations": 3,
     "contact_assurance_audit": 313,
+    "corpus_action_worklist": 1279,
     "enrichment_acceptance_audit": 7265,
     "evidence_claims": 8789,
     "evidence_reconciliation_decisions": 7265,
@@ -444,7 +750,7 @@
     "training_state_transition_rollups": 224,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 80
+    "warehouse_reproducibility_audit": 81
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -1649,7 +1955,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T15:06:19.618077+00:00",
+  "generated_at": "2026-06-02T15:21:02.082126+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -1945,7 +2251,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T15:06:16.806309+00:00",
+    "generated_at": "2026-06-02T15:20:59.067580+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -1987,7 +2293,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T15:06:16.726303+00:00",
+    "generated_at": "2026-06-02T15:20:58.988463+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 551,
     "loaded_person_count": 551,
@@ -2063,7 +2369,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-02T15:06:16.958876+00:00",
+    "generated_at": "2026-06-02T15:20:59.215936+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2224,7 +2530,7 @@
       "needs_more_evidence": 1,
       "pending": 17
     },
-    "generated_at": "2026-06-02T15:06:17.001527+00:00",
+    "generated_at": "2026-06-02T15:20:59.257196+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 15,
     "not_ready_rows": 17,
@@ -2275,7 +2581,7 @@
       "residency": 12
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T15:06:16.893723+00:00",
+    "generated_at": "2026-06-02T15:20:59.153380+00:00",
     "highest_priority": 1093,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -2489,7 +2795,7 @@
     "covered_people_count": 1248,
     "covered_program_rows": 65,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T15:06:16.848830+00:00",
+    "generated_at": "2026-06-02T15:20:59.108659+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 821,
     "level_4_program_rows": 49,
@@ -2903,7 +3209,7 @@
     },
     "candidate_or_discovery_rows": 7,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T15:06:18.342887+00:00",
+    "generated_at": "2026-06-02T15:21:00.616272+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 23,
@@ -3247,7 +3553,7 @@
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T15:05:56.547177+00:00",
+    "generated_at": "2026-06-02T15:20:38.970744+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
     "person_count": 1535,
@@ -3320,7 +3626,7 @@
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T15:05:56.748486+00:00",
+    "generated_at": "2026-06-02T15:20:39.149752+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
     "person_count": 1535,
@@ -3360,12 +3666,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 80
+    "ok": 81
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 80,
-    "audited_at": "2026-06-02T15:06:18.559252+00:00",
+    "artifact_rows": 81,
+    "audited_at": "2026-06-02T15:21:01.015440+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -3398,6 +3704,7 @@
       "official_program_gap_roster_resolution_ledger": 1,
       "official_program_gap_source_ledger": 1,
       "official_program_gap_source_search_ledger": 2,
+      "operator_worklist": 1,
       "person_enrichment_coverage_ledger": 2,
       "person_enrichment_execution_readiness_ledger": 2,
       "person_enrichment_work_queue": 1,
@@ -3416,17 +3723,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 80
+      "ok": 81
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 165941248,
+    "sqlite_byte_size": 168112128,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "f0c7b9285a4927328c7a066b1041f993509ba80f320801487a83f5de439b5009",
+    "sqlite_sha256": "72cb87f9c60c83c58a9782d0938e460a75c5e981a4614c7fc6ec625efb7e2fe4",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

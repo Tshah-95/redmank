@@ -302,6 +302,7 @@ def main() -> None:
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
+    corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
@@ -323,6 +324,7 @@ def main() -> None:
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
+    corpus_action_worklist = read_csv(ARTIFACTS / "corpus_action_worklist.csv", limit=40)
     top_alias_reviewer_decisions = read_csv(ARTIFACTS / "official_program_alias_reviewer_decision_audit.csv", limit=25)
     top_reconciliation_decisions = [
         row
@@ -504,6 +506,8 @@ def main() -> None:
         "source_utility_scorecard": source_utility_scorecard,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
+        "corpus_action_worklist_summary": corpus_action_worklist_summary,
+        "top_corpus_action_worklist": corpus_action_worklist,
         "medical_student_source_audit_summary": med_student_source_audit_summary,
         "medical_student_source_audit": med_student_source_audit,
         "reconciliation_queue_counts": reconciliation_queue_counts,
@@ -856,6 +860,25 @@ def main() -> None:
         ),
         "",
         "Learning: query manifests, endpoint observations, and discovered candidates are separate evidence classes. A skipped or blocked search lane cannot be interpreted as evidence that no public page exists; it only tells us which discovery utility still needs execution, retry, or replacement.",
+        "",
+        "## Corpus Action Worklist",
+        "",
+        f"Worklist rows: {corpus_action_worklist_summary.get('worklist_rows', 0)}. Summed impact count: {corpus_action_worklist_summary.get('total_impact_count', 0)}. Critical rows: {corpus_action_worklist_summary.get('critical_rows', 0)}. High rows: {corpus_action_worklist_summary.get('high_rows', 0)}.",
+        "",
+        *md_table(
+            corpus_action_worklist,
+            [
+                "action_surface",
+                "action_scope",
+                "display_label",
+                "role",
+                "priority",
+                "impact_count",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: unresolved evidence should be ranked as operator work, not inferred away. Program gaps, search execution, person evidence packets, contact verification, temporal-state refreshes, enrichment collectors, and attending-trend bridges all have different acceptance gates, so the worklist keeps their required next evidence explicit.",
         "",
         "## Evidence Reconciliation Queue",
         "",

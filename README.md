@@ -147,6 +147,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
+- `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
+- `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
@@ -259,6 +261,7 @@ python3 scripts/materialize_attending_trend_reviewer_decisions.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
+python3 scripts/materialize_corpus_action_worklist.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```

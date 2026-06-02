@@ -2019,6 +2019,29 @@ CREATE TABLE IF NOT EXISTS search_utility_assurance (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS corpus_action_worklist (
+  work_item_key TEXT PRIMARY KEY,
+  action_surface TEXT NOT NULL,
+  action_scope TEXT NOT NULL,
+  entity_type TEXT NOT NULL,
+  entity_key TEXT NOT NULL,
+  display_label TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  priority INTEGER NOT NULL DEFAULT 0,
+  priority_band TEXT NOT NULL,
+  impact_count INTEGER NOT NULL DEFAULT 0,
+  readiness_status TEXT NOT NULL,
+  blocker_status TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  source_artifact TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  downstream_tables_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_utility_scorecard (
   scorecard_key TEXT PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

@@ -79,6 +79,7 @@ CSV_TABLES = [
     ("person_evidence_reviewer_decision_audit.csv", "person_evidence_reviewer_decision_audit"),
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("search_utility_assurance.csv", "search_utility_assurance"),
+    ("corpus_action_worklist.csv", "corpus_action_worklist"),
     ("warehouse_reproducibility_audit.csv", "warehouse_reproducibility_audit"),
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),
     ("contact_assurance_audit.csv", "contact_assurance_audit"),

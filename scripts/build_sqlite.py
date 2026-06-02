@@ -2174,6 +2174,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "source_quality_observations",
         "source_utility_scorecard",
         "search_utility_assurance",
+        "corpus_action_worklist",
         "official_program_universe",
         "official_program_coverage_audit",
         "official_program_source_probes",

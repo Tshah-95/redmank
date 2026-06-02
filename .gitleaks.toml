@@ -7,5 +7,5 @@ useDefault = true
 description = "Generated warehouse identifier fields, not credentials."
 regexTarget = "match"
 regexes = [
-  '''(?i)(person_key|person_or_name_key|on_or_name_key|official_program_key|trend_key|trend_acceptance_key|trend_rollup_key|matched_current_person_key|matched_current_person_keys|observation_key)("{1,2})?\s*[:=]\s*("{1,2})?[^"\n]+("{1,2})?''',
+  '''(?i)(person_key|person_or_name_key|on_or_name_key|official_program_key|trend_key|trend_acceptance_key|trend_rollup_key|matched_current_person_key|matched_current_person_keys|observation_key|entity_key)("{1,2})?\s*[:=]\s*("{1,2})?[^"\n]+("{1,2})?''',
 ]

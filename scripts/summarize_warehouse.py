@@ -84,6 +84,7 @@ def main() -> None:
         "source_quality_observations",
         "source_utility_scorecard",
         "search_utility_assurance",
+        "corpus_action_worklist",
         "official_program_universe",
         "official_program_coverage_audit",
         "official_program_source_probes",
@@ -1039,6 +1040,11 @@ def main() -> None:
         source_utility_scorecard_summary = json.loads(source_utility_scorecard_summary_path.read_text(encoding="utf-8"))
     else:
         source_utility_scorecard_summary = {}
+    corpus_action_worklist_summary_path = ARTIFACTS / "corpus_action_worklist_summary.json"
+    if corpus_action_worklist_summary_path.exists():
+        corpus_action_worklist_summary = json.loads(corpus_action_worklist_summary_path.read_text(encoding="utf-8"))
+    else:
+        corpus_action_worklist_summary = {}
     organization_identifier_candidate_summary_path = ARTIFACTS / "organization_identifier_candidate_summary.json"
     if organization_identifier_candidate_summary_path.exists():
         organization_identifier_candidate_summary = json.loads(
@@ -1228,6 +1234,7 @@ def main() -> None:
         "contact_assurance_summary": contact_assurance_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
+        "corpus_action_worklist_summary": corpus_action_worklist_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
         "medical_student_source_audit_summary": medical_student_source_audit_summary,
         "program_identifier_candidate_summary": program_identifier_candidate_summary,
