@@ -862,6 +862,37 @@ CREATE TABLE IF NOT EXISTS person_evidence_review_triage (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_evidence_review_batches (
+  review_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  triage_lane TEXT NOT NULL,
+  decision_difficulty TEXT NOT NULL,
+  risk_level TEXT NOT NULL,
+  role TEXT,
+  batch_status TEXT NOT NULL,
+  ready_to_review INTEGER NOT NULL DEFAULT 0,
+  packet_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  claim_type_count INTEGER NOT NULL DEFAULT 0,
+  max_triage_priority INTEGER NOT NULL DEFAULT 0,
+  min_triage_priority INTEGER NOT NULL DEFAULT 0,
+  avg_evidence_density_score REAL NOT NULL DEFAULT 0.0,
+  source_family_counts_json TEXT NOT NULL,
+  top_source_domains TEXT,
+  top_best_decisions_json TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  reviewer_prompt TEXT NOT NULL,
+  review_instructions TEXT NOT NULL,
+  acceptance_rule TEXT NOT NULL,
+  target_decision_artifact TEXT NOT NULL,
+  top_packets_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,

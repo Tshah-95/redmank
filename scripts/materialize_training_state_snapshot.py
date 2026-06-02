@@ -916,6 +916,38 @@ def load_all_snapshots(conn: sqlite3.Connection) -> tuple[dict[str, list[dict]],
     return snapshots, manifests
 
 
+def select_previous_snapshot_id(
+    manifests: dict[str, dict],
+    current_snapshot_id: str,
+    previous_selection: str,
+) -> str | None:
+    current_manifest = manifests.get(current_snapshot_id, {})
+    current_as_of = current_manifest.get("as_of_date") or ""
+    candidates = [
+        (snapshot_id, manifest)
+        for snapshot_id, manifest in manifests.items()
+        if snapshot_id != current_snapshot_id
+    ]
+    if not candidates:
+        return None
+    if previous_selection == "prior-as-of" and current_as_of:
+        prior_as_of_candidates = [
+            item
+            for item in candidates
+            if (item[1].get("as_of_date") or "") < current_as_of
+        ]
+        if prior_as_of_candidates:
+            candidates = prior_as_of_candidates
+    candidates.sort(
+        key=lambda item: (
+            item[1].get("as_of_date") or "",
+            item[1].get("created_at") or "",
+            item[0],
+        )
+    )
+    return candidates[-1][0]
+
+
 def write_events_csv(events: list[dict]) -> None:
     path = ARTIFACTS / "training_state_transition_events.csv"
     if not events:
@@ -941,6 +973,12 @@ def main() -> None:
     parser.add_argument("--current-export", type=Path, default=CURRENT_EXPORT)
     parser.add_argument("--snapshot-id")
     parser.add_argument("--previous-snapshot-id")
+    parser.add_argument(
+        "--previous-selection",
+        choices=["prior-as-of", "latest"],
+        default="prior-as-of",
+        help="When no previous snapshot is explicit, prefer the latest prior as-of date; fall back to latest checkpoint.",
+    )
     parser.add_argument("--compare-date", default=date.today().isoformat())
     parser.add_argument("--notes", default="Current training-state export materialized for longitudinal diffing")
     args = parser.parse_args()
@@ -956,11 +994,9 @@ def main() -> None:
         conn.executescript((ROOT / "db" / "schema.sql").read_text(encoding="utf-8"))
         ensure_transition_context_columns(conn)
         snapshots, manifests = load_all_snapshots(conn)
-        snapshot_ids = sorted(snapshots)
         previous_snapshot_id = args.previous_snapshot_id
         if previous_snapshot_id is None:
-            candidates = [item for item in snapshot_ids if item != snapshot_id]
-            previous_snapshot_id = candidates[-1] if candidates else None
+            previous_snapshot_id = select_previous_snapshot_id(manifests, snapshot_id, args.previous_selection)
         old_rows = snapshots.get(previous_snapshot_id, []) if previous_snapshot_id else []
         comparison = comparison_context(manifests.get(previous_snapshot_id), manifests[snapshot_id])
         events = write_transition_events(

@@ -89,6 +89,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_evidence_reviewer_decision_audit.csv`: audit of manual person-evidence decisions against current packet fingerprints and confirmation requirements.
 - `artifacts/data/person_evidence_review_triage.csv`: non-mutating review workbench for queued person-evidence packets, with triage lane, risk, decision difficulty, evidence density, source-family summary, reviewer prompt, and likely next action.
 - `artifacts/data/person_evidence_review_triage_summary.json`: review-lane/risk/difficulty counts plus the top triage rows for prioritizing publication, identifier, official-profile, and trend-bridge review.
+- `artifacts/data/person_evidence_review_batches.csv`: bounded reviewer batches over triage rows, grouped by lane, difficulty, risk, and role so packet decisions can be executed in coherent review sessions.
+- `artifacts/data/person_evidence_review_batch_summary.json`: batch counts, top batches, source-family mix, and total packet/review-ready/evidence burden for person-evidence review execution.
 - `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.
 - `artifacts/data/enrichment_acceptance_summary.json`: acceptance-tier counts, including cross-source publication machine-acceptance candidates.
 - `artifacts/data/accepted_enrichment_claims.csv`: strict machine-accepted enrichment facts, currently non-roster-mutating publication claims with provenance, acceptance policy, and final display-sanity checks attached.
@@ -173,7 +175,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
-- The worklist consumes `person_evidence_review_triage.csv` when available, so person-evidence actions are grouped by review lane rather than only by raw packet kind.
+- The worklist consumes `person_evidence_review_batches.csv` when available, so person-evidence actions are bounded review sessions; if batches are absent it falls back to `person_evidence_review_triage.csv`, then the raw reviewer queue.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `official_profile_discovery_workbench.csv` when available, so missing-profile work becomes person-level review/search/probe actions instead of a broad `official_profile_search` enrichment bucket.
@@ -286,6 +288,8 @@ python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-resu
 python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/materialize_person_evidence_reviewer_decisions.py
+python3 scripts/materialize_person_evidence_review_triage.py
+python3 scripts/materialize_person_evidence_review_batches.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py

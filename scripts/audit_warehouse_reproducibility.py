@@ -442,6 +442,7 @@ ARTIFACT_SPECS = [
     ("artifacts/data/person_evidence_reviewer_decision_queue.csv", "person_evidence_reviewer_decision_ledger", "csv", "person_evidence_reviewer_decision_queue", True),
     ("artifacts/data/person_evidence_reviewer_decision_audit.csv", "person_evidence_reviewer_decision_ledger", "csv", "person_evidence_reviewer_decision_audit", True),
     ("artifacts/data/person_evidence_review_triage.csv", "person_evidence_review_triage_ledger", "csv", "person_evidence_review_triage", True),
+    ("artifacts/data/person_evidence_review_batches.csv", "person_evidence_review_batch_ledger", "csv", "person_evidence_review_batches", True),
     ("artifacts/data/enrichment_acceptance_audit.csv", "acceptance_ledger", "csv", "enrichment_acceptance_audit", True),
     ("artifacts/data/accepted_enrichment_claims.csv", "accepted_enrichment_ledger", "csv", "accepted_enrichment_claims", True),
     ("artifacts/data/npi_candidate_claims.csv", "identity_enrichment_ledger", "csv", "npi_candidate_claims", True),

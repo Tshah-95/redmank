@@ -19,7 +19,7 @@
   "duplicate_canonical_key_count": 72,
   "new_snapshot_as_of_date": "2026-06-02",
   "old_snapshot_as_of_date": "2026-06-02",
-  "previous_snapshot_id": "training_states_2026-06-02_ed87f34b0e2f",
+  "previous_snapshot_id": "training_states_2026-06-02_4d3f6a439424",
   "row_count": 1682,
   "snapshot_comparison_kind": "same_day_corpus_revision",
   "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_39aac55b1be8.csv",

@@ -179,6 +179,59 @@ def official_program_actions(generated_at: str) -> list[dict]:
 
 def person_evidence_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "person_evidence_review_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/person_evidence_review_batches.csv"
+        for item in read_csv(batch_path):
+            priority = 880 + as_int(item.get("max_triage_priority")) + min(as_int(item.get("packet_count")) * 2, 70)
+            rows.append(
+                row(
+                    action_surface="person_evidence_review",
+                    action_scope=item.get("triage_lane") or "person_evidence_review_batch",
+                    entity_type="person_evidence_review_batch",
+                    entity_key=item.get("review_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("triage_lane"),
+                            item.get("role"),
+                            item.get("decision_difficulty"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("role") or "",
+                    program_name="",
+                    priority=priority,
+                    impact_count=max(as_int(item.get("review_ready_record_count")), as_int(item.get("packet_count")), 1),
+                    readiness_status=item.get("decision_difficulty") or item.get("batch_status") or "",
+                    blocker_status=item.get("risk_level") or "",
+                    required_next_evidence=item.get("reviewer_prompt") or item.get("review_instructions") or "",
+                    recommended_next_action="review_batch_and_record_packet_decisions",
+                    source_artifact=source,
+                    target_artifact=item.get("target_decision_artifact") or "artifacts/data/person_evidence_reviewer_decisions.csv",
+                    downstream_tables=[
+                        "person_evidence_review_batches",
+                        "person_evidence_review_triage",
+                        "person_evidence_reviewer_decision_queue",
+                        "person_evidence_reviewer_decision_audit",
+                        "enrichment_acceptance_audit",
+                        "accepted_enrichment_claims",
+                    ],
+                    evidence={
+                        "packet_count": item.get("packet_count"),
+                        "review_ready_record_count": item.get("review_ready_record_count"),
+                        "evidence_record_count": item.get("evidence_record_count"),
+                        "source_family_counts_json": item.get("source_family_counts_json"),
+                        "top_source_domains": item.get("top_source_domains"),
+                        "top_best_decisions_json": item.get("top_best_decisions_json"),
+                        "acceptance_rule": item.get("acceptance_rule"),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     triage_path = ARTIFACTS / "person_evidence_review_triage.csv"
     if triage_path.exists():
         source = "artifacts/data/person_evidence_review_triage.csv"
