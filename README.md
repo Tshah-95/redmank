@@ -105,6 +105,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/trainee_profile_discovery_candidates.csv`: discovered profile/context URL candidates with match features and required next evidence.
 - `artifacts/data/trainee_profile_discovery_claims.json`: replayable candidate evidence claims emitted by the profile discovery lane.
 - `artifacts/data/trainee_profile_discovery_summary.json`: people/query/candidate counts and non-mutating profile-discovery policy.
+- `artifacts/data/prior_training_search_queries.csv`: queue-driven search manifest for medical-school and prior-residency background enrichment gaps.
+- `artifacts/data/prior_training_search_observations.csv`: search execution observations for prior-training background discovery.
+- `artifacts/data/prior_training_discovery_candidates.csv`: candidate pages that may support medical-school or prior-residency background claims.
+- `artifacts/data/prior_training_discovery_claims.json`: replayable candidate-only education/prior-training claims emitted by the prior-training discovery lane.
+- `artifacts/data/prior_training_discovery_summary.json`: task, person, query, candidate, and source counts for the prior-training discovery lane.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
 - `artifacts/data/pubmed_article_candidate_claims.json`: article-level PubMed candidates with author, affiliation, topic, and recency features.
 - `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
@@ -266,6 +271,14 @@ python3 scripts/discover_trainee_official_profiles.py --max-people 556 --max-que
 ```
 
 Add `--probe-pages` when you want page hashes, HTTP status, titles, and term hits. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
+
+Prior-training background discovery uses the same queue-driven pattern for medical-school and residency-background gaps. The committed artifact is a no-network manifest; run the collector separately when refreshing public search candidates:
+
+```bash
+python3 scripts/discover_prior_training_background.py --max-queries-per-task 2 --max-results 4 --search-timeout 8 --sleep 0.2
+```
+
+Add `--probe-pages` when you want page hashes, HTTP status, titles, and term hits. Medical-school and prior-residency discoveries are candidate evidence only because name collisions and stale biosketches are common; accepted education/prior-training facts require corroborating same-person context or reviewer acceptance.
 
 Validate scripts:
 

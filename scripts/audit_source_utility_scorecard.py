@@ -420,6 +420,14 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     trainee_profile_discovery_summary = read_json(ARTIFACTS / "trainee_profile_discovery_summary.json", {})
+    prior_training_discovery_summary = read_json(ARTIFACTS / "prior_training_discovery_summary.json", {})
+    prior_training_tasks = int(prior_training_discovery_summary.get("tasks_considered") or 0)
+    prior_training_queries = int(prior_training_discovery_summary.get("query_rows") or 0)
+    prior_training_candidates = int(prior_training_discovery_summary.get("candidate_rows") or 0)
+    prior_training_claims = scalar(
+        conn,
+        "SELECT COUNT(*) FROM evidence_claims WHERE source_type = 'prior_training_background_discovery'",
+    )
     trend_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     trend_linkage = trend_summary.get("by_linkage_status") or {}
     historical_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
@@ -981,6 +989,36 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             },
         ),
         make_row(
+            scorecard_key="prior_training_background_discovery",
+            utility_key="prior_training_background_discovery",
+            utility_label="Prior training background discovery",
+            source_family="broad_web_search",
+            claim_surface="medical-school and prior-residency background candidates for trainee enrichment gaps",
+            input_records=prior_training_tasks,
+            output_records=prior_training_queries,
+            candidate_records=prior_training_candidates + prior_training_claims,
+            discovery_only_records=prior_training_queries,
+            score=58.0,
+            strengths=[
+                "Queue-driven collector now covers all medical-school and prior-residency background tasks",
+                "Committed no-network query manifest makes rebuilds reproducible",
+                "Optional probing records URL, status, content hash, title, term hits, and required next evidence",
+            ],
+            limitations=[
+                "Broad search availability is rate-limit sensitive and is not a default rebuild dependency",
+                "Prior education and residency facts are name-collision and stale-biosketch prone",
+                "Candidate pages require same-person corroboration or reviewer acceptance before facts are promoted",
+            ],
+            recommended_next_action="run_prior_training_background_discovery_then_reconcile_candidates",
+            evidence={
+                "summary": prior_training_discovery_summary,
+                "tasks_considered": prior_training_tasks,
+                "query_rows": prior_training_queries,
+                "candidate_rows": prior_training_candidates,
+                "claim_rows": prior_training_claims,
+            },
+        ),
+        make_row(
             scorecard_key="official_attending_profile_claims",
             utility_key="official_profile",
             utility_label="Official Penn attending/profile claims",
@@ -1292,10 +1330,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             ],
             limitations=[
                 "Readiness is an execution map, not collected evidence",
-                "Official profile and prior-training lanes still need new trainee-focused collectors",
+                "Profile and prior-training lanes are now collector-backed, but network search can be slow and still yields candidate evidence only",
                 "Research collection is queue-driven, but article-level reconciliation and acceptance review remain downstream",
             ],
-            recommended_next_action="execute_queue_driven_research_and_roster_lanes_then_build_missing_profile_and_prior_training_collectors",
+            recommended_next_action="execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile",
             evidence={
                 "readiness_rows": readiness_rows,
                 "existing_collector_or_partial_collector_rows": readiness_existing_collector,

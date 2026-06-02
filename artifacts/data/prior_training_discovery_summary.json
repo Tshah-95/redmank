@@ -1,0 +1,23 @@
+{
+  "by_candidate_status": {},
+  "by_result_domain": {},
+  "by_search_error": {},
+  "by_search_http_status": {},
+  "by_task_type": {
+    "source_medical_school_background": 179,
+    "source_residency_background": 90
+  },
+  "candidate_rows": 0,
+  "claim_rows": 0,
+  "claims_json": "artifacts/data/prior_training_discovery_claims.json",
+  "csv": "artifacts/data/prior_training_discovery_candidates.csv",
+  "generated_at": "2026-06-02T13:35:17.186676+00:00",
+  "people_considered": 183,
+  "policy": "Prior-training background discoveries are candidate evidence only. They do not mutate accepted education or GME background without explicit source-text review and reconciliation.",
+  "query_rows": 538,
+  "search_observations": 0,
+  "search_skipped": true,
+  "source_rows": 0,
+  "sources_json": "artifacts/data/prior_training_discovery_sources.json",
+  "tasks_considered": 269
+}

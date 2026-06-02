@@ -250,6 +250,25 @@ This bridge audit is still non-mutating. A faculty biosketch is much stronger th
 
 This table is the right place to build the ten-year recent-attending trend line. It is deliberately still non-mutating: `review_ready_official_biosketch_bridge` means endpoint evidence, Penn-training claim, and dated recent official Penn GME biosketch evidence agree enough for explicit reviewer acceptance. It does not rewrite the current trainee roster or promote profile claims into accepted trend facts by itself.
 
+## Trainee Background Discovery
+
+Official trainee profile and prior-training background discovery are queue-driven lanes, not default rebuild steps. The committed warehouse stores deterministic no-network manifests so a local rebuild can verify the queue without depending on search-engine availability.
+
+`scripts/discover_trainee_official_profiles.py` searches for missing official profile URLs and profile-context pages. It writes query, observation, candidate, source, claim, and summary artifacts. Discovered URLs can support profile, education, prior-training, research-interest, career-interest, and personal-context candidates, but they do not mutate roster truth unless same-person/current-trainee context is confirmed through a current official roster link or reviewer-accepted evidence.
+
+`scripts/discover_prior_training_background.py` covers the narrower background gap for medical-school and prior-residency history. It reads `source_medical_school_background` and `source_residency_background` tasks from `person_enrichment_work_queue`, materializes deterministic search queries, and can optionally run/probe public search results into:
+
+- `prior_training_search_queries.csv`
+- `prior_training_search_observations.csv`
+- `prior_training_discovery_candidates.csv`
+- `prior_training_discovery_claims.json`
+- `prior_training_discovery_sources.json`
+- `prior_training_discovery_summary.json`
+
+This lane is intentionally candidate-only. Prior education and previous GME facts are high-value enrichment fields, but they are also name-collision and staleness prone because they often come from old biosketches, article affiliations, residency newsletters, alumni pages, or scraped profile mirrors. Reconciliation should accept them only with corroborating same-person anchors such as official trainee profile context, dated institutional profile text, CV/biosketch lines, stable program affiliation, or reviewer acceptance.
+
+The current readiness ledger now treats profile, research, and prior-training discovery as collector-backed queue lanes. That means the next improvement loop is execution and reconciliation quality, not building another parser skeleton: run candidate collection, inspect hit quality by source utility, promote only evidence-backed claims, then rerun the queue to see which tasks remain unresolved.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.

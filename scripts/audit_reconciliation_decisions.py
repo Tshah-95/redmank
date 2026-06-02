@@ -295,7 +295,7 @@ def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
         features = set(parse_json(row.get("match_features_json"), []))
         name_matches = names.get(normalized_person_name(row.get("display_name")), [])
         if row["record_type"] == "evidence_claim":
-            if row.get("source_type") == "official_trainee_profile":
+            if row.get("source_type") in {"official_trainee_profile", "prior_training_background_discovery"}:
                 decision, rationale, required = profile_decision(row, features)
             else:
                 decision, rationale, required = pubmed_decision(row, features)

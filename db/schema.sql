@@ -1575,6 +1575,73 @@ CREATE TABLE IF NOT EXISTS trainee_profile_discovery_candidates (
   discovered_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS prior_training_search_queries (
+  query_key TEXT PRIMARY KEY,
+  person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_key TEXT,
+  task_type TEXT NOT NULL,
+  query_kind TEXT NOT NULL,
+  query TEXT NOT NULL,
+  query_url TEXT NOT NULL,
+  priority INTEGER,
+  priority_band TEXT
+);
+
+CREATE TABLE IF NOT EXISTS prior_training_search_observations (
+  query_key TEXT NOT NULL,
+  person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_key TEXT,
+  task_type TEXT NOT NULL,
+  query_kind TEXT NOT NULL,
+  query TEXT NOT NULL,
+  query_url TEXT NOT NULL,
+  priority INTEGER,
+  priority_band TEXT,
+  searched_at TEXT,
+  search_http_status INTEGER,
+  result_count INTEGER NOT NULL DEFAULT 0,
+  error TEXT,
+  PRIMARY KEY (query_key, searched_at)
+);
+
+CREATE TABLE IF NOT EXISTS prior_training_discovery_candidates (
+  candidate_key TEXT PRIMARY KEY,
+  person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_key TEXT,
+  task_type TEXT NOT NULL,
+  query_key TEXT,
+  query_kind TEXT,
+  query TEXT,
+  candidate_status TEXT NOT NULL,
+  priority INTEGER NOT NULL DEFAULT 0,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  candidate_title TEXT,
+  candidate_url TEXT NOT NULL,
+  result_rank INTEGER,
+  result_domain TEXT,
+  result_snippet TEXT,
+  http_status INTEGER,
+  content_type TEXT,
+  text_length INTEGER NOT NULL DEFAULT 0,
+  sha256 TEXT,
+  probed_at TEXT,
+  page_term_hits TEXT,
+  match_features_json TEXT,
+  required_next_evidence TEXT NOT NULL,
+  source_key TEXT,
+  evidence_json TEXT,
+  discovered_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS evidence_reconciliation_decisions (
   decision_key TEXT PRIMARY KEY,
   record_type TEXT NOT NULL,
@@ -2056,6 +2123,8 @@ SELECT
        AND e.claim_type = 'official_profile_url_candidate' THEN 40
       WHEN e.source_type = 'official_trainee_profile'
        AND e.claim_type IN ('education_history_candidate', 'prior_training_history_candidate') THEN 35
+      WHEN e.source_type = 'prior_training_background_discovery'
+       AND e.claim_type IN ('education_history_candidate', 'prior_training_history_candidate') THEN 28
       WHEN e.source_type = 'official_trainee_profile'
        AND e.claim_type IN ('research_interest_candidate', 'career_interest_candidate') THEN 25
       WHEN e.source_type = 'official_trainee_profile'
@@ -2081,6 +2150,8 @@ SELECT
      AND e.claim_type = 'official_profile_url_candidate' THEN 'Review discovered official profile URL candidate for same-person, official ownership, and current trainee/program anchors before accepting.'
     WHEN e.source_type = 'official_trainee_profile'
      AND e.claim_type IN ('education_history_candidate', 'prior_training_history_candidate') THEN 'Review official roster-linked profile background field before promoting to accepted enrichment or using as identity anchor.'
+    WHEN e.source_type = 'prior_training_background_discovery'
+     AND e.claim_type IN ('education_history_candidate', 'prior_training_history_candidate') THEN 'Review discovered prior-training background candidate for same-person identity and explicit source text before accepting.'
     WHEN e.source_type = 'official_trainee_profile'
      AND e.claim_type IN ('research_interest_candidate', 'career_interest_candidate') THEN 'Review official profile interest field as enrichment context; do not treat as publication or outcome evidence.'
     WHEN e.source_type = 'official_trainee_profile'
@@ -2106,7 +2177,7 @@ WHERE e.status IN ('candidate', 'needs_review')
     'personal_profile_candidate'
   )
   AND (
-    e.source_type = 'official_trainee_profile'
+    e.source_type IN ('official_trainee_profile', 'prior_training_background_discovery')
     OR e.claim_type IN (
       'pubmed_article_candidate',
       'pubmed_author_query_candidate',

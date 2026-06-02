@@ -38,6 +38,18 @@
       "acceptance_rule": "Accept only the roster-linked official profile URL as a profile-location fact. Keep extracted education, prior-training, interest, and personal-context fields as candidate enrichment until independently reconciled or explicitly reviewed."
     },
     {
+      "utility_key": "prior_training_background_discovery",
+      "display_name": "Prior training background discovery",
+      "source_family": "web_search",
+      "default_tier": "bronze",
+      "default_status": "candidate",
+      "default_confidence": 0.35,
+      "claim_types": ["education_history_candidate", "prior_training_history_candidate"],
+      "strengths": ["Queue-driven coverage of medical-school and prior-residency enrichment gaps", "Can find long-tail biosketches, CVs, alumni pages, newsletters, and institutional profiles", "Stores query, source, candidate, and required-next-evidence provenance"],
+      "limitations": ["Broad search is rate-limit sensitive", "Education and prior-training pages can be stale", "Name collisions are common without profile, program, date, or institutional anchors"],
+      "acceptance_rule": "Use for discovery only. Promote education or prior-training facts only when the page supplies same-person context and an independent anchor, or after explicit reviewer acceptance."
+    },
+    {
       "utility_key": "openalex_author_search",
       "display_name": "OpenAlex author search",
       "source_family": "scholarly_api",

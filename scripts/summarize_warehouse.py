@@ -55,6 +55,9 @@ def main() -> None:
         "trainee_profile_search_queries",
         "trainee_profile_search_observations",
         "trainee_profile_discovery_candidates",
+        "prior_training_search_queries",
+        "prior_training_search_observations",
+        "prior_training_discovery_candidates",
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
@@ -507,6 +510,26 @@ def main() -> None:
             """
         )
     }
+    prior_training_discovery_candidate_counts = {
+        row["candidate_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT candidate_status, COUNT(*) AS count
+            FROM prior_training_discovery_candidates
+            GROUP BY candidate_status
+            """
+        )
+    }
+    prior_training_search_status_counts = {
+        str(row["search_http_status"]): row["count"]
+        for row in conn.execute(
+            """
+            SELECT search_http_status, COUNT(*) AS count
+            FROM prior_training_search_observations
+            GROUP BY search_http_status
+            """
+        )
+    }
     contact_counts = {
         row["contact_type"]: row["count"]
         for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
@@ -919,6 +942,13 @@ def main() -> None:
         )
     else:
         trainee_profile_discovery_summary = {}
+    prior_training_discovery_summary_path = ARTIFACTS / "prior_training_discovery_summary.json"
+    if prior_training_discovery_summary_path.exists():
+        prior_training_discovery_summary = json.loads(
+            prior_training_discovery_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        prior_training_discovery_summary = {}
     attending_trend_linkage_summary_path = ARTIFACTS / "attending_trend_linkage_summary.json"
     if attending_trend_linkage_summary_path.exists():
         attending_trend_linkage_summary = json.loads(attending_trend_linkage_summary_path.read_text(encoding="utf-8"))
@@ -1129,6 +1159,8 @@ def main() -> None:
         "temporal_contract_rollup_scope_counts": temporal_contract_rollup_scope_counts,
         "trainee_profile_discovery_candidate_counts": trainee_profile_discovery_candidate_counts,
         "trainee_profile_search_status_counts": trainee_profile_search_status_counts,
+        "prior_training_discovery_candidate_counts": prior_training_discovery_candidate_counts,
+        "prior_training_search_status_counts": prior_training_search_status_counts,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_display_safety_counts": contact_display_safety_counts,
@@ -1175,6 +1207,7 @@ def main() -> None:
         "training_state_transition_plan_summary": training_state_transition_plan_summary,
         "training_temporal_contract_summary": training_temporal_contract_summary,
         "trainee_profile_discovery_summary": trainee_profile_discovery_summary,
+        "prior_training_discovery_summary": prior_training_discovery_summary,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,
