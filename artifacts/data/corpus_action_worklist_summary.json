@@ -3,7 +3,7 @@
     "contact_verification": 313,
     "official_program_coverage": 42,
     "official_roster_refresh": 114,
-    "person_enrichment_execution": 61,
+    "person_enrichment_execution": 49,
     "person_evidence_review": 792,
     "program_lifecycle_duration_review": 10,
     "recent_attending_trend": 70,
@@ -11,15 +11,15 @@
     "training_temporal_contract": 86
   },
   "by_priority_band": {
-    "critical": 176,
-    "high": 813,
+    "critical": 171,
+    "high": 806,
     "low": 9,
     "medium": 494
   },
-  "critical_rows": 176,
+  "critical_rows": 171,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T19:33:26.339961+00:00",
-  "high_rows": 813,
+  "generated_at": "2026-06-02T19:36:01.533995+00:00",
+  "high_rows": 806,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -36,9 +36,9 @@
     "official_roster_refresh:source_reobservation_required": 62,
     "person_enrichment_execution:contact:public_contact_verification": 15,
     "person_enrichment_execution:normalization:organization_alias_review": 7,
+    "person_enrichment_execution:official_profile:official_profile_search": 4,
     "person_enrichment_execution:prior_training:source_medical_school_background": 5,
     "person_enrichment_execution:research:research_identity_search": 15,
-    "person_enrichment_execution:review_queue:evidence_reconciliation_review": 12,
     "person_evidence_review:official_profile_context_display_review": 53,
     "person_evidence_review:publication_identity_final_check": 48,
     "person_evidence_review:publication_with_official_profile_anchor_review": 6,
@@ -51,36 +51,6 @@
     "training_temporal_contract:source_refresh_required": 74
   },
   "top_work_items": [
-    {
-      "action_scope": "review_queue:evidence_reconciliation_review",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "resident evidence_reconciliation_review",
-      "impact_count": 236,
-      "priority": 1286,
-      "program_name": "",
-      "recommended_next_action": "review_reconciliation_packet",
-      "role": "resident"
-    },
-    {
-      "action_scope": "review_queue:evidence_reconciliation_review",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "resident evidence_reconciliation_review",
-      "impact_count": 215,
-      "priority": 1265,
-      "program_name": "",
-      "recommended_next_action": "review_reconciliation_packet",
-      "role": "resident"
-    },
-    {
-      "action_scope": "review_queue:evidence_reconciliation_review",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "resident evidence_reconciliation_review",
-      "impact_count": 207,
-      "priority": 1257,
-      "program_name": "",
-      "recommended_next_action": "review_reconciliation_packet",
-      "role": "resident"
-    },
     {
       "action_scope": "source_reobservation_required",
       "action_surface": "official_roster_refresh",
@@ -120,16 +90,6 @@
       "program_name": "General Surgery Residency",
       "recommended_next_action": "refresh_source_then_classify_expected_transitions_and_source_bound_reobservations",
       "role": "resident"
-    },
-    {
-      "action_scope": "review_queue:evidence_reconciliation_review",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "fellow evidence_reconciliation_review",
-      "impact_count": 119,
-      "priority": 1134,
-      "program_name": "",
-      "recommended_next_action": "review_reconciliation_packet",
-      "role": "fellow"
     },
     {
       "action_scope": "official_profile:official_profile_search",
@@ -300,8 +260,48 @@
       "program_name": "Urology Residency",
       "recommended_next_action": "refresh_source_then_classify_expected_transitions_and_source_bound_reobservations",
       "role": "resident"
+    },
+    {
+      "action_scope": "expected_transition_reconciliation",
+      "action_surface": "official_roster_refresh",
+      "display_label": "Obstetrics and Gynecology Residency | resident",
+      "impact_count": 32,
+      "priority": 1076,
+      "program_name": "Obstetrics and Gynecology Residency",
+      "recommended_next_action": "refresh_source_and_compare_against_expected_next_stage_or_completion",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_expected_transition_and_source_refresh",
+      "action_surface": "official_roster_refresh",
+      "display_label": "Ophthalmology Residency | resident",
+      "impact_count": 20,
+      "priority": 1075,
+      "program_name": "Ophthalmology Residency",
+      "recommended_next_action": "refresh_source_then_classify_expected_transitions_and_source_bound_reobservations",
+      "role": "resident"
+    },
+    {
+      "action_scope": "expected_transition_reconciliation",
+      "action_surface": "official_roster_refresh",
+      "display_label": "Otorhinolaryngology Residency | resident",
+      "impact_count": 31,
+      "priority": 1074,
+      "program_name": "Otorhinolaryngology Residency",
+      "recommended_next_action": "refresh_source_and_compare_against_expected_next_stage_or_completion",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_expected_transition_and_manual_review",
+      "action_surface": "official_roster_refresh",
+      "display_label": "Internal Medicine Residency - Global Health Equities Track | resident",
+      "impact_count": 10,
+      "priority": 1073,
+      "program_name": "Internal Medicine Residency - Global Health Equities Track",
+      "recommended_next_action": "refresh_source_then_review_lifecycle_labels_before_state_mutation",
+      "role": "resident"
     }
   ],
-  "total_impact_count": 12230,
-  "worklist_rows": 1492
+  "total_impact_count": 11362,
+  "worklist_rows": 1480
 }

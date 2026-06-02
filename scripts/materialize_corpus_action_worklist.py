@@ -548,8 +548,11 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
 def enrichment_queue_actions(generated_at: str) -> list[dict]:
     grouped: dict[tuple[str, str, str, str, str, str], dict] = defaultdict(lambda: {"count": 0, "fresh": 0, "sample": None})
     roster_workbench_exists = (ARTIFACTS / "official_roster_refresh_workbench.csv").exists()
+    evidence_triage_exists = (ARTIFACTS / "person_evidence_review_triage.csv").exists()
     for item in read_csv(ARTIFACTS / "person_enrichment_queue.csv"):
         if roster_workbench_exists and item.get("task_type") == "current_roster_state_reconciliation":
+            continue
+        if evidence_triage_exists and item.get("task_type") == "evidence_reconciliation_review":
             continue
         key = (
             item.get("task_type") or "",
