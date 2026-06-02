@@ -1627,6 +1627,61 @@ CREATE TABLE IF NOT EXISTS attending_biosketch_bridge_candidates (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS attending_historical_link_search_queries (
+  query_key TEXT PRIMARY KEY,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  query_kind TEXT NOT NULL,
+  query TEXT NOT NULL,
+  query_url TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS attending_historical_link_search_observations (
+  query_key TEXT PRIMARY KEY,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  query_kind TEXT NOT NULL,
+  query TEXT NOT NULL,
+  query_url TEXT NOT NULL,
+  searched_at TEXT,
+  search_http_status INTEGER,
+  result_count INTEGER NOT NULL DEFAULT 0,
+  error TEXT
+);
+
+CREATE TABLE IF NOT EXISTS attending_historical_link_candidates (
+  candidate_key TEXT PRIMARY KEY,
+  query_key TEXT,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  query_kind TEXT,
+  query TEXT,
+  query_url TEXT,
+  result_url TEXT NOT NULL,
+  result_domain TEXT,
+  result_title TEXT,
+  result_snippet TEXT,
+  search_status TEXT,
+  searched_at TEXT,
+  search_http_status INTEGER,
+  probe_http_status INTEGER,
+  probe_content_type TEXT,
+  probe_title TEXT,
+  probe_text_length INTEGER NOT NULL DEFAULT 0,
+  probe_sha256 TEXT,
+  probe_error TEXT,
+  probed_at TEXT,
+  page_term_hits TEXT,
+  candidate_status TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  priority INTEGER NOT NULL DEFAULT 0,
+  classification_reasons TEXT,
+  required_next_evidence TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS attending_trend_reconciliation (
   trend_key TEXT PRIMARY KEY,
   event_group_key TEXT NOT NULL,
@@ -1852,6 +1907,47 @@ CREATE TABLE IF NOT EXISTS attending_trend_dossiers (
   required_next_evidence TEXT NOT NULL,
   recommended_next_action TEXT NOT NULL,
   top_source_urls TEXT,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS attending_trend_discovery_workbench (
+  trend_workbench_key TEXT PRIMARY KEY,
+  trend_key TEXT NOT NULL,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  trend_status TEXT NOT NULL,
+  dossier_status TEXT NOT NULL,
+  ten_year_trend_window TEXT NOT NULL,
+  has_current_attending_endpoint INTEGER NOT NULL DEFAULT 0,
+  has_penn_training_claim INTEGER NOT NULL DEFAULT 0,
+  has_recent_dated_biosketch_bridge INTEGER NOT NULL DEFAULT 0,
+  has_historical_link_candidate INTEGER NOT NULL DEFAULT 0,
+  accepted_trend_fact_count INTEGER NOT NULL DEFAULT 0,
+  review_claim_count INTEGER NOT NULL DEFAULT 0,
+  reviewer_queue_count INTEGER NOT NULL DEFAULT 0,
+  historical_query_count INTEGER NOT NULL DEFAULT 0,
+  historical_search_observation_count INTEGER NOT NULL DEFAULT 0,
+  historical_blocked_search_count INTEGER NOT NULL DEFAULT 0,
+  historical_candidate_count INTEGER NOT NULL DEFAULT 0,
+  actionable_historical_candidate_count INTEGER NOT NULL DEFAULT 0,
+  current_profile_context_candidate_count INTEGER NOT NULL DEFAULT 0,
+  best_candidate_status TEXT,
+  best_candidate_url TEXT,
+  best_candidate_domain TEXT,
+  best_candidate_title TEXT,
+  best_candidate_confidence REAL NOT NULL DEFAULT 0.0,
+  best_candidate_priority INTEGER NOT NULL DEFAULT 0,
+  discovery_lane TEXT NOT NULL,
+  discovery_priority INTEGER NOT NULL DEFAULT 0,
+  evidence_required TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  source_urls TEXT,
+  query_status_counts_json TEXT NOT NULL,
+  candidate_status_counts_json TEXT NOT NULL,
+  sample_queries_json TEXT NOT NULL,
+  candidate_evidence_json TEXT NOT NULL,
   evidence_json TEXT NOT NULL,
   generated_at TEXT NOT NULL
 );

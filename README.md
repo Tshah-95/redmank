@@ -97,6 +97,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_linkage_groups.csv`: person/source-group rollup for recent-attending trend linkage candidates.
 - `artifacts/data/attending_historical_link_candidates.csv`: seeded/search-discovered source candidates that may bridge current Penn attending endpoints to dated historical trainee records.
 - `artifacts/data/attending_historical_link_search_queries.csv`: deterministic web-search query plan for attending trend identity linkage.
+- `artifacts/data/attending_historical_link_search_observations.csv`: search execution observations for historical-link trend discovery.
 - `artifacts/data/attending_biosketch_bridge_candidates.csv`: official Penn Faculty Biosketch training-line bridge candidates for current attendings with Penn-training claims.
 - `artifacts/data/attending_biosketch_bridge_summary.json`: status counts for dated recent Penn training bridge candidates, non-Penn context, and research-training context.
 - `artifacts/data/attending_trend_reconciliation.csv`: non-mutating trend acceptance ledger combining endpoint, Penn-training, biosketch, and historical-link evidence.
@@ -111,6 +112,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_reviewer_decision_summary.json`: reviewer-decision queue, pending, rejected/deferred, and accepted-fact counts.
 - `artifacts/data/attending_trend_review_rollups.csv`: trend-review rollups by corpus, training type, training end year, source scope, and ten-year-window scope.
 - `artifacts/data/attending_trend_review_claims_summary.json`: review-ready trend claim, person, end-year, and rollup counts.
+- `artifacts/data/attending_trend_discovery_workbench.csv`: group-level trend discovery state combining dossiers, historical-link query coverage, candidate URLs, reviewer queues, and accepted facts.
+- `artifacts/data/attending_trend_discovery_workbench_summary.json`: accepted, review-ready, endpoint-search, historical-candidate, and context-only trend work counts.
 - `artifacts/data/npi_candidate_claims.csv`: candidate NPPES/NPI identity, taxonomy, and PA practice-location anchors for current residents/fellows.
 - `artifacts/data/npi_candidate_summary.json`: NPI query, status, role, and taxonomy counts.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
@@ -291,6 +294,7 @@ python3 scripts/materialize_contact_verification_reviewer_decisions.py
 python3 scripts/materialize_attending_trend_review_claims.py
 python3 scripts/audit_attending_trend_acceptance.py
 python3 scripts/materialize_attending_trend_reviewer_decisions.py
+python3 scripts/materialize_attending_trend_discovery_workbench.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
@@ -436,6 +440,7 @@ The initial methodology is conservative:
 - Score source utilities by observed claim surface, output quality, blockers, and next action before widening the corpus.
 - Keep current-attending endpoints separate from accepted trend-line links until a historical roster, alumni page, CV, or independent profile connects the attending identity to a dated Penn trainee record.
 - Keep review-ready recent-attending trend candidates separate from accepted trend facts until an explicit reviewer acceptance decision confirms identity, current endpoint, training line, program type, and dates.
+- Convert trend dossiers into `attending_trend_discovery_workbench.csv` so endpoint-only attendings, profile-claim bridge searches, historical-link candidates, pending reviewer decisions, and accepted facts stay in separate action lanes.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 - Keep external organization identifiers as candidates until the source result agrees on the actual entity surface. Parent ROR candidates, search siblings, and relationship-only hints are useful evidence, but they should not mutate accepted organization identifiers without a second anchor.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.

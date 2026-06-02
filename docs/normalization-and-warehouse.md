@@ -79,6 +79,8 @@ Core tables:
 - `organization_identifiers`: external IDs.
 - `person_training_events`: medical school, residency, undergraduate, graduate-school events.
 - `career_events`: candidate current Penn attending and alumni/outcome events used for future trend reconciliation.
+- `attending_historical_link_search_queries`, `attending_historical_link_search_observations`, `attending_historical_link_candidates`: queryable provenance for historical roster, alumni, CV, official-profile, and search-backed bridge attempts used by the recent-attending trend lane.
+- `attending_trend_discovery_workbench`: group-level trend discovery state that separates accepted trend facts, pending reviewer decisions, historical-link candidate review, profile-claim bridge search, endpoint-only training-bridge search, and context-only rows.
 - `person_contacts`: public contact candidates with source, scope, verification status, confidence, and candidate status.
 - `evidence_claims`: accepted and candidate claims for recursive enrichment.
 - `evidence_reconciliation_decisions`: queryable item-level decision ledger for candidate evidence and career events.
@@ -270,6 +272,8 @@ This bridge audit is still non-mutating. A faculty biosketch is much stronger th
 `scripts/audit_attending_trend_reconciliation.py` is the policy ledger above those source utilities. It joins trend-linkage groups, official biosketch bridge candidates, and historical-link candidates into `attending_trend_reconciliation.csv` and SQLite table `attending_trend_reconciliation`. The ledger classifies groups as review-ready official-biosketch bridges, profile claims still needing a dated bridge, endpoints needing Penn-training evidence, or context-only rows.
 
 This table is the right place to build the ten-year recent-attending trend line. It is deliberately still non-mutating: `review_ready_official_biosketch_bridge` means endpoint evidence, Penn-training claim, and dated recent official Penn GME biosketch evidence agree enough for explicit reviewer acceptance. It does not rewrite the current trainee roster or promote profile claims into accepted trend facts by itself.
+
+`scripts/materialize_attending_trend_discovery_workbench.py` is the action layer above the trend dossiers. It joins historical-link query manifests, search observations, candidate URLs, reviewer queue status, and accepted facts into one non-mutating state per attending/event group. This prevents endpoint-only faculty pages from blending with review-ready or accepted trend facts and makes missing bridge evidence measurable: no query plan, blocked search endpoint, context candidate review, profile-claim dated-bridge search, reviewer decision pending, or accepted-fact monitor.
 
 ## Trainee Background Discovery
 

@@ -787,6 +787,60 @@ def attending_trend_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
+    rows = []
+    source_path = ARTIFACTS / "attending_trend_discovery_workbench.csv"
+    if not source_path.exists():
+        return rows
+    source = "artifacts/data/attending_trend_discovery_workbench.csv"
+    for item in read_csv(source_path):
+        priority = as_int(item.get("discovery_priority"))
+        rows.append(
+            row(
+                action_surface="recent_attending_trend_discovery",
+                action_scope=item.get("discovery_lane") or "attending_trend_discovery",
+                entity_type="attending_event_group",
+                entity_key=item.get("trend_workbench_key") or item.get("event_group_key") or item.get("trend_key") or "",
+                display_label=item.get("display_name") or "",
+                role="current_penn_attending_candidate" if as_int(item.get("has_current_attending_endpoint")) else "",
+                program_name="",
+                priority=priority,
+                impact_count=1,
+                readiness_status=item.get("ten_year_trend_window") or "unknown",
+                blocker_status=item.get("discovery_lane") or item.get("trend_status") or "",
+                required_next_evidence=item.get("evidence_required") or "",
+                recommended_next_action=item.get("recommended_next_action") or "",
+                source_artifact=source,
+                target_artifact="artifacts/data/attending_historical_link_candidates.csv",
+                downstream_tables=[
+                    "attending_trend_discovery_workbench",
+                    "attending_trend_dossiers",
+                    "attending_historical_link_search_queries",
+                    "attending_historical_link_search_observations",
+                    "attending_historical_link_candidates",
+                    "attending_trend_reviewer_decision_queue",
+                    "accepted_attending_trend_facts",
+                ],
+                evidence={
+                    "trend_key": item.get("trend_key"),
+                    "event_group_key": item.get("event_group_key"),
+                    "trend_status": item.get("trend_status"),
+                    "dossier_status": item.get("dossier_status"),
+                    "has_current_attending_endpoint": item.get("has_current_attending_endpoint"),
+                    "has_penn_training_claim": item.get("has_penn_training_claim"),
+                    "accepted_trend_fact_count": item.get("accepted_trend_fact_count"),
+                    "review_claim_count": item.get("review_claim_count"),
+                    "historical_query_count": item.get("historical_query_count"),
+                    "historical_candidate_count": item.get("historical_candidate_count"),
+                    "best_candidate_status": item.get("best_candidate_status"),
+                    "best_candidate_url": item.get("best_candidate_url"),
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def write_csv(path: Path, rows: list[dict]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
@@ -853,7 +907,8 @@ def main() -> None:
     rows.extend(official_profile_discovery_actions(generated_at))
     rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))
-    rows.extend(attending_trend_actions(generated_at))
+    attending_discovery_rows = attending_trend_discovery_actions(generated_at)
+    rows.extend(attending_discovery_rows if attending_discovery_rows else attending_trend_actions(generated_at))
     rows.sort(key=lambda item: (-as_int(item["priority"]), -as_int(item["impact_count"]), item["action_surface"], item["display_label"]))
     write_csv(CSV_OUT, rows)
     JSON_OUT.write_text(json.dumps(rows, indent=2, sort_keys=True) + "\n", encoding="utf-8")

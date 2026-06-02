@@ -530,20 +530,20 @@
       "person_enrichment_execution": 45,
       "person_evidence_review": 792,
       "program_lifecycle_duration_review": 10,
-      "recent_attending_trend": 70,
+      "recent_attending_trend_discovery": 70,
       "search_utility_assurance": 4,
       "training_temporal_contract": 86
     },
     "by_priority_band": {
-      "critical": 82,
-      "high": 1399,
-      "low": 9,
-      "medium": 494
+      "critical": 84,
+      "high": 1437,
+      "low": 30,
+      "medium": 433
     },
-    "critical_rows": 82,
+    "critical_rows": 84,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-02T19:52:47.255314+00:00",
-    "high_rows": 1399,
+    "generated_at": "2026-06-02T20:00:09.095934+00:00",
+    "high_rows": 1437,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
     "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -568,9 +568,9 @@
       "person_evidence_review:publication_with_official_profile_anchor_review": 6,
       "person_evidence_review:publication_with_secondary_identity_anchor_review": 667,
       "person_evidence_review:secondary_identity_anchor_context_review": 18,
-      "recent_attending_trend:context_only_not_trend_ready": 21,
-      "recent_attending_trend:current_endpoint_needs_training_claim": 43,
-      "recent_attending_trend:review_ready_official_biosketch_bridge": 5,
+      "program_lifecycle_duration_review:not_ready_for_reviewer_decision": 4,
+      "recent_attending_trend_discovery:context_only_monitor": 21,
+      "recent_attending_trend_discovery:current_endpoint_query_plan_missing": 43,
       "training_temporal_contract:manual_review_required": 12,
       "training_temporal_contract:source_refresh_required": 74
     },
@@ -836,7 +836,11 @@
     "accepted_program_lifecycle_duration_mappings": 0,
     "accepted_verified_contact_facts": 0,
     "attending_biosketch_bridge_candidates": 36,
+    "attending_historical_link_candidates": 15,
+    "attending_historical_link_search_observations": 36,
+    "attending_historical_link_search_queries": 36,
     "attending_trend_acceptance_audit": 5,
+    "attending_trend_discovery_workbench": 70,
     "attending_trend_dossiers": 70,
     "attending_trend_reconciliation": 70,
     "attending_trend_review_claims": 5,
@@ -936,7 +940,7 @@
     "training_state_transition_rollups": 219,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 105
+    "warehouse_reproducibility_audit": 109
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2176,7 +2180,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T19:52:48.877998+00:00",
+  "generated_at": "2026-06-02T20:00:54.949244+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -4663,12 +4667,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 105
+    "ok": 109
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 105,
-    "audited_at": "2026-06-02T19:52:47.632061+00:00",
+    "artifact_rows": 109,
+    "audited_at": "2026-06-02T20:00:53.213726+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -4676,7 +4680,9 @@
       "accepted_verified_contact_ledger": 1,
       "attending_trend_acceptance_ledger": 1,
       "attending_trend_accepted_fact_ledger": 1,
+      "attending_trend_discovery_workbench_ledger": 1,
       "attending_trend_dossier_ledger": 1,
+      "attending_trend_historical_discovery_ledger": 3,
       "attending_trend_input": 1,
       "attending_trend_ledger": 4,
       "attending_trend_reviewer_decision_input": 1,
@@ -4738,17 +4744,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 105
+      "ok": 109
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 220061696,
+    "sqlite_byte_size": 221200384,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "5f8657d6937fe8c6dcb4a2a2ae45c9e9ae896175257725108fd11f13bee271a8",
+    "sqlite_sha256": "82fbaabac391a5e64e807a6e77a9c1dd3a5ec3d59ea109abdf5c562fd1c62d79",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

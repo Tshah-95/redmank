@@ -109,6 +109,10 @@ CSV_TABLES = [
     ("accepted_attending_trend_facts.csv", "accepted_attending_trend_facts"),
     ("attending_trend_dossiers.csv", "attending_trend_dossiers"),
     ("attending_trend_review_rollups.csv", "attending_trend_review_rollups"),
+    ("attending_historical_link_search_queries.csv", "attending_historical_link_search_queries"),
+    ("attending_historical_link_search_observations.csv", "attending_historical_link_search_observations"),
+    ("attending_historical_link_candidates.csv", "attending_historical_link_candidates"),
+    ("attending_trend_discovery_workbench.csv", "attending_trend_discovery_workbench"),
 ]
 
 JSON_TABLES = [

@@ -1,0 +1,231 @@
+{
+  "accepted_trend_fact_rows": 3,
+  "actionable_historical_candidate_count": 5,
+  "by_discovery_lane": {
+    "accepted_trend_fact_monitor": 3,
+    "context_only_monitor": 21,
+    "current_endpoint_query_plan_missing": 43,
+    "historical_link_candidate_review": 1,
+    "reviewer_decision_pending": 2
+  },
+  "by_trend_status": {
+    "context_only_not_trend_ready": 21,
+    "current_endpoint_needs_training_claim": 43,
+    "historical_link_candidate_review": 1,
+    "review_ready_official_biosketch_bridge": 5
+  },
+  "csv": "artifacts/data/attending_trend_discovery_workbench.csv",
+  "current_endpoint_rows": 49,
+  "generated_at": "2026-06-02T20:00:09.040390+00:00",
+  "historical_blocked_search_count": 34,
+  "historical_candidate_count": 15,
+  "historical_query_count": 36,
+  "historical_search_observation_count": 36,
+  "json": "artifacts/data/attending_trend_discovery_workbench.json",
+  "penn_training_claim_rows": 4,
+  "policy": "This artifact is non-mutating. It converts attending-trend dossiers, historical-link search coverage, candidate evidence, reviewer queues, and accepted facts into one action state per group.",
+  "review_claim_rows": 5,
+  "top_workbench_rows": [
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "reviewer_decision_pending",
+      "discovery_priority": 1020,
+      "display_name": "Denis Hadjiliadis, MD, PhD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "record_attending_trend_reviewer_decision",
+      "trend_status": "review_ready_official_biosketch_bridge"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "reviewer_decision_pending",
+      "discovery_priority": 1020,
+      "display_name": "Katherine Courtright, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "record_attending_trend_reviewer_decision",
+      "trend_status": "review_ready_official_biosketch_bridge"
+    },
+    {
+      "best_candidate_url": "https://www.linkedin.com/in/emily-gordon-md-msed-406675247",
+      "discovery_lane": "historical_link_candidate_review",
+      "discovery_priority": 945,
+      "display_name": "Emily Gordon, MD, MSEd",
+      "historical_candidate_count": 9,
+      "historical_query_count": 9,
+      "recommended_next_action": "review_historical_link_for_same_person_program_and_dates",
+      "trend_status": "historical_link_candidate_review"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 830,
+      "display_name": "Anar A. Dossumbekova, MD, PhD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 830,
+      "display_name": "Jesse Kiefer MD MSEd",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 830,
+      "display_name": "Pavle S. Milutinovic, MD, PhD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 830,
+      "display_name": "Scott Feldman, MD, PhD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Alana Sagin, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Alison Wakoff Loren, MD, MSCE",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Andrea J. Apter, MD, MA, MSc",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Ann Soliman, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Barbara A. Carr",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Bridget Durkin, MD, MBE",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Christine Ciunci, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Christopher A. D'Avella, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Daniel J. Landsburg, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "David M. Mintzer, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Douglas Eric Guggenheim, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Edward A. Stadtmauer, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    },
+    {
+      "best_candidate_url": "",
+      "discovery_lane": "current_endpoint_query_plan_missing",
+      "discovery_priority": 770,
+      "display_name": "Emily Chan, MD",
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_next_action": "materialize_attending_historical_link_query_plan_for_endpoint",
+      "trend_status": "current_endpoint_needs_training_claim"
+    }
+  ],
+  "workbench_rows": 70
+}
