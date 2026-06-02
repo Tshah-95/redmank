@@ -1,8 +1,7 @@
 {
-  "blocked_or_low_current_utility_rows": 1,
+  "blocked_or_low_current_utility_rows": 0,
   "by_quality_band": {
-    "blocked_or_low_current_utility": 1,
-    "discovery_or_review_only": 2,
+    "discovery_or_review_only": 3,
     "high_utility": 3,
     "strong_with_known_limits": 13,
     "useful_candidate_layer": 5
@@ -46,9 +45,9 @@
     "warehouse_provenance": 1,
     "web_search": 2
   },
-  "candidate_or_discovery_rows": 7,
+  "candidate_or_discovery_rows": 8,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T16:40:35.961133+00:00",
+  "generated_at": "2026-06-02T16:51:47.930823+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
   "scorecard_rows": 24,

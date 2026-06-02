@@ -226,6 +226,7 @@ python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
 python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
+python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only openalex --skip-existing-source pubmed_eutilities --sleep 0.05 --request-timeout 5 --request-attempts 2 --progress-every 25
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/materialize_trainee_profile_claims.py
 python3 scripts/build_sqlite.py
@@ -269,10 +270,10 @@ python3 scripts/summarize_warehouse.py
 
 `artifacts/data/redmank.sqlite` is a generated local warehouse, not a committed data blob. Rebuild it from committed artifacts with `python3 scripts/rebuild_local_warehouse.py`, then compare the resulting hash/storage metadata in `artifacts/data/redmank_sqlite_manifest.json`. The replay step intentionally avoids network collection; it recomputes official HUP denominator coverage from the committed official-program universe and current warehouse rows, then recomputes gap reasons so newly loaded rosters cannot remain stale gaps. Use the longer collection pipeline above when refreshing source data from the public web.
 
-OpenAlex author search is implemented as a candidate utility, but the latest full-corpus run hit sustained OpenAlex 429 throttling. Keep it as a resumable/polite enrichment lane rather than a default blocking rebuild step:
+OpenAlex author search is implemented as a candidate utility. The latest queue-driven pass processed the 199 research-queued residents/fellows without non-rejected PubMed evidence and produced 549 OpenAlex author candidates, including 51 `needs_review` rows. Keep it as a resumable/polite enrichment lane rather than a default blocking rebuild step; OpenAlex rows are author-disambiguation candidates, not accepted research facts.
 
 ```bash
-python3 scripts/collect_research_candidates.py --only openalex --skip-existing-source openalex_author_search --sleep 0.5
+python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only openalex --skip-existing-source pubmed_eutilities --sleep 0.05 --request-timeout 5 --request-attempts 2 --progress-every 25
 ```
 
 Broad web search for attending historical-link discovery is optional and rate-limit sensitive. The latest pass attempted polite DuckDuckGo HTML queries for the four Penn-training-claim groups and recorded non-200 search responses as source-quality evidence; add `--skip-search` when you only want the seeded official Penn/provider baseline.

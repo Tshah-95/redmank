@@ -1,12 +1,12 @@
 {
   "career_events.csv": 105,
-  "evidence_claims.csv": 8789,
-  "evidence_reconciliation_queue.csv": 7265,
+  "evidence_claims.csv": 9338,
+  "evidence_reconciliation_queue.csv": 7814,
   "organizations_resolved.csv": 834,
   "people_resolved.csv": 1535,
   "person_contacts.csv": 313,
   "recent_attending_trend_candidates.csv": 105,
-  "source_quality_observations.csv": 4,
+  "source_quality_observations.csv": 5,
   "training_events_resolved.csv": 1775,
   "training_states_current.csv": 1682
 }

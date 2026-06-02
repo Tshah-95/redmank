@@ -1,14 +1,14 @@
 {
-  "acceptance_rows": 7265,
+  "acceptance_rows": 7814,
   "acceptance_rule": "Do not mutate roster truth. A PubMed article becomes a machine-acceptance candidate only with review_ready_high_anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person.",
-  "audited_at": "2026-06-02T16:40:10.923630+00:00",
+  "audited_at": "2026-06-02T16:51:21.946148+00:00",
   "by_acceptance_status": {
     "attending_endpoint_only": 49,
     "context_or_review_queue_only": 36,
-    "low_signal_or_discovery_only": 2767,
+    "low_signal_or_discovery_only": 3035,
     "machine_acceptance_candidate_cross_source": 5,
     "needs_secondary_identity_anchor": 867,
-    "partial_anchor_candidate": 121,
+    "partial_anchor_candidate": 402,
     "profile_context_candidate": 1709,
     "review_ready_attending_training_claim": 3,
     "review_ready_profile_background": 795,
@@ -16,8 +16,8 @@
     "secondary_identity_anchor_available": 801
   },
   "by_assurance_level": {
-    "0": 2767,
-    "1": 1915,
+    "0": 3035,
+    "1": 2196,
     "2": 2463,
     "3": 115,
     "4": 5
@@ -33,12 +33,13 @@
     "prior_training_history_candidate": 114,
     "pubmed_article_candidate": 2262,
     "pubmed_author_query_candidate": 1336,
+    "research_author_candidate": 549,
     "research_interest_candidate": 336
   },
   "by_recommended_action": {
-    "collect_additional_identity_anchors": 121,
+    "collect_additional_identity_anchors": 402,
     "collect_profile_identifier_coauthor_or_historical_bridge_evidence": 867,
-    "deprioritize_until_stronger_independent_source_appears": 2767,
+    "deprioritize_until_stronger_independent_source_appears": 3035,
     "find_training_history_or_start_date_evidence_before_trend_use": 49,
     "promote_to_accepted_enrichment_after_final_duplicate_author_position_check": 5,
     "retain_in_reconciliation_queue": 36,
@@ -52,7 +53,7 @@
   "json": "artifacts/data/enrichment_acceptance_audit.json",
   "machine_acceptance_candidate_people": 3,
   "machine_acceptance_candidate_rows": 5,
-  "person_rows": 1504,
+  "person_rows": 1578,
   "review_ready_publication_rows": 112,
   "secondary_identity_anchor_rows": 801
 }

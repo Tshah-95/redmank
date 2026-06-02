@@ -3,21 +3,21 @@
     "contact_verification": 313,
     "official_program_coverage": 42,
     "person_enrichment_execution": 78,
-    "person_evidence_review": 686,
+    "person_evidence_review": 776,
     "recent_attending_trend": 70,
     "search_utility_assurance": 4,
     "training_temporal_contract": 86
   },
   "by_priority_band": {
     "critical": 16,
-    "high": 768,
+    "high": 858,
     "low": 321,
     "medium": 174
   },
   "critical_rows": 16,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T16:40:36.019997+00:00",
-  "high_rows": 768,
+  "generated_at": "2026-06-02T16:51:48.001950+00:00",
+  "high_rows": 858,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -36,7 +36,7 @@
     "person_enrichment_execution:prior_training:source_residency_background": 3,
     "person_enrichment_execution:research:research_identity_search": 15,
     "person_enrichment_execution:review_queue:evidence_reconciliation_review": 12,
-    "person_evidence_review:mixed_identity_anchor_review": 663,
+    "person_evidence_review:mixed_identity_anchor_review": 753,
     "person_evidence_review:publication_identity_review": 23,
     "recent_attending_trend:context_only_not_trend_ready": 21,
     "recent_attending_trend:current_endpoint_needs_training_claim": 43,
@@ -103,8 +103,18 @@
       "action_scope": "review_queue:evidence_reconciliation_review",
       "action_surface": "person_enrichment_execution",
       "display_label": "resident evidence_reconciliation_review",
-      "impact_count": 206,
-      "priority": 1256,
+      "impact_count": 215,
+      "priority": 1265,
+      "program_name": "",
+      "recommended_next_action": "review_reconciliation_packet",
+      "role": "resident"
+    },
+    {
+      "action_scope": "review_queue:evidence_reconciliation_review",
+      "action_surface": "person_enrichment_execution",
+      "display_label": "resident evidence_reconciliation_review",
+      "impact_count": 207,
+      "priority": 1257,
       "program_name": "",
       "recommended_next_action": "review_reconciliation_packet",
       "role": "resident"
@@ -122,12 +132,12 @@
     {
       "action_scope": "review_queue:evidence_reconciliation_review",
       "action_surface": "person_enrichment_execution",
-      "display_label": "resident evidence_reconciliation_review",
-      "impact_count": 202,
-      "priority": 1252,
+      "display_label": "fellow evidence_reconciliation_review",
+      "impact_count": 113,
+      "priority": 1122,
       "program_name": "",
       "recommended_next_action": "review_reconciliation_packet",
-      "role": "resident"
+      "role": "fellow"
     },
     {
       "action_scope": "official_profile:official_profile_search",
@@ -147,16 +157,6 @@
       "priority": 1120,
       "program_name": "",
       "recommended_next_action": "collect_official_profile_evidence",
-      "role": "fellow"
-    },
-    {
-      "action_scope": "review_queue:evidence_reconciliation_review",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "fellow evidence_reconciliation_review",
-      "impact_count": 110,
-      "priority": 1116,
-      "program_name": "",
-      "recommended_next_action": "review_reconciliation_packet",
       "role": "fellow"
     },
     {
@@ -300,6 +300,6 @@
       "role": "fellow"
     }
   ],
-  "total_impact_count": 11317,
-  "worklist_rows": 1279
+  "total_impact_count": 11432,
+  "worklist_rows": 1369
 }

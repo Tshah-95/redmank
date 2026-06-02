@@ -7,17 +7,17 @@
   },
   "by_display_safety_status": {
     "accepted_facts_plus_review_candidates": 3,
-    "candidate_only_not_accepted": 569,
-    "no_enrichment_default_display": 159,
+    "candidate_only_not_accepted": 617,
+    "no_enrichment_default_display": 112,
     "review_ready_not_accepted_enrichment_fact": 712,
-    "roster_identity_only": 92
+    "roster_identity_only": 91
   },
   "by_dossier_status": {
     "accepted_enrichment_with_review_queue": 3,
-    "baseline_roster_only": 92,
-    "candidate_evidence_present": 569,
+    "baseline_roster_only": 91,
+    "candidate_evidence_present": 617,
     "review_ready_evidence_present": 712,
-    "thin_profile_needs_collection": 159
+    "thin_profile_needs_collection": 112
   },
   "by_role": {
     "fellow": 385,
@@ -27,11 +27,11 @@
   "contact_contract_people": 279,
   "csv": "artifacts/data/person_enrichment_dossiers.csv",
   "dossier_rows": 1535,
-  "generated_at": "2026-06-02T16:40:14.117561+00:00",
+  "generated_at": "2026-06-02T16:51:25.247881+00:00",
   "json": "artifacts/data/person_enrichment_dossiers.json",
   "person_count": 1535,
   "policy": "Dossiers are non-mutating person summaries. Accepted facts, candidate evidence, review-ready evidence, contact contracts, and missing surfaces are separated so downstream display or scoring can choose its assurance threshold explicitly.",
   "review_ready_people": 715,
-  "thin_profile_people": 159,
+  "thin_profile_people": 112,
   "verified_contact_people": 0
 }

@@ -202,9 +202,20 @@ def attach_collection_context(claim: dict, person: dict, source_mode: str) -> di
     return claim
 
 
-def openalex_candidates(session: requests.Session, person: dict) -> list[dict]:
+def openalex_candidates(
+    session: requests.Session,
+    person: dict,
+    *,
+    request_timeout: float,
+    request_attempts: int,
+) -> list[dict]:
     url = f"https://api.openalex.org/authors?search={quote(clean_name(person['display_name']))}&per-page=5"
-    response = request_with_retry(session, url)
+    response = request_with_retry(
+        session,
+        url,
+        timeout=request_timeout,
+        attempts=request_attempts,
+    )
     response.raise_for_status()
     payload = response.json()
     candidates = []
@@ -258,7 +269,13 @@ def openalex_candidates(session: requests.Session, person: dict) -> list[dict]:
     return candidates
 
 
-def pubmed_candidate(session: requests.Session, person: dict) -> dict:
+def pubmed_candidate(
+    session: requests.Session,
+    person: dict,
+    *,
+    request_timeout: float,
+    request_attempts: int,
+) -> dict:
     first, last, initials = name_parts(person["display_name"])
     author = f"{last} {initials}" if last and initials else clean_name(person["display_name"])
     term = f"{author}[Author]"
@@ -266,7 +283,12 @@ def pubmed_candidate(session: requests.Session, person: dict) -> dict:
         "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         f"?db=pubmed&retmode=json&retmax=10&term={quote(term)}"
     )
-    response = request_with_retry(session, url)
+    response = request_with_retry(
+        session,
+        url,
+        timeout=request_timeout,
+        attempts=request_attempts,
+    )
     response.raise_for_status()
     payload = response.json().get("esearchresult", {})
     count = int(payload.get("count", 0))
@@ -301,10 +323,16 @@ def pubmed_candidate(session: requests.Session, person: dict) -> dict:
     }
 
 
-def request_with_retry(session: requests.Session, url: str, attempts: int = 5) -> requests.Response:
+def request_with_retry(
+    session: requests.Session,
+    url: str,
+    *,
+    timeout: float,
+    attempts: int,
+) -> requests.Response:
     retryable_statuses = {429, 500, 502, 503, 504}
     for attempt in range(attempts):
-        response = session.get(url, timeout=20)
+        response = session.get(url, timeout=timeout)
         if response.status_code not in retryable_statuses:
             return response
         if attempt < attempts - 1:
@@ -413,6 +441,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--sleep", type=float, default=0.34)
+    parser.add_argument("--request-timeout", type=float, default=8.0)
+    parser.add_argument("--request-attempts", type=int, default=3)
+    parser.add_argument("--progress-every", type=int, default=10)
     parser.add_argument("--only", choices=["all", "openalex", "pubmed"], default="all")
     parser.add_argument("--replace-source", action="append", default=[])
     parser.add_argument(
@@ -457,7 +488,14 @@ def main() -> None:
             person_claims = []
             if args.only in {"all", "openalex"}:
                 try:
-                    person_claims.extend(openalex_candidates(session, person))
+                    person_claims.extend(
+                        openalex_candidates(
+                            session,
+                            person,
+                            request_timeout=args.request_timeout,
+                            request_attempts=args.request_attempts,
+                        )
+                    )
                 except Exception as exc:  # noqa: BLE001
                     person_claims.append(
                         {
@@ -476,7 +514,14 @@ def main() -> None:
                 time.sleep(args.sleep)
             if args.only in {"all", "pubmed"}:
                 try:
-                    person_claims.append(pubmed_candidate(session, person))
+                    person_claims.append(
+                        pubmed_candidate(
+                            session,
+                            person,
+                            request_timeout=args.request_timeout,
+                            request_attempts=args.request_attempts,
+                        )
+                    )
                 except Exception as exc:  # noqa: BLE001
                     person_claims.append(
                         {
@@ -507,7 +552,7 @@ def main() -> None:
                         **claim,
                     }
                 )
-            if index % 50 == 0:
+            if args.progress_every and index % args.progress_every == 0:
                 print(f"processed={index} claims={len(all_claims)}", flush=True)
             time.sleep(args.sleep)
         if args.only in {"all", "openalex"}:

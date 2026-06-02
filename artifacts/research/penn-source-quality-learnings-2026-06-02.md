@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T16:40:36.342293+00:00
+Generated: 2026-06-02T16:51:48.318815+00:00
 
 ## What This Pass Did
 
@@ -580,6 +580,8 @@ Learning: the transition plan is the executable state-machine contract for futur
 | internal_medicine_primary_care | accepted | medical_school | 8 | 0.875 |
 | nephrology_current_fellows | accepted | medical_school | 22 | 0.768 |
 | nephrology_current_fellows | accepted | residency_program | 22 | 0.777 |
+| openalex_author_search | candidate | research_author_candidate | 498 | 0.422 |
+| openalex_author_search | needs_review | research_author_candidate | 51 | 0.9 |
 | palliative_current_fellows | accepted | medical_school | 5 | 0.75 |
 | palliative_current_fellows | accepted | residency_program | 5 | 0.75 |
 | penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299 | accepted | medical_school | 19 | 0.908 |
@@ -3206,9 +3208,9 @@ Scorecard rows: 24.
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1336 | 1336 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
-| Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 7265 | 7265 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
+| Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 7814 | 7814 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
 | Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 89 | 89 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
-| OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
+| OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 180 | 498 | 46.0 | discovery_or_review_only | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn trainee profile claims | roster-linked profile URLs, education, prior training, research/career interests, and personal-context snippets | 914 | 3416 | 81.0 | strong_with_known_limits | run_official_trainee_profile_discovery_then_reconcile_candidates |
 | Prior training background discovery | medical-school and prior-residency background candidates for trainee enrichment gaps | 269 | 538 | 58.0 | useful_candidate_layer | run_prior_training_background_discovery_then_reconcile_candidates |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
@@ -3219,9 +3221,9 @@ Scorecard rows: 24.
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1682 | 1682 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
-| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1535 | 6346 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
+| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1535 | 6364 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
 | Person enrichment dossier ledger | person-level accepted facts, candidate surfaces, contact contracts, training state, and provenance URLs | 1535 | 1535 | 83.0 | strong_with_known_limits | use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers |
-| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6346 | 6346 | 78.0 | strong_with_known_limits | execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile |
+| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6364 | 6364 | 78.0 | strong_with_known_limits | execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile |
 
 Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.
 
@@ -3240,7 +3242,7 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1279. Summed impact count: 11317. Critical rows: 16. High rows: 768.
+Worklist rows: 1369. Summed impact count: 11432. Critical rows: 16. High rows: 858.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3249,12 +3251,12 @@ Worklist rows: 1279. Summed impact count: 11317. Critical rows: 16. High rows: 7
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | fellow current_roster_state_reconciliation | fellow | 1297 | 247 | refresh_roster_and_reconcile_state_machine |
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | resident current_roster_state_reconciliation | resident | 1286 | 236 | refresh_roster_and_reconcile_state_machine |
 | person_enrichment_execution | review_queue:evidence_reconciliation_review | resident evidence_reconciliation_review | resident | 1286 | 236 | review_reconciliation_packet |
-| person_enrichment_execution | review_queue:evidence_reconciliation_review | resident evidence_reconciliation_review | resident | 1256 | 206 | review_reconciliation_packet |
+| person_enrichment_execution | review_queue:evidence_reconciliation_review | resident evidence_reconciliation_review | resident | 1265 | 215 | review_reconciliation_packet |
+| person_enrichment_execution | review_queue:evidence_reconciliation_review | resident evidence_reconciliation_review | resident | 1257 | 207 | review_reconciliation_packet |
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | medical_student current_roster_state_reconciliation | medical_student | 1253 | 203 | refresh_roster_and_reconcile_state_machine |
-| person_enrichment_execution | review_queue:evidence_reconciliation_review | resident evidence_reconciliation_review | resident | 1252 | 202 | review_reconciliation_packet |
+| person_enrichment_execution | review_queue:evidence_reconciliation_review | fellow evidence_reconciliation_review | fellow | 1122 | 113 | review_reconciliation_packet |
 | person_enrichment_execution | official_profile:official_profile_search | resident official_profile_search | resident | 1120 | 330 | collect_official_profile_evidence |
 | person_enrichment_execution | official_profile:official_profile_search | fellow official_profile_search | fellow | 1120 | 257 | collect_official_profile_evidence |
-| person_enrichment_execution | review_queue:evidence_reconciliation_review | fellow evidence_reconciliation_review | fellow | 1116 | 110 | review_reconciliation_packet |
 | official_program_coverage | alias_review | Internal Medicine - Categorical | residency | 1093 | 173 | accept_or_split_alias_mapping |
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | fellow current_roster_state_reconciliation | fellow | 1088 | 94 | refresh_roster_and_reconcile_state_machine |
 | official_program_coverage | alias_review | Soft Tissue/Bone (Selective) | fellowship | 1009 | 69 | resolve_related_loaded_program_before_gap_closure |
@@ -3292,6 +3294,7 @@ Learning: unresolved evidence should be ranked as operator work, not inferred aw
 | record_type | status | claim_type | count | avg_priority | avg_confidence |
 | --- | --- | --- | --- | --- | --- |
 | career_event | needs_review | penn_training_history_candidate | 5 | 118.0 | 0.756 |
+| evidence_claim | needs_review | research_author_candidate | 51 | 109.0 | 0.9 |
 | evidence_claim | needs_review | pubmed_article_candidate | 857 | 106.3 | 0.841 |
 | npi_candidate | needs_review | npi_candidate | 801 | 105.5 | 0.736 |
 | evidence_claim | candidate | prior_training_history_candidate | 108 | 70.0 | 0.78 |
@@ -3302,6 +3305,7 @@ Learning: unresolved evidence should be ranked as operator work, not inferred aw
 | evidence_claim | candidate | research_interest_candidate | 335 | 45.6 | 0.571 |
 | evidence_claim | candidate | career_interest_candidate | 15 | 45.0 | 0.58 |
 | career_event | candidate | prior_training_history_candidate | 6 | 43.7 | 0.573 |
+| evidence_claim | candidate | research_author_candidate | 498 | 42.6 | 0.422 |
 | career_event | candidate | research_interest_candidate | 1 | 40.0 | 0.55 |
 | career_event | candidate | personal_profile_candidate | 2 | 39.0 | 0.45 |
 | career_event | candidate | current_penn_attending_candidate | 49 | 35.0 | 0.55 |
@@ -3349,7 +3353,7 @@ Learning: candidate evidence needs a ranked reconciliation surface. The queue se
 
 ## Reconciliation Decision Ledger
 
-Decision rows: 7265. Review-ready rows: 1716. Person/name rollups: 1504.
+Decision rows: 7814. Review-ready rows: 1716. Person/name rollups: 1578.
 
 Decision counts:
 
@@ -3357,10 +3361,10 @@ Decision counts:
 | --- | --- |
 | attending_training_claim_needs_identity_link | 2 |
 | attending_training_claim_review_ready | 3 |
-| candidate_with_partial_anchor | 121 |
+| candidate_with_partial_anchor | 402 |
 | current_attending_endpoint_candidate | 49 |
 | discovery_only | 1336 |
-| low_signal_candidate | 1297 |
+| low_signal_candidate | 1565 |
 | needs_secondary_identity_anchor | 727 |
 | npi_candidate_with_partial_anchor | 138 |
 | npi_low_signal_candidate | 134 |
@@ -3421,19 +3425,19 @@ Learning: reconciliation should be an explicit decision ledger, not a side effec
 
 ## Person Evidence Reviewer Decisions
 
-Queue rows: 686. Audit rows: 686. Pending reviewer decisions: 686. Accepted candidate facts: 0.
+Queue rows: 776. Audit rows: 776. Pending reviewer decisions: 776. Accepted candidate facts: 0.
 
 Decision statuses:
 
 | decision_status | count |
 | --- | --- |
-| pending_reviewer_decision | 686 |
+| pending_reviewer_decision | 776 |
 
 Review kinds:
 
 | review_kind | count |
 | --- | --- |
-| mixed_identity_anchor_review | 663 |
+| mixed_identity_anchor_review | 753 |
 | publication_identity_review | 23 |
 
 Top packet-level reviewer rows:
@@ -3841,8 +3845,9 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T16:40:06.329837+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T16:51:17.231701+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
+| openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
 | pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |
 
@@ -3850,8 +3855,25 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
+| ["name_match"] | 157 | 0.4 |
+| ["name_match", "orcid_present"] | 115 | 0.5 |
+| ["orcid_present"] | 92 | 0.25 |
+| ["name_match", "penn_affiliation"] | 56 | 0.8 |
+| [] | 55 | 0.15 |
+| ["name_match", "penn_affiliation", "orcid_present"] | 45 | 0.9 |
+| ["penn_affiliation"] | 8 | 0.55 |
+| ["penn_affiliation", "orcid_present"] | 4 | 0.65 |
+| ["name_match", "medical_school_affiliation"] | 3 | 0.55 |
+| ["name_match", "residency_program_affiliation"] | 2 | 0.55 |
+| ["name_match", "penn_affiliation", "residency_program_affiliation", "orcid_present"] | 2 | 0.9 |
+| ["name_match", "penn_affiliation", "medical_school_affiliation", "residency_program_affiliation", "orcid_present"] | 2 | 0.9 |
+| ["name_match", "penn_affiliation", "medical_school_affiliation", "orcid_present"] | 2 | 0.9 |
+| ["name_match", "medical_school_affiliation", "residency_program_affiliation", "orcid_present"] | 2 | 0.65 |
+| ["name_match", "medical_school_affiliation", "orcid_present"] | 2 | 0.65 |
+| ["name_match", "penn_affiliation", "residency_program_affiliation"] | 1 | 0.8 |
+| ["name_match", "penn_affiliation", "medical_school_affiliation"] | 1 | 0.8 |
 
-Learning: OpenAlex remains a promising author-disambiguation utility, but the current full-corpus run hit sustained 429 throttling. Record that as source availability/operations evidence, not as rejected person identity evidence.
+Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks.
 
 ## PubMed Feature Distribution
 
