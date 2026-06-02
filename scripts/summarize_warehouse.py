@@ -169,6 +169,11 @@ def main() -> None:
         longitudinal_readiness_summary = json.loads(longitudinal_readiness_summary_path.read_text(encoding="utf-8"))
     else:
         longitudinal_readiness_summary = {}
+    attending_trend_linkage_summary_path = ARTIFACTS / "attending_trend_linkage_summary.json"
+    if attending_trend_linkage_summary_path.exists():
+        attending_trend_linkage_summary = json.loads(attending_trend_linkage_summary_path.read_text(encoding="utf-8"))
+    else:
+        attending_trend_linkage_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -194,6 +199,7 @@ def main() -> None:
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "evidence_reconciliation_decision_summary": reconciliation_decision_summary,
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
+        "attending_trend_linkage_summary": attending_trend_linkage_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

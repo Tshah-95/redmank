@@ -227,7 +227,9 @@ def main() -> None:
     enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
     reconciliation_decision_summary = read_json(ARTIFACTS / "evidence_reconciliation_decision_summary.json", {})
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
+    attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
+    top_attending_linkage_groups = read_csv(ARTIFACTS / "attending_trend_linkage_groups.csv", limit=20)
     top_reconciliation_decisions = [
         row
         for row in read_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv")
@@ -275,6 +277,14 @@ def main() -> None:
     trend_window_counts = [
         {"ten_year_trend_window": window, "count": count}
         for window, count in sorted((reconciliation_decision_summary.get("by_ten_year_trend_window") or {}).items())
+    ]
+    attending_linkage_counts = [
+        {"linkage_status": status, "count": count}
+        for status, count in sorted((attending_trend_linkage_summary.get("by_linkage_status") or {}).items())
+    ]
+    attending_assurance_counts = [
+        {"assurance_level": level, "count": count}
+        for level, count in sorted((attending_trend_linkage_summary.get("by_assurance_level") or {}).items())
     ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
@@ -327,6 +337,8 @@ def main() -> None:
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
         "top_reconciliation_decisions": top_reconciliation_decisions,
+        "attending_trend_linkage_summary": attending_trend_linkage_summary,
+        "top_attending_trend_linkage_groups": top_attending_linkage_groups,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -523,6 +535,36 @@ def main() -> None:
         ),
         "",
         "Learning: reconciliation should be an explicit decision ledger, not a side effect of queue priority. Review-ready means enough anchors exist for efficient review; accepted truth still requires a manual or stronger automated identity verifier.",
+        "",
+        "## Attending Trend Linkage Assurance",
+        "",
+        f"Career-event rows audited: {attending_trend_linkage_summary.get('event_rows', 0)}. Person/source groups: {attending_trend_linkage_summary.get('event_group_rows', 0)}. Groups with current attending endpoints: {attending_trend_linkage_summary.get('groups_with_current_endpoint', 0)}. Groups with Penn-training profile claims: {attending_trend_linkage_summary.get('groups_with_penn_training_claim', 0)}. Groups with current trainee name matches: {attending_trend_linkage_summary.get('groups_with_current_trainee_name_match', 0)}.",
+        "",
+        "Linkage statuses:",
+        "",
+        *md_table(attending_linkage_counts, ["linkage_status", "count"]),
+        "",
+        "Assurance levels:",
+        "",
+        *md_table(attending_assurance_counts, ["assurance_level", "count"]),
+        "",
+        "Top linkage groups:",
+        "",
+        *md_table(
+            top_attending_linkage_groups,
+            [
+                "display_name",
+                "event_count",
+                "best_linkage_status",
+                "best_trend_link_assurance_level",
+                "has_current_attending_endpoint",
+                "has_penn_training_claim",
+                "has_current_trainee_name_match",
+                "event_years",
+            ],
+        ),
+        "",
+        "Learning: current Penn attending pages are endpoint evidence, not trend-line facts. The current corpus has endpoint-plus-Penn-training groups but no linked historical trainee identity yet, so recent-attending trend claims should remain candidates until a historical roster, alumni page, CV, or independent profile supplies the missing dated Penn trainee link.",
         "",
         "## Enrichment Coverage Audit",
         "",

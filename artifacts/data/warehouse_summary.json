@@ -1,4 +1,36 @@
 {
+  "attending_trend_linkage_summary": {
+    "as_of_year": 2026,
+    "by_assurance_level": {
+      "0": 36,
+      "1": 60,
+      "2": 9
+    },
+    "by_event_type": {
+      "attending_profile_training_history_candidate": 20,
+      "current_penn_attending_candidate": 49,
+      "penn_alumni_outcome_candidate": 36
+    },
+    "by_linkage_status": {
+      "current_attending_endpoint_unlinked": 45,
+      "current_attending_with_penn_training_claim_unlinked": 4,
+      "outcome_context_only_no_person": 36,
+      "profile_context_non_penn_training": 15,
+      "profile_penn_training_claim_needs_historical_roster": 5
+    },
+    "by_ten_year_trend_window": {
+      "no": 3,
+      "unknown": 100,
+      "yes": 2
+    },
+    "event_group_rows": 70,
+    "event_rows": 105,
+    "groups_with_current_endpoint": 49,
+    "groups_with_current_trainee_name_match": 0,
+    "groups_with_penn_training_claim": 4,
+    "linkage_event_csv": "artifacts/data/attending_trend_linkage_events.csv",
+    "linkage_group_csv": "artifacts/data/attending_trend_linkage_groups.csv"
+  },
   "career_event_counts": {
     "attending_profile_training_history_candidate": 20,
     "current_penn_attending_candidate": 49,
@@ -188,7 +220,7 @@
     "source_refresh_required": 670,
     "stage_outside_nominal_duration_review": 21
   },
-  "generated_at": "2026-06-02T07:03:39.338658+00:00",
+  "generated_at": "2026-06-02T07:08:50.259831+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,

@@ -134,6 +134,14 @@ Current Penn attending/faculty pages and official Penn provider/profile pages ar
 
 Penn training-history claims from current attending profiles are `needs_review`, not accepted. They are useful for the ten-year trend line only after reconciliation links the current attending identity to a prior Penn trainee record or another independent public anchor.
 
+`scripts/audit_attending_trend_linkage.py` turns those career events into an explicit trend-link assurance ledger:
+
+- `attending_trend_linkage_events.csv`: every career event with normalized event-group key, ten-year-window flag, linkage status, assurance level, current-trainee name-match count, reconciliation-decision context, and required next evidence.
+- `attending_trend_linkage_groups.csv`: one row per attending/source group, showing whether the group has a current Penn attending endpoint, Penn-training profile claim, current-trainee name match, event years, source URLs, and best linkage status.
+- `attending_trend_linkage_summary.json`: machine-readable counts by event type, linkage status, ten-year window, and assurance level.
+
+The assurance ledger is deliberately not an accepted trend table. A current Penn attending endpoint plus a same-name Penn-training profile claim is still only a candidate until a dated historical roster, alumni page, CV, or independent profile links that attending identity to a Penn trainee record. This prevents the trend layer from turning current faculty pages into alumni-flow evidence without a real identity bridge.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.

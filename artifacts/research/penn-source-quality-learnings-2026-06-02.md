@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T07:03:39.343853+00:00
+Generated: 2026-06-02T07:08:50.267732+00:00
 
 ## What This Pass Did
 
@@ -577,6 +577,55 @@ Top review-ready decisions:
 | evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/39658750/ |
 
 Learning: reconciliation should be an explicit decision ledger, not a side effect of queue priority. Review-ready means enough anchors exist for efficient review; accepted truth still requires a manual or stronger automated identity verifier.
+
+## Attending Trend Linkage Assurance
+
+Career-event rows audited: 105. Person/source groups: 70. Groups with current attending endpoints: 49. Groups with Penn-training profile claims: 4. Groups with current trainee name matches: 0.
+
+Linkage statuses:
+
+| linkage_status | count |
+| --- | --- |
+| current_attending_endpoint_unlinked | 45 |
+| current_attending_with_penn_training_claim_unlinked | 4 |
+| outcome_context_only_no_person | 36 |
+| profile_context_non_penn_training | 15 |
+| profile_penn_training_claim_needs_historical_roster | 5 |
+
+Assurance levels:
+
+| assurance_level | count |
+| --- | --- |
+| 0 | 36 |
+| 1 | 60 |
+| 2 | 9 |
+
+Top linkage groups:
+
+| display_name | event_count | best_linkage_status | best_trend_link_assurance_level | has_current_attending_endpoint | has_penn_training_claim | has_current_trainee_name_match | event_years |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Emily Gordon, MD, MSEd | 6 | profile_penn_training_claim_needs_historical_roster | 2 | 1 | 1 | 0 | 2002; 2006; 2012 |
+| Patrick Kevin Gleeson, MD, MSCE | 3 | profile_penn_training_claim_needs_historical_roster | 2 | 1 | 1 | 0 |  |
+| Priya Patel, MD | 2 | profile_penn_training_claim_needs_historical_roster | 2 | 1 | 1 | 0 |  |
+| Timothy Buckey, MD, MBE | 3 | profile_penn_training_claim_needs_historical_roster | 2 | 1 | 1 | 0 |  |
+| Alana Sagin, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Alison Wakoff Loren, MD, MSCE | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Anar A. Dossumbekova, MD, PhD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Andrea J. Apter, MD, MA, MSc | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Ann Soliman, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Barbara A. Carr | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Bridget Durkin, MD, MBE | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Christine Ciunci, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Christopher A. D'Avella, MD | 2 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Daniel J. Landsburg, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| David M. Mintzer, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Denis Hadjiliadis, MD, PhD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Douglas Eric Guggenheim, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Edward A. Stadtmauer, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Emily Chan, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+| Erin O. Aakhus, MD | 1 | current_attending_endpoint_unlinked | 1 | 1 | 0 | 0 |  |
+
+Learning: current Penn attending pages are endpoint evidence, not trend-line facts. The current corpus has endpoint-plus-Penn-training groups but no linked historical trainee identity yet, so recent-attending trend claims should remain candidates until a historical roster, alumni page, CV, or independent profile supplies the missing dated Penn trainee link.
 
 ## Enrichment Coverage Audit
 
