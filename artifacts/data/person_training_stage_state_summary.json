@@ -1,0 +1,56 @@
+{
+  "auto_classifiable_transition_rows": 911,
+  "by_diff_readiness_status": {
+    "diff_expected_change_classifiable": 911,
+    "diff_no_change_expected": 13,
+    "diff_review_bound": 131,
+    "diff_source_refresh_bound": 627
+  },
+  "by_policy_lane": {
+    "carry_forward_no_change": 13,
+    "deterministic_expected_advancement": 659,
+    "deterministic_expected_completion": 252,
+    "manual_review_required": 131,
+    "source_refresh_required": 627
+  },
+  "by_rollup_scope": {
+    "corpus": 1,
+    "country": 1,
+    "diff_readiness_status": 4,
+    "institution": 1,
+    "institution_role": 3,
+    "lifecycle_code": 14,
+    "policy_lane": 5,
+    "program": 95,
+    "program_role": 96,
+    "role": 3,
+    "staleness_bucket": 3,
+    "trainee_category": 3
+  },
+  "by_stage_state_status": {
+    "carry_forward_until_fresh_source_contradiction": 13,
+    "expected_to_advance_if_fresh_next_stage_observed": 659,
+    "expected_to_complete_if_absent_or_alumni_after_refresh": 252,
+    "manual_review_required_before_any_stage_mutation": 131,
+    "must_refresh_source_before_retention_or_change": 627
+  },
+  "by_staleness_bucket": {
+    "fresh_contradiction_only": 13,
+    "review_bound_not_time_classifiable": 131,
+    "stale_by_projected_refresh": 1538
+  },
+  "canonical_person_program_count": 1610,
+  "csv": "artifacts/data/person_training_stage_state.csv",
+  "duplicate_contract_rows": 144,
+  "fresh_observation_required_rows": 1669,
+  "generated_at": "2026-06-02T21:52:58.707263+00:00",
+  "json": "artifacts/data/person_training_stage_state.json",
+  "person_count": 1535,
+  "policy": "Person training stage state is a non-mutating front door over temporal contracts. It describes current stage, staleness, permitted next-refresh classifications, and required evidence before any annual update changes person/program truth.",
+  "program_count": 95,
+  "rollup_csv": "artifacts/data/training_stage_state_rollups.csv",
+  "rollup_json": "artifacts/data/training_stage_state_rollups.json",
+  "rollup_rows": 229,
+  "stage_state_rows": 1682,
+  "stale_by_refresh_rows": 1669
+}

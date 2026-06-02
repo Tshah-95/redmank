@@ -64,6 +64,8 @@ def main() -> None:
         "training_state_transition_plan_rollups",
         "training_temporal_contracts",
         "training_temporal_contract_rollups",
+        "person_training_stage_state",
+        "training_stage_state_rollups",
         "official_roster_refresh_workbench",
         "official_roster_refresh_batches",
         "official_profile_discovery_workbench",
@@ -568,6 +570,36 @@ def main() -> None:
             """
             SELECT rollup_scope, COUNT(*) AS count
             FROM training_temporal_contract_rollups
+            GROUP BY rollup_scope
+            """
+        )
+    }
+    person_training_stage_state_status_counts = {
+        row["stage_state_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT stage_state_status, COUNT(*) AS count
+            FROM person_training_stage_state
+            GROUP BY stage_state_status
+            """
+        )
+    }
+    person_training_stage_state_staleness_counts = {
+        row["staleness_bucket"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT staleness_bucket, COUNT(*) AS count
+            FROM person_training_stage_state
+            GROUP BY staleness_bucket
+            """
+        )
+    }
+    stage_state_rollup_scope_counts = {
+        row["rollup_scope"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT rollup_scope, COUNT(*) AS count
+            FROM training_stage_state_rollups
             GROUP BY rollup_scope
             """
         )
@@ -1317,6 +1349,13 @@ def main() -> None:
         )
     else:
         training_temporal_contract_summary = {}
+    person_training_stage_state_summary_path = ARTIFACTS / "person_training_stage_state_summary.json"
+    if person_training_stage_state_summary_path.exists():
+        person_training_stage_state_summary = json.loads(
+            person_training_stage_state_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_training_stage_state_summary = {}
     evidence_temporal_contract_summary_path = ARTIFACTS / "evidence_temporal_contract_summary.json"
     if evidence_temporal_contract_summary_path.exists():
         evidence_temporal_contract_summary = json.loads(
@@ -1655,6 +1694,9 @@ def main() -> None:
         "temporal_contract_state_counts": temporal_contract_state_counts,
         "temporal_contract_guardrail_counts": temporal_contract_guardrail_counts,
         "temporal_contract_rollup_scope_counts": temporal_contract_rollup_scope_counts,
+        "person_training_stage_state_status_counts": person_training_stage_state_status_counts,
+        "person_training_stage_state_staleness_counts": person_training_stage_state_staleness_counts,
+        "stage_state_rollup_scope_counts": stage_state_rollup_scope_counts,
         "evidence_temporal_contract_status_counts": evidence_temporal_contract_status_counts,
         "evidence_temporal_contract_family_counts": evidence_temporal_contract_family_counts,
         "evidence_temporal_contract_refresh_counts": evidence_temporal_contract_refresh_counts,
@@ -1734,6 +1776,7 @@ def main() -> None:
         "training_lifecycle_assurance_summary": training_lifecycle_assurance_summary,
         "training_state_transition_plan_summary": training_state_transition_plan_summary,
         "training_temporal_contract_summary": training_temporal_contract_summary,
+        "person_training_stage_state_summary": person_training_stage_state_summary,
         "evidence_temporal_contract_summary": evidence_temporal_contract_summary,
         "trainee_profile_discovery_summary": trainee_profile_discovery_summary,
         "official_profile_reviewer_decision_summary": official_profile_reviewer_decision_summary,

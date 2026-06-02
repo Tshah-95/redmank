@@ -232,6 +232,20 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/person_training_stage_state.csv",
+        "longitudinal_stage_state_ledger",
+        "csv",
+        "person_training_stage_state",
+        True,
+    ),
+    (
+        "artifacts/data/training_stage_state_rollups.csv",
+        "longitudinal_stage_state_ledger",
+        "csv",
+        "training_stage_state_rollups",
+        True,
+    ),
+    (
         "artifacts/data/official_roster_refresh_workbench.csv",
         "official_roster_refresh_workbench_ledger",
         "csv",
