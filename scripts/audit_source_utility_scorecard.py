@@ -221,6 +221,16 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     gap_roster_reconciliation_summary = read_json(ARTIFACTS / "official_gap_roster_reconciliation_summary.json", {})
     denominator_linked_records = int(gap_roster_reconciliation_summary.get("official_linked_records_extracted") or 0)
     seed_without_denominator_records = int(gap_roster_reconciliation_summary.get("seed_without_denominator_key_records") or 0)
+    gap_roster_program_resolution_summary = read_json(
+        ARTIFACTS / "official_gap_roster_program_resolution_summary.json",
+        {},
+    )
+    denominator_resolution_records = int(
+        gap_roster_program_resolution_summary.get("denominator_mutation_allowed_records") or 0
+    )
+    denominator_resolution_review_records = int(
+        gap_roster_program_resolution_summary.get("review_required_records") or 0
+    )
 
     discovery_by_class = counter_query(
         conn,
@@ -616,7 +626,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             output_records=roster_extracted,
             accepted_records=denominator_linked_records,
             candidate_records=gap_sources,
-            needs_review_records=roster_candidates + seed_without_denominator_records,
+            needs_review_records=roster_candidates + denominator_resolution_records + denominator_resolution_review_records,
             blocked_records=roster_sources_attempted - roster_sources_with_records,
             score=76.0,
             strengths=[
@@ -627,10 +637,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             limitations=[
                 "Parser coverage is page-template specific",
                 "Some candidate pages are related tracks rather than the official denominator row",
-                "Most seed-extracted records still need an official_program_key before denominator coverage mutation",
+                "Seed-extracted records need reviewer confirmation even when program-resolution evidence is exact",
                 "Unsupported structures need parser or manual review",
             ],
-            recommended_next_action="attach_official_program_keys_to_seed_gap_rosters_then_rerun_coverage",
+            recommended_next_action="review_denominator_resolution_candidates_then_rerun_coverage",
             evidence={
                 "candidate_source_rows": gap_sources,
                 "roster_source_candidates": roster_candidates,
@@ -639,7 +649,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "person_records": roster_extracted,
                 "denominator_linked_records": denominator_linked_records,
                 "seed_without_denominator_key_records": seed_without_denominator_records,
+                "denominator_resolution_records": denominator_resolution_records,
+                "denominator_resolution_review_records": denominator_resolution_review_records,
                 "gap_roster_reconciliation_summary": gap_roster_reconciliation_summary,
+                "gap_roster_program_resolution_summary": gap_roster_program_resolution_summary,
                 "by_extraction_status": gap_roster_people.get("by_extraction_status") or {},
             },
         ),

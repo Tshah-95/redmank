@@ -215,6 +215,29 @@ CREATE TABLE IF NOT EXISTS official_gap_roster_reconciliation (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_gap_roster_program_resolution (
+  resolution_key TEXT PRIMARY KEY,
+  reconciliation_key TEXT REFERENCES official_gap_roster_reconciliation(reconciliation_key) ON DELETE CASCADE,
+  source_key TEXT,
+  source_url TEXT NOT NULL,
+  source_program_name TEXT,
+  source_department TEXT,
+  inferred_source_role TEXT,
+  records_extracted INTEGER NOT NULL DEFAULT 0,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE SET NULL,
+  official_program_name TEXT,
+  official_program_type TEXT,
+  official_department TEXT,
+  resolution_status TEXT NOT NULL,
+  resolution_confidence REAL NOT NULL DEFAULT 0.0,
+  denominator_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  recommended_next_action TEXT NOT NULL,
+  match_features_json TEXT,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
   observation_key TEXT PRIMARY KEY,
   identifier_source TEXT NOT NULL,

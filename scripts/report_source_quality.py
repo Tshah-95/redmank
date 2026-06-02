@@ -235,6 +235,10 @@ def main() -> None:
         ARTIFACTS / "official_gap_roster_reconciliation_summary.json",
         {},
     )
+    official_gap_roster_program_resolution_summary = read_json(
+        ARTIFACTS / "official_gap_roster_program_resolution_summary.json",
+        {},
+    )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -417,6 +421,7 @@ def main() -> None:
         "hup_gme_top_gap_source_candidates": top_hup_gap_candidates,
         "hup_gme_gap_roster_summary": hup_gap_roster_summary,
         "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
+        "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -510,6 +515,23 @@ def main() -> None:
                 )
             ],
             ["denominator_link_status", "count"],
+        ),
+        "",
+        "Seed roster program-resolution audit:",
+        "",
+        f"Resolution rows reviewed: {official_gap_roster_program_resolution_summary.get('resolution_rows', 0)}. Reviewer-ready exact-resolution records: {official_gap_roster_program_resolution_summary.get('denominator_mutation_allowed_records', 0)}. Review-required records: {official_gap_roster_program_resolution_summary.get('review_required_records', 0)}.",
+        "",
+        *md_table(
+            [
+                {
+                    "resolution_status": status,
+                    "records": records,
+                }
+                for status, records in sorted(
+                    (official_gap_roster_program_resolution_summary.get("records_by_resolution_status") or {}).items()
+                )
+            ],
+            ["resolution_status", "records"],
         ),
         "",
         "Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records. Extracted people and denominator coverage closure are separate claims: seed-derived records need an official program key or alias reconciliation before they can close an official HUP program gap.",

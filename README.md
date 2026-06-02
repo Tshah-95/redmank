@@ -39,6 +39,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/hup_gap_reason_summary.json`: gap-reason counts and recommended next-action counts.
 - `artifacts/data/official_gap_roster_reconciliation.csv`: source-level reconciliation between extracted HUP gap-roster sources, official denominator rows, loaded memberships, and denominator-link status.
 - `artifacts/data/official_gap_roster_reconciliation_summary.json`: counts for denominator-linked extracted records versus seed records that still need official-program-key mapping.
+- `artifacts/data/official_gap_roster_program_resolution.csv`: non-mutating resolution ledger for seed-extracted gap rosters, mapping likely official program keys with confidence and denominator-mutation gating.
+- `artifacts/data/official_gap_roster_program_resolution_summary.json`: counts for reviewer-ready denominator-resolution candidates versus role/scope review rows.
 - `artifacts/data/official_program_alias_reconciliation_candidates.csv`: non-mutating candidate ledger for official denominator rows that may map to related loaded program labels.
 - `artifacts/data/official_program_alias_reconciliation_summary.json`: alias/denominator reconciliation candidate counts.
 - `artifacts/data/penn_gme_gap_roster_people.json`: conservative queue-driven roster extract from supported HUP gap pages.
@@ -164,6 +166,7 @@ python3 scripts/build_sqlite.py
 python3 scripts/audit_penn_gme_program_coverage.py
 python3 scripts/audit_hup_gap_reasons.py
 python3 scripts/audit_official_gap_roster_reconciliation.py
+python3 scripts/audit_official_gap_roster_program_resolution.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
@@ -276,6 +279,7 @@ The initial methodology is conservative:
 - Project state observations into refresh expectations so future annual runs can produce person-, program-, and category-level diffs with expected-vs-surprising change semantics.
 - Summarize state-machine assurance into corpus-, program-, category-, and lifecycle-code rollups so future reruns can show flow/change views without treating stale public roster facts as current truth.
 - Classify official denominator gaps by evidence-backed reason before treating them as missing people: context-only public page, parser/manual-review candidate, low-content official page, related-program alias review, or broader-discovery-needed.
+- Resolve seed-extracted gap rosters against the official denominator with a separate program-resolution ledger; exact name/type/department candidates may become reviewer-ready, while role mismatches and broad department pages remain non-mutating review evidence.
 - Keep official-program alias/denominator reconciliation as a candidate ledger until the relation is strong enough to mutate coverage or split a loaded broad program into a narrower official program.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Treat the official MD-student directory as unavailable to public scraping when PennKey protection is observed; keep public MSTP records as partial student truth and public graduate-program directories as MD-PhD cross-check/enrichment candidates only.
