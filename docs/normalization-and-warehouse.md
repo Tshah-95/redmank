@@ -163,6 +163,24 @@ This creates the future diff surface: when the corpus is rerun, we can compare p
 
 `scripts/diff_training_states.py` compares exported state snapshots. It collapses multiple raw observations for the same person/program into a canonical comparison key and reports how many duplicate keys were collapsed, so the diff view stays readable while the warehouse still preserves raw state observations. It also writes rollups by program, role, lifecycle code, and change type for program-, category-, and institution-level monitoring.
 
+`scripts/audit_training_state_machine.py` audits the current snapshot before a future diff exists. It writes:
+
+- `training_state_machine_audit.csv`: every state observation with a clock model, machine status, days until expected transition, days until stale, and recommended action.
+- `person_training_state_machine_audit.csv`: one row per person summarizing the worst current lifecycle/staleness condition and duplicate person/program state keys.
+- `program_training_state_machine_audit.csv`: one row per program/role summarizing lifecycle codes, clock models, stale/review counts, and next action.
+- `training_state_machine_summary.json`: machine-readable status, role, lifecycle, clock, and action counts.
+
+The audit categories are intentionally operational:
+
+- `annual_clock_active`: PGY/CY/fellowship-year rows with a future expected next date.
+- `terminal_year_active`: final-year rows that can disappear after stale-after as expected completion.
+- `source_refresh_required`: rows whose next state is not safely inferable, such as MSTP PhD phase, unknown fellow year, research/lab year, chief year, or source-ambiguous current resident/fellow labels.
+- `review_required`: rows outside nominal lifecycle assumptions, such as PGY4 in a three-year residency rule.
+- `ready_for_expected_advancement`: annual-clock rows past expected next date but not yet stale.
+- `stale_now`: rows past stale-after date.
+
+That gives yearly runs a stable decision surface. A PGY-2 row in a three-year residency can become an expected advancement candidate around July 1; a second-year fellow in a two-year fellowship can become a terminal completion candidate; an MSTP PhD-phase row remains refresh-required because the individualized duration is not inferable from the label. The stale bit is therefore derived from the state machine, not from how old a CSV file feels.
+
 The intended freshness semantics are:
 
 - Expected advancement: PGY/CY/fellowship-year and MS-year labels can advance on their academic clocks if the same person/program remains observed.

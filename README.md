@@ -32,6 +32,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
 - `artifacts/data/pubmed_article_candidate_claims.json`: article-level PubMed candidates with author, affiliation, topic, and recency features.
 - `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
+- `artifacts/data/training_state_machine_audit.csv`: per-state lifecycle/staleness audit classifying annual-clock, terminal-year, source-refresh, and review-required rows.
+- `artifacts/data/person_training_state_machine_audit.csv`: per-person rollup of state-machine health and next action.
+- `artifacts/data/program_training_state_machine_audit.csv`: per-program/role rollup for annual refresh and national-scale diff views.
 - `config/training_lifecycle_rules.json`: local lifecycle codes and nominal-duration rules used to interpret trainee stages over time.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
@@ -98,6 +101,7 @@ python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-sou
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
 python3 scripts/export_warehouse_views.py
+python3 scripts/audit_training_state_machine.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```
@@ -123,6 +127,14 @@ python3 scripts/diff_training_states.py \
 ```
 
 The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, and change type.
+
+Audit the current state-machine readiness:
+
+```bash
+python3 scripts/audit_training_state_machine.py --as-of-date 2026-06-02
+```
+
+The audit writes state-, person-, and program-level CSVs plus `artifacts/data/training_state_machine_summary.json`. It distinguishes annual-clock rows that can advance after their expected date from source-refresh rows that should never be guessed forward, such as MSTP PhD phase, unknown fellow year, research/lab year, and other individualized states.
 
 ## Data Policy
 

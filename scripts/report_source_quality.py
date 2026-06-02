@@ -214,9 +214,18 @@ def main() -> None:
     hup_gap_roster_summary = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
+    state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
+    ]
+    state_machine_status_counts = [
+        {"state_machine_status": status, "count": count}
+        for status, count in sorted((state_machine_summary.get("by_state_machine_status") or {}).items())
+    ]
+    state_machine_clock_counts = [
+        {"clock_model": clock, "count": count}
+        for clock, count in sorted((state_machine_summary.get("by_clock_model") or {}).items())
     ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
@@ -263,6 +272,7 @@ def main() -> None:
         "training_state_counts": training_state_counts,
         "transition_rule_counts": transition_rule_counts,
         "lifecycle_code_counts": lifecycle_code_counts,
+        "training_state_machine_summary": state_machine_summary,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -377,7 +387,17 @@ def main() -> None:
             ["lifecycle_code", "expected_transition_type", "refresh_policy", "count", "avg_confidence"],
         ),
         "",
-        "Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed.",
+        "State-machine audit status:",
+        "",
+        *md_table(state_machine_status_counts, ["state_machine_status", "count"]),
+        "",
+        "Clock models:",
+        "",
+        *md_table(state_machine_clock_counts, ["clock_model", "count"]),
+        "",
+        f"Auto-advance candidate rows: {state_machine_summary.get('auto_advance_candidate_rows', 0)}. Completion candidate rows: {state_machine_summary.get('completion_candidate_rows', 0)}. Stale/review rows: {state_machine_summary.get('stale_or_review_state_rows', 0)}.",
+        "",
+        "Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.",
         "",
         "## Evidence Counts",
         "",

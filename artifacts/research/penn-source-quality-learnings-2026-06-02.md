@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:27:46.352718+00:00
+Generated: 2026-06-02T06:34:39.083486+00:00
 
 ## What This Pass Did
 
@@ -280,7 +280,28 @@ Lifecycle semantics observed:
 | US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 8 | 0.46 |
 | US_MD_PHD_MSTP_VARIABLE | source_refresh_required | source_refresh_required | 225 | 0.762 |
 
-Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed.
+State-machine audit status:
+
+| state_machine_status | count |
+| --- | --- |
+| annual_clock_active | 657 |
+| current_observation | 17 |
+| review_required | 21 |
+| source_refresh_required | 538 |
+| terminal_year_active | 250 |
+
+Clock models:
+
+| clock_model | count |
+| --- | --- |
+| annual_gme_july | 911 |
+| refresh_from_source | 13 |
+| review_required | 21 |
+| source_refresh_required | 538 |
+
+Auto-advance candidate rows: 657. Completion candidate rows: 250. Stale/review rows: 21.
+
+Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.
 
 ## Evidence Counts
 

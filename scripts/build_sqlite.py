@@ -519,7 +519,6 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
                 dumps(row.get("evidence", {})),
             ),
         )
-    generated_at = datetime.now(timezone.utc).isoformat()
     summaries = {
         "research_candidate_claims.json": load_json(ARTIFACTS / "research_candidate_summary.json")
         if (ARTIFACTS / "research_candidate_summary.json").exists()
@@ -528,6 +527,10 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         if (ARTIFACTS / "pubmed_article_candidate_summary.json").exists()
         else {},
     }
+    artifact_observed_at = sorted(
+        summary["generated_at"] for summary in summaries.values() if summary.get("generated_at")
+    )
+    generated_at = artifact_observed_at[-1] if artifact_observed_at else datetime.now(timezone.utc).isoformat()
     for source_key in sorted({row["source_key"] for row in claims}):
         source_claims = [row for row in claims if row["source_key"] == source_key]
         source_people = len({row["person_key"] for row in source_claims})

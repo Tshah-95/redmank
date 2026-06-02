@@ -1,0 +1,79 @@
+program_name,role,person_count,state_observation_count,dominant_lifecycle_code,dominant_clock_model,worst_state_machine_status,stale_state_count,ready_for_expected_advancement_count,review_required_count,source_refresh_required_count,annual_clock_active_count,terminal_year_active_count,recommended_action
+Cardiovascular Disease Fellowship,fellow,33,33,US_GME_FELLOWSHIP_3Y,annual_gme_july,review_required,0,0,1,0,22,10,review_lifecycle_rule_or_source_label
+Geriatric Medicine Fellowship,fellow,3,3,US_GME_FELLOWSHIP_1Y,source_refresh_required,review_required,0,0,1,2,0,0,review_lifecycle_rule_or_source_label
+Infectious Diseases Fellowship,fellow,15,17,US_GME_FELLOWSHIP_2Y,annual_gme_july,review_required,0,0,2,3,6,6,review_lifecycle_rule_or_source_label
+Pulmonary and Critical Care Fellowship,fellow,34,34,US_GME_FELLOWSHIP_3Y,annual_gme_july,review_required,0,0,6,3,16,9,review_lifecycle_rule_or_source_label
+Rheumatology Fellowship,fellow,15,15,US_GME_FELLOWSHIP_2Y,annual_gme_july,review_required,0,0,1,4,5,5,review_lifecycle_rule_or_source_label
+Internal Medicine Residency - Global Health Equities Track,resident,20,32,US_GME_RESIDENCY_3Y,annual_gme_july,review_required,0,0,8,0,9,15,review_lifecycle_rule_or_source_label
+Internal Medicine Residency - Medical Education Leadership Track,resident,9,13,US_GME_RESIDENCY_3Y,annual_gme_july,review_required,0,0,2,0,2,9,review_lifecycle_rule_or_source_label
+ABR Alternate Pathway to Certification,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Abdominal Imaging Fellowship,fellow,9,9,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,9,0,0,refresh_source_before_mutation
+Adult Congenital Heart Disease Fellowship,fellow,2,2,US_GME_FELLOWSHIP_2Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Adult Reconstructive Orthopedics Fellowship,fellow,3,3,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,3,0,0,refresh_source_before_mutation
+Advanced Gastroenterology and Hepatology Fellowship,fellow,2,2,US_GME_FELLOWSHIP_3Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Advanced Heart Failure Transplant Cardiology Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Advanced Musculoskeletal Fellowship,fellow,3,3,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,3,0,0,refresh_source_before_mutation
+Advanced Noninvasive Cardiac Imaging Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Advanced Nuclear Radiology Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Aortic Surgery Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+CHOP Otolaryngology Fellowship,fellow,4,4,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,4,0,0,refresh_source_before_mutation
+Cardio-Oncology Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Cardiothoracic Fellowship,fellow,1,1,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Cardiothoracic Transplantation Surgery Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Clinical Cardiac Electrophysiology Fellowship,fellow,12,12,US_GME_FELLOWSHIP_2Y,source_refresh_required,source_refresh_required,0,0,0,12,0,0,refresh_source_before_mutation
+Colon and Rectal Surgery Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Craniofacial Surgery Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Facial Plastic and Reconstructive Surgery Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Foot and Ankle Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Hand Surgery Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+"Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship",fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Hematology/Oncology Fellowship,fellow,32,32,US_GME_FELLOWSHIP_3Y,annual_gme_july,source_refresh_required,0,0,0,5,18,9,refresh_source_before_mutation
+Hospice and Palliative Medicine Fellowship,fellow,5,5,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,5,0,0,refresh_source_before_mutation
+Interventional Cardiology Fellowship,fellow,4,4,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,4,0,0,refresh_source_before_mutation
+Microvascular Reconstructive Surgery Fellowship,fellow,5,5,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,5,0,0,refresh_source_before_mutation
+Nephrology Fellowship,fellow,22,22,US_GME_FELLOWSHIP_2Y,annual_gme_july,source_refresh_required,0,0,0,6,9,7,refresh_source_before_mutation
+Neuroradiology Fellowship,fellow,11,11,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,11,0,0,refresh_source_before_mutation
+Neurotology Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Nuclear Radiology Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Oncologic Imaging Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Ophthalmology Fellowship,fellow,10,10,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,10,0,0,refresh_source_before_mutation
+Rhinology and Skull Base Surgery Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Shoulder and Elbow Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Sleep Medicine Fellowship,fellow,7,7,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,7,0,0,refresh_source_before_mutation
+Sleep Medicine and Surgery Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Spine Fellowship,fellow,1,1,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Sports Medicine Fellowship,fellow,2,2,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,2,0,0,refresh_source_before_mutation
+Thoracic Surgery - Thoracic Track Fellowship,fellow,1,1,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,1,0,0,refresh_source_before_mutation
+Thoracic Surgery Fellowship - Cardiac Track,fellow,4,4,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,4,0,0,refresh_source_before_mutation
+Transplant Surgery Fellowship,fellow,3,3,US_GME_FELLOWSHIP_1Y,source_refresh_required,source_refresh_required,0,0,0,3,0,0,refresh_source_before_mutation
+Trauma and Surgical Critical Care Fellowship,fellow,12,12,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,12,0,0,refresh_source_before_mutation
+Vascular Surgery Fellowship,fellow,4,4,US_GME_FELLOWSHIP_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,4,0,0,refresh_source_before_mutation
+Medical Scientist Training Program,medical_student,225,225,US_MD_PHD_MSTP_VARIABLE,source_refresh_required,source_refresh_required,0,0,0,225,0,0,refresh_source_before_mutation
+Anesthesiology Residency,resident,97,97,US_GME_ANESTHESIA_CA_PHASE_3Y,annual_gme_july,source_refresh_required,0,0,0,3,71,23,refresh_source_before_mutation
+Cardiothoracic Surgery Residency,resident,15,15,US_GME_RESIDENCY_6Y,annual_gme_july,source_refresh_required,0,0,0,5,8,2,refresh_source_before_mutation
+Diagnostic Radiology Residency,resident,54,54,US_GME_RESIDENCY_5Y,source_refresh_required,source_refresh_required,0,0,0,54,0,0,refresh_source_before_mutation
+General Surgery Residency,resident,75,75,US_GME_RESIDENCY_5Y,annual_gme_july,source_refresh_required,0,0,0,26,36,13,refresh_source_before_mutation
+Interventional Radiology Integrated Residency,resident,19,19,US_GME_RESIDENCY_6Y,source_refresh_required,source_refresh_required,0,0,0,19,0,0,refresh_source_before_mutation
+Ophthalmology Residency,resident,20,20,US_GME_RESIDENCY_5Y,source_refresh_required,source_refresh_required,0,0,0,15,5,0,refresh_source_before_mutation
+Oral Medicine Residency,resident,8,8,US_GME_RESIDENCY_DURATION_UNKNOWN,source_refresh_required,source_refresh_required,0,0,0,8,0,0,refresh_source_before_mutation
+Orthopedic Surgery Residency,resident,40,40,US_GME_RESIDENCY_5Y,annual_gme_july,source_refresh_required,0,0,0,2,31,7,refresh_source_before_mutation
+Penn-CHOP Internal Medicine-Pediatrics Residency,resident,25,38,US_GME_RESIDENCY_4Y,annual_gme_july,source_refresh_required,0,0,0,1,30,7,refresh_source_before_mutation
+Physical Medicine and Rehabilitation Residency,resident,22,22,US_GME_RESIDENCY_4Y,annual_gme_july,source_refresh_required,0,0,0,3,16,3,refresh_source_before_mutation
+Plastic Surgery Residency,resident,22,22,US_GME_RESIDENCY_6Y,annual_gme_july,source_refresh_required,0,0,0,2,17,3,refresh_source_before_mutation
+Radiation Oncology Residency,resident,17,17,US_GME_RESIDENCY_5Y,source_refresh_required,source_refresh_required,0,0,0,17,0,0,refresh_source_before_mutation
+Urology Residency,resident,22,22,US_GME_RESIDENCY_5Y,annual_gme_july,source_refresh_required,0,0,0,1,17,4,refresh_source_before_mutation
+Allergy and Immunology Fellowship,fellow,4,4,US_GME_FELLOWSHIP_2Y,annual_gme_july,terminal_year_active,0,0,0,0,2,2,mark_completion_or_alumni_if_absent_after_stale_after
+"Endocrinology, Diabetes and Metabolism Fellowship",fellow,21,21,none,refresh_from_source,terminal_year_active,0,0,0,0,4,4,mark_completion_or_alumni_if_absent_after_stale_after
+Gastroenterology and Hepatology Fellowship,fellow,23,23,US_GME_FELLOWSHIP_3Y,annual_gme_july,terminal_year_active,0,0,0,0,16,7,mark_completion_or_alumni_if_absent_after_stale_after
+Combined Internal Medicine-Dermatology Residency,resident,5,7,US_GME_RESIDENCY_4Y,annual_gme_july,terminal_year_active,0,0,0,0,6,1,mark_completion_or_alumni_if_absent_after_stale_after
+Family Medicine Residency,resident,35,35,US_GME_RESIDENCY_3Y,annual_gme_july,terminal_year_active,0,0,0,0,23,12,mark_completion_or_alumni_if_absent_after_stale_after
+Internal Medicine Physician-Scientist Pathway,resident,15,27,US_GME_RESIDENCY_3Y,annual_gme_july,terminal_year_active,0,0,0,0,25,2,mark_completion_or_alumni_if_absent_after_stale_after
+Internal Medicine Primary Care Residency,resident,21,21,US_GME_RESIDENCY_3Y,annual_gme_july,terminal_year_active,0,0,0,0,14,7,mark_completion_or_alumni_if_absent_after_stale_after
+Internal Medicine Residency,resident,173,194,US_GME_RESIDENCY_3Y,annual_gme_july,terminal_year_active,0,0,0,0,144,50,mark_completion_or_alumni_if_absent_after_stale_after
+Internal Medicine Residency - Healthcare Leadership in Quality Track,resident,25,29,US_GME_RESIDENCY_3Y,annual_gme_july,terminal_year_active,0,0,0,0,17,12,mark_completion_or_alumni_if_absent_after_stale_after
+Neurological Surgery Residency,resident,21,21,US_GME_RESIDENCY_7Y,annual_gme_july,terminal_year_active,0,0,0,0,18,3,mark_completion_or_alumni_if_absent_after_stale_after
+Obstetrics and Gynecology Residency,resident,32,32,US_GME_RESIDENCY_4Y,annual_gme_july,terminal_year_active,0,0,0,0,24,8,mark_completion_or_alumni_if_absent_after_stale_after
+Otorhinolaryngology Residency,resident,31,31,US_GME_RESIDENCY_5Y,annual_gme_july,terminal_year_active,0,0,0,0,26,5,mark_completion_or_alumni_if_absent_after_stale_after
+Podiatric Surgery Residency,resident,16,16,US_GME_RESIDENCY_4Y,annual_gme_july,terminal_year_active,0,0,0,0,12,4,mark_completion_or_alumni_if_absent_after_stale_after
+Vascular Surgery Integrated Residency,resident,9,9,US_GME_RESIDENCY_5Y,annual_gme_july,terminal_year_active,0,0,0,0,8,1,mark_completion_or_alumni_if_absent_after_stale_after
+Internal Medicine Residency - Global Health Equities Track,fellow,2,4,US_GME_FELLOWSHIP_DURATION_UNKNOWN,annual_gme_july,current_observation,0,0,0,0,0,0,retain_until_next_refresh
