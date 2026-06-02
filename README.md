@@ -285,10 +285,10 @@ python3 scripts/probe_penn_gme_gap_sources.py --search --search-scope not_discov
 Official trainee profile discovery is also queue-driven and rate-limit sensitive. The committed artifact is a no-network manifest for all uncovered profile-search rows; run the collector separately when refreshing candidate URLs:
 
 ```bash
-python3 scripts/discover_trainee_official_profiles.py --max-people 556 --max-queries-per-person 3 --max-results 4 --search-timeout 8 --sleep 0.2
+python3 scripts/discover_trainee_official_profiles.py --resume-existing --max-search-queries 30 --max-queries-per-person 3 --max-results 3 --search-timeout 8 --probe-pages --sleep 0.1
 ```
 
-Add `--probe-pages` when you want page hashes, HTTP status, titles, and term hits. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
+Use `--resume-existing` with `--max-search-queries` for bounded live passes; this preserves the full planned query manifest while adding observations only for unsearched queries. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
 
 Prior-training background discovery uses the same queue-driven pattern for medical-school and residency-background gaps. The committed artifact is a no-network manifest; run the collector separately when refreshing public search candidates:
 

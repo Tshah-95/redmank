@@ -393,6 +393,34 @@ def write_csv(path: Path, rows: list[dict], fields: list[str]) -> None:
         writer.writerows(rows)
 
 
+def read_csv(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
+def merge_by_key(rows: list[dict], key: str) -> dict[str, dict]:
+    merged = {}
+    for row in rows:
+        row_key = row.get(key) or ""
+        if row_key:
+            merged[row_key] = row
+    return merged
+
+
+def better_candidate(new: dict, old: dict | None) -> bool:
+    if not old:
+        return True
+    new_priority = int(float(new.get("priority") or 0))
+    old_priority = int(float(old.get("priority") or 0))
+    if new_priority != old_priority:
+        return new_priority > old_priority
+    new_rank = int(float(new.get("result_rank") or 999))
+    old_rank = int(float(old.get("result_rank") or 999))
+    return new_rank < old_rank
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", type=Path, default=DB)
@@ -400,8 +428,10 @@ def main() -> None:
     parser.add_argument("--max-queries-per-person", type=int, default=3)
     parser.add_argument("--max-results", type=int, default=4)
     parser.add_argument("--search-timeout", type=float, default=8.0)
+    parser.add_argument("--max-search-queries", type=int)
     parser.add_argument("--probe-pages", action="store_true")
     parser.add_argument("--skip-search", action="store_true")
+    parser.add_argument("--resume-existing", action="store_true")
     parser.add_argument("--sleep", type=float, default=0.2)
     args = parser.parse_args()
 
@@ -409,13 +439,24 @@ def main() -> None:
     conn = sqlite3.connect(args.db)
     people = load_people(conn, args.max_people)
     conn.close()
-    queries = [query for person in people for query in query_specs(person, args.max_queries_per_person)]
+    generated_queries = [query for person in people for query in query_specs(person, args.max_queries_per_person)]
+    query_by_key = merge_by_key(read_csv(QUERY_CSV), "query_key") if args.resume_existing else {}
+    query_by_key.update(merge_by_key(generated_queries, "query_key"))
+    queries = sorted(
+        query_by_key.values(),
+        key=lambda row: (-int(float(row.get("priority") or 0)), row.get("role", ""), row.get("display_name", ""), row.get("query", "")),
+    )
 
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-trainee-official-profile-discovery/0.1"
-    observations = []
-    candidates_by_key = {}
-    for spec in [] if args.skip_search else queries:
+    observations_by_query = merge_by_key(read_csv(OBSERVATION_CSV), "query_key") if args.resume_existing else {}
+    candidates_by_key = merge_by_key(read_csv(CANDIDATE_CSV), "candidate_key") if args.resume_existing else {}
+    observed_query_keys = {key for key, row in observations_by_query.items() if row.get("searched_at") or row.get("error")}
+    search_specs = [] if args.skip_search else [query for query in queries if query.get("query_key") not in observed_query_keys]
+    if args.max_search_queries:
+        search_specs = search_specs[: args.max_search_queries]
+    searched_this_run = 0
+    for spec in search_specs:
         try:
             results, observation = ddg_results(session, spec, args.max_results, args.search_timeout)
         except requests.RequestException as exc:
@@ -427,7 +468,8 @@ def main() -> None:
                 "result_count": 0,
                 "error": f"{type(exc).__name__}: {str(exc)[:220]}",
             }
-        observations.append(observation)
+        observations_by_query[observation["query_key"]] = observation
+        searched_this_run += 1
         for result in results:
             if args.probe_pages:
                 result.update(probe_page(session, result))
@@ -479,10 +521,14 @@ def main() -> None:
                 "discovered_at": generated_at,
             }
             current = candidates_by_key.get(candidate["candidate_key"])
-            if not current or int(candidate["priority"]) > int(current["priority"]):
+            if better_candidate(candidate, current):
                 candidates_by_key[candidate["candidate_key"]] = candidate
         time.sleep(args.sleep)
 
+    observations = sorted(
+        observations_by_query.values(),
+        key=lambda row: (-int(float(row.get("priority") or 0)), row.get("display_name", ""), row.get("query", "")),
+    )
     candidates = sorted(
         candidates_by_key.values(),
         key=lambda row: (-int(row["priority"]), row["display_name"], int(row["result_rank"] or 999)),
@@ -512,7 +558,10 @@ def main() -> None:
         "people_considered": len(people),
         "query_rows": len(queries),
         "search_skipped": args.skip_search,
+        "resume_existing": args.resume_existing,
         "search_observations": len(observations),
+        "searched_this_run": searched_this_run,
+        "unsearched_query_rows": max(len(queries) - len(observations), 0),
         "candidate_rows": len(candidates),
         "claim_rows": len(claims),
         "source_rows": len(sources),
