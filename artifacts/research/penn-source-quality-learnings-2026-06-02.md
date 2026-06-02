@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:53:06.654660+00:00
+Generated: 2026-06-02T06:57:40.666064+00:00
 
 ## What This Pass Did
 
@@ -476,6 +476,71 @@ Top queued records:
 | evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
 
 Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.
+
+## Reconciliation Decision Ledger
+
+Decision rows: 3066. Review-ready rows: 120. Person/name rollups: 1153.
+
+Decision counts:
+
+| decision | count |
+| --- | --- |
+| attending_training_claim_needs_identity_link | 2 |
+| attending_training_claim_review_ready | 3 |
+| candidate_with_partial_anchor | 102 |
+| current_attending_endpoint_candidate | 49 |
+| discovery_only | 1103 |
+| low_signal_candidate | 912 |
+| needs_secondary_identity_anchor | 727 |
+| outcome_context_only | 36 |
+| profile_context_candidate | 15 |
+| review_ready_high_anchor | 5 |
+| review_ready_training_topic_anchor | 112 |
+
+Ten-year attending trend window:
+
+| ten_year_trend_window | count |
+| --- | --- |
+| no | 3 |
+| unknown | 100 |
+| yes | 2 |
+
+Top review-ready decisions:
+
+| record_type | display_name | role | claim_type | decision | confidence | priority | ten_year_trend_window | source_url |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| career_event | Patrick Kevin Gleeson, MD, MSCE | attending_or_outcome_candidate | penn_training_history_candidate | attending_training_claim_review_ready | 0.78 | 122 | unknown | https://www3.pennmedicine.org/providers/profile/patrick-gleeson |
+| career_event | Priya Patel, MD | attending_or_outcome_candidate | penn_training_history_candidate | attending_training_claim_review_ready | 0.78 | 122 | unknown | https://www3.pennmedicine.org/providers/profile/priya-patel |
+| career_event | Timothy Buckey, MD, MBE | attending_or_outcome_candidate | penn_training_history_candidate | attending_training_claim_review_ready | 0.78 | 122 | unknown | https://www3.pennmedicine.org/providers/profile/timothy-buckey |
+| evidence_claim | Michelle Munyikwa, MD, PhD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/33406326/ |
+| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/40796935/ |
+| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/41986737/ |
+| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/42056516/ |
+| evidence_claim | Rachel Flaugh, MD* | resident | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 117 |  | https://pubmed.ncbi.nlm.nih.gov/38299252/ |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/31828514/ |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/40145043/ |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/40404217/ |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/41290323/ |
+| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/33509400/ |
+| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/35675673/ |
+| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36978803/ |
+| evidence_claim | Andrew M. Acker, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/37808021/ |
+| evidence_claim | Bradley Osemwengie, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/29929716/ |
+| evidence_claim | Brittany Brookner, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/38509339/ |
+| evidence_claim | Bruk Mekonen, MD, MS | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/40336497/ |
+| evidence_claim | Carissa E. Livingston, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36877449/ |
+| evidence_claim | Caroline Granruth, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36890044/ |
+| evidence_claim | Caroline L. Simon, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36516943/ |
+| evidence_claim | China N. Byrns, MD, PhD, MS | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/34115987/ |
+| evidence_claim | Christopher M. Anthony, DO | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/34865104/ |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/33954783/ |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/34687206/ |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/38468148/ |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/42162870/ |
+| evidence_claim | Danielle Murashige, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/39960981/ |
+| evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/39658750/ |
+
+Learning: reconciliation should be an explicit decision ledger, not a side effect of queue priority. Review-ready means enough anchors exist for efficient review; accepted truth still requires a manual or stronger automated identity verifier.
 
 ## Enrichment Coverage Audit
 

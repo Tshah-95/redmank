@@ -108,6 +108,14 @@ This lets the method improve without quietly poisoning the corpus.
 
 `v_evidence_reconciliation_queue` is the review workbench. It combines candidate/needs-review scholarly claims and career-event claims into one ranked surface with a review action. Priority is based on status, source/claim type, confidence, and non-name anchors such as Penn affiliation, prior education/training affiliation, specialty-topic match, ORCID presence, structured provider training fields, and Penn-training language. Low-value discovery signals remain visible but are ranked below article/profile evidence.
 
+`scripts/audit_reconciliation_decisions.py` turns that queue into a deterministic decision ledger:
+
+- `evidence_reconciliation_decisions.csv`: one row per queued evidence item with decision, rationale, required next evidence, non-name anchor count, current-person name matches, and ten-year attending-trend window status.
+- `person_reconciliation_decisions.csv`: person/name-level rollup of reconciliation burden and review-ready records.
+- `evidence_reconciliation_decision_summary.json`: decision counts by record type, claim type, decision class, and ten-year trend window.
+
+The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor` and `review_ready_training_topic_anchor` mean a human or later verifier has enough non-name evidence to review efficiently; they do not change `evidence_claims.status`. PubMed author-query rows remain `discovery_only`. Current-attending and Penn-training-history profile claims are separated from accepted trend-line facts until a historical trainee identity or independent public anchor links them.
+
 `scripts/audit_enrichment_coverage.py` turns the current evidence layers into person- and program-level coverage rows:
 
 - `person_enrichment_coverage.csv`: one row per person with profile/headshot coverage, contact count, official training-event counts, seeded-vs-cleaned organization status, PubMed author/article candidate counts, career-event candidates, reconciliation queue burden, state-machine status, coverage score, and recommended next action.

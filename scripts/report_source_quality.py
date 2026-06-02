@@ -225,7 +225,14 @@ def main() -> None:
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
     enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
+    reconciliation_decision_summary = read_json(ARTIFACTS / "evidence_reconciliation_decision_summary.json", {})
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
+    top_reconciliation_decisions = [
+        row
+        for row in read_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv")
+        if row.get("decision", "").startswith("review_ready")
+        or row.get("decision", "").startswith("attending_training_claim_review_ready")
+    ][:30]
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
@@ -245,6 +252,14 @@ def main() -> None:
     enrichment_next_actions = [
         {"recommended_next_action": action, "count": count}
         for action, count in sorted((enrichment_coverage_summary.get("by_recommended_next_action") or {}).items())
+    ]
+    reconciliation_decision_counts = [
+        {"decision": decision, "count": count}
+        for decision, count in sorted((reconciliation_decision_summary.get("by_decision") or {}).items())
+    ]
+    trend_window_counts = [
+        {"ten_year_trend_window": window, "count": count}
+        for window, count in sorted((reconciliation_decision_summary.get("by_ten_year_trend_window") or {}).items())
     ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
@@ -294,6 +309,8 @@ def main() -> None:
         "training_state_machine_summary": state_machine_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
+        "reconciliation_decision_summary": reconciliation_decision_summary,
+        "top_reconciliation_decisions": top_reconciliation_decisions,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -439,6 +456,37 @@ def main() -> None:
         ),
         "",
         "Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.",
+        "",
+        "## Reconciliation Decision Ledger",
+        "",
+        f"Decision rows: {reconciliation_decision_summary.get('decision_rows', 0)}. Review-ready rows: {reconciliation_decision_summary.get('review_ready_rows', 0)}. Person/name rollups: {reconciliation_decision_summary.get('person_or_name_rows', 0)}.",
+        "",
+        "Decision counts:",
+        "",
+        *md_table(reconciliation_decision_counts, ["decision", "count"]),
+        "",
+        "Ten-year attending trend window:",
+        "",
+        *md_table(trend_window_counts, ["ten_year_trend_window", "count"]),
+        "",
+        "Top review-ready decisions:",
+        "",
+        *md_table(
+            top_reconciliation_decisions,
+            [
+                "record_type",
+                "display_name",
+                "role",
+                "claim_type",
+                "decision",
+                "confidence",
+                "priority",
+                "ten_year_trend_window",
+                "source_url",
+            ],
+        ),
+        "",
+        "Learning: reconciliation should be an explicit decision ledger, not a side effect of queue priority. Review-ready means enough anchors exist for efficient review; accepted truth still requires a manual or stronger automated identity verifier.",
         "",
         "## Enrichment Coverage Audit",
         "",

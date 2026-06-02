@@ -1,0 +1,41 @@
+{
+  "as_of_year": 2026,
+  "by_claim_type": {
+    "current_penn_attending_candidate": 49,
+    "education_history_candidate": 6,
+    "penn_alumni_outcome_candidate": 36,
+    "penn_training_history_candidate": 5,
+    "personal_profile_candidate": 2,
+    "prior_training_history_candidate": 6,
+    "pubmed_article_candidate": 1858,
+    "pubmed_author_query_candidate": 1103,
+    "research_interest_candidate": 1
+  },
+  "by_decision": {
+    "attending_training_claim_needs_identity_link": 2,
+    "attending_training_claim_review_ready": 3,
+    "candidate_with_partial_anchor": 102,
+    "current_attending_endpoint_candidate": 49,
+    "discovery_only": 1103,
+    "low_signal_candidate": 912,
+    "needs_secondary_identity_anchor": 727,
+    "outcome_context_only": 36,
+    "profile_context_candidate": 15,
+    "review_ready_high_anchor": 5,
+    "review_ready_training_topic_anchor": 112
+  },
+  "by_record_type": {
+    "career_event": 105,
+    "evidence_claim": 2961
+  },
+  "by_ten_year_trend_window": {
+    "no": 3,
+    "unknown": 100,
+    "yes": 2
+  },
+  "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
+  "decision_rows": 3066,
+  "person_or_name_rows": 1153,
+  "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
+  "review_ready_rows": 120
+}
