@@ -31,7 +31,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T14:16:21.983686+00:00",
+    "generated_at": "2026-06-02T14:20:46.991586+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -150,7 +150,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T14:16:22.131640+00:00",
+    "generated_at": "2026-06-02T14:20:47.136661+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 3,
@@ -243,7 +243,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T14:16:22.087036+00:00",
+    "generated_at": "2026-06-02T14:20:47.092757+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -288,7 +288,7 @@
       "2020": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-02T14:16:22.168846+00:00",
+    "generated_at": "2026-06-02T14:20:47.173776+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 3,
     "pending_reviewer_decision_rows": 0,
@@ -338,7 +338,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T14:16:22.051455+00:00",
+    "generated_at": "2026-06-02T14:20:47.058128+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -1637,7 +1637,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T14:16:45.655107+00:00",
+  "generated_at": "2026-06-02T14:21:10.683766+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -1933,7 +1933,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T14:16:43.034791+00:00",
+    "generated_at": "2026-06-02T14:21:08.080368+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -1975,7 +1975,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T14:16:42.953731+00:00",
+    "generated_at": "2026-06-02T14:21:08.002628+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 551,
     "loaded_person_count": 551,
@@ -2051,7 +2051,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-02T14:16:43.182756+00:00",
+    "generated_at": "2026-06-02T14:21:08.228027+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2212,7 +2212,7 @@
       "needs_more_evidence": 1,
       "pending": 17
     },
-    "generated_at": "2026-06-02T14:16:43.226478+00:00",
+    "generated_at": "2026-06-02T14:21:08.270204+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 15,
     "not_ready_rows": 17,
@@ -2263,7 +2263,7 @@
       "residency": 12
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T14:16:43.117692+00:00",
+    "generated_at": "2026-06-02T14:21:08.163807+00:00",
     "highest_priority": 1093,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -2477,7 +2477,7 @@
     "covered_people_count": 1248,
     "covered_program_rows": 65,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T14:16:43.072925+00:00",
+    "generated_at": "2026-06-02T14:21:08.121544+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 821,
     "level_4_program_rows": 49,
@@ -2604,33 +2604,37 @@
   },
   "person_evidence_review_packet_counts": {
     "accepted_attending_trend_fact_packet": 3,
+    "accepted_enrichment_fact_packet": 3,
     "discovery_only_packet": 537,
     "low_signal_candidate_packet": 68,
     "needs_secondary_identity_anchor_packet": 91,
     "npi_secondary_identity_anchor_packet": 97,
     "partial_anchor_candidate_packet": 19,
-    "review_ready_mixed_identity_anchor_packet": 661,
+    "review_ready_mixed_identity_anchor_packet": 658,
     "review_ready_mixed_packet": 5,
     "review_ready_publication_packet": 23
   },
   "person_evidence_review_packet_summary": {
     "accepted_attending_trend_fact_packets": 3,
+    "accepted_enrichment_fact_packets": 3,
     "attending_trend_packets": 50,
     "by_packet_status": {
       "accepted_attending_trend_fact_packet": 3,
+      "accepted_enrichment_fact_packet": 3,
       "discovery_only_packet": 537,
       "low_signal_candidate_packet": 68,
       "needs_secondary_identity_anchor_packet": 91,
       "npi_secondary_identity_anchor_packet": 97,
       "partial_anchor_candidate_packet": 19,
-      "review_ready_mixed_identity_anchor_packet": 661,
+      "review_ready_mixed_identity_anchor_packet": 658,
       "review_ready_mixed_packet": 5,
       "review_ready_publication_packet": 23
     },
     "by_recommended_next_action": {
       "collect_additional_identity_anchors": 19,
       "deprioritize_until_stronger_source_appears": 68,
-      "manual_review_for_candidate_acceptance": 689,
+      "manual_review_for_candidate_acceptance": 686,
+      "retain_accepted_enrichment_and_monitor_remaining_candidates": 3,
       "retain_accepted_trend_fact_and_monitor_future_refresh": 3,
       "seek_profile_or_identifier_or_coauthor_anchor": 91,
       "use_npi_as_secondary_identity_anchor": 97,
@@ -2644,12 +2648,12 @@
       "publication_identity_review": 606
     },
     "csv": "artifacts/data/person_evidence_review_packets.csv",
-    "generated_at": "2026-06-02T14:15:51.785455+00:00",
+    "generated_at": "2026-06-02T14:20:18.918521+00:00",
     "json": "artifacts/data/person_evidence_review_packets.json",
     "needs_secondary_anchor_packets": 91,
     "packet_rows": 1504,
     "publication_review_packets": 606,
-    "review_ready_packets": 689
+    "review_ready_packets": 686
   },
   "person_reconciliation_decision_counts": {
     "attending_training_claim_review_ready": 3,
@@ -2887,7 +2891,7 @@
     },
     "candidate_or_discovery_rows": 7,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T14:16:44.502195+00:00",
+    "generated_at": "2026-06-02T14:21:09.532251+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 23,
@@ -3227,7 +3231,7 @@
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T14:16:22.984642+00:00",
+    "generated_at": "2026-06-02T14:20:47.978248+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
     "person_count": 1535,
@@ -3300,7 +3304,7 @@
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T14:16:23.168609+00:00",
+    "generated_at": "2026-06-02T14:20:48.158824+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
     "person_count": 1535,
@@ -3345,7 +3349,7 @@
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     "artifact_rows": 74,
-    "audited_at": "2026-06-02T14:16:44.671749+00:00",
+    "audited_at": "2026-06-02T14:21:09.702171+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -3400,10 +3404,10 @@
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 153153536,
+    "sqlite_byte_size": 153202688,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "80ba4628185d88b64af20435a688a2877391f29053a70ad2428dec36c9d93269",
+    "sqlite_sha256": "c2730d3af44a0c54912d412f76c7429279a6c156a3e701270464414560671216",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

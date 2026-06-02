@@ -21,6 +21,7 @@ SCHEMA = ROOT / "db" / "schema.sql"
 DECISIONS_CSV = ARTIFACTS / "evidence_reconciliation_decisions.csv"
 TREND_RECONCILIATION_CSV = ARTIFACTS / "attending_trend_reconciliation.csv"
 ACCEPTED_TREND_FACTS_CSV = ARTIFACTS / "accepted_attending_trend_facts.csv"
+ACCEPTED_ENRICHMENT_CSV = ARTIFACTS / "accepted_enrichment_claims.csv"
 PACKETS_CSV = ARTIFACTS / "person_evidence_review_packets.csv"
 
 REVIEW_READY_DECISIONS = {
@@ -32,6 +33,7 @@ REVIEW_READY_DECISIONS = {
     "npi_secondary_identity_anchor_review",
 }
 ACCEPTED_DECISIONS = {
+    "accepted_publication_enrichment_fact",
     "accepted_recent_attending_trend_fact",
 }
 SECONDARY_ANCHOR_DECISIONS = {
@@ -147,6 +149,44 @@ def accepted_trend_keys(path: Path) -> dict[str, dict]:
     return accepted
 
 
+def accepted_enrichment_keys(path: Path) -> dict[tuple[str, str], dict]:
+    if not path.exists():
+        return {}
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    accepted = {}
+    for row in rows:
+        if row.get("enrichment_type") != "publication":
+            continue
+        person_key = row.get("person_key") or ""
+        source_url = row.get("source_url") or ""
+        if person_key and source_url:
+            accepted[(person_key, source_url)] = row
+    return accepted
+
+
+def apply_accepted_enrichment(decisions: list[dict], accepted: dict[tuple[str, str], dict]) -> list[dict]:
+    result = []
+    for row in decisions:
+        accepted_row = accepted.get((row.get("person_key") or "", row.get("source_url") or ""))
+        if not accepted_row:
+            result.append(row)
+            continue
+        updated = dict(row)
+        updated["decision"] = "accepted_publication_enrichment_fact"
+        updated["decision_rationale"] = "accepted_enrichment_claim_materialized"
+        updated["required_next_evidence"] = (
+            "Accepted publication enrichment is materialized; retain provenance and reconcile only remaining non-accepted candidates."
+        )
+        updated["priority"] = max(as_int(row.get("priority")), 250)
+        features = [feature.strip() for feature in (row.get("match_features") or "").split(";") if feature.strip()]
+        if "accepted_enrichment_fact" not in features:
+            features.insert(0, "accepted_enrichment_fact")
+        updated["match_features"] = "; ".join(features)
+        result.append(updated)
+    return result
+
+
 def trend_decision_for_status(status: str) -> str:
     if status == "review_ready_official_biosketch_bridge":
         return "trend_review_ready_official_biosketch_bridge"
@@ -248,19 +288,39 @@ def review_kind(decisions: Counter) -> str:
 
 
 def classify_packet(items: list[dict], decisions: Counter) -> tuple[str, str, str, int]:
-    accepted = sum(decisions.get(decision, 0) for decision in ACCEPTED_DECISIONS)
+    accepted_trend = decisions.get("accepted_recent_attending_trend_fact", 0)
+    accepted_enrichment = decisions.get("accepted_publication_enrichment_fact", 0)
+    accepted = accepted_trend + accepted_enrichment
     review_ready = sum(decisions.get(decision, 0) for decision in REVIEW_READY_DECISIONS)
+    remaining_publication_review_ready = (
+        decisions.get("review_ready_high_anchor", 0)
+        + decisions.get("review_ready_training_topic_anchor", 0)
+    )
     secondary = sum(decisions.get(decision, 0) for decision in SECONDARY_ANCHOR_DECISIONS)
     partial = decisions.get("candidate_with_partial_anchor", 0)
     low_signal = decisions.get("low_signal_candidate", 0)
     discovery = decisions.get("discovery_only", 0)
     kind = review_kind(decisions)
     max_priority = max(as_int(row.get("priority")) for row in items)
-    if accepted and kind == "attending_trend_identity_link":
+    if accepted_trend and kind == "attending_trend_identity_link":
         return (
             "accepted_attending_trend_fact_packet",
             "retain_accepted_trend_fact_and_monitor_future_refresh",
             "Accepted trend fact is materialized; no reviewer action remains for this packet.",
+            max_priority + 5,
+        )
+    if accepted_enrichment and remaining_publication_review_ready:
+        return (
+            "accepted_enrichment_with_remaining_review_packet",
+            "retain_accepted_enrichment_and_review_remaining_candidates",
+            "Accepted enrichment facts are materialized; remaining review-ready candidates still need acceptance decisions.",
+            max_priority + 5,
+        )
+    if accepted_enrichment:
+        return (
+            "accepted_enrichment_fact_packet",
+            "retain_accepted_enrichment_and_monitor_remaining_candidates",
+            "Accepted enrichment fact is materialized; no reviewer action remains for the accepted publication claim.",
             max_priority + 5,
         )
     if decisions.get("trend_review_ready_official_biosketch_bridge", 0):
@@ -352,6 +412,15 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
         status, action, blocker, priority = classify_packet(items, decision_counts)
         kind = review_kind(decision_counts)
         review_ready_count = sum(decision_counts.get(decision, 0) for decision in REVIEW_READY_DECISIONS)
+        unresolved_publication_review_ready_count = (
+            decision_counts.get("review_ready_high_anchor", 0)
+            + decision_counts.get("review_ready_training_topic_anchor", 0)
+        )
+        active_review_ready_count = review_ready_count
+        if status == "accepted_enrichment_fact_packet":
+            active_review_ready_count = 0
+        elif status == "accepted_enrichment_with_remaining_review_packet":
+            active_review_ready_count = unresolved_publication_review_ready_count
         accepted_count = sum(decision_counts.get(decision, 0) for decision in ACCEPTED_DECISIONS)
         secondary_count = sum(decision_counts.get(decision, 0) for decision in SECONDARY_ANCHOR_DECISIONS)
         publication_count = sum(1 for row in items if row.get("claim_type") in {"pubmed_article_candidate", "pubmed_author_query_candidate"})
@@ -375,6 +444,7 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
         evidence = {
             "decision_counts": dict(sorted(decision_counts.items())),
             "accepted_decision_count": accepted_count,
+            "active_review_ready_record_count": active_review_ready_count,
             "npi_candidate_count": npi_count,
             "top_records": [
                 {
@@ -403,7 +473,7 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
             "recommended_next_action": action,
             "acceptance_blocker": blocker,
             "review_priority": priority,
-            "review_ready_record_count": review_ready_count,
+            "review_ready_record_count": active_review_ready_count,
             "secondary_anchor_needed_count": secondary_count,
             "low_signal_record_count": decision_counts.get("low_signal_candidate", 0),
             "discovery_only_count": decision_counts.get("discovery_only", 0),
@@ -488,6 +558,14 @@ def summary_payload(rows: list[dict]) -> dict:
         "by_review_kind": dict(sorted(Counter(row["review_kind"] for row in rows).items())),
         "by_recommended_next_action": dict(sorted(Counter(row["recommended_next_action"] for row in rows).items())),
         "review_ready_packets": sum(1 for row in rows if row["packet_status"].startswith("review_ready")),
+        "accepted_enrichment_fact_packets": sum(
+            1
+            for row in rows
+            if row["packet_status"] in {
+                "accepted_enrichment_fact_packet",
+                "accepted_enrichment_with_remaining_review_packet",
+            }
+        ),
         "accepted_attending_trend_fact_packets": sum(
             1 for row in rows if row["packet_status"] == "accepted_attending_trend_fact_packet"
         ),
@@ -505,9 +583,13 @@ def main() -> None:
     parser.add_argument("--decisions", type=Path, default=DECISIONS_CSV)
     parser.add_argument("--trend-reconciliation", type=Path, default=TREND_RECONCILIATION_CSV)
     parser.add_argument("--accepted-trend-facts", type=Path, default=ACCEPTED_TREND_FACTS_CSV)
+    parser.add_argument("--accepted-enrichment", type=Path, default=ACCEPTED_ENRICHMENT_CSV)
     args = parser.parse_args()
 
-    decisions = read_decisions(args.decisions)
+    decisions = apply_accepted_enrichment(
+        read_decisions(args.decisions),
+        accepted_enrichment_keys(args.accepted_enrichment),
+    )
     decisions.extend(read_trend_reconciliation(args.trend_reconciliation, accepted_trend_keys(args.accepted_trend_facts)))
     rows = packet_rows(decisions)
     summary = summary_payload(rows)

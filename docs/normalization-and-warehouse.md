@@ -194,7 +194,7 @@ The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor`
 - `person_evidence_review_packets.json`: same rows with top evidence records in structured JSON.
 - `person_evidence_review_packet_summary.json`: counts by packet status, review kind, and next action.
 
-Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge.
+Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge. Once a later acceptance ledger materializes a publication or attending-trend fact, packet generation reclassifies the matching person/name packet into an accepted/monitor state instead of continuing to ask for the same reviewer decision.
 
 `scripts/audit_enrichment_acceptance.py` is the stricter acceptance-assurance gate after reconciliation decisions. It still does not mutate roster truth or flip `evidence_claims.status`. Its strictest publication tier, `machine_acceptance_candidate_cross_source`, requires a PubMed article candidate with `review_ready_high_anchor`, confidence at least 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person. Other rows remain review-ready, secondary-anchor-needed, partial, endpoint-only, or low-signal with explicit blockers and next actions.
 
