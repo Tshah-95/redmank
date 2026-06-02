@@ -60,6 +60,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_gap_roster_reconciliation.csv",
+        "official_program_gap_roster_reconciliation_ledger",
+        "csv",
+        "official_gap_roster_reconciliation",
+        True,
+    ),
+    (
         "artifacts/data/official_program_alias_reconciliation_candidates.csv",
         "official_program_alias_ledger",
         "csv",

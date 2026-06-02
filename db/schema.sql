@@ -191,6 +191,30 @@ CREATE TABLE IF NOT EXISTS official_program_alias_reconciliation_candidates (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_gap_roster_reconciliation (
+  reconciliation_key TEXT PRIMARY KEY,
+  source_key TEXT,
+  candidate_key TEXT,
+  source_url TEXT NOT NULL,
+  effective_url TEXT,
+  source_program_name TEXT,
+  source_department TEXT,
+  extraction_status TEXT NOT NULL,
+  records_extracted INTEGER NOT NULL DEFAULT 0,
+  loaded_membership_count INTEGER NOT NULL DEFAULT 0,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE SET NULL,
+  official_program_name TEXT,
+  official_coverage_status TEXT,
+  gap_reason_status TEXT,
+  source_candidate_status TEXT,
+  denominator_link_status TEXT NOT NULL,
+  denominator_link_confidence REAL NOT NULL DEFAULT 0.0,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
   observation_key TEXT PRIMARY KEY,
   identifier_source TEXT NOT NULL,

@@ -34,6 +34,7 @@ CSV_TABLES = [
     ("official_program_identifiers.csv", "official_program_identifiers"),
     ("program_lifecycle_consistency_audit.csv", "program_lifecycle_consistency_audit"),
     ("hup_gap_reason_audit.csv", "official_program_gap_reason_audit"),
+    ("official_gap_roster_reconciliation.csv", "official_gap_roster_reconciliation"),
     ("official_program_alias_reconciliation_candidates.csv", "official_program_alias_reconciliation_candidates"),
     ("training_state_machine_audit.csv", "training_state_machine_audit"),
     ("person_training_state_machine_audit.csv", "person_training_state_machine_audit"),

@@ -221,6 +221,10 @@ def main() -> None:
     hup_gap_probe_summary = read_json(ARTIFACTS / "penn_gme_gap_source_probe_summary.json", {})
     hup_gap_candidates = read_json(ARTIFACTS / "penn_gme_gap_source_candidates.json", [])
     hup_gap_roster_summary = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
+    official_gap_roster_reconciliation_summary = read_json(
+        ARTIFACTS / "official_gap_roster_reconciliation_summary.json",
+        {},
+    )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -397,6 +401,7 @@ def main() -> None:
         "hup_gme_gap_source_probe_summary": hup_gap_probe_summary,
         "hup_gme_top_gap_source_candidates": top_hup_gap_candidates,
         "hup_gme_gap_roster_summary": hup_gap_roster_summary,
+        "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -478,7 +483,21 @@ def main() -> None:
             ["extraction_status", "count"],
         ),
         "",
-        "Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records.",
+        "Denominator-link reconciliation:",
+        "",
+        f"Official-linked extracted records: {official_gap_roster_reconciliation_summary.get('official_linked_records_extracted', 0)}. Seed records still missing denominator keys: {official_gap_roster_reconciliation_summary.get('seed_without_denominator_key_records', 0)}. Loaded memberships from reconciled sources: {official_gap_roster_reconciliation_summary.get('loaded_membership_count', 0)}.",
+        "",
+        *md_table(
+            [
+                {"denominator_link_status": status, "count": count}
+                for status, count in sorted(
+                    (official_gap_roster_reconciliation_summary.get("by_denominator_link_status") or {}).items()
+                )
+            ],
+            ["denominator_link_status", "count"],
+        ),
+        "",
+        "Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records. Extracted people and denominator coverage closure are separate claims: seed-derived records need an official program key or alias reconciliation before they can close an official HUP program gap.",
         "",
         "## Penn-Wide Program Categorization",
         "",

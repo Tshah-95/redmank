@@ -37,6 +37,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_gme_gap_source_probes.json`: reachability and page-signal observations for uncovered official HUP program URLs.
 - `artifacts/data/hup_gap_reason_audit.csv`: deterministic reason ledger for remaining official HUP coverage gaps.
 - `artifacts/data/hup_gap_reason_summary.json`: gap-reason counts and recommended next-action counts.
+- `artifacts/data/official_gap_roster_reconciliation.csv`: source-level reconciliation between extracted HUP gap-roster sources, official denominator rows, loaded memberships, and denominator-link status.
+- `artifacts/data/official_gap_roster_reconciliation_summary.json`: counts for denominator-linked extracted records versus seed records that still need official-program-key mapping.
 - `artifacts/data/official_program_alias_reconciliation_candidates.csv`: non-mutating candidate ledger for official denominator rows that may map to related loaded program labels.
 - `artifacts/data/official_program_alias_reconciliation_summary.json`: alias/denominator reconciliation candidate counts.
 - `artifacts/data/penn_gme_gap_roster_people.json`: conservative queue-driven roster extract from supported HUP gap pages.
@@ -155,6 +157,7 @@ python3 scripts/scrape_penn_gme_gap_rosters.py
 python3 scripts/build_sqlite.py
 python3 scripts/audit_penn_gme_program_coverage.py
 python3 scripts/audit_hup_gap_reasons.py
+python3 scripts/audit_official_gap_roster_reconciliation.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34

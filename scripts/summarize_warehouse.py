@@ -63,6 +63,7 @@ def main() -> None:
         "official_program_source_probes",
         "official_program_source_candidates",
         "official_program_gap_reason_audit",
+        "official_gap_roster_reconciliation",
         "official_program_alias_reconciliation_candidates",
         "program_identifier_source_observations",
         "program_identifier_candidates",
@@ -359,6 +360,26 @@ def main() -> None:
             """
         )
     }
+    official_gap_roster_reconciliation_counts = {
+        row["denominator_link_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT denominator_link_status, COUNT(*) AS count
+            FROM official_gap_roster_reconciliation
+            GROUP BY denominator_link_status
+            """
+        )
+    }
+    official_gap_roster_reconciliation_extracted_counts = {
+        row["denominator_link_status"]: row["records"]
+        for row in conn.execute(
+            """
+            SELECT denominator_link_status, COALESCE(SUM(records_extracted), 0) AS records
+            FROM official_gap_roster_reconciliation
+            GROUP BY denominator_link_status
+            """
+        )
+    }
     official_program_alias_reconciliation_counts = {
         row["relation_status"]: row["count"]
         for row in conn.execute(
@@ -579,6 +600,13 @@ def main() -> None:
         )
     else:
         program_lifecycle_consistency_summary = {}
+    official_gap_roster_reconciliation_summary_path = ARTIFACTS / "official_gap_roster_reconciliation_summary.json"
+    if official_gap_roster_reconciliation_summary_path.exists():
+        official_gap_roster_reconciliation_summary = json.loads(
+            official_gap_roster_reconciliation_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        official_gap_roster_reconciliation_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -617,6 +645,8 @@ def main() -> None:
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "official_program_gap_reason_counts": official_program_gap_reason_counts,
+        "official_gap_roster_reconciliation_counts": official_gap_roster_reconciliation_counts,
+        "official_gap_roster_reconciliation_extracted_counts": official_gap_roster_reconciliation_extracted_counts,
         "official_program_alias_reconciliation_counts": official_program_alias_reconciliation_counts,
         "program_identifier_candidate_counts": program_identifier_candidate_counts,
         "program_identifier_source_counts": program_identifier_source_counts,
@@ -648,6 +678,7 @@ def main() -> None:
         "program_identifier_candidate_summary": program_identifier_candidate_summary,
         "program_identifier_reconciliation_summary": program_identifier_reconciliation_summary,
         "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
+        "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
