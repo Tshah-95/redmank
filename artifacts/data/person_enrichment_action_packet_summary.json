@@ -1,0 +1,241 @@
+{
+  "action_packet_rows": 1535,
+  "by_packet_status": {
+    "collector_execution_ready": 453,
+    "official_profile_candidate_ready": 14,
+    "profile_search_ready": 267,
+    "review_packet_ready": 792,
+    "search_endpoint_retry_required": 9
+  },
+  "by_primary_action_lane": {
+    "enrichment_collector_execution": 453,
+    "official_profile_discovery": 267,
+    "official_profile_review": 14,
+    "person_evidence_review": 792,
+    "profile_search_retry": 9
+  },
+  "by_priority_band": {
+    "critical": 6,
+    "high": 602,
+    "low": 714,
+    "medium": 213
+  },
+  "by_role": {
+    "fellow": 385,
+    "medical_student": 225,
+    "resident": 925
+  },
+  "collector_execution_ready_rows": 453,
+  "contact_reobservation_ready_rows": 0,
+  "critical_packet_rows": 6,
+  "csv": "artifacts/data/person_enrichment_action_packets.csv",
+  "generated_at": "2026-06-02T21:33:34.994871+00:00",
+  "high_packet_rows": 602,
+  "json": "artifacts/data/person_enrichment_action_packets.json",
+  "person_count": 1535,
+  "policy": "Action packets are non-mutating. They assemble per-person next actions from dossiers, execution readiness, profile discovery, contact contracts, and evidence review packets.",
+  "profile_search_ready_rows": 267,
+  "review_packet_ready_rows": 792,
+  "top_packets": [
+    {
+      "display_name": "Allan Stolarski, MD, MS",
+      "packet_status": "official_profile_candidate_ready",
+      "person_key": "person_allan-stolarski-md-ms_bb615dd872ac",
+      "primary_action_lane": "official_profile_review",
+      "priority": 1040,
+      "priority_band": "critical",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Jackie Zhang, MD",
+      "packet_status": "official_profile_candidate_ready",
+      "person_key": "person_jackie-zhang-md_1cc440dab925",
+      "primary_action_lane": "official_profile_review",
+      "priority": 1040,
+      "priority_band": "critical",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Laura Barnes, MD",
+      "packet_status": "official_profile_candidate_ready",
+      "person_key": "person_laura-barnes-md_503959d8cc53",
+      "primary_action_lane": "official_profile_review",
+      "priority": 1040,
+      "priority_band": "critical",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Madison Harris, DO",
+      "packet_status": "official_profile_candidate_ready",
+      "person_key": "person_madison-harris-do_b296586278e6",
+      "primary_action_lane": "official_profile_review",
+      "priority": 1040,
+      "priority_band": "critical",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Mary Decoteau, MD",
+      "packet_status": "official_profile_candidate_ready",
+      "person_key": "person_mary-decoteau-md_107185e399b5",
+      "primary_action_lane": "official_profile_review",
+      "priority": 1000,
+      "priority_band": "critical",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Michael Weykamp, MD, MS",
+      "packet_status": "official_profile_candidate_ready",
+      "person_key": "person_michael-weykamp-md-ms_df24588b4705",
+      "primary_action_lane": "official_profile_review",
+      "priority": 1000,
+      "priority_band": "critical",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Ahmed Alsayed, MBBS",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_ahmed-alsayed-mbbs_3239f630984d",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Ahmed Beydoun, M.D.",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_ahmed-beydoun-m-d_965cf0589988",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Ahmed Beydoun, MD",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_ahmed-beydoun-md_6277a752d76f",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Ali Nabavizadeh, MD",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_ali-nabavizadeh-md_a5de64836416",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Allan Huang, MD",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_allan-huang-md_8ad007f09368",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Allison Reeder, M.D.",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_allison-reeder-m-d_b5a2fca0dfa2",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Amber Lachaud, MD",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_amber-lachaud-md_f9850f07311d",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Andrew Jeong, MD",
+      "packet_status": "search_endpoint_retry_required",
+      "person_key": "person_andrew-jeong-md_beb5dfb8bd11",
+      "primary_action_lane": "profile_search_retry",
+      "priority": 990,
+      "priority_band": "high",
+      "recommended_next_action": "retry or replace blocked profile search query",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Aashish Bhardwaj, MD",
+      "packet_status": "review_packet_ready",
+      "person_key": "person_aashish-bhardwaj-md_085a7aaf0c58",
+      "primary_action_lane": "person_evidence_review",
+      "priority": 980,
+      "priority_band": "high",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "resident"
+    },
+    {
+      "display_name": "Abigail Black MD",
+      "packet_status": "review_packet_ready",
+      "person_key": "abigail black",
+      "primary_action_lane": "person_evidence_review",
+      "priority": 980,
+      "priority_band": "high",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "resident"
+    },
+    {
+      "display_name": "Abigail Taye MD",
+      "packet_status": "review_packet_ready",
+      "person_key": "abigail taye",
+      "primary_action_lane": "person_evidence_review",
+      "priority": 980,
+      "priority_band": "high",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "resident"
+    },
+    {
+      "display_name": "Ahmed Gawash DO",
+      "packet_status": "review_packet_ready",
+      "person_key": "ahmed gawash",
+      "primary_action_lane": "person_evidence_review",
+      "priority": 980,
+      "priority_band": "high",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alec Gayner MD",
+      "packet_status": "review_packet_ready",
+      "person_key": "alec gayner",
+      "primary_action_lane": "person_evidence_review",
+      "priority": 980,
+      "priority_band": "high",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alex Swanger, MD",
+      "packet_status": "review_packet_ready",
+      "person_key": "person_alex-swanger-md_bf924cc4b79f",
+      "primary_action_lane": "person_evidence_review",
+      "priority": 980,
+      "priority_band": "high",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "resident"
+    }
+  ]
+}

@@ -3,11 +3,12 @@
   "by_quality_band": {
     "discovery_or_review_only": 3,
     "high_utility": 4,
-    "strong_with_known_limits": 14,
+    "strong_with_known_limits": 15,
     "useful_candidate_layer": 8
   },
   "by_recommended_next_action": {
     "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
+    "execute_high_priority_action_packets_then_feed_results_back_through_source_specific_acceptance_ledgers": 1,
     "execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile": 1,
     "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
     "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
@@ -44,7 +45,7 @@
     "licensure_api": 1,
     "normalization": 1,
     "official_institutional_web": 10,
-    "orchestration": 3,
+    "orchestration": 4,
     "scholarly_api": 5,
     "state_machine": 1,
     "warehouse_provenance": 2,
@@ -52,10 +53,10 @@
   },
   "candidate_or_discovery_rows": 11,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T21:24:14.477731+00:00",
+  "generated_at": "2026-06-02T21:33:38.135457+00:00",
   "high_utility_rows": 4,
   "json": "artifacts/data/source_utility_scorecard.json",
-  "scorecard_rows": 29,
+  "scorecard_rows": 30,
   "top_rows": [
     {
       "quality_band": "high_utility",
@@ -87,6 +88,13 @@
     },
     {
       "quality_band": "strong_with_known_limits",
+      "recommended_next_action": "execute_high_priority_action_packets_then_feed_results_back_through_source_specific_acceptance_ledgers",
+      "score": 84.0,
+      "scorecard_key": "person_enrichment_action_packet_ledger",
+      "utility_label": "Person enrichment action packet ledger"
+    },
+    {
+      "quality_band": "strong_with_known_limits",
       "recommended_next_action": "use_state_machine_expectations_before_mutating_next_year_roster_diffs",
       "score": 84.0,
       "scorecard_key": "training_state_machine_longitudinal_readiness",
@@ -105,13 +113,6 @@
       "score": 82.0,
       "scorecard_key": "acgme_program_identifier_candidates",
       "utility_label": "ACGME public program identifier candidates"
-    },
-    {
-      "quality_band": "strong_with_known_limits",
-      "recommended_next_action": "review_ready_trend_rows_then_record_explicit_acceptance_decisions",
-      "score": 82.0,
-      "scorecard_key": "attending_trend_reconciliation_ledger",
-      "utility_label": "Attending trend reconciliation ledger"
     }
   ]
 }

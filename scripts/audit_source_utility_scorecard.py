@@ -750,6 +750,32 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
           AND candidate_evidence_count > 0
         """,
     )
+    action_packet_summary = read_json(ARTIFACTS / "person_enrichment_action_packet_summary.json", {})
+    action_packet_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_packets")
+    action_packet_review_ready = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_action_packets
+        WHERE packet_status IN (
+          'review_packet_ready',
+          'official_profile_candidate_ready',
+          'manual_review_ready'
+        )
+        """,
+    )
+    action_packet_collector_ready = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_action_packets
+        WHERE packet_status IN (
+          'collector_execution_ready',
+          'profile_search_ready',
+          'contact_reobservation_ready'
+        )
+        """,
+    )
 
     return [
         make_row(
@@ -1727,6 +1753,36 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "new_parser_required_rows": readiness_new_parser,
                 "execution_readiness_summary": execution_readiness_summary,
                 "execution_batch_summary": execution_batch_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="person_enrichment_action_packet_ledger",
+            utility_key="",
+            utility_label="Person enrichment action packet ledger",
+            source_family="orchestration",
+            claim_surface="per-person recursive enrichment next action, provenance, blocker, and downstream artifact routing",
+            input_records=dossier_rows,
+            output_records=action_packet_rows,
+            candidate_records=action_packet_collector_ready,
+            needs_review_records=action_packet_review_ready,
+            review_ready_records=action_packet_review_ready,
+            score=84.0,
+            strengths=[
+                "Creates one operational packet per person dossier so recursive enrichment can run person-by-person",
+                "Combines dossier state, execution readiness, official profile discovery, contact contracts, and evidence-review packets",
+                "Keeps next evidence, blockers, command hints, source URLs, and downstream artifacts together without accepting facts",
+            ],
+            limitations=[
+                "Packets summarize source-specific ledgers and must not replace the underlying evidence records",
+                "Recommended actions are prioritization aids, not proof that a source is complete or correct",
+                "Packet quality depends on existing queues and currently observed profile/contact/review surfaces",
+            ],
+            recommended_next_action="execute_high_priority_action_packets_then_feed_results_back_through_source_specific_acceptance_ledgers",
+            evidence={
+                "action_packet_rows": action_packet_rows,
+                "review_ready_packets": action_packet_review_ready,
+                "collector_ready_packets": action_packet_collector_ready,
+                "action_packet_summary": action_packet_summary,
             },
         ),
     ]
