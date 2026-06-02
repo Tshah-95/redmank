@@ -40,6 +40,7 @@ def main() -> None:
         "training_state_transition_rollups",
         "person_enrichment_coverage",
         "program_enrichment_coverage",
+        "person_enrichment_dossiers",
         "person_enrichment_work_queue",
         "person_enrichment_execution_readiness",
         "person_enrichment_execution_readiness_rollups",
@@ -535,6 +536,26 @@ def main() -> None:
             SELECT search_http_status, COUNT(*) AS count
             FROM prior_training_search_observations
             GROUP BY search_http_status
+            """
+        )
+    }
+    person_dossier_status_counts = {
+        row["dossier_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT dossier_status, COUNT(*) AS count
+            FROM person_enrichment_dossiers
+            GROUP BY dossier_status
+            """
+        )
+    }
+    person_dossier_display_safety_counts = {
+        row["display_safety_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT display_safety_status, COUNT(*) AS count
+            FROM person_enrichment_dossiers
+            GROUP BY display_safety_status
             """
         )
     }
@@ -1056,6 +1077,13 @@ def main() -> None:
         )
     else:
         contact_verification_contract_summary = {}
+    person_enrichment_dossier_summary_path = ARTIFACTS / "person_enrichment_dossier_summary.json"
+    if person_enrichment_dossier_summary_path.exists():
+        person_enrichment_dossier_summary = json.loads(
+            person_enrichment_dossier_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_enrichment_dossier_summary = {}
     warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
     if warehouse_reproducibility_summary_path.exists():
         warehouse_reproducibility_summary = json.loads(
@@ -1201,6 +1229,8 @@ def main() -> None:
         "trainee_profile_search_status_counts": trainee_profile_search_status_counts,
         "prior_training_discovery_candidate_counts": prior_training_discovery_candidate_counts,
         "prior_training_search_status_counts": prior_training_search_status_counts,
+        "person_dossier_status_counts": person_dossier_status_counts,
+        "person_dossier_display_safety_counts": person_dossier_display_safety_counts,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_display_safety_counts": contact_display_safety_counts,
@@ -1263,6 +1293,7 @@ def main() -> None:
         "accepted_enrichment_summary": accepted_enrichment_summary,
         "contact_assurance_summary": contact_assurance_summary,
         "contact_verification_contract_summary": contact_verification_contract_summary,
+        "person_enrichment_dossier_summary": person_enrichment_dossier_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,

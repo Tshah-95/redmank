@@ -4,7 +4,7 @@
     "blocked_or_low_current_utility": 1,
     "discovery_or_review_only": 2,
     "high_utility": 3,
-    "strong_with_known_limits": 12,
+    "strong_with_known_limits": 13,
     "useful_candidate_layer": 5
   },
   "by_recommended_next_action": {
@@ -27,6 +27,7 @@
     "seek_historical_identity_bridge_before_accepting_trend_links": 1,
     "treat_as_queue_then_probe_and_parse_only_source_backed_rosters": 1,
     "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities": 1,
+    "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers": 1,
     "use_npi_candidates_as_secondary_identity_anchors_only": 1,
     "use_only_to_seed_article_level_reconciliation": 1,
     "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
@@ -39,7 +40,7 @@
     "licensure_api": 1,
     "normalization": 1,
     "official_institutional_web": 8,
-    "orchestration": 2,
+    "orchestration": 3,
     "scholarly_api": 3,
     "state_machine": 1,
     "warehouse_provenance": 1,
@@ -47,10 +48,10 @@
   },
   "candidate_or_discovery_rows": 7,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T15:58:11.937760+00:00",
+  "generated_at": "2026-06-02T16:05:35.409507+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
-  "scorecard_rows": 23,
+  "scorecard_rows": 24,
   "top_rows": [
     {
       "quality_band": "high_utility",
@@ -82,6 +83,13 @@
     },
     {
       "quality_band": "strong_with_known_limits",
+      "recommended_next_action": "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers",
+      "score": 83.0,
+      "scorecard_key": "person_enrichment_dossier_ledger",
+      "utility_label": "Person enrichment dossier ledger"
+    },
+    {
+      "quality_band": "strong_with_known_limits",
       "recommended_next_action": "use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities",
       "score": 82.0,
       "scorecard_key": "acgme_program_identifier_candidates",
@@ -100,13 +108,6 @@
       "score": 81.0,
       "scorecard_key": "official_trainee_profile_claims",
       "utility_label": "Official Penn trainee profile claims"
-    },
-    {
-      "quality_band": "strong_with_known_limits",
-      "recommended_next_action": "run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers",
-      "score": 81.0,
-      "scorecard_key": "recursive_enrichment_work_queue",
-      "utility_label": "Recursive enrichment work queue"
     }
   ]
 }

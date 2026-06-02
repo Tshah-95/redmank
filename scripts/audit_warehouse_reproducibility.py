@@ -330,6 +330,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/person_enrichment_dossiers.csv",
+        "person_enrichment_dossier_ledger",
+        "csv",
+        "person_enrichment_dossiers",
+        True,
+    ),
+    (
         "artifacts/data/person_enrichment_queue.csv",
         "person_enrichment_work_queue",
         "csv",

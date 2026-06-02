@@ -586,6 +586,26 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         "SELECT COUNT(*) FROM person_enrichment_execution_readiness WHERE requires_new_parser = 1",
     )
+    dossier_summary = read_json(ARTIFACTS / "person_enrichment_dossier_summary.json", {})
+    dossier_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_dossiers")
+    dossier_review_ready = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_dossiers WHERE review_ready_evidence_count > 0",
+    )
+    dossier_accepted = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_dossiers WHERE accepted_enrichment_count > 0",
+    )
+    dossier_candidate_only = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_dossiers
+        WHERE accepted_enrichment_count = 0
+          AND review_ready_evidence_count = 0
+          AND candidate_evidence_count > 0
+        """,
+    )
 
     return [
         make_row(
@@ -1320,6 +1340,37 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "high_or_critical_rows": enrichment_queue_high,
                 "review_or_refresh_rows": enrichment_queue_review_or_refresh,
                 "queue_summary": enrichment_queue_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="person_enrichment_dossier_ledger",
+            utility_key="",
+            utility_label="Person enrichment dossier ledger",
+            source_family="orchestration",
+            claim_surface="person-level accepted facts, candidate surfaces, contact contracts, training state, and provenance URLs",
+            input_records=people,
+            output_records=dossier_rows,
+            accepted_records=dossier_accepted,
+            candidate_records=dossier_candidate_only,
+            review_ready_records=dossier_review_ready,
+            score=83.0,
+            strengths=[
+                "Summarizes every warehouse person in one stable row",
+                "Separates accepted enrichment from review-ready and candidate evidence",
+                "Includes contact verification contracts, temporal training state, missing surfaces, and top provenance URLs",
+            ],
+            limitations=[
+                "Dossiers are summaries and do not replace source-specific evidence ledgers",
+                "Accepted enrichment remains intentionally sparse until review gates are satisfied",
+                "Attending outcome candidates without person keys remain in attending trend ledgers rather than trainee dossiers",
+            ],
+            recommended_next_action="use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers",
+            evidence={
+                "dossier_rows": dossier_rows,
+                "accepted_enrichment_people": dossier_accepted,
+                "review_ready_people": dossier_review_ready,
+                "candidate_only_people": dossier_candidate_only,
+                "dossier_summary": dossier_summary,
             },
         ),
         make_row(
