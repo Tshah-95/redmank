@@ -410,6 +410,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     orcid_secondary_anchor = decision_counts.get("orcid_secondary_identity_anchor_review", 0)
     orcid_partial_anchor = decision_counts.get("orcid_profile_with_partial_anchor", 0)
     orcid_low_signal = decision_counts.get("orcid_low_signal_candidate", 0)
+    orcid_work_review = decision_counts.get("orcid_work_publication_review", 0)
+    orcid_work_candidate = decision_counts.get("orcid_work_publication_candidate", 0)
+    orcid_work_low_signal = decision_counts.get("orcid_work_low_signal_candidate", 0)
 
     attending_profile_events = scalar(conn, "SELECT COUNT(*) FROM career_events WHERE source_key LIKE 'penn_attending_profile_%'")
     attending_profile_review_ready = decision_counts.get("attending_training_claim_review_ready", 0)
@@ -1004,27 +1007,29 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         make_row(
             scorecard_key="orcid_public_profile_reconciliation",
             utility_key="orcid_public_api",
-            utility_label="ORCID public profile reconciliation",
+            utility_label="ORCID public profile and work reconciliation",
             source_family="scholarly_api",
-            claim_surface="persistent ORCID identifier, public works, external identifiers, keywords, researcher URLs, and affiliations when exposed",
+            claim_surface="persistent ORCID identifier plus DOI/PMID-level public works, external identifiers, keywords, researcher URLs, and affiliations when exposed",
             input_records=int(orcid_obs["sample_size"] if orcid_obs else 0),
             output_records=orcid_claims,
             candidate_records=orcid_candidate,
             needs_review_records=orcid_needs_review,
-            review_ready_records=orcid_secondary_anchor,
-            low_signal_records=orcid_low_signal,
-            score=61.0,
+            review_ready_records=orcid_secondary_anchor + orcid_work_review,
+            low_signal_records=orcid_low_signal + orcid_work_low_signal,
+            score=68.0,
             strengths=[
                 "Persistent person identifier is valuable when linked from another high-confidence source",
                 "Public works often include DOI/PMID/date/title evidence for publication reconciliation",
                 "Can add a secondary identity anchor without relying on name-only PubMed queries",
+                "Work-level rows can seed exact DOI/PMID follow-up against PubMed, OpenAlex, or Crossref",
             ],
             limitations=[
                 "Public education and employment sections are sparse in the current Penn trainee sample",
                 "ORCID records are self-asserted or third-party asserted and still need independent linkage",
                 "Name match plus works is not enough to mutate accepted person truth",
+                "Current work candidates still need author-position and article-metadata reconciliation before acceptance",
             ],
-            recommended_next_action="use_orcid_as_secondary_identity_anchor_then_reconcile_with_pubmed_profile_or_roster",
+            recommended_next_action="use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position",
             evidence={
                 "observation": dict(orcid_obs) if orcid_obs else {},
                 "claims": orcid_claims,
@@ -1033,6 +1038,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "secondary_anchor_decisions": orcid_secondary_anchor,
                 "partial_anchor_decisions": orcid_partial_anchor,
                 "low_signal_decisions": orcid_low_signal,
+                "work_publication_review_decisions": orcid_work_review,
+                "work_publication_candidate_decisions": orcid_work_candidate,
+                "work_low_signal_decisions": orcid_work_low_signal,
             },
         ),
         make_row(

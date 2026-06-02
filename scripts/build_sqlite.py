@@ -60,6 +60,8 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "research_candidate_summary.json",
     ARTIFACTS / "orcid_profile_candidate_claims.json",
     ARTIFACTS / "orcid_profile_candidate_summary.json",
+    ARTIFACTS / "orcid_work_candidate_claims.json",
+    ARTIFACTS / "orcid_work_candidate_summary.json",
     ARTIFACTS / "openalex_work_candidate_claims.json",
     ARTIFACTS / "openalex_work_candidate_summary.json",
     ARTIFACTS / "pubmed_article_candidate_claims.json",
@@ -504,6 +506,7 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
     claim_paths = [
         ARTIFACTS / "research_candidate_claims.json",
         ARTIFACTS / "orcid_profile_candidate_claims.json",
+        ARTIFACTS / "orcid_work_candidate_claims.json",
         ARTIFACTS / "openalex_work_candidate_claims.json",
         ARTIFACTS / "pubmed_article_candidate_claims.json",
     ]
@@ -549,6 +552,9 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         else {},
         "orcid_profile_candidate_claims.json": load_json(ARTIFACTS / "orcid_profile_candidate_summary.json")
         if (ARTIFACTS / "orcid_profile_candidate_summary.json").exists()
+        else {},
+        "orcid_work_candidate_claims.json": load_json(ARTIFACTS / "orcid_work_candidate_summary.json")
+        if (ARTIFACTS / "orcid_work_candidate_summary.json").exists()
         else {},
         "openalex_work_candidate_claims.json": load_json(ARTIFACTS / "openalex_work_candidate_summary.json")
         if (ARTIFACTS / "openalex_work_candidate_summary.json").exists()

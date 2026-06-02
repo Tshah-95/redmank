@@ -1,0 +1,29 @@
+{
+  "by_role": {
+    "fellow": 56,
+    "resident": 298
+  },
+  "by_status": {
+    "candidate": 16,
+    "needs_review": 338
+  },
+  "claims_generated": 354,
+  "durable_claim_rows": 354,
+  "generated_at": "2026-06-02T17:25:22.955357+00:00",
+  "json": "artifacts/data/orcid_work_candidate_claims.json",
+  "people_with_durable_claims": 36,
+  "policy": "ORCID work candidates require DOI/PMID/PMC evidence and remain review-only until reconciled with article metadata, author position, and same-person source context.",
+  "profiles_considered": 51,
+  "source_key": "orcid_public_api",
+  "top_match_features": {
+    "doi_present": 353,
+    "orcid_external_ids_present_from_profile": 138,
+    "orcid_name_match_from_profile": 354,
+    "orcid_profile_candidate": 354,
+    "orcid_work_public": 354,
+    "pmc_present": 28,
+    "pmid_present": 59,
+    "recent_publication": 332
+  },
+  "utility_key": "orcid_work_candidates"
+}

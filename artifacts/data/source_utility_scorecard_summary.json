@@ -29,7 +29,7 @@
     "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers": 1,
     "use_npi_candidates_as_secondary_identity_anchors_only": 1,
     "use_only_to_seed_article_level_reconciliation": 1,
-    "use_orcid_as_secondary_identity_anchor_then_reconcile_with_pubmed_profile_or_roster": 1,
+    "use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position": 1,
     "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
     "verify_current_source_before_display_or_outreach_and_review_domain_anomalies": 1
   },
@@ -48,7 +48,7 @@
   },
   "candidate_or_discovery_rows": 9,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T17:19:21.063529+00:00",
+  "generated_at": "2026-06-02T17:25:51.495872+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
   "scorecard_rows": 25,

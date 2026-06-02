@@ -39,6 +39,9 @@ ORCID_REVIEW_FEATURES = {
     "orcid_researcher_urls_present",
     "orcid_keywords_present",
     "orcid_from_openalex_author_candidate",
+    "orcid_work_public",
+    "doi_present",
+    "pmid_present",
 }
 PROFILE_REVIEW_FEATURES = {
     "official_trainee_profile",
@@ -276,6 +279,28 @@ def orcid_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
     )
 
 
+def orcid_work_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
+    confidence = float(row.get("confidence") or 0)
+    has_stable_id = bool(features & {"doi_present", "pmid_present"})
+    if row["status"] == "needs_review" and confidence >= 0.75 and has_stable_id:
+        return (
+            "orcid_work_publication_review",
+            "ORCID public profile exposes a work with DOI/PMID and enough linked-profile evidence for publication review.",
+            "Reconcile title, DOI/PMID, ORCID ownership, PubMed/OpenAlex article metadata, and author position before accepting publication enrichment.",
+        )
+    if row["status"] in {"needs_review", "candidate"} and has_stable_id:
+        return (
+            "orcid_work_publication_candidate",
+            "ORCID public profile exposes a work with DOI/PMID, but the profile/work bundle is not review-ready.",
+            "Use DOI/PMID to fetch PubMed/OpenAlex/Crossref metadata and seek profile or affiliation corroboration.",
+        )
+    return (
+        "orcid_work_low_signal_candidate",
+        "ORCID public work lacks stable DOI/PMID evidence.",
+        "Do not use without a stable publication identifier or independent source match.",
+    )
+
+
 def profile_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
     claim_type = row.get("claim_type") or ""
     confidence = float(row.get("confidence") or 0)
@@ -329,7 +354,9 @@ def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
         features = set(parse_json(row.get("match_features_json"), []))
         name_matches = names.get(normalized_person_name(row.get("display_name")), [])
         if row["record_type"] == "evidence_claim":
-            if row.get("source_key") == "orcid_public_api":
+            if row.get("source_key") == "orcid_public_api" and row.get("claim_type") == "orcid_work_candidate":
+                decision, rationale, required = orcid_work_decision(row, features)
+            elif row.get("source_key") == "orcid_public_api":
                 decision, rationale, required = orcid_decision(row, features)
             elif row.get("source_type") in {"official_trainee_profile", "prior_training_background_discovery"}:
                 decision, rationale, required = profile_decision(row, features)

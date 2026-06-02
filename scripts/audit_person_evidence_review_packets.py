@@ -32,6 +32,7 @@ REVIEW_READY_DECISIONS = {
     "trend_review_ready_official_biosketch_bridge",
     "npi_secondary_identity_anchor_review",
     "orcid_secondary_identity_anchor_review",
+    "orcid_work_publication_review",
 }
 ACCEPTED_DECISIONS = {
     "accepted_publication_enrichment_fact",
@@ -43,6 +44,7 @@ SECONDARY_ANCHOR_DECISIONS = {
     "trend_profile_claim_still_needs_dated_bridge",
     "npi_candidate_with_partial_anchor",
     "orcid_profile_with_partial_anchor",
+    "orcid_work_publication_candidate",
 }
 ATTENDING_DECISIONS = {
     "attending_training_claim_review_ready",
@@ -64,6 +66,9 @@ PUBLICATION_DECISIONS = {
     "candidate_with_partial_anchor",
     "low_signal_candidate",
     "discovery_only",
+    "orcid_work_publication_review",
+    "orcid_work_publication_candidate",
+    "orcid_work_low_signal_candidate",
 }
 NPI_DECISIONS = {
     "npi_secondary_identity_anchor_review",
@@ -439,9 +444,10 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
         kind = review_kind(decision_counts)
         review_ready_count = sum(decision_counts.get(decision, 0) for decision in REVIEW_READY_DECISIONS)
         unresolved_publication_review_ready_count = (
-            decision_counts.get("review_ready_high_anchor", 0)
-            + decision_counts.get("review_ready_training_topic_anchor", 0)
-        )
+        decision_counts.get("review_ready_high_anchor", 0)
+        + decision_counts.get("review_ready_training_topic_anchor", 0)
+        + decision_counts.get("orcid_work_publication_review", 0)
+    )
         active_review_ready_count = review_ready_count
         if status == "accepted_enrichment_fact_packet":
             active_review_ready_count = 0
@@ -449,7 +455,12 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
             active_review_ready_count = unresolved_publication_review_ready_count
         accepted_count = sum(decision_counts.get(decision, 0) for decision in ACCEPTED_DECISIONS)
         secondary_count = sum(decision_counts.get(decision, 0) for decision in SECONDARY_ANCHOR_DECISIONS)
-        publication_count = sum(1 for row in items if row.get("claim_type") in {"pubmed_article_candidate", "pubmed_author_query_candidate", "orcid_profile_candidate"})
+        publication_count = sum(
+            1
+            for row in items
+            if row.get("claim_type")
+            in {"pubmed_article_candidate", "pubmed_author_query_candidate", "orcid_profile_candidate", "orcid_work_candidate"}
+        )
         npi_count = sum(1 for row in items if row.get("claim_type") == "npi_candidate")
         attending_count = sum(1 for row in items if row.get("record_type") == "career_event")
         endpoint_count = sum(1 for row in items if row.get("decision") == "current_attending_endpoint_candidate")

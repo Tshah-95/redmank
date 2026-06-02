@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PIPELINE = [
     ["python3", "scripts/materialize_trainee_profile_claims.py"],
     ["python3", "scripts/build_sqlite.py"],
+    ["python3", "scripts/materialize_orcid_work_candidates.py", "--replace-claim-type"],
     ["python3", "scripts/audit_penn_gme_program_coverage.py", "--from-warehouse"],
     ["python3", "scripts/replay_committed_warehouse_artifacts.py"],
     ["python3", "scripts/audit_hup_gap_reasons.py"],

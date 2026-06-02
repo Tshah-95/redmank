@@ -51,13 +51,21 @@ FIELDNAMES = [
 
 MACHINE_ACCEPTANCE_PUBMED_DECISIONS = {"review_ready_high_anchor"}
 REVIEW_READY_PUBMED_DECISIONS = {"review_ready_high_anchor", "review_ready_training_topic_anchor"}
+REVIEW_READY_PUBLICATION_DECISIONS = REVIEW_READY_PUBMED_DECISIONS | {"orcid_work_publication_review"}
 SECONDARY_DECISIONS = {
     "needs_secondary_identity_anchor",
     "npi_candidate_with_partial_anchor",
     "orcid_profile_with_partial_anchor",
+    "orcid_work_publication_candidate",
     "attending_training_claim_needs_identity_link",
 }
-LOW_SIGNAL_DECISIONS = {"low_signal_candidate", "npi_low_signal_candidate", "orcid_low_signal_candidate", "discovery_only"}
+LOW_SIGNAL_DECISIONS = {
+    "low_signal_candidate",
+    "npi_low_signal_candidate",
+    "orcid_low_signal_candidate",
+    "orcid_work_low_signal_candidate",
+    "discovery_only",
+}
 PROFILE_CONTEXT_DECISIONS = {
     "profile_background_candidate",
     "profile_interest_context_candidate",
@@ -235,7 +243,7 @@ def classify(row: dict, corroborating_sources: list[dict]) -> tuple[str, int, st
             "No blocker for non-mutating accepted-publication candidate status; final author-position/same-name sanity check remains recommended before display.",
             "promote_to_accepted_enrichment_after_final_duplicate_author_position_check",
         )
-    if record_type == "evidence_claim" and claim_type == "pubmed_article_candidate" and decision in REVIEW_READY_PUBMED_DECISIONS:
+    if record_type == "evidence_claim" and decision in REVIEW_READY_PUBLICATION_DECISIONS:
         return (
             "review_ready_publication_identity",
             3,

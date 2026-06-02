@@ -2,26 +2,26 @@
   "acceptance_policy": "Person evidence packets do not mutate accepted enrichment facts without an explicit reviewer decision, a matching packet fingerprint, and all required confirmation fields set to 1.",
   "accepted_candidate_fact_rows": 0,
   "audit_csv": "artifacts/data/person_evidence_reviewer_decision_audit.csv",
-  "audit_rows": 780,
+  "audit_rows": 792,
   "by_decision_status": {
-    "pending_reviewer_decision": 780
+    "pending_reviewer_decision": 792
   },
   "by_packet_status": {
     "review_ready_mixed_identity_anchor_packet": 752,
-    "review_ready_mixed_packet": 5,
+    "review_ready_mixed_packet": 17,
     "review_ready_publication_packet": 23
   },
   "by_recommended_next_action": {
-    "record_accept_reject_or_needs_more_evidence_decision": 780
+    "record_accept_reject_or_needs_more_evidence_decision": 792
   },
   "by_review_kind": {
-    "mixed_identity_anchor_review": 757,
+    "mixed_identity_anchor_review": 769,
     "publication_identity_review": 23
   },
-  "generated_at": "2026-06-02T17:17:56.145066+00:00",
+  "generated_at": "2026-06-02T17:25:27.669507+00:00",
   "manual_decision_csv": "artifacts/data/person_evidence_reviewer_decisions.csv",
   "manual_decision_rows": 0,
-  "pending_reviewer_decision_rows": 780,
+  "pending_reviewer_decision_rows": 792,
   "queue_csv": "artifacts/data/person_evidence_reviewer_decision_queue.csv",
-  "queue_rows": 780
+  "queue_rows": 792
 }

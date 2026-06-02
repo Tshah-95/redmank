@@ -3,21 +3,21 @@
     "contact_verification": 313,
     "official_program_coverage": 42,
     "person_enrichment_execution": 78,
-    "person_evidence_review": 780,
+    "person_evidence_review": 792,
     "recent_attending_trend": 70,
     "search_utility_assurance": 4,
     "training_temporal_contract": 86
   },
   "by_priority_band": {
     "critical": 16,
-    "high": 862,
+    "high": 874,
     "low": 321,
     "medium": 174
   },
   "critical_rows": 16,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T17:19:21.135657+00:00",
-  "high_rows": 862,
+  "generated_at": "2026-06-02T17:25:51.562775+00:00",
+  "high_rows": 874,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -36,7 +36,7 @@
     "person_enrichment_execution:prior_training:source_residency_background": 3,
     "person_enrichment_execution:research:research_identity_search": 15,
     "person_enrichment_execution:review_queue:evidence_reconciliation_review": 12,
-    "person_evidence_review:mixed_identity_anchor_review": 757,
+    "person_evidence_review:mixed_identity_anchor_review": 769,
     "person_evidence_review:publication_identity_review": 23,
     "recent_attending_trend:context_only_not_trend_ready": 21,
     "recent_attending_trend:current_endpoint_needs_training_claim": 43,
@@ -240,66 +240,66 @@
       "role": "residency"
     },
     {
-      "action_scope": "alias_review",
-      "action_surface": "official_program_coverage",
-      "display_label": "Radiology - Interventional, Independent",
-      "impact_count": 19,
-      "priority": 971,
-      "program_name": "Radiology - Interventional, Independent",
-      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
-      "role": "residency"
-    },
-    {
-      "action_scope": "alias_review",
-      "action_surface": "official_program_coverage",
-      "display_label": "Dermatology",
-      "impact_count": 17,
-      "priority": 963,
-      "program_name": "Dermatology",
-      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
-      "role": "residency"
-    },
-    {
-      "action_scope": "alias_review",
-      "action_surface": "official_program_coverage",
-      "display_label": "Plastic Surgery",
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Robert Eisinger, MD, PhD",
       "impact_count": 22,
-      "priority": 962,
-      "program_name": "Plastic Surgery",
-      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
-      "role": "fellowship"
+      "priority": 974,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
     },
     {
       "action_scope": "mixed_identity_anchor_review",
       "action_surface": "person_evidence_review",
-      "display_label": "Pooja Humar, MD",
-      "impact_count": 7,
-      "priority": 961,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
-    },
-    {
-      "action_scope": "publication_identity_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Jared Alswang, MD",
-      "impact_count": 5,
-      "priority": 954,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
-    },
-    {
-      "action_scope": "publication_identity_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Lee H. Kilmer, MD",
-      "impact_count": 5,
-      "priority": 954,
+      "display_label": "Shunsuke Koga, MD, PhD",
+      "impact_count": 22,
+      "priority": 974,
       "program_name": "",
       "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
       "role": "fellow"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Benjamin J. Peipert, MD",
+      "impact_count": 21,
+      "priority": 974,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "fellow"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Corey Horien, MD, PhD",
+      "impact_count": 21,
+      "priority": 974,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Alessandro Brunetti, MD",
+      "impact_count": 20,
+      "priority": 974,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Eric Wagner, MD",
+      "impact_count": 19,
+      "priority": 974,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
     }
   ],
-  "total_impact_count": 11440,
-  "worklist_rows": 1373
+  "total_impact_count": 11778,
+  "worklist_rows": 1385
 }

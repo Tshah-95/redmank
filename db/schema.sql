@@ -2495,6 +2495,7 @@ SELECT
   + CASE WHEN e.source_type = 'official_trainee_profile' AND e.match_features_json LIKE '%structured_profile_field%' THEN 5 ELSE 0 END
   + CASE
       WHEN e.claim_type = 'orcid_profile_candidate' THEN 35
+      WHEN e.claim_type = 'orcid_work_candidate' THEN 32
       WHEN e.claim_type = 'pubmed_article_candidate' THEN 30
       WHEN e.claim_type = 'research_author_candidate' THEN 20
       WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 2
@@ -2524,6 +2525,7 @@ SELECT
     WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 'Use only as discovery input; fetch/review article-level evidence before accepting.'
     WHEN e.claim_type = 'research_author_candidate' THEN 'Review OpenAlex/ORCID/affiliation anchors before accepting author identity.'
     WHEN e.claim_type = 'orcid_profile_candidate' THEN 'Review public ORCID profile, works, external identifiers, and source linkage before using as secondary identity evidence.'
+    WHEN e.claim_type = 'orcid_work_candidate' THEN 'Review public ORCID work DOI/PMID/title evidence before using as publication or identity corroboration.'
     ELSE 'Review candidate evidence against person identity before accepting.'
   END AS review_action
 FROM evidence_claims e
@@ -2536,6 +2538,8 @@ WHERE e.status IN ('candidate', 'needs_review')
     'research_author_candidate_error',
     'orcid_profile_candidate',
     'orcid_profile_candidate_error',
+    'orcid_work_candidate',
+    'orcid_work_candidate_error',
     'official_profile_url_candidate',
     'education_history_candidate',
     'prior_training_history_candidate',
@@ -2551,7 +2555,9 @@ WHERE e.status IN ('candidate', 'needs_review')
       'research_author_candidate',
       'research_author_candidate_error',
       'orcid_profile_candidate',
-      'orcid_profile_candidate_error'
+      'orcid_profile_candidate_error',
+      'orcid_work_candidate',
+      'orcid_work_candidate_error'
     )
   )
 UNION ALL
