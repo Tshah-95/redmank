@@ -28,7 +28,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T11:00:09.495529+00:00",
+    "generated_at": "2026-06-02T11:06:18.872356+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -114,6 +114,37 @@
       "timothy buckey"
     ],
     "seeded_source_rows": 8
+  },
+  "attending_trend_acceptance_counts": {
+    "review_ready_requires_explicit_reviewer_acceptance": 3
+  },
+  "attending_trend_acceptance_fact_counts": {
+    "0": 3
+  },
+  "attending_trend_acceptance_summary": {
+    "acceptance_policy": "No recent-attending trend candidate is accepted as a trend fact until explicit reviewer acceptance confirms same-person identity, current Penn endpoint, training line, program type, and dates.",
+    "accepted_trend_fact_rows": 0,
+    "by_acceptance_blocker": {
+      "explicit_reviewer_acceptance_missing": 3
+    },
+    "by_acceptance_status": {
+      "review_ready_requires_explicit_reviewer_acceptance": 3
+    },
+    "by_training_end_year": {
+      "2019": 1,
+      "2020": 1,
+      "2024": 1
+    },
+    "by_training_type": {
+      "fellowship": 3
+    },
+    "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
+    "display_safety_status": "review_ready_not_accepted_trend_fact",
+    "generated_at": "2026-06-02T11:06:19.030668+00:00",
+    "json": "artifacts/data/attending_trend_acceptance_audit.json",
+    "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
+    "review_ready_requires_reviewer_acceptance_rows": 3,
+    "trend_acceptance_rows": 3
   },
   "attending_trend_linkage_summary": {
     "as_of_year": 2026,
@@ -202,7 +233,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T11:00:09.610199+00:00",
+    "generated_at": "2026-06-02T11:06:18.988856+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -267,7 +298,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T11:00:09.575043+00:00",
+    "generated_at": "2026-06-02T11:06:18.955587+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -282,6 +313,7 @@
   "counts": {
     "accepted_enrichment_claims": 5,
     "attending_biosketch_bridge_candidates": 10,
+    "attending_trend_acceptance_audit": 3,
     "attending_trend_reconciliation": 70,
     "attending_trend_review_claims": 3,
     "attending_trend_review_rollups": 10,
@@ -333,7 +365,7 @@
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558,
     "training_state_transition_rollups": 216,
-    "warehouse_reproducibility_audit": 42
+    "warehouse_reproducibility_audit": 43
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -594,7 +626,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T11:00:10.630110+00:00",
+  "generated_at": "2026-06-02T11:06:20.080722+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -892,7 +924,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T11:00:09.705065+00:00",
+    "generated_at": "2026-06-02T11:06:19.128154+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 499,
     "loaded_person_count": 499,
@@ -1222,7 +1254,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T11:00:10.135034+00:00",
+    "generated_at": "2026-06-02T11:06:19.563954+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -1461,16 +1493,17 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 42
+    "ok": 43
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 42,
-    "audited_at": "2026-06-02T11:00:10.239656+00:00",
+    "artifact_rows": 43,
+    "audited_at": "2026-06-02T11:06:19.667727+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
       "accepted_enrichment_ledger": 1,
+      "attending_trend_acceptance_ledger": 1,
       "attending_trend_input": 1,
       "attending_trend_ledger": 4,
       "contact_assurance_ledger": 1,
@@ -1495,17 +1528,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 42
+      "ok": 43
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 60407808,
+    "sqlite_byte_size": 60514304,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "f6cbddb29d4c226b487cd533a783d34ee8e9ba87542976ee656d8ec61881a308",
+    "sqlite_sha256": "bdd3ffb11d3643b4b47b355d1c0f9758dde831f4becdd5dddc824fe0c01ca6fc",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

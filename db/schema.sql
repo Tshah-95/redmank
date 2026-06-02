@@ -856,6 +856,39 @@ CREATE TABLE IF NOT EXISTS attending_trend_review_claims (
   materialized_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS attending_trend_acceptance_audit (
+  trend_acceptance_key TEXT PRIMARY KEY,
+  trend_claim_key TEXT NOT NULL REFERENCES attending_trend_review_claims(trend_claim_key) ON DELETE CASCADE,
+  trend_key TEXT NOT NULL REFERENCES attending_trend_reconciliation(trend_key) ON DELETE CASCADE,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  trend_claim_type TEXT NOT NULL,
+  acceptance_status TEXT NOT NULL,
+  accepted_trend_fact INTEGER NOT NULL DEFAULT 0,
+  acceptance_level INTEGER NOT NULL DEFAULT 0,
+  ten_year_trend_window TEXT NOT NULL,
+  training_type TEXT,
+  training_line TEXT,
+  training_organization TEXT,
+  training_start_year INTEGER,
+  training_end_year INTEGER,
+  source_key TEXT,
+  source_url TEXT,
+  source_scope TEXT,
+  bridge_candidate_key TEXT,
+  identity_check_status TEXT NOT NULL,
+  endpoint_check_status TEXT NOT NULL,
+  training_line_check_status TEXT NOT NULL,
+  date_window_check_status TEXT NOT NULL,
+  acceptance_blocker TEXT NOT NULL,
+  display_safety_status TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS attending_trend_review_rollups (
   trend_rollup_key TEXT PRIMARY KEY,
   rollup_scope TEXT NOT NULL,

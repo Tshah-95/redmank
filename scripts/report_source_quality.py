@@ -246,6 +246,7 @@ def main() -> None:
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
     attending_trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
     attending_trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
+    attending_trend_acceptance_summary = read_json(ARTIFACTS / "attending_trend_acceptance_summary.json", {})
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
@@ -256,6 +257,7 @@ def main() -> None:
     top_attending_biosketch_bridges = read_csv(ARTIFACTS / "attending_biosketch_bridge_candidates.csv", limit=25)
     top_attending_trend_reconciliation = read_csv(ARTIFACTS / "attending_trend_reconciliation.csv", limit=25)
     top_attending_trend_review_claims = read_csv(ARTIFACTS / "attending_trend_review_claims.csv", limit=25)
+    top_attending_trend_acceptance = read_csv(ARTIFACTS / "attending_trend_acceptance_audit.csv", limit=25)
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
@@ -396,6 +398,8 @@ def main() -> None:
         "top_attending_trend_reconciliation": top_attending_trend_reconciliation,
         "attending_trend_review_claims_summary": attending_trend_review_claims_summary,
         "top_attending_trend_review_claims": top_attending_trend_review_claims,
+        "attending_trend_acceptance_summary": attending_trend_acceptance_summary,
+        "top_attending_trend_acceptance": top_attending_trend_acceptance,
         "top_attending_trend_review_rollups": top_attending_trend_review_rollups,
         "npi_candidate_summary": npi_candidate_summary,
         "top_npi_candidates": top_npi_candidates,
@@ -786,6 +790,22 @@ def main() -> None:
                 "source_scope",
                 "source_url",
                 "display_safety_status",
+            ],
+        ),
+        "",
+        "Trend acceptance audit:",
+        "",
+        f"Acceptance rows: {attending_trend_acceptance_summary.get('trend_acceptance_rows', 0)}. Accepted trend facts: {attending_trend_acceptance_summary.get('accepted_trend_fact_rows', 0)}. Review-ready rows requiring explicit reviewer acceptance: {attending_trend_acceptance_summary.get('review_ready_requires_reviewer_acceptance_rows', 0)}.",
+        "",
+        *md_table(
+            top_attending_trend_acceptance,
+            [
+                "display_name",
+                "training_end_year",
+                "acceptance_status",
+                "accepted_trend_fact",
+                "acceptance_blocker",
+                "recommended_next_action",
             ],
         ),
         "",

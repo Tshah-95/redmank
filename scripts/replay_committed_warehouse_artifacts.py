@@ -51,6 +51,7 @@ CSV_TABLES = [
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),
     ("contact_assurance_audit.csv", "contact_assurance_audit"),
     ("attending_trend_review_claims.csv", "attending_trend_review_claims"),
+    ("attending_trend_acceptance_audit.csv", "attending_trend_acceptance_audit"),
     ("attending_trend_review_rollups.csv", "attending_trend_review_rollups"),
 ]
 

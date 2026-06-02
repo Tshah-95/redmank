@@ -66,6 +66,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_reconciliation.csv`: non-mutating trend acceptance ledger combining endpoint, Penn-training, biosketch, and historical-link evidence.
 - `artifacts/data/attending_trend_reconciliation_summary.json`: review-ready recent attending trend counts and remaining bridge gaps.
 - `artifacts/data/attending_trend_review_claims.csv`: materialized review-ready recent Penn-trained current-attending trend candidates, still not accepted trend facts until reviewer acceptance.
+- `artifacts/data/attending_trend_acceptance_audit.csv`: explicit non-mutating acceptance gate for review-ready recent-attending trend candidates, including reviewer-action blockers and accepted-fact counts.
+- `artifacts/data/attending_trend_acceptance_summary.json`: accepted-vs-review-ready trend counts by blocker, training type, and training end year.
 - `artifacts/data/attending_trend_review_rollups.csv`: trend-review rollups by corpus, training type, training end year, source scope, and ten-year-window scope.
 - `artifacts/data/attending_trend_review_claims_summary.json`: review-ready trend claim, person, end-year, and rollup counts.
 - `artifacts/data/npi_candidate_claims.csv`: candidate NPPES/NPI identity, taxonomy, and PA practice-location anchors for current residents/fellows.
@@ -191,6 +193,7 @@ python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py
 python3 scripts/materialize_attending_trend_review_claims.py
+python3 scripts/audit_attending_trend_acceptance.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
@@ -283,6 +286,7 @@ The initial methodology is conservative:
 - Roll item-level evidence decisions into person/name review packets so manual or automated verifiers can see the best evidence, blocker, and next action before accepting enrichment.
 - Score source utilities by observed claim surface, output quality, blockers, and next action before widening the corpus.
 - Keep current-attending endpoints separate from accepted trend-line links until a historical roster, alumni page, CV, or independent profile connects the attending identity to a dated Penn trainee record.
+- Keep review-ready recent-attending trend candidates separate from accepted trend facts until an explicit reviewer acceptance decision confirms identity, current endpoint, training line, program type, and dates.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 - Keep external organization identifiers as candidates until the source result agrees on the actual entity surface. Parent ROR candidates, search siblings, and relationship-only hints are useful evidence, but they should not mutate accepted organization identifiers without a second anchor.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.

@@ -432,8 +432,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     )
     trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
     trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
+    trend_acceptance_summary = read_json(ARTIFACTS / "attending_trend_acceptance_summary.json", {})
     trend_review_claim_rows = int(trend_review_claims_summary.get("trend_review_claim_rows") or 0)
     trend_review_rollup_rows = int(trend_review_claims_summary.get("trend_review_rollup_rows") or 0)
+    accepted_trend_fact_rows = int(trend_acceptance_summary.get("accepted_trend_fact_rows") or 0)
     npi_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     npi_observations = scalar(conn, "SELECT COUNT(*) FROM npi_source_observations")
     npi_candidate_rows = scalar(conn, "SELECT COUNT(*) FROM npi_candidate_claims")
@@ -931,6 +933,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             claim_surface="non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence",
             input_records=trend_reconciliation_rows,
             output_records=trend_reconciliation_rows,
+            accepted_records=accepted_trend_fact_rows,
             candidate_records=trend_reconciliation_rows,
             needs_review_records=trend_reconciliation_needs_bridge,
             review_ready_records=trend_review_claim_rows or trend_reconciliation_review_ready,
@@ -953,6 +956,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "trend_review_claim_rows": trend_review_claim_rows,
                 "trend_review_rollup_rows": trend_review_rollup_rows,
                 "trend_review_claims_summary": trend_review_claims_summary,
+                "trend_acceptance_summary": trend_acceptance_summary,
+                "accepted_trend_fact_rows": accepted_trend_fact_rows,
                 "needs_bridge_or_training_rows": trend_reconciliation_needs_bridge,
             },
         ),
