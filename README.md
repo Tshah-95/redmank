@@ -36,6 +36,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/program_lifecycle_duration_source_observations.csv`: official Penn program-page fetch observations for accepted ACGME-linked programs still blocked by default/unknown lifecycle rules.
 - `artifacts/data/program_lifecycle_duration_evidence.csv`: non-mutating duration-evidence reconciliation rows separating reviewer-ready lifecycle candidates from source mismatches, conflicting context, and no-explicit-duration pages.
 - `artifacts/data/program_lifecycle_duration_evidence_summary.json`: duration-evidence counts by status, explicit years, source status, and recommended action.
+- `artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv`: reviewer-decision queue for duration evidence, including evidence fingerprints and required confirmation fields.
+- `artifacts/data/program_lifecycle_duration_reviewer_decisions.csv`: manual reviewer decision input file for accepting/rejecting lifecycle-duration mappings.
+- `artifacts/data/program_lifecycle_duration_reviewer_decision_audit.csv`: audit of manual lifecycle-duration decisions against the current evidence fingerprint and confirmation requirements.
+- `artifacts/data/accepted_program_lifecycle_duration_mappings.csv`: accepted public-source-backed duration mappings; still non-mutating for `config/training_lifecycle_rules.json`.
+- `artifacts/data/program_lifecycle_duration_reviewer_decision_summary.json`: duration-decision queue, pending, rejected/deferred, and accepted-mapping counts.
 - `artifacts/data/person_enrichment_queue.csv`: source-aware recursive enrichment work queue for residents, fellows, and medical students, including state-machine urgency, priority band, query, source targets, acceptance rule, recency policy, provenance policy, and blocking risk.
 - `artifacts/data/person_enrichment_queue_summary.json`: queue rollups by role, task type, source family, priority band, and lifecycle policy lane.
 - `artifacts/data/person_enrichment_execution_readiness.csv`: per-task execution-readiness ledger mapping queued enrichment work to existing collectors, command hints, network/review/script-extension/parser requirements, and next system action.
@@ -241,6 +246,7 @@ python3 scripts/discover_acgme_program_identifier_candidates.py
 python3 scripts/audit_program_identifier_reconciliation.py
 python3 scripts/audit_program_lifecycle_consistency.py
 python3 scripts/audit_program_lifecycle_duration_evidence.py
+python3 scripts/materialize_program_lifecycle_duration_reviewer_decisions.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py

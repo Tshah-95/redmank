@@ -18,6 +18,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_orcid_work_candidates.py", "--replace-claim-type"],
     ["python3", "scripts/audit_penn_gme_program_coverage.py", "--from-warehouse"],
     ["python3", "scripts/replay_committed_warehouse_artifacts.py"],
+    ["python3", "scripts/materialize_program_lifecycle_duration_reviewer_decisions.py"],
     ["python3", "scripts/audit_hup_gap_reasons.py"],
     ["python3", "scripts/audit_reconciliation_decisions.py", "--as-of-year", "2026"],
     ["python3", "scripts/audit_person_evidence_review_packets.py"],

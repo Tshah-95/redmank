@@ -631,6 +631,104 @@ CREATE TABLE IF NOT EXISTS program_lifecycle_duration_evidence (
   observed_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_reviewer_decision_queue (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  duration_evidence_key TEXT NOT NULL REFERENCES program_lifecycle_duration_evidence(duration_evidence_key) ON DELETE CASCADE,
+  observation_key TEXT REFERENCES program_lifecycle_duration_source_observations(observation_key) ON DELETE CASCADE,
+  audit_key TEXT REFERENCES program_lifecycle_consistency_audit(audit_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  matched_program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  matched_program_name TEXT,
+  identifier_value TEXT,
+  source_program_specialty TEXT,
+  source_url TEXT NOT NULL,
+  page_title TEXT,
+  explicit_duration_years INTEGER,
+  duration_evidence_status TEXT NOT NULL,
+  duration_confidence REAL NOT NULL DEFAULT 0.0,
+  queue_status TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  evidence_fingerprint TEXT NOT NULL,
+  required_confirmation_fields TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  review_question TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_reviewer_decisions (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  duration_evidence_key TEXT NOT NULL,
+  evidence_fingerprint TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  official_program_confirmed INTEGER NOT NULL DEFAULT 0,
+  duration_phrase_confirmed INTEGER NOT NULL DEFAULT 0,
+  duration_years_confirmed INTEGER NOT NULL DEFAULT 0,
+  role_family_confirmed INTEGER NOT NULL DEFAULT 0,
+  lifecycle_scope_confirmed INTEGER NOT NULL DEFAULT 0,
+  decision_notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_reviewer_decision_audit (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  duration_evidence_key TEXT NOT NULL REFERENCES program_lifecycle_duration_evidence(duration_evidence_key) ON DELETE CASCADE,
+  observation_key TEXT REFERENCES program_lifecycle_duration_source_observations(observation_key) ON DELETE CASCADE,
+  audit_key TEXT REFERENCES program_lifecycle_consistency_audit(audit_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  matched_program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  matched_program_name TEXT,
+  identifier_value TEXT,
+  source_program_specialty TEXT,
+  explicit_duration_years INTEGER,
+  reviewer_decision TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  accepted_duration_mapping INTEGER NOT NULL DEFAULT 0,
+  decision_blocker TEXT NOT NULL,
+  evidence_fingerprint TEXT NOT NULL,
+  decision_evidence_fingerprint TEXT,
+  official_program_confirmed INTEGER NOT NULL DEFAULT 0,
+  duration_phrase_confirmed INTEGER NOT NULL DEFAULT 0,
+  duration_years_confirmed INTEGER NOT NULL DEFAULT 0,
+  role_family_confirmed INTEGER NOT NULL DEFAULT 0,
+  lifecycle_scope_confirmed INTEGER NOT NULL DEFAULT 0,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS accepted_program_lifecycle_duration_mappings (
+  accepted_duration_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES program_lifecycle_duration_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,
+  duration_evidence_key TEXT NOT NULL REFERENCES program_lifecycle_duration_evidence(duration_evidence_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  matched_program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  matched_program_name TEXT,
+  identifier_value TEXT,
+  source_program_specialty TEXT,
+  source_url TEXT NOT NULL,
+  page_title TEXT,
+  explicit_duration_years INTEGER NOT NULL,
+  proposed_rule_action TEXT NOT NULL,
+  evidence_fingerprint TEXT NOT NULL,
+  accepted_by TEXT,
+  accepted_at TEXT,
+  lifecycle_rule_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  display_safety_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  materialized_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
   packet_key TEXT PRIMARY KEY,
   person_or_name_key TEXT NOT NULL,

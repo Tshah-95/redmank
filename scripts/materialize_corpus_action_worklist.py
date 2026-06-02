@@ -379,6 +379,60 @@ def temporal_contract_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
+    rows = []
+    source = "artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv"
+    for item in read_csv(ARTIFACTS / "program_lifecycle_duration_reviewer_decision_queue.csv"):
+        status = item.get("queue_status") or ""
+        if status == "ready_for_reviewer_decision":
+            priority = 815
+        elif status == "context_review_required_before_decision":
+            priority = 690
+        else:
+            priority = 430
+        rows.append(
+            row(
+                action_surface="program_lifecycle_duration_review",
+                action_scope=status or "duration_review",
+                entity_type="official_program",
+                entity_key=item.get("official_program_key") or item.get("duration_evidence_key") or "",
+                display_label=item.get("official_program_name") or item.get("matched_program_name") or "",
+                role=item.get("official_program_type") or "",
+                program_name=item.get("matched_program_name") or item.get("official_program_name") or "",
+                priority=priority,
+                impact_count=1,
+                readiness_status=status,
+                blocker_status=item.get("duration_evidence_status") or "",
+                required_next_evidence=item.get("required_reviewer_action") or "",
+                recommended_next_action=(
+                    "record_accept_reject_or_needs_more_evidence_decision"
+                    if status == "ready_for_reviewer_decision"
+                    else item.get("recommended_next_action") or "collect_stronger_duration_or_scope_evidence"
+                ),
+                source_artifact=source,
+                target_artifact="artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
+                downstream_tables=[
+                    "program_lifecycle_duration_reviewer_decision_queue",
+                    "program_lifecycle_duration_reviewer_decision_audit",
+                    "accepted_program_lifecycle_duration_mappings",
+                    "program_lifecycle_rules",
+                    "training_temporal_contracts",
+                ],
+                evidence={
+                    "duration_evidence_key": item.get("duration_evidence_key"),
+                    "evidence_fingerprint": item.get("evidence_fingerprint"),
+                    "source_url": item.get("source_url"),
+                    "page_title": item.get("page_title"),
+                    "explicit_duration_years": item.get("explicit_duration_years"),
+                    "duration_confidence": item.get("duration_confidence"),
+                    "review_question": item.get("review_question"),
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def enrichment_queue_actions(generated_at: str) -> list[dict]:
     grouped: dict[tuple[str, str, str, str, str, str], dict] = defaultdict(lambda: {"count": 0, "fresh": 0, "sample": None})
     for item in read_csv(ARTIFACTS / "person_enrichment_queue.csv"):
@@ -553,6 +607,7 @@ def main() -> None:
     rows.extend(contact_actions(generated_at))
     rows.extend(search_utility_actions(generated_at))
     rows.extend(temporal_contract_actions(generated_at))
+    rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))
     rows.extend(attending_trend_actions(generated_at))
     rows.sort(key=lambda item: (-as_int(item["priority"]), -as_int(item["impact_count"]), item["action_surface"], item["display_label"]))

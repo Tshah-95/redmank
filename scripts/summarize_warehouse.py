@@ -114,6 +114,10 @@ def main() -> None:
         "program_lifecycle_consistency_audit",
         "program_lifecycle_duration_source_observations",
         "program_lifecycle_duration_evidence",
+        "program_lifecycle_duration_reviewer_decisions",
+        "program_lifecycle_duration_reviewer_decision_queue",
+        "program_lifecycle_duration_reviewer_decision_audit",
+        "accepted_program_lifecycle_duration_mappings",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -904,6 +908,26 @@ def main() -> None:
             """
         )
     }
+    program_lifecycle_duration_reviewer_decision_counts = {
+        row["decision_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT decision_status, COUNT(*) AS count
+            FROM program_lifecycle_duration_reviewer_decision_audit
+            GROUP BY decision_status
+            """
+        )
+    }
+    program_lifecycle_duration_reviewer_queue_counts = {
+        row["queue_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT queue_status, COUNT(*) AS count
+            FROM program_lifecycle_duration_reviewer_decision_queue
+            GROUP BY queue_status
+            """
+        )
+    }
     source_utility_scorecard_counts = {
         row["quality_band"]: row["count"]
         for row in conn.execute(
@@ -1269,6 +1293,15 @@ def main() -> None:
         )
     else:
         program_lifecycle_duration_summary = {}
+    program_lifecycle_duration_reviewer_decision_summary_path = (
+        ARTIFACTS / "program_lifecycle_duration_reviewer_decision_summary.json"
+    )
+    if program_lifecycle_duration_reviewer_decision_summary_path.exists():
+        program_lifecycle_duration_reviewer_decision_summary = json.loads(
+            program_lifecycle_duration_reviewer_decision_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        program_lifecycle_duration_reviewer_decision_summary = {}
     official_gap_roster_reconciliation_summary_path = ARTIFACTS / "official_gap_roster_reconciliation_summary.json"
     if official_gap_roster_reconciliation_summary_path.exists():
         official_gap_roster_reconciliation_summary = json.loads(
@@ -1406,6 +1439,8 @@ def main() -> None:
         "program_lifecycle_consistency_counts": program_lifecycle_consistency_counts,
         "program_lifecycle_duration_counts": program_lifecycle_duration_counts,
         "program_lifecycle_duration_source_counts": program_lifecycle_duration_source_counts,
+        "program_lifecycle_duration_reviewer_decision_counts": program_lifecycle_duration_reviewer_decision_counts,
+        "program_lifecycle_duration_reviewer_queue_counts": program_lifecycle_duration_reviewer_queue_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "person_enrichment_queue_priority_counts": person_enrichment_queue_priority_counts,
         "person_enrichment_queue_task_counts": person_enrichment_queue_task_counts,
@@ -1456,6 +1491,7 @@ def main() -> None:
         "program_identifier_reconciliation_summary": program_identifier_reconciliation_summary,
         "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
         "program_lifecycle_duration_summary": program_lifecycle_duration_summary,
+        "program_lifecycle_duration_reviewer_decision_summary": program_lifecycle_duration_reviewer_decision_summary,
         "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,

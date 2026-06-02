@@ -332,6 +332,10 @@ def main() -> None:
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
     program_lifecycle_duration_summary = read_json(ARTIFACTS / "program_lifecycle_duration_evidence_summary.json", {})
+    program_lifecycle_duration_reviewer_decision_summary = read_json(
+        ARTIFACTS / "program_lifecycle_duration_reviewer_decision_summary.json",
+        {},
+    )
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
@@ -369,6 +373,10 @@ def main() -> None:
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
     program_lifecycle_duration_evidence = read_csv(
         ARTIFACTS / "program_lifecycle_duration_evidence.csv",
+        limit=25,
+    )
+    top_program_lifecycle_duration_reviewer_decisions = read_csv(
+        ARTIFACTS / "program_lifecycle_duration_reviewer_decision_audit.csv",
         limit=25,
     )
     corpus_action_worklist = read_csv(ARTIFACTS / "corpus_action_worklist.csv", limit=40)
@@ -420,6 +428,12 @@ def main() -> None:
     program_lifecycle_duration_year_counts = [
         {"explicit_duration_years": years, "count": count}
         for years, count in sorted((program_lifecycle_duration_summary.get("by_explicit_duration_years") or {}).items())
+    ]
+    program_lifecycle_duration_reviewer_decision_counts = [
+        {"decision_status": status, "count": count}
+        for status, count in sorted(
+            (program_lifecycle_duration_reviewer_decision_summary.get("by_decision_status") or {}).items()
+        )
     ]
     enrichment_coverage_bands = [
         {"coverage_band": band, "count": count}
@@ -542,7 +556,9 @@ def main() -> None:
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
         "training_state_transition_plan_summary": transition_plan_summary,
         "program_lifecycle_duration_evidence_summary": program_lifecycle_duration_summary,
+        "program_lifecycle_duration_reviewer_decision_summary": program_lifecycle_duration_reviewer_decision_summary,
         "program_lifecycle_duration_evidence": program_lifecycle_duration_evidence,
+        "top_program_lifecycle_duration_reviewer_decisions": top_program_lifecycle_duration_reviewer_decisions,
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
@@ -854,6 +870,22 @@ def main() -> None:
         "",
         *md_table(program_lifecycle_duration_year_counts, ["explicit_duration_years", "count"]),
         "",
+        f"Reviewer queue rows: {program_lifecycle_duration_reviewer_decision_summary.get('queue_rows', 0)}. Ready rows: {program_lifecycle_duration_reviewer_decision_summary.get('ready_queue_rows', 0)}. Context-review rows: {program_lifecycle_duration_reviewer_decision_summary.get('context_review_rows', 0)}. Manual decision rows: {program_lifecycle_duration_reviewer_decision_summary.get('manual_decision_rows', 0)}. Accepted duration mappings: {program_lifecycle_duration_reviewer_decision_summary.get('accepted_duration_mapping_rows', 0)}.",
+        "",
+        *md_table(program_lifecycle_duration_reviewer_decision_counts, ["decision_status", "count"]),
+        "",
+        *md_table(
+            top_program_lifecycle_duration_reviewer_decisions,
+            [
+                "official_program_name",
+                "matched_program_name",
+                "explicit_duration_years",
+                "reviewer_decision",
+                "decision_status",
+                "recommended_next_action",
+            ],
+        ),
+        "",
         *md_table(
             program_lifecycle_duration_evidence,
             [
@@ -865,7 +897,7 @@ def main() -> None:
             ],
         ),
         "",
-        "Learning: ACGME identifiers are useful program anchors but not duration proof. Official Penn pages can provide explicit duration evidence for some unknown-duration rows, but stale URLs, title mismatches, and multiple duration-like phrases must stay in review before lifecycle rules are updated.",
+        "Learning: ACGME identifiers are useful program anchors but not duration proof. Official Penn pages can provide explicit duration evidence for some unknown-duration rows, but stale URLs, title mismatches, and multiple duration-like phrases must stay in review before lifecycle rules are updated. Reviewer-accepted duration mappings remain non-mutating until a later lifecycle-rule edit cites them.",
         "",
         "## Longitudinal Change Readiness",
         "",

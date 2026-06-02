@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T18:11:34.695441+00:00
+Generated: 2026-06-02T18:20:56.018521+00:00
 
 ## What This Pass Did
 
@@ -489,6 +489,26 @@ Target rows: 10. Reviewer-ready duration candidates: 3. Context-review rows: 3. 
 | 3 | 1 |
 | none | 4 |
 
+Reviewer queue rows: 10. Ready rows: 3. Context-review rows: 3. Manual decision rows: 0. Accepted duration mappings: 0.
+
+| decision_status | count |
+| --- | --- |
+| not_ready_for_reviewer_decision | 7 |
+| pending_reviewer_decision | 3 |
+
+| official_program_name | matched_program_name | explicit_duration_years | reviewer_decision | decision_status | recommended_next_action |
+| --- | --- | --- | --- | --- | --- |
+| Gynecologic Oncology | Gynecologic Oncology Fellowship | 2 | pending | pending_reviewer_decision | record_accept_reject_or_needs_more_evidence_decision |
+| Molecular Genetic Pathology | Molecular Genetic Pathology Fellowship | 1 | pending | pending_reviewer_decision | record_accept_reject_or_needs_more_evidence_decision |
+| Neuropathology | Neuropathology Fellowship | 2 | pending | pending_reviewer_decision | record_accept_reject_or_needs_more_evidence_decision |
+| Trauma and Surgical Critical Care | Trauma and Surgical Critical Care Fellowship | 1 | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+| Urogynecology and Reconstructive Pelvic Surgery | Urogynecology and Reconstructive Pelvic Surgery Fellowship | 3 | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+| Hematopathology | Hematopathology Fellowship | 2 | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+| Adult Reconstructive Orthopedics | Adult Reconstructive Orthopedics Fellowship |  | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+| Cytopathology | Cytopathology Fellowship |  | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+| Maternal Fetal Medicine | Maternal Fetal Medicine Fellowship |  | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+| Pathology - Anatomic and Clinical | Pathology - Anatomic and Clinical Residency |  | pending | not_ready_for_reviewer_decision | resolve_duration_context_or_collect_stronger_official_duration_evidence |
+
 | official_program_name | page_title | explicit_duration_years | duration_evidence_status | recommended_action |
 | --- | --- | --- | --- | --- |
 | Adult Reconstructive Orthopedics | Adult Reconstructive Surgery Fellowship - Penn Medicine |  | no_explicit_duration_evidence_found | keep_default_lifecycle_rule_until_explicit_duration_source_is_found |
@@ -502,7 +522,7 @@ Target rows: 10. Reviewer-ready duration candidates: 3. Context-review rows: 3. 
 | Urogynecology and Reconstructive Pelvic Surgery | Urogynecology - Penn Medicine | 3 | conflicting_duration_evidence_review | review_context_before_proposing_lifecycle_rule_change |
 | Pathology - Anatomic and Clinical | Pathology Residency Program Overview \| University of Pennsylvania \| Pathology and Laboratory Medicine |  | no_explicit_duration_evidence_found | keep_default_lifecycle_rule_until_explicit_duration_source_is_found |
 
-Learning: ACGME identifiers are useful program anchors but not duration proof. Official Penn pages can provide explicit duration evidence for some unknown-duration rows, but stale URLs, title mismatches, and multiple duration-like phrases must stay in review before lifecycle rules are updated.
+Learning: ACGME identifiers are useful program anchors but not duration proof. Official Penn pages can provide explicit duration evidence for some unknown-duration rows, but stale URLs, title mismatches, and multiple duration-like phrases must stay in review before lifecycle rules are updated. Reviewer-accepted duration mappings remain non-mutating until a later lifecycle-rule edit cites them.
 
 ## Longitudinal Change Readiness
 
@@ -3250,7 +3270,7 @@ Scorecard rows: 27.
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | ORCID-seeded PubMed article reconciliation | ORCID public DOI/PMID works resolved to PubMed XML with author-position and DOI/PMID consistency checks | 354 | 295 | 72.0 | strong_with_known_limits | use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 8514 | 8514 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 93 | 93 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 97 | 97 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 180 | 498 | 46.0 | discovery_or_review_only | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | ORCID public profile and work reconciliation | persistent ORCID identifier plus DOI/PMID-level public works, external identifiers, keywords, researcher URLs, and affiliations when exposed | 48 | 405 | 68.0 | useful_candidate_layer | use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position |
 | Official Penn trainee profile claims | roster-linked profile URLs, education, prior training, research/career interests, and personal-context snippets | 914 | 3416 | 81.0 | strong_with_known_limits | run_official_trainee_profile_discovery_then_reconcile_candidates |
@@ -3284,7 +3304,7 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1385. Summed impact count: 11963. Critical rows: 23. High rows: 867.
+Worklist rows: 1395. Summed impact count: 11973. Critical rows: 23. High rows: 870.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3899,7 +3919,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T18:11:05.667379+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T18:20:25.480235+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |
 | orcid_public_api | 48 | 27 | 0 | 0 | 378 | {"claims": 405, "mean_confidence": 0.7955, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 405} |
