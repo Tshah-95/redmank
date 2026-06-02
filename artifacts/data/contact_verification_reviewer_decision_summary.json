@@ -26,7 +26,7 @@
   },
   "display_policy": "Public contacts are not private contact discovery and do not imply outreach permission.",
   "domain_review_rows": 1,
-  "generated_at": "2026-06-02T21:06:10.233264+00:00",
+  "generated_at": "2026-06-02T21:16:17.328705+00:00",
   "manual_decision_csv": "artifacts/data/contact_verification_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "pending_reviewer_decision_rows": 312,

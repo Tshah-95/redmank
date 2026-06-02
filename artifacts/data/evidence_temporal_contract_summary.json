@@ -1,0 +1,42 @@
+{
+  "as_of_date": "2026-06-02",
+  "by_current_contract_status": {
+    "durable_until_contradicted": 1780,
+    "fresh_until_stale_after": 930,
+    "review_bound_not_accepted_truth": 7676
+  },
+  "by_fact_family": {
+    "attending_trend": 3,
+    "contact": 313,
+    "official_profile": 954,
+    "prior_training_or_education": 3131,
+    "profile_context": 1133,
+    "research": 4852
+  },
+  "by_next_refresh_contract": {
+    "refresh_current_attending_endpoint_before_using_as_current_trend_fact": 3,
+    "reobserve_profile_context_before_default_display_or_current-interest_claim": 1133,
+    "reobserve_profile_url_hash_before_promoting_or_reusing_profile_context": 954,
+    "retain_historical_fact_once_verified; refresh_candidate_source_before_acceptance": 3131,
+    "retain_publication_fact_but_refresh_research_search_for_new_outputs": 4852,
+    "verify_same_contact_value_on_current_official_source_before_use": 313
+  },
+  "by_record_type": {
+    "accepted_attending_trend_fact": 3,
+    "accepted_enrichment_claim": 5,
+    "evidence_claim": 10065,
+    "person_contact": 313
+  },
+  "contract_rows": 10386,
+  "contracts_csv": "artifacts/data/evidence_temporal_contracts.csv",
+  "durable_until_contradicted_rows": 1780,
+  "generated_at": "2026-06-02T21:16:39.257215+00:00",
+  "person_count": 1527,
+  "policy": "Evidence temporal contracts are non-mutating. They describe when enrichment facts can be retained, refreshed, reviewed, or invalidated before any person truth or display surface is updated.",
+  "refresh_bound_rows": 3759,
+  "review_bound_rows": 7676,
+  "rollup_rows": 25,
+  "rollups_csv": "artifacts/data/evidence_temporal_contract_rollups.csv",
+  "source_count": 1018,
+  "stale_refresh_required_rows": 0
+}

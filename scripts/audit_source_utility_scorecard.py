@@ -467,6 +467,21 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     reproducibility_binary_warnings = int(warehouse_reproducibility_summary.get("binary_size_warning_rows") or 0)
     reproducibility_sqlite_git_tracked = bool(warehouse_reproducibility_summary.get("sqlite_git_tracked"))
     reproducibility_sqlite_storage_policy = warehouse_reproducibility_summary.get("sqlite_storage_policy") or ""
+    evidence_temporal_contract_summary = read_json(ARTIFACTS / "evidence_temporal_contract_summary.json", {})
+    evidence_contract_rows = scalar(conn, "SELECT COUNT(*) FROM evidence_temporal_contracts")
+    evidence_contract_rollups = scalar(conn, "SELECT COUNT(*) FROM evidence_temporal_contract_rollups")
+    evidence_contract_status = counter_query(
+        conn,
+        "SELECT current_contract_status, COUNT(*) FROM evidence_temporal_contracts GROUP BY current_contract_status",
+    )
+    evidence_contract_families = counter_query(
+        conn,
+        "SELECT fact_family, COUNT(*) FROM evidence_temporal_contracts GROUP BY fact_family",
+    )
+    evidence_contract_stale = evidence_contract_status.get("stale_refresh_required", 0)
+    evidence_contract_review_bound = evidence_contract_status.get("review_bound_not_accepted_truth", 0)
+    evidence_contract_durable = evidence_contract_status.get("durable_until_contradicted", 0)
+    evidence_contract_refresh_bound = evidence_contract_status.get("fresh_until_stale_after", 0)
 
     openalex_obs = conn.execute(
         """
@@ -1146,6 +1161,41 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             if reproducibility_sqlite_storage_policy == "generated_untracked_sqlite_warehouse"
             else "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
             evidence=warehouse_reproducibility_summary,
+        ),
+        make_row(
+            scorecard_key="evidence_temporal_contracts",
+            utility_key="",
+            utility_label="Evidence temporal contracts",
+            source_family="warehouse_provenance",
+            claim_surface="refresh, invalidation, display-safety, and currentness contracts for enrichment evidence",
+            input_records=scalar(conn, "SELECT COUNT(*) FROM evidence_claims")
+            + contact_count
+            + accepted_enrichment_rows
+            + accepted_trend_fact_rows,
+            output_records=evidence_contract_rows,
+            accepted_records=evidence_contract_durable + evidence_contract_refresh_bound,
+            candidate_records=evidence_contract_rows,
+            needs_review_records=evidence_contract_review_bound,
+            blocked_records=evidence_contract_stale,
+            score=85.0 if evidence_contract_rows and not evidence_contract_stale else 72.0 if evidence_contract_rows else 20.0,
+            strengths=[
+                "Applies explicit stale/refresh semantics to contacts, profiles, research, prior training, and trend facts",
+                "Separates durable historical evidence from current endpoint/contact/profile claims",
+                "Materializes rollups so source, family, role, and contract-status drift can be audited",
+            ],
+            limitations=[
+                "Contracts describe safe mutation behavior; they do not by themselves refresh stale sources",
+                "Some source-observed dates are inherited from source artifacts and need source-specific freshness improvements",
+                "Candidate evidence remains review-bound even when a temporal contract exists",
+            ],
+            recommended_next_action="use_contract_status_before_display_or_mutation_and_refresh_stale_currentness_bound_sources",
+            evidence={
+                "summary": evidence_temporal_contract_summary,
+                "contract_rows": evidence_contract_rows,
+                "rollup_rows": evidence_contract_rollups,
+                "by_current_contract_status": evidence_contract_status,
+                "by_fact_family": evidence_contract_families,
+            },
         ),
         make_row(
             scorecard_key="openalex_author_search",

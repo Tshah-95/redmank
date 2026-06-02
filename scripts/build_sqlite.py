@@ -2253,6 +2253,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "official_profile_reviewer_decision_queue",
         "official_profile_reviewer_decision_audit",
         "accepted_official_profile_url_facts",
+        "evidence_temporal_contracts",
+        "evidence_temporal_contract_rollups",
         "prior_training_search_queries",
         "prior_training_search_observations",
         "prior_training_discovery_candidates",

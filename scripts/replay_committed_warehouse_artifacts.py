@@ -79,6 +79,8 @@ CSV_TABLES = [
     ("official_profile_reviewer_decision_queue.csv", "official_profile_reviewer_decision_queue"),
     ("official_profile_reviewer_decision_audit.csv", "official_profile_reviewer_decision_audit"),
     ("accepted_official_profile_url_facts.csv", "accepted_official_profile_url_facts"),
+    ("evidence_temporal_contracts.csv", "evidence_temporal_contracts"),
+    ("evidence_temporal_contract_rollups.csv", "evidence_temporal_contract_rollups"),
     ("prior_training_search_queries.csv", "prior_training_search_queries"),
     ("prior_training_search_observations.csv", "prior_training_search_observations"),
     ("prior_training_discovery_candidates.csv", "prior_training_discovery_candidates"),

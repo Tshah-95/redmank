@@ -67,6 +67,8 @@ def main() -> None:
         "official_profile_reviewer_decision_queue",
         "official_profile_reviewer_decision_audit",
         "accepted_official_profile_url_facts",
+        "evidence_temporal_contracts",
+        "evidence_temporal_contract_rollups",
         "trainee_profile_search_queries",
         "trainee_profile_search_observations",
         "trainee_profile_discovery_candidates",
@@ -542,6 +544,46 @@ def main() -> None:
             """
             SELECT rollup_scope, COUNT(*) AS count
             FROM training_temporal_contract_rollups
+            GROUP BY rollup_scope
+            """
+        )
+    }
+    evidence_temporal_contract_status_counts = {
+        row["current_contract_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT current_contract_status, COUNT(*) AS count
+            FROM evidence_temporal_contracts
+            GROUP BY current_contract_status
+            """
+        )
+    }
+    evidence_temporal_contract_family_counts = {
+        row["fact_family"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT fact_family, COUNT(*) AS count
+            FROM evidence_temporal_contracts
+            GROUP BY fact_family
+            """
+        )
+    }
+    evidence_temporal_contract_refresh_counts = {
+        row["next_refresh_contract"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT next_refresh_contract, COUNT(*) AS count
+            FROM evidence_temporal_contracts
+            GROUP BY next_refresh_contract
+            """
+        )
+    }
+    evidence_temporal_contract_rollup_scope_counts = {
+        row["rollup_scope"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT rollup_scope, COUNT(*) AS count
+            FROM evidence_temporal_contract_rollups
             GROUP BY rollup_scope
             """
         )
@@ -1161,6 +1203,13 @@ def main() -> None:
         )
     else:
         training_temporal_contract_summary = {}
+    evidence_temporal_contract_summary_path = ARTIFACTS / "evidence_temporal_contract_summary.json"
+    if evidence_temporal_contract_summary_path.exists():
+        evidence_temporal_contract_summary = json.loads(
+            evidence_temporal_contract_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        evidence_temporal_contract_summary = {}
     trainee_profile_discovery_summary_path = ARTIFACTS / "trainee_profile_discovery_summary.json"
     if trainee_profile_discovery_summary_path.exists():
         trainee_profile_discovery_summary = json.loads(
@@ -1462,6 +1511,10 @@ def main() -> None:
         "temporal_contract_state_counts": temporal_contract_state_counts,
         "temporal_contract_guardrail_counts": temporal_contract_guardrail_counts,
         "temporal_contract_rollup_scope_counts": temporal_contract_rollup_scope_counts,
+        "evidence_temporal_contract_status_counts": evidence_temporal_contract_status_counts,
+        "evidence_temporal_contract_family_counts": evidence_temporal_contract_family_counts,
+        "evidence_temporal_contract_refresh_counts": evidence_temporal_contract_refresh_counts,
+        "evidence_temporal_contract_rollup_scope_counts": evidence_temporal_contract_rollup_scope_counts,
         "trainee_profile_discovery_candidate_counts": trainee_profile_discovery_candidate_counts,
         "trainee_profile_search_status_counts": trainee_profile_search_status_counts,
         "prior_training_discovery_candidate_counts": prior_training_discovery_candidate_counts,
@@ -1528,6 +1581,7 @@ def main() -> None:
         "training_lifecycle_assurance_summary": training_lifecycle_assurance_summary,
         "training_state_transition_plan_summary": training_state_transition_plan_summary,
         "training_temporal_contract_summary": training_temporal_contract_summary,
+        "evidence_temporal_contract_summary": evidence_temporal_contract_summary,
         "trainee_profile_discovery_summary": trainee_profile_discovery_summary,
         "official_profile_reviewer_decision_summary": official_profile_reviewer_decision_summary,
         "prior_training_discovery_summary": prior_training_discovery_summary,

@@ -330,6 +330,20 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/evidence_temporal_contracts.csv",
+        "evidence_temporal_contract_ledger",
+        "csv",
+        "evidence_temporal_contracts",
+        True,
+    ),
+    (
+        "artifacts/data/evidence_temporal_contract_rollups.csv",
+        "evidence_temporal_contract_ledger",
+        "csv",
+        "evidence_temporal_contract_rollups",
+        True,
+    ),
+    (
         "artifacts/data/prior_training_search_queries.csv",
         "prior_training_discovery_ledger",
         "csv",

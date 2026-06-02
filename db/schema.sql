@@ -2437,6 +2437,64 @@ CREATE TABLE IF NOT EXISTS evidence_claims (
   evidence_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS evidence_temporal_contracts (
+  contract_key TEXT PRIMARY KEY,
+  subject_type TEXT NOT NULL,
+  subject_key TEXT NOT NULL,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT,
+  role TEXT,
+  record_type TEXT NOT NULL,
+  record_id TEXT NOT NULL,
+  fact_family TEXT NOT NULL,
+  claim_type TEXT NOT NULL,
+  claim_value TEXT,
+  source_key TEXT,
+  source_url TEXT,
+  source_type TEXT,
+  source_observed_at TEXT,
+  source_sha256 TEXT,
+  source_freshness_class TEXT NOT NULL,
+  fact_temporality TEXT NOT NULL,
+  currentness_dependency TEXT NOT NULL,
+  identity_assurance_requirement TEXT NOT NULL,
+  refresh_interval_days INTEGER,
+  stale_after_date TEXT,
+  next_refresh_contract TEXT NOT NULL,
+  invalidation_triggers_json TEXT NOT NULL,
+  stale_information_policy TEXT NOT NULL,
+  display_safety_status TEXT,
+  acceptance_status TEXT,
+  assurance_level INTEGER NOT NULL DEFAULT 0,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  current_contract_status TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS evidence_temporal_contract_rollups (
+  rollup_key TEXT PRIMARY KEY,
+  rollup_scope TEXT NOT NULL,
+  rollup_value TEXT NOT NULL,
+  fact_family TEXT,
+  record_type TEXT,
+  contract_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  accepted_count INTEGER NOT NULL DEFAULT 0,
+  candidate_or_review_count INTEGER NOT NULL DEFAULT 0,
+  stale_count INTEGER NOT NULL DEFAULT 0,
+  refresh_required_count INTEGER NOT NULL DEFAULT 0,
+  durable_count INTEGER NOT NULL DEFAULT 0,
+  review_bound_count INTEGER NOT NULL DEFAULT 0,
+  dominant_next_refresh_contract TEXT NOT NULL,
+  guardrail_status TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS trainee_profile_search_queries (
   query_key TEXT PRIMARY KEY,
   person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
