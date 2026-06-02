@@ -204,6 +204,15 @@ Packets are also non-mutating. They are the workbench between candidate evidence
 
 The coverage score is not a truth score. A candidate PubMed article can improve coverage because there is something to reconcile, but it does not become accepted publication enrichment until a separate evidence-reconciliation pass proves identity anchors. The recommended action column is the recursive loop controller: search official profiles, resolve organization aliases, collect article-level research candidates, reconcile high-priority evidence, or monitor for the next refresh/diff.
 
+`scripts/discover_trainee_official_profiles.py` is the profile-search collector for people without roster-linked profile URLs. It reads `official_profile_search` rows from `person_enrichment_work_queue`, emits a reproducible query manifest, and can optionally execute polite DuckDuckGo HTML searches and page probes. The committed baseline uses `--skip-search`, so it records 1,668 planned official-profile queries for 556 uncovered people without making rebuilds depend on a live search endpoint. When run with search enabled, it writes:
+
+- `trainee_profile_search_queries.csv`: person/program/query manifest.
+- `trainee_profile_search_observations.csv`: search HTTP status, result count, and error evidence.
+- `trainee_profile_discovery_candidates.csv`: URL candidates with official-domain/profile-path/name/program features.
+- `trainee_profile_discovery_claims.json`: candidate `official_profile_url_candidate` evidence for the reconciliation queue.
+
+Profile discovery does not mutate roster truth. Search hits are useful identity and enrichment candidates, but they need official ownership, same-person identity, and current trainee/program context before becoming accepted profile enrichment.
+
 ## Attending Trend Evidence
 
 Current Penn attending/faculty pages and official Penn provider/profile pages are loaded as career-event evidence, not as trainee roster truth. `scripts/enrich_penn_attending_profiles.py` follows profile URLs from current attending candidates and extracts only conservative official-profile claims:
@@ -262,7 +271,7 @@ NPI candidates do not mutate roster truth. They are useful secondary identity an
 - `source_utility_scorecard_summary.json`: counts by quality band, source family, and recommended next action.
 - SQLite table `source_utility_scorecard`: queryable version of the same ledger.
 
-The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; ACGME public search as strong for candidate program codes but not trainee truth; broad source discovery as a queue, not truth; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as blocked in the latest full-corpus pass by rate limiting; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
+The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; ACGME public search as strong for candidate program codes but not trainee truth; broad source discovery as a queue, not truth; official trainee profile discovery as a resumable query/probe lane; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as blocked in the latest full-corpus pass by rate limiting; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
 
 ## Public Contact Evidence
 

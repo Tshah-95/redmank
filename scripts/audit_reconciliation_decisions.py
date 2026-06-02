@@ -37,6 +37,8 @@ PROFILE_REVIEW_FEATURES = {
     "official_student_directory",
     "roster_linked_profile",
     "directory_linked_profile_anchor",
+    "official_domain",
+    "profile_path",
     "structured_profile_field",
     "roster_structured_field_crosscheck",
     "research_training_field",
@@ -243,6 +245,18 @@ def npi_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
 def profile_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
     claim_type = row.get("claim_type") or ""
     confidence = float(row.get("confidence") or 0)
+    if claim_type == "official_profile_url_candidate":
+        if {"official_domain", "name_present", "profile_path"} <= features and confidence >= 0.7:
+            return (
+                "profile_context_candidate",
+                "Discovered profile URL has official ownership, name match, and profile-path evidence, but is not roster-linked.",
+                "Confirm same-person identity and current trainee/program context before accepting the URL as profile enrichment.",
+            )
+        return (
+            "profile_context_candidate",
+            "Discovered profile URL or context hit is useful only as candidate identity evidence.",
+            "Seek official roster linkage, explicit current trainee role, or reviewer acceptance before promoting profile enrichment.",
+        )
     if claim_type in {"education_history_candidate", "prior_training_history_candidate"}:
         if "roster_structured_field_crosscheck" in features and confidence >= 0.75:
             return (

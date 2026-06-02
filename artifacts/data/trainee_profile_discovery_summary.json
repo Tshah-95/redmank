@@ -1,0 +1,21 @@
+{
+  "by_candidate_status": {},
+  "by_result_domain": {},
+  "by_role": {},
+  "by_search_error": {},
+  "by_search_http_status": {},
+  "candidate_rows": 0,
+  "claim_rows": 0,
+  "claims_json": "artifacts/data/trainee_profile_discovery_claims.json",
+  "csv": "artifacts/data/trainee_profile_discovery_candidates.csv",
+  "generated_at": "2026-06-02T13:21:24.130700+00:00",
+  "official_or_context_candidate_people": 0,
+  "official_profile_candidate_people": 0,
+  "people_considered": 556,
+  "policy": "Discovered profile URLs are candidate evidence only. They do not mutate people.profile_url unless an official roster-linked profile or reviewer-accepted evidence later confirms same-person/current-trainee context.",
+  "query_rows": 1668,
+  "search_observations": 0,
+  "search_skipped": true,
+  "source_rows": 0,
+  "sources_json": "artifacts/data/trainee_profile_discovery_sources.json"
+}

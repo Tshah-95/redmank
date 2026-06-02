@@ -208,6 +208,27 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/trainee_profile_search_queries.csv",
+        "trainee_profile_discovery_ledger",
+        "csv",
+        "trainee_profile_search_queries",
+        True,
+    ),
+    (
+        "artifacts/data/trainee_profile_search_observations.csv",
+        "trainee_profile_discovery_ledger",
+        "csv",
+        "trainee_profile_search_observations",
+        True,
+    ),
+    (
+        "artifacts/data/trainee_profile_discovery_candidates.csv",
+        "trainee_profile_discovery_ledger",
+        "csv",
+        "trainee_profile_discovery_candidates",
+        True,
+    ),
+    (
         "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
         "longitudinal_snapshot_ledger",
         "json_object",

@@ -100,6 +100,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/npi_candidate_summary.json`: NPI query, status, role, and taxonomy counts.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
 - `artifacts/data/program_enrichment_coverage.csv`: per-program/role enrichment coverage rollup and next-action summary.
+- `artifacts/data/trainee_profile_search_queries.csv`: queue-driven official-profile search manifest for trainees missing roster-linked profile URLs.
+- `artifacts/data/trainee_profile_search_observations.csv`: search execution observations for the trainee profile discovery lane.
+- `artifacts/data/trainee_profile_discovery_candidates.csv`: discovered profile/context URL candidates with match features and required next evidence.
+- `artifacts/data/trainee_profile_discovery_claims.json`: replayable candidate evidence claims emitted by the profile discovery lane.
+- `artifacts/data/trainee_profile_discovery_summary.json`: people/query/candidate counts and non-mutating profile-discovery policy.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
 - `artifacts/data/pubmed_article_candidate_claims.json`: article-level PubMed candidates with author, affiliation, topic, and recency features.
 - `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
@@ -253,6 +258,14 @@ python3 scripts/collect_research_candidates.py --only openalex --skip-existing-s
 ```
 
 Broad web search for attending historical-link discovery is optional and rate-limit sensitive. The latest pass attempted polite DuckDuckGo HTML queries for the four Penn-training-claim groups and recorded non-200 search responses as source-quality evidence; add `--skip-search` when you only want the seeded official Penn/provider baseline.
+
+Official trainee profile discovery is also queue-driven and rate-limit sensitive. The committed artifact is a no-network manifest for all uncovered profile-search rows; run the collector separately when refreshing candidate URLs:
+
+```bash
+python3 scripts/discover_trainee_official_profiles.py --max-people 556 --max-queries-per-person 3 --max-results 4 --search-timeout 8 --sleep 0.2
+```
+
+Add `--probe-pages` when you want page hashes, HTTP status, titles, and term hits. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
 
 Validate scripts:
 

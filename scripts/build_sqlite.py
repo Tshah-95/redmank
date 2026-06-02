@@ -42,6 +42,9 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_trainee_profile_sources.json",
     ARTIFACTS / "penn_trainee_profile_claims.json",
     ARTIFACTS / "penn_trainee_profile_summary.json",
+    ARTIFACTS / "trainee_profile_discovery_sources.json",
+    ARTIFACTS / "trainee_profile_discovery_claims.json",
+    ARTIFACTS / "trainee_profile_discovery_summary.json",
     ARTIFACTS / "penn_outcome_candidate_sources.json",
     ARTIFACTS / "penn_attending_candidates.json",
     ARTIFACTS / "penn_outcome_candidates.json",
@@ -713,6 +716,95 @@ def insert_trainee_profile_claims(conn: sqlite3.Connection) -> None:
                     "by_claim_type": dict(Counter(row["claim_type"] for row in claims)),
                     "by_status": dict(Counter(row["status"] for row in claims)),
                     "display_safety_counts": dict(display_safety),
+                    "summary": summary,
+                }
+            ),
+        ),
+    )
+
+
+def insert_trainee_profile_discovery_claims(conn: sqlite3.Connection) -> None:
+    claims_path = ARTIFACTS / "trainee_profile_discovery_claims.json"
+    sources_path = ARTIFACTS / "trainee_profile_discovery_sources.json"
+    summary_path = ARTIFACTS / "trainee_profile_discovery_summary.json"
+    if not claims_path.exists():
+        return
+    if sources_path.exists():
+        for source in load_json(sources_path):
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO sources
+                (source_key, source_url, source_type, title, fetched_at, http_status, sha256, metadata_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    source["source_key"],
+                    source.get("url"),
+                    "official_trainee_profile",
+                    source.get("title"),
+                    source.get("fetched_at"),
+                    source.get("http_status") or None,
+                    source.get("sha256"),
+                    dumps(source),
+                ),
+            )
+    raw_claims = load_json(claims_path)
+    if not raw_claims:
+        return
+    existing_people = {row[0] for row in conn.execute("SELECT person_key FROM people")}
+    claims = [row for row in raw_claims if row.get("person_key") in existing_people]
+    orphan_claims = [row for row in raw_claims if row.get("person_key") not in existing_people]
+    if not claims:
+        return
+    for row in claims:
+        conn.execute(
+            """
+            INSERT INTO evidence_claims
+            (person_key, claim_type, claim_value, source_key, source_url, source_type,
+             confidence, status, match_features_json, reconciliation_notes, evidence_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                row["person_key"],
+                row["claim_type"],
+                row["claim_value"],
+                row["source_key"],
+                row["source_url"],
+                row["source_type"],
+                row["confidence"],
+                row["status"],
+                dumps(row.get("match_features", [])),
+                row.get("reconciliation_notes", ""),
+                dumps(row.get("evidence", {})),
+            ),
+        )
+    summary = load_json(summary_path) if summary_path.exists() else {}
+    generated_at = summary.get("generated_at") or datetime.now(timezone.utc).isoformat()
+    conn.execute(
+        """
+        INSERT INTO source_quality_observations
+        (utility_key, observed_at, sample_size, candidate_claims, accepted_claims,
+         rejected_claims, ambiguous_claims, notes, metrics_json)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            "official_trainee_profile_discovery",
+            generated_at,
+            len({row["person_key"] for row in claims}),
+            sum(1 for row in claims if row["status"] == "candidate"),
+            sum(1 for row in claims if row["status"] == "accepted"),
+            sum(1 for row in claims if row["status"] == "rejected"),
+            sum(1 for row in claims if row["status"] == "needs_review"),
+            "Replayed discovered official trainee profile candidates; no discovered URL mutates roster truth without official roster linkage or review.",
+            dumps(
+                {
+                    "claims": len(claims),
+                    "raw_claims": len(raw_claims),
+                    "orphan_claims_skipped": len(orphan_claims),
+                    "people_with_claims": len({row["person_key"] for row in claims}),
+                    "source_rows": len({row["source_key"] for row in claims}),
+                    "by_claim_type": dict(Counter(row["claim_type"] for row in claims)),
+                    "by_status": dict(Counter(row["status"] for row in claims)),
                     "summary": summary,
                 }
             ),
@@ -1958,6 +2050,9 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "category_refresh_expectations",
         "training_temporal_contracts",
         "training_temporal_contract_rollups",
+        "trainee_profile_search_queries",
+        "trainee_profile_search_observations",
+        "trainee_profile_discovery_candidates",
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
@@ -2050,6 +2145,7 @@ def main() -> None:
         resolver = OrganizationResolver(conn, ORG_SEEDS)
         load_people(conn, resolver)
         insert_trainee_profile_claims(conn)
+        insert_trainee_profile_discovery_claims(conn)
         insert_research_candidate_claims(conn)
         insert_official_program_coverage(conn)
         insert_official_program_gap_source_candidates(conn)

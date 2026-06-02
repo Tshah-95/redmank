@@ -419,6 +419,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
           AND status = 'candidate'
         """,
     )
+    trainee_profile_discovery_summary = read_json(ARTIFACTS / "trainee_profile_discovery_summary.json", {})
     trend_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     trend_linkage = trend_summary.get("by_linkage_status") or {}
     historical_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
@@ -962,15 +963,18 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Profile links are anchored by official trainee rosters",
                 "Structured profile fields add education, prior-training, research/career-interest, and personal-context enrichment",
                 "Display-safety metadata separates default-safe background from personal or sensitive snippets",
+                "The missing-profile lane now has a queue-driven query/provenance collector for uncovered trainees",
             ],
             limitations=[
                 "Profile field richness is concentrated in Department of Medicine pages",
                 "Free-text pages can contain narrative bleed and require parser audits",
                 "Personal fields should not be default-display or outreach signals without explicit product policy",
+                "Search-discovered profile URLs remain candidate evidence until official ownership, same-person identity, and current trainee/program context are reconciled",
             ],
-            recommended_next_action="use_as_profile_enrichment_and_parser_training_set_then_expand_to_uncovered_official_profiles",
+            recommended_next_action="run_official_trainee_profile_discovery_then_reconcile_candidates",
             evidence={
                 "summary": trainee_profile_summary,
+                "discovery_summary": trainee_profile_discovery_summary,
                 "claims": trainee_profile_claims,
                 "accepted_profile_url_facts": trainee_profile_accepted,
                 "candidate_profile_fields": trainee_profile_candidate,

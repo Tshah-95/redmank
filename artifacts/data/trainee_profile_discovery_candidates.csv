@@ -1,0 +1,1 @@
+candidate_key,person_key,display_name,role,program_name,task_key,query_key,query_kind,query,candidate_status,priority,confidence,candidate_title,candidate_url,result_rank,result_domain,result_snippet,http_status,content_type,text_length,sha256,probed_at,page_term_hits,match_features_json,required_next_evidence,source_key,evidence_json,discovered_at
