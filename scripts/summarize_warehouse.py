@@ -36,6 +36,7 @@ def main() -> None:
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",
+        "source_utility_scorecard",
         "official_program_universe",
         "official_program_coverage_audit",
         "official_program_source_probes",
@@ -180,6 +181,16 @@ def main() -> None:
             """
         )
     }
+    source_utility_scorecard_counts = {
+        row["quality_band"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT quality_band, COUNT(*) AS count
+            FROM source_utility_scorecard
+            GROUP BY quality_band
+            """
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -227,6 +238,11 @@ def main() -> None:
         person_evidence_packet_summary = json.loads(person_evidence_packet_summary_path.read_text(encoding="utf-8"))
     else:
         person_evidence_packet_summary = {}
+    source_utility_scorecard_summary_path = ARTIFACTS / "source_utility_scorecard_summary.json"
+    if source_utility_scorecard_summary_path.exists():
+        source_utility_scorecard_summary = json.loads(source_utility_scorecard_summary_path.read_text(encoding="utf-8"))
+    else:
+        source_utility_scorecard_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -250,6 +266,7 @@ def main() -> None:
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "official_program_gap_reason_counts": official_program_gap_reason_counts,
         "official_program_alias_reconciliation_counts": official_program_alias_reconciliation_counts,
+        "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "organization_category_counts": category_counts,
         "training_state_machine_summary": state_machine_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,
@@ -259,6 +276,7 @@ def main() -> None:
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
+        "source_utility_scorecard_summary": source_utility_scorecard_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

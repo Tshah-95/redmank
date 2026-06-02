@@ -63,6 +63,7 @@ Core tables:
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
+- `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 
 Useful views:
 
@@ -191,6 +192,14 @@ The first expanded resident/fellow research pass processed 759 Penn-affiliated r
 - No research claims were accepted automatically.
 
 The current acceptance rule is deliberately strict: accept research enrichment only when at least two non-name anchors agree, such as official profile link plus ORCID, OpenAlex Penn affiliation plus specialty-topic match, PubMed affiliation plus coauthor cluster, or NPI specialty/location plus official profile.
+
+`scripts/audit_source_utility_scorecard.py` turns those observations into an operational scorecard:
+
+- `source_utility_scorecard.csv` / `.json`: one row per utility surface, including official roster truth, official denominator coverage, gap-roster extraction, Penn-wide source discovery, PubMed author discovery, PubMed article reconciliation, OpenAlex, attending profiles, historical-link discovery, public contacts, organization normalization, and training state-machine readiness.
+- `source_utility_scorecard_summary.json`: counts by quality band, source family, and recommended next action.
+- SQLite table `source_utility_scorecard`: queryable version of the same ledger.
+
+The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; broad source discovery as a queue, not truth; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as blocked in the latest full-corpus pass by rate limiting; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
 
 ## Public Contact Evidence
 

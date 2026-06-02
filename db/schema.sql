@@ -449,6 +449,31 @@ CREATE TABLE IF NOT EXISTS source_quality_observations (
   metrics_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS source_utility_scorecard (
+  scorecard_key TEXT PRIMARY KEY,
+  utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,
+  utility_label TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  claim_surface TEXT NOT NULL,
+  input_records INTEGER NOT NULL DEFAULT 0,
+  output_records INTEGER NOT NULL DEFAULT 0,
+  accepted_records INTEGER NOT NULL DEFAULT 0,
+  candidate_records INTEGER NOT NULL DEFAULT 0,
+  needs_review_records INTEGER NOT NULL DEFAULT 0,
+  review_ready_records INTEGER NOT NULL DEFAULT 0,
+  discovery_only_records INTEGER NOT NULL DEFAULT 0,
+  low_signal_records INTEGER NOT NULL DEFAULT 0,
+  coverage_gap_records INTEGER NOT NULL DEFAULT 0,
+  blocked_records INTEGER NOT NULL DEFAULT 0,
+  score REAL NOT NULL DEFAULT 0.0,
+  quality_band TEXT NOT NULL,
+  strengths TEXT NOT NULL,
+  limitations TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE VIEW IF NOT EXISTS v_person_training AS
 SELECT
   p.person_key,

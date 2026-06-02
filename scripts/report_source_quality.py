@@ -229,9 +229,11 @@ def main() -> None:
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
+    source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
     top_attending_linkage_groups = read_csv(ARTIFACTS / "attending_trend_linkage_groups.csv", limit=20)
     top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
+    source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     top_reconciliation_decisions = [
         row
         for row in read_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv")
@@ -347,6 +349,8 @@ def main() -> None:
         "top_attending_trend_linkage_groups": top_attending_linkage_groups,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "top_attending_historical_link_candidates": top_attending_historical_candidates,
+        "source_utility_scorecard_summary": source_utility_scorecard_summary,
+        "source_utility_scorecard": source_utility_scorecard,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -496,6 +500,25 @@ def main() -> None:
         "## Evidence Counts",
         "",
         *md_table(evidence_counts, ["source_key", "status", "claim_type", "count", "avg_confidence"]),
+        "",
+        "## Source Utility Scorecard",
+        "",
+        f"Scorecard rows: {source_utility_scorecard_summary.get('scorecard_rows', 0)}.",
+        "",
+        *md_table(
+            source_utility_scorecard,
+            [
+                "utility_label",
+                "claim_surface",
+                "input_records",
+                "output_records",
+                "score",
+                "quality_band",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.",
         "",
         "## Evidence Reconciliation Queue",
         "",

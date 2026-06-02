@@ -1843,6 +1843,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",
+        "source_utility_scorecard",
         "official_program_universe",
         "official_program_coverage_audit",
         "official_program_source_probes",

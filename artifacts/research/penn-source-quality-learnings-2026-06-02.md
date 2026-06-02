@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T07:25:39.553312+00:00
+Generated: 2026-06-02T08:05:38.537874+00:00
 
 ## What This Pass Did
 
@@ -451,6 +451,27 @@ Learning: annual diffs should be state-machine informed before they are person-t
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
 | rheumatology_current_fellows | accepted | residency_program | 15 | 0.83 |
 | rheumatology_current_fellows | accepted | undergraduate_school | 15 | 0.777 |
+
+## Source Utility Scorecard
+
+Scorecard rows: 12.
+
+| utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
+| --- | --- | --- | --- | --- | --- | --- |
+| Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 78 | 1558 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
+| Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 64 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
+| Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 32 | 524 | 81.0 | strong_with_known_limits | add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage |
+| Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
+| PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
+| PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
+| OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
+| Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
+| Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 8 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
+| Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 66.0 | useful_candidate_layer | verify_contact_channels_against_current_official_source_before_use |
+| Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
+| Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
+
+Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.
 
 ## Evidence Reconciliation Queue
 

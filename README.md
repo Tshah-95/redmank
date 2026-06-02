@@ -60,6 +60,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
+- `artifacts/data/source_utility_scorecard.csv`: empirical source-utility scorecard across roster truth, denominator coverage, source discovery, research enrichment, attending trends, contact evidence, normalization, and longitudinal state-machine readiness.
+- `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
@@ -135,6 +137,7 @@ python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026
 python3 scripts/discover_attending_historical_links.py --max-groups 4 --probe-pages --skip-search --sleep 0.1
+python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```
@@ -210,6 +213,7 @@ The initial methodology is conservative:
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
 - Rank candidate enrichment in an evidence reconciliation queue before accepting profile, publication, or attending-trend claims.
 - Roll item-level evidence decisions into person/name review packets so manual or automated verifiers can see the best evidence, blocker, and next action before accepting enrichment.
+- Score source utilities by observed claim surface, output quality, blockers, and next action before widening the corpus.
 - Keep current-attending endpoints separate from accepted trend-line links until a historical roster, alumni page, CV, or independent profile connects the attending identity to a dated Penn trainee record.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.
