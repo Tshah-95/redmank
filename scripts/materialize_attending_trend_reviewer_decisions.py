@@ -196,6 +196,103 @@ def sqlite_rows(conn: sqlite3.Connection, query: str) -> list[dict]:
     return [dict(row) for row in conn.execute(query)]
 
 
+def compact_acceptance_evidence(row: dict) -> dict:
+    return {
+        "trend_acceptance_key": row.get("trend_acceptance_key", ""),
+        "trend_claim_key": row.get("trend_claim_key", ""),
+        "trend_key": row.get("trend_key", ""),
+        "display_name": row.get("display_name", ""),
+        "normalized_name": row.get("normalized_name", ""),
+        "acceptance_status": row.get("acceptance_status", ""),
+        "acceptance_blocker": row.get("acceptance_blocker", ""),
+        "acceptance_level": row.get("acceptance_level", ""),
+        "training_type": row.get("training_type", ""),
+        "training_line": row.get("training_line", ""),
+        "training_organization": row.get("training_organization", ""),
+        "training_start_year": row.get("training_start_year", ""),
+        "training_end_year": row.get("training_end_year", ""),
+        "ten_year_trend_window": row.get("ten_year_trend_window", ""),
+        "source_key": row.get("source_key", ""),
+        "source_url": row.get("source_url", ""),
+        "source_scope": row.get("source_scope", ""),
+        "bridge_candidate_key": row.get("bridge_candidate_key", ""),
+        "endpoint_check_status": row.get("endpoint_check_status", ""),
+        "training_line_check_status": row.get("training_line_check_status", ""),
+        "date_window_check_status": row.get("date_window_check_status", ""),
+        "required_reviewer_action": row.get("required_reviewer_action", ""),
+    }
+
+
+def compact_queue_evidence(row: dict) -> dict:
+    return {
+        "reviewer_decision_key": row.get("reviewer_decision_key", ""),
+        "trend_acceptance_key": row.get("trend_acceptance_key", ""),
+        "trend_claim_key": row.get("trend_claim_key", ""),
+        "trend_key": row.get("trend_key", ""),
+        "display_name": row.get("display_name", ""),
+        "normalized_name": row.get("normalized_name", ""),
+        "queue_status": row.get("queue_status", ""),
+        "claim_fingerprint": row.get("claim_fingerprint", ""),
+        "training_type": row.get("training_type", ""),
+        "training_line": row.get("training_line", ""),
+        "training_organization": row.get("training_organization", ""),
+        "training_start_year": row.get("training_start_year", ""),
+        "training_end_year": row.get("training_end_year", ""),
+        "ten_year_trend_window": row.get("ten_year_trend_window", ""),
+        "source_key": row.get("source_key", ""),
+        "source_url": row.get("source_url", ""),
+        "source_scope": row.get("source_scope", ""),
+        "bridge_candidate_key": row.get("bridge_candidate_key", ""),
+        "required_confirmation_fields": row.get("required_confirmation_fields", ""),
+        "required_reviewer_action": row.get("required_reviewer_action", ""),
+    }
+
+
+def compact_manual_decision(decision: dict | None) -> dict:
+    if not decision:
+        return {}
+    return {
+        field: decision.get(field, "")
+        for field in [
+            "reviewer_decision_key",
+            "trend_acceptance_key",
+            "trend_claim_key",
+            "claim_fingerprint",
+            "reviewer_decision",
+            "reviewer_name",
+            "decided_at",
+            "identity_confirmed",
+            "endpoint_confirmed",
+            "training_line_confirmed",
+            "date_window_confirmed",
+            "decision_notes",
+        ]
+    }
+
+
+def compact_decision_audit(audit: dict) -> dict:
+    return {
+        "reviewer_decision_key": audit.get("reviewer_decision_key", ""),
+        "trend_acceptance_key": audit.get("trend_acceptance_key", ""),
+        "trend_claim_key": audit.get("trend_claim_key", ""),
+        "display_name": audit.get("display_name", ""),
+        "normalized_name": audit.get("normalized_name", ""),
+        "reviewer_decision": audit.get("reviewer_decision", ""),
+        "decision_status": audit.get("decision_status", ""),
+        "accepted_trend_fact": audit.get("accepted_trend_fact", ""),
+        "decision_blocker": audit.get("decision_blocker", ""),
+        "claim_fingerprint": audit.get("claim_fingerprint", ""),
+        "identity_confirmed": audit.get("identity_confirmed", ""),
+        "endpoint_confirmed": audit.get("endpoint_confirmed", ""),
+        "training_line_confirmed": audit.get("training_line_confirmed", ""),
+        "date_window_confirmed": audit.get("date_window_confirmed", ""),
+        "reviewer_name": audit.get("reviewer_name", ""),
+        "decided_at": audit.get("decided_at", ""),
+        "recommended_next_action": audit.get("recommended_next_action", ""),
+        "audited_at": audit.get("audited_at", ""),
+    }
+
+
 def claim_fingerprint(row: dict) -> str:
     stable = {
         "trend_acceptance_key": row.get("trend_acceptance_key"),
@@ -239,7 +336,7 @@ def build_queue(rows: list[dict], generated_at: str) -> list[dict]:
             else "not_ready_for_reviewer_decision"
         )
         evidence = {
-            "acceptance_audit": row,
+            "acceptance_audit": compact_acceptance_evidence(row),
             "manual_decision_file": str(MANUAL_DECISIONS_CSV.relative_to(ROOT)),
             "decision_policy": {
                 "accepted_fact_requires": [
@@ -357,8 +454,8 @@ def audit_rows(queue: list[dict], audited_at: str) -> list[dict]:
         status, accepted, blocker, action = classify_decision(row, decision)
         reviewer_decision = decision.get("reviewer_decision") if decision else "pending"
         evidence = {
-            "queue_row": row,
-            "manual_decision": decision or {},
+            "queue_row": compact_queue_evidence(row),
+            "manual_decision": compact_manual_decision(decision),
             "decision_policy": {
                 "accepted_fact_requires": [
                     "matching claim_fingerprint",
@@ -437,7 +534,18 @@ def accepted_facts(queue: list[dict], audits: list[dict], materialized_at: str) 
             "accepted_by": audit["reviewer_name"],
             "accepted_at": audit["decided_at"],
             "display_safety_status": DISPLAY_SAFETY_STATUS,
-            "evidence_json": dumps({"decision_audit": audit, "queue_row": queue_row}),
+            "evidence_json": dumps(
+                {
+                    "decision_audit": compact_decision_audit(audit),
+                    "queue_row": compact_queue_evidence(queue_row),
+                    "manual_decision_file": str(MANUAL_DECISIONS_CSV.relative_to(ROOT)),
+                    "provenance_policy": (
+                        "Accepted trend facts retain compact provenance pointers in CSV; "
+                        "the source URL, bridge candidate key, claim fingerprint, and reviewer "
+                        "audit files are the replayable evidence chain."
+                    ),
+                }
+            ),
             "materialized_at": materialized_at,
         }
         facts.append({field: fact[field] for field in FACT_FIELDS})

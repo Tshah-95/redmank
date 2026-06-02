@@ -92,7 +92,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_reviewer_decision_queue.csv`: reviewer-decision queue for review-ready recent-attending trend claims, including claim fingerprints and required confirmation fields.
 - `artifacts/data/attending_trend_reviewer_decisions.csv`: manual reviewer decision input file; accepted facts require `accept_trend_fact`, a matching claim fingerprint, and all confirmation fields set.
 - `artifacts/data/attending_trend_reviewer_decision_audit.csv`: audit of manual decisions against the current claim fingerprint and acceptance policy.
-- `artifacts/data/accepted_attending_trend_facts.csv`: accepted recent Penn-trained current-attending trend facts; currently empty until explicit reviewer acceptance is recorded.
+- `artifacts/data/accepted_attending_trend_facts.csv`: accepted recent Penn-trained current-attending trend facts from explicit reviewer decisions with compact provenance pointers.
 - `artifacts/data/attending_trend_reviewer_decision_summary.json`: reviewer-decision queue, pending, rejected/deferred, and accepted-fact counts.
 - `artifacts/data/attending_trend_review_rollups.csv`: trend-review rollups by corpus, training type, training end year, source scope, and ten-year-window scope.
 - `artifacts/data/attending_trend_review_claims_summary.json`: review-ready trend claim, person, end-year, and rollup counts.

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T14:04:45.249040+00:00
+Generated: 2026-06-02T14:13:07.844606+00:00
 
 ## What This Pass Did
 
@@ -3212,7 +3212,7 @@ Scorecard rows: 23.
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
 | Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
-| Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | review_ready_trend_rows_then_record_explicit_acceptance_decisions |
+| Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts |
 | NPPES NPI Registry candidates | candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review | 1257 | 1073 | 62.0 | useful_candidate_layer | use_npi_candidates_as_secondary_identity_anchors_only |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
@@ -3525,7 +3525,7 @@ Materialized review-ready trend claims: 3. People: 3. Rollup rows: 10. Display s
 
 Trend acceptance audit:
 
-Acceptance rows: 3. Accepted trend facts: 0. Review-ready rows requiring explicit reviewer acceptance: 3.
+Pre-review acceptance rows: 3. Pre-review accepted facts: 0. Reviewer-accepted trend facts: 3. Pending reviewer decisions: 0.
 
 | display_name | training_end_year | acceptance_status | accepted_trend_fact | acceptance_blocker | recommended_next_action |
 | --- | --- | --- | --- | --- | --- |
@@ -3535,17 +3535,17 @@ Acceptance rows: 3. Accepted trend facts: 0. Review-ready rows requiring explici
 
 Reviewer decision queue:
 
-Queue rows: 3. Manual decision rows: 0. Accepted trend facts: 0. Pending reviewer decisions: 3.
+Queue rows: 3. Manual decision rows: 3. Accepted trend facts: 3. Pending reviewer decisions: 0.
 
 | decision_status | count |
 | --- | --- |
-| pending_reviewer_decision | 3 |
+| accepted_reviewer_decision | 3 |
 
 | display_name | reviewer_decision | decision_status | accepted_trend_fact | decision_blocker | recommended_next_action |
 | --- | --- | --- | --- | --- | --- |
-| Timothy Buckey, MD, MBE | pending | pending_reviewer_decision | 0 | manual_reviewer_decision_missing | record_accept_reject_or_needs_more_evidence_decision |
-| Patrick Kevin Gleeson, MD, MSCE | pending | pending_reviewer_decision | 0 | manual_reviewer_decision_missing | record_accept_reject_or_needs_more_evidence_decision |
-| Priya Patel, MD | pending | pending_reviewer_decision | 0 | manual_reviewer_decision_missing | record_accept_reject_or_needs_more_evidence_decision |
+| Timothy Buckey, MD, MBE | accept_trend_fact | accepted_reviewer_decision | 1 | none | materialize_accepted_trend_fact |
+| Patrick Kevin Gleeson, MD, MSCE | accept_trend_fact | accepted_reviewer_decision | 1 | none | materialize_accepted_trend_fact |
+| Priya Patel, MD | accept_trend_fact | accepted_reviewer_decision | 1 | none | materialize_accepted_trend_fact |
 
 Trend review rollups:
 
@@ -3700,7 +3700,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T14:04:17.431111+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T14:11:19.588834+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
 | pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |

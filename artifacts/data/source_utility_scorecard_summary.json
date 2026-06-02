@@ -10,6 +10,7 @@
   "by_recommended_next_action": {
     "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
     "execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile": 1,
+    "expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts": 1,
     "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
     "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
     "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
@@ -18,7 +19,6 @@
     "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest": 1,
     "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
     "review_denominator_resolution_candidates_then_rerun_coverage": 1,
-    "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
     "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
     "run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers": 1,
     "run_official_trainee_profile_discovery_then_reconcile_candidates": 1,
@@ -47,7 +47,7 @@
   },
   "candidate_or_discovery_rows": 7,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T14:04:45.125226+00:00",
+  "generated_at": "2026-06-02T14:13:07.705455+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
   "scorecard_rows": 23,
@@ -89,7 +89,7 @@
     },
     {
       "quality_band": "strong_with_known_limits",
-      "recommended_next_action": "review_ready_trend_rows_then_record_explicit_acceptance_decisions",
+      "recommended_next_action": "expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts",
       "score": 82.0,
       "scorecard_key": "attending_trend_reconciliation_ledger",
       "utility_label": "Attending trend reconciliation ledger"

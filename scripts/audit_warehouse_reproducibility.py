@@ -9,6 +9,7 @@ import hashlib
 import json
 import sqlite3
 import subprocess
+import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,6 +26,8 @@ SUMMARY_PATH = ARTIFACTS / "warehouse_reproducibility_summary.json"
 SQLITE_MANIFEST_PATH = ARTIFACTS / "redmank_sqlite_manifest.json"
 
 GITHUB_RECOMMENDED_FILE_LIMIT_BYTES = 50 * 1024 * 1024
+
+csv.field_size_limit(sys.maxsize)
 
 ARTIFACT_SPECS = [
     ("artifacts/data/redmank.sqlite", "sqlite_warehouse_binary", "sqlite", None, True),

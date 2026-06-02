@@ -1126,11 +1126,19 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Produces queryable person/group-level trend assurance, review-claim rows, rollups, and ten-year-window labels",
             ],
             limitations=[
-                "Review-ready rows still need explicit reviewer acceptance before becoming accepted trend facts",
+                (
+                    "Future review-ready rows still need explicit reviewer acceptance before becoming accepted trend facts"
+                    if pending_trend_reviewer_decisions == 0 and accepted_trend_fact_rows > 0
+                    else "Review-ready rows still need explicit reviewer acceptance before becoming accepted trend facts"
+                ),
                 "Current recall is bounded by attending profile and biosketch discovery",
                 "Historical web search remains rate-limit and ranking sensitive",
             ],
-            recommended_next_action="review_ready_trend_rows_then_record_explicit_acceptance_decisions",
+            recommended_next_action=(
+                "expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts"
+                if pending_trend_reviewer_decisions == 0 and accepted_trend_fact_rows > 0
+                else "review_ready_trend_rows_then_record_explicit_acceptance_decisions"
+            ),
             evidence={
                 "summary": trend_reconciliation_summary,
                 "trend_rows": trend_reconciliation_rows,

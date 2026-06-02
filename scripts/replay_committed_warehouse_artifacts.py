@@ -13,12 +13,15 @@ import argparse
 import csv
 import json
 import sqlite3
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
+
+csv.field_size_limit(sys.maxsize)
 
 
 CSV_TABLES = [

@@ -985,7 +985,7 @@ def main() -> None:
         "",
         "Trend acceptance audit:",
         "",
-        f"Acceptance rows: {attending_trend_acceptance_summary.get('trend_acceptance_rows', 0)}. Accepted trend facts: {attending_trend_acceptance_summary.get('accepted_trend_fact_rows', 0)}. Review-ready rows requiring explicit reviewer acceptance: {attending_trend_acceptance_summary.get('review_ready_requires_reviewer_acceptance_rows', 0)}.",
+        f"Pre-review acceptance rows: {attending_trend_acceptance_summary.get('trend_acceptance_rows', 0)}. Pre-review accepted facts: {attending_trend_acceptance_summary.get('accepted_trend_fact_rows', 0)}. Reviewer-accepted trend facts: {attending_trend_reviewer_decision_summary.get('accepted_trend_fact_rows', 0)}. Pending reviewer decisions: {attending_trend_reviewer_decision_summary.get('pending_reviewer_decision_rows', 0)}.",
         "",
         *md_table(
             top_attending_trend_acceptance,
