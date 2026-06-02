@@ -330,11 +330,12 @@ def build_queue(rows: list[dict], generated_at: str) -> list[dict]:
     queue = []
     for row in rows:
         fingerprint = claim_fingerprint(row)
-        queue_status = (
-            "ready_for_reviewer_decision"
-            if row.get("acceptance_status") == "review_ready_requires_explicit_reviewer_acceptance"
-            else "not_ready_for_reviewer_decision"
-        )
+        if row.get("acceptance_status") == "review_ready_requires_explicit_reviewer_acceptance":
+            queue_status = "ready_for_reviewer_decision"
+        elif row.get("acceptance_status") == "accepted_after_explicit_reviewer_decision":
+            queue_status = "accepted_fact_already_materialized"
+        else:
+            queue_status = "not_ready_for_reviewer_decision"
         evidence = {
             "acceptance_audit": compact_acceptance_evidence(row),
             "manual_decision_file": str(MANUAL_DECISIONS_CSV.relative_to(ROOT)),

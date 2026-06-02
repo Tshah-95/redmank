@@ -23,7 +23,9 @@ JSON_PATH = ARTIFACTS / "attending_trend_acceptance_audit.json"
 SUMMARY_PATH = ARTIFACTS / "attending_trend_acceptance_summary.json"
 
 REVIEW_READY_DISPLAY_STATUS = "review_ready_not_accepted_trend_fact"
+ACCEPTED_DISPLAY_STATUS = "accepted_trend_fact_public_source_backed"
 ACCEPTANCE_STATUS_REVIEW = "review_ready_requires_explicit_reviewer_acceptance"
+ACCEPTANCE_STATUS_ACCEPTED = "accepted_after_explicit_reviewer_decision"
 ACCEPTANCE_BLOCKER = "explicit_reviewer_acceptance_missing"
 REQUIRED_REVIEWER_ACTION = (
     "Confirm same-person identity, current Penn endpoint, training line, program type, and dates "
@@ -118,6 +120,49 @@ def read_review_claims(conn: sqlite3.Connection) -> list[dict]:
     ]
 
 
+def read_accepted_facts(conn: sqlite3.Connection) -> dict[str, dict]:
+    conn.row_factory = sqlite3.Row
+    facts = {}
+    for row in conn.execute(
+        """
+        SELECT *
+        FROM accepted_attending_trend_facts
+        ORDER BY accepted_at DESC, trend_fact_key
+        """
+    ):
+        fact = dict(row)
+        facts[fact["trend_acceptance_key"]] = fact
+    return facts
+
+
+def compact_accepted_fact(fact: dict | None) -> dict:
+    if not fact:
+        return {}
+    return {
+        "trend_fact_key": fact.get("trend_fact_key", ""),
+        "reviewer_decision_key": fact.get("reviewer_decision_key", ""),
+        "trend_acceptance_key": fact.get("trend_acceptance_key", ""),
+        "trend_claim_key": fact.get("trend_claim_key", ""),
+        "trend_key": fact.get("trend_key", ""),
+        "display_name": fact.get("display_name", ""),
+        "trend_fact_type": fact.get("trend_fact_type", ""),
+        "training_type": fact.get("training_type", ""),
+        "training_line": fact.get("training_line", ""),
+        "training_organization": fact.get("training_organization", ""),
+        "training_start_year": fact.get("training_start_year", ""),
+        "training_end_year": fact.get("training_end_year", ""),
+        "ten_year_trend_window": fact.get("ten_year_trend_window", ""),
+        "source_key": fact.get("source_key", ""),
+        "source_url": fact.get("source_url", ""),
+        "source_scope": fact.get("source_scope", ""),
+        "bridge_candidate_key": fact.get("bridge_candidate_key", ""),
+        "claim_fingerprint": fact.get("claim_fingerprint", ""),
+        "accepted_by": fact.get("accepted_by", ""),
+        "accepted_at": fact.get("accepted_at", ""),
+        "display_safety_status": fact.get("display_safety_status", ""),
+    }
+
+
 def check_status(value: bool, ready_status: str = "evidence_present_reviewer_confirmation_required") -> str:
     return ready_status if value else "missing_required_evidence"
 
@@ -167,14 +212,31 @@ def classify(row: dict) -> dict:
 
 def materialize_rows(conn: sqlite3.Connection) -> list[dict]:
     existing = load_existing()
+    accepted_facts = read_accepted_facts(conn)
     timestamp = now_utc()
     rows = []
     for claim in read_review_claims(conn):
         classification = classify(claim)
         key_basis = "|".join([claim["trend_claim_key"], claim["trend_key"], claim["event_group_key"]])
+        trend_acceptance_key = f"attending_trend_acceptance_{sha256_text(key_basis)[:20]}"
+        accepted_fact = accepted_facts.get(trend_acceptance_key)
+        if accepted_fact:
+            classification = {
+                "acceptance_status": ACCEPTANCE_STATUS_ACCEPTED,
+                "accepted_trend_fact": 1,
+                "acceptance_level": 5,
+                "identity_check_status": "same_person_identity_confirmed_by_reviewer_decision",
+                "endpoint_check_status": "current_penn_endpoint_confirmed_by_reviewer_decision",
+                "training_line_check_status": "dated_penn_training_line_confirmed_by_reviewer_decision",
+                "date_window_check_status": "recent_ten_year_window_confirmed_by_reviewer_decision",
+                "acceptance_blocker": "none",
+                "display_safety_status": ACCEPTED_DISPLAY_STATUS,
+                "recommended_next_action": "retain_accepted_trend_fact_and_monitor_future_refresh",
+            }
         evidence = {
             "review_claim": claim,
             "parsed_review_claim_evidence": parse_json(claim.get("evidence_json"), {}),
+            "accepted_fact": compact_accepted_fact(accepted_fact),
             "acceptance_policy": {
                 "accepted_trend_fact_requires": [
                     "same-person identity confirmed",
@@ -184,7 +246,8 @@ def materialize_rows(conn: sqlite3.Connection) -> list[dict]:
                     "explicit reviewer acceptance decision recorded",
                 ],
                 "current_materializer_policy": (
-                    "Review-ready rows are not promoted to accepted trend facts without an explicit reviewer decision."
+                    "Review-ready rows are not promoted to accepted trend facts without an explicit reviewer decision; "
+                    "when an accepted fact already exists, this audit reflects the accepted state."
                 ),
             },
             "decision_options": [
@@ -196,7 +259,7 @@ def materialize_rows(conn: sqlite3.Connection) -> list[dict]:
             ],
         }
         row = {
-            "trend_acceptance_key": f"attending_trend_acceptance_{sha256_text(key_basis)[:20]}",
+            "trend_acceptance_key": trend_acceptance_key,
             "trend_claim_key": claim["trend_claim_key"],
             "trend_key": claim["trend_key"],
             "event_group_key": claim["event_group_key"],
@@ -259,6 +322,8 @@ def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
 def write_summary(rows: list[dict]) -> None:
     by_status = Counter(row["acceptance_status"] for row in rows)
     by_blocker = Counter(row["acceptance_blocker"] for row in rows)
+    by_display = Counter(row["display_safety_status"] for row in rows)
+    by_action = Counter(row["recommended_next_action"] for row in rows)
     by_end_year = Counter(str(row["training_end_year"]) for row in rows if row["training_end_year"])
     by_training_type = Counter(row["training_type"] for row in rows if row["training_type"])
     accepted_rows = sum(int(row["accepted_trend_fact"] or 0) for row in rows)
@@ -272,9 +337,13 @@ def write_summary(rows: list[dict]) -> None:
         ),
         "by_acceptance_status": dict(sorted(by_status.items())),
         "by_acceptance_blocker": dict(sorted(by_blocker.items())),
+        "by_display_safety_status": dict(sorted(by_display.items())),
+        "by_recommended_next_action": dict(sorted(by_action.items())),
         "by_training_end_year": dict(sorted(by_end_year.items())),
         "by_training_type": dict(sorted(by_training_type.items())),
-        "display_safety_status": REVIEW_READY_DISPLAY_STATUS if rows else "",
+        "display_safety_status": (
+            ACCEPTED_DISPLAY_STATUS if accepted_rows == len(rows) and rows else REVIEW_READY_DISPLAY_STATUS if rows else ""
+        ),
         "required_reviewer_action": REQUIRED_REVIEWER_ACTION,
         "csv": str(CSV_PATH.relative_to(ROOT)),
         "json": str(JSON_PATH.relative_to(ROOT)),
