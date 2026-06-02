@@ -198,7 +198,7 @@ python3 scripts/materialize_official_program_alias_reviewer_decisions.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
-python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
+python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
 python3 scripts/audit_hup_gap_reasons.py

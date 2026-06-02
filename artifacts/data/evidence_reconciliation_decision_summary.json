@@ -8,17 +8,17 @@
     "penn_training_history_candidate": 5,
     "personal_profile_candidate": 2,
     "prior_training_history_candidate": 6,
-    "pubmed_article_candidate": 1858,
-    "pubmed_author_query_candidate": 1111,
+    "pubmed_article_candidate": 2262,
+    "pubmed_author_query_candidate": 1336,
     "research_interest_candidate": 1
   },
   "by_decision": {
     "attending_training_claim_needs_identity_link": 2,
     "attending_training_claim_review_ready": 3,
-    "candidate_with_partial_anchor": 102,
+    "candidate_with_partial_anchor": 121,
     "current_attending_endpoint_candidate": 49,
-    "discovery_only": 1111,
-    "low_signal_candidate": 912,
+    "discovery_only": 1336,
+    "low_signal_candidate": 1297,
     "needs_secondary_identity_anchor": 727,
     "npi_candidate_with_partial_anchor": 138,
     "npi_low_signal_candidate": 134,
@@ -30,7 +30,7 @@
   },
   "by_record_type": {
     "career_event": 105,
-    "evidence_claim": 2969,
+    "evidence_claim": 3598,
     "npi_candidate": 1073
   },
   "by_ten_year_trend_window": {
@@ -38,10 +38,10 @@
     "unknown": 100,
     "yes": 2
   },
-  "decided_at": "2026-06-02T10:08:40.677895+00:00",
+  "decided_at": "2026-06-02T12:16:37.023737+00:00",
   "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
-  "decision_rows": 4147,
-  "person_or_name_rows": 1263,
+  "decision_rows": 4776,
+  "person_or_name_rows": 1488,
   "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
   "review_ready_rows": 921,
   "sqlite_tables": [

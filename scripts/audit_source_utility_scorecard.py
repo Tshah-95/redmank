@@ -1237,9 +1237,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             limitations=[
                 "Readiness is an execution map, not collected evidence",
                 "Official profile and prior-training lanes still need new trainee-focused collectors",
-                "Research collection is available but still needs queue-driven and medical-student expansion",
+                "Research collection is queue-driven, but article-level reconciliation and acceptance review remain downstream",
             ],
-            recommended_next_action="execute_existing_collector_lanes_first_then_build_missing_profile_and_prior_training_collectors",
+            recommended_next_action="execute_queue_driven_research_and_roster_lanes_then_build_missing_profile_and_prior_training_collectors",
             evidence={
                 "readiness_rows": readiness_rows,
                 "existing_collector_or_partial_collector_rows": readiness_existing_collector,

@@ -1,21 +1,21 @@
 {
-  "acceptance_rows": 4147,
+  "acceptance_rows": 4776,
   "acceptance_rule": "Do not mutate roster truth. A PubMed article becomes a machine-acceptance candidate only with review_ready_high_anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person.",
-  "audited_at": "2026-06-02T10:08:40.932721+00:00",
+  "audited_at": "2026-06-02T12:16:37.345087+00:00",
   "by_acceptance_status": {
     "attending_endpoint_only": 49,
     "context_or_review_queue_only": 51,
-    "low_signal_or_discovery_only": 2157,
+    "low_signal_or_discovery_only": 2767,
     "machine_acceptance_candidate_cross_source": 5,
     "needs_secondary_identity_anchor": 867,
-    "partial_anchor_candidate": 102,
+    "partial_anchor_candidate": 121,
     "review_ready_attending_training_claim": 3,
     "review_ready_publication_identity": 112,
     "secondary_identity_anchor_available": 801
   },
   "by_assurance_level": {
-    "0": 2157,
-    "1": 202,
+    "0": 2767,
+    "1": 221,
     "2": 1668,
     "3": 115,
     "4": 5
@@ -28,14 +28,14 @@
     "penn_training_history_candidate": 5,
     "personal_profile_candidate": 2,
     "prior_training_history_candidate": 6,
-    "pubmed_article_candidate": 1858,
-    "pubmed_author_query_candidate": 1111,
+    "pubmed_article_candidate": 2262,
+    "pubmed_author_query_candidate": 1336,
     "research_interest_candidate": 1
   },
   "by_recommended_action": {
-    "collect_additional_identity_anchors": 102,
+    "collect_additional_identity_anchors": 121,
     "collect_profile_identifier_coauthor_or_historical_bridge_evidence": 867,
-    "deprioritize_until_stronger_independent_source_appears": 2157,
+    "deprioritize_until_stronger_independent_source_appears": 2767,
     "find_training_history_or_start_date_evidence_before_trend_use": 49,
     "promote_to_accepted_enrichment_after_final_duplicate_author_position_check": 5,
     "retain_in_reconciliation_queue": 51,
@@ -47,7 +47,7 @@
   "json": "artifacts/data/enrichment_acceptance_audit.json",
   "machine_acceptance_candidate_people": 3,
   "machine_acceptance_candidate_rows": 5,
-  "person_rows": 1263,
+  "person_rows": 1488,
   "review_ready_publication_rows": 112,
   "secondary_identity_anchor_rows": 801
 }

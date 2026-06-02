@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect public scholarly enrichment candidates for Penn resident/fellow people."""
+"""Collect public scholarly enrichment candidates for Penn trainee people."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ import json
 import re
 import sqlite3
 import time
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -69,30 +70,71 @@ def exactish_name_match(candidate: str, target: str) -> bool:
     return bool(cl and tl and cl.lower() == tl.lower() and cf[:1].lower() == tf[:1].lower() and ci[:1].lower() == ti[:1].lower())
 
 
-def people(conn: sqlite3.Connection, limit: int | None, skip_existing_source: str | None = None) -> list[sqlite3.Row]:
-    sql = """
-        SELECT person_key, display_name, role, raw_json
-        FROM people
-        WHERE role IN ('resident', 'fellow')
-    """
-    params: list[str] = []
+def parse_roles(value: str) -> list[str]:
+    roles = [role.strip() for role in value.split(",") if role.strip()]
+    return roles or ["resident", "fellow"]
+
+
+def people(
+    conn: sqlite3.Connection,
+    limit: int | None,
+    skip_existing_source: str | None = None,
+    *,
+    from_queue: bool = False,
+    roles: list[str] | None = None,
+    task_type: str = "research_identity_search",
+) -> list[dict]:
+    roles = roles or ["resident", "fellow"]
+    params: list[str] = roles[:]
+    role_placeholders = ", ".join("?" for _ in roles)
+    if from_queue:
+        sql = f"""
+            SELECT p.person_key, p.display_name, p.role, p.raw_json,
+                   q.task_key, q.priority, q.priority_band, q.query,
+                   q.source_strategy, q.acceptance_rule, q.recency_policy,
+                   q.provenance_policy, q.blocking_risk
+            FROM people p
+            JOIN person_enrichment_work_queue q ON q.person_key = p.person_key
+            WHERE q.task_type = ?
+              AND p.role IN ({role_placeholders})
+        """
+        params = [task_type, *params]
+    else:
+        sql = f"""
+            SELECT person_key, display_name, role, raw_json,
+                   NULL AS task_key, NULL AS priority, NULL AS priority_band,
+                   NULL AS query, NULL AS source_strategy, NULL AS acceptance_rule,
+                   NULL AS recency_policy, NULL AS provenance_policy, NULL AS blocking_risk
+            FROM people
+            WHERE role IN ({role_placeholders})
+        """
     if skip_existing_source:
         sql += """
           AND NOT EXISTS (
             SELECT 1
             FROM evidence_claims e
-            WHERE e.person_key = people.person_key
+            WHERE e.person_key = p.person_key
               AND e.source_key = ?
               AND e.status != 'rejected'
           )
         """
         params.append(skip_existing_source)
+    if not from_queue and skip_existing_source:
+        sql = sql.replace("e.person_key = p.person_key", "e.person_key = people.person_key")
     sql += """
+        ORDER BY p.role, p.display_name
+    """ if from_queue else """
         ORDER BY role, display_name
     """
     if limit:
         sql += f" LIMIT {int(limit)}"
-    return conn.execute(sql, params).fetchall()
+    rows = [dict(row) for row in conn.execute(sql, params)]
+    if from_queue:
+        deduped = {}
+        for row in rows:
+            deduped.setdefault(row["person_key"], row)
+        rows = list(deduped.values())
+    return rows
 
 
 def profile_context(raw: dict) -> dict:
@@ -101,6 +143,23 @@ def profile_context(raw: dict) -> dict:
         "medical_school": raw.get("medical_school", ""),
         "residency_program": raw.get("residency_program", ""),
         "profile_url": raw.get("profile_url", ""),
+    }
+
+
+def queue_context(person: dict) -> dict:
+    if not person.get("task_key"):
+        return {}
+    return {
+        "task_key": person.get("task_key") or "",
+        "task_type": "research_identity_search",
+        "priority": person.get("priority") or "",
+        "priority_band": person.get("priority_band") or "",
+        "query": person.get("query") or "",
+        "source_strategy": person.get("source_strategy") or "",
+        "acceptance_rule": person.get("acceptance_rule") or "",
+        "recency_policy": person.get("recency_policy") or "",
+        "provenance_policy": person.get("provenance_policy") or "",
+        "blocking_risk": person.get("blocking_risk") or "",
     }
 
 
@@ -130,7 +189,20 @@ def upsert_api_sources(conn: sqlite3.Connection) -> None:
         )
 
 
-def openalex_candidates(session: requests.Session, person: sqlite3.Row) -> list[dict]:
+def attach_collection_context(claim: dict, person: dict, source_mode: str) -> dict:
+    claim = dict(claim)
+    evidence = dict(claim.get("evidence") or {})
+    evidence["collection_context"] = {
+        "collector": "scripts/collect_research_candidates.py",
+        "selection_mode": source_mode,
+        "role": person.get("role") or "",
+        "queue_context": queue_context(person),
+    }
+    claim["evidence"] = evidence
+    return claim
+
+
+def openalex_candidates(session: requests.Session, person: dict) -> list[dict]:
     url = f"https://api.openalex.org/authors?search={quote(clean_name(person['display_name']))}&per-page=5"
     response = request_with_retry(session, url)
     response.raise_for_status()
@@ -186,7 +258,7 @@ def openalex_candidates(session: requests.Session, person: sqlite3.Row) -> list[
     return candidates
 
 
-def pubmed_candidate(session: requests.Session, person: sqlite3.Row) -> dict:
+def pubmed_candidate(session: requests.Session, person: dict) -> dict:
     first, last, initials = name_parts(person["display_name"])
     author = f"{last} {initials}" if last and initials else clean_name(person["display_name"])
     term = f"{author}[Author]"
@@ -344,6 +416,17 @@ def main() -> None:
     parser.add_argument("--only", choices=["all", "openalex", "pubmed"], default="all")
     parser.add_argument("--replace-source", action="append", default=[])
     parser.add_argument(
+        "--from-queue",
+        action="store_true",
+        help="Select people from person_enrichment_work_queue research tasks instead of the legacy resident/fellow list.",
+    )
+    parser.add_argument(
+        "--roles",
+        default="resident,fellow",
+        help="Comma-separated trainee roles to collect. Use resident,fellow,medical_student for queue-wide research enrichment.",
+    )
+    parser.add_argument("--task-type", default="research_identity_search")
+    parser.add_argument(
         "--skip-existing-source",
         choices=["openalex_author_search", "pubmed_eutilities"],
         default=None,
@@ -355,7 +438,15 @@ def main() -> None:
     conn.row_factory = sqlite3.Row
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-research-enrichment/0.1 (candidate evidence only)"
-    selected = people(conn, args.limit, args.skip_existing_source)
+    roles = parse_roles(args.roles)
+    selected = people(
+        conn,
+        args.limit,
+        args.skip_existing_source,
+        from_queue=args.from_queue,
+        roles=roles,
+        task_type=args.task_type,
+    )
     all_claims: list[dict] = []
     with conn:
         upsert_api_sources(conn)
@@ -402,6 +493,11 @@ def main() -> None:
                         }
                     )
             for claim in person_claims:
+                claim = attach_collection_context(
+                    claim,
+                    person,
+                    "person_enrichment_work_queue" if args.from_queue else "legacy_role_selection",
+                )
                 insert_claim(conn, person["person_key"], claim)
                 all_claims.append(
                     {
@@ -452,14 +548,25 @@ def main() -> None:
     }
     durable_claims = current_research_claims(conn)
     conn.close()
+    durable_by_role = Counter(claim["role"] for claim in durable_claims)
+    durable_by_source = Counter(claim["source_key"] for claim in durable_claims)
+    durable_by_role_source = Counter(f"{claim['role']}:{claim['source_key']}" for claim in durable_claims)
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "selection_mode": "person_enrichment_work_queue" if args.from_queue else "legacy_role_selection",
+        "roles": roles,
+        "task_type": args.task_type if args.from_queue else "",
         "people_processed": len(selected),
+        "people_processed_by_role": dict(Counter(person["role"] for person in selected)),
         "claims_generated": len(all_claims),
         "by_source": {
             source: sum(1 for claim in all_claims if claim["source_key"] == source)
             for source in sorted({claim["source_key"] for claim in all_claims})
         },
+        "durable_claim_rows": len(durable_claims),
+        "durable_claims_by_role": dict(sorted(durable_by_role.items())),
+        "durable_claims_by_source": dict(sorted(durable_by_source.items())),
+        "durable_claims_by_role_source": dict(sorted(durable_by_role_source.items())),
         "current_database_by_source": current_counts,
         "current_database_by_source_status": current_status_counts,
     }

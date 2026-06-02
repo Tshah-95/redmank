@@ -158,10 +158,10 @@ TASK_EXECUTION = {
         "next_system_action": "run_identifier_candidate_collection_then_review_alias_collapses",
     },
     "research_identity_search": {
-        "execution_lane": "collector_available_with_role_gap",
-        "automation_status": "collector_available_partial_role_coverage",
+        "execution_lane": "queue_driven_collector_available",
+        "automation_status": "collector_available_queue_driven",
         "existing_collector": "scripts/collect_research_candidates.py",
-        "command_hint": "python3 scripts/collect_research_candidates.py --skip-existing-source pubmed_eutilities --sleep 0.34",
+        "command_hint": "python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --skip-existing-source pubmed_eutilities --sleep 0.34",
         "input_artifacts": [
             "artifacts/data/person_enrichment_queue.csv",
             "artifacts/data/research_candidate_claims.json",
@@ -173,10 +173,10 @@ TASK_EXECUTION = {
         ],
         "requires_network": 1,
         "requires_manual_review": 1,
-        "requires_script_extension": 1,
+        "requires_script_extension": 0,
         "requires_new_parser": 0,
-        "readiness_reason": "PubMed/OpenAlex collection exists for residents/fellows; queue-driven execution and medical-student coverage still need script extension.",
-        "next_system_action": "extend_research_collector_to_queue_and_medical_students_then_run_candidate_collection",
+        "readiness_reason": "PubMed/OpenAlex collection can now select from queued research tasks, including medical students; article-level and acceptance review still happen downstream.",
+        "next_system_action": "run_queue_driven_research_candidate_collection_then_article_level_reconciliation",
     },
     "source_medical_school_background": {
         "execution_lane": "source_search_then_review",

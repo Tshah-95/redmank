@@ -51,7 +51,6 @@ Advanced Noninvasive Cardiac Imaging Fellowship,fellow,2,61.0,0,2,0,0.0,0.0,1.0,
 Cardio-Oncology Fellowship,fellow,2,61.0,0,2,0,0.0,0.0,1.0,1.0,0.0,0.5,0.5,3,3,official_profile_search
 Geriatric Medicine Fellowship,fellow,3,61.0,0,3,0,0.0,0.0,1.0,1.0,0.0,0.667,0.333,4,7,official_profile_search
 Adult Congenital Heart Disease Fellowship,fellow,2,62.0,0,2,0,0.0,0.0,1.0,1.0,0.0,1.0,0.5,3,9,official_profile_search
-Medical Scientist Training Program,medical_student,225,62.29,0,225,0,1.0,0.911,0.0,0.0,0.0,0.0,0.0,0,0,monitor_refresh_and_diff
 Physical Medicine and Rehabilitation Residency,resident,22,62.36,2,20,0,0.727,0.0,1.0,0.0,0.227,0.909,0.864,12,72,organization_alias_review
 Internal Medicine Residency - Healthcare Leadership in Quality Track,resident,25,63.0,2,23,0,0.8,0.0,1.0,0.0,0.2,0.84,0.76,11,73,organization_alias_review
 Internal Medicine Residency,resident,173,63.02,9,159,5,0.728,0.0,0.988,0.0,0.283,0.838,0.798,75,661,reconcile_high_priority_evidence
@@ -73,6 +72,7 @@ Advanced Gastroenterology and Hepatology Fellowship,fellow,2,69.0,0,2,0,1.0,0.0,
 Craniofacial Surgery Fellowship,fellow,1,69.0,0,1,0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,2,1,organization_alias_review
 Cardiothoracic Surgery Residency,resident,15,69.2,3,12,0,1.0,0.0,1.0,0.0,0.267,0.8,0.8,15,75,organization_alias_review
 Orthopedic Surgery Residency,resident,40,69.72,11,29,0,0.95,0.0,1.0,0.0,0.375,0.75,0.675,32,193,organization_alias_review
+Medical Scientist Training Program,medical_student,225,69.96,56,169,0,1.0,0.911,0.0,0.0,0.267,0.0,0.0,0,629,monitor_refresh_and_diff
 Interventional Radiology Integrated Residency,resident,19,71.0,4,15,0,1.0,0.0,1.0,0.0,0.421,0.368,0.316,6,86,reconcile_high_priority_evidence
 Microvascular Reconstructive Surgery Fellowship,fellow,5,71.6,4,0,1,0.8,0.0,0.8,0.8,0.8,0.8,0.4,7,47,organization_alias_review
 Nephrology Fellowship,fellow,22,71.91,6,16,0,0.545,0.0,1.0,1.0,0.5,0.636,0.591,39,86,organization_alias_review

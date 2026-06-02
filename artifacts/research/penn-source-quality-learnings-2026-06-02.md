@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T12:10:21.246629+00:00
+Generated: 2026-06-02T12:19:03.707504+00:00
 
 ## What This Pass Did
 
@@ -648,9 +648,9 @@ Learning: the transition plan is the executable state-machine contract for futur
 | penn_gme_gap_residents_2027_15a734ed51 | accepted | medical_school | 14 | 0.821 |
 | penn_gme_gap_residents_2028_420d5a86f8 | accepted | medical_school | 14 | 0.879 |
 | penn_gme_gap_residents_2029_3396e9a918 | accepted | medical_school | 12 | 0.917 |
-| pubmed_eutilities | candidate | pubmed_article_candidate | 1008 | 0.652 |
-| pubmed_eutilities | candidate | pubmed_author_query_candidate | 1111 | 0.204 |
-| pubmed_eutilities | needs_review | pubmed_article_candidate | 850 | 0.841 |
+| pubmed_eutilities | candidate | pubmed_article_candidate | 1405 | 0.652 |
+| pubmed_eutilities | candidate | pubmed_author_query_candidate | 1336 | 0.204 |
+| pubmed_eutilities | needs_review | pubmed_article_candidate | 857 | 0.841 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
@@ -669,9 +669,9 @@ Scorecard rows: 21.
 | Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
 | Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 32 | 524 | 76.0 | strong_with_known_limits | review_denominator_resolution_candidates_then_rerun_coverage |
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
-| PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
-| PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
-| Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
+| PubMed author-query discovery | name-bounded publication discovery seeds | 1336 | 1336 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
+| PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
+| Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4776 | 4776 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
 | Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 62 | 62 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
@@ -682,8 +682,8 @@ Scorecard rows: 21.
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
-| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1483 | 6126 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
-| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6126 | 6126 | 78.0 | strong_with_known_limits | execute_existing_collector_lanes_first_then_build_missing_profile_and_prior_training_collectors |
+| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1483 | 6068 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
+| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6068 | 6068 | 78.0 | strong_with_known_limits | execute_queue_driven_research_and_roster_lanes_then_build_missing_profile_and_prior_training_collectors |
 
 Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.
 
@@ -692,10 +692,10 @@ Learning: a source utility should be judged by the claim surface it supports, no
 | record_type | status | claim_type | count | avg_priority | avg_confidence |
 | --- | --- | --- | --- | --- | --- |
 | career_event | needs_review | penn_training_history_candidate | 5 | 118.0 | 0.756 |
-| evidence_claim | needs_review | pubmed_article_candidate | 850 | 106.3 | 0.841 |
+| evidence_claim | needs_review | pubmed_article_candidate | 857 | 106.3 | 0.841 |
 | npi_candidate | needs_review | npi_candidate | 801 | 105.5 | 0.736 |
 | npi_candidate | candidate | npi_candidate | 146 | 69.2 | 0.602 |
-| evidence_claim | candidate | pubmed_article_candidate | 1008 | 51.9 | 0.652 |
+| evidence_claim | candidate | pubmed_article_candidate | 1405 | 51.8 | 0.652 |
 | career_event | candidate | education_history_candidate | 6 | 47.3 | 0.62 |
 | career_event | candidate | prior_training_history_candidate | 6 | 43.7 | 0.573 |
 | career_event | candidate | research_interest_candidate | 1 | 40.0 | 0.55 |
@@ -703,7 +703,7 @@ Learning: a source utility should be judged by the claim surface it supports, no
 | career_event | candidate | current_penn_attending_candidate | 49 | 35.0 | 0.55 |
 | npi_candidate | low_signal_npi_candidate | npi_candidate | 126 | 30.9 | 0.47 |
 | career_event | candidate | penn_alumni_outcome_candidate | 36 | 23.6 | 0.411 |
-| evidence_claim | candidate | pubmed_author_query_candidate | 1111 | 13.7 | 0.204 |
+| evidence_claim | candidate | pubmed_author_query_candidate | 1336 | 13.6 | 0.204 |
 
 Top queued records:
 
@@ -744,7 +744,7 @@ Learning: candidate evidence needs a ranked reconciliation surface. The queue se
 
 ## Reconciliation Decision Ledger
 
-Decision rows: 4147. Review-ready rows: 921. Person/name rollups: 1263.
+Decision rows: 4776. Review-ready rows: 921. Person/name rollups: 1488.
 
 Decision counts:
 
@@ -752,10 +752,10 @@ Decision counts:
 | --- | --- |
 | attending_training_claim_needs_identity_link | 2 |
 | attending_training_claim_review_ready | 3 |
-| candidate_with_partial_anchor | 102 |
+| candidate_with_partial_anchor | 121 |
 | current_attending_endpoint_candidate | 49 |
-| discovery_only | 1111 |
-| low_signal_candidate | 912 |
+| discovery_only | 1336 |
+| low_signal_candidate | 1297 |
 | needs_secondary_identity_anchor | 727 |
 | npi_candidate_with_partial_anchor | 138 |
 | npi_low_signal_candidate | 134 |
@@ -1096,14 +1096,14 @@ Learning: NPPES is an official provider registry and useful as a secondary ident
 
 ## Enrichment Coverage Audit
 
-People audited: 1483. Program/role groups audited: 95. Average coverage score: 60.66.
+People audited: 1483. Program/role groups audited: 95. Average coverage score: 61.82.
 
 Coverage bands:
 
 | coverage_band | count |
 | --- | --- |
-| broad_enrichment_surface | 163 |
-| moderate_enrichment_surface | 1137 |
+| broad_enrichment_surface | 219 |
+| moderate_enrichment_surface | 1081 |
 | thin_enrichment_surface | 183 |
 
 Recommended next actions:
@@ -1111,11 +1111,11 @@ Recommended next actions:
 | recommended_next_action | count |
 | --- | --- |
 | collect_article_level_research_candidates | 53 |
-| monitor_refresh_and_diff | 205 |
+| monitor_refresh_and_diff | 203 |
 | official_profile_search | 514 |
 | organization_alias_review | 387 |
 | public_contact_search | 26 |
-| reconcile_high_priority_evidence | 257 |
+| reconcile_high_priority_evidence | 259 |
 | review_training_state_machine | 22 |
 | source_medical_school_background | 15 |
 | source_residency_background | 4 |
@@ -1157,8 +1157,8 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
-| pubmed_article_reconciliation | 297 | 1008 | 0 | 0 | 850 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 1858, "mean_confidence": 0.7386, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 1858, "summary": {"article_claims": 1858, "by_feature": {"article_author_name_match": 1858, "bounded_author_query": 1858, "penn_affiliation": 11, "prior_training_or_education_affiliation": 843, "program_topic_match": 215, "recent_publication": 1647}, "by_status": {"candidate": 1008, "needs_review": 850}, "generated_at": "2026-06-02T06:14:49.049485+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 305, "unique_pmids_fetched": 1879}} |
-| pubmed_eutilities | 1111 | 2119 | 0 | 0 | 850 | {"claims": 2969, "mean_confidence": 0.5386, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2969} |
+| pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
+| pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |
 
 ## OpenAlex Feature Distribution
 
@@ -1171,36 +1171,36 @@ Learning: OpenAlex remains a promising author-disambiguation utility, but the cu
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
-| ["author_query", "high_collision_risk"] | 669 | 0.159 |
-| ["author_query", "bounded_result_count"] | 305 | 0.35 |
-| ["author_query", "no_results"] | 137 | 0.1 |
+| ["author_query", "high_collision_risk"] | 831 | 0.158 |
+| ["author_query", "bounded_result_count"] | 365 | 0.35 |
+| ["author_query", "no_results"] | 140 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
 
 ## PubMed Article-Level Reconciliation
 
-Bounded query claims considered: 305. Unique PMIDs fetched: 1879. Article candidates: 1858.
+Bounded query claims considered: 365. Unique PMIDs fetched: 2271. Article candidates: 2262.
 
 Article candidate statuses:
 
 | status | count |
 | --- | --- |
-| candidate | 1008 |
-| needs_review | 850 |
+| candidate | 1405 |
+| needs_review | 857 |
 
 Article candidate feature distribution:
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
-| ["article_author_name_match", "bounded_author_query", "recent_publication"] | 719 | 0.65 |
+| ["article_author_name_match", "bounded_author_query", "recent_publication"] | 1067 | 0.65 |
 | ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation", "recent_publication"] | 706 | 0.83 |
-| ["article_author_name_match", "bounded_author_query"] | 187 | 0.62 |
+| ["article_author_name_match", "bounded_author_query"] | 217 | 0.62 |
+| ["article_author_name_match", "bounded_author_query", "program_topic_match", "recent_publication"] | 118 | 0.73 |
 | ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation", "program_topic_match", "recent_publication"] | 111 | 0.91 |
-| ["article_author_name_match", "bounded_author_query", "program_topic_match", "recent_publication"] | 100 | 0.73 |
 | ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation"] | 21 | 0.8 |
-| ["article_author_name_match", "bounded_author_query", "penn_affiliation", "recent_publication"] | 6 | 0.87 |
+| ["article_author_name_match", "bounded_author_query", "penn_affiliation", "recent_publication"] | 13 | 0.87 |
 | ["article_author_name_match", "bounded_author_query", "penn_affiliation", "prior_training_or_education_affiliation", "recent_publication"] | 4 | 0.95 |
-| ["article_author_name_match", "bounded_author_query", "program_topic_match"] | 2 | 0.7 |
+| ["article_author_name_match", "bounded_author_query", "program_topic_match"] | 3 | 0.7 |
 | ["article_author_name_match", "bounded_author_query", "prior_training_or_education_affiliation", "program_topic_match"] | 1 | 0.88 |
 | ["article_author_name_match", "bounded_author_query", "penn_affiliation", "program_topic_match", "recent_publication"] | 1 | 0.95 |
 
