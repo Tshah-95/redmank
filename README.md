@@ -12,6 +12,10 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_training_summary.json`: counts and field coverage for the resident/fellow corpus.
 - `artifacts/data/penn_source_discovery.json`: crawler-based review list of candidate Penn Department of Medicine training pages.
 - `artifacts/data/penn_mstp_students.json`: separate public MSTP student-directory extract.
+- `artifacts/data/redmank.sqlite`: SQLite warehouse built from the generated artifacts.
+- `artifacts/data/warehouse_summary.json`: warehouse table counts and resolver status counts.
+- `artifacts/data/organization_review_queue.csv`: organization labels that need alias/identifier review.
+- `artifacts/data/person_enrichment_queue.csv`: per-person recursive enrichment tasks.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
 As of the latest local generation, the Department of Medicine corpus has 453 unique resident/fellow profiles: 220 current fellows, 219 current residents, 1 chief resident, and 13 former fellows exposed on current fellowship pages. The separate MSTP student subset has 225 public student-directory records and is intentionally not treated as an all-medical-student roster.
@@ -42,6 +46,13 @@ Run the separate public MSTP student extract:
 python3 scripts/scrape_penn_mstp_students.py
 ```
 
+Build the SQLite warehouse and review queues:
+
+```bash
+python3 scripts/build_sqlite.py
+python3 scripts/generate_enrichment_queue.py
+```
+
 Validate scripts:
 
 ```bash
@@ -57,10 +68,11 @@ This project uses public web sources only. It does not bypass login walls, priva
 The initial methodology is conservative:
 
 - Prefer official program roster pages over search snippets or secondary profiles.
-- Store raw source snapshots and source metadata, including HTTP status and content hash.
+- Store source metadata, including HTTP status and content hash. Redacted raw snapshots can be regenerated locally but are ignored by Git.
 - Deduplicate by normalized person name with manual aliases only when the same public corpus shows the variant.
 - Keep track and fellowship memberships as multi-valued fields instead of forcing one person into one category.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
+- Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 
 See the latest research brief in `artifacts/research/` for source coverage, quality grades, and recommended enrichment tiers.

@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "notes": "Seeded aliases are conservative normalizations observed in the Penn case study. External identifiers are attached only when the local mapping is intentionally scoped, such as parent ROR for Penn.",
+  "organizations": [
+    {
+      "canonical_name": "Perelman School of Medicine at the University of Pennsylvania",
+      "category": "medical_school",
+      "parent_name": "University of Pennsylvania",
+      "identifiers": [
+        {
+          "identifier_type": "parent_ror",
+          "identifier_value": "https://ror.org/00b30xv10",
+          "source": "seeded_parent_identifier"
+        }
+      ],
+      "aliases": [
+        "Perelman School of Medicine",
+        "Perelman School of Medicine at the University of Pennsylvania",
+        "Perelman School of Medicine, University of Pennsylvania",
+        "University of Pennsylvania",
+        "University of Pennsylvania School of Medicine"
+      ]
+    },
+    {
+      "canonical_name": "Sidney Kimmel Medical College at Thomas Jefferson University",
+      "category": "medical_school",
+      "parent_name": "Thomas Jefferson University",
+      "aliases": [
+        "Sidney Kimmel Medical College at Thomas Jefferson University",
+        "Sidney Kimmel Medical College, Jefferson University",
+        "Sidney Kimmel Medical College",
+        "Jefferson Medical College",
+        "Thomas Jefferson University"
+      ]
+    },
+    {
+      "canonical_name": "NYU Grossman School of Medicine",
+      "category": "medical_school",
+      "parent_name": "New York University",
+      "aliases": [
+        "New York University Grossman School of Medicine",
+        "NYU Grossman School of Medicine",
+        "New York University"
+      ]
+    },
+    {
+      "canonical_name": "Johns Hopkins University School of Medicine",
+      "category": "medical_school",
+      "parent_name": "Johns Hopkins University",
+      "aliases": [
+        "Johns Hopkins University School of Medicine",
+        "Johns Hopkins University",
+        "Johns Hopkins"
+      ]
+    },
+    {
+      "canonical_name": "Rutgers Robert Wood Johnson Medical School",
+      "category": "medical_school",
+      "parent_name": "Rutgers University",
+      "aliases": [
+        "Rutgers Robert Wood Johnson Medical School",
+        "Rutgers University",
+        "Rutgers"
+      ]
+    },
+    {
+      "canonical_name": "Icahn School of Medicine at Mount Sinai",
+      "category": "medical_school",
+      "parent_name": "Mount Sinai",
+      "aliases": [
+        "Icahn School of Medicine at Mount Sinai",
+        "Mount Sinai"
+      ]
+    },
+    {
+      "canonical_name": "University of Michigan Medical School",
+      "category": "medical_school",
+      "parent_name": "University of Michigan",
+      "aliases": [
+        "University of Michigan Medical School",
+        "University of Michigan"
+      ]
+    },
+    {
+      "canonical_name": "Hospital of the University of Pennsylvania",
+      "category": "clinical_training_site",
+      "parent_name": "Penn Medicine",
+      "aliases": [
+        "Hospital of the University of Pennsylvania",
+        "HUP",
+        "University of Pennsylvania"
+      ]
+    },
+    {
+      "canonical_name": "Massachusetts General Hospital",
+      "category": "clinical_training_site",
+      "parent_name": "Mass General Brigham",
+      "aliases": [
+        "Massachusetts General Hospital",
+        "Mass General",
+        "MGH"
+      ]
+    },
+    {
+      "canonical_name": "Brigham and Women's Hospital",
+      "category": "clinical_training_site",
+      "parent_name": "Mass General Brigham",
+      "aliases": [
+        "Brigham and Women's Hospital",
+        "Brigham & Women's Hospital",
+        "BWH"
+      ]
+    }
+  ]
+}
