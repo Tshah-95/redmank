@@ -58,6 +58,8 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_gme_gap_source_probes.json",
     ARTIFACTS / "research_candidate_claims.json",
     ARTIFACTS / "research_candidate_summary.json",
+    ARTIFACTS / "openalex_work_candidate_claims.json",
+    ARTIFACTS / "openalex_work_candidate_summary.json",
     ARTIFACTS / "pubmed_article_candidate_claims.json",
     ARTIFACTS / "pubmed_article_candidate_summary.json",
     ARTIFACTS / "manual_source_quality_observations.json",
@@ -456,6 +458,7 @@ def insert_source_utilities(conn: sqlite3.Connection) -> None:
 def upsert_scholarly_sources(conn: sqlite3.Connection) -> None:
     for source_key, source_url, title in [
         ("openalex_author_search", "https://api.openalex.org/authors", "OpenAlex author search"),
+        ("openalex_work_search", "https://api.openalex.org/works", "OpenAlex work search"),
         ("pubmed_eutilities", "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/", "NCBI PubMed E-utilities"),
     ]:
         conn.execute(
@@ -497,6 +500,7 @@ def insert_manual_source_quality_observations(conn: sqlite3.Connection) -> None:
 def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
     claim_paths = [
         ARTIFACTS / "research_candidate_claims.json",
+        ARTIFACTS / "openalex_work_candidate_claims.json",
         ARTIFACTS / "pubmed_article_candidate_claims.json",
     ]
     paths = [path for path in claim_paths if path.exists()]
@@ -538,6 +542,9 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
     summaries = {
         "research_candidate_claims.json": load_json(ARTIFACTS / "research_candidate_summary.json")
         if (ARTIFACTS / "research_candidate_summary.json").exists()
+        else {},
+        "openalex_work_candidate_claims.json": load_json(ARTIFACTS / "openalex_work_candidate_summary.json")
+        if (ARTIFACTS / "openalex_work_candidate_summary.json").exists()
         else {},
         "pubmed_article_candidate_claims.json": load_json(ARTIFACTS / "pubmed_article_candidate_summary.json")
         if (ARTIFACTS / "pubmed_article_candidate_summary.json").exists()

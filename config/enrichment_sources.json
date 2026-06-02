@@ -62,6 +62,18 @@
       "acceptance_rule": "Accept only with at least two identity anchors beyond name, such as Penn affiliation, ORCID, profile link, coauthor cluster, specialty/topic, or prior institution."
     },
     {
+      "utility_key": "openalex_work_search",
+      "display_name": "OpenAlex work-level search",
+      "source_family": "scholarly_api",
+      "default_tier": "silver",
+      "default_status": "needs_review",
+      "default_confidence": 0.6,
+      "claim_types": ["openalex_work_candidate", "publication_candidate", "affiliation_anchor", "doi", "pmid", "citation_count"],
+      "strengths": ["Uses stable OpenAlex work IDs", "Links author candidates to concrete works, dates, DOI/PMID, author position, venues, and affiliations", "Can corroborate PubMed article candidates and ORCID-linked author identities"],
+      "limitations": ["Depends on OpenAlex API availability and daily request budget", "Author disambiguation remains inherited from the selected OpenAlex author record", "Affiliations can be stale, missing, or attached inconsistently across authorships"],
+      "acceptance_rule": "Use as corroborating research evidence only. Promote to accepted publication authorship after same-person review confirms the OpenAlex author candidate and at least two non-name anchors, preferably DOI/PMID plus affiliation, ORCID, profile, topic, or coauthor context."
+    },
+    {
       "utility_key": "pubmed_eutilities",
       "display_name": "NCBI PubMed E-utilities",
       "source_family": "scholarly_api",
