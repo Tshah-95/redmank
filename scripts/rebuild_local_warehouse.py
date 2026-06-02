@@ -35,6 +35,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_attending_trend_dossiers.py"],
     ["python3", "scripts/audit_person_evidence_review_packets.py"],
     ["python3", "scripts/materialize_person_evidence_reviewer_decisions.py"],
+    ["python3", "scripts/materialize_person_evidence_review_triage.py"],
     ["python3", "scripts/export_warehouse_views.py"],
     ["python3", "scripts/audit_training_state_machine.py", "--as-of-date", "2026-06-02"],
     ["python3", "scripts/audit_longitudinal_change_readiness.py", "--refresh-date", "2027-08-15"],

@@ -87,6 +87,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_evidence_reviewer_decision_queue.csv`: fingerprinted reviewer-decision queue for review-ready person evidence packets.
 - `artifacts/data/person_evidence_reviewer_decisions.csv`: manual reviewer decision input file for accepting, rejecting, or deferring person evidence packets.
 - `artifacts/data/person_evidence_reviewer_decision_audit.csv`: audit of manual person-evidence decisions against current packet fingerprints and confirmation requirements.
+- `artifacts/data/person_evidence_review_triage.csv`: non-mutating review workbench for queued person-evidence packets, with triage lane, risk, decision difficulty, evidence density, source-family summary, reviewer prompt, and likely next action.
+- `artifacts/data/person_evidence_review_triage_summary.json`: review-lane/risk/difficulty counts plus the top triage rows for prioritizing publication, identifier, official-profile, and trend-bridge review.
 - `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.
 - `artifacts/data/enrichment_acceptance_summary.json`: acceptance-tier counts, including cross-source publication machine-acceptance candidates.
 - `artifacts/data/accepted_enrichment_claims.csv`: strict machine-accepted enrichment facts, currently non-roster-mutating publication claims with provenance, acceptance policy, and final display-sanity checks attached.

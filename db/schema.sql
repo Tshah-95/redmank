@@ -829,6 +829,39 @@ CREATE TABLE IF NOT EXISTS person_evidence_reviewer_decision_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_evidence_review_triage (
+  triage_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES person_evidence_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  packet_key TEXT NOT NULL REFERENCES person_evidence_review_packets(packet_key) ON DELETE CASCADE,
+  person_or_name_key TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  review_kind TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  triage_lane TEXT NOT NULL,
+  triage_priority INTEGER NOT NULL DEFAULT 0,
+  decision_difficulty TEXT NOT NULL,
+  risk_level TEXT NOT NULL,
+  evidence_density_score REAL NOT NULL DEFAULT 0.0,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  claim_type_count INTEGER NOT NULL DEFAULT 0,
+  match_feature_count INTEGER NOT NULL DEFAULT 0,
+  source_family_summary TEXT NOT NULL,
+  top_source_domains TEXT,
+  best_decision TEXT,
+  likely_next_action TEXT NOT NULL,
+  reviewer_prompt TEXT NOT NULL,
+  automation_boundary TEXT NOT NULL,
+  acceptance_blocker TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,

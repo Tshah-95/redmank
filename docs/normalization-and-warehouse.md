@@ -82,6 +82,7 @@ Core tables:
 - `person_reconciliation_decisions`: queryable person/name-level reconciliation burden and review-readiness rollup.
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
 - `person_evidence_reviewer_decision_queue`, `person_evidence_reviewer_decisions`, `person_evidence_reviewer_decision_audit`: explicit reviewer-decision loop for review-ready person evidence packets.
+- `person_evidence_review_triage`: non-mutating review workbench over the reviewer queue. It ranks review-ready packets by lane, risk, decision difficulty, evidence density, and source family without accepting candidate facts.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
