@@ -2,154 +2,154 @@
   {
     "source_key": "penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532",
     "url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/education-and-training/current-residents-and-fellows",
-    "fetched_at": "2026-06-02T04:46:37.218505+00:00",
+    "fetched_at": "2026-06-02T16:38:00.902397+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/education-and-training/current-residents-and-fellows",
-    "sha256": "b57993279fbc4e07c7b844f00f4839ea7d23a7cfd568bd3b8ace8e3b74f4345e",
+    "sha256": "932e1cea5bdfc4a7a1e24d9037cb6e6256afeb28e5c2da989a8ad602ce23bea5",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/cardiothoracic-residency/residents",
-    "fetched_at": "2026-06-02T04:46:37.357248+00:00",
+    "fetched_at": "2026-06-02T16:38:01.060241+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/cardiothoracic-residency/residents",
-    "sha256": "a2efd20e363f7ce29ed0200bf20354f3bab989fb8630c40185b634fafc93bf69",
+    "sha256": "75c20bbe73546fe89495c155476d8e85b44964787aa9b9522a4c564acc206ee1",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b688511031",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/general-surgery-residency/fy26-residents",
-    "fetched_at": "2026-06-02T04:46:37.509700+00:00",
+    "fetched_at": "2026-06-02T16:38:01.188918+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/general-surgery-residency/fy26-residents",
-    "sha256": "4aec4d6451e776d99ab405ecee2a5a6c8ea545b4c367aa677f5644fc5b54513a",
+    "sha256": "b2ae804677b64689a6ae82bff433412ac060b5b2ea30f0cace88489f83185996",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b1bc5a1dae",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents",
-    "fetched_at": "2026-06-02T04:46:37.662770+00:00",
+    "fetched_at": "2026-06-02T16:38:01.313429+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents",
-    "sha256": "0ae105538d96d74be7f8dc21b157c4ee8595f410b298c183fde9752472c6de91",
+    "sha256": "9c40ee5f77d3f9f8a44feecb5891399dc7eea8b38f6cb785bbed922f5ad9f33c",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b953e0b386",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/urology-residency/residents",
-    "fetched_at": "2026-06-02T04:46:37.806950+00:00",
+    "fetched_at": "2026-06-02T16:38:01.433811+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/urology-residency/residents",
-    "sha256": "88665b99f312e2f5baaf083f99b03370d9568ed531a349bc9e5e1ebda25ae7ea",
+    "sha256": "4767c7934e20979dcfafee4a8637d86eb83c70c52ea6fd7d51ca3a78575e40cb",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_8726482f2e",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/vascular-surgery-integrated-residency/residents",
-    "fetched_at": "2026-06-02T04:46:37.949401+00:00",
+    "fetched_at": "2026-06-02T16:38:01.572728+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/vascular-surgery-integrated-residency/residents",
-    "sha256": "168218ddd05ccd42cb73573d9f0127b3bc7fe1571cd006f4f1f4cb859ab03a5e",
+    "sha256": "8182cd5373ca9bbf828b7e6bdc60bfe97505c817a450820b53093e3b7b45eec9",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_fb4824f4f4",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/aortic-surgery-fellowship/fellows",
-    "fetched_at": "2026-06-02T04:46:38.085622+00:00",
+    "fetched_at": "2026-06-02T16:38:01.702677+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/aortic-surgery-fellowship/fellows",
-    "sha256": "f0fdd37a8ea351c60cd18315d9ee1112e921f8138bef4422b100c217ce0d15e5",
+    "sha256": "b91bdd6110a727526c493693d66f6f5a57f0008f19b565afadba632bb4509332",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_acebe4929a",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/cardiothoracic-transplantation-surgery-fellowship/fellows",
-    "fetched_at": "2026-06-02T04:46:38.195108+00:00",
+    "fetched_at": "2026-06-02T16:38:01.904831+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/cardiothoracic-transplantation-surgery-fellowship/fellows",
-    "sha256": "7cf426ba4bb163e60f3c32208fd38fbcd4b699504b1281344df6174f65144c48",
+    "sha256": "7e479827f5178e9f48bbccc2662d915ed7bbbc8b54bfc5a7a35251eae0fe3730",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_ff73f3288d",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/microvascular-reconstructive-surgery-fellowship/fellows",
-    "fetched_at": "2026-06-02T04:46:38.331144+00:00",
+    "fetched_at": "2026-06-02T16:38:02.041394+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/microvascular-reconstructive-surgery-fellowship/fellows",
-    "sha256": "8acae7af59afc9ba144ca656e0e0ceb1706fa96413ccc7a6a699cbaf2d65e46c",
+    "sha256": "a544998afb0f533f1663941b9c65890d8c318978c75e6568c6879bd3a874305d",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_4ccb7e8d57",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-cardiac-track/fellow",
-    "fetched_at": "2026-06-02T04:46:38.473310+00:00",
+    "fetched_at": "2026-06-02T16:38:02.159268+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-cardiac-track/fellow",
-    "sha256": "be72c5528bad9ae38d3ce7185c9a2e802e290e18092b6b72f66e4d2de96f78ee",
+    "sha256": "5c98290b05d6054ecdea829bdec27c310c5d0cd788cfed10f4dfe2d577b5d011",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_e9538572e0",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/transplant-fellowship/fellows",
-    "fetched_at": "2026-06-02T04:46:38.593910+00:00",
+    "fetched_at": "2026-06-02T16:38:02.266336+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/transplant-fellowship/fellows",
-    "sha256": "e0ab8bb717158aa46d3b78301a0d742e6f759b34bed183916c89c757864b0b95",
+    "sha256": "ec15f6bf606a3400d77c2ba163a7b160e039c298684ffe16ddd567732ca93afb",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_059f3f8bc0",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows",
-    "fetched_at": "2026-06-02T04:46:38.730400+00:00",
+    "fetched_at": "2026-06-02T16:38:02.408900+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows",
-    "sha256": "c78ffb3d5327372f051d538d8fc7390c8a00ab16c6aad9977eec69cbc4a8ee2d",
+    "sha256": "37fd28a35f088921c78977241eeefb215a92e5b0fb90f2dc1f347862c5699213",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_f_f1043500c4",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/vascular-surgery-fellowship/fellows",
-    "fetched_at": "2026-06-02T04:46:38.859857+00:00",
+    "fetched_at": "2026-06-02T16:38:02.533961+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/vascular-surgery-fellowship/fellows",
-    "sha256": "9b0720fcd1a59896fb64df640b2299b8399d727f4c07f2826ffe8acc9f0e72c6",
+    "sha256": "95aaa765bdf04c54ff50b5c99b4b2e5b9b0df35ebcda06a2267142360f081a94",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_4250553081",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/fellowships/meet-our-fellows",
-    "fetched_at": "2026-06-02T04:46:39.000857+00:00",
+    "fetched_at": "2026-06-02T16:38:02.628143+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/fellowships/meet-our-fellows",
-    "sha256": "448387352692fd3601a7e3e1bb22d246d74a8a15a9d7c6d645cee02198f73d14",
+    "sha256": "31b2c6116b76d1342d633dd4ff4bd677fedb1cf974bc1ec399fd59d501906a8e",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_2ebc99cda7",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/diagnostic-radiology-residents",
-    "fetched_at": "2026-06-02T04:46:39.162462+00:00",
+    "fetched_at": "2026-06-02T16:38:02.766464+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/diagnostic-radiology-residents",
-    "sha256": "9bb0de0867c71c7ac8773ba0d291a1db4b139150097c58e70b2eac18b95b16c2",
+    "sha256": "c1d82716e30c45f41cb10dd4210209089553987ef44cd55665b1873894dbb85a",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_282737f299",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/ir-integrated-residents",
-    "fetched_at": "2026-06-02T04:46:39.345665+00:00",
+    "fetched_at": "2026-06-02T16:38:02.891027+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/ir-integrated-residents",
-    "sha256": "75679bb050033305b69437310cfd6fd8630bfbc6265492266661ef2c86914754",
+    "sha256": "65a34a317365a7e08b2d059693ed367f30886cf8c168ae106cbe1324cfaaa7ab",
     "discovery_classification": "trainee_roster_candidate"
   },
   {
     "source_key": "penn_affiliated_departments_and_centers_department_of_radiology_education_and_training_f5ce8fafab",
     "url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/fellowships/fellowship-programs/abr-alternate-pathway-to-certification/copy-of-abr-alternate-pathway",
-    "fetched_at": "2026-06-02T04:46:39.487262+00:00",
+    "fetched_at": "2026-06-02T16:38:02.999373+00:00",
     "http_status": 200,
     "effective_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/fellowships/fellowship-programs/abr-alternate-pathway-to-certification/copy-of-abr-alternate-pathway",
-    "sha256": "bceee85e6cb316d9233d63b2c9d8a3b5bde8edc08772c1ff8b9906e79d29e80f",
+    "sha256": "e540de48b4e0d2b2f636835e76273b764d463da3bfa031b52fa96d78bcad5c0d",
     "discovery_classification": "trainee_roster_candidate"
   }
 ]

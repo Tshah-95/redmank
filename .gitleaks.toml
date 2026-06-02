@@ -7,8 +7,8 @@ useDefault = true
 description = "Generated warehouse identifier fields, not credentials."
 regexTarget = "line"
 regexes = [
-  '''(?i)([a-z0-9_]*key|matched_current_person_keys)("{1,2})?\s*[:=]\s*("{1,2})?(person|program|hup_gme|official_program|official_program_alias|official_program_coverage|program_source_candidate|trend|trend_acceptance|trend_rollup|observation|entity)_[a-z0-9_.-]+_[0-9a-f]{8,}("{1,2})?''',
-  '''(?i)[a-z0-9_]*key\\":\s*\\"(person|program|hup_gme|official_program|official_program_alias|official_program_coverage|program_source_candidate|trend|trend_acceptance|trend_rollup|observation|entity)_[a-z0-9_.-]+_[0-9a-f]{8,}''',
+  '''(?i)(person_key|program_key|source_key|entity_key|trend_key|rollup_key|matched_current_person_keys)("{1,2})?\s*[:=]\s*("{1,2})?(person|program|hup_gme|official_program|official_program_alias|official_program_coverage|program_source_candidate|trend|trend_acceptance|trend_rollup|observation|entity|penn_outcome|penn_attending_profile|penn_affiliated|penn_training|penn_gme)_[a-z0-9_.-]+_[0-9a-f]{8,}("{1,2})?''',
+  '''(?i)(person_key|program_key|source_key|entity_key|trend_key|rollup_key|matched_current_person_keys)\\":\s*\\"(person|program|hup_gme|official_program|official_program_alias|official_program_coverage|program_source_candidate|trend|trend_acceptance|trend_rollup|observation|entity|penn_outcome|penn_attending_profile|penn_affiliated|penn_training|penn_gme)_[a-z0-9_.-]+_[0-9a-f]{8,}''',
   '''(?i)entity_key("{1,2})?\s*[:=]\s*("{1,2})?[0-9a-f]{16,}("{1,2})?''',
 ]
 stopwords = [
@@ -24,4 +24,9 @@ stopwords = [
   '''trend_rollup_''',
   '''observation_''',
   '''entity_''',
+  '''penn_outcome_''',
+  '''penn_attending_profile_''',
+  '''penn_affiliated_''',
+  '''penn_training_''',
+  '''penn_gme_''',
 ]
