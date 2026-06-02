@@ -77,6 +77,13 @@ EXPORTS = {
                confidence, status
         FROM v_recent_attending_trend_candidates
     """,
+    "evidence_reconciliation_queue.csv": """
+        SELECT record_type, record_id, person_key, display_name, role, claim_type,
+               claim_value, event_type, organization_name, event_year, source_key,
+               source_url, source_type, status, confidence, priority, review_action,
+               match_features_json, reconciliation_notes
+        FROM v_evidence_reconciliation_queue
+    """,
 }
 
 

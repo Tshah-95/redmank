@@ -184,6 +184,28 @@ def main() -> None:
         ORDER BY contact_type, contact_scope, verification_status, status
         """,
     )
+    reconciliation_queue_counts = rows(
+        conn,
+        """
+        SELECT record_type, status, claim_type, COUNT(*) AS count,
+               ROUND(AVG(priority), 1) AS avg_priority,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM v_evidence_reconciliation_queue
+        GROUP BY record_type, status, claim_type
+        ORDER BY avg_priority DESC, count DESC, record_type, status, claim_type
+        LIMIT 40
+        """,
+    )
+    top_reconciliation_queue = rows(
+        conn,
+        """
+        SELECT record_type, display_name, role, claim_type, status, confidence,
+               priority, source_key, source_url, review_action
+        FROM v_evidence_reconciliation_queue
+        ORDER BY priority DESC, confidence DESC, display_name
+        LIMIT 30
+        """,
+    )
     conn.close()
     hup_coverage_summary = read_json(ARTIFACTS / "penn_gme_program_coverage_summary.json", {})
     hup_coverage_rows = read_json(ARTIFACTS / "penn_gme_program_coverage.json", [])
@@ -241,6 +263,8 @@ def main() -> None:
         "training_state_counts": training_state_counts,
         "transition_rule_counts": transition_rule_counts,
         "lifecycle_code_counts": lifecycle_code_counts,
+        "reconciliation_queue_counts": reconciliation_queue_counts,
+        "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
@@ -358,6 +382,22 @@ def main() -> None:
         "## Evidence Counts",
         "",
         *md_table(evidence_counts, ["source_key", "status", "claim_type", "count", "avg_confidence"]),
+        "",
+        "## Evidence Reconciliation Queue",
+        "",
+        *md_table(
+            reconciliation_queue_counts,
+            ["record_type", "status", "claim_type", "count", "avg_priority", "avg_confidence"],
+        ),
+        "",
+        "Top queued records:",
+        "",
+        *md_table(
+            top_reconciliation_queue,
+            ["record_type", "display_name", "role", "claim_type", "status", "confidence", "priority", "review_action"],
+        ),
+        "",
+        "Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.",
         "",
         "## Utility Observations",
         "",

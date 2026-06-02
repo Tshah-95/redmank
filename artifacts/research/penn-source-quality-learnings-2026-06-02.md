@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:23:58.981159+00:00
+Generated: 2026-06-02T06:27:46.352718+00:00
 
 ## What This Pass Did
 
@@ -402,6 +402,58 @@ Learning: roster strings should become normalized state observations with explic
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
 | rheumatology_current_fellows | accepted | residency_program | 15 | 0.83 |
 | rheumatology_current_fellows | accepted | undergraduate_school | 15 | 0.777 |
+
+## Evidence Reconciliation Queue
+
+| record_type | status | claim_type | count | avg_priority | avg_confidence |
+| --- | --- | --- | --- | --- | --- |
+| career_event | needs_review | penn_training_history_candidate | 5 | 118.0 | 0.756 |
+| evidence_claim | needs_review | pubmed_article_candidate | 850 | 106.3 | 0.841 |
+| evidence_claim | candidate | pubmed_article_candidate | 1008 | 51.9 | 0.652 |
+| career_event | candidate | education_history_candidate | 6 | 47.3 | 0.62 |
+| career_event | candidate | prior_training_history_candidate | 6 | 43.7 | 0.573 |
+| career_event | candidate | research_interest_candidate | 1 | 40.0 | 0.55 |
+| career_event | candidate | personal_profile_candidate | 2 | 39.0 | 0.45 |
+| career_event | candidate | current_penn_attending_candidate | 49 | 35.0 | 0.55 |
+| career_event | candidate | penn_alumni_outcome_candidate | 36 | 23.6 | 0.411 |
+| evidence_claim | candidate | pubmed_author_query_candidate | 1111 | 13.7 | 0.204 |
+
+Top queued records:
+
+| record_type | display_name | role | claim_type | status | confidence | priority | review_action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| career_event | Patrick Kevin Gleeson, MD, MSCE | attending_or_outcome_candidate | penn_training_history_candidate | needs_review | 0.78 | 122 | Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor. |
+| career_event | Priya Patel, MD | attending_or_outcome_candidate | penn_training_history_candidate | needs_review | 0.78 | 122 | Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor. |
+| career_event | Timothy Buckey, MD, MBE | attending_or_outcome_candidate | penn_training_history_candidate | needs_review | 0.78 | 122 | Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor. |
+| evidence_claim | Michelle Munyikwa, MD, PhD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Rachel Flaugh, MD* | resident | pubmed_article_candidate | needs_review | 0.95 | 117 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Andrew M. Acker, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Bradley Osemwengie, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Brittany Brookner, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Bruk Mekonen, MD, MS | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Carissa E. Livingston, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Caroline Granruth, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Caroline L. Simon, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | China N. Byrns, MD, PhD, MS | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Christopher M. Anthony, DO | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Danielle Murashige, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+
+Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.
 
 ## Utility Observations
 

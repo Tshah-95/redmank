@@ -433,6 +433,100 @@ ORDER BY
   confidence DESC,
   display_name;
 
+CREATE VIEW IF NOT EXISTS v_evidence_reconciliation_queue AS
+SELECT
+  'evidence_claim' AS record_type,
+  e.evidence_id AS record_id,
+  e.person_key,
+  p.display_name,
+  p.role,
+  e.claim_type,
+  e.claim_value,
+  '' AS event_type,
+  '' AS organization_name,
+  NULL AS event_year,
+  e.source_key,
+  e.source_url,
+  e.source_type,
+  e.status,
+  e.confidence,
+  e.match_features_json,
+  e.reconciliation_notes,
+  CASE
+    WHEN e.status = 'needs_review' THEN 50 ELSE 10
+  END
+  + CASE
+      WHEN e.claim_type = 'pubmed_article_candidate' THEN 30
+      WHEN e.claim_type = 'research_author_candidate' THEN 20
+      WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 2
+      ELSE 5
+    END
+  + CASE WHEN e.match_features_json LIKE '%penn_affiliation%' THEN 15 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%prior_training_or_education_affiliation%' THEN 12 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%program_topic_match%' THEN 8 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%orcid_present%' THEN 15 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%bounded_author_query%' THEN 5 ELSE 0 END
+  + CAST(e.confidence * 10 AS INTEGER) AS priority,
+  CASE
+    WHEN e.claim_type = 'pubmed_article_candidate' THEN 'Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment.'
+    WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 'Use only as discovery input; fetch/review article-level evidence before accepting.'
+    WHEN e.claim_type = 'research_author_candidate' THEN 'Review OpenAlex/ORCID/affiliation anchors before accepting author identity.'
+    ELSE 'Review candidate evidence against person identity before accepting.'
+  END AS review_action
+FROM evidence_claims e
+LEFT JOIN people p ON p.person_key = e.person_key
+WHERE e.status IN ('candidate', 'needs_review')
+  AND e.claim_type IN (
+    'pubmed_article_candidate',
+    'pubmed_author_query_candidate',
+    'research_author_candidate',
+    'research_author_candidate_error'
+  )
+UNION ALL
+SELECT
+  'career_event' AS record_type,
+  c.career_event_id AS record_id,
+  c.person_key,
+  c.display_name,
+  COALESCE(p.role, 'attending_or_outcome_candidate') AS role,
+  CASE WHEN c.role_title IS NOT NULL AND c.role_title != '' THEN c.role_title ELSE c.event_type END AS claim_type,
+  CASE WHEN c.role_title IS NOT NULL AND c.role_title != '' THEN c.role_title ELSE c.event_type END
+    || CASE WHEN c.organization_name IS NOT NULL AND c.organization_name != '' THEN ': ' || c.organization_name ELSE '' END AS claim_value,
+  c.event_type,
+  c.organization_name,
+  c.event_year,
+  c.source_key,
+  c.source_url,
+  'career_event' AS source_type,
+  c.status,
+  c.confidence,
+  c.match_features_json,
+  'Career-event candidate; link to prior Penn trainee identity only after source/profile evidence agrees.' AS reconciliation_notes,
+  CASE
+    WHEN c.status = 'needs_review' THEN 50 ELSE 10
+  END
+  + CASE
+      WHEN c.event_type = 'attending_profile_training_history_candidate'
+           AND c.role_title = 'penn_training_history_candidate' THEN 40
+      WHEN c.event_type = 'attending_profile_training_history_candidate' THEN 25
+      WHEN c.event_type = 'current_penn_attending_candidate' THEN 20
+      WHEN c.event_type = 'penn_alumni_outcome_candidate' THEN 10
+      ELSE 5
+    END
+  + CASE WHEN c.match_features_json LIKE '%penn_training_language%' THEN 15 ELSE 0 END
+  + CASE WHEN c.match_features_json LIKE '%structured_provider_training_field%' THEN 10 ELSE 0 END
+  + CAST(c.confidence * 10 AS INTEGER) AS priority,
+  CASE
+    WHEN c.event_type = 'attending_profile_training_history_candidate' THEN 'Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor.'
+    WHEN c.event_type = 'current_penn_attending_candidate' THEN 'Use as current Penn endpoint candidate; seek profile/training/history anchors.'
+    WHEN c.event_type = 'penn_alumni_outcome_candidate' THEN 'Source-level outcome context only; resolve named person before linking.'
+    ELSE 'Review career-event evidence before linking.'
+  END AS review_action
+FROM career_events c
+LEFT JOIN people p ON p.person_key = c.person_key
+WHERE c.status IN ('candidate', 'needs_review')
+ORDER BY priority DESC, confidence DESC, display_name, record_type, record_id;
+
 CREATE VIEW IF NOT EXISTS v_public_person_contacts AS
 SELECT
   c.contact_id,

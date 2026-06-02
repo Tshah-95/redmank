@@ -66,6 +66,7 @@ Useful views:
 - `v_official_program_source_queue`: prioritized candidate roster/context pages for uncovered official programs.
 - `v_organization_review_queue`: organization aliases that need review.
 - `v_recent_attending_trend_candidates`: career-event candidates for current Penn attending and alumni/outcome trend work.
+- `v_evidence_reconciliation_queue`: ranked candidate evidence and career-event review queue.
 - `v_public_person_contacts`: public structured contact candidates joined to reconciled people when possible.
 
 ## Program Universe Coverage
@@ -104,6 +105,8 @@ The intended loop:
 6. Repeat until the remaining queue is mostly low-confidence or low-value.
 
 This lets the method improve without quietly poisoning the corpus.
+
+`v_evidence_reconciliation_queue` is the review workbench. It combines candidate/needs-review scholarly claims and career-event claims into one ranked surface with a review action. Priority is based on status, source/claim type, confidence, and non-name anchors such as Penn affiliation, prior education/training affiliation, specialty-topic match, ORCID presence, structured provider training fields, and Penn-training language. Low-value discovery signals remain visible but are ranked below article/profile evidence.
 
 ## Attending Trend Evidence
 

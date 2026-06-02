@@ -102,6 +102,28 @@ def main() -> None:
         row["event_type"]: row["count"]
         for row in conn.execute("SELECT event_type, COUNT(*) AS count FROM career_events GROUP BY event_type")
     }
+    evidence_reconciliation_queue_counts = {
+        f"{row['record_type']}:{row['status']}": row["count"]
+        for row in conn.execute(
+            """
+            SELECT record_type, status, COUNT(*) AS count
+            FROM v_evidence_reconciliation_queue
+            GROUP BY record_type, status
+            """
+        )
+    }
+    evidence_reconciliation_top_claim_counts = {
+        row["claim_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT claim_type, COUNT(*) AS count
+            FROM v_evidence_reconciliation_queue
+            GROUP BY claim_type
+            ORDER BY count DESC
+            LIMIT 20
+            """
+        )
+    }
     contact_counts = {
         row["contact_type"]: row["count"]
         for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
@@ -142,6 +164,8 @@ def main() -> None:
         "evidence_status_counts": evidence_status_counts,
         "evidence_source_counts": evidence_source_counts,
         "career_event_counts": career_event_counts,
+        "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
+        "evidence_reconciliation_top_claim_counts": evidence_reconciliation_top_claim_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,

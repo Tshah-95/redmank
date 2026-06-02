@@ -28,6 +28,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_attending_profile_claims.json`: official Penn profile-derived attending education/training/research/personal-profile candidate claims.
 - `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
+- `artifacts/data/evidence_reconciliation_queue.csv`: ranked review queue for candidate evidence and career-event reconciliation.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
 - `artifacts/data/pubmed_article_candidate_claims.json`: article-level PubMed candidates with author, affiliation, topic, and recency features.
 - `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
@@ -141,6 +142,7 @@ The initial methodology is conservative:
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
+- Rank candidate enrichment in an evidence reconciliation queue before accepting profile, publication, or attending-trend claims.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.
 

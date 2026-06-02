@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T06:23:58.981159+00:00",
+  "generated_at": "2026-06-02T06:27:46.352718+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -1815,6 +1815,450 @@
       "refresh_policy": "source_refresh_required",
       "count": 225,
       "avg_confidence": 0.762
+    }
+  ],
+  "reconciliation_queue_counts": [
+    {
+      "record_type": "career_event",
+      "status": "needs_review",
+      "claim_type": "penn_training_history_candidate",
+      "count": 5,
+      "avg_priority": 118.0,
+      "avg_confidence": 0.756
+    },
+    {
+      "record_type": "evidence_claim",
+      "status": "needs_review",
+      "claim_type": "pubmed_article_candidate",
+      "count": 850,
+      "avg_priority": 106.3,
+      "avg_confidence": 0.841
+    },
+    {
+      "record_type": "evidence_claim",
+      "status": "candidate",
+      "claim_type": "pubmed_article_candidate",
+      "count": 1008,
+      "avg_priority": 51.9,
+      "avg_confidence": 0.652
+    },
+    {
+      "record_type": "career_event",
+      "status": "candidate",
+      "claim_type": "education_history_candidate",
+      "count": 6,
+      "avg_priority": 47.3,
+      "avg_confidence": 0.62
+    },
+    {
+      "record_type": "career_event",
+      "status": "candidate",
+      "claim_type": "prior_training_history_candidate",
+      "count": 6,
+      "avg_priority": 43.7,
+      "avg_confidence": 0.573
+    },
+    {
+      "record_type": "career_event",
+      "status": "candidate",
+      "claim_type": "research_interest_candidate",
+      "count": 1,
+      "avg_priority": 40.0,
+      "avg_confidence": 0.55
+    },
+    {
+      "record_type": "career_event",
+      "status": "candidate",
+      "claim_type": "personal_profile_candidate",
+      "count": 2,
+      "avg_priority": 39.0,
+      "avg_confidence": 0.45
+    },
+    {
+      "record_type": "career_event",
+      "status": "candidate",
+      "claim_type": "current_penn_attending_candidate",
+      "count": 49,
+      "avg_priority": 35.0,
+      "avg_confidence": 0.55
+    },
+    {
+      "record_type": "career_event",
+      "status": "candidate",
+      "claim_type": "penn_alumni_outcome_candidate",
+      "count": 36,
+      "avg_priority": 23.6,
+      "avg_confidence": 0.411
+    },
+    {
+      "record_type": "evidence_claim",
+      "status": "candidate",
+      "claim_type": "pubmed_author_query_candidate",
+      "count": 1111,
+      "avg_priority": 13.7,
+      "avg_confidence": 0.204
+    }
+  ],
+  "top_reconciliation_queue": [
+    {
+      "record_type": "career_event",
+      "display_name": "Patrick Kevin Gleeson, MD, MSCE",
+      "role": "attending_or_outcome_candidate",
+      "claim_type": "penn_training_history_candidate",
+      "status": "needs_review",
+      "confidence": 0.78,
+      "priority": 122,
+      "source_key": "penn_attending_profile_providers_profile_patrick_gleeson_42e3bf9ca1",
+      "source_url": "https://www3.pennmedicine.org/providers/profile/patrick-gleeson",
+      "review_action": "Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor."
+    },
+    {
+      "record_type": "career_event",
+      "display_name": "Priya Patel, MD",
+      "role": "attending_or_outcome_candidate",
+      "claim_type": "penn_training_history_candidate",
+      "status": "needs_review",
+      "confidence": 0.78,
+      "priority": 122,
+      "source_key": "penn_attending_profile_providers_profile_priya_patel_aed224b7a0",
+      "source_url": "https://www3.pennmedicine.org/providers/profile/priya-patel",
+      "review_action": "Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor."
+    },
+    {
+      "record_type": "career_event",
+      "display_name": "Timothy Buckey, MD, MBE",
+      "role": "attending_or_outcome_candidate",
+      "claim_type": "penn_training_history_candidate",
+      "status": "needs_review",
+      "confidence": 0.78,
+      "priority": 122,
+      "source_key": "penn_attending_profile_providers_profile_timothy_buckey_d0f4671881",
+      "source_url": "https://www3.pennmedicine.org/providers/profile/timothy-buckey",
+      "review_action": "Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Michelle Munyikwa, MD, PhD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.95,
+      "priority": 121,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33406326/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Samer Mohandes, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.95,
+      "priority": 121,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40796935/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Samer Mohandes, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.95,
+      "priority": 121,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41986737/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Samer Mohandes, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.95,
+      "priority": 121,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42056516/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Rachel Flaugh, MD*",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.95,
+      "priority": 117,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38299252/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amber Meservey, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31828514/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amber Meservey, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40145043/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amber Meservey, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40404217/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amber Meservey, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41290323/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amir Heravi, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33509400/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amir Heravi, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/35675673/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Amir Heravi, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36978803/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Andrew M. Acker, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/37808021/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Bradley Osemwengie, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/29929716/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Brittany Brookner, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38509339/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Bruk Mekonen, MD, MS",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40336497/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Carissa E. Livingston, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36877449/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Caroline Granruth, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36890044/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Caroline L. Simon, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/36516943/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "China N. Byrns, MD, PhD, MS",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34115987/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Christopher M. Anthony, DO",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34865104/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Dania Salih Bacha, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/33954783/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Dania Salih Bacha, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/34687206/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Dania Salih Bacha, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38468148/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Dania Salih Bacha, MD",
+      "role": "fellow",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/42162870/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Danielle Murashige, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39960981/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
+    },
+    {
+      "record_type": "evidence_claim",
+      "display_name": "Elisabeth (Elise) Seyferth, MD",
+      "role": "resident",
+      "claim_type": "pubmed_article_candidate",
+      "status": "needs_review",
+      "confidence": 0.91,
+      "priority": 114,
+      "source_key": "pubmed_eutilities",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/39658750/",
+      "review_action": "Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment."
     }
   ],
   "contact_counts": [
