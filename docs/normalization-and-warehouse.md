@@ -304,6 +304,8 @@ This lane is intentionally candidate-only. Prior education and previous GME fact
 
 The current readiness ledger now treats profile, research, and prior-training discovery as collector-backed queue lanes. That means the next improvement loop is execution and reconciliation quality, not building another parser skeleton: run candidate collection, inspect hit quality by source utility, promote only evidence-backed claims, then rerun the queue to see which tasks remain unresolved.
 
+`scripts/materialize_person_enrichment_action_execution_plan.py` is the batch-level operator layer above action packets and member fingerprints. It groups ready/manual-review/collector batches by lane, records pending, blocked, executed, and stale-decision counts, preserves command hints and expected downstream artifacts, and emits member-level decision templates with current fingerprints. Like the member execution audit, it is non-mutating: execution notes show work performed, while factual changes still require source-specific artifacts plus reviewer and acceptance ledgers.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.

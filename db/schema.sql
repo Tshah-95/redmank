@@ -3359,6 +3359,39 @@ CREATE TABLE IF NOT EXISTS person_enrichment_action_member_execution_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_enrichment_action_execution_plan (
+  execution_plan_key TEXT PRIMARY KEY,
+  action_batch_key TEXT NOT NULL REFERENCES person_enrichment_action_batches(action_batch_key) ON DELETE CASCADE,
+  primary_action_lane TEXT NOT NULL,
+  role TEXT,
+  priority_band TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  packet_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  pending_member_count INTEGER NOT NULL DEFAULT 0,
+  blocked_member_count INTEGER NOT NULL DEFAULT 0,
+  executed_member_count INTEGER NOT NULL DEFAULT 0,
+  invalid_or_stale_member_count INTEGER NOT NULL DEFAULT 0,
+  max_packet_priority INTEGER NOT NULL DEFAULT 0,
+  total_review_packet_count INTEGER NOT NULL DEFAULT 0,
+  total_evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  total_profile_workbench_count INTEGER NOT NULL DEFAULT 0,
+  top_programs TEXT,
+  top_member_names TEXT,
+  first_command_hint TEXT,
+  command_hints_json TEXT NOT NULL,
+  expected_downstream_artifacts_json TEXT NOT NULL,
+  required_output_routing TEXT NOT NULL,
+  decision_template_json TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  blocker_status TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

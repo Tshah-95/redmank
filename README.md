@@ -183,6 +183,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
+- `artifacts/data/person_enrichment_action_execution_plan.csv`: batch-level execution plan over person-enrichment action members, including pending/blocked/executed counts, command hints, decision templates, output routing, and non-mutating acceptance boundary.
+- `artifacts/data/person_enrichment_action_execution_plan_summary.json`: execution-plan rollups by lane, blocker, batch status, and top operator batches.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_batches.csv` when available, so person-evidence actions are bounded review sessions; if batches are absent it falls back to `person_evidence_review_triage.csv`, then the raw reviewer queue.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.

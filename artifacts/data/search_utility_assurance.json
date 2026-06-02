@@ -1,6 +1,6 @@
 [
   {
-    "audited_at": "2026-06-02T23:11:03.897559+00:00",
+    "audited_at": "2026-06-02T23:17:33.801698+00:00",
     "by_search_error_json": "{}",
     "by_search_http_status_json": "{}",
     "candidate_artifact": "artifacts/data/penn_gme_gap_source_candidates.csv",
@@ -25,7 +25,7 @@
     "utility_name": "Official HUP gap-source broad search"
   },
   {
-    "audited_at": "2026-06-02T23:11:03.897559+00:00",
+    "audited_at": "2026-06-02T23:17:33.801698+00:00",
     "by_search_error_json": "{\"search_endpoint_non_200\": 28}",
     "by_search_http_status_json": "{\"200\": 2, \"202\": 28}",
     "candidate_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
@@ -50,7 +50,7 @@
     "utility_name": "Official trainee profile search"
   },
   {
-    "audited_at": "2026-06-02T23:11:03.897559+00:00",
+    "audited_at": "2026-06-02T23:17:33.801698+00:00",
     "by_search_error_json": "{\"search_endpoint_non_200\": 38}",
     "by_search_http_status_json": "{\"200\": 2, \"202\": 38}",
     "candidate_artifact": "artifacts/data/prior_training_discovery_candidates.csv",
@@ -75,7 +75,7 @@
     "utility_name": "Prior-training background search"
   },
   {
-    "audited_at": "2026-06-02T23:11:03.897559+00:00",
+    "audited_at": "2026-06-02T23:17:33.801698+00:00",
     "by_search_error_json": "{\"search_endpoint_non_200\": 34}",
     "by_search_http_status_json": "{\"200\": 2, \"202\": 34}",
     "candidate_artifact": "artifacts/data/attending_historical_link_candidates.csv",

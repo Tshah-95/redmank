@@ -103,6 +103,7 @@ CSV_TABLES = [
     ("person_enrichment_action_member_execution_decisions.csv", "person_enrichment_action_member_execution_decisions"),
     ("person_enrichment_action_member_execution_queue.csv", "person_enrichment_action_member_execution_queue"),
     ("person_enrichment_action_member_execution_audit.csv", "person_enrichment_action_member_execution_audit"),
+    ("person_enrichment_action_execution_plan.csv", "person_enrichment_action_execution_plan"),
     ("person_evidence_reviewer_decisions.csv", "person_evidence_reviewer_decisions"),
     ("person_evidence_reviewer_decision_queue.csv", "person_evidence_reviewer_decision_queue"),
     ("person_evidence_reviewer_decision_audit.csv", "person_evidence_reviewer_decision_audit"),
