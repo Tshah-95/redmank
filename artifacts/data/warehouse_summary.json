@@ -72,6 +72,7 @@
   "counts": {
     "career_events": 105,
     "evidence_claims": 4744,
+    "official_program_alias_reconciliation_candidates": 16,
     "official_program_coverage_audit": 91,
     "official_program_gap_reason_audit": 27,
     "official_program_source_candidates": 72,
@@ -256,7 +257,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T07:43:33.110536+00:00",
+  "generated_at": "2026-06-02T07:50:00.250897+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -373,6 +374,15 @@
     "MEDICAL_SCHOOL_MS3_OR_MS4": 49,
     "MSTP_PHD_PHASE": 123,
     "POSTDOCTORAL_RESEARCH_FELLOW": 7
+  },
+  "official_program_alias_reconciliation_counts": {
+    "combined_track_not_categorical_coverage": 1,
+    "official_type_or_track_mismatch_review": 1,
+    "role_mismatch_related_source": 1,
+    "same_program_alias_candidate": 1,
+    "section_level_split_candidate": 1,
+    "track_split_unresolved_review": 1,
+    "weak_related_source_review": 10
   },
   "official_program_coverage_counts": {
     "covered_current_roster": 64,

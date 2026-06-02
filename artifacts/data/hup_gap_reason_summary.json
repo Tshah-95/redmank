@@ -26,7 +26,7 @@
   },
   "csv": "artifacts/data/hup_gap_reason_audit.csv",
   "gap_rows": 27,
-  "generated_at": "2026-06-02T07:43:33.064248+00:00",
+  "generated_at": "2026-06-02T07:48:56.885876+00:00",
   "json": "artifacts/data/hup_gap_reason_audit.json",
   "low_content_gap_rows": 3,
   "related_loaded_source_gap_rows": 5,

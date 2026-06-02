@@ -37,6 +37,47 @@ def dumps(value) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True)
 
 
+def existing_audit_rows() -> dict[str, dict]:
+    path = ARTIFACTS / "hup_gap_reason_audit.csv"
+    if not path.exists():
+        return {}
+    with path.open(newline="", encoding="utf-8") as f:
+        return {row["official_program_key"]: row for row in csv.DictReader(f)}
+
+
+def stable_audited_at(existing: dict[str, dict], row: dict, new_value: str) -> str:
+    prior = existing.get(row["official_program_key"])
+    if not prior:
+        return new_value
+    stable_fields = [
+        "coverage_status",
+        "gap_reason_status",
+        "recommended_next_action",
+        "reason_confidence",
+        "candidate_count",
+        "roster_candidate_count",
+        "context_candidate_count",
+        "low_value_candidate_count",
+        "probed_url_count",
+        "reachable_probe_count",
+        "low_content_probe_count",
+        "max_roster_term_count",
+        "max_context_term_count",
+        "related_loaded_source_count",
+        "related_loaded_person_count",
+        "top_candidate_url",
+        "top_candidate_title",
+        "top_candidate_status",
+        "top_candidate_priority",
+        "top_candidate_confidence",
+        "evidence_json",
+    ]
+    for field in stable_fields:
+        if str(prior.get(field, "")) != str(row.get(field, "")):
+            return new_value
+    return prior.get("audited_at") or new_value
+
+
 def uncovered_program_rows(conn: sqlite3.Connection) -> list[dict]:
     return [
         dict(row)
@@ -226,6 +267,7 @@ def classify_gap(row: dict, candidates: list[dict], probes: list[dict], related_
 
 
 def audit_rows(conn: sqlite3.Connection) -> list[dict]:
+    existing = existing_audit_rows()
     candidates_by_program = read_grouped(conn, "official_program_source_candidates")
     probes_by_program = read_grouped(conn, "official_program_source_probes")
     usage_by_url = source_usage_by_url(conn)
@@ -267,8 +309,7 @@ def audit_rows(conn: sqlite3.Connection) -> list[dict]:
                 for probe in probes
             ],
         }
-        rows.append(
-            {
+        audit_row = {
                 "official_program_key": row["official_program_key"],
                 "department": row.get("department") or "",
                 "program_type": row["program_type"],
@@ -300,7 +341,8 @@ def audit_rows(conn: sqlite3.Connection) -> list[dict]:
                 "evidence_json": dumps(evidence),
                 "audited_at": audited_at,
             }
-        )
+        audit_row["audited_at"] = stable_audited_at(existing, audit_row, audited_at)
+        rows.append(audit_row)
     return rows
 
 
@@ -369,7 +411,7 @@ def summary_payload(rows: list[dict]) -> dict:
     by_coverage = Counter(row["coverage_status"] for row in rows)
     by_program_type_status = Counter(f"{row['program_type']}:{row['gap_reason_status']}" for row in rows)
     return {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": max((row["audited_at"] for row in rows), default=datetime.now(timezone.utc).isoformat()),
         "gap_rows": len(rows),
         "by_gap_reason_status": dict(sorted(by_status.items())),
         "by_recommended_next_action": dict(sorted(by_action.items())),

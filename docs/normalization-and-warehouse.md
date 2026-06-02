@@ -46,6 +46,7 @@ Core tables:
 - `official_program_source_probes`: reachability, title, content hash, and page-signal observations for official program gap URLs.
 - `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
 - `official_program_gap_reason_audit`: deterministic reason ledger for uncovered official programs, separating context-only pages, parser/manual-review candidates, low-content official pages, related loaded-source alias reviews, and broader-discovery gaps.
+- `official_program_alias_reconciliation_candidates`: non-mutating candidate ledger for official denominator rows that may correspond to related loaded program labels.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
 - `program_lifecycle_rules`: local lifecycle codes and nominal-duration assumptions used to interpret training states over time.
@@ -86,6 +87,8 @@ It emits:
 - `penn_gme_gap_source_probes.json`: page-level probe evidence, including reachability, title, content hash, roster/context term counts, and errors.
 - `hup_gap_reason_audit.csv` / `.json`: deterministic reason ledger for every uncovered official program.
 - `hup_gap_reason_summary.json`: counts by gap reason and recommended next action.
+- `official_program_alias_reconciliation_candidates.csv` / `.json`: candidate relation rows for official gaps already represented by related loaded source URLs.
+- `official_program_alias_reconciliation_summary.json`: counts by relation status and suggested mapping action.
 
 This is deliberately separate from person scraping. A source crawler can find a program page without finding a usable roster, and a roster scraper can capture people without proving the full official denominator. Keeping both layers lets future runs show changes at several levels:
 
@@ -106,6 +109,8 @@ The gap-source queue is also deliberately separate from person evidence. It lets
 - `candidate_sources_low_signal` or `not_discovered_by_current_strategy`: discovery needs to broaden before scraping should create person records.
 
 This is the reconciliation layer between source discovery and roster extraction. It prevents the corpus from interpreting all remaining official gaps as equal and gives future agents a specific next action for each program.
+
+`scripts/audit_official_program_alias_reconciliation.py` is a narrower non-mutating follow-up for `source_already_loaded_related_program_review` gaps. It compares the official denominator row to the loaded program label, role, source URL, and section/training-year labels. It can identify likely same-program aliases, section-level split candidates, track/type mismatches, combined-track-not-categorical cases, and weak related-source cases. None of these rows mutate official coverage by themselves; they make the mapping decision auditable before a later alias-map or program-splitting pass changes counts.
 
 ## Recursive Enrichment Loop
 

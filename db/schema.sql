@@ -171,6 +171,26 @@ CREATE TABLE IF NOT EXISTS official_program_gap_reason_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_alias_reconciliation_candidates (
+  reconciliation_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_department TEXT,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  loaded_program_name TEXT,
+  loaded_role TEXT,
+  loaded_source_url TEXT,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  loaded_training_labels TEXT,
+  relation_status TEXT NOT NULL,
+  suggested_mapping_action TEXT NOT NULL,
+  relation_confidence REAL NOT NULL DEFAULT 0.0,
+  coverage_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  rationale TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,
