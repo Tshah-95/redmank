@@ -179,6 +179,53 @@ def official_program_actions(generated_at: str) -> list[dict]:
 
 def person_evidence_actions(generated_at: str) -> list[dict]:
     rows = []
+    triage_path = ARTIFACTS / "person_evidence_review_triage.csv"
+    if triage_path.exists():
+        source = "artifacts/data/person_evidence_review_triage.csv"
+        for item in read_csv(triage_path):
+            impact = max(as_int(item.get("review_ready_record_count")), 1)
+            priority = 840 + as_int(item.get("triage_priority")) + min(impact * 4, 60)
+            rows.append(
+                row(
+                    action_surface="person_evidence_review",
+                    action_scope=item.get("triage_lane") or item.get("review_kind") or "person_evidence_review",
+                    entity_type="person_or_name",
+                    entity_key=item.get("person_or_name_key") or item.get("person_key") or "",
+                    display_label=item.get("display_name") or "",
+                    role=item.get("role") or "",
+                    program_name="",
+                    priority=priority,
+                    impact_count=impact,
+                    readiness_status=item.get("decision_difficulty") or item.get("packet_status") or "",
+                    blocker_status=item.get("risk_level") or item.get("acceptance_blocker") or "",
+                    required_next_evidence=item.get("reviewer_prompt") or item.get("required_reviewer_action") or "",
+                    recommended_next_action=item.get("likely_next_action") or "record_accept_reject_or_needs_more_evidence_decision",
+                    source_artifact=source,
+                    target_artifact="artifacts/data/person_evidence_reviewer_decisions.csv",
+                    downstream_tables=[
+                        "person_evidence_review_triage",
+                        "person_evidence_reviewer_decision_queue",
+                        "person_evidence_reviewer_decision_audit",
+                        "accepted_enrichment_claims",
+                        "evidence_claims",
+                    ],
+                    evidence={
+                        "packet_key": item.get("packet_key"),
+                        "reviewer_decision_key": item.get("reviewer_decision_key"),
+                        "packet_fingerprint": item.get("packet_fingerprint"),
+                        "review_kind": item.get("review_kind"),
+                        "packet_status": item.get("packet_status"),
+                        "best_decision": item.get("best_decision"),
+                        "top_source_domains": item.get("top_source_domains"),
+                        "source_family_summary": item.get("source_family_summary"),
+                        "evidence_density_score": item.get("evidence_density_score"),
+                        "automation_boundary": item.get("automation_boundary"),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source = "artifacts/data/person_evidence_reviewer_decision_queue.csv"
     for item in read_csv(ARTIFACTS / "person_evidence_reviewer_decision_queue.csv"):
         priority = 800 + as_int(item.get("review_priority")) + min(as_int(item.get("review_ready_record_count")) * 5, 50)

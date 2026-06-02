@@ -164,6 +164,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
+- The worklist consumes `person_evidence_review_triage.csv` when available, so person-evidence actions are grouped by review lane rather than only by raw packet kind.
 - `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
