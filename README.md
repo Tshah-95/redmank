@@ -94,6 +94,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/category_refresh_expectations.csv`: resident/fellow/student category rollup for institution-level monitoring.
 - `artifacts/data/training_lifecycle_assurance_rollups.csv`: compact lifecycle/state-machine assurance rollups across corpus, role, category, program, program-role, lifecycle code, and readiness status.
 - `artifacts/data/training_lifecycle_assurance_summary.json`: one-glance answer for stale-information policy, expected next-year changes, and review/source-refresh burden.
+- `artifacts/data/training_state_transition_plan.csv`: row-level next-refresh transition policy for every current state, separating expected advancement, expected completion, source refresh, manual review, and no-change lanes.
+- `artifacts/data/training_state_transition_plan_rollups.csv`: transition-plan rollups by corpus, institution, country, role, category, program, program-role, institution-role, lifecycle code, policy lane, and diff-readiness status.
+- `artifacts/data/training_state_transition_plan_summary.json`: one-glance counts for auto-classifiable, fresh-observation-required, source-bound, and review-bound future transitions.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
 - `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
@@ -193,6 +196,7 @@ python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/materialize_training_lifecycle_assurance.py
+python3 scripts/materialize_training_state_transition_plan.py
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/collect_npi_candidates.py --sleep 0.03
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026

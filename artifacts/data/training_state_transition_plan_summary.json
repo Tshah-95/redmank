@@ -1,0 +1,68 @@
+{
+  "auto_classifiable_transition_rows": 911,
+  "by_diff_readiness_status": {
+    "diff_expected_change_classifiable": 911,
+    "diff_no_change_expected": 13,
+    "diff_review_bound": 79,
+    "diff_source_refresh_bound": 627
+  },
+  "by_policy_lane": {
+    "carry_forward_no_change": 13,
+    "deterministic_expected_advancement": 659,
+    "deterministic_expected_completion": 252,
+    "manual_review_required": 79,
+    "source_refresh_required": 627
+  },
+  "by_recommended_operator_action": {
+    "allow_expected_completion_absence_or_confirm_alumni_endpoint": 252,
+    "reconcile_fresh_roster_against_expected_next_stage": 659,
+    "refresh_source_before_retaining_state": 627,
+    "retain_until_contradicted": 13,
+    "review_lifecycle_or_source_before_mutation": 79
+  },
+  "by_role_and_policy_lane": {
+    "fellow:carry_forward_no_change": 13,
+    "fellow:deterministic_expected_advancement": 100,
+    "fellow:deterministic_expected_completion": 61,
+    "fellow:manual_review_required": 25,
+    "fellow:source_refresh_required": 192,
+    "medical_student:source_refresh_required": 225,
+    "resident:deterministic_expected_advancement": 559,
+    "resident:deterministic_expected_completion": 191,
+    "resident:manual_review_required": 54,
+    "resident:source_refresh_required": 210
+  },
+  "by_rollup_scope": {
+    "corpus": 1,
+    "country": 1,
+    "diff_readiness_status": 4,
+    "institution": 1,
+    "institution_role": 3,
+    "lifecycle_code": 14,
+    "policy_lane": 5,
+    "program": 94,
+    "program_role": 95,
+    "role": 3,
+    "trainee_category": 3
+  },
+  "corpus_dominant_diff_readiness_status": "diff_expected_change_classifiable",
+  "corpus_dominant_policy_lane": "deterministic_expected_advancement",
+  "corpus_guardrail_diff_readiness_status": "diff_review_bound",
+  "corpus_guardrail_policy_lane": "mixed_with_manual_review",
+  "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
+  "csv": "artifacts/data/training_state_transition_plan.csv",
+  "fresh_observation_required_rows": 1617,
+  "generated_at": "2026-06-02T11:40:03.237170+00:00",
+  "human_review_required_rows": 79,
+  "json": "artifacts/data/training_state_transition_plan.json",
+  "person_count": 1483,
+  "plan_rows": 1630,
+  "policy": "This ledger is non-mutating. Expected transitions are classifiable only with fresh source evidence or explicit terminal absence after stale-after; review/source-bound states are not carried forward silently.",
+  "program_count": 94,
+  "projected_refresh_date": "2027-08-15",
+  "rollup_csv": "artifacts/data/training_state_transition_plan_rollups.csv",
+  "rollup_json": "artifacts/data/training_state_transition_plan_rollups.json",
+  "rollup_rows": 224,
+  "source_refresh_required_rows": 627,
+  "stale_by_refresh_rows": 1617
+}

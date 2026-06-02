@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T11:30:42.722669+00:00
+Generated: 2026-06-02T11:40:04.312225+00:00
 
 ## What This Pass Did
 
@@ -463,6 +463,33 @@ Advancement due rows: 1446. Completion-window rows: 252. Source-refresh-required
 
 Learning: annual diffs should be state-machine informed before they are person-table mutations. A missing terminal-year fellow after the stale-after date is likely completion; a missing PGY-2 before the expected exit is a review item; an unchanged MSTP PhD-phase student needs a fresh source rather than an inferred clock advancement.
 
+## Transition Plan Ledger
+
+Plan rows: 1630. Rollup rows: 224. Auto-classifiable transition rows: 911. Fresh-observation-required rows: 1617.
+
+Policy lanes:
+
+| policy_lane | count |
+| --- | --- |
+| carry_forward_no_change | 13 |
+| deterministic_expected_advancement | 659 |
+| deterministic_expected_completion | 252 |
+| manual_review_required | 79 |
+| source_refresh_required | 627 |
+
+Diff readiness:
+
+| diff_readiness_status | count |
+| --- | --- |
+| diff_expected_change_classifiable | 911 |
+| diff_no_change_expected | 13 |
+| diff_review_bound | 79 |
+| diff_source_refresh_bound | 627 |
+
+Corpus action: review_lifecycle_or_source_before_mutation. Policy: This ledger is non-mutating. Expected transitions are classifiable only with fresh source evidence or explicit terminal absence after stale-after; review/source-bound states are not carried forward silently.
+
+Learning: the transition plan is the executable state-machine contract for future refreshes. It keeps expected advancement/completion, source-bound retention, and manual-review lanes separate, so a next-year run can produce individual, program, institution, category, and country diff views without silently carrying stale trainee states forward.
+
 ## Evidence Counts
 
 | source_key | status | claim_type | count | avg_confidence |
@@ -608,7 +635,7 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 47 | 47 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 49 | 49 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |

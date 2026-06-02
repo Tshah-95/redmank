@@ -152,6 +152,20 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/training_state_transition_plan.csv",
+        "longitudinal_transition_plan_ledger",
+        "csv",
+        "training_state_transition_plan",
+        True,
+    ),
+    (
+        "artifacts/data/training_state_transition_plan_rollups.csv",
+        "longitudinal_transition_plan_ledger",
+        "csv",
+        "training_state_transition_plan_rollups",
+        True,
+    ),
+    (
         "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
         "longitudinal_snapshot_ledger",
         "json_object",

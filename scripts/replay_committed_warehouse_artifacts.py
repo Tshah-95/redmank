@@ -48,6 +48,8 @@ CSV_TABLES = [
     ("program_refresh_expectations.csv", "program_refresh_expectations"),
     ("category_refresh_expectations.csv", "category_refresh_expectations"),
     ("training_lifecycle_assurance_rollups.csv", "training_lifecycle_assurance_rollups"),
+    ("training_state_transition_plan.csv", "training_state_transition_plan"),
+    ("training_state_transition_plan_rollups.csv", "training_state_transition_plan_rollups"),
     ("training_state_transition_events.csv", "training_state_transition_events"),
     ("training_state_transition_rollups.csv", "training_state_transition_rollups"),
     ("source_utility_scorecard.csv", "source_utility_scorecard"),

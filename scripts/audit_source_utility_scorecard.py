@@ -502,6 +502,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     longitudinal_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     readiness_status = longitudinal_summary.get("by_readiness_status") or {}
     lifecycle_assurance_summary = read_json(ARTIFACTS / "training_lifecycle_assurance_summary.json", {})
+    transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
+    transition_policy_lanes = transition_plan_summary.get("by_policy_lane") or {}
 
     return [
         make_row(
@@ -1111,7 +1113,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             strengths=[
                 "Turns PGY/MS/fellowship labels into explicit lifecycle states",
                 "Separates expected advancement, expected completion, source refresh, and review-required changes",
-                "Supports person, program, institution, and category diff views",
+                "Materializes non-mutating transition policies for future refresh runs",
+                "Supports person, program, institution, country, and category diff views",
                 "Audits accepted external program identifiers against local lifecycle state coverage before program-level rollups",
             ],
             limitations=[
@@ -1126,6 +1129,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "machine_status": machine_status,
                 "longitudinal_readiness_status": readiness_status,
                 "lifecycle_assurance_summary": lifecycle_assurance_summary,
+                "transition_plan_summary": transition_plan_summary,
+                "transition_policy_lanes": transition_policy_lanes,
                 "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
             },
         ),

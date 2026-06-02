@@ -257,6 +257,7 @@ def main() -> None:
     enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
     reconciliation_decision_summary = read_json(ARTIFACTS / "evidence_reconciliation_decision_summary.json", {})
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
+    transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
@@ -308,6 +309,14 @@ def main() -> None:
         for expectation, count in sorted(
             (longitudinal_readiness_summary.get("by_same_stage_expectation") or {}).items()
         )
+    ]
+    transition_policy_lane_counts = [
+        {"policy_lane": lane, "count": count}
+        for lane, count in sorted((transition_plan_summary.get("by_policy_lane") or {}).items())
+    ]
+    transition_diff_readiness_counts = [
+        {"diff_readiness_status": status, "count": count}
+        for status, count in sorted((transition_plan_summary.get("by_diff_readiness_status") or {}).items())
     ]
     enrichment_coverage_bands = [
         {"coverage_band": band, "count": count}
@@ -400,6 +409,7 @@ def main() -> None:
         "lifecycle_code_counts": lifecycle_code_counts,
         "training_state_machine_summary": state_machine_summary,
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
+        "training_state_transition_plan_summary": transition_plan_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
@@ -691,6 +701,22 @@ def main() -> None:
         f"Advancement due rows: {longitudinal_readiness_summary.get('advance_due_by_refresh_rows', 0)}. Completion-window rows: {longitudinal_readiness_summary.get('completion_window_by_refresh_rows', 0)}. Source-refresh-required rows: {longitudinal_readiness_summary.get('requires_source_refresh_by_refresh_rows', 0)}. Human-review rows: {longitudinal_readiness_summary.get('requires_human_review_by_refresh_rows', 0)}.",
         "",
         "Learning: annual diffs should be state-machine informed before they are person-table mutations. A missing terminal-year fellow after the stale-after date is likely completion; a missing PGY-2 before the expected exit is a review item; an unchanged MSTP PhD-phase student needs a fresh source rather than an inferred clock advancement.",
+        "",
+        "## Transition Plan Ledger",
+        "",
+        f"Plan rows: {transition_plan_summary.get('plan_rows', 0)}. Rollup rows: {transition_plan_summary.get('rollup_rows', 0)}. Auto-classifiable transition rows: {transition_plan_summary.get('auto_classifiable_transition_rows', 0)}. Fresh-observation-required rows: {transition_plan_summary.get('fresh_observation_required_rows', 0)}.",
+        "",
+        "Policy lanes:",
+        "",
+        *md_table(transition_policy_lane_counts, ["policy_lane", "count"]),
+        "",
+        "Diff readiness:",
+        "",
+        *md_table(transition_diff_readiness_counts, ["diff_readiness_status", "count"]),
+        "",
+        f"Corpus action: {transition_plan_summary.get('corpus_recommended_operator_action', 'not generated')}. Policy: {transition_plan_summary.get('policy', '')}",
+        "",
+        "Learning: the transition plan is the executable state-machine contract for future refreshes. It keeps expected advancement/completion, source-bound retention, and manual-review lanes separate, so a next-year run can produce individual, program, institution, category, and country diff views without silently carrying stale trainee states forward.",
         "",
         "## Evidence Counts",
         "",
