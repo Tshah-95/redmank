@@ -1412,6 +1412,46 @@ CREATE TABLE IF NOT EXISTS training_temporal_contract_rollups (
   evidence_json TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_roster_refresh_workbench (
+  refresh_key TEXT PRIMARY KEY,
+  source_key TEXT,
+  source_url TEXT,
+  source_title TEXT,
+  source_type TEXT,
+  http_status INTEGER,
+  source_classification TEXT,
+  quality_tier TEXT,
+  program_name TEXT NOT NULL,
+  role TEXT,
+  trainee_category TEXT,
+  projected_refresh_date TEXT NOT NULL,
+  contract_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  lifecycle_codes TEXT,
+  policy_lane_counts_json TEXT NOT NULL,
+  diff_readiness_counts_json TEXT NOT NULL,
+  expected_advancement_count INTEGER NOT NULL DEFAULT 0,
+  expected_completion_count INTEGER NOT NULL DEFAULT 0,
+  source_refresh_required_count INTEGER NOT NULL DEFAULT 0,
+  manual_review_required_count INTEGER NOT NULL DEFAULT 0,
+  stale_by_refresh_count INTEGER NOT NULL DEFAULT 0,
+  fresh_observation_required_count INTEGER NOT NULL DEFAULT 0,
+  auto_classifiable_transition_count INTEGER NOT NULL DEFAULT 0,
+  refresh_lane TEXT NOT NULL,
+  refresh_priority INTEGER NOT NULL DEFAULT 0,
+  refresh_difficulty TEXT NOT NULL,
+  requires_manual_review INTEGER NOT NULL DEFAULT 0,
+  expected_change_summary TEXT NOT NULL,
+  evidence_required TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  collector_hint TEXT NOT NULL,
+  parser_status TEXT NOT NULL,
+  source_metadata_json TEXT NOT NULL,
+  sample_people_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,

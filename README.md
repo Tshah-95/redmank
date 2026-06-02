@@ -143,6 +143,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_temporal_contracts.csv`: explicit per-state stale/transition contract for next runs, including the current temporal state code, allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete the row.
 - `artifacts/data/training_temporal_contract_rollups.csv`: temporal-contract rollups by corpus, institution, country, role, category, program, program-role, lifecycle code, temporal state, next-refresh contract, and diff-readiness status.
 - `artifacts/data/training_temporal_contract_summary.json`: one-glance stale-policy, guardrail, and next-refresh contract counts.
+- `artifacts/data/official_roster_refresh_workbench.csv`: source/program-level refresh contracts for official trainee rosters, derived from temporal contracts and source provenance.
+- `artifacts/data/official_roster_refresh_workbench_summary.json`: roster-refresh counts by lane, difficulty, role, source, program, and top source URLs for next collector runs.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
 - `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, country, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
@@ -165,6 +167,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_triage.csv` when available, so person-evidence actions are grouped by review lane rather than only by raw packet kind.
+- The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.

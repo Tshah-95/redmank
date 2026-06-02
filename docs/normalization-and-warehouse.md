@@ -70,6 +70,7 @@ Core tables:
 - `training_state_transition_events`: expected-vs-review transition ledger between materialized snapshots.
 - `training_state_machine_audit`, `person_training_state_machine_audit`, `program_training_state_machine_audit`: queryable state-machine health ledgers for state-, person-, and program-level refresh decisions.
 - `training_temporal_contracts`, `training_temporal_contract_rollups`: explicit next-run stale/transition contracts that define allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete training-state observations.
+- `official_roster_refresh_workbench`: source/program-level refresh contracts for official roster URLs, combining temporal-contract burden, source provenance, parser/collector hint, expected transitions, and review/source-bound lanes.
 - `training_state_refresh_expectations`, `person_refresh_expectations`, `program_refresh_expectations`, `category_refresh_expectations`: queryable next-refresh expectation ledgers for missing, unchanged, advanced, stale, and review-required outcomes.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
@@ -89,7 +90,7 @@ Core tables:
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
-- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, triage-aware person evidence review, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
+- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, triage-aware person evidence review, source/program-level roster refresh, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
 
 Useful views:
 

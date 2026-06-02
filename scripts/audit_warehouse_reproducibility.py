@@ -232,6 +232,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_roster_refresh_workbench.csv",
+        "official_roster_refresh_workbench_ledger",
+        "csv",
+        "official_roster_refresh_workbench",
+        True,
+    ),
+    (
         "artifacts/data/training_state_diff.csv",
         "longitudinal_contract_aware_diff_example",
         "csv",

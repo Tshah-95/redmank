@@ -443,6 +443,54 @@ def temporal_contract_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def official_roster_refresh_actions(generated_at: str) -> list[dict]:
+    rows = []
+    source_path = ARTIFACTS / "official_roster_refresh_workbench.csv"
+    if not source_path.exists():
+        return rows
+    source = "artifacts/data/official_roster_refresh_workbench.csv"
+    for item in read_csv(source_path):
+        priority = 780 + as_int(item.get("refresh_priority")) // 3 + min(as_int(item.get("contract_count")), 80)
+        rows.append(
+            row(
+                action_surface="official_roster_refresh",
+                action_scope=item.get("refresh_lane") or "official_roster_refresh",
+                entity_type="source_program_role",
+                entity_key=item.get("refresh_key") or stable_key(item.get("source_key"), item.get("program_name"), item.get("role")),
+                display_label=" | ".join(part for part in [item.get("program_name"), item.get("role")] if part),
+                role=item.get("role") or "",
+                program_name=item.get("program_name") or "",
+                priority=priority,
+                impact_count=max(as_int(item.get("contract_count")), 1),
+                readiness_status=item.get("refresh_difficulty") or "",
+                blocker_status=item.get("parser_status") or item.get("refresh_lane") or "",
+                required_next_evidence=item.get("evidence_required") or "",
+                recommended_next_action=item.get("recommended_next_action") or "",
+                source_artifact=source,
+                target_artifact="artifacts/data/training_state_transition_events.csv",
+                downstream_tables=[
+                    "official_roster_refresh_workbench",
+                    "training_temporal_contracts",
+                    "training_state_transition_plan",
+                    "person_training_states",
+                    "sources",
+                ],
+                evidence={
+                    "source_key": item.get("source_key"),
+                    "source_url": item.get("source_url"),
+                    "http_status": item.get("http_status"),
+                    "policy_lane_counts_json": item.get("policy_lane_counts_json"),
+                    "diff_readiness_counts_json": item.get("diff_readiness_counts_json"),
+                    "expected_change_summary": item.get("expected_change_summary"),
+                    "collector_hint": item.get("collector_hint"),
+                    "sample_people_json": item.get("sample_people_json"),
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
     rows = []
     source = "artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv"
@@ -499,7 +547,10 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
 
 def enrichment_queue_actions(generated_at: str) -> list[dict]:
     grouped: dict[tuple[str, str, str, str, str, str], dict] = defaultdict(lambda: {"count": 0, "fresh": 0, "sample": None})
+    roster_workbench_exists = (ARTIFACTS / "official_roster_refresh_workbench.csv").exists()
     for item in read_csv(ARTIFACTS / "person_enrichment_queue.csv"):
+        if roster_workbench_exists and item.get("task_type") == "current_roster_state_reconciliation":
+            continue
         key = (
             item.get("task_type") or "",
             item.get("source_family") or "",
@@ -671,6 +722,7 @@ def main() -> None:
     rows.extend(contact_actions(generated_at))
     rows.extend(search_utility_actions(generated_at))
     rows.extend(temporal_contract_actions(generated_at))
+    rows.extend(official_roster_refresh_actions(generated_at))
     rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))
     rows.extend(attending_trend_actions(generated_at))
