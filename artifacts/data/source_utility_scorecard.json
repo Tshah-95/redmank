@@ -44,8 +44,8 @@
     "strengths": "Separates denominator coverage from person extraction; Makes missing programs auditable instead of invisible; Supports institution and category-level annual diffs",
     "limitations": "Official list does not guarantee a public current roster; Track aliases and section-level splits need explicit reconciliation; Coverage mutations are intentionally blocked until evidence is stronger",
     "recommended_next_action": "resolve_gap_reason_and_alias_candidates_before_count_mutation",
-    "evidence_json": "{\"alias_candidate_rows\": 16, \"coverage_gaps\": 27, \"coverage_mutation_allowed_rows\": 0, \"covered_current_roster\": 64, \"gap_reasons\": {\"official_page_empty_or_low_content\": 3, \"public_program_context_no_current_roster\": 18, \"roster_source_candidate_needs_parser_or_manual_review\": 1, \"source_already_loaded_related_program_review\": 5}, \"official_programs\": 91}",
-    "audited_at": "2026-06-02T08:05:34.073996+00:00"
+    "evidence_json": "{\"alias_candidate_rows\": 16, \"coverage_gaps\": 27, \"coverage_mutation_allowed_rows\": 0, \"covered_current_roster\": 64, \"gap_reasons\": {\"official_page_empty_or_low_content\": 3, \"public_program_context_no_current_roster\": 19, \"source_already_loaded_related_program_review\": 5}, \"official_programs\": 91}",
+    "audited_at": "2026-06-02T08:10:05.831680+00:00"
   },
   {
     "scorecard_key": "official_gap_roster_queue_extraction",
@@ -57,7 +57,7 @@
     "output_records": 524,
     "accepted_records": 524,
     "candidate_records": 72,
-    "needs_review_records": 15,
+    "needs_review_records": 12,
     "review_ready_records": 0,
     "discovery_only_records": 0,
     "low_signal_records": 0,
@@ -68,8 +68,8 @@
     "strengths": "Consumes only high-priority roster-like candidate URLs; Keeps unsupported page structures queued instead of fabricating weak people; Adds non-Medicine coverage from official public pages",
     "limitations": "Parser coverage is page-template specific; Some candidate pages are related tracks rather than the official denominator row; Unsupported structures need parser or manual review",
     "recommended_next_action": "add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage",
-    "evidence_json": "{\"by_extraction_status\": {\"no_supported_person_structure\": 5, \"records_extracted\": 27}, \"candidate_source_rows\": 72, \"person_records\": 524, \"roster_source_candidates\": 15, \"sources_attempted\": 32, \"sources_with_records\": 27}",
-    "audited_at": "2026-06-02T08:05:34.073996+00:00"
+    "evidence_json": "{\"by_extraction_status\": {\"no_supported_person_structure\": 5, \"records_extracted\": 27}, \"candidate_source_rows\": 72, \"person_records\": 524, \"roster_source_candidates\": 12, \"sources_attempted\": 32, \"sources_with_records\": 27}",
+    "audited_at": "2026-06-02T08:10:05.831680+00:00"
   },
   {
     "scorecard_key": "penn_wide_source_discovery",

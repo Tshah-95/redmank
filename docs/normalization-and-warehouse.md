@@ -102,6 +102,8 @@ The gap-source queue is also deliberately separate from person evidence. It lets
 
 `scripts/scrape_penn_gme_gap_rosters.py` consumes only high-priority roster-source candidates and writes a separate `penn_gme_gap_roster_people.json` layer. It currently supports explicit page structures only: Penn Medicine bio cards, PSOM profile blocks, WordPress/Elementor heading-plus-name lists, and Dental accordion headers. Unsupported pages remain queued rather than becoming weak person claims.
 
+The source probe treats body-text mentions like “fellows rotate” as weak roster language unless the title or URL has a stronger current-roster cue such as `current fellows`, `current residents`, `meet our fellows`, `resident profiles`, or a roster/directory path. This prevents a program overview or faculty page from being mislabeled as a parser gap when no named current trainees are public on the page.
+
 `scripts/audit_hup_gap_reasons.py` reads the official denominator, coverage audit, source probes, source candidates, and already-loaded source URLs. Its job is not to scrape new people. It classifies why each official uncovered program remains uncovered:
 
 - `source_already_loaded_related_program_review`: the likely source URL is already represented by accepted people under a related program label, so the denominator/alias map needs review.

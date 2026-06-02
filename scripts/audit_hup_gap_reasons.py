@@ -203,6 +203,24 @@ def related_loaded_sources(candidates: list[dict], usage_by_url: dict[str, dict]
     return hits
 
 
+def weak_roster_language_only(candidates: list[dict], probes: list[dict]) -> bool:
+    roster_candidates = [item for item in candidates if item.get("candidate_status") == "roster_source_candidate"]
+    if not roster_candidates:
+        return False
+    if any(int(item.get("priority") or 0) >= 100 for item in roster_candidates):
+        return False
+    strong_title_re = re.compile(
+        r"\b(current|meet|profile|profiles|directory|roster)\b.*\b(residents?|fellows?|trainees?)\b|"
+        r"\b(residents?|fellows?|trainees?)\b.*\b(profile|profiles|directory|roster)\b",
+        re.I,
+    )
+    if any(strong_title_re.search(f"{item.get('candidate_title', '')} {item.get('candidate_url', '')}") for item in roster_candidates):
+        return False
+    max_roster_terms = max([int(item.get("roster_term_count") or 0) for item in probes + candidates] or [0])
+    max_context_terms = max([int(item.get("context_term_count") or 0) for item in probes + candidates] or [0])
+    return max_roster_terms <= 1 and max_context_terms >= 1
+
+
 def classify_gap(row: dict, candidates: list[dict], probes: list[dict], related_hits: list[dict]) -> tuple[str, str, float, str]:
     roster_count = sum(1 for item in candidates if item.get("candidate_status") == "roster_source_candidate")
     context_count = sum(1 for item in candidates if item.get("candidate_status") == "program_context_candidate")
@@ -229,6 +247,13 @@ def classify_gap(row: dict, candidates: list[dict], probes: list[dict], related_
             "find_alternate_public_source_or_record_no_public_roster",
             0.78,
             "The reachable official/probed page has too little text to support a current roster extraction.",
+        )
+    if weak_roster_language_only(candidates, probes):
+        return (
+            "public_program_context_no_current_roster",
+            "record_context_source_and_monitor_for_roster_or_alumni_link",
+            0.74,
+            "The only roster signal is weak body text on a public program/faculty context page, not a current named trainee roster.",
         )
     if roster_count:
         return (

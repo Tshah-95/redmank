@@ -75,6 +75,16 @@ EXCLUDE_PATTERNS = [
         r"\bpublications?\b",
     ]
 ]
+STRONG_ROSTER_CUE_PATTERNS = [
+    re.compile(pattern, re.I)
+    for pattern in [
+        r"\bcurrent\s+(residents?|fellows?|trainees?)\b",
+        r"\bour\s+(residents?|fellows?|trainees?)\b",
+        r"\bmeet\s+(our\s+)?(residents?|fellows?|trainees?)\b",
+        r"\b(resident|fellow|trainee)\s+(roster|profiles?|directory)\b",
+        r"/(current-)?(residents?|fellows?|resident-profiles)(/|\.html|$)",
+    ]
+]
 
 
 def dumps(value) -> str:
@@ -252,11 +262,14 @@ def link_candidates(soup: BeautifulSoup, base_url: str) -> list[tuple[str, str]]
 def make_candidate(row: sqlite3.Row, source_role: str, url: str, page: dict, label: str = "") -> dict:
     title = label or page.get("title", "")
     status, confidence, reasons = classify_candidate(title, url, source_role)
-    if page.get("roster_term_count", 0):
+    strong_roster_cues = pattern_hits(f"{title} {url}", STRONG_ROSTER_CUE_PATTERNS)
+    if page.get("roster_term_count", 0) and strong_roster_cues:
         confidence = min(round(confidence + 0.1, 3), 0.95)
         reasons = sorted(set(reasons + ["page_roster_terms"]))
         if status != "low_value_candidate":
             status = "roster_source_candidate"
+    elif page.get("roster_term_count", 0):
+        reasons = sorted(set(reasons + ["weak_body_roster_language"]))
     if page.get("http_status") and int(page["http_status"]) >= 400:
         confidence = min(confidence, 0.2)
         status = "unreachable_or_error"

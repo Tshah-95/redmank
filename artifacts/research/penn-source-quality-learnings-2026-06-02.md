@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T08:05:38.537874+00:00
+Generated: 2026-06-02T08:10:16.749547+00:00
 
 ## What This Pass Did
 
@@ -70,8 +70,8 @@ Gap programs probed: 27. Source pages probed: 23. Candidate URLs queued: 72.
 | candidate_status | count |
 | --- | --- |
 | low_value_candidate | 5 |
-| program_context_candidate | 52 |
-| roster_source_candidate | 15 |
+| program_context_candidate | 55 |
+| roster_source_candidate | 12 |
 
 Top roster-source candidates:
 
@@ -89,9 +89,6 @@ Top roster-source candidates:
 | Dermatology | Dermatology | roster_source_candidate | 115 | Medicine-Dermatology Residents | https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program/medicine-dermatology-residents |
 | Transplant Hepatology | Internal Medicine | roster_source_candidate | 115 | Advanced Gastroenterology and Hepatology Fellows | https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows |
 | Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 115 | Current | https://pathology.med.upenn.edu/education/residency/residents/current |
-| Neurocritical Care | Neurology | roster_source_candidate | 90 | Neurocritical Care \| Penn Neurology Fellowship Programs | https://neurofellowships.uphs.upenn.edu/p/neurocritical-care_17.html |
-| Radiology - Interventional, Independent | Radiology | roster_source_candidate | 80 | Interventional Radiology Integrated and Independent Residency | https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology |
-| Plastic Surgery | Surgery | roster_source_candidate | 80 | Plastic Surgery Integrated & Independent Residency - Penn Medicine | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery |
 
 Learning: coverage gaps need their own crawl state. Official program URLs, discovered context pages, and linked roster-like pages should be queued separately so the next scraper can attack high-priority roster candidates without conflating them with verified person records.
 

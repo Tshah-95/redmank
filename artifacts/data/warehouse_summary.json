@@ -259,7 +259,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T08:05:41.355685+00:00",
+  "generated_at": "2026-06-02T08:10:16.782672+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -393,14 +393,13 @@
   },
   "official_program_gap_reason_counts": {
     "official_page_empty_or_low_content": 3,
-    "public_program_context_no_current_roster": 18,
-    "roster_source_candidate_needs_parser_or_manual_review": 1,
+    "public_program_context_no_current_roster": 19,
     "source_already_loaded_related_program_review": 5
   },
   "official_program_source_candidate_counts": {
     "low_value_candidate": 5,
-    "program_context_candidate": 52,
-    "roster_source_candidate": 15
+    "program_context_candidate": 55,
+    "roster_source_candidate": 12
   },
   "organization_category_counts": {
     "clinical_training_site": 173,
@@ -494,7 +493,7 @@
     },
     "candidate_or_discovery_rows": 5,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T08:05:34.073996+00:00",
+    "generated_at": "2026-06-02T08:10:16.698688+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 12,

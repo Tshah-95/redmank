@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T08:05:38.537874+00:00",
+  "generated_at": "2026-06-02T08:10:16.749547+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -3896,7 +3896,7 @@
     },
     "candidate_or_discovery_rows": 5,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T08:05:34.073996+00:00",
+    "generated_at": "2026-06-02T08:10:16.698688+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 12,
@@ -4005,8 +4005,8 @@
       "strengths": "Separates denominator coverage from person extraction; Makes missing programs auditable instead of invisible; Supports institution and category-level annual diffs",
       "limitations": "Official list does not guarantee a public current roster; Track aliases and section-level splits need explicit reconciliation; Coverage mutations are intentionally blocked until evidence is stronger",
       "recommended_next_action": "resolve_gap_reason_and_alias_candidates_before_count_mutation",
-      "evidence_json": "{\"alias_candidate_rows\": 16, \"coverage_gaps\": 27, \"coverage_mutation_allowed_rows\": 0, \"covered_current_roster\": 64, \"gap_reasons\": {\"official_page_empty_or_low_content\": 3, \"public_program_context_no_current_roster\": 18, \"roster_source_candidate_needs_parser_or_manual_review\": 1, \"source_already_loaded_related_program_review\": 5}, \"official_programs\": 91}",
-      "audited_at": "2026-06-02T08:05:34.073996+00:00"
+      "evidence_json": "{\"alias_candidate_rows\": 16, \"coverage_gaps\": 27, \"coverage_mutation_allowed_rows\": 0, \"covered_current_roster\": 64, \"gap_reasons\": {\"official_page_empty_or_low_content\": 3, \"public_program_context_no_current_roster\": 19, \"source_already_loaded_related_program_review\": 5}, \"official_programs\": 91}",
+      "audited_at": "2026-06-02T08:10:05.831680+00:00"
     },
     {
       "scorecard_key": "official_gap_roster_queue_extraction",
@@ -4018,7 +4018,7 @@
       "output_records": "524",
       "accepted_records": "524",
       "candidate_records": "72",
-      "needs_review_records": "15",
+      "needs_review_records": "12",
       "review_ready_records": "0",
       "discovery_only_records": "0",
       "low_signal_records": "0",
@@ -4029,8 +4029,8 @@
       "strengths": "Consumes only high-priority roster-like candidate URLs; Keeps unsupported page structures queued instead of fabricating weak people; Adds non-Medicine coverage from official public pages",
       "limitations": "Parser coverage is page-template specific; Some candidate pages are related tracks rather than the official denominator row; Unsupported structures need parser or manual review",
       "recommended_next_action": "add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage",
-      "evidence_json": "{\"by_extraction_status\": {\"no_supported_person_structure\": 5, \"records_extracted\": 27}, \"candidate_source_rows\": 72, \"person_records\": 524, \"roster_source_candidates\": 15, \"sources_attempted\": 32, \"sources_with_records\": 27}",
-      "audited_at": "2026-06-02T08:05:34.073996+00:00"
+      "evidence_json": "{\"by_extraction_status\": {\"no_supported_person_structure\": 5, \"records_extracted\": 27}, \"candidate_source_rows\": 72, \"person_records\": 524, \"roster_source_candidates\": 12, \"sources_attempted\": 32, \"sources_with_records\": 27}",
+      "audited_at": "2026-06-02T08:10:05.831680+00:00"
     },
     {
       "scorecard_key": "penn_wide_source_discovery",
@@ -4927,8 +4927,8 @@
   "hup_gme_gap_source_probe_summary": {
     "by_candidate_status": {
       "low_value_candidate": 5,
-      "program_context_candidate": 52,
-      "roster_source_candidate": 15
+      "program_context_candidate": 55,
+      "roster_source_candidate": 12
     },
     "by_coverage_status": {
       "discovered_no_current_roster": 54,
@@ -4936,7 +4936,7 @@
     },
     "candidate_urls": 72,
     "gap_programs": 27,
-    "generated_at": "2026-06-02T07:25:19.375219+00:00",
+    "generated_at": "2026-06-02T08:09:34.060478+00:00",
     "source_pages_probed": 23,
     "top_roster_candidates": [
       {
@@ -5034,30 +5034,6 @@
         "department": "Pathology and Laboratory Medicine",
         "priority": 115,
         "program_name": "Soft Tissue/Bone (Selective)"
-      },
-      {
-        "candidate_title": "Neurocritical Care | Penn Neurology Fellowship Programs",
-        "candidate_url": "https://neurofellowships.uphs.upenn.edu/p/neurocritical-care_17.html",
-        "confidence": 0.45,
-        "department": "Neurology",
-        "priority": 90,
-        "program_name": "Neurocritical Care"
-      },
-      {
-        "candidate_title": "Interventional Radiology Integrated and Independent Residency",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology",
-        "confidence": 0.45,
-        "department": "Radiology",
-        "priority": 80,
-        "program_name": "Radiology - Interventional, Independent"
-      },
-      {
-        "candidate_title": "Plastic Surgery Integrated & Independent Residency - Penn Medicine",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery",
-        "confidence": 0.45,
-        "department": "Surgery",
-        "priority": 80,
-        "program_name": "Plastic Surgery"
       }
     ]
   },
@@ -5157,30 +5133,6 @@
       "priority": 115,
       "candidate_title": "Current",
       "candidate_url": "https://pathology.med.upenn.edu/education/residency/residents/current"
-    },
-    {
-      "program_name": "Neurocritical Care",
-      "department": "Neurology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 90,
-      "candidate_title": "Neurocritical Care | Penn Neurology Fellowship Programs",
-      "candidate_url": "https://neurofellowships.uphs.upenn.edu/p/neurocritical-care_17.html"
-    },
-    {
-      "program_name": "Radiology - Interventional, Independent",
-      "department": "Radiology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 80,
-      "candidate_title": "Interventional Radiology Integrated and Independent Residency",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology"
-    },
-    {
-      "program_name": "Plastic Surgery",
-      "department": "Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 80,
-      "candidate_title": "Plastic Surgery Integrated & Independent Residency - Penn Medicine",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery"
     }
   ],
   "hup_gme_gap_roster_summary": {
