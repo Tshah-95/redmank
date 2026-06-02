@@ -22,11 +22,13 @@ ENRICHMENT_SOURCES = ROOT / "config" / "enrichment_sources.json"
 PERSON_FILES = [
     ARTIFACTS / "penn_training_people_unique.json",
     ARTIFACTS / "penn_affiliated_people.json",
+    ARTIFACTS / "penn_gme_gap_roster_people.json",
     ARTIFACTS / "penn_mstp_students.json",
 ]
 SOURCE_FILES = [
     ARTIFACTS / "penn_training_sources.json",
     ARTIFACTS / "penn_affiliated_sources.json",
+    ARTIFACTS / "penn_gme_gap_roster_sources.json",
     ARTIFACTS / "penn_source_discovery.json",
 ]
 OPTIONAL_SOURCE_FILES = [
@@ -252,6 +254,26 @@ def insert_sources(conn: sqlite3.Connection) -> None:
                     dumps(source),
                 ),
             )
+    gap_roster_sources = ARTIFACTS / "penn_gme_gap_roster_sources.json"
+    if gap_roster_sources.exists():
+        for source in load_json(gap_roster_sources):
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO sources
+                (source_key, source_url, source_type, title, fetched_at, http_status, sha256, metadata_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    source["source_key"],
+                    source.get("url"),
+                    "official_gap_roster",
+                    source.get("candidate_title"),
+                    source.get("fetched_at"),
+                    source.get("http_status"),
+                    source.get("sha256"),
+                    dumps(source),
+                ),
+            )
     for optional_sources, source_type in [
         (ARTIFACTS / "penn_attending_candidate_sources.json", "official_attending_faculty_candidate"),
         (ARTIFACTS / "penn_outcome_candidate_sources.json", "official_outcome_context"),
@@ -431,9 +453,9 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
     generated_at = datetime.now(timezone.utc).isoformat()
     summary_path = ARTIFACTS / "research_candidate_summary.json"
     summary = load_json(summary_path) if summary_path.exists() else {}
-    people_processed = int(summary.get("people_processed", 0))
     for source_key in sorted({row["source_key"] for row in claims}):
         source_claims = [row for row in claims if row["source_key"] == source_key]
+        source_people = len({row["person_key"] for row in source_claims})
         conn.execute(
             """
             INSERT INTO source_quality_observations
@@ -444,7 +466,7 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
             (
                 source_key,
                 summary.get("generated_at") or generated_at,
-                people_processed or len({row["person_key"] for row in source_claims}),
+                source_people,
                 sum(1 for row in source_claims if row["status"] == "candidate"),
                 sum(1 for row in source_claims if row["status"] == "accepted"),
                 sum(1 for row in source_claims if row["status"] == "rejected"),
@@ -822,6 +844,26 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             expected_next_date=next_date_for(as_of, 7),
             stale_after_date=end + timedelta(days=45),
         )
+    ca_match = re.search(r"\bca\s*[- ]?(\d+)\b", lower)
+    if ca_match:
+        index = int(ca_match.group(1))
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            f"GME_CLINICAL_ANESTHESIA_YEAR_{index}",
+            "clinical_postgraduate",
+            index,
+            230 + index,
+            role or "resident",
+            "expected anesthesia clinical-year advancement around Jul 1; map to PGY with program review",
+            0.74,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage=f"GME_CLINICAL_ANESTHESIA_YEAR_{index + 1}",
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
     if "intern" in lower:
         ay, start, end = academic_year(as_of, 7)
         return stage_result(
@@ -854,6 +896,37 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    resident_ordinal_match = re.search(r"\b(first|1st|second|2nd|third|3rd|fourth|4th|fifth|5th)\s+year\s+residents?\b", lower)
+    if role == "resident" and resident_ordinal_match:
+        index = {
+            "first": 1,
+            "1st": 1,
+            "second": 2,
+            "2nd": 2,
+            "third": 3,
+            "3rd": 3,
+            "fourth": 4,
+            "4th": 4,
+            "fifth": 5,
+            "5th": 5,
+        }[resident_ordinal_match.group(1)]
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            f"GME_PGY_{index}",
+            "clinical_postgraduate",
+            index,
+            200 + index,
+            "resident",
+            "ordinal resident-year label maps to PGY with program review",
+            0.72,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_stage=f"GME_PGY_{index + 1}",
             expected_next_date=next_date_for(as_of, 7),
             stale_after_date=end + timedelta(days=45),
         )
@@ -1016,6 +1089,40 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "current resident but year not visible on source; refresh on next roster",
             0.42,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if role == "resident" and lower in {"current residents", "residents"}:
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "GME_RESIDENT_YEAR_UNKNOWN",
+            "clinical_postgraduate",
+            None,
+            299,
+            "resident",
+            "current resident but exact year not visible on source; refresh on next roster",
+            0.46,
+            academic_year_value=ay,
+            estimated_start_date=start,
+            estimated_end_date=end,
+            expected_next_date=next_date_for(as_of, 7),
+            stale_after_date=end + timedelta(days=45),
+        )
+    if role == "fellow":
+        ay, start, end = academic_year(as_of, 7)
+        return stage_result(
+            label,
+            "FELLOWSHIP_CURRENT_YEAR_UNKNOWN",
+            "fellowship",
+            None,
+            399,
+            "fellow",
+            "current fellow section label lacks year; refresh on next roster and use program-specific duration if available",
+            0.5,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,

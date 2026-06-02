@@ -12,16 +12,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-anesthesiology-residency_e906460561a3",
+    "matched_program_name": "Anesthesiology Residency",
+    "captured_people_count": 97,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Anesthesiology and Critical Care Residency and Fellowships",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_adult-cardiothoracic-anesthesiology_84bd23c52b1e",
@@ -252,16 +252,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-family-medicine-residency_25921008175b",
+    "matched_program_name": "Family Medicine Residency",
+    "captured_people_count": 35,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_addiction-medicine_98c979053614",
@@ -300,16 +300,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-sports-medicine-fellowship_a2cbe5f9aed1",
+    "matched_program_name": "Sports Medicine Fellowship",
+    "captured_people_count": 2,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_internal-medicine-categorical_9138b3db3c42",
@@ -756,16 +756,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-sleep-medicine-fellowship_e883acb38e8b",
+    "matched_program_name": "Sleep Medicine Fellowship",
+    "captured_people_count": 7,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Sleep Medicine - Penn Medicine",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/sleep-medicine",
     "discovery_classification": "context",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_transplant-hepatology_f4d7a209f96e",
@@ -804,16 +804,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-neurological-surgery-residency_e9487cdfa897",
+    "matched_program_name": "Neurological Surgery Residency",
+    "captured_people_count": 21,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_neurology_7c1f5f7cae7a",
@@ -972,16 +972,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-obstetrics-gynecology-residency_cce6717ff00a",
+    "matched_program_name": "Obstetrics and Gynecology Residency",
+    "captured_people_count": 32,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_complex-family-planning_27618361aaf7",
@@ -1188,16 +1188,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-oral-medicine-residency_1f20e709cc55",
+    "matched_program_name": "Oral Medicine Residency",
+    "captured_people_count": 8,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_orthopedic-surgery_330c2c3b2f0f",
@@ -1212,16 +1212,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-orthopedic-surgery-residency_b0794e7606d2",
+    "matched_program_name": "Orthopedic Surgery Residency",
+    "captured_people_count": 40,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_adult-reconstructive-orthopedics_ba6a91e2425b",
@@ -1236,16 +1236,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-adult-reconstructive-orthopedics-fellowsh_28e2575107ca",
+    "matched_program_name": "Adult Reconstructive Orthopedics Fellowship",
+    "captured_people_count": 3,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_hand-surgery_5faaba3977b3",
@@ -1260,16 +1260,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-hand-surgery-fellowship_d234aef8753f",
+    "matched_program_name": "Hand Surgery Fellowship",
+    "captured_people_count": 2,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_otorhinolaryngology_4f0716f08fed",
@@ -1284,16 +1284,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-otorhinolaryngology-residency_092a9117aea2",
+    "matched_program_name": "Otorhinolaryngology Residency",
+    "captured_people_count": 31,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Education and Training - Penn Medicine",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/otorhinolaryngology/education-and-training",
     "discovery_classification": "program_context",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_neurotology_f89fea3ba5fc",
@@ -1308,16 +1308,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-neurotology-fellowship_a8e6680e3756",
+    "matched_program_name": "Neurotology Fellowship",
+    "captured_people_count": 1,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_pathology-anatomic-and-clinical_611fe58e800d",
@@ -1548,16 +1548,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-physical-medicine-rehabilitation-reside_88a9b0978a71",
+    "matched_program_name": "Physical Medicine and Rehabilitation Residency",
+    "captured_people_count": 22,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Education and Training - Penn Medicine",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training",
     "discovery_classification": "program_context",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_brain-injury-medicine_0f5a49f6e439",
@@ -1596,16 +1596,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-podiatric-surgery-residency_a7f1f2b28b5d",
+    "matched_program_name": "Podiatric Surgery Residency",
+    "captured_people_count": 16,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_psychiatry_90edd37f0063",
@@ -1740,16 +1740,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-radiation-oncology-residency_88392b33ebad",
+    "matched_program_name": "Radiation Oncology Residency",
+    "captured_people_count": 17,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_radiology-interventional-integrated_278955441e4c",
@@ -2028,16 +2028,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-craniofacial-surgery-fellowship_4ae4ab7a3d3e",
+    "matched_program_name": "Craniofacial Surgery Fellowship",
+    "captured_people_count": 1,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Craniofacial Surgery Fellowship - Penn Medicine",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship",
     "discovery_classification": "program_context",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_colon-and-rectal-surgery_5967769408ef",
@@ -2052,16 +2052,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-colon-rectal-surgery-fellowship_2c7c63d66650",
+    "matched_program_name": "Colon and Rectal Surgery Fellowship",
+    "captured_people_count": 1,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Colon and Rectal Surgery Fellowship - Penn Medicine",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship",
     "discovery_classification": "program_context",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_plastic-surgery_b33a31a2ab76",
@@ -2148,16 +2148,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-thoracic-surgery-thoracic-track-fellowshi_47942cc6c9b7",
+    "matched_program_name": "Thoracic Surgery - Thoracic Track Fellowship",
+    "captured_people_count": 1,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Thoracic Surgery Fellowship - Thoracic Track - Penn Medicine",
     "discovery_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track",
     "discovery_classification": "program_context",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_vascular-surgery_f567e24e8540",

@@ -165,6 +165,7 @@ def main() -> None:
     hup_coverage_rows = read_json(ARTIFACTS / "penn_gme_program_coverage.json", [])
     hup_gap_probe_summary = read_json(ARTIFACTS / "penn_gme_gap_source_probe_summary.json", {})
     hup_gap_candidates = read_json(ARTIFACTS / "penn_gme_gap_source_candidates.json", [])
+    hup_gap_roster_summary = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
@@ -215,6 +216,7 @@ def main() -> None:
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
         "hup_gme_gap_source_probe_summary": hup_gap_probe_summary,
         "hup_gme_top_gap_source_candidates": top_hup_gap_candidates,
+        "hup_gme_gap_roster_summary": hup_gap_roster_summary,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -271,6 +273,32 @@ def main() -> None:
         ),
         "",
         "Learning: coverage gaps need their own crawl state. Official program URLs, discovered context pages, and linked roster-like pages should be queued separately so the next scraper can attack high-priority roster candidates without conflating them with verified person records.",
+        "",
+        "## HUP Gap Roster Extraction",
+        "",
+        f"Supported gap roster sources attempted: {hup_gap_roster_summary.get('sources_attempted', 0)}. Sources with records: {hup_gap_roster_summary.get('sources_with_records', 0)}. Person records extracted: {hup_gap_roster_summary.get('person_records', 0)}.",
+        "",
+        "Records by role:",
+        "",
+        *md_table(
+            [
+                {"role": role, "count": count}
+                for role, count in sorted((hup_gap_roster_summary.get("by_role") or {}).items())
+            ],
+            ["role", "count"],
+        ),
+        "",
+        "Extraction statuses:",
+        "",
+        *md_table(
+            [
+                {"extraction_status": status, "count": count}
+                for status, count in sorted((hup_gap_roster_summary.get("by_extraction_status") or {}).items())
+            ],
+            ["extraction_status", "count"],
+        ),
+        "",
+        "Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records.",
         "",
         "## Penn-Wide Program Categorization",
         "",

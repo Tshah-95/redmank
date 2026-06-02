@@ -4,26 +4,26 @@
     "penn_alumni_outcome_candidate": 36
   },
   "contact_counts": {
-    "email": 292
+    "email": 313
   },
   "counts": {
     "career_events": 85,
-    "evidence_claims": 2038,
+    "evidence_claims": 2772,
     "official_program_coverage_audit": 91,
-    "official_program_source_candidates": 278,
-    "official_program_source_probes": 66,
+    "official_program_source_candidates": 214,
+    "official_program_source_probes": 43,
     "official_program_universe": 91,
-    "organization_aliases": 695,
+    "organization_aliases": 815,
     "organization_identifiers": 1,
-    "organizations": 675,
-    "people": 984,
-    "person_contacts": 292,
-    "person_training_events": 1279,
-    "person_training_states": 1131,
-    "programs": 52,
+    "organizations": 795,
+    "people": 1336,
+    "person_contacts": 313,
+    "person_training_events": 1661,
+    "person_training_states": 1483,
+    "programs": 78,
     "source_quality_observations": 2,
     "source_utilities": 8,
-    "sources": 1346
+    "sources": 1374
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "evidence_source_counts": {
@@ -66,38 +66,51 @@
     "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_b953e0b386": 43,
     "penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7": 29,
     "penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532": 30,
-    "pubmed_eutilities": 759,
+    "penn_gme_gap_departments_and_centers_anesthesiology_and_critical_care_education_and_4122b4df93": 97,
+    "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_3d64800a80": 2,
+    "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf": 4,
+    "penn_gme_gap_departments_and_centers_family_medicine_and_community_health_education_3e2990eebf": 34,
+    "penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4": 42,
+    "penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d": 67,
+    "penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b": 80,
+    "penn_gme_gap_departments_and_centers_physical_medicine_and_rehabilitation_education_7d5742c85a": 22,
+    "penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d": 34,
+    "pubmed_eutilities": 1111,
     "pulmonary_critical_care_current_fellows": 68,
     "rheumatology_current_fellows": 45
   },
   "evidence_status_counts": {
-    "accepted": 1279,
-    "candidate": 759
+    "accepted": 1661,
+    "candidate": 1111
   },
-  "generated_at": "2026-06-02T05:38:54.682264+00:00",
+  "generated_at": "2026-06-02T05:58:50.494794+00:00",
   "generic_program_label_count": 0,
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,
-    "FELLOWSHIP_CURRENT_YEAR_UNKNOWN": 117,
+    "FELLOWSHIP_CURRENT_YEAR_UNKNOWN": 150,
     "FELLOWSHIP_YEAR_1": 66,
     "FELLOWSHIP_YEAR_2": 59,
     "FELLOWSHIP_YEAR_3": 36,
     "FELLOWSHIP_YEAR_4": 7,
-    "GME_CHIEF_RESIDENT": 10,
+    "GME_CHIEF_RESIDENT": 16,
+    "GME_CLINICAL_ANESTHESIA_YEAR_1": 26,
+    "GME_CLINICAL_ANESTHESIA_YEAR_2": 26,
+    "GME_CLINICAL_ANESTHESIA_YEAR_3": 23,
     "GME_CLINICAL_YEAR_2": 9,
     "GME_CLINICAL_YEAR_3": 10,
     "GME_CLINICAL_YEAR_4": 9,
     "GME_INDEPENDENT_RESIDENT": 2,
-    "GME_PGY_1": 124,
-    "GME_PGY_2": 146,
-    "GME_PGY_3": 121,
-    "GME_PGY_4": 31,
-    "GME_PGY_5": 10,
-    "GME_PGY_6": 5,
+    "GME_PGY_1": 193,
+    "GME_PGY_2": 191,
+    "GME_PGY_3": 165,
+    "GME_PGY_4": 63,
+    "GME_PGY_5": 25,
+    "GME_PGY_6": 8,
+    "GME_PGY_7": 3,
     "GME_PRELIMINARY_RESIDENT": 13,
-    "GME_RESEARCH_OR_LAB_YEAR": 23,
-    "GME_RESIDENT_CLASS_YEAR": 15,
-    "GME_RESIDENT_YEAR_UNKNOWN": 73,
+    "GME_RESEARCH_OR_LAB_YEAR": 25,
+    "GME_RESIDENT_CLASS_YEAR": 19,
+    "GME_RESIDENT_YEAR_UNKNOWN": 94,
     "MEDICAL_SCHOOL_MS1": 22,
     "MEDICAL_SCHOOL_MS2": 31,
     "MEDICAL_SCHOOL_MS3_OR_MS4": 49,
@@ -105,35 +118,35 @@
     "POSTDOCTORAL_RESEARCH_FELLOW": 7
   },
   "official_program_coverage_counts": {
-    "covered_current_roster": 33,
-    "discovered_no_current_roster": 27,
-    "not_discovered": 31
+    "covered_current_roster": 51,
+    "discovered_no_current_roster": 20,
+    "not_discovered": 20
   },
   "official_program_source_candidate_counts": {
-    "low_value_candidate": 22,
-    "program_context_candidate": 156,
-    "roster_source_candidate": 100
+    "low_value_candidate": 13,
+    "program_context_candidate": 136,
+    "roster_source_candidate": 65
   },
   "organization_category_counts": {
-    "clinical_training_site": 166,
-    "graduate_institution": 18,
-    "medical_school": 343,
-    "undergraduate_institution": 148
+    "clinical_training_site": 168,
+    "graduate_institution": 24,
+    "medical_school": 417,
+    "undergraduate_institution": 186
   },
   "resolver_counts": {
-    "cleaned_label": 665,
-    "seeded_alias": 614
+    "cleaned_label": 785,
+    "seeded_alias": 876
   },
   "role_counts": {
-    "fellow": 303,
+    "fellow": 336,
     "medical_student": 225,
-    "resident": 456
+    "resident": 775
   },
-  "stale_by_next_august_count": 1118,
+  "stale_by_next_august_count": 1470,
   "training_state_family_counts": {
-    "clinical_postgraduate": 578,
-    "clinical_postgraduate_research": 23,
-    "fellowship": 285,
+    "clinical_postgraduate": 895,
+    "clinical_postgraduate_research": 25,
+    "fellowship": 318,
     "medical_school": 102,
     "post_training_or_alumni": 13,
     "research_phase": 130

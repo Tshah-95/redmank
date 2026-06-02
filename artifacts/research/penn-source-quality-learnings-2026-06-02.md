@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T05:38:09.216638+00:00
+Generated: 2026-06-02T05:58:50.468273+00:00
 
 ## What This Pass Did
 
@@ -25,15 +25,14 @@ Official HUP programs parsed: 91.
 
 | coverage_status | count |
 | --- | --- |
-| covered_current_roster | 33 |
-| discovered_no_current_roster | 27 |
-| not_discovered | 31 |
+| covered_current_roster | 51 |
+| discovered_no_current_roster | 20 |
+| not_discovered | 20 |
 
 Sample uncovered or partially covered official programs:
 
 | program_type | department | program_name | coverage_status | match_method |
 | --- | --- | --- | --- | --- |
-| residency | Anesthesiology | Anesthesiology | discovered_no_current_roster | source_discovery |
 | fellowship | Anesthesiology | Adult Cardiothoracic Anesthesiology | discovered_no_current_roster | source_discovery |
 | fellowship | Anesthesiology | Critical Care Medicine | discovered_no_current_roster | source_discovery |
 | fellowship | Anesthesiology | Pain Medicine | discovered_no_current_roster | source_discovery |
@@ -43,104 +42,141 @@ Sample uncovered or partially covered official programs:
 | residency | Emergency Medicine | Emergency Medicine | discovered_no_current_roster | source_discovery |
 | residency | Emergency Medicine | Occupational and Environmental Medicine (Preventative Medicine) | not_discovered | none |
 | fellowship | Emergency Medicine | Undersea and Hyperbaric Medicine | discovered_no_current_roster | source_discovery |
-| residency | Family Medicine | Family Medicine | not_discovered | none |
 | fellowship | Family Medicine | Addiction Medicine | discovered_no_current_roster | source_discovery |
-| fellowship | Family Medicine | Sports Medicine | not_discovered | none |
-| fellowship | Internal Medicine | Sleep Medicine | discovered_no_current_roster | source_discovery |
 | fellowship | Internal Medicine | Transplant Hepatology | discovered_no_current_roster | source_discovery |
-| residency | Neurological Surgery | Neurological Surgery | not_discovered | none |
 | residency | Neurology | Neurology | not_discovered | none |
 | fellowship | Neurology | Clinical Neurophysiology | not_discovered | none |
 | fellowship | Neurology | Epilepsy | not_discovered | none |
 | fellowship | Neurology | Neurocritical Care | not_discovered | none |
 | fellowship | Neurology | Neuromuscular Medicine | not_discovered | none |
 | fellowship | Neurology | Vascular Neurology | not_discovered | none |
-| residency | Obstetrics and Gynecology | Obstetrics and Gynecology | not_discovered | none |
 | fellowship | Obstetrics and Gynecology | Complex Family Planning | not_discovered | none |
 | fellowship | Obstetrics and Gynecology | Gynecologic Oncology | not_discovered | none |
 | fellowship | Obstetrics and Gynecology | Maternal Fetal Medicine | not_discovered | none |
 | fellowship | Obstetrics and Gynecology | Reproductive Endocrinology and Infertility | not_discovered | none |
 | fellowship | Obstetrics and Gynecology | Urogynecology and Reconstructive Pelvic Surgery | not_discovered | none |
 | residency | Oral and Maxillofacial Surgery | Oral and Maxillofacial Surgery | not_discovered | none |
-| residency | Oral and Maxillofacial Surgery | Oral Medicine | not_discovered | none |
-| residency | Orthopedic Surgery | Orthopedic Surgery | not_discovered | none |
-| fellowship | Orthopedic Surgery | Adult Reconstructive Orthopedics | not_discovered | none |
-| fellowship | Orthopedic Surgery | Hand Surgery | not_discovered | none |
-| residency | Otorhinolaryngology | Otorhinolaryngology | discovered_no_current_roster | source_discovery |
-| fellowship | Otorhinolaryngology | Neurotology | not_discovered | none |
+| residency | Pathology and Laboratory Medicine | Pathology - Anatomic and Clinical | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Blood Banking and Transfusion Medicine | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Cytopathology | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Hematopathology | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Molecular Genetic Pathology | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Neuropathology | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Gastrointestinal and Hepatic Pathology (Selective) | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Soft Tissue/Bone (Selective) | discovered_no_current_roster | source_discovery |
+| fellowship | Pathology and Laboratory Medicine | Surgical Pathology (Selective) | discovered_no_current_roster | source_discovery |
+| fellowship | Physical Medicine and Rehabilitation | Brain Injury Medicine | discovered_no_current_roster | source_discovery |
+| residency | Psychiatry | Psychiatry | not_discovered | none |
+| fellowship | Psychiatry | Addiction Psychiatry | not_discovered | none |
 
 Learning: source discovery is not coverage. An official program-universe table gives the denominator needed for gap accounting, annual recrawls, and institution-level diff views. `covered_current_roster` means we have current people attached; `discovered_no_current_roster` means a program page is known but no current roster people are captured; `not_discovered` names crawl gaps.
 
 ## HUP Gap Source Queue
 
-Gap programs probed: 58. Source pages probed: 58. Candidate URLs queued: 278.
+Gap programs probed: 40. Source pages probed: 36. Candidate URLs queued: 214.
 
 | candidate_status | count |
 | --- | --- |
-| low_value_candidate | 22 |
-| program_context_candidate | 156 |
-| roster_source_candidate | 100 |
+| low_value_candidate | 13 |
+| program_context_candidate | 136 |
+| roster_source_candidate | 65 |
 
 Top roster-source candidates:
 
 | program_name | department | candidate_status | priority | candidate_title | candidate_url |
 | --- | --- | --- | --- | --- | --- |
-| Family Medicine | Family Medicine | roster_source_candidate | 145 | Current Residents | https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency/current-residents |
-| Obstetrics and Gynecology | Obstetrics and Gynecology | roster_source_candidate | 145 | Current Residents | https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup/current-residents |
-| Adult Reconstructive Orthopedics | Orthopedic Surgery | roster_source_candidate | 145 | Current Fellows | https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows |
-| Hand Surgery | Orthopedic Surgery | roster_source_candidate | 145 | Current Fellows | https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows |
-| Neurotology | Otorhinolaryngology | roster_source_candidate | 145 | Current Fellows | https://oto.med.upenn.edu/current-fellows |
-| Neurotology | Otorhinolaryngology | roster_source_candidate | 145 | Current Residents | https://oto.med.upenn.edu/current-residents |
-| Neurological Surgery | Neurological Surgery | roster_source_candidate | 135 | Residents | https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency/residents |
-| Oral Medicine | Oral and Maxillofacial Surgery | roster_source_candidate | 135 | Current Residents | https://www.dental.upenn.edu/departments/oral-medicine/resident-profiles |
-| Orthopedic Surgery | Orthopedic Surgery | roster_source_candidate | 135 | Residents | https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency/residents |
-| Neurotology | Otorhinolaryngology | roster_source_candidate | 135 | Resident Profiles | https://oto.med.upenn.edu/resident-profiles |
-| Otorhinolaryngology | Otorhinolaryngology | roster_source_candidate | 135 | Current Fellows | https://oto.med.upenn.edu/current-fellows |
-| Otorhinolaryngology | Otorhinolaryngology | roster_source_candidate | 135 | Current Residents | https://oto.med.upenn.edu/current-residents |
-| Podiatric Surgery | Podiatric Surgery | roster_source_candidate | 135 | Residents | https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/residents |
-| Radiation Oncology | Radiation Oncology | roster_source_candidate | 135 | Current Residents | https://www.med.upenn.edu/radiationoncologymedicalresidency/current-residents.html |
 | Radiology - Interventional, Independent | Radiology | roster_source_candidate | 135 | Current Residents | https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents |
-| Colon and Rectal Surgery | Surgery | roster_source_candidate | 135 | Meet Our Fellow | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship/fellows |
-| Craniofacial Surgery | Surgery | roster_source_candidate | 135 | Meet Our Fellow | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship/fellow |
 | Plastic Surgery | Surgery | roster_source_candidate | 135 | Meet Our Residents | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents |
-| Thoracic Surgery - Thoracic Track | Surgery | roster_source_candidate | 135 | Meet Our Fellow | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track/fellow |
 | Blood Banking and Transfusion Medicine | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
 | Blood Banking and Transfusion Medicine | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
 | Cytopathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
 | Cytopathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
 | Gastrointestinal and Hepatic Pathology (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
 | Gastrointestinal and Hepatic Pathology (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Hematopathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Hematopathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Molecular Genetic Pathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Molecular Genetic Pathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Neuropathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Neuropathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Pathology - Anatomic and Clinical | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Pathology - Anatomic and Clinical | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Soft Tissue/Bone (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Surgical Pathology (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Surgical Pathology (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Neurology | Neurology | roster_source_candidate | 125 | Class of 2026 | https://neuroresidency.uphs.upenn.edu/residents/2026 |
+| Neurology | Neurology | roster_source_candidate | 125 | Class of 2027 | https://neuroresidency.uphs.upenn.edu/residents/2027 |
+| Neurology | Neurology | roster_source_candidate | 125 | Class of 2028 | https://neuroresidency.uphs.upenn.edu/residents/2028 |
+| Neurology | Neurology | roster_source_candidate | 125 | Class of 2029 | https://neuroresidency.uphs.upenn.edu/residents/2029 |
+| Blood Banking and Transfusion Medicine | Pathology and Laboratory Medicine | roster_source_candidate | 125 | Fellows | https://pathology.med.upenn.edu/education/fellowships/fellows |
 
 Learning: coverage gaps need their own crawl state. Official program URLs, discovered context pages, and linked roster-like pages should be queued separately so the next scraper can attack high-priority roster candidates without conflating them with verified person records.
+
+## HUP Gap Roster Extraction
+
+Supported gap roster sources attempted: 28. Sources with records: 16. Person records extracted: 352.
+
+Records by role:
+
+| role | count |
+| --- | --- |
+| fellow | 33 |
+| resident | 319 |
+
+Extraction statuses:
+
+| extraction_status | count |
+| --- | --- |
+| no_supported_person_structure | 12 |
+| records_extracted | 16 |
+
+Learning: queue-driven extraction should stay template-aware. Pages without supported person structure remain source candidates; this avoids converting program context, generic people directories, or ambiguous student-fellow pages into trainee records.
 
 ## Penn-Wide Program Categorization
 
 | program_name | role | count |
 | --- | --- | --- |
+| Anesthesiology Residency | resident | 97 |
 | General Surgery Residency | resident | 75 |
 | Diagnostic Radiology Residency | resident | 54 |
+| Orthopedic Surgery Residency | resident | 40 |
+| Family Medicine Residency | resident | 35 |
+| Obstetrics and Gynecology Residency | resident | 32 |
+| Otorhinolaryngology Residency | resident | 31 |
+| Physical Medicine and Rehabilitation Residency | resident | 22 |
 | Plastic Surgery Residency | resident | 22 |
 | Urology Residency | resident | 22 |
+| Neurological Surgery Residency | resident | 21 |
 | Ophthalmology Residency | resident | 20 |
 | Interventional Radiology Integrated Residency | resident | 19 |
+| Radiation Oncology Residency | resident | 17 |
+| Podiatric Surgery Residency | resident | 16 |
 | Cardiothoracic Surgery Residency | resident | 15 |
 | Trauma and Surgical Critical Care Fellowship | fellow | 12 |
 | Neuroradiology Fellowship | fellow | 11 |
 | Ophthalmology Fellowship | fellow | 10 |
 | Abdominal Imaging Fellowship | fellow | 9 |
 | Vascular Surgery Integrated Residency | resident | 9 |
+| Oral Medicine Residency | resident | 8 |
+| Sleep Medicine Fellowship | fellow | 7 |
 | Microvascular Reconstructive Surgery Fellowship | fellow | 5 |
+| CHOP Otolaryngology Fellowship | fellow | 4 |
 | Thoracic Surgery Fellowship - Cardiac Track | fellow | 4 |
 | Vascular Surgery Fellowship | fellow | 4 |
+| Adult Reconstructive Orthopedics Fellowship | fellow | 3 |
 | Advanced Musculoskeletal Fellowship | fellow | 3 |
 | Transplant Surgery Fellowship | fellow | 3 |
 | Aortic Surgery Fellowship | fellow | 2 |
+| Foot and Ankle Fellowship | fellow | 2 |
+| Hand Surgery Fellowship | fellow | 2 |
+| Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship | fellow | 2 |
 | Nuclear Radiology Fellowship | fellow | 2 |
+| Rhinology and Skull Base Surgery Fellowship | fellow | 2 |
+| Sleep Medicine and Surgery Fellowship | fellow | 2 |
+| Sports Medicine Fellowship | fellow | 2 |
 | ABR Alternate Pathway to Certification | fellow | 1 |
 | Advanced Nuclear Radiology Fellowship | fellow | 1 |
-| Cardiothoracic Fellowship | fellow | 1 |
-| Cardiothoracic Transplantation Surgery Fellowship | fellow | 1 |
-| Oncologic Imaging Fellowship | fellow | 1 |
 
 Generic `Residents`/`Fellows` program labels remaining: 0.
 
@@ -150,22 +186,26 @@ Learning: program names often require URL-plus-section inference. Page titles al
 
 | stage_family | normalized_stage | status | count | avg_confidence |
 | --- | --- | --- | --- | --- |
-| clinical_postgraduate | GME_CHIEF_RESIDENT | current | 10 | 0.72 |
+| clinical_postgraduate | GME_CHIEF_RESIDENT | current | 16 | 0.72 |
+| clinical_postgraduate | GME_CLINICAL_ANESTHESIA_YEAR_1 | current | 26 | 0.74 |
+| clinical_postgraduate | GME_CLINICAL_ANESTHESIA_YEAR_2 | current | 26 | 0.74 |
+| clinical_postgraduate | GME_CLINICAL_ANESTHESIA_YEAR_3 | current | 23 | 0.74 |
 | clinical_postgraduate | GME_CLINICAL_YEAR_2 | current | 9 | 0.72 |
 | clinical_postgraduate | GME_CLINICAL_YEAR_3 | current | 10 | 0.72 |
 | clinical_postgraduate | GME_CLINICAL_YEAR_4 | current | 9 | 0.72 |
 | clinical_postgraduate | GME_INDEPENDENT_RESIDENT | current | 2 | 0.62 |
-| clinical_postgraduate | GME_PGY_1 | current | 124 | 0.884 |
-| clinical_postgraduate | GME_PGY_2 | current | 146 | 0.9 |
-| clinical_postgraduate | GME_PGY_3 | current | 121 | 0.9 |
-| clinical_postgraduate | GME_PGY_4 | current | 31 | 0.9 |
-| clinical_postgraduate | GME_PGY_5 | current | 10 | 0.9 |
-| clinical_postgraduate | GME_PGY_6 | current | 5 | 0.9 |
+| clinical_postgraduate | GME_PGY_1 | current | 193 | 0.87 |
+| clinical_postgraduate | GME_PGY_2 | current | 191 | 0.892 |
+| clinical_postgraduate | GME_PGY_3 | current | 165 | 0.893 |
+| clinical_postgraduate | GME_PGY_4 | current | 63 | 0.874 |
+| clinical_postgraduate | GME_PGY_5 | current | 25 | 0.85 |
+| clinical_postgraduate | GME_PGY_6 | current | 8 | 0.9 |
+| clinical_postgraduate | GME_PGY_7 | current | 3 | 0.9 |
 | clinical_postgraduate | GME_PRELIMINARY_RESIDENT | current | 13 | 0.66 |
-| clinical_postgraduate | GME_RESIDENT_CLASS_YEAR | current | 15 | 0.62 |
-| clinical_postgraduate | GME_RESIDENT_YEAR_UNKNOWN | current | 73 | 0.42 |
-| clinical_postgraduate_research | GME_RESEARCH_OR_LAB_YEAR | current | 23 | 0.68 |
-| fellowship | FELLOWSHIP_CURRENT_YEAR_UNKNOWN | current | 117 | 0.498 |
+| clinical_postgraduate | GME_RESIDENT_CLASS_YEAR | current | 19 | 0.62 |
+| clinical_postgraduate | GME_RESIDENT_YEAR_UNKNOWN | current | 94 | 0.429 |
+| clinical_postgraduate_research | GME_RESEARCH_OR_LAB_YEAR | current | 25 | 0.68 |
+| fellowship | FELLOWSHIP_CURRENT_YEAR_UNKNOWN | current | 150 | 0.499 |
 | fellowship | FELLOWSHIP_YEAR_1 | current | 66 | 0.82 |
 | fellowship | FELLOWSHIP_YEAR_2 | current | 59 | 0.82 |
 | fellowship | FELLOWSHIP_YEAR_3 | current | 36 | 0.82 |
@@ -181,20 +221,24 @@ Transition rules observed:
 
 | transition_rule | count |
 | --- | --- |
-| expected GME annual advancement around Jul 1 unless program-specific exception | 420 |
+| expected GME annual advancement around Jul 1 unless program-specific exception | 574 |
 | expected fellowship annual advancement around Jul 1; terminal year requires program-length context | 168 |
+| current fellow but year not normalized; refresh on next roster and use program-specific duration if available | 131 |
 | MSTP PhD phase duration is individualized; refresh from public directory annually | 123 |
-| current fellow but year not normalized; refresh on next roster and use program-specific duration if available | 109 |
+| expected anesthesia clinical-year advancement around Jul 1; map to PGY with program review | 75 |
 | current resident but year not visible on source; refresh on next roster | 73 |
 | expected annual medical-school class advancement around Aug 1 | 53 |
 | clinical-phase student label is ambiguous; refresh on annual directory update rather than auto-advance | 49 |
+| ordinal resident-year label maps to PGY with program review | 38 |
+| intern label maps to PGY1; expected annual advancement around Jul 1 | 36 |
 | expected clinical-year advancement around Jul 1; map to PGY with program review | 28 |
-| research/lab resident state is program-specific; refresh from roster rather than auto-advance | 23 |
-| intern label maps to PGY1; expected annual advancement around Jul 1 | 17 |
-| class-year resident label; derive exact PGY only with program-duration context | 15 |
+| research/lab resident state is program-specific; refresh from roster rather than auto-advance | 25 |
+| current resident but exact year not visible on source; refresh on next roster | 21 |
+| class-year resident label; derive exact PGY only with program-duration context | 19 |
+| chief year is terminal/program-specific; refresh on next academic-year roster | 16 |
 | preliminary resident label usually maps to a one-year GME state; verify against program context | 13 |
 | terminal_or_historical_state; do not auto-advance | 13 |
-| chief year is terminal/program-specific; refresh on next academic-year roster | 10 |
+| current fellow section label lacks year; refresh on next roster and use program-specific duration if available | 11 |
 | fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available | 8 |
 | postdoctoral fellow duration is individualized; refresh annually | 7 |
 | independent-resident track is program-specific; refresh annually and map with specialty rules | 2 |
@@ -294,7 +338,26 @@ Learning: roster strings should become normalized state observations with explic
 | penn_affiliated_departments_and_centers_department_of_surgery_education_and_training_r_f767efabe7 | accepted | undergraduate_school | 14 | 0.836 |
 | penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532 | accepted | medical_school | 20 | 0.9 |
 | penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532 | accepted | residency_program | 10 | 0.77 |
-| pubmed_eutilities | candidate | pubmed_author_query_candidate | 759 | 0.211 |
+| penn_gme_gap_departments_and_centers_anesthesiology_and_critical_care_education_and_4122b4df93 | accepted | medical_school | 97 | 0.894 |
+| penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_3d64800a80 | accepted | medical_school | 1 | 0.75 |
+| penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_3d64800a80 | accepted | residency_program | 1 | 0.75 |
+| penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf | accepted | graduate_school | 1 | 0.95 |
+| penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf | accepted | medical_school | 1 | 0.95 |
+| penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf | accepted | residency_program | 1 | 0.75 |
+| penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf | accepted | undergraduate_school | 1 | 0.95 |
+| penn_gme_gap_departments_and_centers_family_medicine_and_community_health_education_3e2990eebf | accepted | medical_school | 34 | 0.897 |
+| penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4 | accepted | medical_school | 21 | 0.94 |
+| penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4 | accepted | undergraduate_school | 21 | 0.912 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d | accepted | graduate_school | 6 | 0.817 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d | accepted | medical_school | 32 | 0.912 |
+| penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d | accepted | undergraduate_school | 29 | 0.929 |
+| penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b | accepted | medical_school | 40 | 0.885 |
+| penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b | accepted | undergraduate_school | 40 | 0.845 |
+| penn_gme_gap_departments_and_centers_physical_medicine_and_rehabilitation_education_7d5742c85a | accepted | medical_school | 22 | 0.841 |
+| penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | graduate_school | 2 | 0.75 |
+| penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | medical_school | 16 | 0.887 |
+| penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d | accepted | undergraduate_school | 16 | 0.825 |
+| pubmed_eutilities | candidate | pubmed_author_query_candidate | 1111 | 0.204 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
 | rheumatology_current_fellows | accepted | medical_school | 15 | 0.817 |
@@ -306,7 +369,7 @@ Learning: roster strings should become normalized state observations with explic
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
-| pubmed_eutilities | 759 | 759 | 0 | 0 | 0 | {"claims": 759, "mean_confidence": 0.211} |
+| pubmed_eutilities | 1111 | 1111 | 0 | 0 | 0 | {"claims": 1111, "mean_confidence": 0.2041} |
 
 ## OpenAlex Feature Distribution
 
@@ -319,9 +382,9 @@ Learning: OpenAlex remains a promising author-disambiguation utility, but the cu
 
 | match_features_json | count | avg_confidence |
 | --- | --- | --- |
-| ["author_query", "high_collision_risk"] | 466 | 0.16 |
-| ["author_query", "bounded_result_count"] | 226 | 0.35 |
-| ["author_query", "no_results"] | 67 | 0.1 |
+| ["author_query", "high_collision_risk"] | 669 | 0.159 |
+| ["author_query", "bounded_result_count"] | 305 | 0.35 |
+| ["author_query", "no_results"] | 137 | 0.1 |
 
 Learning: PubMed E-utilities is a strong article database, but author-query search is a weak identity resolver. It should be used after candidate author identity is constrained by OpenAlex/ORCID/profile context, or at article-level with affiliation/coauthor checks.
 
@@ -340,7 +403,7 @@ Learning: current faculty pages and alumni/outcome pages should feed a career-ev
 | --- | --- | --- | --- | --- | --- |
 | email | institutional | public_directory_unverified | candidate | 205 | 0.82 |
 | email | institutional | public_profile_unverified | candidate | 34 | 0.82 |
-| email | institutional | public_roster_unverified | candidate | 53 | 0.82 |
+| email | institutional | public_roster_unverified | candidate | 74 | 0.82 |
 
 Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. Raw HTML remains redacted; only structured, source-linked public contact candidates are stored.
 

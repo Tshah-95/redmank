@@ -292,6 +292,40 @@ def record_quality(conn: sqlite3.Connection, utility_key: str, claims: list[dict
     )
 
 
+def current_research_claims(conn: sqlite3.Connection) -> list[dict]:
+    rows = conn.execute(
+        """
+        SELECT e.person_key, p.display_name, p.role, e.claim_type, e.claim_value,
+               e.source_key, e.source_url, e.source_type, e.confidence, e.status,
+               e.match_features_json, e.reconciliation_notes, e.evidence_json
+        FROM evidence_claims e
+        JOIN people p ON p.person_key = e.person_key
+        WHERE e.source_key IN ('openalex_author_search', 'pubmed_eutilities')
+        ORDER BY e.source_key, p.display_name, e.claim_type, e.claim_value
+        """
+    ).fetchall()
+    claims = []
+    for row in rows:
+        claims.append(
+            {
+                "person_key": row["person_key"],
+                "display_name": row["display_name"],
+                "role": row["role"],
+                "claim_type": row["claim_type"],
+                "claim_value": row["claim_value"],
+                "source_key": row["source_key"],
+                "source_url": row["source_url"],
+                "source_type": row["source_type"],
+                "confidence": row["confidence"],
+                "status": row["status"],
+                "match_features": json.loads(row["match_features_json"] or "[]"),
+                "reconciliation_notes": row["reconciliation_notes"],
+                "evidence": json.loads(row["evidence_json"] or "{}"),
+            }
+        )
+    return claims
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=None)
@@ -405,6 +439,7 @@ def main() -> None:
             """
         )
     }
+    durable_claims = current_research_claims(conn)
     conn.close()
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -418,7 +453,7 @@ def main() -> None:
         "current_database_by_source_status": current_status_counts,
     }
     (OUT / "research_candidate_claims.json").write_text(
-        json.dumps(all_claims, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+        json.dumps(durable_claims, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
         encoding="utf-8",
     )
     (OUT / "research_candidate_summary.json").write_text(dumps(summary) + "\n", encoding="utf-8")

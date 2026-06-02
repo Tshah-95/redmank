@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T05:38:09.216638+00:00",
+  "generated_at": "2026-06-02T05:58:50.468273+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -10,6 +10,11 @@
       "source_type": "official_attending_faculty_candidate",
       "classification": null,
       "count": 4
+    },
+    {
+      "source_type": "official_gap_roster",
+      "classification": null,
+      "count": 28
     },
     {
       "source_type": "official_hup_gme_program_list",
@@ -702,11 +707,144 @@
       "avg_confidence": 0.77
     },
     {
+      "source_key": "penn_gme_gap_departments_and_centers_anesthesiology_and_critical_care_education_and_4122b4df93",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 97,
+      "avg_confidence": 0.894
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_3d64800a80",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_3d64800a80",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 1,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 1,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf",
+      "status": "accepted",
+      "claim_type": "residency_program",
+      "count": 1,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_department_of_surgery_education_and_training_f_4a5e8aaebf",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 1,
+      "avg_confidence": 0.95
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_family_medicine_and_community_health_education_3e2990eebf",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 34,
+      "avg_confidence": 0.897
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 21,
+      "avg_confidence": 0.94
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_neurosurgery_education_and_training_residency__aa4b8422b4",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 21,
+      "avg_confidence": 0.912
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 6,
+      "avg_confidence": 0.817
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 32,
+      "avg_confidence": 0.912
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_obstetrics_and_gynecology_education_and_traini_2c6709998d",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 29,
+      "avg_confidence": 0.929
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 40,
+      "avg_confidence": 0.885
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 40,
+      "avg_confidence": 0.845
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_physical_medicine_and_rehabilitation_education_7d5742c85a",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 22,
+      "avg_confidence": 0.841
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d",
+      "status": "accepted",
+      "claim_type": "graduate_school",
+      "count": 2,
+      "avg_confidence": 0.75
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d",
+      "status": "accepted",
+      "claim_type": "medical_school",
+      "count": 16,
+      "avg_confidence": 0.887
+    },
+    {
+      "source_key": "penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d",
+      "status": "accepted",
+      "claim_type": "undergraduate_school",
+      "count": 16,
+      "avg_confidence": 0.825
+    },
+    {
       "source_key": "pubmed_eutilities",
       "status": "candidate",
       "claim_type": "pubmed_author_query_candidate",
-      "count": 759,
-      "avg_confidence": 0.211
+      "count": 1111,
+      "avg_confidence": 0.204
     },
     {
       "source_key": "pulmonary_critical_care_current_fellows",
@@ -756,29 +894,29 @@
     },
     {
       "utility_key": "pubmed_eutilities",
-      "sample_size": 759,
-      "candidate_claims": 759,
+      "sample_size": 1111,
+      "candidate_claims": 1111,
       "accepted_claims": 0,
       "rejected_claims": 0,
       "ambiguous_claims": 0,
-      "metrics_json": "{\"claims\": 759, \"mean_confidence\": 0.211}"
+      "metrics_json": "{\"claims\": 1111, \"mean_confidence\": 0.2041}"
     }
   ],
   "openalex_feature_distribution": [],
   "pubmed_feature_distribution": [
     {
       "match_features_json": "[\"author_query\", \"high_collision_risk\"]",
-      "count": 466,
-      "avg_confidence": 0.16
+      "count": 669,
+      "avg_confidence": 0.159
     },
     {
       "match_features_json": "[\"author_query\", \"bounded_result_count\"]",
-      "count": 226,
+      "count": 305,
       "avg_confidence": 0.35
     },
     {
       "match_features_json": "[\"author_query\", \"no_results\"]",
-      "count": 67,
+      "count": 137,
       "avg_confidence": 0.1
     }
   ],
@@ -816,6 +954,11 @@
   ],
   "broad_program_counts": [
     {
+      "program_name": "Anesthesiology Residency",
+      "role": "resident",
+      "count": 97
+    },
+    {
       "program_name": "General Surgery Residency",
       "role": "resident",
       "count": 75
@@ -824,6 +967,31 @@
       "program_name": "Diagnostic Radiology Residency",
       "role": "resident",
       "count": 54
+    },
+    {
+      "program_name": "Orthopedic Surgery Residency",
+      "role": "resident",
+      "count": 40
+    },
+    {
+      "program_name": "Family Medicine Residency",
+      "role": "resident",
+      "count": 35
+    },
+    {
+      "program_name": "Obstetrics and Gynecology Residency",
+      "role": "resident",
+      "count": 32
+    },
+    {
+      "program_name": "Otorhinolaryngology Residency",
+      "role": "resident",
+      "count": 31
+    },
+    {
+      "program_name": "Physical Medicine and Rehabilitation Residency",
+      "role": "resident",
+      "count": 22
     },
     {
       "program_name": "Plastic Surgery Residency",
@@ -836,6 +1004,11 @@
       "count": 22
     },
     {
+      "program_name": "Neurological Surgery Residency",
+      "role": "resident",
+      "count": 21
+    },
+    {
       "program_name": "Ophthalmology Residency",
       "role": "resident",
       "count": 20
@@ -844,6 +1017,16 @@
       "program_name": "Interventional Radiology Integrated Residency",
       "role": "resident",
       "count": 19
+    },
+    {
+      "program_name": "Radiation Oncology Residency",
+      "role": "resident",
+      "count": 17
+    },
+    {
+      "program_name": "Podiatric Surgery Residency",
+      "role": "resident",
+      "count": 16
     },
     {
       "program_name": "Cardiothoracic Surgery Residency",
@@ -876,9 +1059,24 @@
       "count": 9
     },
     {
+      "program_name": "Oral Medicine Residency",
+      "role": "resident",
+      "count": 8
+    },
+    {
+      "program_name": "Sleep Medicine Fellowship",
+      "role": "fellow",
+      "count": 7
+    },
+    {
       "program_name": "Microvascular Reconstructive Surgery Fellowship",
       "role": "fellow",
       "count": 5
+    },
+    {
+      "program_name": "CHOP Otolaryngology Fellowship",
+      "role": "fellow",
+      "count": 4
     },
     {
       "program_name": "Thoracic Surgery Fellowship - Cardiac Track",
@@ -889,6 +1087,11 @@
       "program_name": "Vascular Surgery Fellowship",
       "role": "fellow",
       "count": 4
+    },
+    {
+      "program_name": "Adult Reconstructive Orthopedics Fellowship",
+      "role": "fellow",
+      "count": 3
     },
     {
       "program_name": "Advanced Musculoskeletal Fellowship",
@@ -906,7 +1109,37 @@
       "count": 2
     },
     {
+      "program_name": "Foot and Ankle Fellowship",
+      "role": "fellow",
+      "count": 2
+    },
+    {
+      "program_name": "Hand Surgery Fellowship",
+      "role": "fellow",
+      "count": 2
+    },
+    {
+      "program_name": "Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship",
+      "role": "fellow",
+      "count": 2
+    },
+    {
       "program_name": "Nuclear Radiology Fellowship",
+      "role": "fellow",
+      "count": 2
+    },
+    {
+      "program_name": "Rhinology and Skull Base Surgery Fellowship",
+      "role": "fellow",
+      "count": 2
+    },
+    {
+      "program_name": "Sleep Medicine and Surgery Fellowship",
+      "role": "fellow",
+      "count": 2
+    },
+    {
+      "program_name": "Sports Medicine Fellowship",
       "role": "fellow",
       "count": 2
     },
@@ -919,21 +1152,6 @@
       "program_name": "Advanced Nuclear Radiology Fellowship",
       "role": "fellow",
       "count": 1
-    },
-    {
-      "program_name": "Cardiothoracic Fellowship",
-      "role": "fellow",
-      "count": 1
-    },
-    {
-      "program_name": "Cardiothoracic Transplantation Surgery Fellowship",
-      "role": "fellow",
-      "count": 1
-    },
-    {
-      "program_name": "Oncologic Imaging Fellowship",
-      "role": "fellow",
-      "count": 1
     }
   ],
   "generic_program_labels": [],
@@ -942,8 +1160,29 @@
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_CHIEF_RESIDENT",
       "status": "current",
-      "count": 10,
+      "count": 16,
       "avg_confidence": 0.72
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CLINICAL_ANESTHESIA_YEAR_1",
+      "status": "current",
+      "count": 26,
+      "avg_confidence": 0.74
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CLINICAL_ANESTHESIA_YEAR_2",
+      "status": "current",
+      "count": 26,
+      "avg_confidence": 0.74
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_CLINICAL_ANESTHESIA_YEAR_3",
+      "status": "current",
+      "count": 23,
+      "avg_confidence": 0.74
     },
     {
       "stage_family": "clinical_postgraduate",
@@ -977,42 +1216,49 @@
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_PGY_1",
       "status": "current",
-      "count": 124,
-      "avg_confidence": 0.884
+      "count": 193,
+      "avg_confidence": 0.87
     },
     {
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_PGY_2",
       "status": "current",
-      "count": 146,
-      "avg_confidence": 0.9
+      "count": 191,
+      "avg_confidence": 0.892
     },
     {
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_PGY_3",
       "status": "current",
-      "count": 121,
-      "avg_confidence": 0.9
+      "count": 165,
+      "avg_confidence": 0.893
     },
     {
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_PGY_4",
       "status": "current",
-      "count": 31,
-      "avg_confidence": 0.9
+      "count": 63,
+      "avg_confidence": 0.874
     },
     {
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_PGY_5",
       "status": "current",
-      "count": 10,
-      "avg_confidence": 0.9
+      "count": 25,
+      "avg_confidence": 0.85
     },
     {
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_PGY_6",
       "status": "current",
-      "count": 5,
+      "count": 8,
+      "avg_confidence": 0.9
+    },
+    {
+      "stage_family": "clinical_postgraduate",
+      "normalized_stage": "GME_PGY_7",
+      "status": "current",
+      "count": 3,
       "avg_confidence": 0.9
     },
     {
@@ -1026,29 +1272,29 @@
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_RESIDENT_CLASS_YEAR",
       "status": "current",
-      "count": 15,
+      "count": 19,
       "avg_confidence": 0.62
     },
     {
       "stage_family": "clinical_postgraduate",
       "normalized_stage": "GME_RESIDENT_YEAR_UNKNOWN",
       "status": "current",
-      "count": 73,
-      "avg_confidence": 0.42
+      "count": 94,
+      "avg_confidence": 0.429
     },
     {
       "stage_family": "clinical_postgraduate_research",
       "normalized_stage": "GME_RESEARCH_OR_LAB_YEAR",
       "status": "current",
-      "count": 23,
+      "count": 25,
       "avg_confidence": 0.68
     },
     {
       "stage_family": "fellowship",
       "normalized_stage": "FELLOWSHIP_CURRENT_YEAR_UNKNOWN",
       "status": "current",
-      "count": 117,
-      "avg_confidence": 0.498
+      "count": 150,
+      "avg_confidence": 0.499
     },
     {
       "stage_family": "fellowship",
@@ -1124,19 +1370,23 @@
   "transition_rule_counts": [
     {
       "transition_rule": "expected GME annual advancement around Jul 1 unless program-specific exception",
-      "count": 420
+      "count": 574
     },
     {
       "transition_rule": "expected fellowship annual advancement around Jul 1; terminal year requires program-length context",
       "count": 168
     },
     {
+      "transition_rule": "current fellow but year not normalized; refresh on next roster and use program-specific duration if available",
+      "count": 131
+    },
+    {
       "transition_rule": "MSTP PhD phase duration is individualized; refresh from public directory annually",
       "count": 123
     },
     {
-      "transition_rule": "current fellow but year not normalized; refresh on next roster and use program-specific duration if available",
-      "count": 109
+      "transition_rule": "expected anesthesia clinical-year advancement around Jul 1; map to PGY with program review",
+      "count": 75
     },
     {
       "transition_rule": "current resident but year not visible on source; refresh on next roster",
@@ -1151,20 +1401,32 @@
       "count": 49
     },
     {
+      "transition_rule": "ordinal resident-year label maps to PGY with program review",
+      "count": 38
+    },
+    {
+      "transition_rule": "intern label maps to PGY1; expected annual advancement around Jul 1",
+      "count": 36
+    },
+    {
       "transition_rule": "expected clinical-year advancement around Jul 1; map to PGY with program review",
       "count": 28
     },
     {
       "transition_rule": "research/lab resident state is program-specific; refresh from roster rather than auto-advance",
-      "count": 23
+      "count": 25
     },
     {
-      "transition_rule": "intern label maps to PGY1; expected annual advancement around Jul 1",
-      "count": 17
+      "transition_rule": "current resident but exact year not visible on source; refresh on next roster",
+      "count": 21
     },
     {
       "transition_rule": "class-year resident label; derive exact PGY only with program-duration context",
-      "count": 15
+      "count": 19
+    },
+    {
+      "transition_rule": "chief year is terminal/program-specific; refresh on next academic-year roster",
+      "count": 16
     },
     {
       "transition_rule": "preliminary resident label usually maps to a one-year GME state; verify against program context",
@@ -1175,8 +1437,8 @@
       "count": 13
     },
     {
-      "transition_rule": "chief year is terminal/program-specific; refresh on next academic-year roster",
-      "count": 10
+      "transition_rule": "current fellow section label lacks year; refresh on next roster and use program-specific duration if available",
+      "count": 11
     },
     {
       "transition_rule": "fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available",
@@ -1213,32 +1475,25 @@
       "contact_scope": "institutional",
       "verification_status": "public_roster_unverified",
       "status": "candidate",
-      "count": 53,
+      "count": 74,
       "avg_confidence": 0.82
     }
   ],
   "hup_gme_program_coverage_summary": {
     "by_coverage_status": {
-      "covered_current_roster": 33,
-      "discovered_no_current_roster": 27,
-      "not_discovered": 31
+      "covered_current_roster": 51,
+      "discovered_no_current_roster": 20,
+      "not_discovered": 20
     },
     "by_program_type": {
       "fellowship": 62,
       "residency": 29
     },
-    "generated_at": "2026-06-02T05:36:57.056999+00:00",
+    "generated_at": "2026-06-02T05:58:45.375435+00:00",
     "programs": 91,
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs"
   },
   "hup_gme_program_coverage_gaps_sample": [
-    {
-      "program_type": "residency",
-      "department": "Anesthesiology",
-      "program_name": "Anesthesiology",
-      "coverage_status": "discovered_no_current_roster",
-      "match_method": "source_discovery"
-    },
     {
       "program_type": "fellowship",
       "department": "Anesthesiology",
@@ -1303,30 +1558,9 @@
       "match_method": "source_discovery"
     },
     {
-      "program_type": "residency",
-      "department": "Family Medicine",
-      "program_name": "Family Medicine",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
       "program_type": "fellowship",
       "department": "Family Medicine",
       "program_name": "Addiction Medicine",
-      "coverage_status": "discovered_no_current_roster",
-      "match_method": "source_discovery"
-    },
-    {
-      "program_type": "fellowship",
-      "department": "Family Medicine",
-      "program_name": "Sports Medicine",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
-      "program_type": "fellowship",
-      "department": "Internal Medicine",
-      "program_name": "Sleep Medicine",
       "coverage_status": "discovered_no_current_roster",
       "match_method": "source_discovery"
     },
@@ -1336,13 +1570,6 @@
       "program_name": "Transplant Hepatology",
       "coverage_status": "discovered_no_current_roster",
       "match_method": "source_discovery"
-    },
-    {
-      "program_type": "residency",
-      "department": "Neurological Surgery",
-      "program_name": "Neurological Surgery",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
     },
     {
       "program_type": "residency",
@@ -1383,13 +1610,6 @@
       "program_type": "fellowship",
       "department": "Neurology",
       "program_name": "Vascular Neurology",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
-      "program_type": "residency",
-      "department": "Obstetrics and Gynecology",
-      "program_name": "Obstetrics and Gynecology",
       "coverage_status": "not_discovered",
       "match_method": "none"
     },
@@ -1437,174 +1657,104 @@
     },
     {
       "program_type": "residency",
-      "department": "Oral and Maxillofacial Surgery",
-      "program_name": "Oral Medicine",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
-      "program_type": "residency",
-      "department": "Orthopedic Surgery",
-      "program_name": "Orthopedic Surgery",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
-      "program_type": "fellowship",
-      "department": "Orthopedic Surgery",
-      "program_name": "Adult Reconstructive Orthopedics",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
-      "program_type": "fellowship",
-      "department": "Orthopedic Surgery",
-      "program_name": "Hand Surgery",
-      "coverage_status": "not_discovered",
-      "match_method": "none"
-    },
-    {
-      "program_type": "residency",
-      "department": "Otorhinolaryngology",
-      "program_name": "Otorhinolaryngology",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Pathology - Anatomic and Clinical",
       "coverage_status": "discovered_no_current_roster",
       "match_method": "source_discovery"
     },
     {
       "program_type": "fellowship",
-      "department": "Otorhinolaryngology",
-      "program_name": "Neurotology",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Blood Banking and Transfusion Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Cytopathology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Hematopathology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Molecular Genetic Pathology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Neuropathology",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Gastrointestinal and Hepatic Pathology (Selective)",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Pathology and Laboratory Medicine",
+      "program_name": "Surgical Pathology (Selective)",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Physical Medicine and Rehabilitation",
+      "program_name": "Brain Injury Medicine",
+      "coverage_status": "discovered_no_current_roster",
+      "match_method": "source_discovery"
+    },
+    {
+      "program_type": "residency",
+      "department": "Psychiatry",
+      "program_name": "Psychiatry",
+      "coverage_status": "not_discovered",
+      "match_method": "none"
+    },
+    {
+      "program_type": "fellowship",
+      "department": "Psychiatry",
+      "program_name": "Addiction Psychiatry",
       "coverage_status": "not_discovered",
       "match_method": "none"
     }
   ],
   "hup_gme_gap_source_probe_summary": {
     "by_candidate_status": {
-      "low_value_candidate": 22,
-      "program_context_candidate": 156,
-      "roster_source_candidate": 100
+      "low_value_candidate": 13,
+      "program_context_candidate": 136,
+      "roster_source_candidate": 65
     },
     "by_coverage_status": {
-      "discovered_no_current_roster": 217,
-      "not_discovered": 61
+      "discovered_no_current_roster": 186,
+      "not_discovered": 28
     },
-    "candidate_urls": 278,
-    "gap_programs": 58,
-    "generated_at": "2026-06-02T05:38:09.110938+00:00",
-    "source_pages_probed": 58,
+    "candidate_urls": 214,
+    "gap_programs": 40,
+    "generated_at": "2026-06-02T05:58:50.317313+00:00",
+    "source_pages_probed": 36,
     "top_roster_candidates": [
-      {
-        "candidate_title": "Current Residents",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency/current-residents",
-        "confidence": 0.75,
-        "department": "Family Medicine",
-        "priority": 145,
-        "program_name": "Family Medicine"
-      },
-      {
-        "candidate_title": "Current Residents",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup/current-residents",
-        "confidence": 0.75,
-        "department": "Obstetrics and Gynecology",
-        "priority": 145,
-        "program_name": "Obstetrics and Gynecology"
-      },
-      {
-        "candidate_title": "Current Fellows",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows",
-        "confidence": 0.75,
-        "department": "Orthopedic Surgery",
-        "priority": 145,
-        "program_name": "Adult Reconstructive Orthopedics"
-      },
-      {
-        "candidate_title": "Current Fellows",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows",
-        "confidence": 0.75,
-        "department": "Orthopedic Surgery",
-        "priority": 145,
-        "program_name": "Hand Surgery"
-      },
-      {
-        "candidate_title": "Current Fellows",
-        "candidate_url": "https://oto.med.upenn.edu/current-fellows",
-        "confidence": 0.75,
-        "department": "Otorhinolaryngology",
-        "priority": 145,
-        "program_name": "Neurotology"
-      },
-      {
-        "candidate_title": "Current Residents",
-        "candidate_url": "https://oto.med.upenn.edu/current-residents",
-        "confidence": 0.75,
-        "department": "Otorhinolaryngology",
-        "priority": 145,
-        "program_name": "Neurotology"
-      },
-      {
-        "candidate_title": "Residents",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency/residents",
-        "confidence": 0.65,
-        "department": "Neurological Surgery",
-        "priority": 135,
-        "program_name": "Neurological Surgery"
-      },
-      {
-        "candidate_title": "Current Residents",
-        "candidate_url": "https://www.dental.upenn.edu/departments/oral-medicine/resident-profiles",
-        "confidence": 0.65,
-        "department": "Oral and Maxillofacial Surgery",
-        "priority": 135,
-        "program_name": "Oral Medicine"
-      },
-      {
-        "candidate_title": "Residents",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency/residents",
-        "confidence": 0.65,
-        "department": "Orthopedic Surgery",
-        "priority": 135,
-        "program_name": "Orthopedic Surgery"
-      },
-      {
-        "candidate_title": "Resident Profiles",
-        "candidate_url": "https://oto.med.upenn.edu/resident-profiles",
-        "confidence": 0.65,
-        "department": "Otorhinolaryngology",
-        "priority": 135,
-        "program_name": "Neurotology"
-      },
-      {
-        "candidate_title": "Current Fellows",
-        "candidate_url": "https://oto.med.upenn.edu/current-fellows",
-        "confidence": 0.75,
-        "department": "Otorhinolaryngology",
-        "priority": 135,
-        "program_name": "Otorhinolaryngology"
-      },
-      {
-        "candidate_title": "Current Residents",
-        "candidate_url": "https://oto.med.upenn.edu/current-residents",
-        "confidence": 0.75,
-        "department": "Otorhinolaryngology",
-        "priority": 135,
-        "program_name": "Otorhinolaryngology"
-      },
-      {
-        "candidate_title": "Residents",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/residents",
-        "confidence": 0.65,
-        "department": "Podiatric Surgery",
-        "priority": 135,
-        "program_name": "Podiatric Surgery"
-      },
-      {
-        "candidate_title": "Current Residents",
-        "candidate_url": "https://www.med.upenn.edu/radiationoncologymedicalresidency/current-residents.html",
-        "confidence": 0.65,
-        "department": "Radiation Oncology",
-        "priority": 135,
-        "program_name": "Radiation Oncology"
-      },
       {
         "candidate_title": "Current Residents",
         "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents",
@@ -1612,22 +1762,6 @@
         "department": "Radiology",
         "priority": 135,
         "program_name": "Radiology - Interventional, Independent"
-      },
-      {
-        "candidate_title": "Meet Our Fellow",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship/fellows",
-        "confidence": 0.75,
-        "department": "Surgery",
-        "priority": 135,
-        "program_name": "Colon and Rectal Surgery"
-      },
-      {
-        "candidate_title": "Meet Our Fellow",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship/fellow",
-        "confidence": 0.75,
-        "department": "Surgery",
-        "priority": 135,
-        "program_name": "Craniofacial Surgery"
       },
       {
         "candidate_title": "Meet Our Residents",
@@ -1638,14 +1772,6 @@
         "program_name": "Plastic Surgery"
       },
       {
-        "candidate_title": "Meet Our Fellow",
-        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track/fellow",
-        "confidence": 0.75,
-        "department": "Surgery",
-        "priority": 135,
-        "program_name": "Thoracic Surgery - Thoracic Track"
-      },
-      {
         "candidate_title": "Fellows",
         "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
         "confidence": 0.7,
@@ -1692,122 +1818,146 @@
         "department": "Pathology and Laboratory Medicine",
         "priority": 130,
         "program_name": "Gastrointestinal and Hepatic Pathology (Selective)"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Hematopathology"
+      },
+      {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Hematopathology"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Molecular Genetic Pathology"
+      },
+      {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Molecular Genetic Pathology"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Neuropathology"
+      },
+      {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Neuropathology"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Pathology - Anatomic and Clinical"
+      },
+      {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Pathology - Anatomic and Clinical"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Soft Tissue/Bone (Selective)"
+      },
+      {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Soft Tissue/Bone (Selective)"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Surgical Pathology (Selective)"
+      },
+      {
+        "candidate_title": "Residents",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/residents",
+        "confidence": 0.7,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 130,
+        "program_name": "Surgical Pathology (Selective)"
+      },
+      {
+        "candidate_title": "Class of 2026",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2026",
+        "confidence": 0.55,
+        "department": "Neurology",
+        "priority": 125,
+        "program_name": "Neurology"
+      },
+      {
+        "candidate_title": "Class of 2027",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2027",
+        "confidence": 0.55,
+        "department": "Neurology",
+        "priority": 125,
+        "program_name": "Neurology"
+      },
+      {
+        "candidate_title": "Class of 2028",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2028",
+        "confidence": 0.55,
+        "department": "Neurology",
+        "priority": 125,
+        "program_name": "Neurology"
+      },
+      {
+        "candidate_title": "Class of 2029",
+        "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2029",
+        "confidence": 0.55,
+        "department": "Neurology",
+        "priority": 125,
+        "program_name": "Neurology"
+      },
+      {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/education/fellowships/fellows",
+        "confidence": 0.65,
+        "department": "Pathology and Laboratory Medicine",
+        "priority": 125,
+        "program_name": "Blood Banking and Transfusion Medicine"
       }
     ]
   },
   "hup_gme_top_gap_source_candidates": [
-    {
-      "program_name": "Family Medicine",
-      "department": "Family Medicine",
-      "candidate_status": "roster_source_candidate",
-      "priority": 145,
-      "candidate_title": "Current Residents",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency/current-residents"
-    },
-    {
-      "program_name": "Obstetrics and Gynecology",
-      "department": "Obstetrics and Gynecology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 145,
-      "candidate_title": "Current Residents",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup/current-residents"
-    },
-    {
-      "program_name": "Adult Reconstructive Orthopedics",
-      "department": "Orthopedic Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 145,
-      "candidate_title": "Current Fellows",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows"
-    },
-    {
-      "program_name": "Hand Surgery",
-      "department": "Orthopedic Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 145,
-      "candidate_title": "Current Fellows",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows"
-    },
-    {
-      "program_name": "Neurotology",
-      "department": "Otorhinolaryngology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 145,
-      "candidate_title": "Current Fellows",
-      "candidate_url": "https://oto.med.upenn.edu/current-fellows"
-    },
-    {
-      "program_name": "Neurotology",
-      "department": "Otorhinolaryngology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 145,
-      "candidate_title": "Current Residents",
-      "candidate_url": "https://oto.med.upenn.edu/current-residents"
-    },
-    {
-      "program_name": "Neurological Surgery",
-      "department": "Neurological Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Residents",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency/residents"
-    },
-    {
-      "program_name": "Oral Medicine",
-      "department": "Oral and Maxillofacial Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Current Residents",
-      "candidate_url": "https://www.dental.upenn.edu/departments/oral-medicine/resident-profiles"
-    },
-    {
-      "program_name": "Orthopedic Surgery",
-      "department": "Orthopedic Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Residents",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency/residents"
-    },
-    {
-      "program_name": "Neurotology",
-      "department": "Otorhinolaryngology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Resident Profiles",
-      "candidate_url": "https://oto.med.upenn.edu/resident-profiles"
-    },
-    {
-      "program_name": "Otorhinolaryngology",
-      "department": "Otorhinolaryngology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Current Fellows",
-      "candidate_url": "https://oto.med.upenn.edu/current-fellows"
-    },
-    {
-      "program_name": "Otorhinolaryngology",
-      "department": "Otorhinolaryngology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Current Residents",
-      "candidate_url": "https://oto.med.upenn.edu/current-residents"
-    },
-    {
-      "program_name": "Podiatric Surgery",
-      "department": "Podiatric Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Residents",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/residents"
-    },
-    {
-      "program_name": "Radiation Oncology",
-      "department": "Radiation Oncology",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Current Residents",
-      "candidate_url": "https://www.med.upenn.edu/radiationoncologymedicalresidency/current-residents.html"
-    },
     {
       "program_name": "Radiology - Interventional, Independent",
       "department": "Radiology",
@@ -1815,22 +1965,6 @@
       "priority": 135,
       "candidate_title": "Current Residents",
       "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents"
-    },
-    {
-      "program_name": "Colon and Rectal Surgery",
-      "department": "Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Meet Our Fellow",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship/fellows"
-    },
-    {
-      "program_name": "Craniofacial Surgery",
-      "department": "Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Meet Our Fellow",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship/fellow"
     },
     {
       "program_name": "Plastic Surgery",
@@ -1841,14 +1975,6 @@
       "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents"
     },
     {
-      "program_name": "Thoracic Surgery - Thoracic Track",
-      "department": "Surgery",
-      "candidate_status": "roster_source_candidate",
-      "priority": 135,
-      "candidate_title": "Meet Our Fellow",
-      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track/fellow"
-    },
-    {
       "program_name": "Blood Banking and Transfusion Medicine",
       "department": "Pathology and Laboratory Medicine",
       "candidate_status": "roster_source_candidate",
@@ -1895,6 +2021,218 @@
       "priority": 130,
       "candidate_title": "Residents",
       "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Hematopathology",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows"
+    },
+    {
+      "program_name": "Hematopathology",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Residents",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Molecular Genetic Pathology",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows"
+    },
+    {
+      "program_name": "Molecular Genetic Pathology",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Residents",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Neuropathology",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows"
+    },
+    {
+      "program_name": "Neuropathology",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Residents",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Pathology - Anatomic and Clinical",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows"
+    },
+    {
+      "program_name": "Pathology - Anatomic and Clinical",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Residents",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows"
+    },
+    {
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Residents",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Surgical Pathology (Selective)",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows"
+    },
+    {
+      "program_name": "Surgical Pathology (Selective)",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 130,
+      "candidate_title": "Residents",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/residents"
+    },
+    {
+      "program_name": "Neurology",
+      "department": "Neurology",
+      "candidate_status": "roster_source_candidate",
+      "priority": 125,
+      "candidate_title": "Class of 2026",
+      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2026"
+    },
+    {
+      "program_name": "Neurology",
+      "department": "Neurology",
+      "candidate_status": "roster_source_candidate",
+      "priority": 125,
+      "candidate_title": "Class of 2027",
+      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2027"
+    },
+    {
+      "program_name": "Neurology",
+      "department": "Neurology",
+      "candidate_status": "roster_source_candidate",
+      "priority": 125,
+      "candidate_title": "Class of 2028",
+      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2028"
+    },
+    {
+      "program_name": "Neurology",
+      "department": "Neurology",
+      "candidate_status": "roster_source_candidate",
+      "priority": 125,
+      "candidate_title": "Class of 2029",
+      "candidate_url": "https://neuroresidency.uphs.upenn.edu/residents/2029"
+    },
+    {
+      "program_name": "Blood Banking and Transfusion Medicine",
+      "department": "Pathology and Laboratory Medicine",
+      "candidate_status": "roster_source_candidate",
+      "priority": 125,
+      "candidate_title": "Fellows",
+      "candidate_url": "https://pathology.med.upenn.edu/education/fellowships/fellows"
     }
-  ]
+  ],
+  "hup_gme_gap_roster_summary": {
+    "by_extraction_status": {
+      "no_supported_person_structure": 12,
+      "records_extracted": 16
+    },
+    "by_program": {
+      "Adult Reconstructive Orthopedics Fellowship": 3,
+      "Anesthesiology Residency": 97,
+      "CHOP Otolaryngology Fellowship": 4,
+      "Colon and Rectal Surgery Fellowship": 1,
+      "Craniofacial Surgery Fellowship": 1,
+      "Facial Plastic and Reconstructive Surgery Fellowship": 1,
+      "Family Medicine Residency": 35,
+      "Foot and Ankle Fellowship": 2,
+      "Hand Surgery Fellowship": 2,
+      "Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship": 2,
+      "Neurological Surgery Residency": 21,
+      "Neurotology Fellowship": 1,
+      "Obstetrics and Gynecology Residency": 32,
+      "Oral Medicine Residency": 8,
+      "Orthopedic Surgery Residency": 40,
+      "Otorhinolaryngology Residency": 31,
+      "Physical Medicine and Rehabilitation Residency": 22,
+      "Podiatric Surgery Residency": 16,
+      "Radiation Oncology Residency": 17,
+      "Rhinology and Skull Base Surgery Fellowship": 2,
+      "Shoulder and Elbow Fellowship": 1,
+      "Sleep Medicine Fellowship": 7,
+      "Sleep Medicine and Surgery Fellowship": 2,
+      "Spine Fellowship": 1,
+      "Sports Medicine Fellowship": 2,
+      "Thoracic Surgery - Thoracic Track Fellowship": 1
+    },
+    "by_role": {
+      "fellow": 33,
+      "resident": 319
+    },
+    "generated_at": "2026-06-02T05:52:03.759337+00:00",
+    "person_records": 352,
+    "skipped_already_captured_sources": 5,
+    "skipped_sources": [
+      {
+        "candidate_title": "Meet Our Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents",
+        "program_name": "Plastic Surgery",
+        "reason": "already_loaded_as_official_roster_source"
+      },
+      {
+        "candidate_title": "Meet our Integrated IR residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/ir-integrated-residents",
+        "program_name": "Radiology - Interventional, Independent",
+        "reason": "already_loaded_as_official_roster_source"
+      },
+      {
+        "candidate_title": "Student Fellows",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/students-fellows",
+        "program_name": "Blood Banking and Transfusion Medicine",
+        "reason": "student_fellows_directory_not_gme_roster"
+      },
+      {
+        "candidate_title": "Medicine-Dermatology Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program/medicine-dermatology-residents",
+        "program_name": "Dermatology",
+        "reason": "already_loaded_as_official_roster_source"
+      },
+      {
+        "candidate_title": "Advanced Gastroenterology and Hepatology Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
+        "program_name": "Transplant Hepatology",
+        "reason": "already_loaded_as_official_roster_source"
+      }
+    ],
+    "sources_attempted": 28,
+    "sources_with_records": 16,
+    "unique_names": 352
+  }
 }

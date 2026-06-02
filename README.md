@@ -22,6 +22,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
 - `artifacts/data/penn_gme_gap_source_candidates.csv`: prioritized source queue for official HUP programs without captured current roster people.
 - `artifacts/data/penn_gme_gap_source_probes.json`: reachability and page-signal observations for uncovered official HUP program URLs.
+- `artifacts/data/penn_gme_gap_roster_people.json`: conservative queue-driven roster extract from supported HUP gap pages.
+- `artifacts/data/penn_gme_gap_roster_sources.json`: source provenance and extraction status for queue-driven HUP gap roster pages.
 - `artifacts/data/penn_attending_candidates.json`: conservative current Penn attending/faculty candidate layer for future career-trend reconciliation.
 - `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
@@ -33,11 +35,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
-As of the latest local generation, the warehouse has 984 people: 456 residents, 303 fellows, and 225 public MSTP student-directory records. It also has 1,279 accepted roster/training evidence claims, 759 PubMed author-query research candidates, 292 public contact candidates, and 85 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated scrape adds conservative non-Medicine resident/fellow rosters from official Penn pages and marks them for review.
+As of the latest local generation, the warehouse has 1,336 people: 775 residents, 336 fellows, and 225 public MSTP student-directory records. It also has 1,661 accepted roster/training evidence claims, 1,111 PubMed author-query research candidates, 313 public contact candidates, and 85 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
 
-The official HUP GME coverage audit currently parses 91 public HUP programs: 33 have captured current roster people, 27 are discovered as program/source pages without current roster capture, and 31 are not yet discovered by the current Penn-wide crawl.
+The official HUP GME coverage audit currently parses 91 public HUP programs: 51 have captured current roster people, 20 are discovered as program/source pages without current roster capture, and 20 are not yet discovered by the current Penn-wide crawl.
 
-The HUP gap-source probe currently inspects the 58 official programs without captured roster people and queues 278 candidate URLs, including 100 roster-source candidates, for the next scraper pass.
+The HUP gap-source probe currently inspects the 40 official programs without captured roster people and queues 214 candidate URLs, including 65 roster-source candidates, for the next scraper pass.
 
 ## Reproduce
 
@@ -82,8 +84,13 @@ python3 scripts/extract_penn_outcome_candidates.py
 python3 scripts/build_sqlite.py
 python3 scripts/audit_penn_gme_program_coverage.py
 python3 scripts/probe_penn_gme_gap_sources.py
+python3 scripts/scrape_penn_gme_gap_rosters.py
+python3 scripts/build_sqlite.py
+python3 scripts/audit_penn_gme_program_coverage.py
+python3 scripts/probe_penn_gme_gap_sources.py
 python3 scripts/generate_enrichment_queue.py
-python3 scripts/collect_research_candidates.py --only pubmed --replace-source pubmed_eutilities --sleep 0.34
+python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
+python3 scripts/build_sqlite.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
