@@ -1,11 +1,11 @@
 {
   "by_coverage_status": {
     "discovered_no_current_roster": 12,
-    "not_discovered": 15
+    "not_discovered": 14
   },
   "by_gap_reason_status": {
     "official_page_empty_or_low_content": 3,
-    "public_program_context_no_current_roster": 19,
+    "public_program_context_no_current_roster": 18,
     "source_already_loaded_related_program_review": 5
   },
   "by_program_type_and_reason": {
@@ -13,16 +13,16 @@
     "fellowship:public_program_context_no_current_roster": 16,
     "fellowship:source_already_loaded_related_program_review": 3,
     "residency:official_page_empty_or_low_content": 1,
-    "residency:public_program_context_no_current_roster": 3,
+    "residency:public_program_context_no_current_roster": 2,
     "residency:source_already_loaded_related_program_review": 2
   },
   "by_recommended_next_action": {
     "find_alternate_public_source_or_record_no_public_roster": 3,
-    "record_context_source_and_monitor_for_roster_or_alumni_link": 19,
+    "record_context_source_and_monitor_for_roster_or_alumni_link": 18,
     "review_program_alias_or_official_denominator_mapping": 5
   },
   "csv": "artifacts/data/hup_gap_reason_audit.csv",
-  "gap_rows": 27,
+  "gap_rows": 26,
   "generated_at": "2026-06-02T12:54:38.234872+00:00",
   "json": "artifacts/data/hup_gap_reason_audit.json",
   "low_content_gap_rows": 3,

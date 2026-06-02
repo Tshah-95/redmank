@@ -22,109 +22,109 @@ Maggie Rowe MD,resident,maggie rowe,1,1,1,review_required_window,100,not_in_offi
 "Roshni Bhat, MD",resident,roshni bhat,1,2,4,review_required_window,100,not_in_official_hup_audit,0,2,0,2,0,0,2,2,review_lifecycle_or_source_before_mutation
 Uttara Gadde MD,resident,uttara gadde,1,1,1,review_required_window,100,not_in_official_hup_audit,0,0,0,1,0,0,1,0,review_lifecycle_or_source_before_mutation
 "Abiana Adamson, MD",resident,person_abiana-adamson-md_0a7e3b1fed59,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Adaora Ekwonu, MD",resident,person_adaora-ekwonu-md_3ce84a3bc411,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Adaora Ekwonu, MD",resident,person_adaora-ekwonu-md_3ce84a3bc411,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Alessandro Brunetti, MD",resident,person_alessandro-brunetti-md_e4e1e1898d7c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Alexandra Tatarian, MD",resident,person_alexandra-tatarian-md_0314dd1f955b,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Alise Peckjian, MD",resident,person_alise-peckjian-md_10e201f53ac4,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Alise Peckjian, MD",resident,person_alise-peckjian-md_10e201f53ac4,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Amber Lachaud, MD",fellow,person_amber-lachaud-md_f9850f07311d,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Andrew Siliciano, MD, PhD",resident,person_andrew-siliciano-md-phd_b91c2debabb0,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Andrew Siliciano, MD, PhD",resident,person_andrew-siliciano-md-phd_b91c2debabb0,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Anna Davidian, MD",resident,person_anna-davidian-md_20d387dd1d0d,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Anne Wang, MD",resident,person_anne-wang-md_cecd9c14a858,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Armaan Singh, MD, MBA",resident,person_armaan-singh-md-mba_4327b3eb7f1b,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Brendan Ho, MD",resident,person_brendan-ho-md_715a93bf499c,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Carina Guerra, MD",resident,person_carina-guerra-md_6f6543044106,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Armaan Singh, MD, MBA",resident,person_armaan-singh-md-mba_4327b3eb7f1b,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Brendan Ho, MD",resident,person_brendan-ho-md_715a93bf499c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Carina Guerra, MD",resident,person_carina-guerra-md_6f6543044106,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Catherine Klammer, MD",fellow,person_catherine-klammer-md_b62f136a2f65,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Catherine Yang, MD",resident,person_catherine-yang-md_67ddea5ec7ae,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Chance Dunbar, MD",resident,person_chance-dunbar-md_ca5feb4cffeb,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Catherine Yang, MD",resident,person_catherine-yang-md_67ddea5ec7ae,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Chance Dunbar, MD",resident,person_chance-dunbar-md_ca5feb4cffeb,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Charles Danan, MD, PhD",resident,person_charles-danan-md-phd_e660b8a28550,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Chase Stevens, MD",resident,person_chase-stevens-md_19fc1667923b,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Chase Stevens, MD",resident,person_chase-stevens-md_19fc1667923b,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Chenxu Shi, MD, PhD",resident,person_chenxu-shi-md-phd_863fe312fbb4,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Chevonne Parker, MD, MPH",resident,person_chevonne-parker-md-mph_920ded473c33,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Chidinma Wilson, MD",resident,person_chidinma-wilson-md_b1cc2da7f163,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Chevonne Parker, MD, MPH",resident,person_chevonne-parker-md-mph_920ded473c33,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Chidinma Wilson, MD",resident,person_chidinma-wilson-md_b1cc2da7f163,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Christine Miguel, MD",fellow,person_christine-miguel-md_c12f826bfdc4,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Christopher Lea, MD",resident,person_christopher-lea-md_75517c3f1912,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Christopher Lea, MD",resident,person_christopher-lea-md_75517c3f1912,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Chuan Hao Chen, MD, PhD",resident,person_chuan-hao-chen-md-phd_e76197b8a085,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Cooper Schwartz, MD",resident,person_cooper-schwartz-md_323028d4490f,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Corey Horien, MD, PhD",resident,person_corey-horien-md-phd_0ed6031ac6c9,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Corey Horien, MD, PhD",resident,person_corey-horien-md-phd_0ed6031ac6c9,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Daniel Akuma, MD, PhD",resident,person_daniel-akuma-md-phd_ceb3194375a6,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Demetrius Woodard, MD",resident,person_demetrius-woodard-md_3f467d4b5ea7,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Demetrius Woodard, MD",resident,person_demetrius-woodard-md_3f467d4b5ea7,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Denise Zieba, MD",resident,person_denise-zieba-md_f4c70d665ba2,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Derek Sung, MD, PhD",resident,person_derek-sung-md-phd_83d1d1604ec5,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Desmond Green, MD, MPH",resident,person_desmond-green-md-mph_326de7090272,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Elizabeth Duthinh, MD, MPH",resident,person_elizabeth-duthinh-md-mph_8adaa26c712c,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Desmond Green, MD, MPH",resident,person_desmond-green-md-mph_326de7090272,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Elizabeth Duthinh, MD, MPH",resident,person_elizabeth-duthinh-md-mph_8adaa26c712c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Eman Al Haddad, MD",resident,person_eman-al-haddad-md_c3be8ccfbb74,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Emily Beydler, MD",resident,person_emily-beydler-md_42db747cf069,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Emma Chaloux-Pinette, MD, PhD",resident,person_emma-chaloux-pinette-md-phd_c7efdca7883d,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Eric Wagner, MD",resident,person_eric-wagner-md_ed4e9d12c2f3,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Emily Beydler, MD",resident,person_emily-beydler-md_42db747cf069,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Emma Chaloux-Pinette, MD, PhD",resident,person_emma-chaloux-pinette-md-phd_c7efdca7883d,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Eric Wagner, MD",resident,person_eric-wagner-md_ed4e9d12c2f3,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Erika Johnson, MD",resident,person_erika-johnson-md_360fbffd1bf0,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Eugenia Saiegh, MD",resident,person_eugenia-saiegh-md_51abefde5a80,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Evan Calvo, MD",resident,person_evan-calvo-md_bd92b3d11b83,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Eugenia Saiegh, MD",resident,person_eugenia-saiegh-md_51abefde5a80,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Evan Calvo, MD",resident,person_evan-calvo-md_bd92b3d11b83,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Fang Bian, MD, PhD",resident,person_fang-bian-md-phd_a349f05e91f0,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Farid Aboharb, MD, PhD",resident,person_farid-aboharb-md-phd_b8aa71a65daf,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Farid Aboharb, MD, PhD",resident,person_farid-aboharb-md-phd_b8aa71a65daf,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Fernanda Tirado, DO",resident,person_fernanda-tirado-do_e97fc743570a,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Finola Goudy, MD",resident,person_finola-goudy-md_afbfb33a6093,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Finola Goudy, MD",resident,person_finola-goudy-md_afbfb33a6093,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Frederick Allen, MD",resident,person_frederick-allen-md_f53e4c1a1a78,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Gabriel Herbst, MD",resident,person_gabriel-herbst-md_7b6164651aa1,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Gabriel Herbst, MD",resident,person_gabriel-herbst-md_7b6164651aa1,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Gregory Chen, MD, PhD",resident,person_gregory-chen-md-phd_3ecd5cd8fd45,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Gregory Kirschen, MD",fellow,person_gregory-kirschen-md_cd9c3ce31472,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Hae-Min Jung, MD",resident,person_hae-min-jung-md_45d7aa3bb5d4,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Hae-Min Jung, MD",resident,person_hae-min-jung-md_45d7aa3bb5d4,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Henry Sanchez, MD, PhD",resident,person_henry-sanchez-md-phd_fc3437a3ee36,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Iniobong Ntukidem, MD",resident,person_iniobong-ntukidem-md_987543622955,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Jaslyn Piggott, MD",fellow,person_jaslyn-piggott-md_a13aabd941a5,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"John Curran, MD",resident,person_john-curran-md_a1252db91716,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"John Curran, MD",resident,person_john-curran-md_a1252db91716,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "John Sagrati, DO",resident,person_john-sagrati-do_e09dc47ef6f0,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Jonathan Hunt, MD",fellow,person_jonathan-hunt-md_756673680239,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Jonathan Myers, MD",resident,person_jonathan-myers-md_8061fd755d36,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Jonathan Myers, MD",resident,person_jonathan-myers-md_8061fd755d36,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Jose Manuel Martin Castelli, MD",resident,person_jose-manuel-martin-castelli-md_c89eef2950d2,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Joseph Butkiewicz, MD",resident,person_joseph-butkiewicz-md_61ef1828ddc1,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Karen Gomez, MD, PhD",resident,person_karen-gomez-md-phd_1e89a01a30b8,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Katherine Aliano Ruiz, MD",resident,person_katherine-aliano-ruiz-md_eb1955fba482,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Joseph Butkiewicz, MD",resident,person_joseph-butkiewicz-md_61ef1828ddc1,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Karen Gomez, MD, PhD",resident,person_karen-gomez-md-phd_1e89a01a30b8,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Katherine Aliano Ruiz, MD",resident,person_katherine-aliano-ruiz-md_eb1955fba482,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Kelly Zafman, MD",fellow,person_kelly-zafman-md_c9b144e65b65,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Keshia Mora, MD, PhD",resident,person_keshia-mora-md-phd_9dbea1b24de1,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Kevin Yang, MD, PhD",resident,person_kevin-yang-md-phd_16e15949fb1c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Kirsten Sandgren, MD",resident,person_kirsten-sandgren-md_c4f85ede514e,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Kirsten Sandgren, MD",resident,person_kirsten-sandgren-md_c4f85ede514e,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Lamarque Coke, MD",resident,person_lamarque-coke-md_8bd77fdc2b5f,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Lara Boyle, MD, PhD",resident,person_lara-boyle-md-phd_8b110ff9cf71,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Lara Boyle, MD, PhD",resident,person_lara-boyle-md-phd_8b110ff9cf71,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Leslie Roman, MD, MS",resident,person_leslie-roman-md-ms_ab3fd46bf578,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Lucas Occhino-Moede, MD, MPH",resident,person_lucas-occhino-moede-md-mph_cf724df0564d,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Luke Brier, MD, PhD",resident,person_luke-brier-md-phd_e76796c426c5,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Madeleine Norris, MD",resident,person_madeleine-norris-md_b08652c88206,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Lucas Occhino-Moede, MD, MPH",resident,person_lucas-occhino-moede-md-mph_cf724df0564d,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Luke Brier, MD, PhD",resident,person_luke-brier-md-phd_e76796c426c5,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Madeleine Norris, MD",resident,person_madeleine-norris-md_b08652c88206,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Madeline Perry, MD",fellow,person_madeline-perry-md_9def03f479ce,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Maria Arisi, MD",resident,person_maria-arisi-md_ad2cc64d0982,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Matthew Miller, MD",resident,person_matthew-miller-md_2571285255f8,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Meaghan Dougher, MD",resident,person_meaghan-dougher-md_63c06ef9a28c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Mikiko Thelwell, MD, MPH",resident,person_mikiko-thelwell-md-mph_3eefed2c27d9,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Mila Tamminga, MD",resident,person_mila-tamminga-md_ce36a958a916,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Mikiko Thelwell, MD, MPH",resident,person_mikiko-thelwell-md-mph_3eefed2c27d9,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Mila Tamminga, MD",resident,person_mila-tamminga-md_ce36a958a916,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Miles Black, MD, PhD",resident,person_miles-black-md-phd_8b9f6bfe71a2,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Nadine Michel, MD, PhD",resident,person_nadine-michel-md-phd_9112172ebcc1,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Naomie Shembo, MD",resident,person_naomie-shembo-md_e650f6211d1a,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Nadine Michel, MD, PhD",resident,person_nadine-michel-md-phd_9112172ebcc1,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Naomie Shembo, MD",resident,person_naomie-shembo-md_e650f6211d1a,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Natalie Moore, DO",resident,person_natalie-moore-do_9c4536347e28,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Natalie Tupper, DO",resident,person_natalie-tupper-do_0e1caf1feccb,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Niaz Khan, MD, PhD",resident,person_niaz-khan-md-phd_e7bc4ebf1b3c,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Nicolas Mandel, MD",resident,person_nicolas-mandel-md_068ef581c1cb,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Nicolas Mandel, MD",resident,person_nicolas-mandel-md_068ef581c1cb,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Nitin Vaswani, MD",resident,person_nitin-vaswani-md_2866dbdfa0f5,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Olivia Leung, MD",resident,person_olivia-leung-md_833eea391cdc,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Peter Lambert, MD, PhD",resident,person_peter-lambert-md-phd_3d8d6a2086cf,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Peter Lauro, MD, PhD",resident,person_peter-lauro-md-phd_8df140358d72,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Phillip Bradshaw, MD",resident,person_phillip-bradshaw-md_84159f27c7d2,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Peter Lambert, MD, PhD",resident,person_peter-lambert-md-phd_3d8d6a2086cf,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Peter Lauro, MD, PhD",resident,person_peter-lauro-md-phd_8df140358d72,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Phillip Bradshaw, MD",resident,person_phillip-bradshaw-md_84159f27c7d2,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Pravin Patel, MD, PhD",resident,person_pravin-patel-md-phd_688136ec0cca,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"QeeQee Gao, MD",resident,person_qeeqee-gao-md_281f2dea0892,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"QeeQee Gao, MD",resident,person_qeeqee-gao-md_281f2dea0892,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Qing Yu, MD",resident,person_qing-yu-md_e62a88036c94,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Ranjitha Pratap Nair, MBBS",resident,person_ranjitha-pratap-nair-mbbs_bf2906a4bc11,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Reshem Agarwal, MD",resident,person_reshem-agarwal-md_a87155e46e57,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Ross Johnson, MD",resident,person_ross-johnson-md_7a5515582ce6,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Reshem Agarwal, MD",resident,person_reshem-agarwal-md_a87155e46e57,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Ross Johnson, MD",resident,person_ross-johnson-md_7a5515582ce6,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Selemon Walle, MD",resident,person_selemon-walle-md_80623c1a19b1,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Shiori Tomatsu, MD",resident,person_shiori-tomatsu-md_7134bf342ebf,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Somachukwu Umeozulu, MD",resident,person_somachukwu-umeozulu-md_6b93c753629b,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Susheel Khetarpal, MD",resident,person_susheel-khetarpal-md_7b68b4797151,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Shiori Tomatsu, MD",resident,person_shiori-tomatsu-md_7134bf342ebf,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Somachukwu Umeozulu, MD",resident,person_somachukwu-umeozulu-md_6b93c753629b,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Susheel Khetarpal, MD",resident,person_susheel-khetarpal-md_7b68b4797151,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Wei Du, MD, PhD",resident,person_wei-du-md-phd_656b4df9ea90,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Xiao Zhou, MD, PhD",resident,person_xiao-zhou-md-phd_36de78abb508,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Xingchen Li, MD",resident,person_xingchen-li-md_43d3e35e9ef6,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Yacob Bizuneh, MD",resident,person_yacob-bizuneh-md_0dd77cadd2d6,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 "Yaelin Caba Silverio, MD",resident,person_yaelin-caba-silverio-md_0ae2a1764655,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Yasmin Issari, MD",resident,person_yasmin-issari-md_f1f893f455c0,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Yocasta Alvarez-Bagnarol, MD, PhD",resident,person_yocasta-alvarez-bagnarol-md-phd_f36e3f4366de,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
-"Zachary Rosenthal, MD, PhD",resident,person_zachary-rosenthal-md-phd_d03679e51465,1,1,1,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Yasmin Issari, MD",resident,person_yasmin-issari-md_f1f893f455c0,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Yocasta Alvarez-Bagnarol, MD, PhD",resident,person_yocasta-alvarez-bagnarol-md-phd_f36e3f4366de,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
+"Zachary Rosenthal, MD, PhD",resident,person_zachary-rosenthal-md-phd_d03679e51465,1,1,1,stale_without_transition_review,95,covered_current_roster,0,0,0,0,1,0,1,0,review_lifecycle_or_source_before_mutation
 Anna Wing M.D.,fellow,anna wing m d,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Ashlee Randolph, DO",fellow,ashlee randolph,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
 "Ayesha Khan, MD",fellow,ayesha khan,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state

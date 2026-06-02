@@ -3,30 +3,30 @@
     "alias_review": 20,
     "count_conflict_review": 1,
     "parser_or_roster_source_review": 7,
-    "source_candidate_probe": 15
+    "source_candidate_probe": 14
   },
   "by_assurance_level": {
     "0": 14,
-    "1": 13,
+    "1": 12,
     "3": 16
   },
   "by_blocker_status": {
     "candidate_source_without_people": 7,
     "covered_by_alias_without_explicit_acceptance": 15,
     "exact_resolution_count_conflict": 1,
-    "not_covered_but_candidate_sources_exist": 15,
+    "not_covered_but_candidate_sources_exist": 14,
     "open_gap_with_related_loaded_people": 5
   },
   "by_program_type": {
     "fellowship": 30,
-    "residency": 13
+    "residency": 12
   },
   "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-  "generated_at": "2026-06-02T13:47:24.761844+00:00",
+  "generated_at": "2026-06-02T14:00:10.062814+00:00",
   "highest_priority": 1093,
   "json": "artifacts/data/official_program_coverage_action_queue.json",
   "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
-  "queue_rows": 43,
+  "queue_rows": 42,
   "top_actions": [
     {
       "action_lane": "alias_review",
@@ -179,5 +179,5 @@
       "recommended_next_action": "accept_or_split_alias_mapping"
     }
   ],
-  "total_person_impact_count": 594
+  "total_person_impact_count": 542
 }

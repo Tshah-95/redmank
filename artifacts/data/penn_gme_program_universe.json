@@ -1,19 +1,5 @@
 [
   {
-    "entry_key": "hup_gme_residency_anesthesiology_594ed9d7c592",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Anesthesiology",
-    "program_type": "residency",
-    "program_name": "Anesthesiology",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
     "entry_key": "hup_gme_fellowship_adult-cardiothoracic-anesthesiology_84bd23c52b1e",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
     "program_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/fellowship-programs",
@@ -56,17 +42,17 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_dermatology_cabc25fcd11c",
+    "entry_key": "hup_gme_residency_anesthesiology_594ed9d7c592",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Dermatology",
+    "department": "Anesthesiology",
     "program_type": "residency",
-    "program_name": "Dermatology",
+    "program_name": "Anesthesiology",
     "source_type": "official_hup_gme_program_list",
-    "confidence": 0.85,
+    "confidence": 0.95,
     "evidence": {
-      "origin": "hup_gme_programs_table_text"
+      "origin": "hup_gme_programs_table_link"
     }
   },
   {
@@ -91,6 +77,34 @@
     "department": "Dermatology",
     "program_type": "fellowship",
     "program_name": "Micrographic Surgery and Dermatologic Oncology",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_residency_dermatology_cabc25fcd11c",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Dermatology",
+    "program_type": "residency",
+    "program_name": "Dermatology",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.85,
+    "evidence": {
+      "origin": "hup_gme_programs_table_text"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_undersea-and-hyperbaric-medicine_141573b3b9af",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/fellowship-program/hyperbaric-medicine",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Emergency Medicine",
+    "program_type": "fellowship",
+    "program_name": "Undersea and Hyperbaric Medicine",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -126,34 +140,6 @@
     }
   },
   {
-    "entry_key": "hup_gme_fellowship_undersea-and-hyperbaric-medicine_141573b3b9af",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/fellowship-program/hyperbaric-medicine",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Emergency Medicine",
-    "program_type": "fellowship",
-    "program_name": "Undersea and Hyperbaric Medicine",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_residency_family-medicine_3364df227181",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Family Medicine",
-    "program_type": "residency",
-    "program_name": "Family Medicine",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
     "entry_key": "hup_gme_fellowship_addiction-medicine_98c979053614",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
     "program_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/fellowship",
@@ -182,41 +168,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_internal-medicine-categorical_9138b3db3c42",
+    "entry_key": "hup_gme_residency_family-medicine_3364df227181",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Internal Medicine",
+    "department": "Family Medicine",
     "program_type": "residency",
-    "program_name": "Internal Medicine - Categorical",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_residency_internal-medicine-dermatology_015c313980a7",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Internal Medicine",
-    "program_type": "residency",
-    "program_name": "Internal Medicine - Dermatology",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_residency_internal-medicine-pediatrics_f13d195cb767",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-pediatrics-program",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Internal Medicine",
-    "program_type": "residency",
-    "program_name": "Internal Medicine - Pediatrics",
+    "program_name": "Family Medicine",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -462,13 +420,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_neurological-surgery_3ea755072bf0",
+    "entry_key": "hup_gme_residency_internal-medicine-categorical_9138b3db3c42",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Neurological Surgery",
+    "department": "Internal Medicine",
     "program_type": "residency",
-    "program_name": "Neurological Surgery",
+    "program_name": "Internal Medicine - Categorical",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -476,13 +434,41 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_neurology_7c1f5f7cae7a",
+    "entry_key": "hup_gme_residency_internal-medicine-dermatology_015c313980a7",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://neuroresidency.uphs.upenn.edu/",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Neurology",
+    "department": "Internal Medicine",
     "program_type": "residency",
-    "program_name": "Neurology",
+    "program_name": "Internal Medicine - Dermatology",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_residency_internal-medicine-pediatrics_f13d195cb767",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-pediatrics-program",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Internal Medicine",
+    "program_type": "residency",
+    "program_name": "Internal Medicine - Pediatrics",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_residency_neurological-surgery_3ea755072bf0",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Neurological Surgery",
+    "program_type": "residency",
+    "program_name": "Neurological Surgery",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -560,13 +546,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_obstetrics-and-gynecology_6b909ad970f4",
+    "entry_key": "hup_gme_residency_neurology_7c1f5f7cae7a",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup",
+    "program_url": "https://neuroresidency.uphs.upenn.edu/",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Obstetrics and Gynecology",
+    "department": "Neurology",
     "program_type": "residency",
-    "program_name": "Obstetrics and Gynecology",
+    "program_name": "Neurology",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -644,13 +630,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_ophthalmology_35ee6848ce23",
+    "entry_key": "hup_gme_residency_obstetrics-and-gynecology_6b909ad970f4",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/education-and-training/residency-training",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Ophthalmology",
+    "department": "Obstetrics and Gynecology",
     "program_type": "residency",
-    "program_name": "Ophthalmology",
+    "program_name": "Obstetrics and Gynecology",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -672,13 +658,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_oral-and-maxillofacial-surgery_7c60f778bc7c",
+    "entry_key": "hup_gme_residency_ophthalmology_35ee6848ce23",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www.dental.upenn.edu/admissions-academics/graduate-dental-education-programs/oral-maxillofacial-surgery-residency-m-d/",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/education-and-training/residency-training",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Oral and Maxillofacial Surgery",
+    "department": "Ophthalmology",
     "program_type": "residency",
-    "program_name": "Oral and Maxillofacial Surgery",
+    "program_name": "Ophthalmology",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -700,13 +686,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_orthopedic-surgery_330c2c3b2f0f",
+    "entry_key": "hup_gme_residency_oral-and-maxillofacial-surgery_7c60f778bc7c",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency",
+    "program_url": "https://www.dental.upenn.edu/admissions-academics/graduate-dental-education-programs/oral-maxillofacial-surgery-residency-m-d/",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Orthopedic Surgery",
+    "department": "Oral and Maxillofacial Surgery",
     "program_type": "residency",
-    "program_name": "Orthopedic Surgery",
+    "program_name": "Oral and Maxillofacial Surgery",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -742,13 +728,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_otorhinolaryngology_4f0716f08fed",
+    "entry_key": "hup_gme_residency_orthopedic-surgery_330c2c3b2f0f",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://oto.med.upenn.edu/education/residency-program/",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Otorhinolaryngology",
+    "department": "Orthopedic Surgery",
     "program_type": "residency",
-    "program_name": "Otorhinolaryngology",
+    "program_name": "Orthopedic Surgery",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -770,13 +756,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_pathology-anatomic-and-clinical_611fe58e800d",
+    "entry_key": "hup_gme_residency_otorhinolaryngology_4f0716f08fed",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://pathology.med.upenn.edu/education/residency/overview",
+    "program_url": "https://oto.med.upenn.edu/education/residency-program/",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Pathology and Laboratory Medicine",
+    "department": "Otorhinolaryngology",
     "program_type": "residency",
-    "program_name": "Pathology - Anatomic and Clinical",
+    "program_name": "Otorhinolaryngology",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -805,6 +791,20 @@
     "department": "Pathology and Laboratory Medicine",
     "program_type": "fellowship",
     "program_name": "Cytopathology",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_gastrointestinal-and-hepatic-pathology-selective_ed8164df8cb1",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://pathology.med.upenn.edu/education/fellowships/programs/gi-hepatic-pathology",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Pathology and Laboratory Medicine",
+    "program_type": "fellowship",
+    "program_name": "Gastrointestinal and Hepatic Pathology (Selective)",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -854,20 +854,6 @@
     }
   },
   {
-    "entry_key": "hup_gme_fellowship_gastrointestinal-and-hepatic-pathology-selective_ed8164df8cb1",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://pathology.med.upenn.edu/education/fellowships/programs/gi-hepatic-pathology",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Pathology and Laboratory Medicine",
-    "program_type": "fellowship",
-    "program_name": "Gastrointestinal and Hepatic Pathology (Selective)",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
     "entry_key": "hup_gme_fellowship_soft-tissue-and-bone-selective_5b6c8e2f798f",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
     "program_url": "https://pathology.med.upenn.edu/education/fellowships/programs/soft-tissue-bone",
@@ -896,13 +882,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_physical-medicine-and-rehabilitation_06323972b6bf",
+    "entry_key": "hup_gme_residency_pathology-anatomic-and-clinical_611fe58e800d",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program",
+    "program_url": "https://pathology.med.upenn.edu/education/residency/overview",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Physical Medicine and Rehabilitation",
+    "department": "Pathology and Laboratory Medicine",
     "program_type": "residency",
-    "program_name": "Physical Medicine and Rehabilitation",
+    "program_name": "Pathology - Anatomic and Clinical",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -924,13 +910,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_podiatric-surgery_c2e692aab293",
+    "entry_key": "hup_gme_residency_physical-medicine-and-rehabilitation_06323972b6bf",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/overview",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Podiatric Surgery",
+    "department": "Physical Medicine and Rehabilitation",
     "program_type": "residency",
-    "program_name": "Podiatric Surgery",
+    "program_name": "Physical Medicine and Rehabilitation",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -938,13 +924,13 @@
     }
   },
   {
-    "entry_key": "hup_gme_residency_psychiatry_90edd37f0063",
+    "entry_key": "hup_gme_residency_podiatric-surgery_c2e692aab293",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www.med.upenn.edu/psychiatry/psychres.html",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/overview",
     "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Psychiatry",
+    "department": "Podiatric Surgery",
     "program_type": "residency",
-    "program_name": "Psychiatry",
+    "program_name": "Podiatric Surgery",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -1008,6 +994,20 @@
     }
   },
   {
+    "entry_key": "hup_gme_residency_psychiatry_90edd37f0063",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www.med.upenn.edu/psychiatry/psychres.html",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Psychiatry",
+    "program_type": "residency",
+    "program_name": "Psychiatry",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
     "entry_key": "hup_gme_residency_radiation-oncology_1ae0f3bafe3a",
     "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
     "program_url": "https://www.med.upenn.edu/radiationoncologymedicalresidency/",
@@ -1015,48 +1015,6 @@
     "department": "Radiation Oncology",
     "program_type": "residency",
     "program_name": "Radiation Oncology",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_residency_radiology-interventional-integrated_278955441e4c",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Radiology",
-    "program_type": "residency",
-    "program_name": "Radiology - Interventional, Integrated",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_residency_radiology-interventional-independent_951079567585",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Radiology",
-    "program_type": "residency",
-    "program_name": "Radiology - Interventional, Independent",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_residency_radiology-diagnostic_a67e80f56ce0",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Radiology",
-    "program_type": "residency",
-    "program_name": "Radiology - Diagnostic",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -1099,6 +1057,146 @@
     "department": "Radiology",
     "program_type": "fellowship",
     "program_name": "Nuclear Radiology",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_residency_radiology-diagnostic_a67e80f56ce0",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Radiology",
+    "program_type": "residency",
+    "program_name": "Radiology - Diagnostic",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_residency_radiology-interventional-independent_951079567585",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Radiology",
+    "program_type": "residency",
+    "program_name": "Radiology - Interventional, Independent",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_residency_radiology-interventional-integrated_278955441e4c",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Radiology",
+    "program_type": "residency",
+    "program_name": "Radiology - Interventional, Integrated",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_colon-and-rectal-surgery_5967769408ef",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Colon and Rectal Surgery",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_craniofacial-surgery_9144af8e134d",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Craniofacial Surgery",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_plastic-surgery_b33a31a2ab76",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Plastic Surgery",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_thoracic-surgery-cardiac-track_363e9f82d35a",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-cardiac-track",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Thoracic Surgery - Cardiac Track",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_thoracic-surgery-thoracic-track_4ee6dc4e3ded",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Thoracic Surgery - Thoracic Track",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_trauma-and-surgical-critical-care_5fa0f17c1f74",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Trauma and Surgical Critical Care",
+    "source_type": "official_hup_gme_program_list",
+    "confidence": 0.95,
+    "evidence": {
+      "origin": "hup_gme_programs_table_link"
+    }
+  },
+  {
+    "entry_key": "hup_gme_fellowship_vascular-surgery_f567e24e8540",
+    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
+    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/vascular-surgery-fellowship",
+    "sponsoring_institution": "Hospital of the University of Pennsylvania",
+    "department": "Surgery",
+    "program_type": "fellowship",
+    "program_name": "Vascular Surgery",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {
@@ -1169,104 +1267,6 @@
     "department": "Surgery",
     "program_type": "residency",
     "program_name": "Vascular Surgery Integrated",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_craniofacial-surgery_9144af8e134d",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Craniofacial Surgery",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_colon-and-rectal-surgery_5967769408ef",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Colon and Rectal Surgery",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_plastic-surgery_b33a31a2ab76",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Plastic Surgery",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_trauma-and-surgical-critical-care_5fa0f17c1f74",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Trauma and Surgical Critical Care",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_thoracic-surgery-cardiac-track_363e9f82d35a",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-cardiac-track",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Thoracic Surgery - Cardiac Track",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_thoracic-surgery-thoracic-track_4ee6dc4e3ded",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Thoracic Surgery - Thoracic Track",
-    "source_type": "official_hup_gme_program_list",
-    "confidence": 0.95,
-    "evidence": {
-      "origin": "hup_gme_programs_table_link"
-    }
-  },
-  {
-    "entry_key": "hup_gme_fellowship_vascular-surgery_f567e24e8540",
-    "source_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-    "program_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/vascular-surgery-fellowship",
-    "sponsoring_institution": "Hospital of the University of Pennsylvania",
-    "department": "Surgery",
-    "program_type": "fellowship",
-    "program_name": "Vascular Surgery",
     "source_type": "official_hup_gme_program_list",
     "confidence": 0.95,
     "evidence": {

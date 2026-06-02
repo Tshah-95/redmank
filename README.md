@@ -147,9 +147,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 
 As of the latest local generation, the warehouse has 1,535 people: 925 residents, 385 fellows, and 225 public MSTP student-directory records. It also has 1,775 accepted roster/training event rows, 1,111 PubMed author-query research candidates, 3,416 official trainee profile claims, 313 public contact candidates, and 105 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
 
-The official HUP GME coverage audit currently parses 91 public HUP programs: 64 have captured current roster people, 12 are discovered as program/source pages without current roster capture, and 15 are not yet discovered by the current Penn-wide crawl.
+The official HUP GME coverage audit currently parses 91 public HUP programs: 65 have captured current roster people, 12 are discovered as program/source pages without current roster capture, and 14 are not yet discovered by the current Penn-wide crawl.
 
-The HUP gap-source probe currently inspects the 27 official programs without captured roster people and queues 72 candidate URLs, including 15 roster-source candidates, for the next scraper pass. The queue-driven HUP gap roster scraper currently retains 576 conservative person records from 31 official public sources with extracted records, including 52 Psychiatry residents from the official Penn Psychiatry PGY class pages. If a later refresh hits a transport-level error for a previously successful public roster URL, the scraper preserves the prior successful rows and records the refresh error in source provenance; staleness and mutation decisions remain in the training state machine.
+The HUP gap-source probe currently queues 72 candidate URLs, including 15 roster-source candidates, for the next scraper pass. The recomputed official gap-reason ledger has 26 official programs without captured roster people. The queue-driven HUP gap roster scraper currently retains 576 conservative person records from 31 official public sources with extracted records, including 52 Psychiatry residents from the official Penn Psychiatry PGY class pages. If a later refresh hits a transport-level error for a previously successful public roster URL, the scraper preserves the prior successful rows and records the refresh error in source provenance; staleness and mutation decisions remain in the training state machine.
 
 ## Reproduce
 
@@ -254,7 +254,7 @@ python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```
 
-`artifacts/data/redmank.sqlite` is a generated local warehouse, not a committed data blob. Rebuild it from committed artifacts with `python3 scripts/rebuild_local_warehouse.py`, then compare the resulting hash/storage metadata in `artifacts/data/redmank_sqlite_manifest.json`. The replay step intentionally avoids network collection; use the longer collection pipeline above when refreshing source data from the public web.
+`artifacts/data/redmank.sqlite` is a generated local warehouse, not a committed data blob. Rebuild it from committed artifacts with `python3 scripts/rebuild_local_warehouse.py`, then compare the resulting hash/storage metadata in `artifacts/data/redmank_sqlite_manifest.json`. The replay step intentionally avoids network collection; it recomputes official HUP denominator coverage from the committed official-program universe and current warehouse rows, then recomputes gap reasons so newly loaded rosters cannot remain stale gaps. Use the longer collection pipeline above when refreshing source data from the public web.
 
 OpenAlex author search is implemented as a candidate utility, but the latest full-corpus run hit sustained OpenAlex 429 throttling. Keep it as a resumable/polite enrichment lane rather than a default blocking rebuild step:
 

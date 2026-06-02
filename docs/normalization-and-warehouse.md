@@ -42,7 +42,7 @@ The important distinction is accepted identifier versus identifier candidate. `o
 
 ## SQLite Model
 
-The warehouse is generated locally at `artifacts/data/redmank.sqlite`. The SQLite file is ignored by Git; committed flat artifacts plus `artifacts/data/redmank_sqlite_manifest.json` preserve the expected hash, size, storage policy, and validation commands for a rebuilt local warehouse. `scripts/rebuild_local_warehouse.py` performs the no-network replay path from committed artifacts.
+The warehouse is generated locally at `artifacts/data/redmank.sqlite`. The SQLite file is ignored by Git; committed flat artifacts plus `artifacts/data/redmank_sqlite_manifest.json` preserve the expected hash, size, storage policy, and validation commands for a rebuilt local warehouse. `scripts/rebuild_local_warehouse.py` performs the no-network replay path from committed artifacts, with denominator coverage and gap-reason ledgers recomputed from the current warehouse so roster additions immediately update official HUP coverage state.
 
 Core tables:
 
@@ -99,7 +99,7 @@ Useful views:
 
 ## Program Universe Coverage
 
-The state machine needs a denominator. For HUP, `scripts/audit_penn_gme_program_coverage.py` parses the official public Penn Medicine HUP GME program list and compares each official residency/fellowship program to the current SQLite warehouse.
+The state machine needs a denominator. For HUP, `scripts/audit_penn_gme_program_coverage.py` parses the official public Penn Medicine HUP GME program list and compares each official residency/fellowship program to the current SQLite warehouse. Local no-network rebuilds run it with `--from-warehouse`, reusing the committed official-program universe while recomputing coverage against current person/program rows.
 
 It emits:
 

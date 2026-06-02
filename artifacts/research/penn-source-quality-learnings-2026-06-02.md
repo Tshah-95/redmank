@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T13:49:43.743274+00:00
+Generated: 2026-06-02T14:00:11.653396+00:00
 
 ## What This Pass Did
 
@@ -25,35 +25,34 @@ Official HUP programs parsed: 91.
 
 | coverage_status | count |
 | --- | --- |
-| covered_current_roster | 64 |
+| covered_current_roster | 65 |
 | discovered_no_current_roster | 12 |
-| not_discovered | 15 |
+| not_discovered | 14 |
 
 Coverage assurance tiers:
 
-Level-4 supported programs: 48 covering 769 people. Alias/count-review programs: 15. Open denominator gaps: 27.
+Level-4 supported programs: 49 covering 821 people. Alias/count-review programs: 15. Open denominator gaps: 26.
 
 | assurance_status | count |
 | --- | --- |
 | alias_method_current_roster_review | 15 |
-| direct_normalized_name_current_roster | 29 |
+| direct_normalized_name_current_roster | 30 |
 | discovered_source_without_current_roster | 7 |
 | exact_resolution_backed_current_roster | 19 |
 | exact_resolution_count_conflict_review | 1 |
 | not_discovered_by_current_strategy | 14 |
 | open_gap_with_alias_review | 5 |
-| open_gap_with_resolution_review | 1 |
 
 Coverage action queue:
 
-Action rows: 43. Person-impact count: 594.
+Action rows: 42. Person-impact count: 542.
 
 | action_lane | count |
 | --- | --- |
 | alias_review | 20 |
 | count_conflict_review | 1 |
 | parser_or_roster_source_review | 7 |
-| source_candidate_probe | 15 |
+| source_candidate_probe | 14 |
 
 Top coverage actions:
 
@@ -159,12 +158,12 @@ Sample uncovered or partially covered official programs:
 | fellowship | Anesthesiology | Adult Cardiothoracic Anesthesiology | discovered_no_current_roster | source_discovery |
 | fellowship | Anesthesiology | Critical Care Medicine | discovered_no_current_roster | source_discovery |
 | fellowship | Anesthesiology | Pain Medicine | discovered_no_current_roster | source_discovery |
-| residency | Dermatology | Dermatology | discovered_no_current_roster | source_discovery |
 | fellowship | Dermatology | Dermatopathology | not_discovered | none |
 | fellowship | Dermatology | Micrographic Surgery and Dermatologic Oncology | not_discovered | none |
+| residency | Dermatology | Dermatology | discovered_no_current_roster | source_discovery |
+| fellowship | Emergency Medicine | Undersea and Hyperbaric Medicine | discovered_no_current_roster | source_discovery |
 | residency | Emergency Medicine | Emergency Medicine | discovered_no_current_roster | source_discovery |
 | residency | Emergency Medicine | Occupational and Environmental Medicine (Preventative Medicine) | not_discovered | none |
-| fellowship | Emergency Medicine | Undersea and Hyperbaric Medicine | discovered_no_current_roster | source_discovery |
 | fellowship | Family Medicine | Addiction Medicine | discovered_no_current_roster | source_discovery |
 | fellowship | Internal Medicine | Transplant Hepatology | discovered_no_current_roster | source_discovery |
 | fellowship | Neurology | Clinical Neurophysiology | not_discovered | none |
@@ -176,7 +175,6 @@ Sample uncovered or partially covered official programs:
 | residency | Oral and Maxillofacial Surgery | Oral and Maxillofacial Surgery | not_discovered | none |
 | fellowship | Pathology and Laboratory Medicine | Soft Tissue/Bone (Selective) | discovered_no_current_roster | source_discovery |
 | fellowship | Physical Medicine and Rehabilitation | Brain Injury Medicine | discovered_no_current_roster | source_discovery |
-| residency | Psychiatry | Psychiatry | not_discovered | none |
 | fellowship | Psychiatry | Addiction Psychiatry | not_discovered | none |
 | fellowship | Psychiatry | Consultation and Liaison Psychiatry | not_discovered | none |
 | fellowship | Psychiatry | Forensic Psychiatry | not_discovered | none |
@@ -3198,7 +3196,7 @@ Scorecard rows: 23.
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 82 | 1610 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
-| Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 64 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
+| Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 65 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
 | ACGME public program identifier candidates | program accreditation code, specialty, sponsoring program name, city, and accreditation-row context | 91 | 113 | 82.0 | strong_with_known_limits | use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities |
 | Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
 | Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 36 | 576 | 76.0 | strong_with_known_limits | review_denominator_resolution_candidates_then_rerun_coverage |
@@ -3701,7 +3699,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T13:46:59.932273+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T13:59:42.049062+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
 | pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |

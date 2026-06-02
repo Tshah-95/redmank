@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -179,6 +180,66 @@ def fetch_official_programs() -> tuple[list[dict], dict]:
         "sha256": hashlib.sha256(response.text.encode("utf-8")).hexdigest(),
         "source_type": "official_hup_gme_program_list",
     }
+    return records, source
+
+
+def official_programs_from_warehouse() -> tuple[list[dict], dict]:
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+    source_row = conn.execute(
+        """
+        SELECT source_key, source_url, source_type, fetched_at, http_status, sha256, metadata_json
+        FROM sources
+        WHERE source_key = 'hup_gme_programs'
+        """
+    ).fetchone()
+    records = [
+        {
+            "entry_key": row["official_program_key"],
+            "source_url": row["source_url"],
+            "program_url": row["program_url"] or "",
+            "sponsoring_institution": row["sponsoring_institution"],
+            "department": row["department"],
+            "program_type": row["program_type"],
+            "program_name": row["program_name"],
+            "source_type": row["source_type"],
+            "confidence": row["confidence"],
+            "evidence": json.loads(row["evidence_json"] or "{}"),
+        }
+        for row in conn.execute(
+            """
+            SELECT official_program_key, source_url, sponsoring_institution, department,
+                   program_type, program_name, program_url, source_type, confidence, evidence_json
+            FROM official_program_universe
+            ORDER BY department, program_type, program_name
+            """
+        )
+    ]
+    conn.close()
+    if not source_row:
+        source = {
+            "source_key": "hup_gme_programs",
+            "url": HUP_GME_PROGRAMS_URL,
+            "fetched_at": "",
+            "http_status": "",
+            "sha256": "",
+            "source_type": "official_hup_gme_program_list",
+            "materialized_from": "official_program_universe",
+        }
+    else:
+        source = {
+            "source_key": source_row["source_key"],
+            "url": source_row["source_url"],
+            "fetched_at": source_row["fetched_at"],
+            "http_status": source_row["http_status"],
+            "sha256": source_row["sha256"],
+            "source_type": source_row["source_type"],
+            "materialized_from": "official_program_universe",
+        }
+        try:
+            source.update(json.loads(source_row["metadata_json"] or "{}"))
+        except json.JSONDecodeError:
+            pass
     return records, source
 
 
@@ -414,7 +475,15 @@ def write_sqlite(records: list[dict], source: dict, audit_rows: list[dict]) -> N
 
 
 def main() -> None:
-    records, source = fetch_official_programs()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--from-warehouse",
+        action="store_true",
+        help="Reuse committed official_program_universe rows instead of refetching the HUP program list.",
+    )
+    args = parser.parse_args()
+
+    records, source = official_programs_from_warehouse() if args.from_warehouse else fetch_official_programs()
     audit_rows, summary = audit_coverage(records)
     write_outputs(records, source, audit_rows, summary)
     write_sqlite(records, source, audit_rows)

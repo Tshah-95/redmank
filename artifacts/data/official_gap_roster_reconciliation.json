@@ -23,7 +23,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "seed_roster_candidate_30",
     "denominator_link_confidence": 0.92,
     "denominator_link_status": "records_extracted_with_official_program_key",
@@ -138,7 +138,7 @@
     "source_url": "https://oto.med.upenn.edu/current-residents"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "seed_roster_candidate_29",
     "denominator_link_confidence": 0.92,
     "denominator_link_status": "records_extracted_with_official_program_key",
@@ -161,7 +161,7 @@
     "source_url": "https://pathology.med.upenn.edu/department/people/residents"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "seed_roster_candidate_28",
     "denominator_link_confidence": 0.92,
     "denominator_link_status": "records_extracted_with_official_program_key",
@@ -713,7 +713,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track/fellow"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "seed_roster_candidate_2",
     "denominator_link_confidence": 0.72,
     "denominator_link_status": "official_program_key_no_supported_person_structure",
@@ -736,7 +736,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/family-planning"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-residency-dermatology-cabc25fcd11c-https_7a4a1357eda2",
     "denominator_link_confidence": 0.72,
     "denominator_link_status": "official_program_key_no_supported_person_structure",
@@ -759,7 +759,7 @@
     "source_url": "https://dermatology.upenn.edu/residents/combined-medicine-and-dermatology-track"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-residency-dermatology-cabc25fcd11c-https_303cc337ad9f",
     "denominator_link_confidence": 0.72,
     "denominator_link_status": "official_program_key_no_supported_person_structure",
@@ -782,7 +782,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/leadership/chief-residents"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-residency-radiology-interventional-indep_f5b05f3b1f88",
     "denominator_link_confidence": 0.72,
     "denominator_link_status": "official_program_key_no_supported_person_structure",
@@ -805,7 +805,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents"
   },
   {
-    "audited_at": "2026-06-02T12:56:07.908801+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-fellowship-soft-tissue-and-bone-selectiv_d959898c0f9e",
     "denominator_link_confidence": 0.72,
     "denominator_link_status": "official_program_key_no_supported_person_structure",
@@ -828,7 +828,7 @@
     "source_url": "https://pathology.med.upenn.edu/department/people/students-fellows"
   },
   {
-    "audited_at": "2026-06-02T13:46:10.444136+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-fellowship-soft-tissue-and-bone-selectiv_4a22f3627940",
     "denominator_link_confidence": 0.72,
     "denominator_link_status": "official_program_key_no_supported_person_structure",
@@ -851,7 +851,7 @@
     "source_url": "https://pathology.med.upenn.edu/education/fellowships/fellows"
   },
   {
-    "audited_at": "2026-06-02T12:56:07.908801+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-residency-dermatology-cabc25fcd11c-https_632118bbabb9",
     "denominator_link_confidence": 0.86,
     "denominator_link_status": "skipped_already_loaded_official_source",
@@ -874,7 +874,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/combined-internal-medicine-dermatology-program/medicine-dermatology-residents"
   },
   {
-    "audited_at": "2026-06-02T12:56:07.908801+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-fellowship-plastic-surgery-b33a31a2ab76-_c302fd74e23e",
     "denominator_link_confidence": 0.86,
     "denominator_link_status": "skipped_already_loaded_official_source",
@@ -897,7 +897,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents"
   },
   {
-    "audited_at": "2026-06-02T12:56:07.908801+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-residency-radiology-interventional-indep_2260bb403686",
     "denominator_link_confidence": 0.86,
     "denominator_link_status": "skipped_already_loaded_official_source",
@@ -920,7 +920,7 @@
     "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/ir-integrated-residents"
   },
   {
-    "audited_at": "2026-06-02T12:56:07.908801+00:00",
+    "audited_at": "2026-06-02T13:58:15.557235+00:00",
     "candidate_key": "program_source_candidate_hup-gme-fellowship-transplant-hepatology-f4d7a20_a299f1c0fbd0",
     "denominator_link_confidence": 0.86,
     "denominator_link_status": "skipped_already_loaded_official_source",

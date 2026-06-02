@@ -181,11 +181,51 @@ def read_json_rows(path: Path) -> list[dict]:
     return rows
 
 
+def replay_official_program_source_candidates(conn: sqlite3.Connection) -> int:
+    rows = read_json_rows(ARTIFACTS / "penn_gme_gap_source_candidates.json")
+    conn.execute("DELETE FROM official_program_source_candidates")
+    for row in rows:
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO official_program_source_candidates
+            (candidate_key, official_program_key, department, program_type,
+             program_name, coverage_status, source_role, candidate_status,
+             priority, confidence, candidate_title, candidate_url, http_status,
+             roster_term_count, context_term_count, supported_person_structure_count,
+             supported_person_structure_types, reasons_json, evidence_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                row["candidate_key"],
+                row["official_program_key"],
+                row.get("department"),
+                row.get("program_type"),
+                row.get("program_name"),
+                row.get("coverage_status"),
+                row.get("source_role"),
+                row.get("candidate_status"),
+                int(row.get("priority") or 0),
+                float(row.get("confidence") or 0.0),
+                row.get("candidate_title"),
+                row.get("candidate_url"),
+                row.get("http_status") if row.get("http_status") != "" else None,
+                int(row.get("roster_term_count") or 0),
+                int(row.get("context_term_count") or 0),
+                int(row.get("supported_person_structure_count") or 0),
+                json.dumps(row.get("supported_person_structure_types", []), ensure_ascii=False, sort_keys=True),
+                json.dumps(row.get("reasons", []), ensure_ascii=False, sort_keys=True),
+                json.dumps(row, ensure_ascii=False, sort_keys=True),
+            ),
+        )
+    return len(rows)
+
+
 def replay(conn: sqlite3.Connection) -> dict[str, int]:
     counts = {}
     counts.update(replay_training_state_snapshots(conn))
     for filename, table in CSV_TABLES:
         counts[table] = insert_rows(conn, table, read_csv_rows(ARTIFACTS / filename))
+    counts["official_program_source_candidates"] = replay_official_program_source_candidates(conn)
     for filename, table in JSON_TABLES:
         counts[table] = insert_rows(conn, table, read_json_rows(ARTIFACTS / filename))
     return counts
