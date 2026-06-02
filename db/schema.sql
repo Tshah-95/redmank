@@ -583,6 +583,54 @@ CREATE TABLE IF NOT EXISTS program_lifecycle_consistency_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_source_observations (
+  observation_key TEXT PRIMARY KEY,
+  audit_key TEXT REFERENCES program_lifecycle_consistency_audit(audit_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  identifier_value TEXT,
+  source_program_specialty TEXT,
+  source_url TEXT NOT NULL,
+  effective_url TEXT,
+  http_status INTEGER,
+  page_title TEXT,
+  page_text_sha256 TEXT,
+  text_length INTEGER NOT NULL DEFAULT 0,
+  duration_phrase_count INTEGER NOT NULL DEFAULT 0,
+  explicit_duration_years_json TEXT NOT NULL,
+  source_status TEXT NOT NULL,
+  error_text TEXT,
+  evidence_json TEXT,
+  observed_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_evidence (
+  duration_evidence_key TEXT PRIMARY KEY,
+  observation_key TEXT REFERENCES program_lifecycle_duration_source_observations(observation_key) ON DELETE CASCADE,
+  audit_key TEXT REFERENCES program_lifecycle_consistency_audit(audit_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  matched_program_key TEXT REFERENCES programs(program_key) ON DELETE SET NULL,
+  identifier_key TEXT REFERENCES official_program_identifiers(identifier_key) ON DELETE SET NULL,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  matched_program_name TEXT,
+  identifier_value TEXT,
+  source_program_specialty TEXT,
+  lifecycle_status TEXT NOT NULL,
+  source_url TEXT NOT NULL,
+  http_status INTEGER,
+  page_title TEXT,
+  explicit_duration_years INTEGER,
+  duration_phrase TEXT,
+  duration_context TEXT,
+  duration_evidence_status TEXT NOT NULL,
+  recommended_action TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  match_reasons_json TEXT NOT NULL,
+  evidence_json TEXT,
+  observed_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
   packet_key TEXT PRIMARY KEY,
   person_or_name_key TEXT NOT NULL,

@@ -4,7 +4,7 @@
     "discovery_or_review_only": 3,
     "high_utility": 3,
     "strong_with_known_limits": 14,
-    "useful_candidate_layer": 6
+    "useful_candidate_layer": 7
   },
   "by_recommended_next_action": {
     "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
@@ -17,6 +17,7 @@
     "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest": 1,
     "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
     "review_denominator_resolution_candidates_then_rerun_coverage": 1,
+    "review_duration_candidates_before_extending_lifecycle_rules": 1,
     "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
     "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
     "run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers": 1,
@@ -40,19 +41,19 @@
     "evidence_reconciliation": 2,
     "licensure_api": 1,
     "normalization": 1,
-    "official_institutional_web": 8,
+    "official_institutional_web": 9,
     "orchestration": 3,
     "scholarly_api": 5,
     "state_machine": 1,
     "warehouse_provenance": 1,
     "web_search": 2
   },
-  "candidate_or_discovery_rows": 9,
+  "candidate_or_discovery_rows": 10,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T17:40:40.252013+00:00",
+  "generated_at": "2026-06-02T17:55:25.500840+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
-  "scorecard_rows": 26,
+  "scorecard_rows": 27,
   "top_rows": [
     {
       "quality_band": "high_utility",

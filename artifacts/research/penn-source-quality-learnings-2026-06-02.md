@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T17:40:40.411373+00:00
+Generated: 2026-06-02T17:55:25.659885+00:00
 
 ## What This Pass Did
 
@@ -470,6 +470,39 @@ Clock models:
 Auto-advance candidate rows: 659. Completion candidate rows: 252. Stale/review rows: 23.
 
 Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.
+
+### Program Duration Evidence
+
+Target rows: 10. Reviewer-ready duration candidates: 3. Context-review rows: 3. No-explicit-duration rows: 4.
+
+| duration_evidence_status | count |
+| --- | --- |
+| conflicting_duration_evidence_review | 2 |
+| duration_source_program_mismatch_review | 1 |
+| no_explicit_duration_evidence_found | 4 |
+| reviewer_ready_duration_lifecycle_candidate | 3 |
+
+| explicit_duration_years | count |
+| --- | --- |
+| 1 | 2 |
+| 2 | 3 |
+| 3 | 1 |
+| none | 4 |
+
+| official_program_name | page_title | explicit_duration_years | duration_evidence_status | recommended_action |
+| --- | --- | --- | --- | --- |
+| Adult Reconstructive Orthopedics | Adult Reconstructive Surgery Fellowship - Penn Medicine |  | no_explicit_duration_evidence_found | keep_default_lifecycle_rule_until_explicit_duration_source_is_found |
+| Cytopathology | Cytopathology Fellowship \| University of Pennsylvania \| Pathology and Laboratory Medicine |  | no_explicit_duration_evidence_found | keep_default_lifecycle_rule_until_explicit_duration_source_is_found |
+| Gynecologic Oncology | Gynecologic Oncology - Penn Medicine | 2 | reviewer_ready_duration_lifecycle_candidate | review_duration_evidence_then_add_specific_lifecycle_rule_if_program_scope_matches |
+| Hematopathology | Clinical Chemistry Fellowship \| University of Pennsylvania \| Pathology and Laboratory Medicine | 2 | duration_source_program_mismatch_review | verify_official_page_scope_before_lifecycle_rule_change |
+| Maternal Fetal Medicine | Page Not Found \| Perelman School of Medicine \| Perelman School of Medicine at the University of Pennsylvania |  | no_explicit_duration_evidence_found | keep_default_lifecycle_rule_until_explicit_duration_source_is_found |
+| Molecular Genetic Pathology | Molecular Genetic Pathology Fellowship \| University of Pennsylvania \| Pathology and Laboratory Medicine | 1 | reviewer_ready_duration_lifecycle_candidate | review_duration_evidence_then_add_specific_lifecycle_rule_if_program_scope_matches |
+| Neuropathology | Neuropathology Fellowship \| University of Pennsylvania \| Pathology and Laboratory Medicine | 2 | reviewer_ready_duration_lifecycle_candidate | review_duration_evidence_then_add_specific_lifecycle_rule_if_program_scope_matches |
+| Trauma and Surgical Critical Care | Trauma and Surgical Critical Care Fellowship - Penn Medicine | 1 | conflicting_duration_evidence_review | review_context_before_proposing_lifecycle_rule_change |
+| Urogynecology and Reconstructive Pelvic Surgery | Urogynecology - Penn Medicine | 3 | conflicting_duration_evidence_review | review_context_before_proposing_lifecycle_rule_change |
+| Pathology - Anatomic and Clinical | Pathology Residency Program Overview \| University of Pennsylvania \| Pathology and Laboratory Medicine |  | no_explicit_duration_evidence_found | keep_default_lifecycle_rule_until_explicit_duration_source_is_found |
+
+Learning: ACGME identifiers are useful program anchors but not duration proof. Official Penn pages can provide explicit duration evidence for some unknown-duration rows, but stale URLs, title mismatches, and multiple duration-like phrases must stay in review before lifecycle rules are updated.
 
 ## Longitudinal Change Readiness
 
@@ -3202,13 +3235,14 @@ Learning: the transition plan is the executable state-machine contract for futur
 
 ## Source Utility Scorecard
 
-Scorecard rows: 26.
+Scorecard rows: 27.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 82 | 1610 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
 | Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 65 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
 | ACGME public program identifier candidates | program accreditation code, specialty, sponsoring program name, city, and accreditation-row context | 91 | 113 | 82.0 | strong_with_known_limits | use_accepted_program_identifiers_and_review_remaining_acgme_ambiguities |
+| Official program-page lifecycle duration evidence | explicit duration phrases on official Penn program pages for ACGME-linked unknown-duration programs | 10 | 10 | 67.0 | useful_candidate_layer | review_duration_candidates_before_extending_lifecycle_rules |
 | Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
 | Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 36 | 576 | 76.0 | strong_with_known_limits | review_denominator_resolution_candidates_then_rerun_coverage |
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
@@ -3216,7 +3250,7 @@ Scorecard rows: 26.
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | ORCID-seeded PubMed article reconciliation | ORCID public DOI/PMID works resolved to PubMed XML with author-position and DOI/PMID consistency checks | 354 | 295 | 72.0 | strong_with_known_limits | use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 8514 | 8514 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 91 | 91 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 93 | 93 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 180 | 498 | 46.0 | discovery_or_review_only | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | ORCID public profile and work reconciliation | persistent ORCID identifier plus DOI/PMID-level public works, external identifiers, keywords, researcher URLs, and affiliations when exposed | 48 | 405 | 68.0 | useful_candidate_layer | use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position |
 | Official Penn trainee profile claims | roster-linked profile URLs, education, prior training, research/career interests, and personal-context snippets | 914 | 3416 | 81.0 | strong_with_known_limits | run_official_trainee_profile_discovery_then_reconcile_candidates |
@@ -3865,7 +3899,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T17:39:24.232675+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T17:54:05.482673+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |
 | orcid_public_api | 48 | 27 | 0 | 0 | 378 | {"claims": 405, "mean_confidence": 0.7955, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 405} |

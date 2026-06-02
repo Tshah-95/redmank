@@ -331,6 +331,7 @@ def main() -> None:
     )
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
+    program_lifecycle_duration_summary = read_json(ARTIFACTS / "program_lifecycle_duration_evidence_summary.json", {})
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
@@ -366,6 +367,10 @@ def main() -> None:
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
+    program_lifecycle_duration_evidence = read_csv(
+        ARTIFACTS / "program_lifecycle_duration_evidence.csv",
+        limit=25,
+    )
     corpus_action_worklist = read_csv(ARTIFACTS / "corpus_action_worklist.csv", limit=40)
     top_alias_reviewer_decisions = read_csv(ARTIFACTS / "official_program_alias_reviewer_decision_audit.csv", limit=25)
     top_reconciliation_decisions = [
@@ -407,6 +412,14 @@ def main() -> None:
     transition_diff_readiness_counts = [
         {"diff_readiness_status": status, "count": count}
         for status, count in sorted((transition_plan_summary.get("by_diff_readiness_status") or {}).items())
+    ]
+    program_lifecycle_duration_status_counts = [
+        {"duration_evidence_status": status, "count": count}
+        for status, count in sorted((program_lifecycle_duration_summary.get("by_duration_evidence_status") or {}).items())
+    ]
+    program_lifecycle_duration_year_counts = [
+        {"explicit_duration_years": years, "count": count}
+        for years, count in sorted((program_lifecycle_duration_summary.get("by_explicit_duration_years") or {}).items())
     ]
     enrichment_coverage_bands = [
         {"coverage_band": band, "count": count}
@@ -528,6 +541,8 @@ def main() -> None:
         "training_state_machine_summary": state_machine_summary,
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
         "training_state_transition_plan_summary": transition_plan_summary,
+        "program_lifecycle_duration_evidence_summary": program_lifecycle_duration_summary,
+        "program_lifecycle_duration_evidence": program_lifecycle_duration_evidence,
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
@@ -830,6 +845,27 @@ def main() -> None:
         f"Auto-advance candidate rows: {state_machine_summary.get('auto_advance_candidate_rows', 0)}. Completion candidate rows: {state_machine_summary.get('completion_candidate_rows', 0)}. Stale/review rows: {state_machine_summary.get('stale_or_review_state_rows', 0)}.",
         "",
         "Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.",
+        "",
+        "### Program Duration Evidence",
+        "",
+        f"Target rows: {program_lifecycle_duration_summary.get('target_rows', 0)}. Reviewer-ready duration candidates: {program_lifecycle_duration_summary.get('reviewer_ready_duration_candidates', 0)}. Context-review rows: {(program_lifecycle_duration_summary.get('conflicting_duration_review_rows', 0) or 0) + (program_lifecycle_duration_summary.get('source_mismatch_review_rows', 0) or 0)}. No-explicit-duration rows: {program_lifecycle_duration_summary.get('no_explicit_duration_rows', 0)}.",
+        "",
+        *md_table(program_lifecycle_duration_status_counts, ["duration_evidence_status", "count"]),
+        "",
+        *md_table(program_lifecycle_duration_year_counts, ["explicit_duration_years", "count"]),
+        "",
+        *md_table(
+            program_lifecycle_duration_evidence,
+            [
+                "official_program_name",
+                "page_title",
+                "explicit_duration_years",
+                "duration_evidence_status",
+                "recommended_action",
+            ],
+        ),
+        "",
+        "Learning: ACGME identifiers are useful program anchors but not duration proof. Official Penn pages can provide explicit duration evidence for some unknown-duration rows, but stale URLs, title mismatches, and multiple duration-like phrases must stay in review before lifecycle rules are updated.",
         "",
         "## Longitudinal Change Readiness",
         "",

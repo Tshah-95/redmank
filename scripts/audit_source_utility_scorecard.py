@@ -238,6 +238,41 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         ARTIFACTS / "program_lifecycle_consistency_summary.json",
         {},
     )
+    program_lifecycle_duration_summary = read_json(
+        ARTIFACTS / "program_lifecycle_duration_evidence_summary.json",
+        {},
+    )
+    program_lifecycle_duration_rows = scalar(conn, "SELECT COUNT(*) FROM program_lifecycle_duration_evidence")
+    program_lifecycle_duration_ready = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_lifecycle_duration_evidence
+        WHERE duration_evidence_status = 'reviewer_ready_duration_lifecycle_candidate'
+        """,
+    )
+    program_lifecycle_duration_review = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_lifecycle_duration_evidence
+        WHERE duration_evidence_status IN (
+          'conflicting_duration_evidence_review',
+          'duration_source_program_mismatch_review'
+        )
+        """,
+    )
+    program_lifecycle_duration_blocked = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_lifecycle_duration_evidence
+        WHERE duration_evidence_status IN (
+          'duration_source_unavailable',
+          'no_explicit_duration_evidence_found'
+        )
+        """,
+    )
     gap_roster_people = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     roster_extracted = int(gap_roster_people.get("person_records") or 0)
     roster_sources_attempted = int(gap_roster_people.get("sources_attempted") or 0)
@@ -784,6 +819,39 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "candidate_summary": acgme_observation_summary,
                 "reconciliation_summary": acgme_reconciliation_summary,
                 "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
+                "program_lifecycle_duration_summary": program_lifecycle_duration_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="program_lifecycle_duration_evidence",
+            utility_key="official_program_lifecycle_duration",
+            utility_label="Official program-page lifecycle duration evidence",
+            source_family="official_institutional_web",
+            claim_surface="explicit duration phrases on official Penn program pages for ACGME-linked unknown-duration programs",
+            input_records=int(program_lifecycle_duration_summary.get("target_rows") or program_lifecycle_duration_rows),
+            output_records=program_lifecycle_duration_rows,
+            candidate_records=program_lifecycle_duration_rows,
+            needs_review_records=program_lifecycle_duration_review,
+            review_ready_records=program_lifecycle_duration_ready,
+            blocked_records=program_lifecycle_duration_blocked,
+            score=67.0,
+            strengths=[
+                "Targets only accepted ACGME-linked programs blocked by default/unknown lifecycle rules",
+                "Captures official-page duration phrases and page hashes before proposing rule changes",
+                "Detects source-page mismatches and conflicting duration contexts instead of mutating lifecycle rules",
+            ],
+            limitations=[
+                "Official pages may omit duration even when a program has a known standard length",
+                "Duration phrases can refer to prerequisites or alternate tracks and need review",
+                "This audit proposes lifecycle-rule candidates only; it does not update trainee states",
+            ],
+            recommended_next_action="review_duration_candidates_before_extending_lifecycle_rules",
+            evidence={
+                "duration_summary": program_lifecycle_duration_summary,
+                "duration_evidence_rows": program_lifecycle_duration_rows,
+                "reviewer_ready_duration_candidates": program_lifecycle_duration_ready,
+                "review_or_mismatch_rows": program_lifecycle_duration_review,
+                "blocked_or_no_explicit_duration_rows": program_lifecycle_duration_blocked,
             },
         ),
         make_row(

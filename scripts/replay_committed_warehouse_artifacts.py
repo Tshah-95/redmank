@@ -36,6 +36,8 @@ CSV_TABLES = [
     ("program_identifier_reconciliation.csv", "program_identifier_reconciliation"),
     ("official_program_identifiers.csv", "official_program_identifiers"),
     ("program_lifecycle_consistency_audit.csv", "program_lifecycle_consistency_audit"),
+    ("program_lifecycle_duration_source_observations.csv", "program_lifecycle_duration_source_observations"),
+    ("program_lifecycle_duration_evidence.csv", "program_lifecycle_duration_evidence"),
     ("hup_gap_reason_audit.csv", "official_program_gap_reason_audit"),
     ("official_gap_roster_reconciliation.csv", "official_gap_roster_reconciliation"),
     ("official_gap_roster_program_resolution.csv", "official_gap_roster_program_resolution"),

@@ -33,6 +33,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_program_identifiers.csv`: accepted external program identifiers for unambiguous official Penn/HUP program rows.
 - `artifacts/data/program_lifecycle_consistency_audit.csv`: accepted-identifier audit for whether current roster coverage and lifecycle rules support program-level state-machine rollups.
 - `artifacts/data/program_lifecycle_consistency_summary.json`: lifecycle-consistency counts for accepted program identifiers, including unvalidated, unknown-duration, mixed-missing, and consistent rows.
+- `artifacts/data/program_lifecycle_duration_source_observations.csv`: official Penn program-page fetch observations for accepted ACGME-linked programs still blocked by default/unknown lifecycle rules.
+- `artifacts/data/program_lifecycle_duration_evidence.csv`: non-mutating duration-evidence reconciliation rows separating reviewer-ready lifecycle candidates from source mismatches, conflicting context, and no-explicit-duration pages.
+- `artifacts/data/program_lifecycle_duration_evidence_summary.json`: duration-evidence counts by status, explicit years, source status, and recommended action.
 - `artifacts/data/person_enrichment_queue.csv`: source-aware recursive enrichment work queue for residents, fellows, and medical students, including state-machine urgency, priority band, query, source targets, acceptance rule, recency policy, provenance policy, and blocking risk.
 - `artifacts/data/person_enrichment_queue_summary.json`: queue rollups by role, task type, source family, priority band, and lifecycle policy lane.
 - `artifacts/data/person_enrichment_execution_readiness.csv`: per-task execution-readiness ledger mapping queued enrichment work to existing collectors, command hints, network/review/script-extension/parser requirements, and next system action.
@@ -237,6 +240,7 @@ python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-
 python3 scripts/discover_acgme_program_identifier_candidates.py
 python3 scripts/audit_program_identifier_reconciliation.py
 python3 scripts/audit_program_lifecycle_consistency.py
+python3 scripts/audit_program_lifecycle_duration_evidence.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py

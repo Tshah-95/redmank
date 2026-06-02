@@ -146,6 +146,18 @@
       "acceptance_rule": "Use as a candidate program identifier only after local program, specialty, institution, city, and track/facility context agree."
     },
     {
+      "utility_key": "official_program_lifecycle_duration",
+      "display_name": "Official program lifecycle duration evidence",
+      "source_family": "official_institutional_web",
+      "default_tier": "silver",
+      "default_status": "needs_review",
+      "default_confidence": 0.55,
+      "claim_types": ["program_duration_candidate", "lifecycle_rule_candidate", "program_page_scope_check"],
+      "strengths": ["Targets accepted ACGME-linked programs with unknown/default lifecycle rules", "Captures official-page title, hash, duration phrase, and context", "Separates reviewer-ready duration candidates from source mismatches and conflicting phrasing"],
+      "limitations": ["Official pages may omit duration", "Duration phrases can describe prerequisites or tracks", "Evidence proposes lifecycle-rule review and does not mutate person states"],
+      "acceptance_rule": "Use only as lifecycle-rule review evidence. Add or change lifecycle rules after explicit page-scope and duration-context review confirms the program and duration."
+    },
+    {
       "utility_key": "clinicaltrials_api",
       "display_name": "ClinicalTrials.gov API",
       "source_family": "trial_registry_api",

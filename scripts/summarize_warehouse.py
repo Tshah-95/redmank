@@ -112,6 +112,8 @@ def main() -> None:
         "program_identifier_reconciliation",
         "official_program_identifiers",
         "program_lifecycle_consistency_audit",
+        "program_lifecycle_duration_source_observations",
+        "program_lifecycle_duration_evidence",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -882,6 +884,26 @@ def main() -> None:
             """
         )
     }
+    program_lifecycle_duration_counts = {
+        row["duration_evidence_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT duration_evidence_status, COUNT(*) AS count
+            FROM program_lifecycle_duration_evidence
+            GROUP BY duration_evidence_status
+            """
+        )
+    }
+    program_lifecycle_duration_source_counts = {
+        row["source_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT source_status, COUNT(*) AS count
+            FROM program_lifecycle_duration_source_observations
+            GROUP BY source_status
+            """
+        )
+    }
     source_utility_scorecard_counts = {
         row["quality_band"]: row["count"]
         for row in conn.execute(
@@ -1240,6 +1262,13 @@ def main() -> None:
         )
     else:
         program_lifecycle_consistency_summary = {}
+    program_lifecycle_duration_summary_path = ARTIFACTS / "program_lifecycle_duration_evidence_summary.json"
+    if program_lifecycle_duration_summary_path.exists():
+        program_lifecycle_duration_summary = json.loads(
+            program_lifecycle_duration_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        program_lifecycle_duration_summary = {}
     official_gap_roster_reconciliation_summary_path = ARTIFACTS / "official_gap_roster_reconciliation_summary.json"
     if official_gap_roster_reconciliation_summary_path.exists():
         official_gap_roster_reconciliation_summary = json.loads(
@@ -1375,6 +1404,8 @@ def main() -> None:
         "program_identifier_reconciliation_counts": program_identifier_reconciliation_counts,
         "official_program_identifier_counts": official_program_identifier_counts,
         "program_lifecycle_consistency_counts": program_lifecycle_consistency_counts,
+        "program_lifecycle_duration_counts": program_lifecycle_duration_counts,
+        "program_lifecycle_duration_source_counts": program_lifecycle_duration_source_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "person_enrichment_queue_priority_counts": person_enrichment_queue_priority_counts,
         "person_enrichment_queue_task_counts": person_enrichment_queue_task_counts,
@@ -1424,6 +1455,7 @@ def main() -> None:
         "program_identifier_candidate_summary": program_identifier_candidate_summary,
         "program_identifier_reconciliation_summary": program_identifier_reconciliation_summary,
         "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
+        "program_lifecycle_duration_summary": program_lifecycle_duration_summary,
         "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,

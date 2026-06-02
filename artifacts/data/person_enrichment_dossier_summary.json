@@ -1,9 +1,9 @@
 {
   "accepted_enrichment_people": 3,
   "by_coverage_band": {
-    "broad_enrichment_surface": 203,
-    "moderate_enrichment_surface": 1097,
-    "thin_enrichment_surface": 235
+    "broad_enrichment_surface": 212,
+    "moderate_enrichment_surface": 1089,
+    "thin_enrichment_surface": 234
   },
   "by_display_safety_status": {
     "accepted_facts_plus_review_candidates": 3,
@@ -27,7 +27,7 @@
   "contact_contract_people": 279,
   "csv": "artifacts/data/person_enrichment_dossiers.csv",
   "dossier_rows": 1535,
-  "generated_at": "2026-06-02T17:39:32.938552+00:00",
+  "generated_at": "2026-06-02T17:54:13.386967+00:00",
   "json": "artifacts/data/person_enrichment_dossiers.json",
   "person_count": 1535,
   "policy": "Dossiers are non-mutating person summaries. Accepted facts, candidate evidence, review-ready evidence, contact contracts, and missing surfaces are separated so downstream display or scoring can choose its assurance threshold explicitly.",
