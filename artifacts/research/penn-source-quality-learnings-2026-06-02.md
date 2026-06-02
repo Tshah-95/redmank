@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T20:14:59.809815+00:00
+Generated: 2026-06-02T20:22:23.342065+00:00
 
 ## What This Pass Did
 
@@ -3311,23 +3311,13 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1231. Summed impact count: 11362. Critical rows: 70. High rows: 698.
+Worklist rows: 1231. Summed impact count: 11362. Critical rows: 57. High rows: 706.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_roster_refresh_execution | source_reobservation_required | python3 scripts/scrape_penn_mstp_students.py \| www.med.upenn.edu \| batch 1 |  | 1202 | 225 | run_roster_collector_then_reconfirm_or_retire_source_bound_states |
-| official_roster_refresh_execution | mixed_refresh_with_manual_review | python3 scripts/scrape_penn_training.py \| www3.pennmedicine.org \| batch 2 |  | 1198 | 552 | run_roster_collector_then_route_lifecycle_label_changes_to_review |
-| official_roster_refresh_execution | mixed_refresh_with_manual_review | python3 scripts/scrape_penn_training.py \| www3.pennmedicine.org \| batch 4 |  | 1166 | 280 | run_roster_collector_then_route_lifecycle_label_changes_to_review |
-| official_roster_refresh_execution | expected_transition_reconciliation | python3 scripts/scrape_penn_training.py \| www3.pennmedicine.org \| batch 8 |  | 1155 | 144 | run_roster_collector_then_compare_against_expected_advancement_or_completion |
-| official_roster_refresh_execution | mixed_refresh_with_manual_review | python3 scripts/scrape_penn_gme_gap_rosters.py \| pathology.med.upenn.edu \| batch 5 |  | 1135 | 69 | run_roster_collector_then_route_lifecycle_label_changes_to_review |
-| official_roster_refresh_execution | mixed_refresh_with_manual_review | python3 scripts/scrape_penn_gme_gap_rosters.py \| www.med.upenn.edu \| batch 6 |  | 1134 | 76 | run_roster_collector_then_route_lifecycle_label_changes_to_review |
-| official_roster_refresh_execution | mixed_expected_and_source_refresh | python3 scripts/scrape_penn_training.py \| www3.pennmedicine.org \| batch 9 |  | 1133 | 82 | run_roster_collector_then_reconfirm_or_retire_source_bound_states |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| complex_packet_review \| batch 1 | resident | 1128 | 111 | review_batch_and_record_packet_decisions |
-| official_roster_refresh_execution | mixed_refresh_with_manual_review | python3 scripts/scrape_penn_training.py \| www.chop.edu \| batch 3 |  | 1128 | 56 | run_roster_collector_then_route_lifecycle_label_changes_to_review |
 | person_evidence_review | publication_identity_final_check | publication_identity_final_check \| resident \| complex_packet_review \| batch 2 | resident | 1115 | 473 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| careful_manual_review \| batch 6 | resident | 1106 | 41 | review_batch_and_record_packet_decisions |
-| official_roster_refresh_execution | source_reobservation_required | python3 scripts/scrape_penn_training.py \| www3.pennmedicine.org \| batch 10 |  | 1100 | 52 | run_roster_collector_then_reconfirm_or_retire_source_bound_states |
-| official_roster_refresh_execution | mixed_expected_and_source_refresh | python3 scripts/scrape_penn_gme_gap_rosters.py \| oto.med.upenn.edu \| batch 7 |  | 1100 | 43 | run_roster_collector_then_reconfirm_or_retire_source_bound_states |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| complex_packet_review \| batch 5 | fellow | 1099 | 54 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| moderate_manual_review \| batch 12 | resident | 1095 | 35 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| complex_packet_review \| batch 13 | resident | 1094 | 40 | review_batch_and_record_packet_decisions |
@@ -3349,12 +3339,22 @@ Worklist rows: 1231. Summed impact count: 11362. Critical rows: 70. High rows: 6
 | official_profile_discovery | review_official_profile_candidate | Laura Barnes, MD | fellow | 1076 | 1 | review_candidate_for_same_person_official_profile_acceptance |
 | official_profile_discovery | review_official_profile_candidate | Madison Harris, DO | fellow | 1076 | 1 | review_candidate_for_same_person_official_profile_acceptance |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| complex_packet_review \| batch 26 | resident | 1072 | 30 | review_batch_and_record_packet_decisions |
-| official_roster_refresh_execution | source_reobservation_required | python3 scripts/scrape_penn_training.py \| www3.pennmedicine.org \| batch 12 |  | 1067 | 21 | run_roster_collector_then_reconfirm_or_retire_source_bound_states |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| careful_manual_review \| batch 18 | resident | 1066 | 22 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| moderate_manual_review \| batch 10 | fellow | 1066 | 20 | review_batch_and_record_packet_decisions |
 | person_evidence_review | official_profile_context_display_review | official_profile_context_display_review \| resident \| complex_packet_review \| batch 29 | resident | 1063 | 29 | review_batch_and_record_packet_decisions |
 | official_profile_discovery | review_official_profile_candidate | Mary Decoteau, MD | fellow | 1063 | 1 | review_candidate_for_same_person_official_profile_acceptance |
 | official_profile_discovery | review_official_profile_candidate | Michael Weykamp, MD, MS | fellow | 1063 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_program_coverage | accepted_alias_denominator_policy | Internal Medicine - Categorical | residency | 1053 | 173 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
+| person_evidence_review | official_profile_context_display_review | official_profile_context_display_review \| resident \| moderate_manual_review \| batch 32 | resident | 1050 | 19 | review_batch_and_record_packet_decisions |
+| person_evidence_review | publication_identity_final_check | publication_identity_final_check \| fellow \| moderate_manual_review \| batch 4 | fellow | 1050 | 5 | review_batch_and_record_packet_decisions |
+| person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| moderate_manual_review \| batch 9 | fellow | 1049 | 15 | review_batch_and_record_packet_decisions |
+| person_evidence_review | publication_with_official_profile_anchor_review | publication_with_official_profile_anchor_review \| resident \| complex_packet_review \| batch 8 | resident | 1044 | 7 | review_batch_and_record_packet_decisions |
+| person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| quick_manual_review \| batch 27 | fellow | 1042 | 13 | review_batch_and_record_packet_decisions |
+| person_evidence_review | official_profile_context_display_review | official_profile_context_display_review \| resident \| moderate_manual_review \| batch 33 | resident | 1032 | 10 | review_batch_and_record_packet_decisions |
+| person_evidence_review | publication_with_official_profile_anchor_review | publication_with_official_profile_anchor_review \| fellow \| complex_packet_review \| batch 11 | fellow | 1030 | 1 | review_batch_and_record_packet_decisions |
+| person_evidence_review | secondary_identity_anchor_context_review | secondary_identity_anchor_context_review \| fellow \| quick_manual_review \| batch 35 | fellow | 1025 | 7 | review_batch_and_record_packet_decisions |
+| person_evidence_review | secondary_identity_anchor_context_review | secondary_identity_anchor_context_review \| fellow \| moderate_manual_review \| batch 30 | fellow | 1022 | 5 | review_batch_and_record_packet_decisions |
+| person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| quick_manual_review \| batch 28 | resident | 1022 | 3 | review_batch_and_record_packet_decisions |
 
 Learning: unresolved evidence should be ranked as operator work, not inferred away. Program gaps, search execution, person evidence packets, contact verification, temporal-state refreshes, enrichment collectors, and attending-trend bridges all have different acceptance gates, so the worklist keeps their required next evidence explicit.
 

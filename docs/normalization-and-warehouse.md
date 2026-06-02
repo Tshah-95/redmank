@@ -73,6 +73,7 @@ Core tables:
 - `official_roster_refresh_workbench`: source/program-level refresh contracts for official roster URLs, combining temporal-contract burden, source provenance, parser/collector hint, expected transitions, and review/source-bound lanes.
 - `official_roster_refresh_batches`: bounded execution packets for official roster refresh, grouped by collector, parser support, source domain, and state-machine burden so public-source refresh work can be run and audited without mutating state directly.
 - `official_roster_refresh_execution_audit`: post-run collector audit that ties refreshed public roster source summaries to the resulting training-state snapshot diff, making "fresh observation with no state delta" explicit.
+- `corpus_action_worklist`: consumes roster execution audit rows to down-rank ready roster batches after a fresh no-delta refresh, while preserving parser-support blockers and downstream review gates.
 - `official_profile_discovery_workbench`: person-level profile-gap contracts for uncovered official-profile search tasks, combining query manifests, search observations, direct probes, candidate URLs, source domains, and next evidence required before accepting a profile URL.
 - `training_state_refresh_expectations`, `person_refresh_expectations`, `program_refresh_expectations`, `category_refresh_expectations`: queryable next-refresh expectation ledgers for missing, unchanged, advanced, stale, and review-required outcomes.
 - `organizations`: resolved organization entities.

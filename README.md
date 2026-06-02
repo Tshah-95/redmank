@@ -179,6 +179,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
+- The worklist consumes the refresh execution audit to down-rank ready roster batches that were already refreshed with no state delta, while keeping parser-support blockers visible.
 - The worklist consumes `official_profile_discovery_workbench.csv` when available, so missing-profile work becomes person-level review/search/probe actions instead of a broad `official_profile_search` enrichment bucket.
 - `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.

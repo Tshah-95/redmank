@@ -544,16 +544,65 @@ def official_roster_refresh_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def roster_execution_audit_by_collector() -> dict[str, dict]:
+    rows = {}
+    for item in read_csv(ARTIFACTS / "official_roster_refresh_execution_audit.csv"):
+        if item.get("audit_scope") == "official_roster_refresh_aggregate":
+            continue
+        collector = item.get("collector_command") or ""
+        if not collector:
+            continue
+        rows[collector] = item
+    return rows
+
+
+def apply_roster_execution_context(item: dict, priority: int, audit_by_collector: dict[str, dict]) -> tuple[int, str, str, str, dict]:
+    """Return execution-aware priority/status/action/evidence for a roster batch."""
+    audit = audit_by_collector.get(item.get("collector_hint") or "")
+    evidence = {}
+    if not audit:
+        return priority, item.get("batch_status") or "", item.get("blocked_reason") or item.get("parser_status") or "", item.get("recommended_next_action") or "", evidence
+    evidence = {
+        "execution_audit_key": audit.get("execution_audit_key"),
+        "refreshed_at": audit.get("refreshed_at"),
+        "execution_status": audit.get("execution_status"),
+        "state_delta_status": audit.get("state_delta_status"),
+        "current_snapshot_id": audit.get("current_snapshot_id"),
+        "previous_snapshot_id": audit.get("previous_snapshot_id"),
+        "snapshot_comparison_kind": audit.get("snapshot_comparison_kind"),
+        "unchanged_state_count": audit.get("unchanged_state_count"),
+        "added_state_count": audit.get("added_state_count"),
+        "removed_state_count": audit.get("removed_state_count"),
+        "changed_state_count": audit.get("changed_state_count"),
+        "preserved_source_count": audit.get("preserved_source_count"),
+        "skipped_source_count": audit.get("skipped_source_count"),
+    }
+    if item.get("batch_status") == "blocked_needs_parser_support_review":
+        return priority, item.get("batch_status") or "", item.get("blocked_reason") or item.get("parser_status") or "", item.get("recommended_next_action") or "", evidence
+    if audit.get("state_delta_status") != "fresh_refresh_no_state_delta":
+        return priority, item.get("batch_status") or "", item.get("blocked_reason") or item.get("parser_status") or "", item.get("recommended_next_action") or "", evidence
+    priority_cap = 720 if as_int(audit.get("preserved_source_count")) else 640
+    return (
+        min(priority, priority_cap),
+        "recently_refreshed_no_state_delta",
+        audit.get("execution_status") or "",
+        "defer_roster_rerun_until_next_refresh_window_or_source_error_resolution",
+        evidence,
+    )
+
+
 def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
     rows = []
     source_path = ARTIFACTS / "official_roster_refresh_batches.csv"
     if not source_path.exists():
         return rows
     source = "artifacts/data/official_roster_refresh_batches.csv"
+    audit_by_collector = roster_execution_audit_by_collector()
     for item in read_csv(source_path):
         priority = 860 + as_int(item.get("max_refresh_priority")) // 4 + min(as_int(item.get("contract_count")), 100)
         if item.get("batch_status") == "blocked_needs_parser_support_review":
             priority -= 120
+        priority, readiness_status, blocker_status, recommended_next_action, execution_evidence = apply_roster_execution_context(item, priority, audit_by_collector)
         rows.append(
             row(
                 action_surface="official_roster_refresh_execution",
@@ -573,14 +622,15 @@ def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
                 program_name="",
                 priority=priority,
                 impact_count=max(as_int(item.get("contract_count")), as_int(item.get("source_program_count")), 1),
-                readiness_status=item.get("batch_status") or "",
-                blocker_status=item.get("blocked_reason") or item.get("parser_status") or "",
+                readiness_status=readiness_status,
+                blocker_status=blocker_status,
                 required_next_evidence=item.get("evidence_required") or "",
-                recommended_next_action=item.get("recommended_next_action") or "",
+                recommended_next_action=recommended_next_action,
                 source_artifact=source,
                 target_artifact="artifacts/data/training_state_transition_events.csv",
                 downstream_tables=[
                     "official_roster_refresh_batches",
+                    "official_roster_refresh_execution_audit",
                     "official_roster_refresh_workbench",
                     "training_temporal_contracts",
                     "training_state_snapshots",
@@ -601,6 +651,7 @@ def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
                     "manual_review_required_count": item.get("manual_review_required_count"),
                     "command_hint": item.get("command_hint"),
                     "source_urls_json": item.get("source_urls_json"),
+                    "execution_audit": execution_evidence,
                 },
                 generated_at=generated_at,
             )
