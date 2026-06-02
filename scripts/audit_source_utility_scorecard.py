@@ -780,6 +780,16 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     action_batch_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batches")
     action_batch_ready = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batches WHERE ready_to_execute = 1")
     action_batch_blocked = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batches WHERE ready_to_execute = 0")
+    action_batch_member_summary = read_json(ARTIFACTS / "person_enrichment_action_batch_member_summary.json", {})
+    action_batch_member_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batch_members")
+    action_batch_member_ready = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_action_batch_members WHERE ready_to_execute = 1",
+    )
+    action_batch_member_blocked = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_action_batch_members WHERE ready_to_execute = 0",
+    )
 
     return [
         make_row(
@@ -1817,6 +1827,36 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "ready_batch_rows": action_batch_ready,
                 "blocked_batch_rows": action_batch_blocked,
                 "action_batch_summary": action_batch_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="person_enrichment_action_batch_member_ledger",
+            utility_key="",
+            utility_label="Person enrichment action batch member ledger",
+            source_family="orchestration",
+            claim_surface="exact per-person membership rows for resumable enrichment action batches",
+            input_records=action_batch_rows,
+            output_records=action_batch_member_rows,
+            candidate_records=action_batch_member_ready,
+            blocked_records=action_batch_member_blocked,
+            score=83.0,
+            strengths=[
+                "Expands each action batch into exact person-packet rows for joins, execution tracking, and diffing",
+                "Carries packet priority, blocker, required evidence, source URLs, command hints, and downstream artifacts per member",
+                "Removes reliance on embedded JSON membership when auditing whether every person packet is covered",
+            ],
+            limitations=[
+                "Member rows are operational pointers, not source observations or accepted facts",
+                "Executing a member still requires source-specific reviewer decisions or collector output",
+                "Batch membership follows current packet prioritization and should be regenerated after queue or evidence changes",
+            ],
+            recommended_next_action="work_batch_members_in_execution_order_and_record_outputs_in_source_specific_ledgers",
+            evidence={
+                "action_batch_rows": action_batch_rows,
+                "action_batch_member_rows": action_batch_member_rows,
+                "ready_member_rows": action_batch_member_ready,
+                "blocked_member_rows": action_batch_member_blocked,
+                "action_batch_member_summary": action_batch_member_summary,
             },
         ),
     ]

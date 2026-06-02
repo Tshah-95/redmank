@@ -1,0 +1,241 @@
+{
+  "action_batch_member_rows": 1535,
+  "batch_count": 43,
+  "blocked_member_rows": 9,
+  "by_batch_status": {
+    "blocked_retry_or_replace_search_endpoint": 9,
+    "collector_execution_ready": 453,
+    "manual_packet_review_ready": 792,
+    "profile_discovery_execution_ready": 267,
+    "profile_reviewer_decision_ready": 14
+  },
+  "by_packet_status": {
+    "collector_execution_ready": 453,
+    "official_profile_candidate_ready": 14,
+    "profile_search_ready": 267,
+    "review_packet_ready": 792,
+    "search_endpoint_retry_required": 9
+  },
+  "by_primary_action_lane": {
+    "enrichment_collector_execution": 453,
+    "official_profile_discovery": 267,
+    "official_profile_review": 14,
+    "person_evidence_review": 792,
+    "profile_search_retry": 9
+  },
+  "by_priority_band": {
+    "critical": 6,
+    "high": 602,
+    "low": 714,
+    "medium": 213
+  },
+  "csv": "artifacts/data/person_enrichment_action_batch_members.csv",
+  "generated_at": "2026-06-02T21:44:46.726087+00:00",
+  "json": "artifacts/data/person_enrichment_action_batch_members.json",
+  "packet_count": 1535,
+  "person_count": 1535,
+  "policy": "Batch members are non-mutating exact membership rows. They make each person packet in each action batch addressable for execution, review, and diffing.",
+  "ready_member_rows": 1526,
+  "top_members": [
+    {
+      "display_name": "Allan Stolarski, MD, MS",
+      "execution_order": 1,
+      "member_order": 1,
+      "packet_priority": 1040,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Jackie Zhang, MD",
+      "execution_order": 1,
+      "member_order": 2,
+      "packet_priority": 1040,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Laura Barnes, MD",
+      "execution_order": 1,
+      "member_order": 3,
+      "packet_priority": 1040,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Madison Harris, DO",
+      "execution_order": 1,
+      "member_order": 4,
+      "packet_priority": 1040,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Mary Decoteau, MD",
+      "execution_order": 1,
+      "member_order": 5,
+      "packet_priority": 1000,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Michael Weykamp, MD, MS",
+      "execution_order": 1,
+      "member_order": 6,
+      "packet_priority": 1000,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Javier Ocampo Mascaro, MD",
+      "execution_order": 2,
+      "member_order": 1,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Marianne Riordan, MBChB",
+      "execution_order": 2,
+      "member_order": 2,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Natalie Dapas, MD",
+      "execution_order": 2,
+      "member_order": 3,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Pamela Anne Dolnik, MD",
+      "execution_order": 2,
+      "member_order": 4,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Patricia Yea Chu, MD",
+      "execution_order": 2,
+      "member_order": 5,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Sapir Nachum Goldberg, MD",
+      "execution_order": 2,
+      "member_order": 6,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexa Larsen, MD, MSc",
+      "execution_order": 3,
+      "member_order": 1,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "resident"
+    },
+    {
+      "display_name": "Anne Albright MD",
+      "execution_order": 3,
+      "member_order": 2,
+      "packet_priority": 980,
+      "packet_status": "official_profile_candidate_ready",
+      "primary_action_lane": "official_profile_review",
+      "recommended_next_action": "review official profile candidate and record decision",
+      "role": "resident"
+    },
+    {
+      "display_name": "Kurt Koehler, MD",
+      "execution_order": 4,
+      "member_order": 1,
+      "packet_priority": 980,
+      "packet_status": "review_packet_ready",
+      "primary_action_lane": "person_evidence_review",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Raashi Mamtani, DO",
+      "execution_order": 4,
+      "member_order": 2,
+      "packet_priority": 980,
+      "packet_status": "review_packet_ready",
+      "primary_action_lane": "person_evidence_review",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Sujatha Reddy, MD",
+      "execution_order": 4,
+      "member_order": 3,
+      "packet_priority": 980,
+      "packet_status": "review_packet_ready",
+      "primary_action_lane": "person_evidence_review",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Ashley Barlev, MD, PhD",
+      "execution_order": 4,
+      "member_order": 4,
+      "packet_priority": 975,
+      "packet_status": "review_packet_ready",
+      "primary_action_lane": "person_evidence_review",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Camille McCallister, MD",
+      "execution_order": 4,
+      "member_order": 5,
+      "packet_priority": 975,
+      "packet_status": "review_packet_ready",
+      "primary_action_lane": "person_evidence_review",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Francis Shue, PhD",
+      "execution_order": 4,
+      "member_order": 6,
+      "packet_priority": 975,
+      "packet_status": "review_packet_ready",
+      "primary_action_lane": "person_evidence_review",
+      "recommended_next_action": "review evidence packets and record matching-fingerprint reviewer decisions",
+      "role": "fellow"
+    }
+  ]
+}

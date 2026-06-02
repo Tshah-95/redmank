@@ -3023,6 +3023,46 @@ CREATE TABLE IF NOT EXISTS person_enrichment_action_batches (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_enrichment_action_batch_members (
+  action_batch_member_key TEXT PRIMARY KEY,
+  action_batch_key TEXT NOT NULL REFERENCES person_enrichment_action_batches(action_batch_key) ON DELETE CASCADE,
+  action_packet_key TEXT NOT NULL REFERENCES person_enrichment_action_packets(action_packet_key) ON DELETE CASCADE,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  member_order INTEGER NOT NULL DEFAULT 0,
+  primary_action_lane TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  priority_band TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  blocked_reason TEXT,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  current_status TEXT,
+  programs TEXT,
+  coverage_score INTEGER NOT NULL DEFAULT 0,
+  coverage_band TEXT NOT NULL,
+  dossier_status TEXT NOT NULL,
+  display_safety_status TEXT NOT NULL,
+  packet_priority INTEGER NOT NULL DEFAULT 0,
+  task_count INTEGER NOT NULL DEFAULT 0,
+  review_packet_count INTEGER NOT NULL DEFAULT 0,
+  profile_workbench_count INTEGER NOT NULL DEFAULT 0,
+  contact_contract_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  recommended_next_action TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  primary_blocker TEXT NOT NULL,
+  command_hints_json TEXT NOT NULL,
+  next_action_sequence_json TEXT NOT NULL,
+  top_source_urls TEXT,
+  downstream_artifacts_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL,
+  UNIQUE(action_batch_key, action_packet_key)
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

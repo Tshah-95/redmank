@@ -456,6 +456,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/person_enrichment_action_batch_members.csv",
+        "person_enrichment_action_batch_member_ledger",
+        "csv",
+        "person_enrichment_action_batch_members",
+        True,
+    ),
+    (
         "artifacts/data/penn_trainee_profile_claims.csv",
         "trainee_profile_enrichment_ledger",
         "csv",
