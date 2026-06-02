@@ -89,6 +89,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_evidence_reviewer_decision_audit.csv`: audit of manual person-evidence decisions against current packet fingerprints and confirmation requirements.
 - `artifacts/data/person_evidence_review_triage.csv`: non-mutating review workbench for queued person-evidence packets, with triage lane, risk, decision difficulty, evidence density, source-family summary, reviewer prompt, and likely next action.
 - `artifacts/data/person_evidence_review_triage_summary.json`: review-lane/risk/difficulty counts plus the top triage rows for prioritizing publication, identifier, official-profile, and trend-bridge review.
+- `artifacts/data/person_evidence_review_dossiers.csv`: per-packet reviewer dossiers with current program context, top evidence records, source domains, decision counts, missing-evidence summary, and non-mutating acceptance boundary.
+- `artifacts/data/person_evidence_review_dossier_summary.json`: review-route, risk, role, missing-evidence, and top-dossier counts for person-by-person evidence reconciliation.
 - `artifacts/data/person_evidence_review_batches.csv`: bounded reviewer batches over triage rows, grouped by lane, difficulty, risk, and role so packet decisions can be executed in coherent review sessions.
 - `artifacts/data/person_evidence_review_batch_summary.json`: batch counts, top batches, source-family mix, and total packet/review-ready/evidence burden for person-evidence review execution.
 - `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.
@@ -301,6 +303,7 @@ python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/materialize_person_evidence_reviewer_decisions.py
 python3 scripts/materialize_person_evidence_review_triage.py
+python3 scripts/materialize_person_evidence_review_dossiers.py
 python3 scripts/materialize_person_evidence_review_batches.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py

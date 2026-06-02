@@ -38,6 +38,7 @@ PIPELINE = [
     ["python3", "scripts/audit_person_evidence_review_packets.py"],
     ["python3", "scripts/materialize_person_evidence_reviewer_decisions.py"],
     ["python3", "scripts/materialize_person_evidence_review_triage.py"],
+    ["python3", "scripts/materialize_person_evidence_review_dossiers.py"],
     ["python3", "scripts/materialize_person_evidence_review_batches.py"],
     ["python3", "scripts/materialize_person_evidence_review_batch_packets.py"],
     ["python3", "scripts/export_warehouse_views.py"],

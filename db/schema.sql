@@ -884,6 +884,46 @@ CREATE TABLE IF NOT EXISTS person_evidence_review_triage (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_evidence_review_dossiers (
+  dossier_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES person_evidence_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  triage_key TEXT REFERENCES person_evidence_review_triage(triage_key) ON DELETE SET NULL,
+  packet_key TEXT NOT NULL REFERENCES person_evidence_review_packets(packet_key) ON DELETE CASCADE,
+  person_or_name_key TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  current_programs TEXT,
+  review_kind TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  triage_lane TEXT,
+  triage_priority INTEGER NOT NULL DEFAULT 0,
+  decision_difficulty TEXT,
+  risk_level TEXT,
+  review_route TEXT NOT NULL,
+  review_packet_summary TEXT NOT NULL,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  publication_candidate_count INTEGER NOT NULL DEFAULT 0,
+  npi_candidate_count INTEGER NOT NULL DEFAULT 0,
+  orcid_candidate_count INTEGER NOT NULL DEFAULT 0,
+  official_profile_candidate_count INTEGER NOT NULL DEFAULT 0,
+  attending_candidate_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  top_source_domains TEXT,
+  top_source_urls TEXT,
+  top_claim_types TEXT,
+  top_match_features TEXT,
+  decision_counts_json TEXT NOT NULL,
+  top_evidence_records_json TEXT NOT NULL,
+  missing_evidence_summary TEXT NOT NULL,
+  recommended_reviewer_action TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  packet_fingerprint TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_evidence_review_batches (
   review_batch_key TEXT PRIMARY KEY,
   execution_order INTEGER NOT NULL DEFAULT 0,
