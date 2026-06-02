@@ -26,6 +26,7 @@ def main() -> None:
         "organizations",
         "organization_aliases",
         "organization_identifiers",
+        "organization_identifier_candidates",
         "person_training_events",
         "person_training_states",
         "person_evidence_review_packets",
@@ -195,6 +196,16 @@ def main() -> None:
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
     }
+    organization_identifier_candidate_counts = {
+        row["match_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT match_status, COUNT(*) AS count
+            FROM organization_identifier_candidates
+            GROUP BY match_status
+            """
+        )
+    }
     conn.close()
     state_machine_summary_path = ARTIFACTS / "training_state_machine_summary.json"
     if state_machine_summary_path.exists():
@@ -243,6 +254,13 @@ def main() -> None:
         source_utility_scorecard_summary = json.loads(source_utility_scorecard_summary_path.read_text(encoding="utf-8"))
     else:
         source_utility_scorecard_summary = {}
+    organization_identifier_candidate_summary_path = ARTIFACTS / "organization_identifier_candidate_summary.json"
+    if organization_identifier_candidate_summary_path.exists():
+        organization_identifier_candidate_summary = json.loads(
+            organization_identifier_candidate_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        organization_identifier_candidate_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -267,6 +285,7 @@ def main() -> None:
         "official_program_gap_reason_counts": official_program_gap_reason_counts,
         "official_program_alias_reconciliation_counts": official_program_alias_reconciliation_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
+        "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "organization_category_counts": category_counts,
         "training_state_machine_summary": state_machine_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,
@@ -277,6 +296,7 @@ def main() -> None:
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
+        "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

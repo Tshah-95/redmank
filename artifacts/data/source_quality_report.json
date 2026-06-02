@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T08:15:33.014367+00:00",
+  "generated_at": "2026-06-02T08:29:55.594661+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -3905,7 +3905,7 @@
     },
     "candidate_or_discovery_rows": 5,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T08:15:32.963741+00:00",
+    "generated_at": "2026-06-02T08:29:55.535015+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 12,
@@ -4218,7 +4218,7 @@
       "input_records": "834",
       "output_records": "854",
       "accepted_records": "10",
-      "candidate_records": "0",
+      "candidate_records": "237",
       "needs_review_records": "824",
       "review_ready_records": "0",
       "discovery_only_records": "0",
@@ -4230,8 +4230,8 @@
       "strengths": "Preserves raw labels while resolving category-specific aliases; Separates schools, hospitals, programs, and undergraduate institutions; Schema supports ROR, OpenAlex, IPEDS, WDOMS, ACGME, ERAS, and NRMP identifiers",
       "limitations": "Many cleaned labels still need alias and identifier review; External codes should not be inferred by name alone; Program-track identifiers need source-backed verification",
       "recommended_next_action": "append_alias_and_identifier_candidates_with_source_backed_evidence",
-      "evidence_json": "{\"aliases\": 854, \"cleaned_label_review_rows\": 824, \"identifiers\": 1, \"organizations\": 834, \"seeded_alias_rows\": 10}",
-      "audited_at": "2026-06-02T08:05:34.073996+00:00"
+      "evidence_json": "{\"aliases\": 854, \"cleaned_label_review_rows\": 824, \"identifier_candidate_rows\": 237, \"identifier_candidate_summary\": {\"by_category\": {\"clinical_training_site\": 18, \"medical_school\": 159, \"undergraduate_institution\": 60}, \"by_identifier_type\": {\"parent_ror\": 33, \"ror\": 204}, \"by_match_status\": {\"low_signal_identifier_candidate\": 97, \"parent_identifier_candidate\": 33, \"review_identifier_candidate\": 8, \"strong_identifier_candidate\": 33, \"weak_identifier_candidate\": 66}, \"by_observation_status\": {\"error\": 1, \"ok\": 79}, \"candidate_rows\": 237, \"csv\": \"artifacts/data/organization_identifier_candidates.csv\", \"generated_at\": \"2026-06-02T08:29:43.624147+00:00\", \"json\": \"artifacts/data/organization_identifier_candidates.json\", \"observation_csv\": \"artifacts/data/organization_identifier_source_observations.csv\", \"organizations_queried\": 80, \"organizations_with_candidates\": 79, \"review_candidate_rows\": 8, \"source_observation_rows\": 80, \"strong_or_parent_candidate_rows\": 66}, \"identifiers\": 1, \"organizations\": 834, \"seeded_alias_rows\": 10}",
+      "audited_at": "2026-06-02T08:29:55.535015+00:00"
     },
     {
       "scorecard_key": "training_state_machine_longitudinal_readiness",

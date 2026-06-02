@@ -370,6 +370,27 @@ CREATE TABLE IF NOT EXISTS organization_identifiers (
   PRIMARY KEY (organization_id, identifier_type, identifier_value)
 );
 
+CREATE TABLE IF NOT EXISTS organization_identifier_candidates (
+  candidate_key TEXT PRIMARY KEY,
+  organization_key TEXT NOT NULL REFERENCES organizations(organization_key) ON DELETE CASCADE,
+  canonical_name TEXT NOT NULL,
+  category TEXT,
+  mention_count INTEGER NOT NULL DEFAULT 0,
+  source_name TEXT NOT NULL,
+  query TEXT NOT NULL,
+  identifier_type TEXT NOT NULL,
+  identifier_value TEXT NOT NULL,
+  candidate_name TEXT NOT NULL,
+  candidate_types TEXT,
+  candidate_country TEXT,
+  candidate_links TEXT,
+  match_status TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  match_reasons TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_training_events (
   training_event_id INTEGER PRIMARY KEY,
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,

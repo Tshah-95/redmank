@@ -32,6 +32,14 @@ The schema supports external identifiers without requiring every row to have one
 
 Identifier attachment should be conservative. Name-only automatic matches should become candidates unless another anchor agrees, such as city/state, parent institution, official profile, program, or source URL.
 
+`scripts/discover_organization_identifier_candidates.py` is the first non-mutating identifier utility. It queries ROR for high-mention unresolved organization labels and writes:
+
+- `organization_identifier_candidates.csv` / `.json`: candidate rows with source query, ROR identifier, candidate name, candidate type/country/links, match status, confidence, reasons, and evidence JSON.
+- `organization_identifier_source_observations.csv`: one row per ROR query, including HTTP/query status, result count, source result count, error text, and request URL.
+- `organization_identifier_candidate_summary.json`: status/category/type rollups for the pass.
+
+The important distinction is accepted identifier versus identifier candidate. `organization_identifiers` is reserved for accepted IDs. `organization_identifier_candidates` can include exact ROR hits, parent RORs for medical-school labels, review rows, weak search siblings, and low-signal search artifacts. Parent RORs should be interpreted as institutional context, not as proof that the medical-school sub-entity has its own accepted identifier. Relationship/context labels from ROR are stored as evidence, but they are not allowed to turn a different returned organization into a strong identifier match.
+
 ## SQLite Model
 
 The warehouse is generated at `artifacts/data/redmank.sqlite`.
@@ -237,6 +245,10 @@ The current rules are intentionally conservative:
 - MSTP PhD phase, lab/research residents, postdoc fellows, chief residents, and unknown-year fellows/residents are not auto-advanced. They become stale on a refresh schedule and require a new public source observation.
 
 This creates the future diff surface: when the corpus is rerun, we can compare person/program/institution/category state observations, identify expected transitions, flag surprising disappearances or regressions, and separate obvious stale data from genuinely changed records.
+
+The state machine is intentionally evidence-preserving. Time can make an observation stale, but time alone should not overwrite the person row. A PGY-2 internal-medicine resident can be projected as an expected PGY-3 candidate after the July rollover only if the same person/program is freshly observed or the later snapshot supplies compatible evidence. If the person disappears after a terminal-year stale date, the transition can be classified as expected completion; if they disappear early, stay in the same stage after the expected transition, regress, or move outside the nominal program duration, the transition ledger marks the row for review.
+
+Durable snapshots live under `artifacts/data/training_state_snapshots/`, and SQLite stores both `training_state_snapshot_rows` and `training_state_transition_events`. That is the longitudinal layer for future national-scale diffs: individual flows, program roster movement, institution-level coverage changes, category rollups, and stale-versus-surprising change classification all derive from the same canonical person/program state keys.
 
 `scripts/diff_training_states.py` compares exported state snapshots. It collapses multiple raw observations for the same person/program into a canonical comparison key and reports how many duplicate keys were collapsed, so the diff view stays readable while the warehouse still preserves raw state observations. It also writes rollups by program, role, lifecycle code, and change type for program-, category-, and institution-level monitoring.
 

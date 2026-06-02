@@ -1833,6 +1833,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "organizations",
         "organization_aliases",
         "organization_identifiers",
+        "organization_identifier_candidates",
         "person_training_events",
         "person_training_states",
         "person_evidence_review_packets",

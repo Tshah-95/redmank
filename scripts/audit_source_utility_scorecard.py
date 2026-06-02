@@ -323,6 +323,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     org_seeded = scalar(conn, "SELECT COUNT(*) FROM organizations WHERE resolver_status = 'seeded_alias'")
     org_aliases = scalar(conn, "SELECT COUNT(*) FROM organization_aliases")
     org_identifiers = scalar(conn, "SELECT COUNT(*) FROM organization_identifiers")
+    org_identifier_candidates = scalar(conn, "SELECT COUNT(*) FROM organization_identifier_candidates")
+    org_identifier_candidate_summary = read_json(ARTIFACTS / "organization_identifier_candidate_summary.json", {})
 
     state_rows = scalar(conn, "SELECT COUNT(*) FROM person_training_states")
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -629,6 +631,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             input_records=org_count,
             output_records=org_aliases,
             accepted_records=org_seeded,
+            candidate_records=org_identifier_candidates,
             needs_review_records=org_review,
             score=74.0,
             strengths=[
@@ -648,6 +651,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "cleaned_label_review_rows": org_review,
                 "aliases": org_aliases,
                 "identifiers": org_identifiers,
+                "identifier_candidate_rows": org_identifier_candidates,
+                "identifier_candidate_summary": org_identifier_candidate_summary,
             },
         ),
         make_row(

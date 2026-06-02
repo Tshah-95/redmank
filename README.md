@@ -16,6 +16,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - SQLite tables `official_program_universe` and `official_program_coverage_audit`: queryable official-program denominator and coverage status.
 - `artifacts/data/warehouse_summary.json`: warehouse table counts and resolver status counts.
 - `artifacts/data/organization_review_queue.csv`: organization labels that need alias/identifier review.
+- `artifacts/data/organization_identifier_candidates.csv`: non-mutating ROR identifier candidates for high-mention cleaned organization labels.
+- `artifacts/data/organization_identifier_source_observations.csv`: ROR query/probe observations, including errors and result counts.
+- `artifacts/data/organization_identifier_candidate_summary.json`: organization identifier candidate counts by status, category, and identifier type.
 - `artifacts/data/person_enrichment_queue.csv`: per-person recursive enrichment tasks.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
 - `artifacts/data/penn_gme_program_universe.json`: official HUP GME program denominator parsed from the public Penn Medicine program list.
@@ -102,6 +105,7 @@ Build the SQLite warehouse and review queues:
 ```bash
 python3 scripts/build_sqlite.py
 python3 scripts/generate_enrichment_queue.py
+python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 ```
 
 Run Penn-wide source discovery and first-pass research candidate collection:
@@ -128,6 +132,7 @@ python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
+python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py
@@ -216,6 +221,7 @@ The initial methodology is conservative:
 - Score source utilities by observed claim surface, output quality, blockers, and next action before widening the corpus.
 - Keep current-attending endpoints separate from accepted trend-line links until a historical roster, alumni page, CV, or independent profile connects the attending identity to a dated Penn trainee record.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
+- Keep external organization identifiers as candidates until the source result agrees on the actual entity surface. Parent ROR candidates, search siblings, and relationship-only hints are useful evidence, but they should not mutate accepted organization identifiers without a second anchor.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.
 
 See the latest research brief in `artifacts/research/` for source coverage, quality grades, and recommended enrichment tiers.
