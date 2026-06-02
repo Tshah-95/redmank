@@ -718,7 +718,16 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
 def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
     rows = []
     source = "artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv"
+    audit_by_key = {
+        item.get("reviewer_decision_key"): item
+        for item in read_csv(ARTIFACTS / "program_lifecycle_duration_reviewer_decision_audit.csv")
+        if item.get("reviewer_decision_key")
+    }
     for item in read_csv(ARTIFACTS / "program_lifecycle_duration_reviewer_decision_queue.csv"):
+        audit = audit_by_key.get(item.get("reviewer_decision_key") or "", {})
+        decision_status = audit.get("decision_status") or ""
+        if decision_status in {"accepted_reviewer_decision", "rejected_by_reviewer"}:
+            continue
         status = item.get("queue_status") or ""
         if status == "ready_for_reviewer_decision":
             priority = 815
@@ -738,11 +747,13 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
                 priority=priority,
                 impact_count=1,
                 readiness_status=status,
-                blocker_status=item.get("duration_evidence_status") or "",
+                blocker_status=audit.get("decision_blocker") or decision_status or item.get("duration_evidence_status") or "",
                 required_next_evidence=item.get("required_reviewer_action") or "",
                 recommended_next_action=(
                     "record_accept_reject_or_needs_more_evidence_decision"
-                    if status == "ready_for_reviewer_decision"
+                    if status == "ready_for_reviewer_decision" and not decision_status
+                    else audit.get("recommended_next_action")
+                    if decision_status
                     else item.get("recommended_next_action") or "collect_stronger_duration_or_scope_evidence"
                 ),
                 source_artifact=source,
@@ -762,6 +773,9 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
                     "explicit_duration_years": item.get("explicit_duration_years"),
                     "duration_confidence": item.get("duration_confidence"),
                     "review_question": item.get("review_question"),
+                    "decision_status": decision_status,
+                    "reviewer_decision": audit.get("reviewer_decision") or "",
+                    "decision_blocker": audit.get("decision_blocker") or "",
                 },
                 generated_at=generated_at,
             )

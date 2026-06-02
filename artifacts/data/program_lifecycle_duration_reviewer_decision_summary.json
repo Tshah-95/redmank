@@ -1,12 +1,13 @@
 {
   "acceptance_policy": "Accepted lifecycle-duration mappings require an explicit reviewer decision, a matching evidence fingerprint, queue readiness, and all required confirmation fields set to 1. Accepted mappings do not mutate lifecycle rules by themselves.",
-  "accepted_duration_mapping_rows": 0,
+  "accepted_duration_mapping_rows": 2,
   "accepted_mappings_csv": "artifacts/data/accepted_program_lifecycle_duration_mappings.csv",
   "audit_csv": "artifacts/data/program_lifecycle_duration_reviewer_decision_audit.csv",
   "audit_rows": 10,
   "by_decision_status": {
+    "accepted_reviewer_decision": 2,
     "not_ready_for_reviewer_decision": 7,
-    "pending_reviewer_decision": 3
+    "rejected_by_reviewer": 1
   },
   "by_queue_status": {
     "context_review_required_before_decision": 3,
@@ -14,18 +15,21 @@
     "ready_for_reviewer_decision": 3
   },
   "by_recommended_next_action": {
-    "record_accept_reject_or_needs_more_evidence_decision": 3,
-    "resolve_duration_context_or_collect_stronger_official_duration_evidence": 7
+    "materialize_accepted_duration_mapping": 2,
+    "resolve_duration_context_or_collect_stronger_official_duration_evidence": 7,
+    "retain_rejection_for_audit": 1
   },
   "by_reviewer_decision": {
-    "pending": 10
+    "accept_lifecycle_duration": 2,
+    "pending": 7,
+    "reject_duration_context": 1
   },
   "context_review_rows": 3,
-  "generated_at": "2026-06-02T22:09:28.955229+00:00",
+  "generated_at": "2026-06-02T22:15:41.278386+00:00",
   "manual_decision_csv": "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
-  "manual_decision_rows": 0,
+  "manual_decision_rows": 3,
   "not_ready_rows": 4,
-  "pending_reviewer_decision_rows": 3,
+  "pending_reviewer_decision_rows": 0,
   "queue_csv": "artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv",
   "queue_rows": 10,
   "ready_queue_rows": 3

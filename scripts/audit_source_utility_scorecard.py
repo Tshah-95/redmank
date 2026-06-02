@@ -242,7 +242,23 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         ARTIFACTS / "program_lifecycle_duration_evidence_summary.json",
         {},
     )
+    program_lifecycle_duration_reviewer_summary = read_json(
+        ARTIFACTS / "program_lifecycle_duration_reviewer_decision_summary.json",
+        {},
+    )
     program_lifecycle_duration_rows = scalar(conn, "SELECT COUNT(*) FROM program_lifecycle_duration_evidence")
+    accepted_program_lifecycle_duration_rows = scalar(
+        conn,
+        "SELECT COUNT(*) FROM accepted_program_lifecycle_duration_mappings",
+    )
+    rejected_program_lifecycle_duration_rows = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_lifecycle_duration_reviewer_decision_audit
+        WHERE decision_status = 'rejected_by_reviewer'
+        """,
+    )
     program_lifecycle_duration_ready = scalar(
         conn,
         """
@@ -935,15 +951,17 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             claim_surface="explicit duration phrases on official Penn program pages for ACGME-linked unknown-duration programs",
             input_records=int(program_lifecycle_duration_summary.get("target_rows") or program_lifecycle_duration_rows),
             output_records=program_lifecycle_duration_rows,
+            accepted_records=accepted_program_lifecycle_duration_rows,
             candidate_records=program_lifecycle_duration_rows,
             needs_review_records=program_lifecycle_duration_review,
             review_ready_records=program_lifecycle_duration_ready,
             blocked_records=program_lifecycle_duration_blocked,
-            score=67.0,
+            score=72.0 if accepted_program_lifecycle_duration_rows else 67.0,
             strengths=[
                 "Targets only accepted ACGME-linked programs blocked by default/unknown lifecycle rules",
                 "Captures official-page duration phrases and page hashes before proposing rule changes",
                 "Detects source-page mismatches and conflicting duration contexts instead of mutating lifecycle rules",
+                "Reviewer decisions now separate accepted lifecycle-duration evidence from duration-context false positives",
             ],
             limitations=[
                 "Official pages may omit duration even when a program has a known standard length",
@@ -954,6 +972,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             evidence={
                 "duration_summary": program_lifecycle_duration_summary,
                 "duration_evidence_rows": program_lifecycle_duration_rows,
+                "accepted_duration_mapping_rows": accepted_program_lifecycle_duration_rows,
+                "rejected_duration_context_rows": rejected_program_lifecycle_duration_rows,
+                "reviewer_decision_summary": program_lifecycle_duration_reviewer_summary,
                 "reviewer_ready_duration_candidates": program_lifecycle_duration_ready,
                 "review_or_mismatch_rows": program_lifecycle_duration_review,
                 "blocked_or_no_explicit_duration_rows": program_lifecycle_duration_blocked,
