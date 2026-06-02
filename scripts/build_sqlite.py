@@ -761,6 +761,72 @@ def insert_trainee_profile_claims(conn: sqlite3.Connection) -> None:
     )
 
 
+def person_programs_from_raw(raw_json: str | None) -> list[str]:
+    try:
+        raw = json.loads(raw_json or "{}")
+    except json.JSONDecodeError:
+        raw = {}
+    programs = raw.get("program_memberships") or [raw.get("program") or ""]
+    output = []
+    seen = set()
+    for program in programs:
+        program = norm_space(program)
+        key = normalized_label(program)
+        if program and key not in seen:
+            output.append(program)
+            seen.add(key)
+    return output
+
+
+def unique_person_key_by_name_role_program(conn: sqlite3.Connection) -> dict[tuple[str, str, str], str]:
+    grouped: dict[tuple[str, str, str], set[str]] = defaultdict(set)
+    for row in conn.execute("SELECT person_key, display_name, role, raw_json FROM people"):
+        programs = person_programs_from_raw(row["raw_json"])
+        for program in programs:
+            grouped[
+                (
+                    normalized_label(row["display_name"]),
+                    row["role"] or "",
+                    normalized_label(program),
+                )
+            ].add(row["person_key"])
+    return {key: next(iter(values)) for key, values in grouped.items() if len(values) == 1}
+
+
+def canonicalize_person_claims(conn: sqlite3.Connection, raw_claims: list[dict]) -> tuple[list[dict], list[dict], int]:
+    existing_people = {row[0] for row in conn.execute("SELECT person_key FROM people")}
+    by_identity = unique_person_key_by_name_role_program(conn)
+    claims = []
+    skipped = []
+    remapped_count = 0
+    for row in raw_claims:
+        original_person_key = row.get("person_key") or ""
+        if original_person_key in existing_people:
+            claims.append(row)
+            continue
+        identity_key = (
+            normalized_label(row.get("display_name")),
+            row.get("role") or "",
+            normalized_label(row.get("program_context") or row.get("program_name") or ""),
+        )
+        canonical_person_key = by_identity.get(identity_key)
+        if not canonical_person_key:
+            skipped.append(row)
+            continue
+        row = dict(row)
+        row["person_key"] = canonical_person_key
+        evidence = dict(row.get("evidence") or {})
+        evidence["person_key_remap"] = {
+            "original_person_key": original_person_key,
+            "canonical_person_key": canonical_person_key,
+            "basis": "unique_normalized_display_name_role_program_match",
+        }
+        row["evidence"] = evidence
+        claims.append(row)
+        remapped_count += 1
+    return claims, skipped, remapped_count
+
+
 def insert_trainee_profile_discovery_claims(conn: sqlite3.Connection) -> None:
     claims_path = ARTIFACTS / "trainee_profile_discovery_claims.json"
     sources_path = ARTIFACTS / "trainee_profile_discovery_sources.json"
@@ -789,9 +855,7 @@ def insert_trainee_profile_discovery_claims(conn: sqlite3.Connection) -> None:
     raw_claims = load_json(claims_path)
     if not raw_claims:
         return
-    existing_people = {row[0] for row in conn.execute("SELECT person_key FROM people")}
-    claims = [row for row in raw_claims if row.get("person_key") in existing_people]
-    orphan_claims = [row for row in raw_claims if row.get("person_key") not in existing_people]
+    claims, orphan_claims, remapped_claims = canonicalize_person_claims(conn, raw_claims)
     if not claims:
         return
     for row in claims:
@@ -839,6 +903,7 @@ def insert_trainee_profile_discovery_claims(conn: sqlite3.Connection) -> None:
                     "claims": len(claims),
                     "raw_claims": len(raw_claims),
                     "orphan_claims_skipped": len(orphan_claims),
+                    "person_key_remapped_claims": remapped_claims,
                     "people_with_claims": len({row["person_key"] for row in claims}),
                     "source_rows": len({row["source_key"] for row in claims}),
                     "by_claim_type": dict(Counter(row["claim_type"] for row in claims)),

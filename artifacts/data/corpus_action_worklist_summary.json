@@ -17,7 +17,7 @@
   },
   "critical_rows": 23,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T18:36:24.702780+00:00",
+  "generated_at": "2026-06-02T18:55:29.845800+00:00",
   "high_rows": 870,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
@@ -134,8 +134,8 @@
       "action_scope": "review_queue:evidence_reconciliation_review",
       "action_surface": "person_enrichment_execution",
       "display_label": "fellow evidence_reconciliation_review",
-      "impact_count": 113,
-      "priority": 1122,
+      "impact_count": 119,
+      "priority": 1134,
       "program_name": "",
       "recommended_next_action": "review_reconciliation_packet",
       "role": "fellow"
@@ -301,6 +301,6 @@
       "role": "resident"
     }
   ],
-  "total_impact_count": 11973,
+  "total_impact_count": 11979,
   "worklist_rows": 1395
 }

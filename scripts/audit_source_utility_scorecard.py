@@ -525,6 +525,23 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     trainee_profile_discovery_summary = read_json(ARTIFACTS / "trainee_profile_discovery_summary.json", {})
+    trainee_profile_discovery_claims = scalar(
+        conn,
+        "SELECT COUNT(*) FROM evidence_claims WHERE claim_type = 'official_profile_url_candidate'",
+    )
+    trainee_profile_discovery_needs_review = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM evidence_claims
+        WHERE claim_type = 'official_profile_url_candidate'
+          AND status = 'needs_review'
+        """,
+    )
+    trainee_profile_discovery_candidates = scalar(conn, "SELECT COUNT(*) FROM trainee_profile_discovery_candidates")
+    trainee_profile_discovery_low_signal = int(
+        (trainee_profile_discovery_summary.get("by_candidate_status") or {}).get("low_signal_search_result") or 0
+    )
     prior_training_discovery_summary = read_json(ARTIFACTS / "prior_training_discovery_summary.json", {})
     prior_training_tasks = int(prior_training_discovery_summary.get("tasks_considered") or 0)
     prior_training_queries = int(prior_training_discovery_summary.get("query_rows") or 0)
@@ -1226,6 +1243,37 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "claims": trainee_profile_claims,
                 "accepted_profile_url_facts": trainee_profile_accepted,
                 "candidate_profile_fields": trainee_profile_candidate,
+            },
+        ),
+        make_row(
+            scorecard_key="official_trainee_profile_discovery",
+            utility_key="official_trainee_profile_discovery",
+            utility_label="Official trainee profile discovery",
+            source_family="official_institutional_web",
+            claim_surface="candidate official profile URLs for trainees missing roster-linked profile URLs",
+            input_records=int(trainee_profile_discovery_summary.get("direct_probe_rows") or 0),
+            output_records=trainee_profile_discovery_candidates,
+            candidate_records=trainee_profile_discovery_claims,
+            needs_review_records=trainee_profile_discovery_needs_review,
+            low_signal_records=trainee_profile_discovery_low_signal,
+            score=58.0,
+            strengths=[
+                "Deterministic sibling probes reuse observed same-program official profile bases",
+                "Successful candidates include HTTP 200, content hash, name, program, and role/training evidence",
+                "All discovered URLs remain review-only and do not mutate roster truth",
+            ],
+            limitations=[
+                "Sparse route: most probed sibling slugs return 404",
+                "Only exact program-role profile bases are used, so programs without known profile bases are not helped",
+                "Candidate URLs still need same-person/current-trainee review before acceptance",
+            ],
+            recommended_next_action="review_official_profile_url_candidates_and_prioritize_roster_refresh_for_remaining_profile_gaps",
+            evidence={
+                "summary": trainee_profile_discovery_summary,
+                "candidate_rows": trainee_profile_discovery_candidates,
+                "review_candidate_claims": trainee_profile_discovery_claims,
+                "needs_review_claims": trainee_profile_discovery_needs_review,
+                "low_signal_rows": trainee_profile_discovery_low_signal,
             },
         ),
         make_row(

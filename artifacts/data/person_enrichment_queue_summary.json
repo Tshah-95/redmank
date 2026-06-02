@@ -4,16 +4,16 @@
     "deterministic_expected_advancement": 2521,
     "deterministic_expected_completion": 880,
     "manual_review_required": 595,
-    "source_refresh_required": 2284
+    "source_refresh_required": 2290
   },
   "by_priority_band": {
-    "critical": 2384,
+    "critical": 2390,
     "high": 698,
     "low": 1256,
     "medium": 1991
   },
   "by_role": {
-    "fellow": 1876,
+    "fellow": 1882,
     "medical_student": 412,
     "resident": 4041
   },
@@ -24,11 +24,11 @@
     "official_roster": 1522,
     "prior_training": 321,
     "research": 1143,
-    "review_queue": 862
+    "review_queue": 868
   },
   "by_task_type": {
     "current_roster_state_reconciliation": 1522,
-    "evidence_reconciliation_review": 862,
+    "evidence_reconciliation_review": 868,
     "official_profile_search": 608,
     "organization_alias_review": 617,
     "public_contact_verification": 1256,
@@ -36,12 +36,12 @@
     "source_medical_school_background": 231,
     "source_residency_background": 90
   },
-  "fresh_observation_required_tasks": 6280,
+  "fresh_observation_required_tasks": 6286,
   "person_count": 1535,
   "queue_csv": "artifacts/data/person_enrichment_queue.csv",
   "queue_json": "artifacts/data/person_enrichment_queue.json",
-  "queue_rows": 6329,
-  "stale_by_refresh_tasks": 6280,
+  "queue_rows": 6335,
+  "stale_by_refresh_tasks": 6286,
   "top_critical_tasks": [
     {
       "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",

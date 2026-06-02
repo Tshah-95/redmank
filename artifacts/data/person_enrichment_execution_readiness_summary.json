@@ -4,24 +4,24 @@
     "collector_available_partial_source_coverage": 1522,
     "collector_available_queue_driven": 2072,
     "collector_available_review_required": 617,
-    "manual_decision_ready": 862
+    "manual_decision_ready": 868
   },
   "by_execution_lane": {
     "collector_then_manual_normalization": 617,
     "collector_with_reconciliation_required": 1522,
     "dependent_on_roster_or_profile_refresh": 1256,
     "queue_driven_collector_available": 2072,
-    "reviewer_decision_required": 862
+    "reviewer_decision_required": 868
   },
   "by_priority_band": {
-    "critical": 2384,
+    "critical": 2390,
     "high": 698,
     "low": 1256,
     "medium": 1991
   },
   "by_task_type": {
     "current_roster_state_reconciliation": 1522,
-    "evidence_reconciliation_review": 862,
+    "evidence_reconciliation_review": 868,
     "official_profile_search": 608,
     "organization_alias_review": 617,
     "public_contact_verification": 1256,
@@ -29,20 +29,20 @@
     "source_medical_school_background": 231,
     "source_residency_background": 90
   },
-  "manual_review_required_tasks": 4325,
+  "manual_review_required_tasks": 4331,
   "network_required_tasks": 5467,
   "new_parser_required_tasks": 0,
   "person_count": 1535,
   "readiness_csv": "artifacts/data/person_enrichment_execution_readiness.csv",
   "readiness_json": "artifacts/data/person_enrichment_execution_readiness.json",
-  "readiness_rows": 6329,
+  "readiness_rows": 6335,
   "rollup_csv": "artifacts/data/person_enrichment_execution_readiness_rollups.csv",
   "rollup_json": "artifacts/data/person_enrichment_execution_readiness_rollups.json",
   "rollup_rows": 37,
   "script_extension_required_tasks": 0,
   "top_next_system_actions": {
     "refresh_public_contact_sources_and_reaudit_display_safety": 1256,
-    "review_high_priority_evidence_packets_and_record_accept_or_reject_decisions": 862,
+    "review_high_priority_evidence_packets_and_record_accept_or_reject_decisions": 868,
     "run_identifier_candidate_collection_then_review_alias_collapses": 617,
     "run_official_trainee_profile_discovery_then_reconcile_candidates": 608,
     "run_or_extend_official_roster_collectors_then_reconcile_state_machine": 1522,

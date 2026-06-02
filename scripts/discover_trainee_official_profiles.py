@@ -12,7 +12,7 @@ import re
 import sqlite3
 import sys
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote_plus, unquote, urlparse
@@ -55,7 +55,8 @@ OFFICIAL_DOMAINS = {
 }
 OFFICIAL_DOMAIN_SUFFIXES = (".pennmedicine.org", ".med.upenn.edu", ".chop.edu")
 PROFILE_PATH_RE = re.compile(
-    r"/providers/profile/|/faculty/index\.php|/department/people/|/(people|profile|profiles)(/|$)",
+    r"/providers/profile/|/faculty/index\.php|/department/people/|/(people|profile|profiles)(/|$)|"
+    r"/education-and-training/.*/(residents?|fellows?|current-fellows|recent-graduates|pgy[-0-9/]+)",
     re.I,
 )
 ROLE_TERMS = ["resident", "residency", "fellow", "fellowship", "trainee", "education", "training"]
@@ -158,6 +159,107 @@ def provider_profile_slug_candidates(display_name: str) -> list[str]:
             output.append(candidate)
             seen.add(candidate)
     return output
+
+
+def roster_profile_slug_candidates(display_name: str) -> list[str]:
+    tokens = [token.lower() for token in clean_name(display_name).split() if token]
+    if len(tokens) < 2:
+        return []
+    first = tokens[0]
+    last = tokens[-1]
+    middle_tokens = [token for token in tokens[1:-1] if len(token) > 1]
+    first_short = first[:3] if len(first) >= 3 else first
+    variants = [
+        [last, first],
+        [first, last],
+        [last],
+        [last, first_short],
+        [first],
+    ]
+    if middle_tokens:
+        variants.extend(
+            [
+                [last, first, middle_tokens[0]],
+                [first, middle_tokens[0], last],
+            ]
+        )
+    output = []
+    seen = set()
+    for variant in variants:
+        candidate = slug("-".join(variant), 96)
+        if candidate and candidate not in seen:
+            output.append(candidate)
+            seen.add(candidate)
+    return output
+
+
+def profile_programs(raw_json: str | None) -> list[str]:
+    raw = json.loads(raw_json or "{}")
+    programs = raw.get("program_memberships") or [raw.get("program") or ""]
+    output = []
+    seen = set()
+    for program in programs:
+        program = norm(program)
+        key = normalized_program_key(program)
+        if program and key not in seen:
+            output.append(program)
+            seen.add(key)
+    return output
+
+
+def normalized_program_key(program_name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", norm(program_name).lower()).strip()
+
+
+def profile_base_url(profile_url: str) -> str:
+    parsed = urlparse(profile_url)
+    if parsed.scheme not in {"http", "https"} or not official_domain(parsed.netloc):
+        return ""
+    path = parsed.path.rstrip("/")
+    if "/" not in path:
+        return ""
+    base_path = path.rsplit("/", 1)[0]
+    if not PROFILE_PATH_RE.search(base_path):
+        return ""
+    return f"{parsed.scheme}://{parsed.netloc}{base_path}"
+
+
+def load_roster_profile_base_index(conn: sqlite3.Connection) -> dict[tuple[str, str], list[dict]]:
+    conn.row_factory = sqlite3.Row
+    grouped: dict[tuple[str, str, str], dict] = {}
+    for row in conn.execute(
+        """
+        SELECT display_name, role, profile_url, raw_json
+        FROM people
+        WHERE profile_url IS NOT NULL AND profile_url != ''
+        """
+    ):
+        base_url = profile_base_url(row["profile_url"] or "")
+        if not base_url:
+            continue
+        for program in profile_programs(row["raw_json"]):
+            role = row["role"] or ""
+            key = (normalized_program_key(program), role, base_url)
+            if key not in grouped:
+                grouped[key] = {
+                    "program_key": key[0],
+                    "role": role,
+                    "base_url": base_url,
+                    "example_url": row["profile_url"] or "",
+                    "example_names": [],
+                    "count": 0,
+                }
+            grouped[key]["count"] += 1
+            if len(grouped[key]["example_names"]) < 5:
+                grouped[key]["example_names"].append(row["display_name"])
+
+    index: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for item in grouped.values():
+        index[(item["program_key"], item["role"])].append(item)
+    return {
+        key: sorted(items, key=lambda item: (-item["count"], item["base_url"]))
+        for key, items in index.items()
+    }
 
 
 def load_people(conn: sqlite3.Connection, limit: int | None) -> list[dict]:
@@ -347,6 +449,71 @@ def direct_provider_profile_results(person: dict, max_slugs: int) -> list[dict]:
     return results
 
 
+def direct_roster_profile_results(
+    person: dict,
+    base_index: dict[tuple[str, str], list[dict]],
+    max_bases: int,
+    max_slugs: int,
+) -> list[dict]:
+    programs = profile_programs(person.get("raw_json"))
+    role = person.get("role") or ""
+    slug_candidates = roster_profile_slug_candidates(person["display_name"])[:max_slugs]
+    if not programs or not slug_candidates:
+        return []
+    base_candidates = []
+    seen_bases = set()
+    for program in programs:
+        key = (normalized_program_key(program), role)
+        for base in base_index.get(key, [])[:max_bases]:
+            if base["base_url"] in seen_bases:
+                continue
+            base_candidates.append({**base, "program_name": program})
+            seen_bases.add(base["base_url"])
+    results = []
+    rank = 0
+    for base in base_candidates:
+        for candidate_slug in slug_candidates:
+            rank += 1
+            url = f"{base['base_url'].rstrip('/')}/{candidate_slug}"
+            query = f"direct_roster_profile_sibling_probe:{base['base_url']}:{candidate_slug}"
+            results.append(
+                {
+                    "query_key": key_for(
+                        "trainee_profile_direct_roster_query",
+                        person["person_key"],
+                        base["base_url"],
+                        candidate_slug,
+                    ),
+                    "person_key": person["person_key"],
+                    "display_name": person["display_name"],
+                    "role": role,
+                    "program_name": base["program_name"],
+                    "task_key": person.get("task_key") or "",
+                    "query_kind": "direct_roster_profile_sibling_probe",
+                    "query": query,
+                    "query_url": url,
+                    "priority": person.get("priority") or "",
+                    "priority_band": person.get("priority_band") or "",
+                    "result_rank": rank,
+                    "result_url": url,
+                    "result_domain": urlparse(url).netloc.lower(),
+                    "result_title": "",
+                    "result_snippet": (
+                        "Deterministic official roster-profile sibling probe using observed same-program "
+                        f"profile base. Example source: {base['example_url']}"
+                    ),
+                    "search_status": "direct_probe",
+                    "searched_at": datetime.now(timezone.utc).isoformat(),
+                    "search_http_status": "",
+                    "sibling_profile_base_url": base["base_url"],
+                    "sibling_profile_example_url": base["example_url"],
+                    "sibling_profile_base_count": base["count"],
+                    "sibling_profile_example_names": "; ".join(base["example_names"]),
+                }
+            )
+    return results
+
+
 def classify_candidate(row: dict) -> tuple[str, float, list[str], str]:
     url = row.get("result_url") or ""
     domain = row.get("result_domain") or urlparse(url).netloc.lower()
@@ -379,10 +546,7 @@ def classify_candidate(row: dict) -> tuple[str, float, list[str], str]:
     if row.get("probe_sha256"):
         features.append("content_hash_recorded")
 
-    direct_probe_without_page = (
-        row.get("query_kind") == "direct_provider_profile_slug_probe"
-        and str(row.get("probe_http_status") or "") != "200"
-    )
+    direct_probe_without_page = row.get("query_kind", "").startswith("direct_") and str(row.get("probe_http_status") or "") != "200"
 
     score = 0.12
     score += 0.22 if "name_present" in features else 0
@@ -503,6 +667,10 @@ def main() -> None:
     parser.add_argument("--probe-timeout", type=float, default=20.0)
     parser.add_argument("--direct-provider-slug-probes", action="store_true")
     parser.add_argument("--max-provider-slugs-per-person", type=int, default=2)
+    parser.add_argument("--direct-roster-profile-sibling-probes", action="store_true")
+    parser.add_argument("--max-roster-profile-bases-per-person", type=int, default=2)
+    parser.add_argument("--max-roster-slugs-per-person", type=int, default=4)
+    parser.add_argument("--max-direct-roster-probes", type=int)
     parser.add_argument("--max-direct-probes", type=int)
     parser.add_argument("--direct-progress-every", type=int, default=10)
     parser.add_argument("--skip-search", action="store_true")
@@ -513,6 +681,7 @@ def main() -> None:
     generated_at = datetime.now(timezone.utc).isoformat()
     conn = sqlite3.connect(args.db)
     people = load_people(conn, args.max_people)
+    roster_profile_base_index = load_roster_profile_base_index(conn)
     conn.close()
     generated_queries = [query for person in people for query in query_specs(person, args.max_queries_per_person)]
     query_by_key = merge_by_key(read_csv(QUERY_CSV), "query_key") if args.resume_existing else {}
@@ -532,18 +701,36 @@ def main() -> None:
         search_specs = search_specs[: args.max_search_queries]
     searched_this_run = 0
     direct_results = []
+    direct_provider_results = []
+    direct_roster_results = []
     if args.direct_provider_slug_probes:
-        direct_results = [
+        direct_provider_results = [
             result
             for person in people
             for result in direct_provider_profile_results(person, args.max_provider_slugs_per_person)
         ]
         if args.max_direct_probes:
-            direct_results = direct_results[: args.max_direct_probes]
+            direct_provider_results = direct_provider_results[: args.max_direct_probes]
+    if args.direct_roster_profile_sibling_probes:
+        direct_roster_results = [
+            result
+            for person in people
+            for result in direct_roster_profile_results(
+                person,
+                roster_profile_base_index,
+                args.max_roster_profile_bases_per_person,
+                args.max_roster_slugs_per_person,
+            )
+        ]
+        if args.max_direct_roster_probes:
+            direct_roster_results = direct_roster_results[: args.max_direct_roster_probes]
+    direct_results = direct_provider_results + direct_roster_results
     direct_probed_this_run = 0
+    direct_probed_by_kind = Counter()
     for result in direct_results:
         result.update(probe_page(session, result, args.probe_timeout))
         direct_probed_this_run += 1
+        direct_probed_by_kind[result["query_kind"]] += 1
         status, confidence, features, required = classify_candidate(result)
         candidate_url = result["result_url"]
         candidate = {
@@ -581,7 +768,8 @@ def main() -> None:
             candidates_by_key[candidate["candidate_key"]] = candidate
         if args.direct_progress_every and direct_probed_this_run % args.direct_progress_every == 0:
             print(
-                f"direct_provider_probes={direct_probed_this_run} "
+                f"direct_probes={direct_probed_this_run} "
+                f"kind={candidate['query_kind']} "
                 f"last_status={candidate['candidate_status']} "
                 f"http={candidate['http_status'] or 'none'}",
                 flush=True,
@@ -692,8 +880,16 @@ def main() -> None:
         "resume_existing": args.resume_existing,
         "search_observations": len(observations),
         "searched_this_run": searched_this_run,
-        "direct_provider_slug_probe_rows": len(direct_results),
-        "direct_provider_slug_probed_this_run": direct_probed_this_run,
+        "direct_probe_rows": len(direct_results),
+        "direct_provider_slug_probe_rows": len(direct_provider_results),
+        "direct_roster_profile_sibling_probe_rows": len(direct_roster_results),
+        "roster_profile_base_program_role_keys": len(roster_profile_base_index),
+        "direct_probed_this_run": direct_probed_this_run,
+        "direct_provider_slug_probed_this_run": direct_probed_by_kind.get("direct_provider_profile_slug_probe", 0),
+        "direct_roster_profile_sibling_probed_this_run": direct_probed_by_kind.get(
+            "direct_roster_profile_sibling_probe", 0
+        ),
+        "by_direct_probe_kind_this_run": dict(sorted(direct_probed_by_kind.items())),
         "unsearched_query_rows": max(len(queries) - len(observations), 0),
         "candidate_rows": len(candidates),
         "claim_rows": len(claims),

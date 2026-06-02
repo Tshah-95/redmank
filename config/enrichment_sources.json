@@ -38,6 +38,18 @@
       "acceptance_rule": "Accept only the roster-linked official profile URL as a profile-location fact. Keep extracted education, prior-training, interest, and personal-context fields as candidate enrichment until independently reconciled or explicitly reviewed."
     },
     {
+      "utility_key": "official_trainee_profile_discovery",
+      "display_name": "Official trainee profile discovery",
+      "source_family": "official_institutional_web",
+      "default_tier": "silver",
+      "default_status": "needs_review",
+      "default_confidence": 0.58,
+      "claim_types": ["official_profile_url_candidate"],
+      "strengths": ["Uses official Penn/CHOP domains", "Can probe deterministic roster-profile sibling paths from already observed same-program profiles", "Records HTTP status, content hash, name, program, and role/training term evidence"],
+      "limitations": ["Profile sibling paths are sparse and often return 404", "A discovered URL is not roster truth unless linked from a current roster or explicitly reviewed", "Name slugs can create false positives without fetched page text"],
+      "acceptance_rule": "Use as discovery and review evidence only. Promote a URL after same-person identity, official ownership, and current trainee/program context are confirmed."
+    },
+    {
       "utility_key": "prior_training_background_discovery",
       "display_name": "Prior training background discovery",
       "source_family": "web_search",

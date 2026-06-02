@@ -845,6 +845,12 @@ person_zahraa-al-turaihi-md_de689518d59e,"Zahraa Al-Turaihi, MD",6,105,2,"{""dis
 person_zhiye-lu-md_14bbb179a57d,"Zhiye Lu, MD",2,105,1,"{""discovery_only"": 1, ""npi_secondary_identity_anchor_review"": 1}",npi_secondary_identity_anchor_review
 zoe barbati,Zoe Barbati MD,16,105,2,"{""candidate_with_partial_anchor"": 1, ""discovery_only"": 1, ""low_signal_candidate"": 8, ""npi_secondary_identity_anchor_review"": 1, ""profile_personal_context_display_review"": 4, ""review_ready_profile_background_field"": 1}",low_signal_candidate
 person_zoya-gurm-md_e82ab92d4ea9,"Zoya Gurm, MD",5,105,2,"{""low_signal_candidate"": 3, ""npi_secondary_identity_anchor_review"": 1, ""review_ready_profile_background_field"": 1}",low_signal_candidate
+person_allan-stolarski-md-ms_bb615dd872ac,"Allan Stolarski, MD, MS",2,104,0,"{""discovery_only"": 1, ""profile_context_candidate"": 1}",profile_context_candidate
+person_jackie-zhang-md_1cc440dab925,"Jackie Zhang, MD",2,104,0,"{""discovery_only"": 1, ""profile_context_candidate"": 1}",profile_context_candidate
+person_laura-barnes-md_503959d8cc53,"Laura Barnes, MD",4,104,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 2, ""profile_context_candidate"": 1}",npi_candidate_with_partial_anchor
+person_madison-harris-do_b296586278e6,"Madison Harris, DO",4,104,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 2, ""profile_context_candidate"": 1}",npi_candidate_with_partial_anchor
+person_mary-decoteau-md_107185e399b5,"Mary Decoteau, MD",10,104,0,"{""candidate_with_partial_anchor"": 1, ""discovery_only"": 1, ""low_signal_candidate"": 7, ""profile_context_candidate"": 1}",low_signal_candidate
+person_michael-weykamp-md-ms_df24588b4705,"Michael Weykamp, MD, MS",12,104,0,"{""candidate_with_partial_anchor"": 8, ""discovery_only"": 1, ""low_signal_candidate"": 2, ""profile_context_candidate"": 1}",candidate_with_partial_anchor
 alexandra leto,"Alexandra Leto, MD",6,99,3,"{""discovery_only"": 1, ""npi_secondary_identity_anchor_review"": 1, ""profile_background_candidate"": 1, ""profile_personal_context_display_review"": 1, ""review_ready_profile_background_field"": 2}",review_ready_profile_background_field
 person_amber-simmons-md_94563180d219,"Amber Simmons, MD",4,99,2,"{""discovery_only"": 1, ""npi_secondary_identity_anchor_review"": 1, ""profile_background_candidate"": 1, ""review_ready_profile_background_field"": 1}",npi_secondary_identity_anchor_review
 ayesha khan,"Ayesha Khan, MD",5,99,2,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 2, ""npi_secondary_identity_anchor_review"": 2}",npi_secondary_identity_anchor_review
@@ -1059,9 +1065,7 @@ zak kolkey,Zak Kolkey MD,7,71,1,"{""discovery_only"": 1, ""low_signal_candidate"
 person_zo-ruhl_e44b7f157101,Zoë Ruhl,3,71,1,"{""discovery_only"": 1, ""npi_low_signal_candidate"": 1, ""review_ready_profile_background_field"": 1}",review_ready_profile_background_field
 person_kathleen-o-neill-md-phd_af4b6b458c1b,"Kathleen O'Neill, MD, PhD",2,68,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 1}",npi_candidate_with_partial_anchor
 kristin andres,"Kristin Andres, MD",2,68,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 1}",npi_candidate_with_partial_anchor
-person_laura-barnes-md_503959d8cc53,"Laura Barnes, MD",3,68,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 2}",npi_candidate_with_partial_anchor
 person_linda-magana-md_43110146b467,"Linda Magana, MD",2,68,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 1}",npi_candidate_with_partial_anchor
-person_madison-harris-do_b296586278e6,"Madison Harris, DO",3,68,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 2}",npi_candidate_with_partial_anchor
 renuka reddy,"Renuka Reddy, MD",2,68,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 1}",npi_candidate_with_partial_anchor
 person_christian-zhang-md_997db2e65502,"Christian Zhang, MD",2,66,0,"{""discovery_only"": 1, ""npi_candidate_with_partial_anchor"": 1}",npi_candidate_with_partial_anchor
 person_samyuktha-guttha-md_04cb17170727,"Samyuktha Guttha, MD",12,65,0,"{""candidate_with_partial_anchor"": 2, ""discovery_only"": 1, ""low_signal_candidate"": 8, ""npi_candidate_with_partial_anchor"": 1}",low_signal_candidate
@@ -1194,7 +1198,6 @@ person_maggie-tamburro_f1ed90bd9225,Maggie Tamburro,5,60,0,"{""discovery_only"":
 person_margo-orlen_9d83906b5beb,Margo Orlen,14,60,0,"{""discovery_only"": 1, ""low_signal_candidate"": 9, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 2, ""profile_personal_context_display_review"": 1}",low_signal_candidate
 person_maria-merolle_77323d3cfd69,Maria Merolle,5,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 2, ""profile_personal_context_display_review"": 1}",profile_interest_context_candidate
 person_martin-shaun-rosenfeld_80c783c62400,Martin Shaun Rosenfeld,12,60,0,"{""candidate_with_partial_anchor"": 1, ""discovery_only"": 1, ""low_signal_candidate"": 7, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 1, ""profile_personal_context_display_review"": 1}",low_signal_candidate
-person_mary-decoteau-md_107185e399b5,"Mary Decoteau, MD",9,60,0,"{""candidate_with_partial_anchor"": 1, ""discovery_only"": 1, ""low_signal_candidate"": 7}",low_signal_candidate
 person_maryia-svirydava_c51eb9c62841,Maryia Svirydava,12,60,0,"{""discovery_only"": 1, ""low_signal_candidate"": 7, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 2, ""profile_personal_context_display_review"": 1}",low_signal_candidate
 person_masha-alibekova-long_191549add54a,Masha Alibekova Long,3,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 1}",profile_background_candidate
 person_matthew-sullivan-hatfield_47ffb20efabf,Matthew Sullivan-Hatfield,2,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1}",profile_background_candidate
@@ -1203,7 +1206,6 @@ person_max-frankfurter_fce4ba6f8da3,Max Frankfurter,14,60,0,"{""discovery_only""
 person_mclean-taggart_2c1ee65ab47f,McLean Taggart,4,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 1, ""profile_personal_context_display_review"": 1}",profile_background_candidate
 person_meng-lou_fb6448907a2e,Meng Lou,5,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 2, ""profile_personal_context_display_review"": 1}",profile_interest_context_candidate
 person_michael-sielski_06699aeae3c9,Michael Sielski,3,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 1}",profile_background_candidate
-person_michael-weykamp-md-ms_df24588b4705,"Michael Weykamp, MD, MS",11,60,0,"{""candidate_with_partial_anchor"": 8, ""discovery_only"": 1, ""low_signal_candidate"": 2}",candidate_with_partial_anchor
 person_michael-yao_f46431fe773a,Michael Yao,3,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 1}",profile_background_candidate
 person_michelle-onyekaba_7e66696d3120,Michelle Onyekaba,5,60,0,"{""discovery_only"": 1, ""low_signal_candidate"": 3, ""profile_background_candidate"": 1}",low_signal_candidate
 person_michelle-schroeder_7cb946fa8d72,Michelle Schroeder,3,60,0,"{""discovery_only"": 1, ""profile_background_candidate"": 1, ""profile_interest_context_candidate"": 1}",profile_background_candidate
@@ -1418,7 +1420,6 @@ person_alexandria-irace-m-d_9b1035c74be5,"Alexandria Irace, M.D.",1,15,0,"{""dis
 person_allison-reeder-m-d_b5a2fca0dfa2,"Allison Reeder, M.D.",1,15,0,"{""discovery_only"": 1}",discovery_only
 person_annie-arrighi-allisan-m-d_4c67a2f93c78,"Annie Arrighi-Allisan, M.D.",1,15,0,"{""discovery_only"": 1}",discovery_only
 javier ocampo mascaro,"Javier Ocampo Mascaro, MD",1,15,0,"{""discovery_only"": 1}",discovery_only
-person_allan-stolarski-md-ms_bb615dd872ac,"Allan Stolarski, MD, MS",1,14,0,"{""discovery_only"": 1}",discovery_only
 person_ashley-macconnell-md_07b4e8e49ddb,"Ashley MacConnell, MD",1,14,0,"{""discovery_only"": 1}",discovery_only
 austin triana,"Austin Triana, MD, MBA",1,14,0,"{""discovery_only"": 1}",discovery_only
 bryan ciccarelli,"Bryan Ciccarelli, MD, PhD",1,14,0,"{""discovery_only"": 1}",discovery_only
@@ -1492,7 +1493,6 @@ heejin cheon,"HeeJin Cheon MD, PhD",1,13,0,"{""discovery_only"": 1}",discovery_o
 henry litt m d,"Henry Litt, M.D.",1,13,0,"{""discovery_only"": 1}",discovery_only
 person_holly-mergelsberg-dpm_2625cc228c9e,"Holly Mergelsberg, DPM",1,13,0,"{""discovery_only"": 1}",discovery_only
 person_isaac-adu-gyamfi-dpm_bb8b19eaf8de,"Isaac Adu-Gyamfi, DPM",1,13,0,"{""discovery_only"": 1}",discovery_only
-person_jackie-zhang-md_1cc440dab925,"Jackie Zhang, MD",1,13,0,"{""discovery_only"": 1}",discovery_only
 jacob michalski m d,"Jacob Michalski, M.D.",1,13,0,"{""discovery_only"": 1}",discovery_only
 person_jalen-benson-m-d-m-p-p_cde36c9362f7,"Jalen Benson, M.D., M.P.P",1,13,0,"{""discovery_only"": 1}",discovery_only
 james schurr pharmd,"James Schurr, MD, PharmD",1,13,0,"{""discovery_only"": 1}",discovery_only

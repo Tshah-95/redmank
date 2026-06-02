@@ -32,14 +32,14 @@ Hand Surgery Fellowship,fellow,2,32.0,0,0,2,0.0,0.0,0.0,0.0,0.5,0.5,0.5,0,10,off
 Sports Medicine Fellowship,fellow,2,32.0,0,0,2,0.0,0.0,0.0,0.0,0.5,0.5,0.5,0,13,official_profile_search
 Urogynecology and Reconstructive Pelvic Surgery Fellowship,fellow,4,37.5,0,0,4,0.0,0.0,0.0,1.0,0.0,0.25,0.25,2,16,official_profile_search
 Thoracic Surgery - Thoracic Track Fellowship,fellow,1,40.0,0,0,1,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0,2,official_profile_search
-Trauma and Surgical Critical Care Fellowship,fellow,12,42.33,1,1,10,0.5,0.0,0.083,0.0,0.417,0.417,0.25,0,43,official_profile_search
+Trauma and Surgical Critical Care Fellowship,fellow,12,42.33,1,1,10,0.5,0.0,0.083,0.0,0.417,0.417,0.25,0,47,official_profile_search
 Aortic Surgery Fellowship,fellow,2,49.0,0,1,1,0.5,0.0,0.5,0.0,0.0,1.0,1.0,3,7,official_profile_search
 Penn-CHOP Internal Medicine-Pediatrics Residency,resident,25,50.28,0,17,8,0.08,0.0,0.68,0.0,0.36,0.8,0.76,11,104,official_profile_search
 Internal Medicine Residency - Medical Education Leadership Track,resident,9,52.33,0,6,3,0.667,0.0,0.556,0.0,0.111,1.0,1.0,3,50,organization_alias_review
 Podiatric Surgery Residency,resident,16,52.69,0,16,0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,17,16,official_profile_search
 Pathology - Anatomic and Clinical Residency,resident,44,52.95,0,35,9,1.0,0.0,0.864,0.0,0.136,0.886,0.864,14,419,reconcile_high_priority_evidence
 Ophthalmology Fellowship,fellow,10,54.1,0,8,2,0.0,0.0,0.0,1.0,0.8,0.7,0.1,9,72,official_profile_search
-Vascular Surgery Fellowship,fellow,4,54.25,0,2,2,0.75,0.0,0.5,0.5,0.0,0.25,0.25,2,10,official_profile_search
+Vascular Surgery Fellowship,fellow,4,54.25,0,2,2,0.75,0.0,0.5,0.5,0.0,0.25,0.25,2,11,official_profile_search
 Combined Internal Medicine-Dermatology Residency,resident,5,56.4,0,5,0,0.2,0.0,1.0,0.0,0.2,0.6,0.6,2,15,official_profile_search
 Internal Medicine Residency - Global Health Equities Track,resident,20,57.15,0,16,4,0.3,0.0,0.95,0.0,0.4,0.7,0.55,13,119,review_training_state_machine
 Ophthalmology Residency,resident,20,57.95,0,18,2,0.0,0.0,1.0,0.0,0.45,0.7,0.65,5,89,official_profile_search
@@ -76,7 +76,7 @@ Cardiothoracic Surgery Residency,resident,15,69.2,3,12,0,1.0,0.0,1.0,0.0,0.267,0
 Orthopedic Surgery Residency,resident,40,69.72,11,29,0,0.95,0.0,1.0,0.0,0.375,0.75,0.675,32,269,organization_alias_review
 Medical Scientist Training Program,medical_student,225,69.96,56,169,0,1.0,0.911,0.0,0.0,0.267,0.0,0.0,0,1350,monitor_refresh_and_diff
 Interventional Radiology Integrated Residency,resident,19,71.0,4,15,0,1.0,0.0,1.0,0.0,0.421,0.368,0.316,6,124,reconcile_high_priority_evidence
-Microvascular Reconstructive Surgery Fellowship,fellow,5,71.6,4,0,1,0.8,0.0,0.8,0.8,0.8,0.8,0.4,7,59,organization_alias_review
+Microvascular Reconstructive Surgery Fellowship,fellow,5,71.6,4,0,1,0.8,0.0,0.8,0.8,0.8,0.8,0.4,7,60,organization_alias_review
 Nephrology Fellowship,fellow,22,71.91,6,16,0,0.545,0.0,1.0,1.0,0.5,0.636,0.591,39,155,organization_alias_review
 Colon and Rectal Surgery Fellowship,fellow,1,72.0,0,1,0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1,5,organization_alias_review
 Neuroradiology Fellowship,fellow,11,72.09,2,9,0,1.0,0.0,1.0,0.909,0.091,0.455,0.273,13,59,organization_alias_review
