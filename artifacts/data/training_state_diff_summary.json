@@ -1,0 +1,51 @@
+{
+  "by_change_type": {
+    "added": 52,
+    "unchanged": 1558
+  },
+  "by_lifecycle_code_and_change_type": {
+    ":unchanged": 13,
+    "US_GME_ANESTHESIA_CA_PHASE_3Y:unchanged": 75,
+    "US_GME_FELLOWSHIP_1Y:unchanged": 92,
+    "US_GME_FELLOWSHIP_2Y:unchanged": 84,
+    "US_GME_FELLOWSHIP_3Y:unchanged": 124,
+    "US_GME_FELLOWSHIP_DURATION_UNKNOWN:unchanged": 74,
+    "US_GME_PRELIMINARY_1Y:unchanged": 13,
+    "US_GME_RESIDENCY_3Y:unchanged": 298,
+    "US_GME_RESIDENCY_4Y:unchanged": 122,
+    "US_GME_RESIDENCY_5Y:unchanged": 309,
+    "US_GME_RESIDENCY_6Y:unchanged": 56,
+    "US_GME_RESIDENCY_7Y:unchanged": 21,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN:added": 52,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN:unchanged": 52,
+    "US_MD_PHD_MSTP_VARIABLE:unchanged": 225
+  },
+  "by_role_and_change_type": {
+    "fellow:unchanged": 387,
+    "medical_student:unchanged": 225,
+    "resident:added": 52,
+    "resident:unchanged": 946
+  },
+  "by_temporal_policy_lane_and_change_type": {
+    "carry_forward_no_change:unchanged": 13,
+    "deterministic_expected_advancement:unchanged": 608,
+    "deterministic_expected_completion:unchanged": 234,
+    "manual_review_required:added": 52,
+    "manual_review_required:unchanged": 76,
+    "source_refresh_required:unchanged": 627
+  },
+  "compare_date": "2026-06-02",
+  "contract_rows_loaded": 1610,
+  "contracts": "artifacts/data/training_temporal_contracts.csv",
+  "diff_rows_with_contract": 1610,
+  "new": "artifacts/data/training_states_current.csv",
+  "new_canonical_keys": 1610,
+  "new_duplicate_keys_collapsed": 72,
+  "new_input_rows": 1682,
+  "old": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.csv",
+  "old_canonical_keys": 1558,
+  "old_duplicate_keys_collapsed": 72,
+  "old_input_rows": 1630,
+  "rollup_csv": "artifacts/data/training_state_diff_rollups.csv",
+  "rows": 1610
+}

@@ -217,6 +217,40 @@ def program_institution_lookup(conn: sqlite3.Connection) -> dict[tuple[str, str]
     }
 
 
+def temporal_contract_lookup(conn: sqlite3.Connection) -> dict[tuple[str, str, str, str], dict]:
+    existing_tables = {
+        row[0]
+        for row in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'training_temporal_contracts'"
+        )
+    }
+    if "training_temporal_contracts" not in existing_tables:
+        return {}
+    conn.row_factory = sqlite3.Row
+    return {
+        (
+            row["person_key"] or "",
+            row["program_name"] or "",
+            row["role"] or "",
+            row["trainee_category"] or "",
+        ): dict(row)
+        for row in conn.execute(
+            """
+            SELECT contract_key, person_key, program_name, role, trainee_category,
+                   current_temporal_state_code, temporal_validity_status,
+                   policy_lane, diff_readiness_status, next_refresh_contract,
+                   if_missing_change_type, if_same_stage_change_type,
+                   if_expected_next_stage_change_type, allowed_auto_diff_outcomes_json,
+                   review_trigger_json, evidence_required_to_retain,
+                   evidence_required_to_advance, evidence_required_to_complete,
+                   stale_information_policy, recommended_operator_action,
+                   fresh_observation_required, expected_next_date, stale_after_date
+            FROM training_temporal_contracts
+            """
+        )
+    }
+
+
 def read_export(path: Path) -> list[dict]:
     with path.open(newline="", encoding="utf-8") as f:
         raw_rows = list(csv.DictReader(f))
@@ -403,8 +437,76 @@ def comparison_context(old_manifest: dict | None, new_manifest: dict) -> dict:
     }
 
 
-def classify_transition(old: dict | None, new: dict | None, compare_date: date) -> dict:
+def fresh_observation(old: dict | None, new: dict | None) -> bool:
+    if not old or not new:
+        return bool(new)
+    return any(
+        (new.get(field) or "") != (old.get(field) or "")
+        for field in ["observed_at", "as_of_date", "source_key", "state_key"]
+    )
+
+
+def contract_context(contract: dict | None) -> dict:
+    if not contract:
+        return {}
+    return {
+        "temporal_contract_key": contract.get("contract_key"),
+        "current_temporal_state_code": contract.get("current_temporal_state_code"),
+        "temporal_validity_status": contract.get("temporal_validity_status"),
+        "policy_lane": contract.get("policy_lane"),
+        "diff_readiness_status": contract.get("diff_readiness_status"),
+        "next_refresh_contract": contract.get("next_refresh_contract"),
+        "allowed_auto_diff_outcomes": contract.get("allowed_auto_diff_outcomes_json"),
+        "review_triggers": contract.get("review_trigger_json"),
+        "evidence_required_to_retain": contract.get("evidence_required_to_retain"),
+        "evidence_required_to_advance": contract.get("evidence_required_to_advance"),
+        "evidence_required_to_complete": contract.get("evidence_required_to_complete"),
+        "stale_information_policy": contract.get("stale_information_policy"),
+        "recommended_operator_action": contract.get("recommended_operator_action"),
+        "fresh_observation_required": contract.get("fresh_observation_required"),
+        "expected_next_date": contract.get("expected_next_date"),
+        "stale_after_date": contract.get("stale_after_date"),
+    }
+
+
+def contract_due(old: dict | None, contract: dict | None, compare_date: date) -> bool:
+    if not old or not contract:
+        return False
+    lane = contract.get("policy_lane") or ""
+    expected_next_date = parse_date(old.get("expected_next_date") or contract.get("expected_next_date"))
+    stale_after = parse_date(old.get("stale_after_date") or contract.get("stale_after_date"))
+    if lane == "deterministic_expected_advancement":
+        return bool(expected_next_date and expected_next_date <= compare_date)
+    if lane in {"deterministic_expected_completion", "source_refresh_required", "manual_review_required"}:
+        return bool(stale_after and stale_after <= compare_date)
+    return False
+
+
+def classify_transition(
+    old: dict | None,
+    new: dict | None,
+    compare_date: date,
+    contract: dict | None = None,
+) -> dict:
     if old and not new:
+        if contract and contract_due(old, contract, compare_date):
+            missing_type = contract.get("if_missing_change_type") or ""
+            expected_completion = missing_type == "removed_expected_completion_candidate"
+            return {
+                "change_type": "removed_expected_completion" if expected_completion else missing_type or "removed_review",
+                "transition_assurance": "expected" if expected_completion else "review",
+                "expected_by_state_machine": 1 if expected_completion else 0,
+                "review_action": (
+                    "mark_completion_or_alumni_candidate_with_fresh_absence_or_endpoint"
+                    if expected_completion
+                    else "reconcile_missing_row_against_temporal_contract"
+                ),
+                "notes": (
+                    contract.get("evidence_required_to_complete")
+                    if expected_completion
+                    else f"Temporal contract requires review before mutation: {contract.get('stale_information_policy') or ''}"
+                ),
+            }
         stale_after = parse_date(old.get("stale_after_date"))
         is_stale = bool(stale_after and stale_after <= compare_date)
         is_completion = old.get("expected_transition_type") == "expected_completion"
@@ -441,6 +543,32 @@ def classify_transition(old: dict | None, new: dict | None, compare_date: date) 
         }
     assert old and new
     if old.get("state_fingerprint") == new.get("state_fingerprint"):
+        if contract and contract_due(old, contract, compare_date):
+            same_stage_type = contract.get("if_same_stage_change_type") or ""
+            if same_stage_type == "unchanged_expected":
+                return {
+                    "change_type": same_stage_type,
+                    "transition_assurance": "same_state",
+                    "expected_by_state_machine": 1,
+                    "review_action": "retain",
+                    "notes": "Same state fingerprint is allowed by the temporal contract.",
+                }
+            if same_stage_type == "unchanged_requires_fresh_source" and fresh_observation(old, new):
+                return {
+                    "change_type": same_stage_type,
+                    "transition_assurance": "same_stage_fresh_source",
+                    "expected_by_state_machine": 1,
+                    "review_action": "retain_with_fresh_public_observation",
+                    "notes": contract.get("evidence_required_to_retain")
+                    or "Same state retained because the later snapshot reobserved it.",
+                }
+            return {
+                "change_type": same_stage_type or "unchanged_contract_review",
+                "transition_assurance": "review",
+                "expected_by_state_machine": 0,
+                "review_action": "review_same_stage_against_temporal_contract",
+                "notes": f"Same state fingerprint is not auto-retainable under contract lane {contract.get('policy_lane') or ''}.",
+            }
         return {
             "change_type": "unchanged",
             "transition_assurance": "same_state",
@@ -449,6 +577,32 @@ def classify_transition(old: dict | None, new: dict | None, compare_date: date) 
             "notes": "Same state fingerprint.",
         }
     if old.get("normalized_stage") == new.get("normalized_stage"):
+        if contract and contract_due(old, contract, compare_date):
+            same_stage_type = contract.get("if_same_stage_change_type") or ""
+            if same_stage_type == "unchanged_requires_fresh_source" and fresh_observation(old, new):
+                return {
+                    "change_type": same_stage_type,
+                    "transition_assurance": "same_stage_fresh_source",
+                    "expected_by_state_machine": 1,
+                    "review_action": "retain_with_fresh_public_observation",
+                    "notes": contract.get("evidence_required_to_retain")
+                    or "Same stage retained because the later snapshot reobserved it.",
+                }
+            if same_stage_type == "unchanged_expected":
+                return {
+                    "change_type": same_stage_type,
+                    "transition_assurance": "same_stage",
+                    "expected_by_state_machine": 1,
+                    "review_action": "retain_with_new_evidence",
+                    "notes": "Same normalized stage is allowed by the temporal contract.",
+                }
+            return {
+                "change_type": same_stage_type or "same_stage_contract_review",
+                "transition_assurance": "review",
+                "expected_by_state_machine": 0,
+                "review_action": "review_same_stage_against_temporal_contract",
+                "notes": f"Same normalized stage is contract-bound review: {same_stage_type or 'no same-stage contract'}.",
+            }
         expected_next_date = parse_date(old.get("expected_next_date"))
         if expected_next_date and expected_next_date <= compare_date:
             return {
@@ -466,6 +620,17 @@ def classify_transition(old: dict | None, new: dict | None, compare_date: date) 
             "notes": "Same normalized stage with changed evidence fields.",
         }
     if old.get("expected_next_stage") and old.get("expected_next_stage") == new.get("normalized_stage"):
+        if contract and (
+            contract.get("if_expected_next_stage_change_type") != "advanced_expected_with_fresh_observation"
+            or not contract_due(old, contract, compare_date)
+        ):
+            return {
+                "change_type": contract.get("if_expected_next_stage_change_type") or "advanced_contract_review",
+                "transition_assurance": "review",
+                "expected_by_state_machine": 0,
+                "review_action": "review_stage_change_against_temporal_contract",
+                "notes": f"Expected next stage is not auto-advanceable under contract lane {contract.get('policy_lane') or ''}.",
+            }
         return {
             "change_type": "advanced_expected",
             "transition_assurance": "expected",
@@ -504,6 +669,7 @@ def write_transition_events(
     old_canonical, _ = canonical_rows(old_rows)
     new_canonical, _ = canonical_rows(new_rows)
     institution_lookup = program_institution_lookup(conn)
+    contracts = temporal_contract_lookup(conn)
     events = []
     for key in sorted(set(old_canonical) | set(new_canonical)):
         old = old_canonical.get(key)
@@ -512,6 +678,13 @@ def write_transition_events(
         program_name = source.get("program_name") or ""
         role = source.get("role") or ""
         lifecycle_code = (new or {}).get("lifecycle_code") or (old or {}).get("lifecycle_code") or ""
+        contract_key = (
+            source.get("person_key") or "",
+            program_name,
+            role,
+            source.get("trainee_category") or "",
+        )
+        contract = contracts.get(contract_key)
         event = {
             "old_snapshot_id": old_snapshot_id,
             "new_snapshot_id": new_snapshot_id,
@@ -533,7 +706,7 @@ def write_transition_events(
             "old_expected_exit_date": (old or {}).get("expected_exit_date"),
             "old_expected_transition_type": (old or {}).get("expected_transition_type"),
             "old_stale_after_date": (old or {}).get("stale_after_date"),
-            **classify_transition(old, new, compare_date),
+            **classify_transition(old, new, compare_date, contract),
         }
         event["evidence_json"] = json.dumps(
             {
@@ -549,6 +722,7 @@ def write_transition_events(
                 "old_snapshot_as_of_date": comparison["old_snapshot_as_of_date"],
                 "new_snapshot_as_of_date": comparison["new_snapshot_as_of_date"],
                 "days_between_snapshots": comparison["days_between_snapshots"],
+                "temporal_contract": contract_context(contract),
             },
             sort_keys=True,
         )

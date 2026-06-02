@@ -225,6 +225,27 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/training_state_diff.csv",
+        "longitudinal_contract_aware_diff_example",
+        "csv",
+        None,
+        True,
+    ),
+    (
+        "artifacts/data/training_state_diff_rollups.csv",
+        "longitudinal_contract_aware_diff_example",
+        "csv",
+        None,
+        True,
+    ),
+    (
+        "artifacts/data/training_state_diff_summary.json",
+        "longitudinal_contract_aware_diff_example",
+        "json_object",
+        None,
+        True,
+    ),
+    (
         "artifacts/data/trainee_profile_search_queries.csv",
         "trainee_profile_discovery_ledger",
         "csv",

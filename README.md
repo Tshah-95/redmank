@@ -312,7 +312,9 @@ python3 scripts/diff_training_states.py \
   --new artifacts/data/training_states_current.csv
 ```
 
-The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, and change type. The durable snapshot materializer also writes `artifacts/data/training_state_transition_rollups.csv`, which preserves transition views across corpus, institution, trainee category, role, program, program-role, institution-role, and lifecycle-code scopes. Snapshot transition events and rollups include `snapshot_comparison_kind`, snapshot as-of dates, and `days_between_snapshots` so same-day corpus revisions are not confused with annual advancement/completion flows.
+If `--old` is omitted, the script reads `artifacts/data/training_state_snapshot_summary.json` and compares against the recorded `previous_snapshot_id`.
+
+The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, temporal policy lane, and change type. By default it also reads `artifacts/data/training_temporal_contracts.csv`, so each row carries the contract key, policy lane, next-refresh contract, evidence requirement, review triggers, and expected-vs-review assurance used to classify the transition. The durable snapshot materializer also writes `artifacts/data/training_state_transition_rollups.csv`, which preserves transition views across corpus, institution, trainee category, role, program, program-role, institution-role, and lifecycle-code scopes. Snapshot transition events and rollups include `snapshot_comparison_kind`, snapshot as-of dates, and `days_between_snapshots` so same-day corpus revisions are not confused with annual advancement/completion flows.
 
 Materialize a durable state snapshot:
 
@@ -320,7 +322,7 @@ Materialize a durable state snapshot:
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 ```
 
-The materializer writes `artifacts/data/training_state_snapshots/<snapshot_id>.csv` plus a JSON manifest, reloads every committed snapshot into SQLite, and writes transition events for the current snapshot against the previous one when present. The first snapshot is a baseline where all canonical person/program rows are `added`; later snapshots classify expected advancement, expected completion disappearance, unchanged states, stale removals, regressions, and review-required stage changes. Same-date snapshots are labeled `same_day_corpus_revision`, same-fingerprint reruns are labeled `same_corpus_rerun`, and snapshots roughly one academic year apart are labeled `annual_refresh_window`.
+The materializer writes `artifacts/data/training_state_snapshots/<snapshot_id>.csv` plus a JSON manifest, reloads every committed snapshot into SQLite, and writes transition events for the current snapshot against the previous one when present. The first snapshot is a baseline where all canonical person/program rows are `added`; later snapshots classify expected advancement, expected completion disappearance, unchanged states, stale removals, regressions, and review-required stage changes. When temporal contracts are materialized, transition events embed the matching contract policy in `evidence_json` and use that policy for expected-vs-review classification. Same-date snapshots are labeled `same_day_corpus_revision`, same-fingerprint reruns are labeled `same_corpus_rerun`, and snapshots roughly one academic year apart are labeled `annual_refresh_window`.
 
 Audit the current state-machine readiness:
 
