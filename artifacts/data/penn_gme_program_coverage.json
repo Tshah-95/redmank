@@ -828,16 +828,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "not_discovered",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "none",
-    "match_confidence": 0.2,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-neurology-residency_9de6310fee8d",
+    "matched_program_name": "Neurology Residency",
+    "captured_people_count": 54,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_clinical-neurophysiology_809610fb6bad",
@@ -1188,16 +1188,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "covered_current_roster",
-    "matched_program_key": "program_resident-oral-medicine-residency_1f20e709cc55",
-    "matched_program_name": "Oral Medicine Residency",
-    "captured_people_count": 8,
-    "match_method": "normalized_name",
-    "match_confidence": 0.95,
+    "coverage_status": "not_discovered",
+    "matched_program_key": "",
+    "matched_program_name": "",
+    "captured_people_count": 0,
+    "match_method": "none",
+    "match_confidence": 0.2,
     "discovery_title": "",
     "discovery_url": "",
     "discovery_classification": "",
-    "notes": "Official HUP GME program with current roster capture."
+    "notes": "Official HUP GME program not yet discovered/captured by current Penn source strategy."
   },
   {
     "entry_key": "hup_gme_residency_orthopedic-surgery_330c2c3b2f0f",
@@ -1332,16 +1332,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_resident-pathology-anatomic-clinical-residency_996fb908ba57",
+    "matched_program_name": "Pathology - Anatomic and Clinical Residency",
+    "captured_people_count": 44,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Pathology Residency Program Overview | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/residency/overview",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_blood-banking-and-transfusion-medicine_0e0d40e44a08",
@@ -1356,16 +1356,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-transfusion-medicine-blood-bank-fellowshi_7e5c8e8da374",
+    "matched_program_name": "Transfusion Medicine/Blood Bank Fellowship",
+    "captured_people_count": 1,
+    "match_method": "alias",
+    "match_confidence": 0.88,
     "discovery_title": "Clinical Chemistry Fellowship | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/fellowships/programs/clinical-chemistry-fellowship",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_cytopathology_c3e8c941b7d0",
@@ -1380,16 +1380,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-cytopathology-fellowship_5cde9d314b2d",
+    "matched_program_name": "Cytopathology Fellowship",
+    "captured_people_count": 2,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Cytopathology Fellowship | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/fellowships/programs/cytopathology",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_hematopathology_07d280563504",
@@ -1404,16 +1404,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-hematopathology-fellowship_14e7747178e4",
+    "matched_program_name": "Hematopathology Fellowship",
+    "captured_people_count": 4,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Clinical Chemistry Fellowship | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/fellowships/programs/clinical-chemistry-fellowship",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_molecular-genetic-pathology_d07dc958c36e",
@@ -1428,16 +1428,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-molecular-genetic-pathology-fellowship_8a161f5504db",
+    "matched_program_name": "Molecular Genetic Pathology Fellowship",
+    "captured_people_count": 2,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "Molecular Genetic Pathology Fellowship | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/fellowships/programs/molecular-genetic-pathology-fellowship",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_neuropathology_91745daad371",
@@ -1452,16 +1452,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-neuropathology-fellowship_ec7fcc61ccbc",
+    "matched_program_name": "Neuropathology Fellowship",
+    "captured_people_count": 2,
+    "match_method": "normalized_name",
+    "match_confidence": 0.95,
     "discovery_title": "AP/Neuropathology | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/residency/programs/ap-neuropathology",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_gastrointestinal-and-hepatic-pathology-selective_ed8164df8cb1",
@@ -1476,16 +1476,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-gi-hepatic-pathology-fellowship_ee3bd2e1de65",
+    "matched_program_name": "GI/Hepatic Pathology Fellowship",
+    "captured_people_count": 2,
+    "match_method": "alias",
+    "match_confidence": 0.88,
     "discovery_title": "GI/Hepatic Pathology Fellowship | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/fellowships/programs/gi-hepatic-pathology",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_fellowship_soft-tissue-and-bone-selective_5b6c8e2f798f",
@@ -1524,16 +1524,16 @@
     "evidence": {
       "origin": "hup_gme_programs_table_link"
     },
-    "coverage_status": "discovered_no_current_roster",
-    "matched_program_key": "",
-    "matched_program_name": "",
-    "captured_people_count": 0,
-    "match_method": "source_discovery",
-    "match_confidence": 0.55,
+    "coverage_status": "covered_current_roster",
+    "matched_program_key": "program_fellow-surgical-pathology-fellowship_0964aaa825dc",
+    "matched_program_name": "Surgical Pathology Fellowship",
+    "captured_people_count": 6,
+    "match_method": "alias",
+    "match_confidence": 0.88,
     "discovery_title": "Surgical Pathology Fellowship | University of Pennsylvania | Pathology and Laboratory Medicine",
     "discovery_url": "https://pathology.med.upenn.edu/education/fellowships/programs/surgical-pathology",
     "discovery_classification": "alumni_or_outcome_candidate",
-    "notes": "Official HUP GME program discovered as a page but no current roster people captured."
+    "notes": "Official HUP GME program with current roster capture."
   },
   {
     "entry_key": "hup_gme_residency_physical-medicine-and-rehabilitation_06323972b6bf",

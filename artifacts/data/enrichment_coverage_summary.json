@@ -1,33 +1,33 @@
 {
-  "article_candidate_coverage_rate": 0.222,
-  "avg_coverage_score": 60.24,
+  "article_candidate_coverage_rate": 0.205,
+  "avg_coverage_score": 59.17,
   "by_coverage_band": {
     "broad_enrichment_surface": 95,
-    "moderate_enrichment_surface": 1078,
-    "thin_enrichment_surface": 163
+    "moderate_enrichment_surface": 1155,
+    "thin_enrichment_surface": 201
   },
   "by_recommended_next_action": {
-    "collect_article_level_research_candidates": 194,
+    "collect_article_level_research_candidates": 255,
     "monitor_refresh_and_diff": 205,
-    "official_profile_search": 467,
-    "organization_alias_review": 355,
+    "official_profile_search": 484,
+    "organization_alias_review": 386,
     "public_contact_search": 33,
     "reconcile_high_priority_evidence": 49,
     "review_training_state_machine": 20,
-    "source_medical_school_background": 9,
+    "source_medical_school_background": 15,
     "source_residency_background": 4
   },
   "by_role": {
-    "fellow": 336,
+    "fellow": 361,
     "medical_student": 225,
-    "resident": 775
+    "resident": 865
   },
-  "cleaned_org_review_people": 579,
-  "contact_coverage_rate": 0.209,
-  "people_with_reconciliation_queue": 1111,
+  "cleaned_org_review_people": 611,
+  "contact_coverage_rate": 0.192,
+  "people_with_reconciliation_queue": 1103,
   "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
-  "person_rows": 1336,
-  "profile_coverage_rate": 0.636,
+  "person_rows": 1451,
+  "profile_coverage_rate": 0.653,
   "program_coverage_csv": "artifacts/data/program_enrichment_coverage.csv",
-  "program_rows": 78
+  "program_rows": 90
 }

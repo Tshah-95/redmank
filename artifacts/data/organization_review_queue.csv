@@ -1,5 +1,7 @@
 raw_value,event_type,mention_count,resolver_status,canonical_name
 "AIIMS (New Delhi), India",medical_school,1,cleaned_label,"AIIMS (New Delhi), India"
+"Addis Ababa University, College of Health Sciences, School of Medicine",medical_school,1,cleaned_label,"Addis Ababa University, College of Health Sciences, School of Medicine"
+Aga Khan University (Pakistan),medical_school,1,cleaned_label,Aga Khan University (Pakistan)
 Aga Khan University Medical College,medical_school,1,cleaned_label,Aga Khan University Medical College
 "Ain Shams University, School of Medicine",medical_school,1,cleaned_label,"Ain Shams University, School of Medicine"
 Albany Medical College,medical_school,1,cleaned_label,Albany Medical College
@@ -13,6 +15,8 @@ American University of Beirut,medical_school,1,cleaned_label,American University
 American University of Beirut - Lebanon,medical_school,1,cleaned_label,American University of Beirut - Lebanon
 American University of Beirut - Lebanon,undergraduate_school,1,cleaned_label,American University of Beirut - Lebanon
 American University of Beirut Faculty of Medicine,medical_school,1,cleaned_label,American University of Beirut Faculty of Medicine
+American University of Beirut School of Medicine,medical_school,1,cleaned_label,American University of Beirut School of Medicine
+Amrita School of Medicine,medical_school,1,cleaned_label,Amrita School of Medicine
 Ankara University,medical_school,1,cleaned_label,Ankara University
 Anne Burnett Mario School of Medicine at TCU,medical_school,1,cleaned_label,Anne Burnett Mario School of Medicine at TCU
 Arcadia University,undergraduate_school,1,cleaned_label,Arcadia University
@@ -135,6 +139,7 @@ Erasmus University Rotterdam (PhD),graduate_school,1,cleaned_label,Erasmus Unive
 Faculty of Medicine of Damascus University,medical_school,1,cleaned_label,Faculty of Medicine of Damascus University
 "Family Medicine, Carl R Darnall Army Medical Center",residency_program,1,cleaned_label,"Family Medicine, Carl R Darnall Army Medical Center"
 First Moscow State Medical University,medical_school,1,cleaned_label,First Moscow State Medical University
+Florida Atlantic University,medical_school,1,cleaned_label,Florida Atlantic University
 "Florida Gulf Coast University, BS",undergraduate_school,1,cleaned_label,"Florida Gulf Coast University, BS"
 Florida International University,undergraduate_school,1,cleaned_label,Florida International University
 Florida International University Herbert Wertheim College of Medicine,medical_school,1,cleaned_label,Florida International University Herbert Wertheim College of Medicine
@@ -160,6 +165,7 @@ Guilan University of Medical Sciences,medical_school,1,cleaned_label,Guilan Univ
 Hackensack Meridian School of Medicine,medical_school,1,cleaned_label,Hackensack Meridian School of Medicine
 "Hackensack University Medical Center, Hackensack, NJ",residency_program,1,cleaned_label,"Hackensack University Medical Center, Hackensack, NJ"
 Hampton University,undergraduate_school,1,cleaned_label,Hampton University
+Harbin Medical University,medical_school,1,cleaned_label,Harbin Medical University
 Harvard,medical_school,1,cleaned_label,Harvard
 Harvard,undergraduate_school,1,cleaned_label,Harvard
 Harvard College,medical_school,1,cleaned_label,Harvard College
@@ -210,6 +216,7 @@ Johns Hopkins University,graduate_school,1,cleaned_label,Johns Hopkins Universit
 Johns Hopkins University,residency_program,1,cleaned_label,Johns Hopkins University
 Johns Hopkins University,undergraduate_school,1,cleaned_label,Johns Hopkins University
 Kaiser Permanente,medical_school,1,cleaned_label,Kaiser Permanente
+Kansas City University College of Osteopathic Medicine,medical_school,1,cleaned_label,Kansas City University College of Osteopathic Medicine
 Keck - University of Southern California,medical_school,1,cleaned_label,Keck - University of Southern California
 Keck School of Medicine of the University of Southern California,medical_school,1,cleaned_label,Keck School of Medicine of the University of Southern California
 Kent State University College of Podiatric Medicine,medical_school,1,cleaned_label,Kent State University College of Podiatric Medicine
@@ -228,6 +235,7 @@ Lankenau Hospital,residency_program,1,cleaned_label,Lankenau Hospital
 Lankenau Medical Center,residency_program,1,cleaned_label,Lankenau Medical Center
 "Lankenau Medical Center, Wynnewood, PA",residency_program,1,cleaned_label,"Lankenau Medical Center, Wynnewood, PA"
 Lasalle,undergraduate_school,1,cleaned_label,Lasalle
+Lebanese American University Gilbert and Rose-Marie Chagoury School of Medicine,medical_school,1,cleaned_label,Lebanese American University Gilbert and Rose-Marie Chagoury School of Medicine
 Lebanese University Faculty of Medical Sciences,medical_school,1,cleaned_label,Lebanese University Faculty of Medical Sciences
 Lebanese University Faculty of Sciences,graduate_school,1,cleaned_label,Lebanese University Faculty of Sciences
 "Lehigh Valley Health Network, Allentown, PA",residency_program,1,cleaned_label,"Lehigh Valley Health Network, Allentown, PA"
@@ -241,6 +249,7 @@ Louisiana State University School of Medicine,medical_school,1,cleaned_label,Lou
 Loyola Marymount University,undergraduate_school,1,cleaned_label,Loyola Marymount University
 Loyola University,medical_school,1,cleaned_label,Loyola University
 Loyola University Maryland,undergraduate_school,1,cleaned_label,Loyola University Maryland
+Loyola University School of Medicine,medical_school,1,cleaned_label,Loyola University School of Medicine
 MIT,undergraduate_school,1,cleaned_label,MIT
 Maimonides Medical Center,residency_program,1,cleaned_label,Maimonides Medical Center
 Main Line Health System/Lankenau Medical Center,residency_program,1,cleaned_label,Main Line Health System/Lankenau Medical Center
@@ -275,6 +284,7 @@ Memorial Health University Medical Center,residency_program,1,cleaned_label,Memo
 Mercer University School of Medicine,medical_school,1,cleaned_label,Mercer University School of Medicine
 Mercy Catholic Medical Center,residency_program,1,cleaned_label,Mercy Catholic Medical Center
 Michigan State University College of Human Medicine,medical_school,1,cleaned_label,Michigan State University College of Human Medicine
+Michigan State University College of Osteopathic Medicine,medical_school,1,cleaned_label,Michigan State University College of Osteopathic Medicine
 Middlebury College,undergraduate_school,1,cleaned_label,Middlebury College
 Midwestern University,medical_school,1,cleaned_label,Midwestern University
 Miguel Hernández University,medical_school,1,cleaned_label,Miguel Hernández University
@@ -285,6 +295,7 @@ Morehouse School of Medicine,medical_school,1,cleaned_label,Morehouse School of 
 Mount Holyoke College,undergraduate_school,1,cleaned_label,Mount Holyoke College
 Mount Sinai Beth Israel,residency_program,1,cleaned_label,Mount Sinai Beth Israel
 Mount Sinai Hospital,residency_program,1,cleaned_label,Mount Sinai Hospital
+Mount Sinai School of Medicine,medical_school,1,cleaned_label,Mount Sinai School of Medicine
 Mt. Auburn Hospital-Harvard Medical School,residency_program,1,cleaned_label,Mt. Auburn Hospital-Harvard Medical School
 Mt. Sinai Hospital,residency_program,1,cleaned_label,Mt. Sinai Hospital
 NY Med College,medical_school,1,cleaned_label,NY Med College
@@ -333,17 +344,23 @@ Northwestern University Feinberg School of Medicine,medical_school,1,cleaned_lab
 Northwestern University; Graduate School (MSc): London School of Economics,undergraduate_school,1,cleaned_label,Northwestern University; Graduate School (MSc): London School of Economics
 Notre Dame,undergraduate_school,1,cleaned_label,Notre Dame
 Nova Southeastern University College of Osteopathic Medicine,medical_school,1,cleaned_label,Nova Southeastern University College of Osteopathic Medicine
+"Nova Southeastern University, Dr. Kiran C. Patel College of Osteopathic Medicine",medical_school,1,cleaned_label,"Nova Southeastern University, Dr. Kiran C. Patel College of Osteopathic Medicine"
 Oakland University,medical_school,1,cleaned_label,Oakland University
 Oakland University,undergraduate_school,1,cleaned_label,Oakland University
-Oakland University William Beaumont School of Medicine,medical_school,1,cleaned_label,Oakland University William Beaumont School of Medicine
+"Oakland University, William Beaumont School Of Medicine",medical_school,1,cleaned_label,"Oakland University, William Beaumont School Of Medicine"
 Ohio State University,undergraduate_school,1,cleaned_label,Ohio State University
 Ohio State University College of Medicine,medical_school,1,cleaned_label,Ohio State University College of Medicine
+Ohio State University School of Medicine,medical_school,1,cleaned_label,Ohio State University School of Medicine
+Oklahoma State University,medical_school,1,cleaned_label,Oklahoma State University
 Oregan Health & Science University,residency_program,1,cleaned_label,Oregan Health & Science University
 Oregon Health Sciences University School of Medicine,medical_school,1,cleaned_label,Oregon Health Sciences University School of Medicine
 Oregon Health and Science University,medical_school,1,cleaned_label,Oregon Health and Science University
 Oregon Health and Science University,residency_program,1,cleaned_label,Oregon Health and Science University
 Osmania Medical College,medical_school,1,cleaned_label,Osmania Medical College
 "PGIMER (Chandigarh), India",residency_program,1,cleaned_label,"PGIMER (Chandigarh), India"
+"PGY-2, Clinical Pathology Program Perelman School of Medicine at the University of Pennsylvania",medical_school,1,cleaned_label,"PGY-2, Clinical Pathology Program Perelman School of Medicine at the University of Pennsylvania"
+"PGY-2, Combined Anatomic Pathology & Clinical Pathology Program Lewis Katz School of Medicine at Temple University",medical_school,1,cleaned_label,"PGY-2, Combined Anatomic Pathology & Clinical Pathology Program Lewis Katz School of Medicine at Temple University"
+"PGY-3, Combined Anatomic Pathology & Clinical Pathology Program Uniformed Services University of the Health Sciences, F. Edward Herbert School of Medicine",medical_school,1,cleaned_label,"PGY-3, Combined Anatomic Pathology & Clinical Pathology Program Uniformed Services University of the Health Sciences, F. Edward Herbert School of Medicine"
 Penn Internal Medicine,residency_program,1,cleaned_label,Penn Internal Medicine
 Penn State College of Medicine,medical_school,1,cleaned_label,Penn State College of Medicine
 Penn State College of Medicine,residency_program,1,cleaned_label,Penn State College of Medicine
@@ -406,6 +423,7 @@ SUNY Upstate,medical_school,1,cleaned_label,SUNY Upstate
 SUNY Upstate Medical University,medical_school,1,cleaned_label,SUNY Upstate Medical University
 SUNY Upstate Medical University,residency_program,1,cleaned_label,SUNY Upstate Medical University
 "Sackler School of Medicine, Tel Aviv University",medical_school,1,cleaned_label,"Sackler School of Medicine, Tel Aviv University"
+Saint James School of Medicine Anguilla,medical_school,1,cleaned_label,Saint James School of Medicine Anguilla
 Saint Louis University School of Medicine,medical_school,1,cleaned_label,Saint Louis University School of Medicine
 San Diego State University,undergraduate_school,1,cleaned_label,San Diego State University
 Scheie Eye Institute,residency_program,1,cleaned_label,Scheie Eye Institute
@@ -413,6 +431,7 @@ Sidney Kimmel Med Col at Thomas Jefferson,medical_school,1,cleaned_label,Sidney 
 Sidney Kimmel Med Col at Thomas Jefferson University,medical_school,1,cleaned_label,Sidney Kimmel Med Col at Thomas Jefferson University
 Sidney Kimmel Medical College Thomas Jefferson,medical_school,1,cleaned_label,Sidney Kimmel Medical College Thomas Jefferson
 "Sidney Kimmel Medical College at Thomas Jefferson University Residency: Family Medicine, Carl R Darnall Army Medical Center",medical_school,1,cleaned_label,"Sidney Kimmel Medical College at Thomas Jefferson University Residency: Family Medicine, Carl R Darnall Army Medical Center"
+Sidney Kimmel Medical College/Jefferson,medical_school,1,cleaned_label,Sidney Kimmel Medical College/Jefferson
 Sidney Kimmel Medicine College at Thomas Jefferson University,medical_school,1,cleaned_label,Sidney Kimmel Medicine College at Thomas Jefferson University
 "Sidney Kimmel School of Medicine, Thomas Jefferson University",medical_school,1,cleaned_label,"Sidney Kimmel School of Medicine, Thomas Jefferson University"
 Sidney Kimmell at Thomas Jefferson University,medical_school,1,cleaned_label,Sidney Kimmell at Thomas Jefferson University
@@ -435,6 +454,7 @@ State Un of New York Downstate Medical Center,medical_school,1,cleaned_label,Sta
 "State University of NY Downstate Medical Center College of Medicine, Brooklyn, NY",medical_school,1,cleaned_label,"State University of NY Downstate Medical Center College of Medicine, Brooklyn, NY"
 State University of NY at Stony Brook School of Medicine,medical_school,1,cleaned_label,State University of NY at Stony Brook School of Medicine
 State University of New York Downstate,medical_school,1,cleaned_label,State University of New York Downstate
+State University of New York Upstate Medical University Alan and Marlene Norton College of Medicine,medical_school,1,cleaned_label,State University of New York Upstate Medical University Alan and Marlene Norton College of Medicine
 State University of New York at Geneseo,undergraduate_school,1,cleaned_label,State University of New York at Geneseo
 "State University of New York, Buffalo New York",medical_school,1,cleaned_label,"State University of New York, Buffalo New York"
 Stony Brook,undergraduate_school,1,cleaned_label,Stony Brook
@@ -464,10 +484,12 @@ Temple University Hospital,residency_program,1,cleaned_label,Temple University H
 Temple University School of Medicine,medical_school,1,cleaned_label,Temple University School of Medicine
 Temple University School of Podiatric Medicine,medical_school,1,cleaned_label,Temple University School of Podiatric Medicine
 Temple University School of Podiatric Medicine Medical School,medical_school,1,cleaned_label,Temple University School of Podiatric Medicine Medical School
+Texas A&M College of Medicine,medical_school,1,cleaned_label,Texas A&M College of Medicine
 Texas A&M School of Engineering,undergraduate_school,1,cleaned_label,Texas A&M School of Engineering
 Texas A&M School of Medicine,medical_school,1,cleaned_label,Texas A&M School of Medicine
 Texas Tech,medical_school,1,cleaned_label,Texas Tech
 Texas Tech Univ Health Sciences Center SOM,medical_school,1,cleaned_label,Texas Tech Univ Health Sciences Center SOM
+Texas Tech University,medical_school,1,cleaned_label,Texas Tech University
 Texas Tech University,undergraduate_school,1,cleaned_label,Texas Tech University
 Texas Tech University Health Sciences Center School of Medicine,medical_school,1,cleaned_label,Texas Tech University Health Sciences Center School of Medicine
 The College of New Jersey,undergraduate_school,1,cleaned_label,The College of New Jersey
@@ -517,17 +539,20 @@ United States Military Academy,undergraduate_school,1,cleaned_label,United State
 Univ College Dublin,medical_school,1,cleaned_label,Univ College Dublin
 Univ of Belgrade,medical_school,1,cleaned_label,Univ of Belgrade
 Univ of Texas Southwestern Medical School,medical_school,1,cleaned_label,Univ of Texas Southwestern Medical School
+Universidad Central de Venezuela Escuela de Medicina Jose Maria Vargas,medical_school,1,cleaned_label,Universidad Central de Venezuela Escuela de Medicina Jose Maria Vargas
 "Universidad Central de Venezuela Escuela de Medicina Jose Maria Vargas, Venezuela",medical_school,1,cleaned_label,"Universidad Central de Venezuela Escuela de Medicina Jose Maria Vargas, Venezuela"
 Universidad Francisco Marroquin,medical_school,1,cleaned_label,Universidad Francisco Marroquin
 Universidad Francisco Marroquin,undergraduate_school,1,cleaned_label,Universidad Francisco Marroquin
 Universidad Francisco Marroquin Facultad de Medicina,medical_school,1,cleaned_label,Universidad Francisco Marroquin Facultad de Medicina
 Universidad Industrial de Santander,medical_school,1,cleaned_label,Universidad Industrial de Santander
 Universidad Internacional del Ecuador,medical_school,1,cleaned_label,Universidad Internacional del Ecuador
+Universidad Nacional de Asuncion,medical_school,1,cleaned_label,Universidad Nacional de Asuncion
 Universidad Peruana de Ciencias Aplicadas (UPC) Escuela de Medicina,medical_school,1,cleaned_label,Universidad Peruana de Ciencias Aplicadas (UPC) Escuela de Medicina
 Universidad de Navarra Facultad de Medicina,medical_school,1,cleaned_label,Universidad de Navarra Facultad de Medicina
 Universidad de San Martin de Porres,medical_school,1,cleaned_label,Universidad de San Martin de Porres
 Universidad de San Martin de Porres Facultad de Medicina,medical_school,1,cleaned_label,Universidad de San Martin de Porres Facultad de Medicina
 Universidad del Rosario,medical_school,1,cleaned_label,Universidad del Rosario
+Universidade Federal de Piaui (Brazil),medical_school,1,cleaned_label,Universidade Federal de Piaui (Brazil)
 Universidade Federal de Santa Catarina,medical_school,1,cleaned_label,Universidade Federal de Santa Catarina
 Universidade do Oeste Paulista,medical_school,1,cleaned_label,Universidade do Oeste Paulista
 University College Dublin School of Medicine,medical_school,1,cleaned_label,University College Dublin School of Medicine
@@ -540,6 +565,7 @@ University of Alabama,medical_school,1,cleaned_label,University of Alabama
 University of Alabama at Birmingham,medical_school,1,cleaned_label,University of Alabama at Birmingham
 University of Alberta,residency_program,1,cleaned_label,University of Alberta
 University of Aleppo,medical_school,1,cleaned_label,University of Aleppo
+University of Aleppo Faculty of Medicine,medical_school,1,cleaned_label,University of Aleppo Faculty of Medicine
 "University of Alexandria, Egypt",medical_school,1,cleaned_label,"University of Alexandria, Egypt"
 University of Arizona,medical_school,1,cleaned_label,University of Arizona
 University of Arizona,undergraduate_school,1,cleaned_label,University of Arizona
@@ -587,10 +613,12 @@ University of Hawaii School of Medicine,medical_school,1,cleaned_label,Universit
 "University of Health Sciences, Turkey",residency_program,1,cleaned_label,"University of Health Sciences, Turkey"
 University of Illinois College of Medicine,medical_school,1,cleaned_label,University of Illinois College of Medicine
 University of Illinois College of Medicine at Chicago,medical_school,1,cleaned_label,University of Illinois College of Medicine at Chicago
+University of Illinois School of Medicine,medical_school,1,cleaned_label,University of Illinois School of Medicine
 University of Illinois at Chicago,medical_school,1,cleaned_label,University of Illinois at Chicago
 University of Illinois at Chicago College of Medicine,medical_school,1,cleaned_label,University of Illinois at Chicago College of Medicine
 University of Illinois at Urbana-Champaign,undergraduate_school,1,cleaned_label,University of Illinois at Urbana-Champaign
 "University of Illinois, BA",undergraduate_school,1,cleaned_label,"University of Illinois, BA"
+University of Iowa,medical_school,1,cleaned_label,University of Iowa
 University of Iowa Roy J and Lucille A Carver College,medical_school,1,cleaned_label,University of Iowa Roy J and Lucille A Carver College
 University of Iowa Roy J and Lucille A Carver College of Medicine,medical_school,1,cleaned_label,University of Iowa Roy J and Lucille A Carver College of Medicine
 University of Kentucky College of Medicine. Doctor of Medicine,medical_school,1,cleaned_label,University of Kentucky College of Medicine. Doctor of Medicine
@@ -630,6 +658,7 @@ University of New Mexico,medical_school,1,cleaned_label,University of New Mexico
 University of New Mexico,undergraduate_school,1,cleaned_label,University of New Mexico
 University of New Mexico School of Medicine,medical_school,1,cleaned_label,University of New Mexico School of Medicine
 University of North Carolina,residency_program,1,cleaned_label,University of North Carolina
+University of North Carolina School of Medicine,medical_school,1,cleaned_label,University of North Carolina School of Medicine
 University of North Carolina at Chapel Hill,medical_school,1,cleaned_label,University of North Carolina at Chapel Hill
 University of North Carolina at Chapel Hill,undergraduate_school,1,cleaned_label,University of North Carolina at Chapel Hill
 "University of North Carolina at Chapel Hill, Chapel Hill, NC",medical_school,1,cleaned_label,"University of North Carolina at Chapel Hill, Chapel Hill, NC"
@@ -657,6 +686,7 @@ University of Puerto Rico,medical_school,1,cleaned_label,University of Puerto Ri
 University of Puerto Rico,residency_program,1,cleaned_label,University of Puerto Rico
 University of Puerto Rico,undergraduate_school,1,cleaned_label,University of Puerto Rico
 "University of Puerto Rico, BS",undergraduate_school,1,cleaned_label,"University of Puerto Rico, BS"
+University of Queensland School of Medicine,medical_school,1,cleaned_label,University of Queensland School of Medicine
 University of Richmond,undergraduate_school,1,cleaned_label,University of Richmond
 University of Rochester,medical_school,1,cleaned_label,University of Rochester
 University of Rochester,undergraduate_school,1,cleaned_label,University of Rochester
@@ -743,6 +773,7 @@ Washington University in St. Louis,medical_school,1,cleaned_label,Washington Uni
 Washington University in St. Louis,undergraduate_school,1,cleaned_label,Washington University in St. Louis
 Washington University in St. Louis School of Medicine,medical_school,1,cleaned_label,Washington University in St. Louis School of Medicine
 "Washington University, St. Louis",medical_school,1,cleaned_label,"Washington University, St. Louis"
+Wayne State School of Medicine,medical_school,1,cleaned_label,Wayne State School of Medicine
 Wayne State University SOM,medical_school,1,cleaned_label,Wayne State University SOM
 Wayne State University School of Medicine,medical_school,1,cleaned_label,Wayne State University School of Medicine
 Waynesburg University,undergraduate_school,1,cleaned_label,Waynesburg University
@@ -784,62 +815,68 @@ medical school at the University,medical_school,1,cleaned_label,medical school a
 the Spencer Fox Eccles School of Medicine,medical_school,1,cleaned_label,the Spencer Fox Eccles School of Medicine
 the University,medical_school,1,cleaned_label,the University
 undergrad at Johns Hopkins University,medical_school,1,cleaned_label,undergrad at Johns Hopkins University
-Perelman School of Medicine at the University of Pennsylvania,medical_school,81,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
+Perelman School of Medicine at the University of Pennsylvania,medical_school,89,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
 Hospital of the University of Pennsylvania,residency_program,45,seeded_alias,Hospital of the University of Pennsylvania
 Perelman School of Medicine,medical_school,18,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
+Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,17,seeded_alias,Sidney Kimmel Medical College at Thomas Jefferson University
 University of Pennsylvania,undergraduate_school,16,seeded_alias,University of Pennsylvania
-Sidney Kimmel Medical College at Thomas Jefferson University,medical_school,15,seeded_alias,Sidney Kimmel Medical College at Thomas Jefferson University
+Drexel University College of Medicine,medical_school,15,seeded_alias,Drexel University College of Medicine
+Emory University School of Medicine,medical_school,15,seeded_alias,Emory University School of Medicine
 Harvard Medical School,medical_school,14,seeded_alias,Harvard Medical School
-Drexel University College of Medicine,medical_school,13,seeded_alias,Drexel University College of Medicine
-Emory University School of Medicine,medical_school,13,seeded_alias,Emory University School of Medicine
+Georgetown University School of Medicine,medical_school,13,seeded_alias,Georgetown University School of Medicine
 Cooper Medical School of Rowan University,medical_school,12,seeded_alias,Cooper Medical School of Rowan University
-Georgetown University School of Medicine,medical_school,12,seeded_alias,Georgetown University School of Medicine
 Yale School of Medicine,medical_school,12,seeded_alias,Yale School of Medicine
 Cornell University,undergraduate_school,10,seeded_alias,Cornell University
+Duke University School of Medicine,medical_school,10,seeded_alias,Duke University School of Medicine
 University of Pennsylvania,residency_program,10,seeded_alias,Hospital of the University of Pennsylvania
-Duke University School of Medicine,medical_school,9,seeded_alias,Duke University School of Medicine
+University of Pennsylvania Perelman School of Medicine,medical_school,10,seeded_alias,University of Pennsylvania Perelman School of Medicine
+University of Pittsburgh School of Medicine,medical_school,10,seeded_alias,University of Pittsburgh School of Medicine
 Icahn School of Medicine at Mount Sinai,medical_school,9,seeded_alias,Icahn School of Medicine at Mount Sinai
+Lewis Katz School of Medicine at Temple University,medical_school,9,seeded_alias,Lewis Katz School of Medicine at Temple University
 "Perelman School of Medicine, University of Pennsylvania",medical_school,9,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
 Princeton University,undergraduate_school,9,seeded_alias,Princeton University
-University of Pennsylvania Perelman School of Medicine,medical_school,9,seeded_alias,University of Pennsylvania Perelman School of Medicine
-University of Pittsburgh School of Medicine,medical_school,9,seeded_alias,University of Pittsburgh School of Medicine
 Johns Hopkins University,undergraduate_school,8,seeded_alias,Johns Hopkins University
-Lewis Katz School of Medicine at Temple University,medical_school,8,seeded_alias,Lewis Katz School of Medicine at Temple University
 Yale University,undergraduate_school,8,seeded_alias,Yale University
 Philadelphia College of Osteopathic Medicine,medical_school,7,seeded_alias,Philadelphia College of Osteopathic Medicine
 Rutgers Robert Wood Johnson Medical School,medical_school,7,seeded_alias,Rutgers Robert Wood Johnson Medical School
 Rutgers University,undergraduate_school,7,seeded_alias,Rutgers University
 Temple University School of Podiatric Medicine,medical_school,7,seeded_alias,Temple University School of Podiatric Medicine
+University of Maryland School of Medicine,medical_school,7,seeded_alias,University of Maryland School of Medicine
 University of Virginia School of Medicine,medical_school,7,seeded_alias,University of Virginia School of Medicine
 Vanderbilt University School of Medicine,medical_school,7,seeded_alias,Vanderbilt University School of Medicine
+Case Western Reserve University School of Medicine,medical_school,6,seeded_alias,Case Western Reserve University School of Medicine
 Duke University,undergraduate_school,6,seeded_alias,Duke University
+Howard University College of Medicine,medical_school,6,seeded_alias,Howard University College of Medicine
 Johns Hopkins University School of Medicine,medical_school,6,seeded_alias,Johns Hopkins University School of Medicine
 Massachusetts General Hospital,residency_program,6,seeded_alias,Massachusetts General Hospital
 Northwestern University Feinberg School of Medicine,medical_school,6,seeded_alias,Northwestern University Feinberg School of Medicine
 Perelman School of Medicine at The University of Pennsylvania,medical_school,6,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
 University of Michigan,undergraduate_school,6,seeded_alias,University of Michigan
-Case Western Reserve University School of Medicine,medical_school,5,seeded_alias,Case Western Reserve University School of Medicine
 Columbia University Vagelos College of Physicians and Surgeons,medical_school,5,seeded_alias,Columbia University Vagelos College of Physicians and Surgeons
 Harvard University,undergraduate_school,5,seeded_alias,Harvard University
 New York University Grossman School of Medicine,medical_school,5,seeded_alias,NYU Grossman School of Medicine
+Stanford University School of Medicine,medical_school,5,seeded_alias,Stanford University School of Medicine
 Tufts University School of Medicine,medical_school,5,seeded_alias,Tufts University School of Medicine
 University of Maryland,undergraduate_school,5,seeded_alias,University of Maryland
+University of Michigan,medical_school,5,seeded_alias,University of Michigan Medical School
 Virginia Commonwealth University School of Medicine,medical_school,5,seeded_alias,Virginia Commonwealth University School of Medicine
 Washington University School of Medicine,medical_school,5,seeded_alias,Washington University School of Medicine
 Brown University,undergraduate_school,4,seeded_alias,Brown University
 Case Western Reserve University,medical_school,4,seeded_alias,Case Western Reserve University
 Eastern Virginia Medical School,medical_school,4,seeded_alias,Eastern Virginia Medical School
-Howard University College of Medicine,medical_school,4,seeded_alias,Howard University College of Medicine
 Johns Hopkins University,medical_school,4,seeded_alias,Johns Hopkins University School of Medicine
 Johns Hopkins University,residency_program,4,seeded_alias,Johns Hopkins University
+Medical College of Georgia,medical_school,4,seeded_alias,Medical College of Georgia
+New York University School of Medicine,medical_school,4,seeded_alias,New York University School of Medicine
 Penn State College of Medicine,medical_school,4,seeded_alias,Penn State College of Medicine
+Rutgers New Jersey Medical School,medical_school,4,seeded_alias,Rutgers New Jersey Medical School
 Stanford University,undergraduate_school,4,seeded_alias,Stanford University
 Tufts University,undergraduate_school,4,seeded_alias,Tufts University
 Tulane University School of Medicine,medical_school,4,seeded_alias,Tulane University School of Medicine
 Univ of Pennsylvania,residency_program,4,seeded_alias,Hospital of the University of Pennsylvania
 University of Chicago Pritzker School of Medicine,medical_school,4,seeded_alias,The University of Chicago Pritzker School of Medicine
-University of Maryland School of Medicine,medical_school,4,seeded_alias,University of Maryland School of Medicine
-University of Michigan,medical_school,4,seeded_alias,University of Michigan Medical School
+University of Florida College of Medicine,medical_school,4,seeded_alias,University of Florida College of Medicine
+University of Michigan Medical School,medical_school,4,seeded_alias,University of Michigan Medical School
 University of Pittsburgh,undergraduate_school,4,seeded_alias,University of Pittsburgh
 University of Texas at Austin,undergraduate_school,4,seeded_alias,"University of Texas, Austin"
 University of Virginia,undergraduate_school,4,seeded_alias,University of Virginia
@@ -847,27 +884,26 @@ Vanderbilt University,medical_school,4,seeded_alias,Vanderbilt University
 Wake Forest University School of Medicine,medical_school,4,seeded_alias,Wake Forest University School of Medicine
 Warren Alpert Medical School of Brown University,medical_school,4,seeded_alias,Warren Alpert Medical School of Brown University
 Weill Cornell Medicine,medical_school,4,seeded_alias,Weill Cornell Medicine
+Albany Medical College,medical_school,3,seeded_alias,Albany Medical College
 Albert Einstein College of Medicine,medical_school,3,seeded_alias,Albert Einstein College of Medicine
 Boston University School of Medicine,medical_school,3,seeded_alias,Boston University School of Medicine
 Columbia University,medical_school,3,seeded_alias,Columbia University
 Columbia University,undergraduate_school,3,seeded_alias,Columbia University
+David Geffen School of Medicine at UCLA,medical_school,3,seeded_alias,David Geffen School of Medicine at UCLA
 Duke University,residency_program,3,seeded_alias,Duke University
 Georgia Institute of Technology,undergraduate_school,3,seeded_alias,Georgia Institute of Technology
+Mayo Clinic Alix School of Medicine,medical_school,3,seeded_alias,Mayo Clinic Alix School of Medicine
 Medical College of Wisconsin,medical_school,3,seeded_alias,Medical College of Wisconsin
 New York Medical College,medical_school,3,seeded_alias,New York Medical College
-New York University School of Medicine,medical_school,3,seeded_alias,New York University School of Medicine
 Rice University,undergraduate_school,3,seeded_alias,Rice University
 Rowan University School of Osteopathic Medicine,medical_school,3,seeded_alias,Rowan University School of Osteopathic Medicine
 Rutgers,medical_school,3,seeded_alias,Rutgers Robert Wood Johnson Medical School
-Rutgers New Jersey Medical School,medical_school,3,seeded_alias,Rutgers New Jersey Medical School
 Sidney Kimmel Medical College,medical_school,3,seeded_alias,Sidney Kimmel Medical College at Thomas Jefferson University
 Stanford University,medical_school,3,seeded_alias,Stanford University
-Stanford University School of Medicine,medical_school,3,seeded_alias,Stanford University School of Medicine
+Temple University,medical_school,3,seeded_alias,Temple University
 Temple University Hospital,residency_program,3,seeded_alias,Temple University Hospital
 "University of California, Berkeley",undergraduate_school,3,seeded_alias,"University of California, Berkeley"
 University of Colorado,residency_program,3,seeded_alias,University of Colorado
-University of Florida College of Medicine,medical_school,3,seeded_alias,University of Florida College of Medicine
-University of Michigan Medical School,medical_school,3,seeded_alias,University of Michigan Medical School
 University of Virginia,medical_school,3,seeded_alias,University of Virginia
 Vanderbilt University,residency_program,3,seeded_alias,Vanderbilt University
 Vanderbilt University,undergraduate_school,3,seeded_alias,Vanderbilt University
@@ -875,7 +911,7 @@ Virginia Commonwealth University,medical_school,3,seeded_alias,Virginia Commonwe
 Wake Forest University,undergraduate_school,3,seeded_alias,Wake Forest University
 Washington University in St. Louis,undergraduate_school,3,seeded_alias,Washington University in St. Louis
 Yale University School of Medicine,medical_school,3,seeded_alias,Yale University - School of Medicine
-Albany Medical College,medical_school,2,seeded_alias,Albany Medical College
+Baylor College of Medicine,medical_school,2,seeded_alias,Baylor College of Medicine
 Baylor College of Medicine,residency_program,2,seeded_alias,Baylor College of Medicine
 Bowdoin College,undergraduate_school,2,seeded_alias,Bowdoin College
 Brigham and Women's Hospital,residency_program,2,seeded_alias,Brigham and Women's Hospital
@@ -896,11 +932,12 @@ Lewis Katz SOM at Temple University,medical_school,2,seeded_alias,Lewis Katz SOM
 MIT,undergraduate_school,2,seeded_alias,MIT
 Massachusetts General - Brigham and Women's Hospital,residency_program,2,seeded_alias,Massachusetts General - Brigham and Women's Hospital
 Massachusetts Institute of Technology,undergraduate_school,2,seeded_alias,Massachusetts Institute of Technology
-Mayo Clinic Alix School of Medicine,medical_school,2,seeded_alias,Mayo Clinic Alix School of Medicine
-Medical College of Georgia,medical_school,2,seeded_alias,Medical College of Georgia
+Medical University of South Carolina,medical_school,2,seeded_alias,Medical University of South Carolina
 Northwestern University,undergraduate_school,2,seeded_alias,Northwestern University
+Pennsylvania State University College of Medicine,medical_school,2,seeded_alias,Pennsylvania State University College of Medicine
 Perelman School of Medicine at University of Pennsylvania,medical_school,2,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
 Perelman School of Medicine at the University of Pennsylvania,residency_program,2,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
+Renaissance School of Medicine at Stony Brook University,medical_school,2,seeded_alias,Renaissance School of Medicine at Stony Brook University
 Royal College of Surgeons in Ireland,medical_school,2,seeded_alias,Royal College of Surgeons in Ireland
 Rutgers New Jersey Medical School,residency_program,2,seeded_alias,Rutgers New Jersey Medical School
 Rutgers University,medical_school,2,seeded_alias,Rutgers Robert Wood Johnson Medical School
@@ -908,12 +945,12 @@ SUNY Upstate Medical University,medical_school,2,seeded_alias,SUNY Upstate Medic
 Saint Louis University School of Medicine,medical_school,2,seeded_alias,Saint Louis University School of Medicine
 "Sidney Kimmel Medical College, Thomas Jefferson University",medical_school,2,seeded_alias,Sidney Kimmel Medical College at Thomas Jefferson University
 Sidney Kimmel Medical College/Thomas Jefferson University,medical_school,2,seeded_alias,Sidney Kimmel Medical College at Thomas Jefferson University
-Temple University,medical_school,2,seeded_alias,Temple University
 Temple University School of Medicine,medical_school,2,seeded_alias,Temple University School of Medicine
 Temple University School of Podiatric Medicine Medical School,medical_school,2,seeded_alias,Temple University School of Podiatric Medicine Medical School
 The College of William and Mary,undergraduate_school,2,seeded_alias,College of William and Mary
 The University of Texas at Austin,undergraduate_school,2,seeded_alias,"University of Texas, Austin"
 Thomas Jefferson University Hospital,residency_program,2,seeded_alias,Thomas Jefferson University Hospital
+UCSF School of Medicine,medical_school,2,seeded_alias,UCSF School of Medicine
 "University of California, San Francisco",residency_program,2,seeded_alias,University of California San Francisco
 University of Chicago,undergraduate_school,2,seeded_alias,University of Chicago
 University of Illinois at Chicago,medical_school,2,seeded_alias,University of Illinois at Chicago
@@ -923,11 +960,12 @@ University of Minnesota Medical School,medical_school,2,seeded_alias,University 
 University of North Carolina at Chapel Hill,undergraduate_school,2,seeded_alias,University of North Carolina at Chapel Hill
 University of Rochester Medical Center,residency_program,2,seeded_alias,University of Rochester Medical Center
 University of Rochester School of Medicine & Dentistry,medical_school,2,seeded_alias,University of Rochester School of Medicine & Dentistry
+University of Washington School of Medicine,medical_school,2,seeded_alias,University of Washington School of Medicine
 Yale New Haven Hospital,residency_program,2,seeded_alias,Yale New Haven Hospital
 Yale University,medical_school,2,seeded_alias,Yale University
 Zucker School of Medicine at Hofstra Northwell,medical_school,2,seeded_alias,Zucker School of Medicine at Hofstra/Northwell
+"Addis Ababa University, College of Health Sciences, School of Medicine",medical_school,1,seeded_alias,"Addis Ababa University, College of Health Sciences, School of Medicine"
 Albert Einstein College of Medicine at Yeshiva University,medical_school,1,seeded_alias,Albert Einstein College of Medicine of Yeshiva University
-Baylor College of Medicine,medical_school,1,seeded_alias,Baylor College of Medicine
 Boston College,undergraduate_school,1,seeded_alias,Boston College
 Boston Medical Center,residency_program,1,seeded_alias,Boston Medical Center
 Brigham & Women's Hospital,residency_program,1,seeded_alias,Brigham and Women's Hospital
@@ -945,7 +983,6 @@ Columbia University Vagelos College of Physicians & Surgeons,medical_school,1,se
 "Columbia University, Vagelos College of Physicians & Surgeons",medical_school,1,seeded_alias,Columbia University Vagelos College of Physicians and Surgeons
 Commonwealth Medical College,medical_school,1,seeded_alias,Commonwealth Medical College
 Cooper University Hospital,residency_program,1,seeded_alias,Cooper University Hospital
-David Geffen School of Medicine at UCLA,medical_school,1,seeded_alias,David Geffen School of Medicine at UCLA
 Donald and Barbara Zucker School of Medicine at Hofstra/Northwell,medical_school,1,seeded_alias,Donald and Barbara Zucker School of Medicine at Hofstra/Northwell
 Drexel University,medical_school,1,seeded_alias,Drexel University
 Emory University,medical_school,1,seeded_alias,Emory University
@@ -968,9 +1005,12 @@ Kent State University College of Podiatric Medicine,medical_school,1,seeded_alia
 Lake Erie College of Osteopathic Medicine,medical_school,1,seeded_alias,Lake Erie College of Osteopathic Medicine
 "Lewis Katz School of Medicine, Temple University",medical_school,1,seeded_alias,Lewis Katz School of Medicine at Temple University
 Mass General,residency_program,1,seeded_alias,Massachusetts General Hospital
-Medical University of South Carolina,medical_school,1,seeded_alias,Medical University of South Carolina
+Medical College of Georgia at Augusta University,medical_school,1,seeded_alias,Medical College of Georgia at Augusta University
 Medstar Georgetown University Hospital,residency_program,1,seeded_alias,MedStar Georgetown University Hospital
+Meharry Medical College,medical_school,1,seeded_alias,Meharry Medical College
+Mercer University School of Medicine,medical_school,1,seeded_alias,Mercer University School of Medicine
 Mercy Catholic Medical Center,residency_program,1,seeded_alias,Mercy Catholic Medical Center
+Morehouse School of Medicine,medical_school,1,seeded_alias,Morehouse School of Medicine
 Mount Sinai Hospital,residency_program,1,seeded_alias,Mount Sinai Hospital
 Mt. Sinai Hospital,residency_program,1,seeded_alias,Mt. Sinai Hospital
 NYIT College of Osteopathic Medicine,medical_school,1,seeded_alias,NYIT College of Osteopathic Medicine
@@ -978,19 +1018,19 @@ NYU School of Medicine,residency_program,1,seeded_alias,NYU School of Medicine
 New York College of Podiatric Medicine,medical_school,1,seeded_alias,New York College of Podiatric Medicine
 New York Presbyterian - Weill Cornell,residency_program,1,seeded_alias,New York-Presbyterian Weill Cornell
 New York University,medical_school,1,seeded_alias,NYU Grossman School of Medicine
+Northeast Ohio Medical University,medical_school,1,seeded_alias,Northeast Ohio Medical University
 Northwestern,undergraduate_school,1,seeded_alias,Northwestern
 Northwestern University,medical_school,1,seeded_alias,Northwestern University
 "Northwestern University, Feinberg School of Medicine",medical_school,1,seeded_alias,Northwestern University Feinberg School of Medicine
-"Oakland University, William Beaumont School Of Medicine",medical_school,1,seeded_alias,Oakland University William Beaumont School of Medicine
+Oakland University William Beaumont School of Medicine,medical_school,1,seeded_alias,"Oakland University, William Beaumont School Of Medicine"
 Oregon Health & Science University,medical_school,1,seeded_alias,Oregon Health and Science University
 Pennsylvania State University,undergraduate_school,1,seeded_alias,Pennsylvania State University
-Pennsylvania State University College of Medicine,medical_school,1,seeded_alias,Pennsylvania State University College of Medicine
 Perelman School of Medicine University of Pennsylvania,medical_school,1,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
 "Philadelphia College of Osteopathic Medicine, Philadelphia, PA",medical_school,1,seeded_alias,"Philadelphia College of Osteopathic Medicine, Philadelphia, PA"
 Renaissance School of Medicine at Stony Brook,medical_school,1,seeded_alias,Renaissance School of Medicine at Stony Brook
-Renaissance School of Medicine at Stony Brook University,medical_school,1,seeded_alias,Renaissance School of Medicine at Stony Brook University
 Rush Medical College of Rush University Medical Center,medical_school,1,seeded_alias,Rush Medical College of Rush University Medical Center
 Rutgers NJ Medical School,medical_school,1,seeded_alias,Rutgers NJ Medical School
+Rutgers Robert Wood Johnson,medical_school,1,seeded_alias,"Rutgers, Robert Wood Johnson"
 "Rutgers, Robert Wood Johnson Medical School",medical_school,1,seeded_alias,Rutgers Robert Wood Johnson Medical School
 SUNY Downstate,medical_school,1,seeded_alias,SUNY Downstate
 Sidney Kimmel Med Col at Thomas Jefferson,medical_school,1,seeded_alias,Sidney Kimmel Med Col at Thomas Jefferson
@@ -1009,8 +1049,10 @@ The Johns Hopkins University School of Medicine,medical_school,1,seeded_alias,Jo
 The Ohio State University College of Medicine,medical_school,1,seeded_alias,Ohio State University College of Medicine
 The Pennsylvania State University,undergraduate_school,1,seeded_alias,Pennsylvania State University
 The Perelman School of Medicine,medical_school,1,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
+The University of Iowa,medical_school,1,seeded_alias,University of Iowa
 The University of Texas Southwestern Medical School,medical_school,1,seeded_alias,Univ of Texas Southwestern Medical School
 The University of Virginia,medical_school,1,seeded_alias,University of Virginia
+The Warren Alpert Medical School of Brown University,medical_school,1,seeded_alias,Warren Alpert Medical School of Brown University
 UCLA David Geffen School of Medicine,medical_school,1,seeded_alias,UCLA David Geffen School of Medicine
 Uniformed Services University of the Health Sciences,medical_school,1,seeded_alias,Uniformed Services University of the Health Sciences
 Univ Of Pennsylvania,residency_program,1,seeded_alias,Hospital of the University of Pennsylvania
@@ -1019,6 +1061,7 @@ University College Dublin School of Medicine,medical_school,1,seeded_alias,Unive
 University of Alabama,medical_school,1,seeded_alias,University of Alabama
 University of California Berkeley,undergraduate_school,1,seeded_alias,"University of California, Berkeley"
 University of California Irvine School of Medicine,medical_school,1,seeded_alias,"University of California, Irvine School of Medicine"
+University of California San Francisco School of Medicine,medical_school,1,seeded_alias,University of California San Francisco School of Medicine
 "University of California, Los Angeles",medical_school,1,seeded_alias,"University of California, Los Angeles"
 "University of Chicago, Pritzker School of Medicine",medical_school,1,seeded_alias,The University of Chicago Pritzker School of Medicine
 "University of Chicago, The Pritzker School of Medicine",medical_school,1,seeded_alias,The University of Chicago Pritzker School of Medicine
@@ -1039,17 +1082,20 @@ University of North Carolina at Chapel Hill,medical_school,1,seeded_alias,Univer
 "University of North Carolina, Chapel Hill",undergraduate_school,1,seeded_alias,University of North Carolina at Chapel Hill
 University of Oklahoma College of Medicine,medical_school,1,seeded_alias,University of Oklahoma College of Medicine
 University of Pennsylvania,graduate_school,1,seeded_alias,University of Pennsylvania
+University of Pennsylvania,medical_school,1,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
+University of Pennsylvania School of Medicine,medical_school,1,seeded_alias,Perelman School of Medicine at the University of Pennsylvania
 "University of Pittsburgh, BS",undergraduate_school,1,seeded_alias,"University of Pittsburgh, BS"
 University of Puerto Rico,medical_school,1,seeded_alias,University of Puerto Rico
 University of Puerto Rico,undergraduate_school,1,seeded_alias,University of Puerto Rico
+University of Rochester School of Medicine and Dentistry,medical_school,1,seeded_alias,University of Rochester School of Medicine & Dentistry
 University of South Florida,medical_school,1,seeded_alias,University of South Florida
 University of South Florida Morsani College of Medicine,medical_school,1,seeded_alias,University of South Florida Morsani College of Medicine
 University of Southern California,undergraduate_school,1,seeded_alias,University of Southern California
 University of Tennessee Health Science Center College of Medicine,medical_school,1,seeded_alias,University of Tennessee Health Science Center College of Medicine
 University of Texas - Medical Branch,medical_school,1,seeded_alias,University of Texas Medical Branch
 University of Texas Southwestern,medical_school,1,seeded_alias,University of Texas - Southwestern
+University of Texas Southwestern Medical School,medical_school,1,seeded_alias,Univ of Texas Southwestern Medical School
 University of Utah,medical_school,1,seeded_alias,University of Utah
-University of Washington School of Medicine,medical_school,1,seeded_alias,University of Washington School of Medicine
 Ursinus College,undergraduate_school,1,seeded_alias,Ursinus College
 Warren Alpert Medical School Brown University,medical_school,1,seeded_alias,Warren Alpert Medical School of Brown University
 Washington University,medical_school,1,seeded_alias,Washington University
@@ -1057,6 +1103,7 @@ Washington University,undergraduate_school,1,seeded_alias,Washington University
 Washington University School of Medicine in St. Louis,medical_school,1,seeded_alias,Washington University School of Medicine in St Louis
 Washington University in St. Louis,medical_school,1,seeded_alias,Washington University in St. Louis
 Wayne State University School of Medicine,medical_school,1,seeded_alias,Wayne State University School of Medicine
+Weill Cornell Medical College,medical_school,1,seeded_alias,Weill Cornell Medical College
 Weill Cornell Medical College in Qatar,medical_school,1,seeded_alias,Weill Cornell Medical College in Qatar
 Wellesley College,undergraduate_school,1,seeded_alias,Wellesley College
 Williams College,undergraduate_school,1,seeded_alias,Williams College

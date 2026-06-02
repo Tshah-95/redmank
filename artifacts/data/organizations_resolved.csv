@@ -192,6 +192,8 @@ org_graduate-institution-vanderbilt-university_a91cb68c701f,Vanderbilt Universit
 org_graduate-institution-yale-school-medicine_da136fbafb75,Yale School of Medicine,yale school medicine,graduate_institution,,cleaned_label,0.55
 org_graduate-institution-yale-university_89e4a77ce13d,Yale University,yale university,graduate_institution,,cleaned_label,0.55
 org_medical-school-aiims-new-delhi-india_2544227f6a31,"AIIMS (New Delhi), India",aiims new delhi india,medical_school,,cleaned_label,0.55
+org_medical-school-addis-ababa-university-college-he_129864a6f110,"Addis Ababa University, College of Health Sciences, School of Medicine",addis ababa university college health sciences school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-aga-khan-university-pakistan_39f30c8a7b5e,Aga Khan University (Pakistan),aga khan university pakistan,medical_school,,cleaned_label,0.55
 org_medical-school-aga-khan-university-medical-colle_d4c0460a990c,Aga Khan University Medical College,aga khan university medical college,medical_school,,cleaned_label,0.55
 org_medical-school-ain-shams-university-school-medic_4c9e969284fa,"Ain Shams University, School of Medicine",ain shams university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-albany-medical-college_17c7539e6951,Albany Medical College,albany medical college,medical_school,,cleaned_label,0.55
@@ -202,6 +204,8 @@ org_medical-school-all-india-institute-medical-scien_37b0103e5893,"All India Ins
 org_medical-school-american-university-beirut_8b69f66ec007,American University of Beirut,american university beirut,medical_school,,cleaned_label,0.55
 org_medical-school-american-university-beirut-lebano_67b3c6a99fc3,American University of Beirut - Lebanon,american university beirut lebanon,medical_school,,cleaned_label,0.55
 org_medical-school-american-university-beirut-facult_a6ca5cf267df,American University of Beirut Faculty of Medicine,american university beirut faculty medicine,medical_school,,cleaned_label,0.55
+org_medical-school-american-university-beirut-school_2bb04083d111,American University of Beirut School of Medicine,american university beirut school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-amrita-school-medicine_adb7e5def162,Amrita School of Medicine,amrita school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-ankara-university_a9e874d6f9f2,Ankara University,ankara university,medical_school,,cleaned_label,0.55
 org_medical-school-anne-burnett-mario-school-medicin_2067789f899e,Anne Burnett Mario School of Medicine at TCU,anne burnett mario school medicine tcu,medical_school,,cleaned_label,0.55
 org_medical-school-arkansas-college-osteopathic-medi_7caa0151f509,Arkansas College of Osteopathic Medicine,arkansas college osteopathic medicine,medical_school,,cleaned_label,0.55
@@ -254,6 +258,7 @@ org_medical-school-emory-university-school-medicine_ae11c9e61921,Emory Universit
 org_medical-school-faculty-medicine-ain-shams-univer_4c3887bf3334,"Faculty of Medicine Ain Shams University, Cairo, Egypt",faculty medicine ain shams university cairo egypt,medical_school,,cleaned_label,0.55
 org_medical-school-faculty-medicine-damascus-univers_b8f83b565164,Faculty of Medicine of Damascus University,faculty medicine damascus university,medical_school,,cleaned_label,0.55
 org_medical-school-first-moscow-state-medical-univer_b808b81391ea,First Moscow State Medical University,first moscow state medical university,medical_school,,cleaned_label,0.55
+org_medical-school-florida-atlantic-university_d30c2506404d,Florida Atlantic University,florida atlantic university,medical_school,,cleaned_label,0.55
 org_medical-school-florida-international-university-_354d21b85b9b,Florida International University Herbert Wertheim College of Medicine,florida international university herbert wertheim college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-gw-school-medicine-health-science_2ec22353bdfc,GW School of Medicine and Health Sciences,gw school medicine health sciences,medical_school,,cleaned_label,0.55
 org_medical-school-geisel-school-medicine-dartmouth_20450137bd58,Geisel School of Medicine at Dartmouth,geisel school medicine dartmouth,medical_school,,cleaned_label,0.55
@@ -267,6 +272,7 @@ org_medical-school-georgetown-university_279c807124bd,Georgetown University,geor
 org_medical-school-georgetown-university-school-medi_ec6d7f339192,Georgetown University School of Medicine,georgetown university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-guilan-university-medical-science_f22805c3d15a,Guilan University of Medical Sciences,guilan university medical sciences,medical_school,,cleaned_label,0.55
 org_medical-school-hackensack-meridian-school-medici_47bd28c95dd5,Hackensack Meridian School of Medicine,hackensack meridian school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-harbin-medical-university_fd46a57f4a97,Harbin Medical University,harbin medical university,medical_school,,cleaned_label,0.55
 org_medical-school-harvard_f10825f42f56,Harvard,harvard,medical_school,,cleaned_label,0.55
 org_medical-school-harvard-college_7292a520ec80,Harvard College,harvard college,medical_school,,cleaned_label,0.55
 org_medical-school-harvard-medical-school_cfdbd83dd8ff,Harvard Medical School,harvard medical school,medical_school,,cleaned_label,0.55
@@ -290,6 +296,7 @@ org_medical-school-john-hopkins-university_dfd8ed3fd14a,John Hopkins University,
 org_medical-school-john-hopkins-university-school-me_fb56b2bcfa6d,John Hopkins University School of Medicine,john hopkins university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-johns-hopkins-university-school-m_c58f548fd0c7,Johns Hopkins University School of Medicine,johns hopkins university school medicine,medical_school,Johns Hopkins University,seeded_alias,0.98
 org_medical-school-kaiser-permanente_4c19b9d7429c,Kaiser Permanente,kaiser permanente,medical_school,,cleaned_label,0.55
+org_medical-school-kansas-city-university-college-os_e6573c0f4b54,Kansas City University College of Osteopathic Medicine,kansas city university college osteopathic medicine,medical_school,,cleaned_label,0.55
 org_medical-school-keck-university-southern-californ_cf488d8de939,Keck - University of Southern California,keck university southern california,medical_school,,cleaned_label,0.55
 org_medical-school-keck-school-medicine-university-s_19f0154be6c5,Keck School of Medicine of the University of Southern California,keck school medicine university southern california,medical_school,,cleaned_label,0.55
 org_medical-school-kent-state-university-college-pod_2e912f9f3ef2,Kent State University College of Podiatric Medicine,kent state university college podiatric medicine,medical_school,,cleaned_label,0.55
@@ -304,6 +311,7 @@ org_medical-school-lau-gilbert-rose-marie-chagoury-s_05b5d3f45563,"LAU Gilbert a
 org_medical-school-lake-erie-college-osteopathic-med_859d571fb015,Lake Erie College of Osteopathic Medicine,lake erie college osteopathic medicine,medical_school,,cleaned_label,0.55
 org_medical-school-lake-erie-college-osteopathic-med_b029b6c46986,Lake Erie College of Osteopathic Medicine at Seton Hill University,lake erie college osteopathic medicine seton hill university,medical_school,,cleaned_label,0.55
 org_medical-school-lake-erie-college-osteopathic-med_963e9220cf87,Lake Erie College of Osteopathic Medicine – Bradenton,lake erie college osteopathic medicine bradenton,medical_school,,cleaned_label,0.55
+org_medical-school-lebanese-american-university-gilb_f5a4a62e4351,Lebanese American University Gilbert and Rose-Marie Chagoury School of Medicine,lebanese american university gilbert rose marie chagoury school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-lebanese-university-faculty-medic_c1e243952d54,Lebanese University Faculty of Medical Sciences,lebanese university faculty medical sciences,medical_school,,cleaned_label,0.55
 org_medical-school-lewis-katz-som-temple-university_92a3fee62d28,Lewis Katz SOM at Temple University,lewis katz som temple university,medical_school,,cleaned_label,0.55
 org_medical-school-lewis-katz-school-medicine-temple_b47ba57d00ca,Lewis Katz School of Medicine at Temple University,lewis katz school medicine temple university,medical_school,,cleaned_label,0.55
@@ -311,6 +319,7 @@ org_medical-school-lincoln-memorial-university-debus_6c8e5a63d797,"Lincoln Memor
 org_medical-school-louisiana-state-university-health_66cf963f258f,Louisiana State University Health Sciences Center New Orleans,louisiana state university health sciences center new orleans,medical_school,,cleaned_label,0.55
 org_medical-school-louisiana-state-university-school_51f0a0c1b79a,Louisiana State University School of Medicine,louisiana state university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-loyola-university_20c2a2ae4e8b,Loyola University,loyola university,medical_school,,cleaned_label,0.55
+org_medical-school-loyola-university-school-medicine_8185da7dfaf5,Loyola University School of Medicine,loyola university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-maulana-azad-medical-college-in_6da3c426b1ef,Maulana Azad Medical College (IN),maulana azad medical college in,medical_school,,cleaned_label,0.55
 org_medical-school-maulana-azad-medical-college-delh_43fb4b05a213,"Maulana Azad Medical College, Delhi",maulana azad medical college delhi,medical_school,,cleaned_label,0.55
 org_medical-school-mayo-clinic-alix-school-medicine_46cd79928d49,Mayo Clinic Alix School of Medicine,mayo clinic alix school medicine,medical_school,,cleaned_label,0.55
@@ -326,9 +335,11 @@ org_medical-school-medical-university-south-carolina_416f9ba7806f,Medical Univer
 org_medical-school-meharry-medical-college_6b4b885f42e6,Meharry Medical College,meharry medical college,medical_school,,cleaned_label,0.55
 org_medical-school-mercer-university-school-medicine_7f6e05130718,Mercer University School of Medicine,mercer university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-michigan-state-university-college_b28f18f14c26,Michigan State University College of Human Medicine,michigan state university college human medicine,medical_school,,cleaned_label,0.55
+org_medical-school-michigan-state-university-college_947c654afe7c,Michigan State University College of Osteopathic Medicine,michigan state university college osteopathic medicine,medical_school,,cleaned_label,0.55
 org_medical-school-midwestern-university_eb0b0f295a9a,Midwestern University,midwestern university,medical_school,,cleaned_label,0.55
 org_medical-school-miguel-hern-ndez-university_e49bab47b749,Miguel Hernández University,miguel hern ndez university,medical_school,,cleaned_label,0.55
 org_medical-school-morehouse-school-medicine_27f8e5c77f37,Morehouse School of Medicine,morehouse school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-mount-sinai-school-medicine_e2cfef140dfc,Mount Sinai School of Medicine,mount sinai school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-ny-medical-college_f5df86957ddc,NY Med College,ny medical college,medical_school,,cleaned_label,0.55
 org_medical-school-nyit-college-osteopathic-medicine_be19ed27985c,NYIT College of Osteopathic Medicine,nyit college osteopathic medicine,medical_school,,cleaned_label,0.55
 org_medical-school-nyu-grossman-school-medicine_d7ebd4986939,NYU Grossman School of Medicine,nyu grossman school medicine,medical_school,New York University,seeded_alias,0.98
@@ -348,12 +359,18 @@ org_medical-school-northwestern-university-feinberg-_fed8d3d264b6,Northwestern U
 org_medical-school-northwestern-university_5e729b412d43,Northwestern University,northwestern university,medical_school,,cleaned_label,0.55
 org_medical-school-northwestern-university-feinberg-_334f5ac50097,Northwestern University Feinberg School of Medicine,northwestern university feinberg school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-nova-southeastern-university-coll_0166161f441e,Nova Southeastern University College of Osteopathic Medicine,nova southeastern university college osteopathic medicine,medical_school,,cleaned_label,0.55
+org_medical-school-nova-southeastern-university-dr-k_943ac8993369,"Nova Southeastern University, Dr. Kiran C. Patel College of Osteopathic Medicine",nova southeastern university dr kiran c patel college osteopathic medicine,medical_school,,cleaned_label,0.55
 org_medical-school-oakland-university_dd1eeb125850,Oakland University,oakland university,medical_school,,cleaned_label,0.55
-org_medical-school-oakland-university-william-beaumo_70afe0b35407,Oakland University William Beaumont School of Medicine,oakland university william beaumont school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-oakland-university-william-beaumo_b795dc9d6d74,"Oakland University, William Beaumont School Of Medicine",oakland university william beaumont school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-ohio-state-university-college-med_9ed9bee9dcc1,Ohio State University College of Medicine,ohio state university college medicine,medical_school,,cleaned_label,0.55
+org_medical-school-ohio-state-university-school-medi_beb3ba04eaeb,Ohio State University School of Medicine,ohio state university school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-oklahoma-state-university_694362f3a897,Oklahoma State University,oklahoma state university,medical_school,,cleaned_label,0.55
 org_medical-school-oregon-health-sciences-university_131bca606c82,Oregon Health Sciences University School of Medicine,oregon health sciences university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-oregon-health-science-university_85c5fc06628a,Oregon Health and Science University,oregon health science university,medical_school,,cleaned_label,0.55
 org_medical-school-osmania-medical-college_d93be782a35e,Osmania Medical College,osmania medical college,medical_school,,cleaned_label,0.55
+org_medical-school-pgy-2-clinical-pathology-program-_22182d103e07,"PGY-2, Clinical Pathology Program Perelman School of Medicine at the University of Pennsylvania",pgy 2 clinical pathology program perelman school medicine university pennsylvania,medical_school,,cleaned_label,0.55
+org_medical-school-pgy-2-combined-anatomic-pathology_d6072a8d6897,"PGY-2, Combined Anatomic Pathology & Clinical Pathology Program Lewis Katz School of Medicine at Temple University",pgy 2 combined anatomic pathology clinical pathology program lewis katz school medicine temple university,medical_school,,cleaned_label,0.55
+org_medical-school-pgy-3-combined-anatomic-pathology_832db9a76cba,"PGY-3, Combined Anatomic Pathology & Clinical Pathology Program Uniformed Services University of the Health Sciences, F. Edward Herbert School of Medicine",pgy 3 combined anatomic pathology clinical pathology program uniformed services university health sciences f edward herbert school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-penn-state-college-medicine_1ac376bb6010,Penn State College of Medicine,penn state college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-pennsylvania-state-university_8760bcebe6b5,Pennsylvania State University,pennsylvania state university,medical_school,,cleaned_label,0.55
 org_medical-school-pennsylvania-state-university-col_4d97bc5566b2,Pennsylvania State University College of Medicine,pennsylvania state university college medicine,medical_school,,cleaned_label,0.55
@@ -393,12 +410,14 @@ org_medical-school-suny-downstate-health-sciences-un_125471c3077a,"SUNY Downstat
 org_medical-school-suny-upstate_ff50a840a755,SUNY Upstate,suny upstate,medical_school,,cleaned_label,0.55
 org_medical-school-suny-upstate-medical-university_580441a039f3,SUNY Upstate Medical University,suny upstate medical university,medical_school,,cleaned_label,0.55
 org_medical-school-sackler-school-medicine-tel-aviv-_ef0e77bdc10b,"Sackler School of Medicine, Tel Aviv University",sackler school medicine tel aviv university,medical_school,,cleaned_label,0.55
+org_medical-school-saint-james-school-medicine-angui_2863fbd1c8f1,Saint James School of Medicine Anguilla,saint james school medicine anguilla,medical_school,,cleaned_label,0.55
 org_medical-school-saint-louis-university-school-med_feb74fd13467,Saint Louis University School of Medicine,saint louis university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmel-medical-col-thomas-_add8af86d89c,Sidney Kimmel Med Col at Thomas Jefferson,sidney kimmel medical col thomas jefferson,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmel-medical-col-thomas-_ff90e74a2963,Sidney Kimmel Med Col at Thomas Jefferson University,sidney kimmel medical col thomas jefferson university,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmel-medical-college-tho_267e21b52df9,Sidney Kimmel Medical College Thomas Jefferson,sidney kimmel medical college thomas jefferson,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmel-medical-college-tho_a84e77b132a7,Sidney Kimmel Medical College at Thomas Jefferson University,sidney kimmel medical college thomas jefferson university,medical_school,Thomas Jefferson University,seeded_alias,0.98
 org_medical-school-sidney-kimmel-medical-college-tho_a346343db80d,"Sidney Kimmel Medical College at Thomas Jefferson University Residency: Family Medicine, Carl R Darnall Army Medical Center",sidney kimmel medical college thomas jefferson university residency family medicine carl r darnall army medical center,medical_school,,cleaned_label,0.55
+org_medical-school-sidney-kimmel-medical-college-jef_726430e1b89e,Sidney Kimmel Medical College/Jefferson,sidney kimmel medical college jefferson,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmel-medicine-college-th_b54b9ff1abb9,Sidney Kimmel Medicine College at Thomas Jefferson University,sidney kimmel medicine college thomas jefferson university,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmel-school-medicine-tho_39b8313b919a,"Sidney Kimmel School of Medicine, Thomas Jefferson University",sidney kimmel school medicine thomas jefferson university,medical_school,,cleaned_label,0.55
 org_medical-school-sidney-kimmell-thomas-jefferson-u_84b3c657614b,Sidney Kimmell at Thomas Jefferson University,sidney kimmell thomas jefferson university,medical_school,,cleaned_label,0.55
@@ -410,6 +429,7 @@ org_medical-school-state-un-new-york-downstate-medic_ab46e897c7ec,State Un of Ne
 org_medical-school-state-university-ny-downstate-med_0439776c5ac6,"State University of NY Downstate Medical Center College of Medicine, Brooklyn, NY",state university ny downstate medical center college medicine brooklyn ny,medical_school,,cleaned_label,0.55
 org_medical-school-state-university-ny-stony-brook-s_414b76948420,State University of NY at Stony Brook School of Medicine,state university ny stony brook school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-state-university-new-york-downsta_867f454f2a8f,State University of New York Downstate,state university new york downstate,medical_school,,cleaned_label,0.55
+org_medical-school-state-university-new-york-upstate_a56e1e94f7d0,State University of New York Upstate Medical University Alan and Marlene Norton College of Medicine,state university new york upstate medical university alan marlene norton college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-state-university-new-york-buffalo_ccb6e9e03a0f,"State University of New York, Buffalo New York",state university new york buffalo new york,medical_school,,cleaned_label,0.55
 org_medical-school-stony-brook-school-medicine_e322bbe06323,Stony Brook School of Medicine,stony brook school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-stony-brook-university-school-med_abff308e7b56,Stony Brook University School of Medicine,stony brook university school medicine,medical_school,,cleaned_label,0.55
@@ -426,9 +446,11 @@ org_medical-school-temple-university-lewis-katz-scho_35fa4a7537d6,Temple Univers
 org_medical-school-temple-university-school-medicine_2d38baf382a8,Temple University School of Medicine,temple university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-temple-university-school-podiatri_d3b9b0ad8880,Temple University School of Podiatric Medicine,temple university school podiatric medicine,medical_school,,cleaned_label,0.55
 org_medical-school-temple-university-school-podiatri_e9635cc796e8,Temple University School of Podiatric Medicine Medical School,temple university school podiatric medicine medical school,medical_school,,cleaned_label,0.55
+org_medical-school-texas-a-m-college-medicine_a72a4f0fd5a8,Texas A&M College of Medicine,texas a m college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-texas-a-m-school-medicine_3aadd1fa1362,Texas A&M School of Medicine,texas a m school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-texas-tech_53953f39cd67,Texas Tech,texas tech,medical_school,,cleaned_label,0.55
 org_medical-school-texas-tech-university-health-scie_907ac0d9ae00,Texas Tech Univ Health Sciences Center SOM,texas tech university health sciences center som,medical_school,,cleaned_label,0.55
+org_medical-school-texas-tech-university_fa6c177cb7af,Texas Tech University,texas tech university,medical_school,,cleaned_label,0.55
 org_medical-school-texas-tech-university-health-scie_4d779b937867,Texas Tech University Health Sciences Center School of Medicine,texas tech university health sciences center school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-feinberg-school-medicine-northwes_8aeb7734bb4a,"The Feinberg School of Medicine, Northwestern University",feinberg school medicine northwestern university,medical_school,,cleaned_label,0.55
 org_medical-school-ohio-state-college-medicine_940ced7e1ae1,The Ohio State College of Medicine,ohio state college medicine,medical_school,,cleaned_label,0.55
@@ -459,16 +481,19 @@ org_medical-school-uniformed-services-university-hea_2a218dd31739,Uniformed Serv
 org_medical-school-university-college-dublin_eec47638df95,Univ College Dublin,university college dublin,medical_school,,cleaned_label,0.55
 org_medical-school-university-belgrade_11b008a05a9c,Univ of Belgrade,university belgrade,medical_school,,cleaned_label,0.55
 org_medical-school-university-texas-southwestern-med_1daa059df6aa,Univ of Texas Southwestern Medical School,university texas southwestern medical school,medical_school,,cleaned_label,0.55
+org_medical-school-universidad-central-de-venezuela-_38641e5f2024,Universidad Central de Venezuela Escuela de Medicina Jose Maria Vargas,universidad central de venezuela escuela de medicina jose maria vargas,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-central-de-venezuela-_0ca53287a2ed,"Universidad Central de Venezuela Escuela de Medicina Jose Maria Vargas, Venezuela",universidad central de venezuela escuela de medicina jose maria vargas venezuela,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-francisco-marroquin_d14cc3848ae6,Universidad Francisco Marroquin,universidad francisco marroquin,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-francisco-marroquin-f_71387d13f0d6,Universidad Francisco Marroquin Facultad de Medicina,universidad francisco marroquin facultad de medicina,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-industrial-de-santand_ac251479efc7,Universidad Industrial de Santander,universidad industrial de santander,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-internacional-del-ecu_0aeb401918d5,Universidad Internacional del Ecuador,universidad internacional del ecuador,medical_school,,cleaned_label,0.55
+org_medical-school-universidad-nacional-de-asuncion_032f41c0cb41,Universidad Nacional de Asuncion,universidad nacional de asuncion,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-peruana-de-ciencias-a_eae86f7a143d,Universidad Peruana de Ciencias Aplicadas (UPC) Escuela de Medicina,universidad peruana de ciencias aplicadas upc escuela de medicina,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-de-navarra-facultad-d_d020cc599ac8,Universidad de Navarra Facultad de Medicina,universidad de navarra facultad de medicina,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-de-san-martin-de-porr_9e1d62db272c,Universidad de San Martin de Porres,universidad de san martin de porres,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-de-san-martin-de-porr_2f13a3a9e32c,Universidad de San Martin de Porres Facultad de Medicina,universidad de san martin de porres facultad de medicina,medical_school,,cleaned_label,0.55
 org_medical-school-universidad-del-rosario_4371220eb322,Universidad del Rosario,universidad del rosario,medical_school,,cleaned_label,0.55
+org_medical-school-universidade-federal-de-piaui-bra_f154dcec1efc,Universidade Federal de Piaui (Brazil),universidade federal de piaui brazil,medical_school,,cleaned_label,0.55
 org_medical-school-universidade-federal-de-santa-cat_e22922af69a8,Universidade Federal de Santa Catarina,universidade federal de santa catarina,medical_school,,cleaned_label,0.55
 org_medical-school-universidade-do-oeste-paulista_4826df3ae8d6,Universidade do Oeste Paulista,universidade do oeste paulista,medical_school,,cleaned_label,0.55
 org_medical-school-university-college-dublin-school-_1c2ff955dfe3,University College Dublin School of Medicine,university college dublin school medicine,medical_school,,cleaned_label,0.55
@@ -479,6 +504,7 @@ org_medical-school-university-buffalo-jacobs-school-_555a40f11787,"University at
 org_medical-school-university-alabama_d91665fc45c0,University of Alabama,university alabama,medical_school,,cleaned_label,0.55
 org_medical-school-university-alabama-birmingham_5a0d8d0c97b9,University of Alabama at Birmingham,university alabama birmingham,medical_school,,cleaned_label,0.55
 org_medical-school-university-aleppo_6e4dad6f1430,University of Aleppo,university aleppo,medical_school,,cleaned_label,0.55
+org_medical-school-university-aleppo-faculty-medicin_f23c95604ac3,University of Aleppo Faculty of Medicine,university aleppo faculty medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-alexandria-egypt_3e74b5b13ce6,"University of Alexandria, Egypt",university alexandria egypt,medical_school,,cleaned_label,0.55
 org_medical-school-university-arizona_aa4b6e404e1f,University of Arizona,university arizona,medical_school,,cleaned_label,0.55
 org_medical-school-university-bern-switzerland_abdad55f915d,"University of Bern, Switzerland",university bern switzerland,medical_school,,cleaned_label,0.55
@@ -503,8 +529,10 @@ org_medical-school-university-ghana-medical-school_09384eabe8a6,University of Gh
 org_medical-school-university-hawaii-school-medicine_4bf33419846a,University of Hawaii School of Medicine,university hawaii school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-college-medic_6027633cac30,University of Illinois College of Medicine,university illinois college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-college-medic_baef4882f414,University of Illinois College of Medicine at Chicago,university illinois college medicine chicago,medical_school,,cleaned_label,0.55
+org_medical-school-university-illinois-school-medici_013b96e706ad,University of Illinois School of Medicine,university illinois school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-chicago_edf5af328ecf,University of Illinois at Chicago,university illinois chicago,medical_school,,cleaned_label,0.55
 org_medical-school-university-illinois-chicago-colle_77f4ecee5094,University of Illinois at Chicago College of Medicine,university illinois chicago college medicine,medical_school,,cleaned_label,0.55
+org_medical-school-university-iowa_935b3dd1de2e,University of Iowa,university iowa,medical_school,,cleaned_label,0.55
 org_medical-school-university-iowa-roy-j-lucille-a-c_66f005661d25,University of Iowa Roy J and Lucille A Carver College,university iowa roy j lucille a carver college,medical_school,,cleaned_label,0.55
 org_medical-school-university-iowa-roy-j-lucille-a-c_879922d6f36a,University of Iowa Roy J and Lucille A Carver College of Medicine,university iowa roy j lucille a carver college medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-kentucky-college-medic_50318770a34e,University of Kentucky College of Medicine. Doctor of Medicine,university kentucky college medicine doctor medicine,medical_school,,cleaned_label,0.55
@@ -527,6 +555,7 @@ org_medical-school-university-nebraska-college-medic_ab42818cf40f,University of 
 org_medical-school-university-nebraska-medical-cente_63b1915a16d6,University of Nebraska Medical Center,university nebraska medical center,medical_school,,cleaned_label,0.55
 org_medical-school-university-new-mexico_a414ba2fd954,University of New Mexico,university new mexico,medical_school,,cleaned_label,0.55
 org_medical-school-university-new-mexico-school-medi_fba260fad940,University of New Mexico School of Medicine,university new mexico school medicine,medical_school,,cleaned_label,0.55
+org_medical-school-university-north-carolina-school-_f8b595112575,University of North Carolina School of Medicine,university north carolina school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-north-carolina-chapel-_df7f97f30b65,University of North Carolina at Chapel Hill,university north carolina chapel hill,medical_school,,cleaned_label,0.55
 org_medical-school-university-north-carolina-chapel-_557001eeb3eb,"University of North Carolina at Chapel Hill, Chapel Hill, NC",university north carolina chapel hill chapel hill nc,medical_school,,cleaned_label,0.55
 org_medical-school-university-oklahoma-college-medic_1eca26ce4aee,University of Oklahoma College of Medicine,university oklahoma college medicine,medical_school,,cleaned_label,0.55
@@ -537,6 +566,7 @@ org_medical-school-university-pittsburgh_6df625848056,University of Pittsburgh,u
 org_medical-school-university-pittsburgh-medical-sch_f54aacae0d2f,University of Pittsburgh Medical School,university pittsburgh medical school,medical_school,,cleaned_label,0.55
 org_medical-school-university-pittsburgh-school-medi_45cddfa7361f,University of Pittsburgh School of Medicine,university pittsburgh school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-puerto-rico_2fe600dc41ba,University of Puerto Rico,university puerto rico,medical_school,,cleaned_label,0.55
+org_medical-school-university-queensland-school-medi_5d7f9c4169cc,University of Queensland School of Medicine,university queensland school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-university-rochester_dc6a743d8495,University of Rochester,university rochester,medical_school,,cleaned_label,0.55
 org_medical-school-university-rochester-som-dentistr_af9b376a512e,University of Rochester SOM and Dentistry,university rochester som dentistry,medical_school,,cleaned_label,0.55
 org_medical-school-university-rochester-school-medic_b3645ae3fcd1,University of Rochester School of Medicine & Dentistry,university rochester school medicine dentistry,medical_school,,cleaned_label,0.55
@@ -584,6 +614,7 @@ org_medical-school-washington-university-school-medi_a7634e82c976,"Washington Un
 org_medical-school-washington-university-in-st-louis_6b1c9471ef4c,Washington University in St. Louis,washington university in st louis,medical_school,,cleaned_label,0.55
 org_medical-school-washington-university-in-st-louis_a550d0495b91,Washington University in St. Louis School of Medicine,washington university in st louis school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-washington-university-st-louis_59d3495cd416,"Washington University, St. Louis",washington university st louis,medical_school,,cleaned_label,0.55
+org_medical-school-wayne-state-school-medicine_b0647b5d0397,Wayne State School of Medicine,wayne state school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-wayne-state-university-som_0a16dead8d36,Wayne State University SOM,wayne state university som,medical_school,,cleaned_label,0.55
 org_medical-school-wayne-state-university-school-med_7f313d080ea6,Wayne State University School of Medicine,wayne state university school medicine,medical_school,,cleaned_label,0.55
 org_medical-school-weill-cornell-graduate-school-med_10f9001cc79c,Weill Cornell Graduate School of Medical Sciences,weill cornell graduate school medical sciences,medical_school,,cleaned_label,0.55

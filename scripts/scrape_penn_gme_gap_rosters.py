@@ -63,6 +63,114 @@ PROGRAM_ALIASES = {
     "Children's Hospital Of Philadelphia Otolaryngology Fellows": "CHOP Otolaryngology Fellowship",
 }
 
+SEED_ROSTER_CANDIDATES = [
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency/current-residents",
+        "department": "Family Medicine",
+        "program_name": "Family Medicine",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup/current-residents",
+        "department": "Obstetrics and Gynecology",
+        "program_name": "Obstetrics and Gynecology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Current Fellows",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows",
+        "department": "Orthopedic Surgery",
+        "program_name": "Adult Reconstructive Orthopedics",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Fellows",
+        "candidate_url": "https://oto.med.upenn.edu/current-fellows",
+        "department": "Otorhinolaryngology",
+        "program_name": "Otorhinolaryngology",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://oto.med.upenn.edu/current-residents",
+        "department": "Otorhinolaryngology",
+        "program_name": "Otorhinolaryngology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency/residents",
+        "department": "Neurological Surgery",
+        "program_name": "Neurological Surgery",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency/residents",
+        "department": "Orthopedic Surgery",
+        "program_name": "Orthopedic Surgery",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/residents",
+        "department": "Podiatric Surgery",
+        "program_name": "Podiatric Surgery",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://www.med.upenn.edu/radiationoncologymedicalresidency/current-residents.html",
+        "department": "Radiation Oncology",
+        "program_name": "Radiation Oncology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Meet Our Fellow",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship/fellows",
+        "department": "Surgery",
+        "program_name": "Colon and Rectal Surgery",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Meet Our Fellow",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship/fellow",
+        "department": "Surgery",
+        "program_name": "Craniofacial Surgery",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Meet Our Fellow",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track/fellow",
+        "department": "Surgery",
+        "program_name": "Thoracic Surgery - Thoracic Track",
+        "program_type": "fellowship",
+    },
+    {
+        "candidate_title": "Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents",
+        "department": "Anesthesiology",
+        "program_name": "Anesthesiology",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Current Residents",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program/current-residents",
+        "department": "Physical Medicine and Rehabilitation",
+        "program_name": "Physical Medicine and Rehabilitation",
+        "program_type": "residency",
+    },
+    {
+        "candidate_title": "Fellows",
+        "candidate_url": "https://www.med.upenn.edu/sleepctr/fellows.html",
+        "department": "Internal Medicine",
+        "program_name": "Sleep Medicine",
+        "program_type": "fellowship",
+    },
+]
+
 
 def norm(text: str | None) -> str:
     if not text:
@@ -269,11 +377,21 @@ def class_or_pgy_label(text: str) -> str:
     text = norm(text)
     if re.fullmatch(r"PGY\s*\d+", text, flags=re.I):
         return text.upper().replace(" ", "")
+    if re.fullmatch(r"PGY-?\s*\d+", text, flags=re.I):
+        return "PGY" + re.search(r"\d+", text).group(0)
     if re.fullmatch(r"Class of \d{4}", text, flags=re.I):
         return text
     if "chief resident" in text.lower():
         return "Chief Resident"
     return text
+
+
+def clean_school_value(value: str) -> str:
+    value = norm(value)
+    value = re.sub(r"\s+See Profile$", "", value, flags=re.I)
+    value = re.sub(r",?\s+\d{4}(?:\s*\([^)]*\))?(?:\s+and\s+[’']\d{2}\s*\([^)]*\))?$", "", value)
+    value = re.sub(r",?\s+[’']\d{2}\s*\([^)]*\)$", "", value)
+    return norm(value)
 
 
 def extract_bio_cards(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
@@ -419,6 +537,136 @@ def extract_heading_name_lists(soup: BeautifulSoup, candidate: dict, source_key:
     return rows
 
 
+def extract_neurology_archive_cards(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
+    if "neuroresidency.uphs.upenn.edu/residents/" not in source_url:
+        return []
+    heading = soup.select_one(".archive_page_hero_title, h1")
+    training_label = ""
+    if heading:
+        match = re.search(r"Class of \d{4}", norm(heading.get_text(" ")), re.I)
+        if match:
+            training_label = match.group(0)
+    rows = []
+    for card in soup.select(".archive_page_post"):
+        name_node = card.select_one(".archive_page_post_title, h2")
+        if not name_node:
+            continue
+        name = norm(name_node.get_text(" "))
+        if not looks_like_person_name(name):
+            continue
+        excerpt_node = card.select_one(".archive_page_post_excerpt, p")
+        medical_school = clean_school_value(excerpt_node.get_text(" ")) if excerpt_node else ""
+        profile = card.select_one('a[href]')
+        image = card.select_one("img")
+        rows.append(
+            record_for(
+                candidate,
+                source_key,
+                source_url,
+                name,
+                "Neurology Residency",
+                "resident",
+                class_or_pgy_label(training_label or candidate.get("candidate_title", "")),
+                "gap_queue_neurology_archive_card",
+                fields={"medical_school": medical_school} if medical_school else {},
+                profile_url=absolute(source_url, profile.get("href") if profile else ""),
+                headshot_url=absolute(source_url, image.get("src") if image else ""),
+            )
+        )
+    return rows
+
+
+def pathology_program_from_detail(detail: str, fallback: str) -> str:
+    detail = norm(detail)
+    fellowship_match = re.search(r"\d{4}-\d{2}\s+(.+?)\s+Fellow\b", detail, re.I)
+    if fellowship_match:
+        label = norm(fellowship_match.group(1))
+        return normalize_program(label, "fellowship")
+    return fallback
+
+
+def extract_pathology_current_residents(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
+    if "pathology.med.upenn.edu/education/residency/residents/current" not in source_url:
+        return []
+    rows = []
+    for section in soup.select("#content .accordeon-item"):
+        header = section.select_one(".accordeon-header")
+        section_label = class_or_pgy_label(norm(header.get_text(" "))) if header else ""
+        for item in section.select(".stuff-item.accordeon-column"):
+            name_node = item.select_one("strong a, strong")
+            if not name_node:
+                continue
+            name = norm(name_node.get_text(" "))
+            if not looks_like_person_name(name):
+                continue
+            lines = [norm(line) for line in item.get_text("\n").splitlines() if norm(line)]
+            details = [line for line in lines if line != name and line.lower() != "more info"]
+            detail_line = details[0] if details else ""
+            medical_school = clean_school_value(" ".join(details[1:])) if len(details) > 1 else ""
+            pgy_match = re.search(r"\bPGY-?\s*(\d+)\b", detail_line or section_label, re.I)
+            training_label = f"PGY{pgy_match.group(1)}" if pgy_match else section_label
+            profile = name_node if getattr(name_node, "name", "") == "a" else item.select_one("a[href]")
+            rows.append(
+                record_for(
+                    candidate,
+                    source_key,
+                    source_url,
+                    name,
+                    "Pathology - Anatomic and Clinical Residency",
+                    "resident",
+                    class_or_pgy_label(training_label),
+                    "gap_queue_pathology_current_resident_accordion",
+                    fields={
+                        key: value
+                        for key, value in {
+                            "medical_school": medical_school,
+                            "pathology_track": detail_line,
+                        }.items()
+                        if value
+                    },
+                    profile_url=absolute(source_url, profile.get("href") if profile else ""),
+                )
+            )
+    return rows
+
+
+def extract_pathology_people_accordion(soup: BeautifulSoup, candidate: dict, source_key: str, source_url: str) -> list[dict]:
+    if "pathology.med.upenn.edu/department/people/" not in source_url:
+        return []
+    rows = []
+    for item in soup.select(".profile-accordeon .accordeon-item"):
+        name_node = item.select_one(".accordeon-header strong")
+        if not name_node:
+            continue
+        name = norm(name_node.get_text(" "))
+        if not looks_like_person_name(name):
+            continue
+        text = norm(item.get_text(" "))
+        detail = norm(text.replace(name, "", 1).replace("More Info", ""))
+        year_match = re.search(r"\b\d{4}-\d{2}\b", detail)
+        training_label = year_match.group(0) if year_match else candidate.get("candidate_title", "")
+        if "/department/people/residents" in source_url:
+            role = "resident"
+            program = "Pathology - Anatomic and Clinical Residency"
+        else:
+            role = "fellow" if "fellow" in detail.lower() or candidate.get("program_type") == "fellowship" else "resident"
+            program = pathology_program_from_detail(detail, program_for_candidate(candidate, source_url, training_label))
+        rows.append(
+            record_for(
+                candidate,
+                source_key,
+                source_url,
+                name,
+                program,
+                role,
+                class_or_pgy_label(training_label),
+                "gap_queue_pathology_people_accordion",
+                fields={"bio_text": redact_text(detail)} if detail else {},
+            )
+        )
+    return rows
+
+
 def existing_roster_urls(conn: sqlite3.Connection) -> set[str]:
     return {
         row[0].rstrip("/")
@@ -445,6 +693,17 @@ def queue_candidates(conn: sqlite3.Connection, limit: int | None) -> list[dict]:
     if limit:
         sql += f" LIMIT {int(limit)}"
     rows = [dict(row) for row in conn.execute(sql)]
+    for index, seed in enumerate(SEED_ROSTER_CANDIDATES):
+        rows.append(
+            {
+                "candidate_key": f"seed_roster_candidate_{index}",
+                "official_program_key": "",
+                "priority": 150,
+                "confidence": 0.75,
+                "candidate_status": "roster_source_candidate",
+                **seed,
+            }
+        )
     by_url = defaultdict(list)
     for row in rows:
         by_url[row["candidate_url"].rstrip("/")].append(row)
@@ -505,6 +764,9 @@ def parse_candidate(session: requests.Session, candidate: dict) -> tuple[list[di
         ("profile_component", extract_profiles(soup, candidate, meta["source_key"], url)),
         ("accordion_header", extract_accordion_headers(soup, candidate, meta["source_key"], url)),
         ("heading_name_list", extract_heading_name_lists(soup, candidate, meta["source_key"], url)),
+        ("neurology_archive_card", extract_neurology_archive_cards(soup, candidate, meta["source_key"], url)),
+        ("pathology_current_resident_accordion", extract_pathology_current_residents(soup, candidate, meta["source_key"], url)),
+        ("pathology_people_accordion", extract_pathology_people_accordion(soup, candidate, meta["source_key"], url)),
     ]
     records = []
     seen = set()

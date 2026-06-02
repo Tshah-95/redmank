@@ -139,10 +139,11 @@ The current acceptance rule is deliberately strict: accept research enrichment o
 
 ## Public Contact Evidence
 
-The current warehouse stores 292 public email candidates:
+The current warehouse stores 313 public email candidates:
 
 - 205 from the official public Penn MSTP student directory.
 - 53 from official Medicine roster pages.
+- 21 from official HUP gap roster pages.
 - 34 from current Penn attending/faculty candidate pages.
 
 These are not flattened into `people`. They live in `person_contacts` because contact channels can be multiple, stale, source-specific, or attached to a named candidate who has not yet been reconciled into the core identity table. Raw HTML snapshots remain redacted; only structured public contact candidates are committed.

@@ -8,6 +8,7 @@ import hashlib
 import json
 import re
 import sqlite3
+from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -491,9 +492,14 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
     paths = [path for path in claim_paths if path.exists()]
     if not paths:
         return
-    claims = []
+    raw_claims = []
     for path in paths:
-        claims.extend(load_json(path))
+        raw_claims.extend(load_json(path))
+    if not raw_claims:
+        return
+    existing_people = {row[0] for row in conn.execute("SELECT person_key FROM people")}
+    orphan_claims = [row for row in raw_claims if row.get("person_key") not in existing_people]
+    claims = [row for row in raw_claims if row.get("person_key") in existing_people]
     if not claims:
         return
     upsert_scholarly_sources(conn)
@@ -531,6 +537,10 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         summary["generated_at"] for summary in summaries.values() if summary.get("generated_at")
     )
     generated_at = artifact_observed_at[-1] if artifact_observed_at else datetime.now(timezone.utc).isoformat()
+    orphan_claims_by_source = Counter(row.get("source_key", "") for row in orphan_claims)
+    orphan_people_by_source: dict[str, set[str]] = defaultdict(set)
+    for row in orphan_claims:
+        orphan_people_by_source[row.get("source_key", "")].add(row.get("person_key", ""))
     for source_key in sorted({row["source_key"] for row in claims}):
         source_claims = [row for row in claims if row["source_key"] == source_key]
         source_people = len({row["person_key"] for row in source_claims})
@@ -553,6 +563,9 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
                 dumps(
                     {
                         "claims": len(source_claims),
+                        "raw_claims": len([row for row in raw_claims if row.get("source_key") == source_key]),
+                        "orphan_claims_skipped": orphan_claims_by_source.get(source_key, 0),
+                        "orphan_people_skipped": len(orphan_people_by_source.get(source_key, set())),
                         "mean_confidence": round(
                             sum(float(row["confidence"]) for row in source_claims) / len(source_claims), 4
                         )
@@ -564,8 +577,9 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         )
     for path in paths:
         summary = summaries.get(path.name, {})
-        path_claims = load_json(path)
-        if not path_claims:
+        raw_path_claims = load_json(path)
+        path_claims = [row for row in raw_path_claims if row.get("person_key") in existing_people]
+        if not raw_path_claims:
             continue
         if path.name != "pubmed_article_candidate_claims.json":
             continue
@@ -589,9 +603,20 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
                 dumps(
                     {
                         "claims": len(path_claims),
+                        "raw_claims": len(raw_path_claims),
+                        "orphan_claims_skipped": len(raw_path_claims) - len(path_claims),
+                        "orphan_people_skipped": len(
+                            {
+                                row.get("person_key", "")
+                                for row in raw_path_claims
+                                if row.get("person_key") not in existing_people
+                            }
+                        ),
                         "mean_confidence": round(
                             sum(float(row["confidence"]) for row in path_claims) / len(path_claims), 4
-                        ),
+                        )
+                        if path_claims
+                        else 0,
                         "artifact": path.name,
                         "summary": summary,
                     }
@@ -1673,7 +1698,15 @@ def insert_official_program_coverage(conn: sqlite3.Connection) -> None:
             ),
         )
     audited_at = datetime.now(timezone.utc).isoformat()
+    official_program_keys = {row[0] for row in conn.execute("SELECT official_program_key FROM official_program_universe")}
+    local_program_keys = {row[0] for row in conn.execute("SELECT program_key FROM programs")}
     for row in load_json(coverage_path):
+        official_program_key = row["entry_key"]
+        if official_program_key not in official_program_keys:
+            continue
+        matched_program_key = row.get("matched_program_key") or None
+        if matched_program_key and matched_program_key not in local_program_keys:
+            matched_program_key = None
         conn.execute(
             """
             INSERT OR REPLACE INTO official_program_coverage_audit
@@ -1683,9 +1716,9 @@ def insert_official_program_coverage(conn: sqlite3.Connection) -> None:
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                row["entry_key"],
+                official_program_key,
                 row["coverage_status"],
-                row.get("matched_program_key") or None,
+                matched_program_key,
                 row.get("matched_program_name"),
                 int(row.get("captured_people_count") or 0),
                 row.get("match_method"),

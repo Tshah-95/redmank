@@ -9,62 +9,62 @@
   },
   "counts": {
     "career_events": 105,
-    "evidence_claims": 4630,
+    "evidence_claims": 4714,
     "official_program_coverage_audit": 91,
-    "official_program_source_candidates": 214,
-    "official_program_source_probes": 43,
+    "official_program_source_candidates": 82,
+    "official_program_source_probes": 34,
     "official_program_universe": 91,
-    "organization_aliases": 815,
+    "organization_aliases": 846,
     "organization_identifiers": 1,
-    "organizations": 795,
-    "people": 1336,
+    "organizations": 826,
+    "people": 1451,
     "person_contacts": 313,
-    "person_training_events": 1661,
-    "person_training_states": 1483,
+    "person_training_events": 1753,
+    "person_training_states": 1598,
     "program_lifecycle_rules": 13,
-    "programs": 78,
+    "programs": 90,
     "source_quality_observations": 3,
     "source_utilities": 9,
-    "sources": 1386
+    "sources": 1384
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_coverage_summary": {
-    "article_candidate_coverage_rate": 0.222,
-    "avg_coverage_score": 60.24,
+    "article_candidate_coverage_rate": 0.205,
+    "avg_coverage_score": 59.17,
     "by_coverage_band": {
       "broad_enrichment_surface": 95,
-      "moderate_enrichment_surface": 1078,
-      "thin_enrichment_surface": 163
+      "moderate_enrichment_surface": 1155,
+      "thin_enrichment_surface": 201
     },
     "by_recommended_next_action": {
-      "collect_article_level_research_candidates": 194,
+      "collect_article_level_research_candidates": 255,
       "monitor_refresh_and_diff": 205,
-      "official_profile_search": 467,
-      "organization_alias_review": 355,
+      "official_profile_search": 484,
+      "organization_alias_review": 386,
       "public_contact_search": 33,
       "reconcile_high_priority_evidence": 49,
       "review_training_state_machine": 20,
-      "source_medical_school_background": 9,
+      "source_medical_school_background": 15,
       "source_residency_background": 4
     },
     "by_role": {
-      "fellow": 336,
+      "fellow": 361,
       "medical_student": 225,
-      "resident": 775
+      "resident": 865
     },
-    "cleaned_org_review_people": 579,
-    "contact_coverage_rate": 0.209,
-    "people_with_reconciliation_queue": 1111,
+    "cleaned_org_review_people": 611,
+    "contact_coverage_rate": 0.192,
+    "people_with_reconciliation_queue": 1103,
     "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
-    "person_rows": 1336,
-    "profile_coverage_rate": 0.636,
+    "person_rows": 1451,
+    "profile_coverage_rate": 0.653,
     "program_coverage_csv": "artifacts/data/program_enrichment_coverage.csv",
-    "program_rows": 78
+    "program_rows": 90
   },
   "evidence_reconciliation_queue_counts": {
     "career_event:candidate": 100,
     "career_event:needs_review": 5,
-    "evidence_claim:candidate": 2119,
+    "evidence_claim:candidate": 2111,
     "evidence_claim:needs_review": 850
   },
   "evidence_reconciliation_top_claim_counts": {
@@ -75,7 +75,7 @@
     "personal_profile_candidate": 2,
     "prior_training_history_candidate": 6,
     "pubmed_article_candidate": 1858,
-    "pubmed_author_query_candidate": 1111,
+    "pubmed_author_query_candidate": 1103,
     "research_interest_candidate": 1
   },
   "evidence_source_counts": {
@@ -127,42 +127,47 @@
     "penn_gme_gap_departments_and_centers_orthopaedic_surgery_education_and_training_res_bc144f028b": 80,
     "penn_gme_gap_departments_and_centers_physical_medicine_and_rehabilitation_education_7d5742c85a": 22,
     "penn_gme_gap_departments_and_centers_podiatry_and_podiatric_surgery_education_and_t_ebe320ba1d": 34,
-    "pubmed_eutilities": 2969,
+    "penn_gme_gap_education_residency_residents_current_5a6a4942f1": 38,
+    "penn_gme_gap_residents_2026_a44d511002": 14,
+    "penn_gme_gap_residents_2027_15a734ed51": 14,
+    "penn_gme_gap_residents_2028_420d5a86f8": 14,
+    "penn_gme_gap_residents_2029_3396e9a918": 12,
+    "pubmed_eutilities": 2961,
     "pulmonary_critical_care_current_fellows": 68,
     "rheumatology_current_fellows": 45
   },
   "evidence_status_counts": {
-    "accepted": 1661,
-    "candidate": 2119,
+    "accepted": 1753,
+    "candidate": 2111,
     "needs_review": 850
   },
   "expected_transition_type_counts": {
     "expected_annual_advancement": 657,
     "expected_completion": 250,
-    "source_refresh_required": 555,
+    "source_refresh_required": 670,
     "stage_outside_nominal_duration_review": 21
   },
-  "generated_at": "2026-06-02T06:40:36.960150+00:00",
+  "generated_at": "2026-06-02T06:53:06.698010+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
     "US_GME_FELLOWSHIP_1Y": 92,
     "US_GME_FELLOWSHIP_2Y": 80,
     "US_GME_FELLOWSHIP_3Y": 124,
-    "US_GME_FELLOWSHIP_DURATION_UNKNOWN": 33,
+    "US_GME_FELLOWSHIP_DURATION_UNKNOWN": 58,
     "US_GME_PRELIMINARY_1Y": 13,
     "US_GME_RESIDENCY_3Y": 351,
     "US_GME_RESIDENCY_4Y": 137,
-    "US_GME_RESIDENCY_5Y": 255,
+    "US_GME_RESIDENCY_5Y": 309,
     "US_GME_RESIDENCY_6Y": 56,
     "US_GME_RESIDENCY_7Y": 21,
-    "US_GME_RESIDENCY_DURATION_UNKNOWN": 8,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN": 44,
     "US_MD_PHD_MSTP_VARIABLE": 225,
     "none": 13
   },
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,
-    "FELLOWSHIP_CURRENT_YEAR_UNKNOWN": 150,
+    "FELLOWSHIP_CURRENT_YEAR_UNKNOWN": 175,
     "FELLOWSHIP_YEAR_1": 66,
     "FELLOWSHIP_YEAR_2": 59,
     "FELLOWSHIP_YEAR_3": 36,
@@ -175,17 +180,17 @@
     "GME_CLINICAL_YEAR_3": 10,
     "GME_CLINICAL_YEAR_4": 9,
     "GME_INDEPENDENT_RESIDENT": 2,
-    "GME_PGY_1": 193,
-    "GME_PGY_2": 191,
-    "GME_PGY_3": 165,
-    "GME_PGY_4": 63,
+    "GME_PGY_1": 205,
+    "GME_PGY_2": 204,
+    "GME_PGY_3": 176,
+    "GME_PGY_4": 71,
     "GME_PGY_5": 25,
     "GME_PGY_6": 8,
     "GME_PGY_7": 3,
     "GME_PRELIMINARY_RESIDENT": 13,
     "GME_RESEARCH_OR_LAB_YEAR": 25,
-    "GME_RESIDENT_CLASS_YEAR": 19,
-    "GME_RESIDENT_YEAR_UNKNOWN": 94,
+    "GME_RESIDENT_CLASS_YEAR": 73,
+    "GME_RESIDENT_YEAR_UNKNOWN": 86,
     "MEDICAL_SCHOOL_MS1": 22,
     "MEDICAL_SCHOOL_MS2": 31,
     "MEDICAL_SCHOOL_MS3_OR_MS4": 49,
@@ -193,35 +198,35 @@
     "POSTDOCTORAL_RESEARCH_FELLOW": 7
   },
   "official_program_coverage_counts": {
-    "covered_current_roster": 51,
-    "discovered_no_current_roster": 20,
+    "covered_current_roster": 59,
+    "discovered_no_current_roster": 12,
     "not_discovered": 20
   },
   "official_program_source_candidate_counts": {
-    "low_value_candidate": 13,
-    "program_context_candidate": 136,
-    "roster_source_candidate": 65
+    "low_value_candidate": 5,
+    "program_context_candidate": 53,
+    "roster_source_candidate": 24
   },
   "organization_category_counts": {
     "clinical_training_site": 168,
     "graduate_institution": 24,
-    "medical_school": 417,
+    "medical_school": 448,
     "undergraduate_institution": 186
   },
   "resolver_counts": {
-    "cleaned_label": 785,
-    "seeded_alias": 876
+    "cleaned_label": 816,
+    "seeded_alias": 937
   },
   "role_counts": {
-    "fellow": 336,
+    "fellow": 361,
     "medical_student": 225,
-    "resident": 775
+    "resident": 865
   },
-  "stale_by_next_august_count": 1470,
+  "stale_by_next_august_count": 1585,
   "training_state_family_counts": {
-    "clinical_postgraduate": 895,
+    "clinical_postgraduate": 985,
     "clinical_postgraduate_research": 25,
-    "fellowship": 318,
+    "fellowship": 343,
     "medical_school": 102,
     "post_training_or_alumni": 13,
     "research_phase": 130
@@ -229,10 +234,10 @@
   "training_state_machine_summary": {
     "auto_advance_candidate_rows": 657,
     "by_clock_model": {
-      "annual_gme_july": 911,
+      "annual_gme_july": 955,
       "refresh_from_source": 13,
       "review_required": 21,
-      "source_refresh_required": 538
+      "source_refresh_required": 609
     },
     "by_lifecycle_code_and_status": {
       "US_GME_ANESTHESIA_CA_PHASE_3Y:annual_clock_active": 52,
@@ -248,7 +253,7 @@
       "US_GME_FELLOWSHIP_3Y:source_refresh_required": 10,
       "US_GME_FELLOWSHIP_3Y:terminal_year_active": 35,
       "US_GME_FELLOWSHIP_DURATION_UNKNOWN:current_observation": 4,
-      "US_GME_FELLOWSHIP_DURATION_UNKNOWN:source_refresh_required": 29,
+      "US_GME_FELLOWSHIP_DURATION_UNKNOWN:source_refresh_required": 54,
       "US_GME_PRELIMINARY_1Y:terminal_year_active": 13,
       "US_GME_RESIDENCY_3Y:annual_clock_active": 234,
       "US_GME_RESIDENCY_3Y:review_required": 10,
@@ -257,21 +262,21 @@
       "US_GME_RESIDENCY_4Y:source_refresh_required": 7,
       "US_GME_RESIDENCY_4Y:terminal_year_active": 23,
       "US_GME_RESIDENCY_5Y:annual_clock_active": 123,
-      "US_GME_RESIDENCY_5Y:source_refresh_required": 115,
+      "US_GME_RESIDENCY_5Y:source_refresh_required": 169,
       "US_GME_RESIDENCY_5Y:terminal_year_active": 17,
       "US_GME_RESIDENCY_6Y:annual_clock_active": 25,
       "US_GME_RESIDENCY_6Y:source_refresh_required": 26,
       "US_GME_RESIDENCY_6Y:terminal_year_active": 5,
       "US_GME_RESIDENCY_7Y:annual_clock_active": 18,
       "US_GME_RESIDENCY_7Y:terminal_year_active": 3,
-      "US_GME_RESIDENCY_DURATION_UNKNOWN:source_refresh_required": 8,
+      "US_GME_RESIDENCY_DURATION_UNKNOWN:current_observation": 44,
       "US_MD_PHD_MSTP_VARIABLE:source_refresh_required": 225,
       "none:current_observation": 13
     },
     "by_recommended_action": {
       "mark_completion_or_alumni_if_absent_after_stale_after": 250,
-      "refresh_source_before_mutation": 538,
-      "retain_until_next_refresh": 17,
+      "refresh_source_before_mutation": 609,
+      "retain_until_next_refresh": 61,
       "review_lifecycle_rule_or_source_label": 21,
       "wait_until_expected_next_date_then_reconcile": 657
     },
@@ -279,29 +284,30 @@
       "fellow:annual_clock_active": 98,
       "fellow:current_observation": 17,
       "fellow:review_required": 11,
-      "fellow:source_refresh_required": 157,
+      "fellow:source_refresh_required": 182,
       "fellow:terminal_year_active": 59,
       "medical_student:source_refresh_required": 225,
       "resident:annual_clock_active": 559,
+      "resident:current_observation": 44,
       "resident:review_required": 10,
-      "resident:source_refresh_required": 156,
+      "resident:source_refresh_required": 202,
       "resident:terminal_year_active": 191
     },
     "by_state_machine_status": {
       "annual_clock_active": 657,
-      "current_observation": 17,
+      "current_observation": 61,
       "review_required": 21,
-      "source_refresh_required": 538,
+      "source_refresh_required": 609,
       "terminal_year_active": 250
     },
     "completion_candidate_rows": 250,
     "generated_as_of_date": "2026-06-02",
     "person_rollup_csv": "artifacts/data/person_training_state_machine_audit.csv",
-    "person_rows": 1336,
+    "person_rows": 1451,
     "program_rollup_csv": "artifacts/data/program_training_state_machine_audit.csv",
-    "program_rows": 78,
+    "program_rows": 90,
     "stale_or_review_state_rows": 21,
     "state_audit_csv": "artifacts/data/training_state_machine_audit.csv",
-    "state_rows": 1483
+    "state_rows": 1598
   }
 }

@@ -1,25 +1,34 @@
 {
   "by_extraction_status": {
-    "no_supported_person_structure": 12,
-    "records_extracted": 16
+    "no_supported_person_structure": 4,
+    "records_extracted": 22
   },
   "by_program": {
     "Adult Reconstructive Orthopedics Fellowship": 3,
     "Anesthesiology Residency": 97,
+    "Breast Pathology Fellowship": 1,
     "CHOP Otolaryngology Fellowship": 4,
+    "Clinical Chemistry Fellowship": 2,
+    "Clinical Microbiology Fellowship": 2,
     "Colon and Rectal Surgery Fellowship": 1,
     "Craniofacial Surgery Fellowship": 1,
+    "Cytopathology Fellowship": 2,
     "Facial Plastic and Reconstructive Surgery Fellowship": 1,
     "Family Medicine Residency": 35,
     "Foot and Ankle Fellowship": 2,
+    "GI/Hepatic Pathology Fellowship": 2,
     "Hand Surgery Fellowship": 2,
     "Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship": 2,
+    "Hematopathology Fellowship": 4,
+    "Molecular Genetic Pathology Fellowship": 2,
     "Neurological Surgery Residency": 21,
+    "Neurology Residency": 54,
+    "Neuropathology Fellowship": 2,
     "Neurotology Fellowship": 1,
     "Obstetrics and Gynecology Residency": 32,
-    "Oral Medicine Residency": 8,
     "Orthopedic Surgery Residency": 40,
     "Otorhinolaryngology Residency": 31,
+    "Pathology - Anatomic and Clinical Residency": 69,
     "Physical Medicine and Rehabilitation Residency": 22,
     "Podiatric Surgery Residency": 16,
     "Radiation Oncology Residency": 17,
@@ -27,16 +36,19 @@
     "Shoulder and Elbow Fellowship": 1,
     "Sleep Medicine Fellowship": 7,
     "Sleep Medicine and Surgery Fellowship": 2,
+    "Soft Tissue/Bone Pathology Fellowship": 1,
     "Spine Fellowship": 1,
     "Sports Medicine Fellowship": 2,
-    "Thoracic Surgery - Thoracic Track Fellowship": 1
+    "Surgical Pathology Fellowship": 6,
+    "Thoracic Surgery - Thoracic Track Fellowship": 1,
+    "Transfusion Medicine/Blood Bank Fellowship": 1
   },
   "by_role": {
-    "fellow": 33,
-    "resident": 319
+    "fellow": 58,
+    "resident": 434
   },
-  "generated_at": "2026-06-02T05:52:03.759337+00:00",
-  "person_records": 352,
+  "generated_at": "2026-06-02T06:52:02.169849+00:00",
+  "person_records": 492,
   "skipped_already_captured_sources": 5,
   "skipped_sources": [
     {
@@ -54,7 +66,7 @@
     {
       "candidate_title": "Student Fellows",
       "candidate_url": "https://pathology.med.upenn.edu/department/people/students-fellows",
-      "program_name": "Blood Banking and Transfusion Medicine",
+      "program_name": "Soft Tissue/Bone (Selective)",
       "reason": "student_fellows_directory_not_gme_roster"
     },
     {
@@ -70,7 +82,7 @@
       "reason": "already_loaded_as_official_roster_source"
     }
   ],
-  "sources_attempted": 28,
-  "sources_with_records": 16,
-  "unique_names": 352
+  "sources_attempted": 26,
+  "sources_with_records": 22,
+  "unique_names": 467
 }
