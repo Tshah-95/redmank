@@ -50,6 +50,7 @@ def main() -> None:
         "person_enrichment_execution_readiness_rollups",
         "person_enrichment_execution_batches",
         "person_enrichment_action_packets",
+        "person_enrichment_action_batches",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",
@@ -696,6 +697,36 @@ def main() -> None:
             """
             SELECT priority_band, COUNT(*) AS count
             FROM person_enrichment_action_packets
+            GROUP BY priority_band
+            """
+        )
+    }
+    person_enrichment_action_batch_status_counts = {
+        row["batch_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT batch_status, COUNT(*) AS count
+            FROM person_enrichment_action_batches
+            GROUP BY batch_status
+            """
+        )
+    }
+    person_enrichment_action_batch_lane_counts = {
+        row["primary_action_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT primary_action_lane, COUNT(*) AS count
+            FROM person_enrichment_action_batches
+            GROUP BY primary_action_lane
+            """
+        )
+    }
+    person_enrichment_action_batch_priority_counts = {
+        row["priority_band"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT priority_band, COUNT(*) AS count
+            FROM person_enrichment_action_batches
             GROUP BY priority_band
             """
         )
@@ -1411,6 +1442,13 @@ def main() -> None:
         )
     else:
         person_enrichment_action_packet_summary = {}
+    person_enrichment_action_batch_summary_path = ARTIFACTS / "person_enrichment_action_batch_summary.json"
+    if person_enrichment_action_batch_summary_path.exists():
+        person_enrichment_action_batch_summary = json.loads(
+            person_enrichment_action_batch_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_enrichment_action_batch_summary = {}
     warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
     if warehouse_reproducibility_summary_path.exists():
         warehouse_reproducibility_summary = json.loads(
@@ -1592,6 +1630,9 @@ def main() -> None:
         "person_enrichment_action_packet_status_counts": person_enrichment_action_packet_status_counts,
         "person_enrichment_action_packet_lane_counts": person_enrichment_action_packet_lane_counts,
         "person_enrichment_action_packet_priority_counts": person_enrichment_action_packet_priority_counts,
+        "person_enrichment_action_batch_status_counts": person_enrichment_action_batch_status_counts,
+        "person_enrichment_action_batch_lane_counts": person_enrichment_action_batch_lane_counts,
+        "person_enrichment_action_batch_priority_counts": person_enrichment_action_batch_priority_counts,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_display_safety_counts": contact_display_safety_counts,
@@ -1676,6 +1717,7 @@ def main() -> None:
         "person_enrichment_execution_readiness_summary": person_enrichment_execution_readiness_summary,
         "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,
         "person_enrichment_action_packet_summary": person_enrichment_action_packet_summary,
+        "person_enrichment_action_batch_summary": person_enrichment_action_batch_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,

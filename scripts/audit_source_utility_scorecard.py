@@ -776,6 +776,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         )
         """,
     )
+    action_batch_summary = read_json(ARTIFACTS / "person_enrichment_action_batch_summary.json", {})
+    action_batch_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batches")
+    action_batch_ready = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batches WHERE ready_to_execute = 1")
+    action_batch_blocked = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_batches WHERE ready_to_execute = 0")
 
     return [
         make_row(
@@ -1783,6 +1787,36 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "review_ready_packets": action_packet_review_ready,
                 "collector_ready_packets": action_packet_collector_ready,
                 "action_packet_summary": action_packet_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="person_enrichment_action_batch_ledger",
+            utility_key="",
+            utility_label="Person enrichment action batch ledger",
+            source_family="orchestration",
+            claim_surface="resumable execution batches over per-person enrichment action packets",
+            input_records=action_packet_rows,
+            output_records=action_batch_rows,
+            candidate_records=action_batch_ready,
+            blocked_records=action_batch_blocked,
+            score=82.0,
+            strengths=[
+                "Splits per-person action packets into lane/status/priority/role batches that can be worked incrementally",
+                "Preserves command hints, next evidence requirements, downstream artifacts, and top people samples per batch",
+                "Makes blocked retry batches visible instead of mixing them with executable review or collector work",
+            ],
+            limitations=[
+                "Batch execution still depends on source-specific collectors or reviewer decisions",
+                "Large evidence-review batches remain human-review constrained until decision artifacts are recorded",
+                "Chunking optimizes operator flow and does not prove source completeness",
+            ],
+            recommended_next_action="execute_ready_action_batches_and_feed_outputs_back_to_source_specific_ledgers",
+            evidence={
+                "action_packet_rows": action_packet_rows,
+                "action_batch_rows": action_batch_rows,
+                "ready_batch_rows": action_batch_ready,
+                "blocked_batch_rows": action_batch_blocked,
+                "action_batch_summary": action_batch_summary,
             },
         ),
     ]
