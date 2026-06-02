@@ -56,6 +56,10 @@ SNAPSHOT_FIELDS = [
 EVENT_FIELDS = [
     "old_snapshot_id",
     "new_snapshot_id",
+    "snapshot_comparison_kind",
+    "old_snapshot_as_of_date",
+    "new_snapshot_as_of_date",
+    "days_between_snapshots",
     "canonical_person_program_key",
     "person_key",
     "display_name",
@@ -82,6 +86,10 @@ ROLLUP_FIELDS = [
     "rollup_key",
     "old_snapshot_id",
     "new_snapshot_id",
+    "snapshot_comparison_kind",
+    "old_snapshot_as_of_date",
+    "new_snapshot_as_of_date",
+    "days_between_snapshots",
     "rollup_scope",
     "rollup_value",
     "institution",
@@ -345,6 +353,56 @@ def insert_snapshot(conn: sqlite3.Connection, manifest: dict, rows: list[dict]) 
         )
 
 
+def ensure_transition_context_columns(conn: sqlite3.Connection) -> None:
+    additions = {
+        "training_state_transition_events": {
+            "snapshot_comparison_kind": "TEXT NOT NULL DEFAULT ''",
+            "old_snapshot_as_of_date": "TEXT",
+            "new_snapshot_as_of_date": "TEXT",
+            "days_between_snapshots": "INTEGER",
+        },
+        "training_state_transition_rollups": {
+            "snapshot_comparison_kind": "TEXT NOT NULL DEFAULT ''",
+            "old_snapshot_as_of_date": "TEXT",
+            "new_snapshot_as_of_date": "TEXT",
+            "days_between_snapshots": "INTEGER",
+        },
+    }
+    for table, columns in additions.items():
+        existing = {row[1] for row in conn.execute(f"PRAGMA table_info({table})")}
+        for column, definition in columns.items():
+            if column not in existing:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
+
+
+def comparison_context(old_manifest: dict | None, new_manifest: dict) -> dict:
+    old_as_of = old_manifest.get("as_of_date") if old_manifest else ""
+    new_as_of = new_manifest.get("as_of_date") or ""
+    days_between = None
+    if old_as_of and new_as_of:
+        days_between = (parse_date(new_as_of) - parse_date(old_as_of)).days
+    if not old_manifest:
+        kind = "baseline_snapshot"
+    elif old_manifest.get("snapshot_id") == new_manifest.get("snapshot_id"):
+        kind = "same_snapshot_rerun"
+    elif old_manifest.get("corpus_fingerprint") == new_manifest.get("corpus_fingerprint"):
+        kind = "same_corpus_rerun"
+    elif days_between == 0:
+        kind = "same_day_corpus_revision"
+    elif days_between is not None and days_between < 0:
+        kind = "out_of_order_snapshot_review"
+    elif days_between is not None and 250 <= days_between <= 450:
+        kind = "annual_refresh_window"
+    else:
+        kind = "cross_date_corpus_refresh"
+    return {
+        "snapshot_comparison_kind": kind,
+        "old_snapshot_as_of_date": old_as_of,
+        "new_snapshot_as_of_date": new_as_of,
+        "days_between_snapshots": "" if days_between is None else days_between,
+    }
+
+
 def classify_transition(old: dict | None, new: dict | None, compare_date: date) -> dict:
     if old and not new:
         stale_after = parse_date(old.get("stale_after_date"))
@@ -438,6 +496,7 @@ def write_transition_events(
     conn: sqlite3.Connection,
     old_snapshot_id: str | None,
     new_snapshot_id: str,
+    comparison: dict,
     old_rows: list[dict],
     new_rows: list[dict],
     compare_date: date,
@@ -456,6 +515,7 @@ def write_transition_events(
         event = {
             "old_snapshot_id": old_snapshot_id,
             "new_snapshot_id": new_snapshot_id,
+            **comparison,
             "canonical_person_program_key": key,
             "person_key": source.get("person_key"),
             "display_name": source.get("display_name"),
@@ -485,6 +545,10 @@ def write_transition_events(
                 "old_state_fingerprint": (old or {}).get("state_fingerprint"),
                 "new_state_fingerprint": (new or {}).get("state_fingerprint"),
                 "compare_date": compare_date.isoformat(),
+                "snapshot_comparison_kind": comparison["snapshot_comparison_kind"],
+                "old_snapshot_as_of_date": comparison["old_snapshot_as_of_date"],
+                "new_snapshot_as_of_date": comparison["new_snapshot_as_of_date"],
+                "days_between_snapshots": comparison["days_between_snapshots"],
             },
             sort_keys=True,
         )
@@ -493,17 +557,22 @@ def write_transition_events(
             """
             INSERT OR REPLACE INTO training_state_transition_events
             (old_snapshot_id, new_snapshot_id, canonical_person_program_key,
-             person_key, display_name, program_name, role, old_state_key, new_state_key,
+             snapshot_comparison_kind, old_snapshot_as_of_date, new_snapshot_as_of_date,
+             days_between_snapshots, person_key, display_name, program_name, role, old_state_key, new_state_key,
              change_type, transition_assurance, expected_by_state_machine,
              old_stage, new_stage, old_expected_next_stage, old_expected_next_date,
              old_expected_exit_date, old_expected_transition_type, old_stale_after_date,
              review_action, notes, evidence_json)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 event["old_snapshot_id"],
                 event["new_snapshot_id"],
                 event["canonical_person_program_key"],
+                event["snapshot_comparison_kind"],
+                event["old_snapshot_as_of_date"],
+                event["new_snapshot_as_of_date"],
+                event["days_between_snapshots"] if event["days_between_snapshots"] != "" else None,
                 event["person_key"],
                 event["display_name"],
                 event["program_name"],
@@ -557,6 +626,7 @@ def event_groups(events: list[dict]) -> list[dict]:
             key = (
                 event.get("old_snapshot_id") or "",
                 event["new_snapshot_id"],
+                event["snapshot_comparison_kind"],
                 scope,
                 value,
                 event["change_type"],
@@ -567,6 +637,10 @@ def event_groups(events: list[dict]) -> list[dict]:
                 grouped[key] = {
                     "old_snapshot_id": event.get("old_snapshot_id") or "",
                     "new_snapshot_id": event["new_snapshot_id"],
+                    "snapshot_comparison_kind": event["snapshot_comparison_kind"],
+                    "old_snapshot_as_of_date": event.get("old_snapshot_as_of_date") or "",
+                    "new_snapshot_as_of_date": event.get("new_snapshot_as_of_date") or "",
+                    "days_between_snapshots": event.get("days_between_snapshots"),
                     "rollup_scope": scope,
                     "rollup_value": value,
                     "institution": institution if scope in {"institution", "institution_role"} else "",
@@ -595,6 +669,10 @@ def event_groups(events: list[dict]) -> list[dict]:
                 "rollup_value": row["rollup_value"],
                 "old_snapshot_id": row["old_snapshot_id"],
                 "new_snapshot_id": row["new_snapshot_id"],
+                "snapshot_comparison_kind": row["snapshot_comparison_kind"],
+                "old_snapshot_as_of_date": row["old_snapshot_as_of_date"],
+                "new_snapshot_as_of_date": row["new_snapshot_as_of_date"],
+                "days_between_snapshots": row["days_between_snapshots"],
             },
             sort_keys=True,
         )
@@ -622,8 +700,9 @@ def insert_transition_rollups(conn: sqlite3.Connection, rows: list[dict]) -> Non
     )
 
 
-def load_all_snapshots(conn: sqlite3.Connection) -> dict[str, list[dict]]:
+def load_all_snapshots(conn: sqlite3.Connection) -> tuple[dict[str, list[dict]], dict[str, dict]]:
     snapshots = {}
+    manifests = {}
     conn.execute("DELETE FROM training_state_transition_rollups")
     conn.execute("DELETE FROM training_state_transition_events")
     conn.execute("DELETE FROM training_state_snapshot_rows")
@@ -634,7 +713,8 @@ def load_all_snapshots(conn: sqlite3.Connection) -> dict[str, list[dict]]:
         rows = read_export(csv_path)
         insert_snapshot(conn, manifest, rows)
         snapshots[manifest["snapshot_id"]] = rows
-    return snapshots
+        manifests[manifest["snapshot_id"]] = manifest
+    return snapshots, manifests
 
 
 def write_events_csv(events: list[dict]) -> None:
@@ -675,17 +755,20 @@ def main() -> None:
     conn = sqlite3.connect(args.db)
     with conn:
         conn.executescript((ROOT / "db" / "schema.sql").read_text(encoding="utf-8"))
-        snapshots = load_all_snapshots(conn)
+        ensure_transition_context_columns(conn)
+        snapshots, manifests = load_all_snapshots(conn)
         snapshot_ids = sorted(snapshots)
         previous_snapshot_id = args.previous_snapshot_id
         if previous_snapshot_id is None:
             candidates = [item for item in snapshot_ids if item != snapshot_id]
             previous_snapshot_id = candidates[-1] if candidates else None
         old_rows = snapshots.get(previous_snapshot_id, []) if previous_snapshot_id else []
+        comparison = comparison_context(manifests.get(previous_snapshot_id), manifests[snapshot_id])
         events = write_transition_events(
             conn,
             previous_snapshot_id,
             snapshot_id,
+            comparison,
             old_rows,
             snapshots[snapshot_id],
             date.fromisoformat(args.compare_date),
@@ -701,6 +784,7 @@ def main() -> None:
     summary = {
         "snapshot_id": snapshot_id,
         "previous_snapshot_id": previous_snapshot_id,
+        **comparison,
         "snapshot_manifest": str((SNAPSHOT_DIR / f"{snapshot_id}.json").relative_to(ROOT)),
         "snapshot_csv": manifest["snapshot_csv"],
         "row_count": manifest["row_count"],
