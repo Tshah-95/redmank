@@ -18,7 +18,7 @@
     "mixed_identity_anchor_review": 769,
     "publication_identity_review": 23
   },
-  "generated_at": "2026-06-02T17:25:27.669507+00:00",
+  "generated_at": "2026-06-02T17:39:31.405926+00:00",
   "manual_decision_csv": "artifacts/data/person_evidence_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "pending_reviewer_decision_rows": 792,

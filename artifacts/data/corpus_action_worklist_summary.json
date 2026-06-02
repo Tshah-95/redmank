@@ -9,15 +9,15 @@
     "training_temporal_contract": 86
   },
   "by_priority_band": {
-    "critical": 16,
-    "high": 874,
+    "critical": 24,
+    "high": 866,
     "low": 321,
     "medium": 174
   },
-  "critical_rows": 16,
+  "critical_rows": 24,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T17:25:51.562775+00:00",
-  "high_rows": 874,
+  "generated_at": "2026-06-02T17:39:56.068698+00:00",
+  "high_rows": 866,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -180,6 +180,16 @@
       "role": "fellow"
     },
     {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Sabine Schneider, MD PhD",
+      "impact_count": 30,
+      "priority": 1010,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
       "action_scope": "alias_review",
       "action_surface": "official_program_coverage",
       "display_label": "Soft Tissue/Bone (Selective)",
@@ -200,6 +210,76 @@
       "role": "fellow"
     },
     {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Robert Eisinger, MD, PhD",
+      "impact_count": 41,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Benjamin J. Peipert, MD",
+      "impact_count": 39,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "fellow"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Alessandro Brunetti, MD",
+      "impact_count": 37,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Eli Cornblath, MD, PhD",
+      "impact_count": 33,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Gregory Chen, MD, PhD",
+      "impact_count": 28,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Noor Shaik, MD, PhD",
+      "impact_count": 26,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Pravin Patel, MD, PhD",
+      "impact_count": 16,
+      "priority": 1003,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+      "role": "resident"
+    },
+    {
       "action_scope": "count_conflict_review",
       "action_surface": "official_program_coverage",
       "display_label": "Adult Reconstructive Orthopedics",
@@ -218,88 +298,8 @@
       "program_name": "",
       "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
       "role": "resident"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Katharine F. Michel, MD",
-      "impact_count": 10,
-      "priority": 976,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
-    },
-    {
-      "action_scope": "alias_review",
-      "action_surface": "official_program_coverage",
-      "display_label": "Radiology - Diagnostic",
-      "impact_count": 54,
-      "priority": 974,
-      "program_name": "Radiology - Diagnostic",
-      "recommended_next_action": "accept_or_split_alias_mapping",
-      "role": "residency"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Robert Eisinger, MD, PhD",
-      "impact_count": 22,
-      "priority": 974,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Shunsuke Koga, MD, PhD",
-      "impact_count": 22,
-      "priority": 974,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "fellow"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Benjamin J. Peipert, MD",
-      "impact_count": 21,
-      "priority": 974,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "fellow"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Corey Horien, MD, PhD",
-      "impact_count": 21,
-      "priority": 974,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Alessandro Brunetti, MD",
-      "impact_count": 20,
-      "priority": 974,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
-    },
-    {
-      "action_scope": "mixed_identity_anchor_review",
-      "action_surface": "person_evidence_review",
-      "display_label": "Eric Wagner, MD",
-      "impact_count": 19,
-      "priority": 974,
-      "program_name": "",
-      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
-      "role": "resident"
     }
   ],
-  "total_impact_count": 11778,
+  "total_impact_count": 11963,
   "worklist_rows": 1385
 }

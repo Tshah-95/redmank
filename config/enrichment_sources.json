@@ -98,6 +98,18 @@
       "acceptance_rule": "Promote to review when article author matches and at least one non-name anchor appears. Accept only after manual or automated reconciliation finds two independent non-name anchors."
     },
     {
+      "utility_key": "orcid_pubmed_article_reconciliation",
+      "display_name": "ORCID-seeded PubMed article reconciliation",
+      "source_family": "scholarly_api",
+      "default_tier": "silver",
+      "default_status": "needs_review",
+      "default_confidence": 0.65,
+      "claim_types": ["orcid_pubmed_article_candidate", "publication_candidate", "orcid_work_anchor", "doi", "pmid", "author_position"],
+      "strengths": ["Starts from stable ORCID public work DOI/PMID identifiers", "Resolves to PubMed XML for author, affiliation, year, journal, and DOI checks", "Reduces name-only PubMed search collision risk"],
+      "limitations": ["Only PubMed-indexed ORCID works can be resolved", "ORCID ownership remains candidate identity evidence until corroborated", "Author-position and affiliation checks still need review"],
+      "acceptance_rule": "Use as review-ready publication evidence when ORCID work identifiers resolve to PubMed, the article author name matches, and DOI/PMID consistency is present. Do not machine-accept person truth without independent identity or reviewer confirmation."
+    },
+    {
       "utility_key": "orcid_public_api",
       "display_name": "ORCID public API",
       "source_family": "scholarly_api",

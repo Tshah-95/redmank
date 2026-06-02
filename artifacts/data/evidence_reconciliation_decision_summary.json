@@ -6,6 +6,7 @@
     "education_history_candidate": 1254,
     "npi_candidate": 1073,
     "orcid_profile_candidate": 51,
+    "orcid_pubmed_article_candidate": 295,
     "orcid_work_candidate": 354,
     "penn_alumni_outcome_candidate": 36,
     "penn_training_history_candidate": 5,
@@ -19,10 +20,10 @@
   "by_decision": {
     "attending_training_claim_needs_identity_link": 2,
     "attending_training_claim_review_ready": 3,
-    "candidate_with_partial_anchor": 402,
+    "candidate_with_partial_anchor": 403,
     "current_attending_endpoint_candidate": 49,
     "discovery_only": 1336,
-    "low_signal_candidate": 1565,
+    "low_signal_candidate": 1639,
     "needs_secondary_identity_anchor": 727,
     "npi_candidate_with_partial_anchor": 138,
     "npi_low_signal_candidate": 134,
@@ -38,12 +39,13 @@
     "profile_interest_context_candidate": 350,
     "profile_personal_context_display_review": 783,
     "review_ready_high_anchor": 5,
+    "review_ready_orcid_seeded_article": 220,
     "review_ready_profile_background_field": 795,
     "review_ready_training_topic_anchor": 112
   },
   "by_record_type": {
     "career_event": 105,
-    "evidence_claim": 7041,
+    "evidence_claim": 7336,
     "npi_candidate": 1073
   },
   "by_ten_year_trend_window": {
@@ -51,12 +53,12 @@
     "unknown": 100,
     "yes": 2
   },
-  "decided_at": "2026-06-02T17:24:43.843478+00:00",
+  "decided_at": "2026-06-02T17:39:28.861360+00:00",
   "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
-  "decision_rows": 8219,
+  "decision_rows": 8514,
   "person_or_name_rows": 1578,
   "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
-  "review_ready_rows": 1716,
+  "review_ready_rows": 1936,
   "sqlite_tables": [
     "evidence_reconciliation_decisions",
     "person_reconciliation_decisions"

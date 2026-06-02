@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T17:25:51.876293+00:00
+Generated: 2026-06-02T17:40:40.411373+00:00
 
 ## What This Pass Did
 
@@ -3189,8 +3189,10 @@ Learning: the transition plan is the executable state-machine contract for futur
 | penn_trainee_profile_residents_2029_sujal_manohar_md_1af41308ff | candidate | education_history_candidate | 1 | 0.82 |
 | penn_trainee_profile_residents_2029_vivian_chen_md_2751056618 | accepted | official_profile_url | 1 | 0.82 |
 | penn_trainee_profile_residents_2029_vivian_chen_md_2751056618 | candidate | education_history_candidate | 1 | 0.82 |
+| pubmed_eutilities | candidate | orcid_pubmed_article_candidate | 1 | 0.72 |
 | pubmed_eutilities | candidate | pubmed_article_candidate | 1405 | 0.652 |
 | pubmed_eutilities | candidate | pubmed_author_query_candidate | 1336 | 0.204 |
+| pubmed_eutilities | needs_review | orcid_pubmed_article_candidate | 294 | 0.881 |
 | pubmed_eutilities | needs_review | pubmed_article_candidate | 857 | 0.841 |
 | pulmonary_critical_care_current_fellows | accepted | medical_school | 34 | 0.868 |
 | pulmonary_critical_care_current_fellows | accepted | residency_program | 34 | 0.832 |
@@ -3200,7 +3202,7 @@ Learning: the transition plan is the executable state-machine contract for futur
 
 ## Source Utility Scorecard
 
-Scorecard rows: 25.
+Scorecard rows: 26.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3212,8 +3214,9 @@ Scorecard rows: 25.
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1336 | 1336 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
-| Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 8219 | 8219 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 89 | 89 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| ORCID-seeded PubMed article reconciliation | ORCID public DOI/PMID works resolved to PubMed XML with author-position and DOI/PMID consistency checks | 354 | 295 | 72.0 | strong_with_known_limits | use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance |
+| Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 8514 | 8514 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 91 | 91 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 180 | 498 | 46.0 | discovery_or_review_only | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | ORCID public profile and work reconciliation | persistent ORCID identifier plus DOI/PMID-level public works, external identifiers, keywords, researcher URLs, and affiliations when exposed | 48 | 405 | 68.0 | useful_candidate_layer | use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position |
 | Official Penn trainee profile claims | roster-linked profile URLs, education, prior training, research/career interests, and personal-context snippets | 914 | 3416 | 81.0 | strong_with_known_limits | run_official_trainee_profile_discovery_then_reconcile_candidates |
@@ -3226,9 +3229,9 @@ Scorecard rows: 25.
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1682 | 1682 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
-| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1535 | 6364 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
+| Recursive enrichment work queue | person-level next-source tasks with state-machine urgency and evidence gates | 1535 | 6329 | 81.0 | strong_with_known_limits | run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers |
 | Person enrichment dossier ledger | person-level accepted facts, candidate surfaces, contact contracts, training state, and provenance URLs | 1535 | 1535 | 83.0 | strong_with_known_limits | use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers |
-| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6364 | 6364 | 78.0 | strong_with_known_limits | execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile |
+| Enrichment execution readiness | mapping from queued enrichment tasks to collectors, commands, parser gaps, and review requirements | 6329 | 6329 | 78.0 | strong_with_known_limits | execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile |
 
 Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.
 
@@ -3247,7 +3250,7 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1385. Summed impact count: 11778. Critical rows: 16. High rows: 874.
+Worklist rows: 1385. Summed impact count: 11963. Critical rows: 24. High rows: 866.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3264,33 +3267,33 @@ Worklist rows: 1385. Summed impact count: 11778. Critical rows: 16. High rows: 8
 | person_enrichment_execution | official_profile:official_profile_search | fellow official_profile_search | fellow | 1120 | 257 | collect_official_profile_evidence |
 | official_program_coverage | alias_review | Internal Medicine - Categorical | residency | 1093 | 173 | accept_or_split_alias_mapping |
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | fellow current_roster_state_reconciliation | fellow | 1088 | 94 | refresh_roster_and_reconcile_state_machine |
+| person_evidence_review | mixed_identity_anchor_review | Sabine Schneider, MD PhD | resident | 1010 | 30 | record_accept_reject_or_needs_more_evidence_decision |
 | official_program_coverage | alias_review | Soft Tissue/Bone (Selective) | fellowship | 1009 | 69 | resolve_related_loaded_program_before_gap_closure |
 | person_enrichment_execution | review_queue:evidence_reconciliation_review | fellow evidence_reconciliation_review | fellow | 1009 | 55 | review_reconciliation_packet |
+| person_evidence_review | mixed_identity_anchor_review | Robert Eisinger, MD, PhD | resident | 1003 | 41 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Benjamin J. Peipert, MD | fellow | 1003 | 39 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Alessandro Brunetti, MD | resident | 1003 | 37 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Eli Cornblath, MD, PhD | resident | 1003 | 33 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Gregory Chen, MD, PhD | resident | 1003 | 28 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Noor Shaik, MD, PhD | resident | 1003 | 26 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Pravin Patel, MD, PhD | resident | 1003 | 16 | record_accept_reject_or_needs_more_evidence_decision |
 | official_program_coverage | count_conflict_review | Adult Reconstructive Orthopedics | fellowship | 1003 | 3 | review_count_conflict_before_denominator_mutation |
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | resident current_roster_state_reconciliation | resident | 998 | 49 | refresh_roster_and_reconcile_state_machine |
-| person_evidence_review | mixed_identity_anchor_review | Katharine F. Michel, MD | resident | 976 | 10 | record_accept_reject_or_needs_more_evidence_decision |
-| official_program_coverage | alias_review | Radiology - Diagnostic | residency | 974 | 54 | accept_or_split_alias_mapping |
-| person_evidence_review | mixed_identity_anchor_review | Robert Eisinger, MD, PhD | resident | 974 | 22 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Shunsuke Koga, MD, PhD | fellow | 974 | 22 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Benjamin J. Peipert, MD | fellow | 974 | 21 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Corey Horien, MD, PhD | resident | 974 | 21 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Alessandro Brunetti, MD | resident | 974 | 20 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Eric Wagner, MD | resident | 974 | 19 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Zachary Rosenthal, MD, PhD | resident | 974 | 16 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Alec Gibson, MD, PhD | resident | 973 | 20 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Gregory Chen, MD, PhD | resident | 971 | 22 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Eli Cornblath, MD, PhD | resident | 971 | 20 | record_accept_reject_or_needs_more_evidence_decision |
-| official_program_coverage | alias_review | Radiology - Interventional, Independent | residency | 971 | 19 | resolve_related_loaded_program_before_gap_closure |
-| person_evidence_review | mixed_identity_anchor_review | Noor Shaik, MD, PhD | resident | 971 | 18 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Sabine Schneider, MD PhD | resident | 971 | 17 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Derek Sung, MD, PhD | resident | 971 | 16 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Margaret A. Rush, MD | fellow | 971 | 11 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Emily Beydler, MD | resident | 969 | 9 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Yombe Fonkeu, MD, MSc | resident | 969 | 9 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Jonathan Dickens, MD, PhD | resident | 966 | 9 | record_accept_reject_or_needs_more_evidence_decision |
-| person_evidence_review | mixed_identity_anchor_review | Pravin Patel, MD, PhD | resident | 966 | 9 | record_accept_reject_or_needs_more_evidence_decision |
-| official_program_coverage | alias_review | Dermatology | residency | 963 | 17 | resolve_related_loaded_program_before_gap_closure |
-| official_program_coverage | alias_review | Plastic Surgery | fellowship | 962 | 22 | resolve_related_loaded_program_before_gap_closure |
+| person_evidence_review | mixed_identity_anchor_review | Alec Gibson, MD, PhD | resident | 995 | 37 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Derek Sung, MD, PhD | resident | 995 | 25 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Jonathan Dickens, MD, PhD | resident | 995 | 16 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Yombe Fonkeu, MD, MSc | resident | 995 | 16 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Emily Beydler, MD | resident | 993 | 12 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Corey Horien, MD, PhD | resident | 991 | 36 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Daniel Akuma, MD, PhD | resident | 990 | 9 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Geena R. Ianni, MD, PhD | resident | 985 | 8 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Shunsuke Koga, MD, PhD | fellow | 982 | 37 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Eric Wagner, MD | resident | 982 | 34 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Zachary Rosenthal, MD, PhD | resident | 982 | 28 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Margaret A. Rush, MD | fellow | 982 | 11 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Chenxu Shi, MD, PhD | resident | 980 | 8 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Aaron M. Williams, MD, PhD | resident | 980 | 7 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | John T. Cook, MD | resident | 980 | 7 | record_accept_reject_or_needs_more_evidence_decision |
 
 Learning: unresolved evidence should be ranked as operator work, not inferred away. Program gaps, search execution, person evidence packets, contact verification, temporal-state refreshes, enrichment collectors, and attending-trend bridges all have different acceptance gates, so the worklist keeps their required next evidence explicit.
 
@@ -3298,6 +3301,7 @@ Learning: unresolved evidence should be ranked as operator work, not inferred aw
 
 | record_type | status | claim_type | count | avg_priority | avg_confidence |
 | --- | --- | --- | --- | --- | --- |
+| evidence_claim | needs_review | orcid_pubmed_article_candidate | 294 | 126.7 | 0.881 |
 | career_event | needs_review | penn_training_history_candidate | 5 | 118.0 | 0.756 |
 | evidence_claim | needs_review | research_author_candidate | 51 | 109.0 | 0.9 |
 | evidence_claim | needs_review | pubmed_article_candidate | 857 | 106.3 | 0.841 |
@@ -3306,6 +3310,7 @@ Learning: unresolved evidence should be ranked as operator work, not inferred aw
 | evidence_claim | needs_review | orcid_work_candidate | 338 | 93.8 | 0.797 |
 | evidence_claim | candidate | prior_training_history_candidate | 108 | 70.0 | 0.78 |
 | npi_candidate | candidate | npi_candidate | 146 | 69.2 | 0.602 |
+| evidence_claim | candidate | orcid_pubmed_article_candidate | 1 | 69.0 | 0.72 |
 | evidence_claim | candidate | education_history_candidate | 1248 | 66.1 | 0.709 |
 | evidence_claim | candidate | pubmed_article_candidate | 1405 | 51.8 | 0.652 |
 | evidence_claim | candidate | orcid_profile_candidate | 11 | 51.8 | 0.725 |
@@ -3327,42 +3332,42 @@ Top queued records:
 
 | record_type | display_name | role | claim_type | status | confidence | priority | review_action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| career_event | Patrick Kevin Gleeson, MD, MSCE | attending_or_outcome_candidate | penn_training_history_candidate | needs_review | 0.78 | 122 | Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor. |
-| career_event | Priya Patel, MD | attending_or_outcome_candidate | penn_training_history_candidate | needs_review | 0.78 | 122 | Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor. |
-| career_event | Timothy Buckey, MD, MBE | attending_or_outcome_candidate | penn_training_history_candidate | needs_review | 0.78 | 122 | Review official profile training-history claim and reconcile to a Penn trainee identity or independent public anchor. |
-| evidence_claim | Michelle Munyikwa, MD, PhD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | needs_review | 0.95 | 121 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Rachel Flaugh, MD* | resident | pubmed_article_candidate | needs_review | 0.95 | 117 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Andrew M. Acker, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Bradley Osemwengie, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Brittany Brookner, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Bruk Mekonen, MD, MS | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Carissa E. Livingston, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Caroline Granruth, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Caroline L. Simon, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | China N. Byrns, MD, PhD, MS | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Christopher M. Anthony, DO | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Danielle Murashige, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
-| evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
+| evidence_claim | Sabine Schneider, MD PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 148 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Eli Cornblath, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Gregory Chen, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Noor Shaik, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Pravin Patel, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Sabine Schneider, MD PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 141 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Noor Shaik, MD, PhD | resident | orcid_pubmed_article_candidate | needs_review | 0.92 | 136 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | needs_review | 0.96 | 133 | Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment. |
 
 Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.
 
 ## Reconciliation Decision Ledger
 
-Decision rows: 8219. Review-ready rows: 1716. Person/name rollups: 1578.
+Decision rows: 8514. Review-ready rows: 1936. Person/name rollups: 1578.
 
 Decision counts:
 
@@ -3370,10 +3375,10 @@ Decision counts:
 | --- | --- |
 | attending_training_claim_needs_identity_link | 2 |
 | attending_training_claim_review_ready | 3 |
-| candidate_with_partial_anchor | 402 |
+| candidate_with_partial_anchor | 403 |
 | current_attending_endpoint_candidate | 49 |
 | discovery_only | 1336 |
-| low_signal_candidate | 1565 |
+| low_signal_candidate | 1639 |
 | needs_secondary_identity_anchor | 727 |
 | npi_candidate_with_partial_anchor | 138 |
 | npi_low_signal_candidate | 134 |
@@ -3389,6 +3394,7 @@ Decision counts:
 | profile_interest_context_candidate | 350 |
 | profile_personal_context_display_review | 783 |
 | review_ready_high_anchor | 5 |
+| review_ready_orcid_seeded_article | 220 |
 | review_ready_profile_background_field | 795 |
 | review_ready_training_topic_anchor | 112 |
 
@@ -3404,36 +3410,36 @@ Top review-ready decisions:
 
 | record_type | display_name | role | claim_type | decision | confidence | priority | ten_year_trend_window | source_url |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| career_event | Patrick Kevin Gleeson, MD, MSCE | attending_or_outcome_candidate | penn_training_history_candidate | attending_training_claim_review_ready | 0.78 | 122 | unknown | https://www3.pennmedicine.org/providers/profile/patrick-gleeson |
-| career_event | Priya Patel, MD | attending_or_outcome_candidate | penn_training_history_candidate | attending_training_claim_review_ready | 0.78 | 122 | unknown | https://www3.pennmedicine.org/providers/profile/priya-patel |
-| career_event | Timothy Buckey, MD, MBE | attending_or_outcome_candidate | penn_training_history_candidate | attending_training_claim_review_ready | 0.78 | 122 | unknown | https://www3.pennmedicine.org/providers/profile/timothy-buckey |
-| evidence_claim | Michelle Munyikwa, MD, PhD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/33406326/ |
-| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/40796935/ |
-| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/41986737/ |
-| evidence_claim | Samer Mohandes, MD | fellow | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 121 |  | https://pubmed.ncbi.nlm.nih.gov/42056516/ |
-| evidence_claim | Rachel Flaugh, MD* | resident | pubmed_article_candidate | review_ready_high_anchor | 0.95 | 117 |  | https://pubmed.ncbi.nlm.nih.gov/38299252/ |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/31828514/ |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/40145043/ |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/40404217/ |
-| evidence_claim | Amber Meservey, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/41290323/ |
-| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/33509400/ |
-| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/35675673/ |
-| evidence_claim | Amir Heravi, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36978803/ |
-| evidence_claim | Andrew M. Acker, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/37808021/ |
-| evidence_claim | Bradley Osemwengie, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/29929716/ |
-| evidence_claim | Brittany Brookner, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/38509339/ |
-| evidence_claim | Bruk Mekonen, MD, MS | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/40336497/ |
-| evidence_claim | Carissa E. Livingston, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36877449/ |
-| evidence_claim | Caroline Granruth, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36890044/ |
-| evidence_claim | Caroline L. Simon, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/36516943/ |
-| evidence_claim | China N. Byrns, MD, PhD, MS | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/34115987/ |
-| evidence_claim | Christopher M. Anthony, DO | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/34865104/ |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/33954783/ |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/34687206/ |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/38468148/ |
-| evidence_claim | Dania Salih Bacha, MD | fellow | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/42162870/ |
-| evidence_claim | Danielle Murashige, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/39960981/ |
-| evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | review_ready_training_topic_anchor | 0.91 | 114 |  | https://pubmed.ncbi.nlm.nih.gov/39658750/ |
+| evidence_claim | Sabine Schneider, MD PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 148 |  | https://pubmed.ncbi.nlm.nih.gov/30379617/ |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/35355569/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/31029433/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/33985705/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/34256949/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/35927756/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/36610890/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/37866215/ |
+| evidence_claim | Eli Cornblath, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/42128443/ |
+| evidence_claim | Gregory Chen, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/40101143/ |
+| evidence_claim | Noor Shaik, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/35289864/ |
+| evidence_claim | Pravin Patel, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/42214762/ |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/30009204/ |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/30846538/ |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/30863353/ |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/30867588/ |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/31518070/ |
+| evidence_claim | Robert Eisinger, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/31813194/ |
+| evidence_claim | Sabine Schneider, MD PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 141 |  | https://pubmed.ncbi.nlm.nih.gov/40763336/ |
+| evidence_claim | Noor Shaik, MD, PhD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.92 | 136 |  | https://pubmed.ncbi.nlm.nih.gov/39659438/ |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/33666876/ |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/35813618/ |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/36370325/ |
+| evidence_claim | Alessandro Brunetti, MD | resident | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/40150901/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/30149935/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/30810749/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/30898373/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/31030973/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/31862171/ |
+| evidence_claim | Benjamin J. Peipert, MD | fellow | orcid_pubmed_article_candidate | review_ready_orcid_seeded_article | 0.96 | 133 |  | https://pubmed.ncbi.nlm.nih.gov/35283088/ |
 
 Learning: reconciliation should be an explicit decision ledger, not a side effect of queue priority. Review-ready means enough anchors exist for efficient review; accepted truth still requires a manual or stronger automated identity verifier.
 
@@ -3458,31 +3464,31 @@ Top packet-level reviewer rows:
 
 | display_name | role | packet_status | review_kind | decision_status | review_priority | best_decision | best_source_url |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Amir Heravi, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/33509400/ |
-| Brittany Brookner, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/38509339/ |
-| Bruk Mekonen, MD, MS | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/40336497/ |
-| Dania Salih Bacha, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/33954783/ |
-| Elisabeth (Elise) Seyferth, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/39658750/ |
-| Fatimah Alkhunaizi, MD, MS | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/38584015/ |
-| Ian McCurry, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/34927154/ |
-| Ianto Xi, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/38521564/ |
-| Jared Alswang, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/37619942/ |
-| Javier Eli Sierra-Pagan MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/37036809/ |
-| Joav Birjiniuk, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/28608325/ |
-| Katie Lattanzio, MD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/37453876/ |
-| Lee H. Kilmer, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/38016264/ |
-| M Elle Saine, MD | fellow | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/41643739/ |
-| Margaret Kruithoff, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/40553957/ |
-| Marine-Ayan Ibrahim Aibo, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/40782885/ |
-| Matthew J. Rabinowitz, MD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/36017622/ |
-| Michael J. Morano, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/37274012/ |
-| Moses Flash, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/36496090/ |
-| Nikita O. Shulzhenko, MD | fellow | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/31689721/ |
-| Rochelle Prokupets, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/41117724/ |
-| Rohan Savoor, MD | resident | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/36526074/ |
-| S. Muhammad Mustafa Zaidi, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/41758093/ |
-| Sahityasri Thapi, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/40306969/ |
-| Sarah Gorvetzian, MD | fellow | review_ready_publication_packet | publication_identity_review | pending_reviewer_decision | 129 | review_ready_training_topic_anchor | https://pubmed.ncbi.nlm.nih.gov/37383249/ |
+| Sabine Schneider, MD PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 160 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/30379617/ |
+| Alessandro Brunetti, MD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/35355569/ |
+| Benjamin J. Peipert, MD | fellow | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/31029433/ |
+| Eli Cornblath, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/42128443/ |
+| Gregory Chen, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/40101143/ |
+| Noor Shaik, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/35289864/ |
+| Pravin Patel, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/42214762/ |
+| Robert Eisinger, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 153 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/30009204/ |
+| Cassie L. Hobbs, MD | fellow | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 148 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/27713066/ |
+| Aaron M. Williams, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/31455885/ |
+| Alec Gibson, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/27032690/ |
+| Daniel Akuma, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/35862717/ |
+| Derek Sung, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/27312222/ |
+| Geena R. Ianni, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/31160680/ |
+| John T. Cook, MD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/35842074/ |
+| Jonathan Dickens, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/31061085/ |
+| Yombe Fonkeu, MD, MSc | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 145 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/31350097/ |
+| Emily Beydler, MD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 143 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/32066739/ |
+| Evan Calvo, MD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 143 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/33225578/ |
+| Lara Boyle, MD, PhD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 143 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/33990774/ |
+| Mila Tamminga, MD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 143 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/34229281/ |
+| Nadine Michel, MD, PhD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 143 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/40383189/ |
+| Phillip Bradshaw, MD | resident | review_ready_mixed_packet | mixed_identity_anchor_review | pending_reviewer_decision | 143 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/36202544/ |
+| Corey Horien, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 141 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/40913110/ |
+| Chenxu Shi, MD, PhD | resident | review_ready_mixed_identity_anchor_packet | mixed_identity_anchor_review | pending_reviewer_decision | 140 | review_ready_orcid_seeded_article | https://pubmed.ncbi.nlm.nih.gov/38839087/ |
 
 Learning: packet-level reviewer decisions are now a first-class ledger. The system can separate candidate evidence that is merely review-ready from evidence that a reviewer explicitly accepted, rejected, or deferred against a stable packet fingerprint.
 
@@ -3799,15 +3805,15 @@ Learning: NPPES is an official provider registry and useful as a secondary ident
 
 ## Enrichment Coverage Audit
 
-People audited: 1535. Program/role groups audited: 96. Average coverage score: 60.27.
+People audited: 1535. Program/role groups audited: 96. Average coverage score: 60.61.
 
 Coverage bands:
 
 | coverage_band | count |
 | --- | --- |
-| broad_enrichment_surface | 203 |
-| moderate_enrichment_surface | 1097 |
-| thin_enrichment_surface | 235 |
+| broad_enrichment_surface | 212 |
+| moderate_enrichment_surface | 1089 |
+| thin_enrichment_surface | 234 |
 
 Recommended next actions:
 
@@ -3830,17 +3836,16 @@ Lowest-scoring program/role surfaces:
 | Clinical Microbiology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | GI/Hepatic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Soft Tissue/Bone Pathology Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Psychiatry Residency | resident | 52 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Gynecologic Oncology Fellowship | fellow | 6 | 20.67 | 0.0 | 0.0 | 0.0 | 0.167 | 0.167 | official_profile_search |
-| Hematopathology Fellowship | fellow | 4 | 21.0 | 0.0 | 0.0 | 0.0 | 0.25 | 0.25 | official_profile_search |
 | Maternal Fetal Medicine Fellowship | fellow | 8 | 21.0 | 0.0 | 0.0 | 0.0 | 0.25 | 0.25 | official_profile_search |
 | Surgical Pathology Fellowship | fellow | 6 | 21.67 | 0.0 | 0.0 | 0.0 | 0.5 | 0.333 | official_profile_search |
 | Clinical Chemistry Fellowship | fellow | 2 | 22.0 | 0.0 | 0.0 | 0.0 | 0.5 | 0.5 | official_profile_search |
 | Cytopathology Fellowship | fellow | 2 | 22.0 | 0.0 | 0.0 | 0.0 | 0.5 | 0.5 | official_profile_search |
 | Molecular Genetic Pathology Fellowship | fellow | 2 | 23.0 | 0.0 | 0.0 | 0.0 | 1.0 | 0.5 | official_profile_search |
+| Psychiatry Residency | resident | 52 | 23.75 | 0.0 | 0.0 | 0.25 | 0.0 | 0.0 | official_profile_search |
 | Breast Pathology Fellowship | fellow | 1 | 24.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | official_profile_search |
-| Neuropathology Fellowship | fellow | 2 | 24.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | official_profile_search |
 | Transfusion Medicine/Blood Bank Fellowship | fellow | 1 | 24.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | official_profile_search |
+| Hematopathology Fellowship | fellow | 4 | 24.75 | 0.0 | 0.0 | 0.25 | 0.25 | 0.25 | official_profile_search |
 | CHOP Otolaryngology Fellowship | fellow | 4 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Facial Plastic and Reconstructive Surgery Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Foot and Ankle Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
@@ -3852,6 +3857,7 @@ Lowest-scoring program/role surfaces:
 | Spine Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Oral Medicine Residency | resident | 8 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
 | Otorhinolaryngology Residency | resident | 31 | 26.42 | 0.0 | 0.0 | 0.065 | 0.194 | 0.194 | official_profile_search |
+| Adult Reconstructive Orthopedics Fellowship | fellow | 3 | 27.0 | 0.0 | 0.0 | 0.0 | 0.667 | 0.333 | official_profile_search |
 
 Learning: coverage needs to be audited separately from evidence acceptance. This pass shows where the recursive loop should work next: official profile search, organization alias review, article-level research collection, and high-priority reconciliation.
 
@@ -3859,13 +3865,14 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T17:25:20.668913+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T17:39:24.232675+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |
 | orcid_public_api | 48 | 27 | 0 | 0 | 378 | {"claims": 405, "mean_confidence": 0.7955, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 405} |
+| orcid_pubmed_article_reconciliation | 35 | 1 | 0 | 0 | 294 | {"artifact": "orcid_pubmed_article_candidate_claims.json", "claims": 295, "mean_confidence": 0.8804, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 295, "summary": {"article_claims": 295, "by_status": {"candidate": 1, "needs_review": 294}, "doi_values_considered": 352, "doi_values_resolved_to_pmids": 300, "generated_at": "2026-06-02T17:38:20.565815+00:00", "orcid_people_considered": 36, "orcid_work_claims_considered": 354, "people_with_article_claims": 35, "policy": "ORCID-seeded PubMed article candidates are review-only publication evidence; they are not accepted person truth without independent identity/context review.", "seed_pmids": 303, "skipped_missing_article": 0, "skipped_no_author_name_match": 8, "source_key": "pubmed_eutilities", "top_match_features": {"article_author_name_match": 295, "author_position_first": 111, "author_position_known": 295, "author_position_last": 12, "author_position_middle": 172, "doi_consistent_with_orcid": 294, "orcid_profile_name_match": 295, "orcid_profile_secondary_anchor": 118, "orcid_seeded_work": 295, "penn_affiliation": 2, "pmid_from_orcid_work": 295, "pmid_present": 295, "prior_training_or_education_affiliation": 122, "program_topic_match": 44, "recent_publication": 276}, "unique_pmids_fetched": 301, "utility_key": "orcid_pubmed_article_reconciliation"}} |
 | orcid_work_candidates | 51 | 16 | 0 | 0 | 338 | {"claims": 354, "feature_counts": {"doi_present": 353, "orcid_external_ids_present_from_profile": 138, "orcid_name_match_from_profile": 354, "orcid_profile_candidate": 354, "orcid_work_public": 354, "pmc_present": 28, "pmid_present": 59, "recent_publication": 332}, "mean_confidence": 0.7931, "people_with_claims": 36} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
-| pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |
+| pubmed_eutilities | 1371 | 2742 | 0 | 0 | 1151 | {"claims": 3893, "mean_confidence": 0.5574, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3893} |
 
 ## OpenAlex Feature Distribution
 
@@ -3978,6 +3985,50 @@ Article candidate feature distribution:
 | ["article_author_name_match", "bounded_author_query", "penn_affiliation", "program_topic_match", "recent_publication"] | 1 | 0.95 |
 
 Learning: article-level PubMed XML is materially better than author-query counts because it exposes the target author, affiliation strings, publication year, journal/title, and topic hints. It is still candidate evidence: many records have one strong non-name anchor, but acceptance should require at least two independent anchors or a human review step.
+
+## ORCID-Seeded PubMed Article Reconciliation
+
+ORCID work claims considered: 354. Unique PMIDs fetched: 301. Article candidates: 295. People with candidates: 35.
+
+ORCID-seeded article statuses:
+
+| status | count |
+| --- | --- |
+| candidate | 1 |
+| needs_review | 294 |
+
+ORCID-seeded article feature distribution:
+
+| match_features_json | count | avg_confidence |
+| --- | --- | --- |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "prior_training_or_education_affiliation", "recent_publication"] | 45 | 0.92 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "recent_publication"] | 39 | 0.88 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "recent_publication"] | 36 | 0.8 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "prior_training_or_education_affiliation", "recent_publication"] | 28 | 0.92 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "recent_publication"] | 23 | 0.88 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "recent_publication"] | 20 | 0.8 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "prior_training_or_education_affiliation", "recent_publication"] | 17 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "program_topic_match", "recent_publication"] | 12 | 0.86 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match"] | 11 | 0.77 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "prior_training_or_education_affiliation", "recent_publication"] | 11 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_last", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "recent_publication"] | 8 | 0.88 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "program_topic_match", "recent_publication"] | 7 | 0.86 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "prior_training_or_education_affiliation", "program_topic_match", "recent_publication"] | 7 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match"] | 6 | 0.77 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "prior_training_or_education_affiliation", "program_topic_match", "recent_publication"] | 6 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "program_topic_match", "recent_publication"] | 5 | 0.94 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "prior_training_or_education_affiliation", "program_topic_match", "recent_publication"] | 3 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_last", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "prior_training_or_education_affiliation", "recent_publication"] | 2 | 0.92 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "prior_training_or_education_affiliation", "program_topic_match", "recent_publication"] | 2 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "program_topic_match"] | 1 | 0.83 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_middle", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor"] | 1 | 0.85 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_last", "pmid_from_orcid_work", "orcid_profile_name_match", "recent_publication"] | 1 | 0.72 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_last", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "recent_publication"] | 1 | 0.8 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "penn_affiliation", "recent_publication"] | 1 | 0.92 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "penn_affiliation", "prior_training_or_education_affiliation", "recent_publication"] | 1 | 0.96 |
+| ["orcid_seeded_work", "pmid_present", "article_author_name_match", "author_position_known", "author_position_first", "pmid_from_orcid_work", "doi_consistent_with_orcid", "orcid_profile_name_match", "orcid_profile_secondary_anchor", "program_topic_match", "recent_publication"] | 1 | 0.94 |
+
+Learning: ORCID-seeded PubMed reconciliation is higher precision than name-only PubMed search because each article starts with a stable ORCID work identifier, then checks PubMed author names, author position, DOI/PMID consistency, affiliations, and topic context. It remains review-only because ORCID ownership and same-person linkage can still be wrong or stale.
 
 ## Official Trainee Profile Enrichment
 

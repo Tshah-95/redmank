@@ -39,14 +39,14 @@
     "source_residency_background": 1
   },
   "csv": "artifacts/data/person_enrichment_execution_batches.csv",
-  "generated_at": "2026-06-02T17:25:49.500897+00:00",
+  "generated_at": "2026-06-02T17:39:53.877646+00:00",
   "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
   "json": "artifacts/data/person_enrichment_execution_batches.json",
   "manual_review_batch_rows": 7,
   "network_batch_rows": 7,
   "policy": "Execution batches are non-mutating. They make collection and review work resumable; accepted facts only change through downstream assurance ledgers.",
   "ready_batch_rows": 8,
-  "task_rows": 6364,
+  "task_rows": 6329,
   "top_batches": [
     {
       "batch_key": "enrichment_batch_9dd14a59cae2785ff41b",
@@ -120,10 +120,10 @@
       "execution_order": 6,
       "max_priority": 81,
       "next_system_action": "run_queue_driven_research_candidate_collection_then_article_level_reconciliation",
-      "person_count": 1178,
+      "person_count": 1143,
       "priority_band": "medium",
       "source_family": "research",
-      "task_count": 1178,
+      "task_count": 1143,
       "task_type": "research_identity_search"
     },
     {
@@ -153,5 +153,5 @@
       "task_type": "public_contact_verification"
     }
   ],
-  "total_batch_person_impact_count": 6364
+  "total_batch_person_impact_count": 6329
 }

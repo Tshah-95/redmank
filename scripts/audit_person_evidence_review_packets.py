@@ -32,6 +32,7 @@ REVIEW_READY_DECISIONS = {
     "trend_review_ready_official_biosketch_bridge",
     "npi_secondary_identity_anchor_review",
     "orcid_secondary_identity_anchor_review",
+    "review_ready_orcid_seeded_article",
     "orcid_work_publication_review",
 }
 ACCEPTED_DECISIONS = {
@@ -62,6 +63,7 @@ ATTENDING_DECISIONS = {
 PUBLICATION_DECISIONS = {
     "review_ready_high_anchor",
     "review_ready_training_topic_anchor",
+    "review_ready_orcid_seeded_article",
     "needs_secondary_identity_anchor",
     "candidate_with_partial_anchor",
     "low_signal_candidate",
@@ -446,6 +448,7 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
         unresolved_publication_review_ready_count = (
         decision_counts.get("review_ready_high_anchor", 0)
         + decision_counts.get("review_ready_training_topic_anchor", 0)
+        + decision_counts.get("review_ready_orcid_seeded_article", 0)
         + decision_counts.get("orcid_work_publication_review", 0)
     )
         active_review_ready_count = review_ready_count
@@ -459,7 +462,13 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
             1
             for row in items
             if row.get("claim_type")
-            in {"pubmed_article_candidate", "pubmed_author_query_candidate", "orcid_profile_candidate", "orcid_work_candidate"}
+            in {
+                "pubmed_article_candidate",
+                "orcid_pubmed_article_candidate",
+                "pubmed_author_query_candidate",
+                "orcid_profile_candidate",
+                "orcid_work_candidate",
+            }
         )
         npi_count = sum(1 for row in items if row.get("claim_type") == "npi_candidate")
         attending_count = sum(1 for row in items if row.get("record_type") == "career_event")

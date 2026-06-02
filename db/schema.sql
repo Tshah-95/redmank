@@ -2496,6 +2496,7 @@ SELECT
   + CASE
       WHEN e.claim_type = 'orcid_profile_candidate' THEN 35
       WHEN e.claim_type = 'orcid_work_candidate' THEN 32
+      WHEN e.claim_type = 'orcid_pubmed_article_candidate' THEN 34
       WHEN e.claim_type = 'pubmed_article_candidate' THEN 30
       WHEN e.claim_type = 'research_author_candidate' THEN 20
       WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 2
@@ -2508,6 +2509,9 @@ SELECT
   + CASE WHEN e.match_features_json LIKE '%orcid_penn_affiliation%' THEN 15 ELSE 0 END
   + CASE WHEN e.match_features_json LIKE '%orcid_external_ids_present%' THEN 10 ELSE 0 END
   + CASE WHEN e.match_features_json LIKE '%orcid_works_present%' THEN 8 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%orcid_seeded_work%' THEN 12 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%doi_consistent_with_orcid%' THEN 10 ELSE 0 END
+  + CASE WHEN e.match_features_json LIKE '%author_position_known%' THEN 6 ELSE 0 END
   + CASE WHEN e.match_features_json LIKE '%bounded_author_query%' THEN 5 ELSE 0 END
   + CAST(e.confidence * 10 AS INTEGER) AS priority,
   CASE
@@ -2521,6 +2525,7 @@ SELECT
      AND e.claim_type IN ('research_interest_candidate', 'career_interest_candidate') THEN 'Review official profile interest field as enrichment context; do not treat as publication or outcome evidence.'
     WHEN e.source_type = 'official_trainee_profile'
      AND e.claim_type = 'personal_profile_candidate' THEN 'Review display-safety policy before using personal profile context.'
+    WHEN e.claim_type = 'orcid_pubmed_article_candidate' THEN 'Review ORCID-seeded PubMed article metadata, author position, DOI/PMID consistency, and same-person source context before accepting publication enrichment.'
     WHEN e.claim_type = 'pubmed_article_candidate' THEN 'Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment.'
     WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 'Use only as discovery input; fetch/review article-level evidence before accepting.'
     WHEN e.claim_type = 'research_author_candidate' THEN 'Review OpenAlex/ORCID/affiliation anchors before accepting author identity.'
@@ -2533,6 +2538,7 @@ LEFT JOIN people p ON p.person_key = e.person_key
 WHERE e.status IN ('candidate', 'needs_review')
   AND e.claim_type IN (
     'pubmed_article_candidate',
+    'orcid_pubmed_article_candidate',
     'pubmed_author_query_candidate',
     'research_author_candidate',
     'research_author_candidate_error',
@@ -2551,6 +2557,7 @@ WHERE e.status IN ('candidate', 'needs_review')
     e.source_type IN ('official_trainee_profile', 'prior_training_background_discovery')
     OR e.claim_type IN (
       'pubmed_article_candidate',
+      'orcid_pubmed_article_candidate',
       'pubmed_author_query_candidate',
       'research_author_candidate',
       'research_author_candidate_error',

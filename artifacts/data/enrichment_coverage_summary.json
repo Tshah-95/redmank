@@ -1,10 +1,10 @@
 {
-  "article_candidate_coverage_rate": 0.233,
-  "avg_coverage_score": 60.27,
+  "article_candidate_coverage_rate": 0.255,
+  "avg_coverage_score": 60.61,
   "by_coverage_band": {
-    "broad_enrichment_surface": 203,
-    "moderate_enrichment_surface": 1097,
-    "thin_enrichment_surface": 235
+    "broad_enrichment_surface": 212,
+    "moderate_enrichment_surface": 1089,
+    "thin_enrichment_surface": 234
   },
   "by_recommended_next_action": {
     "collect_article_level_research_candidates": 52,

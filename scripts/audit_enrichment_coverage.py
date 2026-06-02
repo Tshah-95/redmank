@@ -200,7 +200,13 @@ def coverage_score(person: dict, programs: set[str], training: dict, contacts: d
             score += 5
     if contacts.get("count"):
         score += 8
-    if statuses.get("pubmed_article_candidate:needs_review") or statuses.get("pubmed_article_candidate:candidate"):
+    article_candidates = (
+        statuses.get("pubmed_article_candidate:needs_review")
+        or statuses.get("pubmed_article_candidate:candidate")
+        or statuses.get("orcid_pubmed_article_candidate:needs_review")
+        or statuses.get("orcid_pubmed_article_candidate:candidate")
+    )
+    if article_candidates:
         score += 15
     elif claims.get("pubmed_author_query_candidate"):
         score += 5
@@ -243,9 +249,16 @@ def next_action(person: dict, programs: set[str], training: dict, contacts: dict
         return "organization_alias_review"
     if queue.get("max_priority", 0) >= 90:
         return "reconcile_high_priority_evidence"
-    if statuses.get("pubmed_article_candidate:needs_review"):
+    if statuses.get("pubmed_article_candidate:needs_review") or statuses.get(
+        "orcid_pubmed_article_candidate:needs_review"
+    ):
         return "reconcile_pubmed_article_candidates"
-    if role in {"resident", "fellow"} and not statuses.get("pubmed_article_candidate:candidate"):
+    if role in {"resident", "fellow"} and not (
+        statuses.get("pubmed_article_candidate:candidate")
+        or statuses.get("pubmed_article_candidate:needs_review")
+        or statuses.get("orcid_pubmed_article_candidate:candidate")
+        or statuses.get("orcid_pubmed_article_candidate:needs_review")
+    ):
         return "collect_article_level_research_candidates"
     if career.get("statuses", Counter()).get("attending_profile_training_history_candidate:needs_review"):
         return "reconcile_attending_training_history"
@@ -298,8 +311,10 @@ def person_rows(conn: sqlite3.Connection) -> list[dict]:
                 "seeded_training_org_count": count_int(resolver, "seeded_alias"),
                 "cleaned_training_org_count": count_int(resolver, "cleaned_label"),
                 "pubmed_author_query_count": count_int(claim_statuses, "pubmed_author_query_candidate:candidate"),
-                "pubmed_article_candidate_count": count_int(claim_statuses, "pubmed_article_candidate:candidate"),
-                "pubmed_article_needs_review_count": count_int(claim_statuses, "pubmed_article_candidate:needs_review"),
+                "pubmed_article_candidate_count": count_int(claim_statuses, "pubmed_article_candidate:candidate")
+                + count_int(claim_statuses, "orcid_pubmed_article_candidate:candidate"),
+                "pubmed_article_needs_review_count": count_int(claim_statuses, "pubmed_article_candidate:needs_review")
+                + count_int(claim_statuses, "orcid_pubmed_article_candidate:needs_review"),
                 "career_event_candidate_count": sum(career.get("events", Counter()).values()),
                 "npi_candidate_count": npi.get("count", 0),
                 "npi_needs_review_count": count_int(npi_statuses, "needs_review"),

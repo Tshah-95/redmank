@@ -50,7 +50,11 @@ FIELDNAMES = [
 ]
 
 MACHINE_ACCEPTANCE_PUBMED_DECISIONS = {"review_ready_high_anchor"}
-REVIEW_READY_PUBMED_DECISIONS = {"review_ready_high_anchor", "review_ready_training_topic_anchor"}
+REVIEW_READY_PUBMED_DECISIONS = {
+    "review_ready_high_anchor",
+    "review_ready_training_topic_anchor",
+    "review_ready_orcid_seeded_article",
+}
 REVIEW_READY_PUBLICATION_DECISIONS = REVIEW_READY_PUBMED_DECISIONS | {"orcid_work_publication_review"}
 SECONDARY_DECISIONS = {
     "needs_secondary_identity_anchor",

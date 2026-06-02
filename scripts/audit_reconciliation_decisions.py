@@ -24,6 +24,10 @@ REVIEW_READY_PUBMED_FEATURES = {
     "prior_training_or_education_affiliation",
     "program_topic_match",
     "orcid_present",
+    "orcid_seeded_work",
+    "orcid_profile_secondary_anchor",
+    "doi_consistent_with_orcid",
+    "author_position_known",
 }
 NPI_REVIEW_FEATURES = {
     "state_location_match",
@@ -42,6 +46,12 @@ ORCID_REVIEW_FEATURES = {
     "orcid_work_public",
     "doi_present",
     "pmid_present",
+    "pmid_from_orcid_work",
+    "orcid_profile_name_match",
+    "orcid_profile_secondary_anchor",
+    "orcid_seeded_work",
+    "doi_consistent_with_orcid",
+    "author_position_known",
 }
 PROFILE_REVIEW_FEATURES = {
     "official_trainee_profile",
@@ -140,9 +150,39 @@ def pubmed_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
             "Do not accept author-query counts as identity evidence.",
             "Fetch article-level candidates, then require affiliation/coauthor/profile anchors.",
         )
+    if (
+        row["claim_type"] == "orcid_pubmed_article_candidate"
+        and row["status"] == "needs_review"
+        and confidence >= 0.82
+        and "orcid_seeded_work" in features
+        and "article_author_name_match" in features
+        and bool(features & {"doi_consistent_with_orcid", "pmid_from_orcid_work"})
+    ):
+        return (
+            "review_ready_orcid_seeded_article",
+            "ORCID public work resolved to PubMed article metadata with author-name agreement and stable PMID/DOI consistency.",
+            "Reviewer should confirm same-person ORCID linkage, article author position, affiliations, and profile/source context before accepting publication enrichment.",
+        )
     strong_review = bool(features & {"penn_affiliation", "orcid_present"}) and bool(
         features & {"prior_training_or_education_affiliation", "program_topic_match"}
     )
+    if row["claim_type"] == "orcid_pubmed_article_candidate":
+        strong_review = bool(
+            features
+            & {
+                "penn_affiliation",
+                "orcid_seeded_work",
+                "orcid_profile_secondary_anchor",
+            }
+        ) and bool(
+            features
+            & {
+                "prior_training_or_education_affiliation",
+                "program_topic_match",
+                "doi_consistent_with_orcid",
+                "author_position_known",
+            }
+        )
     topic_training_review = "prior_training_or_education_affiliation" in features and "program_topic_match" in features
     if row["status"] == "needs_review" and confidence >= 0.9 and strong_review:
         return (

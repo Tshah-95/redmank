@@ -66,6 +66,8 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "openalex_work_candidate_summary.json",
     ARTIFACTS / "pubmed_article_candidate_claims.json",
     ARTIFACTS / "pubmed_article_candidate_summary.json",
+    ARTIFACTS / "orcid_pubmed_article_candidate_claims.json",
+    ARTIFACTS / "orcid_pubmed_article_candidate_summary.json",
     ARTIFACTS / "manual_source_quality_observations.json",
 ]
 
@@ -509,6 +511,7 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         ARTIFACTS / "orcid_work_candidate_claims.json",
         ARTIFACTS / "openalex_work_candidate_claims.json",
         ARTIFACTS / "pubmed_article_candidate_claims.json",
+        ARTIFACTS / "orcid_pubmed_article_candidate_claims.json",
     ]
     paths = [path for path in claim_paths if path.exists()]
     if not paths:
@@ -562,6 +565,11 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         "pubmed_article_candidate_claims.json": load_json(ARTIFACTS / "pubmed_article_candidate_summary.json")
         if (ARTIFACTS / "pubmed_article_candidate_summary.json").exists()
         else {},
+        "orcid_pubmed_article_candidate_claims.json": load_json(
+            ARTIFACTS / "orcid_pubmed_article_candidate_summary.json"
+        )
+        if (ARTIFACTS / "orcid_pubmed_article_candidate_summary.json").exists()
+        else {},
     }
     artifact_observed_at = sorted(
         summary["generated_at"] for summary in summaries.values() if summary.get("generated_at")
@@ -611,9 +619,16 @@ def insert_research_candidate_claims(conn: sqlite3.Connection) -> None:
         path_claims = [row for row in raw_path_claims if row.get("person_key") in existing_people]
         if not raw_path_claims:
             continue
-        if path.name != "pubmed_article_candidate_claims.json":
+        if path.name not in {
+            "pubmed_article_candidate_claims.json",
+            "orcid_pubmed_article_candidate_claims.json",
+        }:
             continue
-        utility_key = "pubmed_article_reconciliation"
+        utility_key = (
+            "orcid_pubmed_article_reconciliation"
+            if path.name == "orcid_pubmed_article_candidate_claims.json"
+            else "pubmed_article_reconciliation"
+        )
         conn.execute(
             """
             INSERT INTO source_quality_observations

@@ -136,6 +136,19 @@ def main() -> None:
         LIMIT 30
         """,
     )
+    orcid_pubmed_article_features = rows(
+        conn,
+        """
+        SELECT match_features_json, COUNT(*) AS count,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM evidence_claims
+        WHERE source_key = 'pubmed_eutilities'
+          AND claim_type = 'orcid_pubmed_article_candidate'
+        GROUP BY match_features_json
+        ORDER BY count DESC
+        LIMIT 30
+        """,
+    )
     trainee_profile_counts = rows(
         conn,
         """
@@ -304,6 +317,7 @@ def main() -> None:
         {},
     )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
+    orcid_pubmed_article_summary = read_json(ARTIFACTS / "orcid_pubmed_article_candidate_summary.json", {})
     orcid_profile_summary = read_json(ARTIFACTS / "orcid_profile_candidate_summary.json", {})
     orcid_work_summary = read_json(ARTIFACTS / "orcid_work_candidate_summary.json", {})
     trainee_profile_summary = read_json(ARTIFACTS / "penn_trainee_profile_summary.json", {})
@@ -501,6 +515,8 @@ def main() -> None:
         "pubmed_feature_distribution": pubmed_features,
         "pubmed_article_feature_distribution": pubmed_article_features,
         "pubmed_article_candidate_summary": pubmed_article_summary,
+        "orcid_pubmed_article_feature_distribution": orcid_pubmed_article_features,
+        "orcid_pubmed_article_candidate_summary": orcid_pubmed_article_summary,
         "penn_affiliated_discovery": broad_discovery,
         "career_event_counts": career_events,
         "attending_profile_summary": attending_profile_summary,
@@ -1295,6 +1311,26 @@ def main() -> None:
         *md_table(pubmed_article_features, ["match_features_json", "count", "avg_confidence"]),
         "",
         "Learning: article-level PubMed XML is materially better than author-query counts because it exposes the target author, affiliation strings, publication year, journal/title, and topic hints. It is still candidate evidence: many records have one strong non-name anchor, but acceptance should require at least two independent anchors or a human review step.",
+        "",
+        "## ORCID-Seeded PubMed Article Reconciliation",
+        "",
+        f"ORCID work claims considered: {orcid_pubmed_article_summary.get('orcid_work_claims_considered', 0)}. Unique PMIDs fetched: {orcid_pubmed_article_summary.get('unique_pmids_fetched', 0)}. Article candidates: {orcid_pubmed_article_summary.get('article_claims', 0)}. People with candidates: {orcid_pubmed_article_summary.get('people_with_article_claims', 0)}.",
+        "",
+        "ORCID-seeded article statuses:",
+        "",
+        *md_table(
+            [
+                {"status": status, "count": count}
+                for status, count in sorted((orcid_pubmed_article_summary.get("by_status") or {}).items())
+            ],
+            ["status", "count"],
+        ),
+        "",
+        "ORCID-seeded article feature distribution:",
+        "",
+        *md_table(orcid_pubmed_article_features, ["match_features_json", "count", "avg_confidence"]),
+        "",
+        "Learning: ORCID-seeded PubMed reconciliation is higher precision than name-only PubMed search because each article starts with a stable ORCID work identifier, then checks PubMed author names, author position, DOI/PMID consistency, affiliations, and topic context. It remains review-only because ORCID ownership and same-person linkage can still be wrong or stale.",
         "",
         "## Official Trainee Profile Enrichment",
         "",

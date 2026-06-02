@@ -342,6 +342,35 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
           AND status = 'candidate'
         """,
     )
+    orcid_pubmed_article_claims = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM evidence_claims
+        WHERE source_key = 'pubmed_eutilities'
+          AND claim_type = 'orcid_pubmed_article_candidate'
+        """,
+    )
+    orcid_pubmed_article_needs_review = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM evidence_claims
+        WHERE source_key = 'pubmed_eutilities'
+          AND claim_type = 'orcid_pubmed_article_candidate'
+          AND status = 'needs_review'
+        """,
+    )
+    orcid_pubmed_article_candidate = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM evidence_claims
+        WHERE source_key = 'pubmed_eutilities'
+          AND claim_type = 'orcid_pubmed_article_candidate'
+          AND status = 'candidate'
+        """,
+    )
 
     decisions = read_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv")
     decision_counts = Counter(row.get("decision", "") for row in decisions)
@@ -364,6 +393,25 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         and row.get("decision") == "low_signal_candidate"
     )
     pubmed_discovery_only = decision_counts.get("discovery_only", 0)
+    orcid_pubmed_review_ready = sum(
+        1
+        for row in decisions
+        if row.get("claim_type") == "orcid_pubmed_article_candidate"
+        and row.get("decision")
+        in {"review_ready_orcid_seeded_article", "review_ready_high_anchor", "review_ready_training_topic_anchor"}
+    )
+    orcid_pubmed_secondary = sum(
+        1
+        for row in decisions
+        if row.get("claim_type") == "orcid_pubmed_article_candidate"
+        and row.get("decision") == "needs_secondary_identity_anchor"
+    )
+    orcid_pubmed_low_signal = sum(
+        1
+        for row in decisions
+        if row.get("claim_type") == "orcid_pubmed_article_candidate"
+        and row.get("decision") == "low_signal_candidate"
+    )
 
     packets_summary = read_json(ARTIFACTS / "person_evidence_review_packet_summary.json", {})
     packets_by_status = packets_summary.get("by_packet_status") or {}
@@ -897,6 +945,39 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "packet_status_counts": packets_by_status,
                 "review_ready_packets": review_ready_packets,
                 "needs_secondary_anchor_packets": secondary_packets,
+            },
+        ),
+        make_row(
+            scorecard_key="orcid_pubmed_article_reconciliation",
+            utility_key="orcid_pubmed_article_reconciliation",
+            utility_label="ORCID-seeded PubMed article reconciliation",
+            source_family="scholarly_api",
+            claim_surface="ORCID public DOI/PMID works resolved to PubMed XML with author-position and DOI/PMID consistency checks",
+            input_records=orcid_work_review + orcid_work_candidate,
+            output_records=orcid_pubmed_article_claims,
+            candidate_records=orcid_pubmed_article_candidate,
+            needs_review_records=orcid_pubmed_article_needs_review + orcid_pubmed_secondary,
+            review_ready_records=orcid_pubmed_review_ready,
+            low_signal_records=orcid_pubmed_low_signal,
+            score=72.0 if orcid_pubmed_article_claims else 52.0,
+            strengths=[
+                "Starts from stable ORCID DOI/PMID work identifiers instead of name-only publication search",
+                "PubMed XML adds author position, affiliation text, journal/title, year, and DOI consistency",
+                "Separate claim type allows utility comparison without changing strict PubMed acceptance policy",
+            ],
+            limitations=[
+                "Only ORCID works with PubMed-resolvable PMIDs/DOIs produce rows",
+                "ORCID ownership remains self-asserted or third-party asserted unless corroborated",
+                "Review-ready status still requires same-person and author-position confirmation",
+            ],
+            recommended_next_action="use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance",
+            evidence={
+                "article_claims": orcid_pubmed_article_claims,
+                "status_candidate": orcid_pubmed_article_candidate,
+                "status_needs_review": orcid_pubmed_article_needs_review,
+                "review_ready_records": orcid_pubmed_review_ready,
+                "needs_secondary_identity_anchor_records": orcid_pubmed_secondary,
+                "low_signal_records": orcid_pubmed_low_signal,
             },
         ),
         make_row(
