@@ -23,6 +23,32 @@ ACCEPTANCE_CSV = ARTIFACTS / "enrichment_acceptance_audit.csv"
 ACCEPTANCE_JSON = ARTIFACTS / "enrichment_acceptance_audit.json"
 SUMMARY_JSON = ARTIFACTS / "enrichment_acceptance_summary.json"
 
+FIELDNAMES = [
+    "acceptance_key",
+    "record_type",
+    "record_id",
+    "person_key",
+    "display_name",
+    "role",
+    "claim_type",
+    "accepted_claim_type",
+    "accepted_claim_value",
+    "source_key",
+    "source_url",
+    "prior_decision",
+    "acceptance_status",
+    "assurance_level",
+    "confidence",
+    "non_name_anchor_count",
+    "corroborating_source_count",
+    "corroborating_sources_json",
+    "anchor_features_json",
+    "acceptance_blocker",
+    "recommended_next_action",
+    "evidence_json",
+    "audited_at",
+]
+
 MACHINE_ACCEPTANCE_PUBMED_DECISIONS = {"review_ready_high_anchor"}
 REVIEW_READY_PUBMED_DECISIONS = {"review_ready_high_anchor", "review_ready_training_topic_anchor"}
 SECONDARY_DECISIONS = {
@@ -55,6 +81,25 @@ def read_csv(path: Path) -> list[dict]:
         return []
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
+
+
+def existing_rows() -> dict[str, dict]:
+    if not ACCEPTANCE_CSV.exists():
+        return {}
+    with ACCEPTANCE_CSV.open(newline="", encoding="utf-8") as handle:
+        return {row["acceptance_key"]: row for row in csv.DictReader(handle)}
+
+
+def stable_audited_at(existing: dict[str, dict], row: dict, new_value: str) -> str:
+    prior = existing.get(row["acceptance_key"])
+    if not prior:
+        return new_value
+    for field in FIELDNAMES:
+        if field == "audited_at":
+            continue
+        if str(prior.get(field, "")) != str(row.get(field, "")):
+            return new_value
+    return prior.get("audited_at") or new_value
 
 
 def acceptance_key(row: dict) -> str:
@@ -297,7 +342,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         path.write_text("", encoding="utf-8")
         return
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()), lineterminator="\n")
+        writer = csv.DictWriter(handle, fieldnames=FIELDNAMES, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -334,6 +379,9 @@ def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
 
 
 def write_outputs(rows: list[dict], audited_at: str) -> dict:
+    existing = existing_rows()
+    for row in rows:
+        row["audited_at"] = stable_audited_at(existing, row, audited_at)
     write_csv(ACCEPTANCE_CSV, rows)
     ACCEPTANCE_JSON.write_text(json.dumps(rows, indent=2, ensure_ascii=True, sort_keys=True) + "\n", encoding="utf-8")
     by_status = Counter(row["acceptance_status"] for row in rows)
@@ -344,7 +392,7 @@ def write_outputs(rows: list[dict], audited_at: str) -> dict:
         row for row in rows if row["acceptance_status"] == "machine_acceptance_candidate_cross_source"
     ]
     summary = {
-        "audited_at": audited_at,
+        "audited_at": max((row["audited_at"] for row in rows), default=audited_at),
         "acceptance_rows": len(rows),
         "person_rows": len({row["person_key"] or row["display_name"] for row in rows}),
         "machine_acceptance_candidate_rows": len(machine_rows),
@@ -376,10 +424,11 @@ def main() -> None:
     audited_at = now_utc()
     conn = sqlite3.connect(args.db)
     rows = audit_rows(conn, decisions, audited_at)
+    summary = write_outputs(rows, audited_at)
     with conn:
         write_db(conn, rows)
     conn.close()
-    print(dumps(write_outputs(rows, audited_at)))
+    print(dumps(summary))
 
 
 if __name__ == "__main__":

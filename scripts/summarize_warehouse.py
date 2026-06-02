@@ -41,6 +41,8 @@ def main() -> None:
         "npi_source_observations",
         "person_contacts",
         "evidence_claims",
+        "evidence_reconciliation_decisions",
+        "person_reconciliation_decisions",
         "enrichment_acceptance_audit",
         "source_quality_observations",
         "source_utility_scorecard",
@@ -182,6 +184,26 @@ def main() -> None:
             GROUP BY claim_type
             ORDER BY count DESC
             LIMIT 20
+            """
+        )
+    }
+    evidence_reconciliation_decision_counts = {
+        row["decision"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT decision, COUNT(*) AS count
+            FROM evidence_reconciliation_decisions
+            GROUP BY decision
+            """
+        )
+    }
+    person_reconciliation_decision_counts = {
+        row["top_decision"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT top_decision, COUNT(*) AS count
+            FROM person_reconciliation_decisions
+            GROUP BY top_decision
             """
         )
     }
@@ -457,6 +479,8 @@ def main() -> None:
         "npi_primary_taxonomy_counts": npi_primary_taxonomy_counts,
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
         "evidence_reconciliation_top_claim_counts": evidence_reconciliation_top_claim_counts,
+        "evidence_reconciliation_decision_counts": evidence_reconciliation_decision_counts,
+        "person_reconciliation_decision_counts": person_reconciliation_decision_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
         "enrichment_acceptance_counts": enrichment_acceptance_counts,
         "contact_counts": contact_counts,

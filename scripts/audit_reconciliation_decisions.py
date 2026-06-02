@@ -5,11 +5,12 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import sqlite3
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 
@@ -59,6 +60,16 @@ def parse_json(value: str | None, default):
         return json.loads(value)
     except json.JSONDecodeError:
         return default
+
+
+def key_for(prefix: str, *parts: object) -> str:
+    basis = "|".join(str(part or "") for part in parts)
+    digest = hashlib.sha256(basis.encode("utf-8")).hexdigest()[:20]
+    return f"{prefix}_{digest}"
+
+
+def now_utc() -> str:
+    return datetime.now(timezone.utc).isoformat()
 
 
 def rows(conn: sqlite3.Connection, query: str) -> list[dict]:
@@ -296,11 +307,117 @@ def write_csv(path: Path, output_rows: list[dict]) -> None:
         writer.writerows(output_rows)
 
 
-def write_outputs(decisions: list[dict], people: list[dict], as_of_year: int) -> None:
+def write_sqlite(conn: sqlite3.Connection, decisions: list[dict], people: list[dict], decided_at: str) -> None:
+    existing_decisions = {}
+    existing_rollups = {}
+    table_names = {
+        row["name"]
+        for row in conn.execute("SELECT name FROM sqlite_master WHERE type = 'table'")
+    }
+    if "evidence_reconciliation_decisions" in table_names:
+        existing_decisions = {
+            row["decision_key"]: dict(row)
+            for row in conn.execute(
+                """
+                SELECT decision_key, evidence_json, decided_at
+                FROM evidence_reconciliation_decisions
+                """
+            )
+        }
+    if "person_reconciliation_decisions" in table_names:
+        existing_rollups = {
+            row["rollup_key"]: dict(row)
+            for row in conn.execute(
+                """
+                SELECT rollup_key, record_count, max_priority, review_ready_records,
+                       top_decision, decision_counts_json, decided_at
+                FROM person_reconciliation_decisions
+                """
+            )
+        }
+    conn.execute("DROP TABLE IF EXISTS evidence_reconciliation_decisions")
+    conn.execute("DROP TABLE IF EXISTS person_reconciliation_decisions")
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    decision_rows = []
+    for row in decisions:
+        db_row = dict(row)
+        db_row["decision_key"] = key_for("evidence_decision", row["record_type"], row["record_id"])
+        db_row["person_key"] = row.get("person_key") or None
+        db_row["confidence"] = float(row.get("confidence") or 0)
+        db_row["priority"] = int(float(row.get("priority") or 0))
+        db_row["non_name_anchor_count"] = int(float(row.get("non_name_anchor_count") or 0))
+        db_row["matched_current_person_count"] = int(float(row.get("matched_current_person_count") or 0))
+        db_row["evidence_json"] = json.dumps(row, sort_keys=True)
+        prior = existing_decisions.get(db_row["decision_key"])
+        if prior and prior.get("evidence_json") == db_row["evidence_json"]:
+            db_row["decided_at"] = prior.get("decided_at") or decided_at
+        else:
+            db_row["decided_at"] = decided_at
+        decision_rows.append(db_row)
+    conn.executemany(
+        """
+        INSERT INTO evidence_reconciliation_decisions
+        (decision_key, record_type, record_id, person_key, display_name, role,
+         claim_type, event_type, status, confidence, priority, decision,
+         decision_rationale, required_next_evidence, non_name_anchor_count,
+         matched_current_person_count, matched_current_person_keys,
+         ten_year_trend_window, source_key, source_url, match_features,
+         evidence_json, decided_at)
+        VALUES
+        (:decision_key, :record_type, :record_id, :person_key, :display_name, :role,
+         :claim_type, :event_type, :status, :confidence, :priority, :decision,
+         :decision_rationale, :required_next_evidence, :non_name_anchor_count,
+         :matched_current_person_count, :matched_current_person_keys,
+         :ten_year_trend_window, :source_key, :source_url, :match_features,
+         :evidence_json, :decided_at)
+        """,
+        decision_rows,
+    )
+    rollup_rows = []
+    known_person_keys = {decision.get("person_key") for decision in decisions if decision.get("person_key")}
+    for row in people:
+        db_row = dict(row)
+        db_row["rollup_key"] = key_for("person_reconciliation", row["person_or_name_key"], row["display_name"])
+        db_row["person_key"] = (
+            row["person_or_name_key"]
+            if row["person_or_name_key"] and row["person_or_name_key"] in known_person_keys
+            else None
+        )
+        db_row["record_count"] = int(float(row.get("record_count") or 0))
+        db_row["max_priority"] = int(float(row.get("max_priority") or 0))
+        db_row["review_ready_records"] = int(float(row.get("review_ready_records") or 0))
+        prior = existing_rollups.get(db_row["rollup_key"])
+        if prior and all(
+            str(prior.get(field, "")) == str(db_row.get(field, ""))
+            for field in ["record_count", "max_priority", "review_ready_records", "top_decision", "decision_counts_json"]
+        ):
+            db_row["decided_at"] = prior.get("decided_at") or decided_at
+        else:
+            db_row["decided_at"] = decided_at
+        rollup_rows.append(db_row)
+    conn.executemany(
+        """
+        INSERT INTO person_reconciliation_decisions
+        (rollup_key, person_or_name_key, person_key, display_name, record_count,
+         max_priority, review_ready_records, top_decision, decision_counts_json,
+         decided_at)
+        VALUES
+        (:rollup_key, :person_or_name_key, :person_key, :display_name, :record_count,
+         :max_priority, :review_ready_records, :top_decision, :decision_counts_json,
+         :decided_at)
+        """,
+        rollup_rows,
+    )
+
+
+def write_outputs(conn: sqlite3.Connection, decisions: list[dict], people: list[dict], as_of_year: int) -> None:
+    decided_at = now_utc()
     summary = {
         "as_of_year": as_of_year,
         "decision_rows": len(decisions),
         "person_or_name_rows": len(people),
+        "sqlite_tables": ["evidence_reconciliation_decisions", "person_reconciliation_decisions"],
+        "decided_at": decided_at,
         "by_decision": dict(sorted(Counter(row["decision"] for row in decisions).items())),
         "by_record_type": dict(sorted(Counter(row["record_type"] for row in decisions).items())),
         "by_claim_type": dict(sorted(Counter(row["claim_type"] for row in decisions).items())),
@@ -317,9 +434,19 @@ def write_outputs(decisions: list[dict], people: list[dict], as_of_year: int) ->
         "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
         "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
     }
+    summary_path = ARTIFACTS / "evidence_reconciliation_decision_summary.json"
+    if summary_path.exists():
+        prior_summary = parse_json(summary_path.read_text(encoding="utf-8"), {})
+        comparable_prior = dict(prior_summary)
+        comparable_current = dict(summary)
+        comparable_prior.pop("decided_at", None)
+        comparable_current.pop("decided_at", None)
+        if comparable_prior == comparable_current:
+            summary["decided_at"] = prior_summary.get("decided_at") or decided_at
+    write_sqlite(conn, decisions, people, decided_at)
     write_csv(ARTIFACTS / "evidence_reconciliation_decisions.csv", decisions)
     write_csv(ARTIFACTS / "person_reconciliation_decisions.csv", people)
-    (ARTIFACTS / "evidence_reconciliation_decision_summary.json").write_text(
+    summary_path.write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
@@ -334,8 +461,10 @@ def main() -> None:
     conn = sqlite3.connect(args.db)
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
     decisions = make_decisions(conn, args.as_of_year)
+    people = person_rollups(decisions)
+    write_outputs(conn, decisions, people, args.as_of_year)
+    conn.commit()
     conn.close()
-    write_outputs(decisions, person_rollups(decisions), args.as_of_year)
 
 
 if __name__ == "__main__":

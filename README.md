@@ -47,6 +47,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/evidence_reconciliation_queue.csv`: ranked review queue for candidate evidence and career-event reconciliation.
 - `artifacts/data/evidence_reconciliation_decisions.csv`: deterministic decision ledger for queued evidence, separating review-ready, discovery-only, secondary-anchor-needed, and attending-trend candidates.
 - `artifacts/data/person_reconciliation_decisions.csv`: person/name-level reconciliation decision rollup.
+- SQLite tables `evidence_reconciliation_decisions` and `person_reconciliation_decisions`: queryable versions of the item-level and person/name-level reconciliation ledgers.
 - `artifacts/data/person_evidence_review_packets.csv`: person/name-level review packets with top evidence, review kind, blocker, and next action.
 - `artifacts/data/person_evidence_review_packet_summary.json`: packet counts for review-ready publication, attending-trend, secondary-anchor, and discovery-only work.
 - `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.

@@ -1848,6 +1848,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "npi_source_observations",
         "person_contacts",
         "evidence_claims",
+        "evidence_reconciliation_decisions",
+        "person_reconciliation_decisions",
         "enrichment_acceptance_audit",
         "source_quality_observations",
         "source_utility_scorecard",

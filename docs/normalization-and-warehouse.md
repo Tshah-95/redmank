@@ -74,6 +74,8 @@ Core tables:
 - `career_events`: candidate current Penn attending and alumni/outcome events used for future trend reconciliation.
 - `person_contacts`: public contact candidates with source, scope, verification status, confidence, and candidate status.
 - `evidence_claims`: accepted and candidate claims for recursive enrichment.
+- `evidence_reconciliation_decisions`: queryable item-level decision ledger for candidate evidence and career events.
+- `person_reconciliation_decisions`: queryable person/name-level reconciliation burden and review-readiness rollup.
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.

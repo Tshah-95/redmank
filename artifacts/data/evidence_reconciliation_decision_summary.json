@@ -38,9 +38,14 @@
     "unknown": 100,
     "yes": 2
   },
+  "decided_at": "2026-06-02T09:52:23.905485+00:00",
   "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
   "decision_rows": 4147,
   "person_or_name_rows": 1263,
   "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
-  "review_ready_rows": 921
+  "review_ready_rows": 921,
+  "sqlite_tables": [
+    "evidence_reconciliation_decisions",
+    "person_reconciliation_decisions"
+  ]
 }

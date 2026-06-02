@@ -161,6 +161,7 @@
     "career_events": 105,
     "enrichment_acceptance_audit": 4147,
     "evidence_claims": 4744,
+    "evidence_reconciliation_decisions": 4147,
     "medical_student_source_audit": 16,
     "npi_candidate_claims": 1073,
     "npi_source_observations": 1257,
@@ -178,6 +179,7 @@
     "people": 1483,
     "person_contacts": 313,
     "person_evidence_review_packets": 1263,
+    "person_reconciliation_decisions": 1263,
     "person_training_events": 1775,
     "person_training_states": 1630,
     "program_identifier_candidates": 113,
@@ -209,7 +211,7 @@
   "enrichment_acceptance_summary": {
     "acceptance_rows": 4147,
     "acceptance_rule": "Do not mutate roster truth. A PubMed article becomes a machine-acceptance candidate only with review_ready_high_anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person.",
-    "audited_at": "2026-06-02T09:49:49.414971+00:00",
+    "audited_at": "2026-06-02T09:52:49.002517+00:00",
     "by_acceptance_status": {
       "attending_endpoint_only": 49,
       "context_or_review_queue_only": 51,
@@ -294,6 +296,22 @@
     "program_coverage_csv": "artifacts/data/program_enrichment_coverage.csv",
     "program_rows": 95
   },
+  "evidence_reconciliation_decision_counts": {
+    "attending_training_claim_needs_identity_link": 2,
+    "attending_training_claim_review_ready": 3,
+    "candidate_with_partial_anchor": 102,
+    "current_attending_endpoint_candidate": 49,
+    "discovery_only": 1111,
+    "low_signal_candidate": 912,
+    "needs_secondary_identity_anchor": 727,
+    "npi_candidate_with_partial_anchor": 138,
+    "npi_low_signal_candidate": 134,
+    "npi_secondary_identity_anchor_review": 801,
+    "outcome_context_only": 36,
+    "profile_context_candidate": 15,
+    "review_ready_high_anchor": 5,
+    "review_ready_training_topic_anchor": 112
+  },
   "evidence_reconciliation_decision_summary": {
     "as_of_year": 2026,
     "by_claim_type": {
@@ -334,11 +352,16 @@
       "unknown": 100,
       "yes": 2
     },
+    "decided_at": "2026-06-02T09:52:23.905485+00:00",
     "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
     "decision_rows": 4147,
     "person_or_name_rows": 1263,
     "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
-    "review_ready_rows": 921
+    "review_ready_rows": 921,
+    "sqlite_tables": [
+      "evidence_reconciliation_decisions",
+      "person_reconciliation_decisions"
+    ]
   },
   "evidence_reconciliation_queue_counts": {
     "career_event:candidate": 100,
@@ -432,7 +455,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T09:49:49.864582+00:00",
+  "generated_at": "2026-06-02T09:55:24.486070+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -811,6 +834,20 @@
     "publication_review_packets": 381,
     "review_ready_packets": 692
   },
+  "person_reconciliation_decision_counts": {
+    "attending_training_claim_review_ready": 3,
+    "candidate_with_partial_anchor": 7,
+    "current_attending_endpoint_candidate": 41,
+    "discovery_only": 286,
+    "low_signal_candidate": 134,
+    "needs_secondary_identity_anchor": 131,
+    "npi_candidate_with_partial_anchor": 41,
+    "npi_low_signal_candidate": 39,
+    "npi_secondary_identity_anchor_review": 562,
+    "outcome_context_only": 1,
+    "profile_context_candidate": 5,
+    "review_ready_training_topic_anchor": 13
+  },
   "program_identifier_candidate_counts": {
     "ambiguous_acgme_identifier_candidate": 20,
     "no_acgme_identifier_found": 7,
@@ -988,7 +1025,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T09:49:49.742346+00:00",
+    "generated_at": "2026-06-02T09:54:48.121089+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 18,

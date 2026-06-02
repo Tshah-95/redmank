@@ -669,6 +669,45 @@ CREATE TABLE IF NOT EXISTS evidence_claims (
   evidence_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS evidence_reconciliation_decisions (
+  decision_key TEXT PRIMARY KEY,
+  record_type TEXT NOT NULL,
+  record_id TEXT NOT NULL,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  claim_type TEXT,
+  event_type TEXT,
+  status TEXT,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  priority INTEGER NOT NULL DEFAULT 0,
+  decision TEXT NOT NULL,
+  decision_rationale TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  matched_current_person_count INTEGER NOT NULL DEFAULT 0,
+  matched_current_person_keys TEXT,
+  ten_year_trend_window TEXT,
+  source_key TEXT,
+  source_url TEXT,
+  match_features TEXT,
+  evidence_json TEXT,
+  decided_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS person_reconciliation_decisions (
+  rollup_key TEXT PRIMARY KEY,
+  person_or_name_key TEXT NOT NULL,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  record_count INTEGER NOT NULL DEFAULT 0,
+  max_priority INTEGER NOT NULL DEFAULT 0,
+  review_ready_records INTEGER NOT NULL DEFAULT 0,
+  top_decision TEXT NOT NULL,
+  decision_counts_json TEXT NOT NULL,
+  decided_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS enrichment_acceptance_audit (
   acceptance_key TEXT PRIMARY KEY,
   record_type TEXT NOT NULL,
