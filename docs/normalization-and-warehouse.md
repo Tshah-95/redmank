@@ -72,6 +72,7 @@ Core tables:
 - `training_temporal_contracts`, `training_temporal_contract_rollups`: explicit next-run stale/transition contracts that define allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete training-state observations.
 - `official_roster_refresh_workbench`: source/program-level refresh contracts for official roster URLs, combining temporal-contract burden, source provenance, parser/collector hint, expected transitions, and review/source-bound lanes.
 - `official_roster_refresh_batches`: bounded execution packets for official roster refresh, grouped by collector, parser support, source domain, and state-machine burden so public-source refresh work can be run and audited without mutating state directly.
+- `official_roster_refresh_execution_audit`: post-run collector audit that ties refreshed public roster source summaries to the resulting training-state snapshot diff, making "fresh observation with no state delta" explicit.
 - `official_profile_discovery_workbench`: person-level profile-gap contracts for uncovered official-profile search tasks, combining query manifests, search observations, direct probes, candidate URLs, source domains, and next evidence required before accepting a profile URL.
 - `training_state_refresh_expectations`, `person_refresh_expectations`, `program_refresh_expectations`, `category_refresh_expectations`: queryable next-refresh expectation ledgers for missing, unchanged, advanced, stale, and review-required outcomes.
 - `organizations`: resolved organization entities.

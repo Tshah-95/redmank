@@ -19,7 +19,7 @@
   },
   "critical_rows": 70,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T20:07:33.594061+00:00",
+  "generated_at": "2026-06-02T20:14:59.471516+00:00",
   "high_rows": 698,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",

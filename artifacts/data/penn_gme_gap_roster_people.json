@@ -12252,7 +12252,7 @@
     "unit": "Pathology and Laboratory Medicine"
   },
   {
-    "bio_text": "PGY-1, Combined Anatomic Pathology and Clinical Pathology Program",
+    "bio_text": "PGY-3, Clinical Pathology Program (PSP)",
     "coverage_gap_program_name": "Pathology - Anatomic and Clinical",
     "coverage_gap_status": null,
     "current_status": "current",
@@ -12260,7 +12260,7 @@
     "headshot_alt": "",
     "headshot_url": "",
     "institution": "University of Pennsylvania / Penn Medicine",
-    "name": "Chuan Hao Chen, MD, PhD",
+    "name": "Gregory Chen, MD, PhD",
     "official_program_key": "",
     "population": "penn_affiliated_current_trainees",
     "profile_url": "",
@@ -12282,7 +12282,7 @@
     "unit": "Pathology and Laboratory Medicine"
   },
   {
-    "bio_text": "PGY-3, Clinical Pathology Program (PSP)",
+    "bio_text": "PGY-1, Combined Anatomic Pathology and Clinical Pathology Program",
     "coverage_gap_program_name": "Pathology - Anatomic and Clinical",
     "coverage_gap_status": null,
     "current_status": "current",
@@ -12290,7 +12290,7 @@
     "headshot_alt": "",
     "headshot_url": "",
     "institution": "University of Pennsylvania / Penn Medicine",
-    "name": "Gregory Chen, MD, PhD",
+    "name": "Chuan Hao Chen, MD, PhD",
     "official_program_key": "",
     "population": "penn_affiliated_current_trainees",
     "profile_url": "",

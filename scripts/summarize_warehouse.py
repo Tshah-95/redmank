@@ -36,6 +36,7 @@ def main() -> None:
         "person_evidence_reviewer_decision_audit",
         "person_evidence_review_triage",
         "person_evidence_review_batches",
+        "official_roster_refresh_execution_audit",
         "training_state_snapshots",
         "training_state_snapshot_rows",
         "training_state_transition_events",

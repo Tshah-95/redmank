@@ -1526,6 +1526,34 @@ CREATE TABLE IF NOT EXISTS official_roster_refresh_batches (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_roster_refresh_execution_audit (
+  execution_audit_key TEXT PRIMARY KEY,
+  audit_scope TEXT NOT NULL,
+  collector_command TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  refreshed_at TEXT,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  sources_attempted INTEGER NOT NULL DEFAULT 0,
+  sources_with_records INTEGER NOT NULL DEFAULT 0,
+  records_observed INTEGER NOT NULL DEFAULT 0,
+  unique_records_observed INTEGER NOT NULL DEFAULT 0,
+  preserved_source_count INTEGER NOT NULL DEFAULT 0,
+  skipped_source_count INTEGER NOT NULL DEFAULT 0,
+  current_snapshot_id TEXT NOT NULL,
+  previous_snapshot_id TEXT,
+  snapshot_comparison_kind TEXT,
+  canonical_state_count INTEGER NOT NULL DEFAULT 0,
+  unchanged_state_count INTEGER NOT NULL DEFAULT 0,
+  added_state_count INTEGER NOT NULL DEFAULT 0,
+  removed_state_count INTEGER NOT NULL DEFAULT 0,
+  changed_state_count INTEGER NOT NULL DEFAULT 0,
+  execution_status TEXT NOT NULL,
+  state_delta_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  acceptance_rule TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS official_profile_discovery_workbench (
   profile_workbench_key TEXT PRIMARY KEY,
   person_key TEXT NOT NULL,

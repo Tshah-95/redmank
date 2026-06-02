@@ -66,6 +66,7 @@ PIPELINE = [
     ["python3", "scripts/audit_source_utility_scorecard.py"],
     ["python3", "scripts/materialize_search_utility_assurance.py"],
     ["python3", "scripts/materialize_corpus_action_worklist.py"],
+    ["python3", "scripts/materialize_official_roster_refresh_execution_audit.py"],
     ["python3", "scripts/report_source_quality.py"],
     ["python3", "scripts/audit_warehouse_reproducibility.py"],
     ["python3", "scripts/summarize_warehouse.py"],

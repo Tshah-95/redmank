@@ -246,6 +246,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_roster_refresh_execution_audit.csv",
+        "official_roster_refresh_execution_ledger",
+        "csv",
+        "official_roster_refresh_execution_audit",
+        True,
+    ),
+    (
         "artifacts/data/training_state_diff.csv",
         "longitudinal_contract_aware_diff_example",
         "csv",

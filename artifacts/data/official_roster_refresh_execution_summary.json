@@ -1,0 +1,42 @@
+{
+  "added_state_count": 0,
+  "aggregate_preserved_source_count": 5,
+  "aggregate_records_observed": 1329,
+  "aggregate_skipped_source_count": 5,
+  "aggregate_sources_attempted": 65,
+  "aggregate_sources_with_records": 58,
+  "audit_rows": 4,
+  "by_collector": {
+    "python3 scripts/scrape_penn_gme_gap_rosters.py": {
+      "execution_status": "refresh_executed",
+      "records_observed": 576,
+      "sources_attempted": 36,
+      "sources_with_records": 31
+    },
+    "python3 scripts/scrape_penn_mstp_students.py": {
+      "execution_status": "refresh_executed",
+      "records_observed": 225,
+      "sources_attempted": 1,
+      "sources_with_records": 1
+    },
+    "python3 scripts/scrape_penn_training.py": {
+      "execution_status": "refresh_executed_with_preserved_prior_rows",
+      "records_observed": 528,
+      "sources_attempted": 28,
+      "sources_with_records": 26
+    }
+  },
+  "canonical_state_count": 1610,
+  "changed_state_count": 0,
+  "collector_rows": 3,
+  "csv": "artifacts/data/official_roster_refresh_execution_audit.csv",
+  "current_snapshot_id": "training_states_2026-06-02_5d6a884ed01a",
+  "generated_at": "2026-06-02T20:18:04.288690+00:00",
+  "json": "artifacts/data/official_roster_refresh_execution_audit.json",
+  "policy": "This ledger records collector execution and state-diff outcome; it does not mutate roster truth.",
+  "previous_snapshot_id": "training_states_2026-06-02_39aac55b1be8",
+  "removed_state_count": 0,
+  "snapshot_comparison_kind": "same_day_corpus_revision",
+  "state_delta_status": "fresh_refresh_no_state_delta",
+  "unchanged_state_count": 1610
+}

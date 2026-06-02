@@ -1,6 +1,6 @@
 # Penn Training Profile Index
 
-Generated: 2026-06-02T19:48:09.593211+00:00
+Generated: 2026-06-02T20:14:03.329256+00:00
 
 This is a review index for the first Penn case study. The canonical machine-readable outputs are `penn_training_people.json` and `penn_training_people_unique.json`.
 
