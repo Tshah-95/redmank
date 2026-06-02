@@ -50,6 +50,10 @@ def main() -> None:
         "attending_trend_reconciliation",
         "attending_trend_review_claims",
         "attending_trend_acceptance_audit",
+        "attending_trend_reviewer_decisions",
+        "attending_trend_reviewer_decision_queue",
+        "attending_trend_reviewer_decision_audit",
+        "accepted_attending_trend_facts",
         "attending_trend_review_rollups",
         "npi_candidate_claims",
         "npi_source_observations",
@@ -192,6 +196,26 @@ def main() -> None:
             SELECT accepted_trend_fact, COUNT(*) AS count
             FROM attending_trend_acceptance_audit
             GROUP BY accepted_trend_fact
+            """
+        )
+    }
+    attending_trend_reviewer_decision_counts = {
+        row["decision_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT decision_status, COUNT(*) AS count
+            FROM attending_trend_reviewer_decision_audit
+            GROUP BY decision_status
+            """
+        )
+    }
+    accepted_attending_trend_fact_counts = {
+        row["trend_fact_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT trend_fact_type, COUNT(*) AS count
+            FROM accepted_attending_trend_facts
+            GROUP BY trend_fact_type
             """
         )
     }
@@ -753,6 +777,13 @@ def main() -> None:
         )
     else:
         attending_trend_acceptance_summary = {}
+    attending_trend_reviewer_decision_summary_path = ARTIFACTS / "attending_trend_reviewer_decision_summary.json"
+    if attending_trend_reviewer_decision_summary_path.exists():
+        attending_trend_reviewer_decision_summary = json.loads(
+            attending_trend_reviewer_decision_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        attending_trend_reviewer_decision_summary = {}
     npi_candidate_summary_path = ARTIFACTS / "npi_candidate_summary.json"
     if npi_candidate_summary_path.exists():
         npi_candidate_summary = json.loads(npi_candidate_summary_path.read_text(encoding="utf-8"))
@@ -880,6 +911,8 @@ def main() -> None:
         "attending_trend_review_claim_counts": attending_trend_review_claim_counts,
         "attending_trend_acceptance_counts": attending_trend_acceptance_counts,
         "attending_trend_acceptance_fact_counts": attending_trend_acceptance_fact_counts,
+        "attending_trend_reviewer_decision_counts": attending_trend_reviewer_decision_counts,
+        "accepted_attending_trend_fact_counts": accepted_attending_trend_fact_counts,
         "attending_trend_review_end_year_counts": attending_trend_review_end_year_counts,
         "attending_trend_review_rollup_scope_counts": attending_trend_review_rollup_scope_counts,
         "npi_candidate_counts": npi_candidate_counts,
@@ -942,6 +975,7 @@ def main() -> None:
         "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
         "attending_trend_review_claims_summary": attending_trend_review_claims_summary,
         "attending_trend_acceptance_summary": attending_trend_acceptance_summary,
+        "attending_trend_reviewer_decision_summary": attending_trend_reviewer_decision_summary,
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "enrichment_acceptance_summary": enrichment_acceptance_summary,

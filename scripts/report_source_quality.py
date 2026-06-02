@@ -264,6 +264,10 @@ def main() -> None:
     attending_trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
     attending_trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
     attending_trend_acceptance_summary = read_json(ARTIFACTS / "attending_trend_acceptance_summary.json", {})
+    attending_trend_reviewer_decision_summary = read_json(
+        ARTIFACTS / "attending_trend_reviewer_decision_summary.json",
+        {},
+    )
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
@@ -275,6 +279,10 @@ def main() -> None:
     top_attending_trend_reconciliation = read_csv(ARTIFACTS / "attending_trend_reconciliation.csv", limit=25)
     top_attending_trend_review_claims = read_csv(ARTIFACTS / "attending_trend_review_claims.csv", limit=25)
     top_attending_trend_acceptance = read_csv(ARTIFACTS / "attending_trend_acceptance_audit.csv", limit=25)
+    top_attending_trend_reviewer_decisions = read_csv(
+        ARTIFACTS / "attending_trend_reviewer_decision_audit.csv",
+        limit=25,
+    )
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
@@ -354,6 +362,12 @@ def main() -> None:
         {"trend_status": status, "count": count}
         for status, count in sorted((attending_trend_reconciliation_summary.get("by_trend_status") or {}).items())
     ]
+    attending_trend_reviewer_decision_counts = [
+        {"decision_status": status, "count": count}
+        for status, count in sorted(
+            (attending_trend_reviewer_decision_summary.get("by_decision_status") or {}).items()
+        )
+    ]
     npi_candidate_status_counts = [
         {"candidate_status": status, "count": count}
         for status, count in sorted((npi_candidate_summary.get("by_candidate_status") or {}).items())
@@ -426,6 +440,8 @@ def main() -> None:
         "top_attending_trend_review_claims": top_attending_trend_review_claims,
         "attending_trend_acceptance_summary": attending_trend_acceptance_summary,
         "top_attending_trend_acceptance": top_attending_trend_acceptance,
+        "attending_trend_reviewer_decision_summary": attending_trend_reviewer_decision_summary,
+        "top_attending_trend_reviewer_decisions": top_attending_trend_reviewer_decisions,
         "top_attending_trend_review_rollups": top_attending_trend_review_rollups,
         "npi_candidate_summary": npi_candidate_summary,
         "top_npi_candidates": top_npi_candidates,
@@ -928,6 +944,24 @@ def main() -> None:
             ],
         ),
         "",
+        "Reviewer decision queue:",
+        "",
+        f"Queue rows: {attending_trend_reviewer_decision_summary.get('queue_rows', 0)}. Manual decision rows: {attending_trend_reviewer_decision_summary.get('manual_decision_rows', 0)}. Accepted trend facts: {attending_trend_reviewer_decision_summary.get('accepted_trend_fact_rows', 0)}. Pending reviewer decisions: {attending_trend_reviewer_decision_summary.get('pending_reviewer_decision_rows', 0)}.",
+        "",
+        *md_table(attending_trend_reviewer_decision_counts, ["decision_status", "count"]),
+        "",
+        *md_table(
+            top_attending_trend_reviewer_decisions,
+            [
+                "display_name",
+                "reviewer_decision",
+                "decision_status",
+                "accepted_trend_fact",
+                "decision_blocker",
+                "recommended_next_action",
+            ],
+        ),
+        "",
         "Trend review rollups:",
         "",
         *md_table(
@@ -942,7 +976,7 @@ def main() -> None:
             ],
         ),
         "",
-        "Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance, but the reviewer decision should be recorded separately before an accepted trend fact is emitted.",
+        "Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance. Accepted trend facts now require a separate reviewer decision row with a matching claim fingerprint and all confirmation fields set, so stale or partial decisions cannot silently promote changed claims.",
         "",
         "## NPPES NPI Registry Candidate Enrichment",
         "",

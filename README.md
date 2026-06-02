@@ -76,6 +76,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_review_claims.csv`: materialized review-ready recent Penn-trained current-attending trend candidates, still not accepted trend facts until reviewer acceptance.
 - `artifacts/data/attending_trend_acceptance_audit.csv`: explicit non-mutating acceptance gate for review-ready recent-attending trend candidates, including reviewer-action blockers and accepted-fact counts.
 - `artifacts/data/attending_trend_acceptance_summary.json`: accepted-vs-review-ready trend counts by blocker, training type, and training end year.
+- `artifacts/data/attending_trend_reviewer_decision_queue.csv`: reviewer-decision queue for review-ready recent-attending trend claims, including claim fingerprints and required confirmation fields.
+- `artifacts/data/attending_trend_reviewer_decisions.csv`: manual reviewer decision input file; accepted facts require `accept_trend_fact`, a matching claim fingerprint, and all confirmation fields set.
+- `artifacts/data/attending_trend_reviewer_decision_audit.csv`: audit of manual decisions against the current claim fingerprint and acceptance policy.
+- `artifacts/data/accepted_attending_trend_facts.csv`: accepted recent Penn-trained current-attending trend facts; currently empty until explicit reviewer acceptance is recorded.
+- `artifacts/data/attending_trend_reviewer_decision_summary.json`: reviewer-decision queue, pending, rejected/deferred, and accepted-fact counts.
 - `artifacts/data/attending_trend_review_rollups.csv`: trend-review rollups by corpus, training type, training end year, source scope, and ten-year-window scope.
 - `artifacts/data/attending_trend_review_claims_summary.json`: review-ready trend claim, person, end-year, and rollup counts.
 - `artifacts/data/npi_candidate_claims.csv`: candidate NPPES/NPI identity, taxonomy, and PA practice-location anchors for current residents/fellows.
@@ -210,6 +215,7 @@ python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py
 python3 scripts/materialize_attending_trend_review_claims.py
 python3 scripts/audit_attending_trend_acceptance.py
+python3 scripts/materialize_attending_trend_reviewer_decisions.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py

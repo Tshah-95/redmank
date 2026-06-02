@@ -459,9 +459,11 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
     trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
     trend_acceptance_summary = read_json(ARTIFACTS / "attending_trend_acceptance_summary.json", {})
+    trend_reviewer_decision_summary = read_json(ARTIFACTS / "attending_trend_reviewer_decision_summary.json", {})
     trend_review_claim_rows = int(trend_review_claims_summary.get("trend_review_claim_rows") or 0)
     trend_review_rollup_rows = int(trend_review_claims_summary.get("trend_review_rollup_rows") or 0)
-    accepted_trend_fact_rows = int(trend_acceptance_summary.get("accepted_trend_fact_rows") or 0)
+    accepted_trend_fact_rows = int(trend_reviewer_decision_summary.get("accepted_trend_fact_rows") or 0)
+    pending_trend_reviewer_decisions = int(trend_reviewer_decision_summary.get("pending_reviewer_decision_rows") or 0)
     npi_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     npi_observations = scalar(conn, "SELECT COUNT(*) FROM npi_source_observations")
     npi_candidate_rows = scalar(conn, "SELECT COUNT(*) FROM npi_candidate_claims")
@@ -995,7 +997,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "trend_review_rollup_rows": trend_review_rollup_rows,
                 "trend_review_claims_summary": trend_review_claims_summary,
                 "trend_acceptance_summary": trend_acceptance_summary,
+                "trend_reviewer_decision_summary": trend_reviewer_decision_summary,
                 "accepted_trend_fact_rows": accepted_trend_fact_rows,
+                "pending_reviewer_decision_rows": pending_trend_reviewer_decisions,
                 "needs_bridge_or_training_rows": trend_reconciliation_needs_bridge,
             },
         ),
