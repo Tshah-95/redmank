@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T09:54:48.190104+00:00
+Generated: 2026-06-02T10:08:41.535350+00:00
 
 ## What This Pass Did
 
@@ -196,7 +196,7 @@ Audited student source surfaces:
 | graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 68 | 0 | https://www.med.upenn.edu/pgg/current-students/#group=students&degree=0&year=0&advisor=0 |
 | graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 1 | 0 | https://be.seas.upenn.edu/doctoral/our-students/student-directory/ |
 | graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 0 | 0 | https://hcmg.wharton.upenn.edu/programs/phd/students/ |
-| graduate_directory_md_phd_filter | fetch_error_or_unreachable | unreachable_review | 3 | 0 | https://hss.sas.upenn.edu/people/graduate-students |
+| graduate_directory_md_phd_filter | fetch_error_or_unreachable | unreachable_review | 0 | 0 | https://hss.sas.upenn.edu/people/graduate-students |
 
 Learning: the public medical-student universe is not the same as the full medical-student universe. The official MSTP directory is a public current MD-PhD roster and remains accepted as a partial student truth anchor. The official MD student directory is PennKey protected, so it should be recorded as unavailable to public scraping and monitored for access changes. Graduate-program student directories can cross-check or enrich MD-PhD students, but they overlap MSTP and broader PhD populations and should not mutate the MD-student denominator.
 
@@ -490,7 +490,7 @@ Learning: annual diffs should be state-machine informed before they are person-t
 
 ## Source Utility Scorecard
 
-Scorecard rows: 18.
+Scorecard rows: 19.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -503,6 +503,7 @@ Scorecard rows: 18.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 27 | 27 | 83.0 | strong_with_known_limits | move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |

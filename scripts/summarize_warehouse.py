@@ -34,6 +34,13 @@ def main() -> None:
         "training_state_snapshots",
         "training_state_snapshot_rows",
         "training_state_transition_events",
+        "training_state_machine_audit",
+        "person_training_state_machine_audit",
+        "program_training_state_machine_audit",
+        "training_state_refresh_expectations",
+        "person_refresh_expectations",
+        "program_refresh_expectations",
+        "category_refresh_expectations",
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
@@ -44,6 +51,7 @@ def main() -> None:
         "evidence_reconciliation_decisions",
         "person_reconciliation_decisions",
         "enrichment_acceptance_audit",
+        "warehouse_reproducibility_audit",
         "source_quality_observations",
         "source_utility_scorecard",
         "official_program_universe",
@@ -224,6 +232,36 @@ def main() -> None:
             SELECT acceptance_status, COUNT(*) AS count
             FROM enrichment_acceptance_audit
             GROUP BY acceptance_status
+            """
+        )
+    }
+    warehouse_reproducibility_counts = {
+        row["row_count_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT row_count_status, COUNT(*) AS count
+            FROM warehouse_reproducibility_audit
+            GROUP BY row_count_status
+            """
+        )
+    }
+    state_machine_status_counts = {
+        row["state_machine_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT state_machine_status, COUNT(*) AS count
+            FROM training_state_machine_audit
+            GROUP BY state_machine_status
+            """
+        )
+    }
+    refresh_readiness_counts = {
+        row["readiness_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT readiness_status, COUNT(*) AS count
+            FROM training_state_refresh_expectations
+            GROUP BY readiness_status
             """
         )
     }
@@ -418,6 +456,13 @@ def main() -> None:
         enrichment_acceptance_summary = json.loads(enrichment_acceptance_summary_path.read_text(encoding="utf-8"))
     else:
         enrichment_acceptance_summary = {}
+    warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
+    if warehouse_reproducibility_summary_path.exists():
+        warehouse_reproducibility_summary = json.loads(
+            warehouse_reproducibility_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        warehouse_reproducibility_summary = {}
     source_utility_scorecard_summary_path = ARTIFACTS / "source_utility_scorecard_summary.json"
     if source_utility_scorecard_summary_path.exists():
         source_utility_scorecard_summary = json.loads(source_utility_scorecard_summary_path.read_text(encoding="utf-8"))
@@ -483,6 +528,9 @@ def main() -> None:
         "person_reconciliation_decision_counts": person_reconciliation_decision_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
         "enrichment_acceptance_counts": enrichment_acceptance_counts,
+        "warehouse_reproducibility_counts": warehouse_reproducibility_counts,
+        "state_machine_status_counts": state_machine_status_counts,
+        "refresh_readiness_counts": refresh_readiness_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
@@ -509,6 +557,7 @@ def main() -> None:
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "enrichment_acceptance_summary": enrichment_acceptance_summary,
+        "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
         "medical_student_source_audit_summary": medical_student_source_audit_summary,

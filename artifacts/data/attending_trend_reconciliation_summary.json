@@ -17,7 +17,7 @@
     "review_ready_official_biosketch_bridge": 3
   },
   "csv": "artifacts/data/attending_trend_reconciliation.csv",
-  "generated_at": "2026-06-02T09:27:25.184026+00:00",
+  "generated_at": "2026-06-02T10:05:31.048530+00:00",
   "groups_with_current_endpoint": 49,
   "groups_with_penn_training_claim": 4,
   "groups_with_recent_dated_biosketch_bridge": 3,

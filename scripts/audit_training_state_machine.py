@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
+SCHEMA = ROOT / "db" / "schema.sql"
 
 
 STATUS_PRIORITY = {
@@ -239,6 +240,20 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def write_db_table(conn: sqlite3.Connection, table: str, rows: list[dict]) -> None:
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    conn.execute(f"DELETE FROM {table}")
+    if not rows:
+        return
+    columns = list(rows[0].keys())
+    placeholders = ", ".join(f":{column}" for column in columns)
+    column_sql = ", ".join(columns)
+    conn.executemany(
+        f"INSERT INTO {table} ({column_sql}) VALUES ({placeholders})",
+        rows,
+    )
+
+
 def summary_payload(state_rows: list[dict], person_rows: list[dict], program_rows: list[dict], as_of: date) -> dict:
     status_counts = Counter(row["state_machine_status"] for row in state_rows)
     clock_counts = Counter(row["clock_model"] for row in state_rows)
@@ -277,7 +292,6 @@ def main() -> None:
     as_of = date.fromisoformat(args.as_of_date)
     conn = sqlite3.connect(args.db)
     state_rows = enrich_state_rows(read_state_rows(conn), as_of)
-    conn.close()
     people = person_rollups(state_rows)
     programs = program_rollups(state_rows)
     summary = summary_payload(state_rows, people, programs, as_of)
@@ -285,6 +299,11 @@ def main() -> None:
     write_csv(ARTIFACTS / "training_state_machine_audit.csv", state_rows)
     write_csv(ARTIFACTS / "person_training_state_machine_audit.csv", people)
     write_csv(ARTIFACTS / "program_training_state_machine_audit.csv", programs)
+    with conn:
+        write_db_table(conn, "training_state_machine_audit", state_rows)
+        write_db_table(conn, "person_training_state_machine_audit", people)
+        write_db_table(conn, "program_training_state_machine_audit", programs)
+    conn.close()
     (ARTIFACTS / "training_state_machine_summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",

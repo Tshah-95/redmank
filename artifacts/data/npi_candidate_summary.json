@@ -44,7 +44,7 @@
   },
   "candidate_rows": 1073,
   "csv": "artifacts/data/npi_candidate_claims.csv",
-  "generated_at": "2026-06-02T09:26:51.606894+00:00",
+  "generated_at": "2026-06-02T10:08:40.351914+00:00",
   "json": "artifacts/data/npi_candidate_claims.json",
   "observation_csv": "artifacts/data/npi_source_observations.csv",
   "queries_with_candidates": 832,

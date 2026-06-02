@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
+SCHEMA = ROOT / "db" / "schema.sql"
 
 
 READINESS_PRIORITY = {
@@ -290,6 +291,20 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def write_db_table(conn: sqlite3.Connection, table: str, rows: list[dict]) -> None:
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    conn.execute(f"DELETE FROM {table}")
+    if not rows:
+        return
+    columns = list(rows[0].keys())
+    placeholders = ", ".join(f":{column}" for column in columns)
+    column_sql = ", ".join(columns)
+    conn.executemany(
+        f"INSERT INTO {table} ({column_sql}) VALUES ({placeholders})",
+        rows,
+    )
+
+
 def summary_payload(
     state_rows: list[dict],
     person_rows: list[dict],
@@ -339,7 +354,6 @@ def main() -> None:
     conn = sqlite3.connect(args.db)
     rows = read_state_rows(conn)
     coverage = read_program_coverage(conn)
-    conn.close()
 
     state_rows = enrich_rows(rows, coverage, refresh_date)
     person_rows = rollup_rows(state_rows, ["person_key"], ["display_name", "role"])
@@ -351,6 +365,12 @@ def main() -> None:
     write_csv(ARTIFACTS / "person_refresh_expectations.csv", person_rows)
     write_csv(ARTIFACTS / "program_refresh_expectations.csv", program_rows)
     write_csv(ARTIFACTS / "category_refresh_expectations.csv", category_rows)
+    with conn:
+        write_db_table(conn, "training_state_refresh_expectations", state_rows)
+        write_db_table(conn, "person_refresh_expectations", person_rows)
+        write_db_table(conn, "program_refresh_expectations", program_rows)
+        write_db_table(conn, "category_refresh_expectations", category_rows)
+    conn.close()
     (ARTIFACTS / "longitudinal_change_readiness_summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",

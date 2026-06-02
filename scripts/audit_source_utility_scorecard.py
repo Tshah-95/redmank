@@ -337,6 +337,11 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     machine_acceptance_candidate_people = int(enrichment_acceptance_summary.get("machine_acceptance_candidate_people") or 0)
     acceptance_review_ready_publications = int(enrichment_acceptance_summary.get("review_ready_publication_rows") or 0)
     acceptance_secondary_identity_anchors = int(enrichment_acceptance_summary.get("secondary_identity_anchor_rows") or 0)
+    warehouse_reproducibility_summary = read_json(ARTIFACTS / "warehouse_reproducibility_summary.json", {})
+    reproducibility_artifact_rows = int(warehouse_reproducibility_summary.get("artifact_rows") or 0)
+    reproducibility_mismatch_rows = int(warehouse_reproducibility_summary.get("row_count_mismatch_rows") or 0)
+    reproducibility_missing_rows = int(warehouse_reproducibility_summary.get("required_missing_artifacts") or 0)
+    reproducibility_binary_warnings = int(warehouse_reproducibility_summary.get("binary_size_warning_rows") or 0)
 
     openalex_obs = conn.execute(
         """
@@ -736,6 +741,37 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "review_ready_publication_rows": acceptance_review_ready_publications,
                 "secondary_identity_anchor_rows": acceptance_secondary_identity_anchors,
             },
+        ),
+        make_row(
+            scorecard_key="warehouse_reproducibility_provenance_audit",
+            utility_key="",
+            utility_label="Warehouse reproducibility provenance audit",
+            source_family="warehouse_provenance",
+            claim_surface="artifact existence, row-count parity, content hashes, and repository-size pressure",
+            input_records=reproducibility_artifact_rows,
+            output_records=reproducibility_artifact_rows,
+            accepted_records=max(
+                reproducibility_artifact_rows
+                - reproducibility_mismatch_rows
+                - reproducibility_missing_rows
+                - reproducibility_binary_warnings,
+                0,
+            ),
+            needs_review_records=reproducibility_mismatch_rows + reproducibility_missing_rows,
+            blocked_records=reproducibility_binary_warnings,
+            score=83.0 if not (reproducibility_mismatch_rows or reproducibility_missing_rows) else 60.0,
+            strengths=[
+                "Compares major flat artifacts to SQLite table counts",
+                "Stores artifact hashes and byte sizes for provenance review",
+                "Separates data mismatches from repository storage warnings",
+            ],
+            limitations=[
+                "Row-count parity does not prove semantic equivalence for every field",
+                "SQLite binary remains large for ordinary Git hosting",
+                "Network-sourced artifacts still need source-specific refresh audits",
+            ],
+            recommended_next_action="move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
+            evidence=warehouse_reproducibility_summary,
         ),
         make_row(
             scorecard_key="openalex_author_search",

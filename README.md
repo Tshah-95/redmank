@@ -83,6 +83,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
 - `artifacts/data/source_utility_scorecard.csv`: empirical source-utility scorecard across roster truth, denominator coverage, source discovery, research enrichment, attending trends, contact evidence, normalization, and longitudinal state-machine readiness.
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
+- `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
+- `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and SQLite binary-size warnings.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
@@ -169,6 +171,7 @@ python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-resu
 python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_enrichment_acceptance.py
+python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py

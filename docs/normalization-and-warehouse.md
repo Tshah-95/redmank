@@ -67,6 +67,8 @@ Core tables:
 - `training_state_snapshots`: materialized longitudinal snapshot metadata with row counts, canonical person/program key counts, duplicate-key counts, and corpus fingerprint.
 - `training_state_snapshot_rows`: stable row-level state observations loaded from snapshot CSVs. The canonical comparison key is `person_key + program_name`; raw observations remain separate through `state_key`.
 - `training_state_transition_events`: expected-vs-review transition ledger between materialized snapshots.
+- `training_state_machine_audit`, `person_training_state_machine_audit`, `program_training_state_machine_audit`: queryable state-machine health ledgers for state-, person-, and program-level refresh decisions.
+- `training_state_refresh_expectations`, `person_refresh_expectations`, `program_refresh_expectations`, `category_refresh_expectations`: queryable next-refresh expectation ledgers for missing, unchanged, advanced, stale, and review-required outcomes.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
 - `organization_identifiers`: external IDs.
@@ -78,6 +80,7 @@ Core tables:
 - `person_reconciliation_decisions`: queryable person/name-level reconciliation burden and review-readiness rollup.
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
+- `warehouse_reproducibility_audit`: artifact hash, size, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.

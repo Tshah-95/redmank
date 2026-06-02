@@ -1,0 +1,274 @@
+#!/usr/bin/env python3
+"""Audit whether the SQLite warehouse agrees with generated flat-file artifacts."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import sqlite3
+from collections import Counter
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ARTIFACTS = ROOT / "artifacts" / "data"
+DB = ARTIFACTS / "redmank.sqlite"
+SCHEMA = ROOT / "db" / "schema.sql"
+
+CSV_PATH = ARTIFACTS / "warehouse_reproducibility_audit.csv"
+JSON_PATH = ARTIFACTS / "warehouse_reproducibility_audit.json"
+SUMMARY_PATH = ARTIFACTS / "warehouse_reproducibility_summary.json"
+
+GITHUB_RECOMMENDED_FILE_LIMIT_BYTES = 50 * 1024 * 1024
+
+ARTIFACT_SPECS = [
+    ("artifacts/data/redmank.sqlite", "sqlite_warehouse_binary", "sqlite", None, True),
+    ("artifacts/data/people_resolved.csv", "warehouse_export", "csv", "people", True),
+    ("artifacts/data/training_events_resolved.csv", "warehouse_export", "csv", "person_training_events", True),
+    ("artifacts/data/training_states_current.csv", "warehouse_export", "csv", "person_training_states", True),
+    ("artifacts/data/training_state_machine_audit.csv", "state_machine_ledger", "csv", "training_state_machine_audit", True),
+    (
+        "artifacts/data/person_training_state_machine_audit.csv",
+        "state_machine_ledger",
+        "csv",
+        "person_training_state_machine_audit",
+        True,
+    ),
+    (
+        "artifacts/data/program_training_state_machine_audit.csv",
+        "state_machine_ledger",
+        "csv",
+        "program_training_state_machine_audit",
+        True,
+    ),
+    (
+        "artifacts/data/training_state_refresh_expectations.csv",
+        "longitudinal_readiness_ledger",
+        "csv",
+        "training_state_refresh_expectations",
+        True,
+    ),
+    (
+        "artifacts/data/person_refresh_expectations.csv",
+        "longitudinal_readiness_ledger",
+        "csv",
+        "person_refresh_expectations",
+        True,
+    ),
+    (
+        "artifacts/data/program_refresh_expectations.csv",
+        "longitudinal_readiness_ledger",
+        "csv",
+        "program_refresh_expectations",
+        True,
+    ),
+    (
+        "artifacts/data/category_refresh_expectations.csv",
+        "longitudinal_readiness_ledger",
+        "csv",
+        "category_refresh_expectations",
+        True,
+    ),
+    ("artifacts/data/evidence_claims.csv", "warehouse_export", "csv", "evidence_claims", True),
+    ("artifacts/data/evidence_reconciliation_decisions.csv", "reconciliation_ledger", "csv", "evidence_reconciliation_decisions", True),
+    ("artifacts/data/person_reconciliation_decisions.csv", "reconciliation_ledger", "csv", "person_reconciliation_decisions", True),
+    ("artifacts/data/person_evidence_review_packets.csv", "reconciliation_ledger", "csv", "person_evidence_review_packets", True),
+    ("artifacts/data/enrichment_acceptance_audit.csv", "acceptance_ledger", "csv", "enrichment_acceptance_audit", True),
+    ("artifacts/data/npi_candidate_claims.csv", "identity_enrichment_ledger", "csv", "npi_candidate_claims", True),
+    ("artifacts/data/npi_source_observations.csv", "source_observation_ledger", "csv", "npi_source_observations", True),
+    ("artifacts/data/person_contacts.csv", "contact_ledger", "csv", "person_contacts", True),
+    ("artifacts/data/career_events.csv", "attending_trend_input", "csv", "career_events", True),
+    ("artifacts/data/attending_trend_reconciliation.csv", "attending_trend_ledger", "csv", "attending_trend_reconciliation", True),
+    ("artifacts/data/attending_biosketch_bridge_candidates.csv", "attending_trend_ledger", "csv", "attending_biosketch_bridge_candidates", True),
+    ("artifacts/data/program_identifier_candidates.csv", "program_identifier_ledger", "csv", "program_identifier_candidates", True),
+    ("artifacts/data/program_identifier_reconciliation.csv", "program_identifier_ledger", "csv", "program_identifier_reconciliation", True),
+    ("artifacts/data/official_program_identifiers.csv", "program_identifier_ledger", "csv", "official_program_identifiers", True),
+    ("artifacts/data/program_lifecycle_consistency_audit.csv", "program_lifecycle_ledger", "csv", "program_lifecycle_consistency_audit", True),
+    ("artifacts/data/source_utility_scorecard.csv", "source_quality_ledger", "csv", "source_utility_scorecard", True),
+]
+
+
+def now_utc() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def dumps(value) -> str:
+    return json.dumps(value, ensure_ascii=True, sort_keys=True)
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def csv_rows(path: Path) -> int:
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.reader(handle)
+        try:
+            next(reader)
+        except StopIteration:
+            return 0
+        return sum(1 for _ in reader)
+
+
+def json_rows(path: Path, artifact_format: str) -> int | None:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if artifact_format == "json_array" and isinstance(value, list):
+        return len(value)
+    if artifact_format == "json_object" and isinstance(value, dict):
+        return 1
+    return None
+
+
+def sqlite_count(conn: sqlite3.Connection, table: str | None) -> int | None:
+    if not table:
+        return None
+    return int(conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0])
+
+
+def classify_row(spec: tuple, conn: sqlite3.Connection, audited_at: str) -> dict:
+    rel_path, role, artifact_format, table, required = spec
+    path = ROOT / rel_path
+    exists = path.exists()
+    byte_size = path.stat().st_size if exists else 0
+    file_hash = sha256_file(path) if exists else ""
+    artifact_rows = None
+    if exists and artifact_format == "csv":
+        artifact_rows = csv_rows(path)
+    elif exists and artifact_format.startswith("json"):
+        artifact_rows = json_rows(path, artifact_format)
+    sqlite_rows = sqlite_count(conn, table)
+
+    if not exists and required:
+        row_status = "missing_required_artifact"
+        freshness_status = "blocked"
+        action = "regenerate_required_artifact_before_claiming_reproducible_warehouse"
+    elif table and artifact_rows != sqlite_rows:
+        row_status = "row_count_mismatch"
+        freshness_status = "review_required"
+        action = "rerun_source_script_or_investigate_csv_sqlite_count_drift"
+    elif rel_path == "artifacts/data/redmank.sqlite" and byte_size > GITHUB_RECOMMENDED_FILE_LIMIT_BYTES:
+        row_status = "binary_size_warning"
+        freshness_status = "reproducible_with_repository_pressure"
+        action = "move_sqlite_to_lfs_or_treat_as_generated_artifact_before_growth_continues"
+    elif exists:
+        row_status = "ok"
+        freshness_status = "artifact_present"
+        action = "retain_and_refresh_when_upstream_inputs_change"
+    else:
+        row_status = "optional_artifact_missing"
+        freshness_status = "not_required"
+        action = "no_action_required"
+
+    evidence = {
+        "github_recommended_file_limit_bytes": GITHUB_RECOMMENDED_FILE_LIMIT_BYTES,
+        "path": rel_path,
+        "sqlite_table": table,
+        "artifact_rows": artifact_rows,
+        "sqlite_rows": sqlite_rows,
+    }
+    return {
+        "audit_key": "warehouse_reproducibility_" + hashlib.sha1(rel_path.encode("utf-8")).hexdigest()[:16],
+        "artifact_path": rel_path,
+        "artifact_role": role,
+        "artifact_format": artifact_format,
+        "required": 1 if required else 0,
+        "exists_on_disk": 1 if exists else 0,
+        "byte_size": byte_size,
+        "sha256": file_hash,
+        "sqlite_table": table or "",
+        "artifact_rows": artifact_rows if artifact_rows is not None else "",
+        "sqlite_rows": sqlite_rows if sqlite_rows is not None else "",
+        "row_count_status": row_status,
+        "freshness_status": freshness_status,
+        "recommended_action": action,
+        "evidence_json": dumps(evidence),
+        "audited_at": audited_at,
+    }
+
+
+def write_csv(path: Path, rows: list[dict]) -> None:
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
+    conn.execute("DROP TABLE IF EXISTS warehouse_reproducibility_audit")
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    conn.execute("DELETE FROM warehouse_reproducibility_audit")
+    db_rows = []
+    for row in rows:
+        db_row = dict(row)
+        for key in ["artifact_rows", "sqlite_rows"]:
+            if db_row[key] == "":
+                db_row[key] = None
+        db_rows.append(db_row)
+    conn.executemany(
+        """
+        INSERT INTO warehouse_reproducibility_audit
+        (audit_key, artifact_path, artifact_role, artifact_format, required,
+         exists_on_disk, byte_size, sha256, sqlite_table, artifact_rows,
+         sqlite_rows, row_count_status, freshness_status, recommended_action,
+         evidence_json, audited_at)
+        VALUES
+        (:audit_key, :artifact_path, :artifact_role, :artifact_format, :required,
+         :exists_on_disk, :byte_size, :sha256, :sqlite_table, :artifact_rows,
+         :sqlite_rows, :row_count_status, :freshness_status, :recommended_action,
+         :evidence_json, :audited_at)
+        """,
+        db_rows,
+    )
+
+
+def write_outputs(rows: list[dict], audited_at: str) -> dict:
+    write_csv(CSV_PATH, rows)
+    JSON_PATH.write_text(json.dumps(rows, indent=2, ensure_ascii=True, sort_keys=True) + "\n", encoding="utf-8")
+    by_status = Counter(row["row_count_status"] for row in rows)
+    by_role = Counter(row["artifact_role"] for row in rows)
+    required_missing = sum(1 for row in rows if row["required"] and not row["exists_on_disk"])
+    mismatches = by_status.get("row_count_mismatch", 0)
+    binary_warnings = by_status.get("binary_size_warning", 0)
+    summary = {
+        "audited_at": audited_at,
+        "artifact_rows": len(rows),
+        "required_missing_artifacts": required_missing,
+        "row_count_mismatch_rows": mismatches,
+        "binary_size_warning_rows": binary_warnings,
+        "sqlite_byte_size": next(
+            (row["byte_size"] for row in rows if row["artifact_path"] == "artifacts/data/redmank.sqlite"),
+            0,
+        ),
+        "github_recommended_file_limit_bytes": GITHUB_RECOMMENDED_FILE_LIMIT_BYTES,
+        "by_row_count_status": dict(sorted(by_status.items())),
+        "by_artifact_role": dict(sorted(by_role.items())),
+        "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
+        "json": "artifacts/data/warehouse_reproducibility_audit.json",
+        "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
+    }
+    SUMMARY_PATH.write_text(json.dumps(summary, indent=2, ensure_ascii=True, sort_keys=True) + "\n", encoding="utf-8")
+    return summary
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--db", type=Path, default=DB)
+    args = parser.parse_args()
+    audited_at = now_utc()
+    conn = sqlite3.connect(args.db)
+    rows = [classify_row(spec, conn, audited_at) for spec in ARTIFACT_SPECS]
+    with conn:
+        write_db(conn, rows)
+    conn.close()
+    print(dumps(write_outputs(rows, audited_at)))
+
+
+if __name__ == "__main__":
+    main()
