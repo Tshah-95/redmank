@@ -163,10 +163,28 @@ def main() -> None:
     conn.close()
     hup_coverage_summary = read_json(ARTIFACTS / "penn_gme_program_coverage_summary.json", {})
     hup_coverage_rows = read_json(ARTIFACTS / "penn_gme_program_coverage.json", [])
+    hup_gap_probe_summary = read_json(ARTIFACTS / "penn_gme_gap_source_probe_summary.json", {})
+    hup_gap_candidates = read_json(ARTIFACTS / "penn_gme_gap_source_candidates.json", [])
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
     ]
+    hup_gap_candidate_counts = [
+        {"candidate_status": status, "count": count}
+        for status, count in sorted((hup_gap_probe_summary.get("by_candidate_status") or {}).items())
+    ]
+    top_hup_gap_candidates = [
+        {
+            "program_name": row.get("program_name", ""),
+            "department": row.get("department", ""),
+            "candidate_status": row.get("candidate_status", ""),
+            "priority": row.get("priority", ""),
+            "candidate_title": row.get("candidate_title", ""),
+            "candidate_url": row.get("candidate_url", ""),
+        }
+        for row in hup_gap_candidates
+        if row.get("candidate_status") == "roster_source_candidate"
+    ][:25]
     hup_not_covered = [
         {
             "program_type": row.get("program_type", ""),
@@ -195,6 +213,8 @@ def main() -> None:
         "contact_counts": contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
+        "hup_gme_gap_source_probe_summary": hup_gap_probe_summary,
+        "hup_gme_top_gap_source_candidates": top_hup_gap_candidates,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -236,6 +256,21 @@ def main() -> None:
         ),
         "",
         "Learning: source discovery is not coverage. An official program-universe table gives the denominator needed for gap accounting, annual recrawls, and institution-level diff views. `covered_current_roster` means we have current people attached; `discovered_no_current_roster` means a program page is known but no current roster people are captured; `not_discovered` names crawl gaps.",
+        "",
+        "## HUP Gap Source Queue",
+        "",
+        f"Gap programs probed: {hup_gap_probe_summary.get('gap_programs', 0)}. Source pages probed: {hup_gap_probe_summary.get('source_pages_probed', 0)}. Candidate URLs queued: {hup_gap_probe_summary.get('candidate_urls', 0)}.",
+        "",
+        *md_table(hup_gap_candidate_counts, ["candidate_status", "count"]),
+        "",
+        "Top roster-source candidates:",
+        "",
+        *md_table(
+            top_hup_gap_candidates,
+            ["program_name", "department", "candidate_status", "priority", "candidate_title", "candidate_url"],
+        ),
+        "",
+        "Learning: coverage gaps need their own crawl state. Official program URLs, discovered context pages, and linked roster-like pages should be queued separately so the next scraper can attack high-priority roster candidates without conflating them with verified person records.",
         "",
         "## Penn-Wide Program Categorization",
         "",

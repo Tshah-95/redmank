@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T05:31:02.651846+00:00
+Generated: 2026-06-02T05:38:09.216638+00:00
 
 ## What This Pass Did
 
@@ -70,6 +70,48 @@ Sample uncovered or partially covered official programs:
 | fellowship | Otorhinolaryngology | Neurotology | not_discovered | none |
 
 Learning: source discovery is not coverage. An official program-universe table gives the denominator needed for gap accounting, annual recrawls, and institution-level diff views. `covered_current_roster` means we have current people attached; `discovered_no_current_roster` means a program page is known but no current roster people are captured; `not_discovered` names crawl gaps.
+
+## HUP Gap Source Queue
+
+Gap programs probed: 58. Source pages probed: 58. Candidate URLs queued: 278.
+
+| candidate_status | count |
+| --- | --- |
+| low_value_candidate | 22 |
+| program_context_candidate | 156 |
+| roster_source_candidate | 100 |
+
+Top roster-source candidates:
+
+| program_name | department | candidate_status | priority | candidate_title | candidate_url |
+| --- | --- | --- | --- | --- | --- |
+| Family Medicine | Family Medicine | roster_source_candidate | 145 | Current Residents | https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency/current-residents |
+| Obstetrics and Gynecology | Obstetrics and Gynecology | roster_source_candidate | 145 | Current Residents | https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/residency-programs/obgyn-residency-program-hup/current-residents |
+| Adult Reconstructive Orthopedics | Orthopedic Surgery | roster_source_candidate | 145 | Current Fellows | https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows |
+| Hand Surgery | Orthopedic Surgery | roster_source_candidate | 145 | Current Fellows | https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/current-fellows |
+| Neurotology | Otorhinolaryngology | roster_source_candidate | 145 | Current Fellows | https://oto.med.upenn.edu/current-fellows |
+| Neurotology | Otorhinolaryngology | roster_source_candidate | 145 | Current Residents | https://oto.med.upenn.edu/current-residents |
+| Neurological Surgery | Neurological Surgery | roster_source_candidate | 135 | Residents | https://www3.pennmedicine.org/departments-and-centers/neurosurgery/education-and-training/residency/residents |
+| Oral Medicine | Oral and Maxillofacial Surgery | roster_source_candidate | 135 | Current Residents | https://www.dental.upenn.edu/departments/oral-medicine/resident-profiles |
+| Orthopedic Surgery | Orthopedic Surgery | roster_source_candidate | 135 | Residents | https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency/residents |
+| Neurotology | Otorhinolaryngology | roster_source_candidate | 135 | Resident Profiles | https://oto.med.upenn.edu/resident-profiles |
+| Otorhinolaryngology | Otorhinolaryngology | roster_source_candidate | 135 | Current Fellows | https://oto.med.upenn.edu/current-fellows |
+| Otorhinolaryngology | Otorhinolaryngology | roster_source_candidate | 135 | Current Residents | https://oto.med.upenn.edu/current-residents |
+| Podiatric Surgery | Podiatric Surgery | roster_source_candidate | 135 | Residents | https://www3.pennmedicine.org/departments-and-centers/podiatry-and-podiatric-surgery/education-and-training/residency-program/residents |
+| Radiation Oncology | Radiation Oncology | roster_source_candidate | 135 | Current Residents | https://www.med.upenn.edu/radiationoncologymedicalresidency/current-residents.html |
+| Radiology - Interventional, Independent | Radiology | roster_source_candidate | 135 | Current Residents | https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents |
+| Colon and Rectal Surgery | Surgery | roster_source_candidate | 135 | Meet Our Fellow | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/colon-and-rectal-surgery-fellowship/fellows |
+| Craniofacial Surgery | Surgery | roster_source_candidate | 135 | Meet Our Fellow | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/craniofacial-surgery-fellowship/fellow |
+| Plastic Surgery | Surgery | roster_source_candidate | 135 | Meet Our Residents | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents |
+| Thoracic Surgery - Thoracic Track | Surgery | roster_source_candidate | 135 | Meet Our Fellow | https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/thoracic-surgery-fellowship-thoracic-track/fellow |
+| Blood Banking and Transfusion Medicine | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Blood Banking and Transfusion Medicine | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Cytopathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Cytopathology | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+| Gastrointestinal and Hepatic Pathology (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Fellows | https://pathology.med.upenn.edu/department/people/fellows |
+| Gastrointestinal and Hepatic Pathology (Selective) | Pathology and Laboratory Medicine | roster_source_candidate | 130 | Residents | https://pathology.med.upenn.edu/department/people/residents |
+
+Learning: coverage gaps need their own crawl state. Official program URLs, discovered context pages, and linked roster-like pages should be queued separately so the next scraper can attack high-priority roster candidates without conflating them with verified person records.
 
 ## Penn-Wide Program Categorization
 

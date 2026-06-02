@@ -38,6 +38,8 @@ OPTIONAL_SOURCE_FILES = [
     ARTIFACTS / "penn_gme_program_universe.json",
     ARTIFACTS / "penn_gme_program_universe_source.json",
     ARTIFACTS / "penn_gme_program_coverage.json",
+    ARTIFACTS / "penn_gme_gap_source_candidates.json",
+    ARTIFACTS / "penn_gme_gap_source_probes.json",
     ARTIFACTS / "research_candidate_claims.json",
     ARTIFACTS / "research_candidate_summary.json",
     ARTIFACTS / "manual_source_quality_observations.json",
@@ -1319,6 +1321,71 @@ def insert_official_program_coverage(conn: sqlite3.Connection) -> None:
         )
 
 
+def insert_official_program_gap_source_candidates(conn: sqlite3.Connection) -> None:
+    probes_path = ARTIFACTS / "penn_gme_gap_source_probes.json"
+    candidates_path = ARTIFACTS / "penn_gme_gap_source_candidates.json"
+    if probes_path.exists():
+        for row in load_json(probes_path):
+            conn.execute(
+                """
+                INSERT INTO official_program_source_probes
+                (official_program_key, program_name, coverage_status, source_role,
+                 requested_url, effective_url, http_status, title, content_type,
+                 text_length, roster_term_count, context_term_count, sha256,
+                 fetched_at, error)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    row["official_program_key"],
+                    row.get("program_name"),
+                    row.get("coverage_status"),
+                    row.get("source_role"),
+                    row.get("requested_url"),
+                    row.get("effective_url"),
+                    row.get("http_status") or None,
+                    row.get("title"),
+                    row.get("content_type"),
+                    int(row.get("text_length") or 0),
+                    int(row.get("roster_term_count") or 0),
+                    int(row.get("context_term_count") or 0),
+                    row.get("sha256"),
+                    row.get("fetched_at"),
+                    row.get("error"),
+                ),
+            )
+    if candidates_path.exists():
+        for row in load_json(candidates_path):
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO official_program_source_candidates
+                (candidate_key, official_program_key, department, program_type,
+                 program_name, coverage_status, source_role, candidate_status,
+                 priority, confidence, candidate_title, candidate_url, http_status,
+                 roster_term_count, context_term_count, reasons_json, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    row["candidate_key"],
+                    row["official_program_key"],
+                    row.get("department"),
+                    row.get("program_type"),
+                    row.get("program_name"),
+                    row.get("coverage_status"),
+                    row.get("source_role"),
+                    row.get("candidate_status"),
+                    int(row.get("priority") or 0),
+                    float(row.get("confidence") or 0.0),
+                    row.get("candidate_title"),
+                    row.get("candidate_url"),
+                    row.get("http_status") if row.get("http_status") != "" else None,
+                    int(row.get("roster_term_count") or 0),
+                    int(row.get("context_term_count") or 0),
+                    dumps(row.get("reasons", [])),
+                    dumps(row),
+                ),
+            )
+
+
 def load_people(conn: sqlite3.Connection, resolver: OrganizationResolver) -> None:
     people = []
     for path in PERSON_FILES:
@@ -1362,6 +1429,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "source_quality_observations",
         "official_program_universe",
         "official_program_coverage_audit",
+        "official_program_source_probes",
+        "official_program_source_candidates",
     ]:
         counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
     resolver_counts = {
@@ -1407,6 +1476,7 @@ def main() -> None:
         load_people(conn, resolver)
         insert_research_candidate_claims(conn)
         insert_official_program_coverage(conn)
+        insert_official_program_gap_source_candidates(conn)
         export_review_queue(conn)
         write_summary(conn, db_path)
     conn.close()

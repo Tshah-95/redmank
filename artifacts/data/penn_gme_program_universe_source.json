@@ -1,9 +1,9 @@
 {
   "source_key": "hup_gme_programs",
   "url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-  "fetched_at": "2026-06-02T05:31:01.719951+00:00",
+  "fetched_at": "2026-06-02T05:36:56.219290+00:00",
   "http_status": 200,
   "effective_url": "https://www3.pennmedicine.org/for-health-care-professionals/fellowship-and-residency-programs/hospital-of-the-university-of-pennsylvania/hup-gme/programs",
-  "sha256": "a2e26ffa9751d14d8b2e009d6724c32c4b7a753646d89f4598c369f7530b22d1",
+  "sha256": "a67a2464e8463084c3bc38a3325e84451cf1eca2b340484a4b1b4cfc97d6c5d9",
   "source_type": "official_hup_gme_program_list"
 }

@@ -86,6 +86,45 @@ CREATE TABLE IF NOT EXISTS official_program_coverage_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_source_probes (
+  probe_id INTEGER PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  program_name TEXT,
+  coverage_status TEXT,
+  source_role TEXT,
+  requested_url TEXT NOT NULL,
+  effective_url TEXT,
+  http_status INTEGER,
+  title TEXT,
+  content_type TEXT,
+  text_length INTEGER NOT NULL DEFAULT 0,
+  roster_term_count INTEGER NOT NULL DEFAULT 0,
+  context_term_count INTEGER NOT NULL DEFAULT 0,
+  sha256 TEXT,
+  fetched_at TEXT,
+  error TEXT
+);
+
+CREATE TABLE IF NOT EXISTS official_program_source_candidates (
+  candidate_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  department TEXT,
+  program_type TEXT,
+  program_name TEXT,
+  coverage_status TEXT,
+  source_role TEXT,
+  candidate_status TEXT NOT NULL,
+  priority INTEGER NOT NULL DEFAULT 0,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  candidate_title TEXT,
+  candidate_url TEXT NOT NULL,
+  http_status INTEGER,
+  roster_term_count INTEGER NOT NULL DEFAULT 0,
+  context_term_count INTEGER NOT NULL DEFAULT 0,
+  reasons_json TEXT,
+  evidence_json TEXT
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,
@@ -317,6 +356,28 @@ ORDER BY
   u.department,
   u.program_type,
   u.program_name;
+
+CREATE VIEW IF NOT EXISTS v_official_program_source_queue AS
+SELECT
+  c.candidate_key,
+  c.official_program_key,
+  c.department,
+  c.program_type,
+  c.program_name,
+  c.coverage_status,
+  c.source_role,
+  c.candidate_status,
+  c.priority,
+  c.confidence,
+  c.candidate_title,
+  c.candidate_url,
+  c.http_status,
+  c.roster_term_count,
+  c.context_term_count,
+  c.reasons_json
+FROM official_program_source_candidates c
+WHERE c.candidate_status IN ('roster_source_candidate', 'program_context_candidate')
+ORDER BY c.priority DESC, c.department, c.program_name, c.candidate_url;
 
 CREATE VIEW IF NOT EXISTS v_recent_attending_trend_candidates AS
 SELECT

@@ -43,6 +43,8 @@ Core tables:
 - `programs`: local program entities.
 - `official_program_universe`: official external denominator programs, starting with the public HUP GME program list.
 - `official_program_coverage_audit`: comparison of official denominator programs to captured current roster memberships and discovered source pages.
+- `official_program_source_probes`: reachability, title, content hash, and page-signal observations for official program gap URLs.
+- `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
 - `organizations`: resolved organization entities.
@@ -60,6 +62,7 @@ Useful views:
 - `v_person_training`: joined person-training-organization view.
 - `v_current_training_states`: normalized state-machine view for annual refresh/diff work.
 - `v_official_program_coverage_gaps`: official programs without captured current roster people.
+- `v_official_program_source_queue`: prioritized candidate roster/context pages for uncovered official programs.
 - `v_organization_review_queue`: organization aliases that need review.
 - `v_recent_attending_trend_candidates`: career-event candidates for current Penn attending and alumni/outcome trend work.
 - `v_public_person_contacts`: public structured contact candidates joined to reconciled people when possible.
@@ -73,12 +76,16 @@ It emits:
 - `penn_gme_program_universe.json`: official program records with department, program type, program URL, source URL, content hash, and confidence.
 - `penn_gme_program_coverage.csv` / `.json`: official programs annotated as `covered_current_roster`, `discovered_no_current_roster`, or `not_discovered`.
 - `penn_gme_program_coverage_summary.json`: denominator counts by program type and coverage status.
+- `penn_gme_gap_source_candidates.csv` / `.json`: prioritized next-source queue for programs without captured roster people.
+- `penn_gme_gap_source_probes.json`: page-level probe evidence, including reachability, title, content hash, roster/context term counts, and errors.
 
 This is deliberately separate from person scraping. A source crawler can find a program page without finding a usable roster, and a roster scraper can capture people without proving the full official denominator. Keeping both layers lets future runs show changes at several levels:
 
 - person: new, missing, renamed, duplicated, advanced, regressed, stale, or reconciled.
 - program: roster count changed, roster unavailable, official program added/removed, or program alias changed.
 - institution/category: coverage changed across HUP, Penn Medicine, GME specialty family, residency, fellowship, or student populations.
+
+The gap-source queue is also deliberately separate from person evidence. It lets the next scraper prioritize likely roster URLs, such as `current-residents`, `current-fellows`, `resident-profiles`, and `meet-our-fellow` pages, while keeping program overview pages and unreachable URLs out of the core person corpus until they yield named public trainees.
 
 ## Recursive Enrichment Loop
 

@@ -33,6 +33,8 @@ def main() -> None:
         "source_quality_observations",
         "official_program_universe",
         "official_program_coverage_audit",
+        "official_program_source_probes",
+        "official_program_source_candidates",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -93,6 +95,16 @@ def main() -> None:
             "SELECT coverage_status, COUNT(*) AS count FROM official_program_coverage_audit GROUP BY coverage_status"
         )
     }
+    official_program_source_candidate_counts = {
+        row["candidate_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT candidate_status, COUNT(*) AS count
+            FROM official_program_source_candidates
+            GROUP BY candidate_status
+            """
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -113,6 +125,7 @@ def main() -> None:
         "career_event_counts": career_event_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
+        "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "organization_category_counts": category_counts,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(

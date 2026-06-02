@@ -10,6 +10,8 @@
     "career_events": 85,
     "evidence_claims": 2038,
     "official_program_coverage_audit": 91,
+    "official_program_source_candidates": 278,
+    "official_program_source_probes": 66,
     "official_program_universe": 91,
     "organization_aliases": 695,
     "organization_identifiers": 1,
@@ -72,7 +74,7 @@
     "accepted": 1279,
     "candidate": 759
   },
-  "generated_at": "2026-06-02T05:31:02.674869+00:00",
+  "generated_at": "2026-06-02T05:38:54.682264+00:00",
   "generic_program_label_count": 0,
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,
@@ -106,6 +108,11 @@
     "covered_current_roster": 33,
     "discovered_no_current_roster": 27,
     "not_discovered": 31
+  },
+  "official_program_source_candidate_counts": {
+    "low_value_candidate": 22,
+    "program_context_candidate": 156,
+    "roster_source_candidate": 100
   },
   "organization_category_counts": {
     "clinical_training_site": 166,
