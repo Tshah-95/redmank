@@ -535,23 +535,23 @@
       "training_temporal_contract": 86
     },
     "by_priority_band": {
-      "critical": 57,
-      "high": 706,
+      "critical": 78,
+      "high": 685,
       "low": 30,
       "medium": 438
     },
-    "critical_rows": 57,
+    "critical_rows": 78,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-02T20:21:58.317815+00:00",
-    "high_rows": 706,
+    "generated_at": "2026-06-02T20:29:59.906951+00:00",
+    "high_rows": 685,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
     "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
     "top_action_scope_counts": {
       "contact_verification:ready_for_reviewer_verification": 312,
-      "official_profile_discovery:direct_probe_low_signal_review": 14,
-      "official_profile_discovery:planned_search_not_executed": 579,
-      "official_profile_discovery:review_official_profile_candidate": 6,
+      "official_profile_discovery:direct_probe_low_signal_review": 49,
+      "official_profile_discovery:planned_search_not_executed": 523,
+      "official_profile_discovery:review_official_profile_candidate": 27,
       "official_profile_discovery:search_endpoint_blocked_retry": 8,
       "official_program_coverage:accepted_alias_denominator_policy": 13,
       "official_program_coverage:alias_review": 6,
@@ -929,7 +929,7 @@
     "source_utilities": 16,
     "source_utility_scorecard": 28,
     "sources": 2329,
-    "trainee_profile_discovery_candidates": 120,
+    "trainee_profile_discovery_candidates": 500,
     "trainee_profile_search_observations": 30,
     "trainee_profile_search_queries": 1824,
     "training_lifecycle_assurance_rollups": 232,
@@ -2183,7 +2183,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T20:22:25.107019+00:00",
+  "generated_at": "2026-06-02T20:30:02.047733+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -3561,7 +3561,7 @@
       "source_residency_background": 1
     },
     "csv": "artifacts/data/person_enrichment_execution_batches.csv",
-    "generated_at": "2026-06-02T20:14:56.991795+00:00",
+    "generated_at": "2026-06-02T20:29:47.827411+00:00",
     "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
     "json": "artifacts/data/person_enrichment_execution_batches.json",
     "manual_review_batch_rows": 7,
@@ -4286,23 +4286,23 @@
     "VARIABLE_DURATION_SOURCE_REFRESH": 627
   },
   "trainee_profile_discovery_candidate_counts": {
-    "low_signal_search_result": 114,
-    "official_profile_candidate": 6
+    "low_signal_search_result": 473,
+    "official_profile_candidate": 27
   },
   "trainee_profile_discovery_summary": {
     "by_candidate_status": {
-      "low_signal_search_result": 114,
-      "official_profile_candidate": 6
+      "low_signal_search_result": 473,
+      "official_profile_candidate": 27
     },
     "by_direct_probe_kind_this_run": {
-      "direct_roster_profile_sibling_probe": 120
+      "direct_roster_profile_sibling_probe": 500
     },
     "by_result_domain": {
-      "www3.pennmedicine.org": 120
+      "www3.pennmedicine.org": 500
     },
     "by_role": {
-      "fellow": 60,
-      "resident": 60
+      "fellow": 176,
+      "resident": 324
     },
     "by_search_error": {
       "search_endpoint_non_200": 28
@@ -4311,19 +4311,19 @@
       "200": 2,
       "202": 28
     },
-    "candidate_rows": 120,
-    "claim_rows": 6,
+    "candidate_rows": 500,
+    "claim_rows": 27,
     "claims_json": "artifacts/data/trainee_profile_discovery_claims.json",
     "csv": "artifacts/data/trainee_profile_discovery_candidates.csv",
-    "direct_probe_rows": 120,
-    "direct_probed_this_run": 120,
+    "direct_probe_rows": 500,
+    "direct_probed_this_run": 500,
     "direct_provider_slug_probe_rows": 0,
     "direct_provider_slug_probed_this_run": 0,
-    "direct_roster_profile_sibling_probe_rows": 120,
-    "direct_roster_profile_sibling_probed_this_run": 120,
-    "generated_at": "2026-06-02T18:47:51.116457+00:00",
-    "official_or_context_candidate_people": 6,
-    "official_profile_candidate_people": 6,
+    "direct_roster_profile_sibling_probe_rows": 500,
+    "direct_roster_profile_sibling_probed_this_run": 500,
+    "generated_at": "2026-06-02T20:24:56.052965+00:00",
+    "official_or_context_candidate_people": 27,
+    "official_profile_candidate_people": 27,
     "people_considered": 608,
     "policy": "Discovered profile URLs are candidate evidence only. They do not mutate people.profile_url unless an official roster-linked profile or reviewer-accepted evidence later confirms same-person/current-trainee context.",
     "query_rows": 1824,
@@ -4332,7 +4332,7 @@
     "search_observations": 30,
     "search_skipped": true,
     "searched_this_run": 0,
-    "source_rows": 6,
+    "source_rows": 27,
     "sources_json": "artifacts/data/trainee_profile_discovery_sources.json",
     "unsearched_query_rows": 1794
   },
@@ -4675,7 +4675,7 @@
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     "artifact_rows": 111,
-    "audited_at": "2026-06-02T20:22:23.395462+00:00",
+    "audited_at": "2026-06-02T20:30:00.313414+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -4756,10 +4756,10 @@
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 221814784,
+    "sqlite_byte_size": 223920128,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "2ec2e2c326346f508b3c6e45dc6dd1d5bd7e4646ad54898ce0a88732d4ff4904",
+    "sqlite_sha256": "a5442cc978a4e724e11741de29e7a1d6a68839ea0b835daf46a4eae181f2ad61",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

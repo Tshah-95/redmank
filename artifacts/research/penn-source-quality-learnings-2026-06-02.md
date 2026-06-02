@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T20:22:23.342065+00:00
+Generated: 2026-06-02T20:30:00.262531+00:00
 
 ## What This Pass Did
 
@@ -3298,12 +3298,12 @@ Learning: a source utility should be judged by the claim surface it supports, no
 
 ## Search Utility Assurance
 
-Utility rows: 4. Query rows: 2544. Search observations: 106. Search candidates: 127. Non-200 search rows: 100.
+Utility rows: 4. Query rows: 2544. Search observations: 106. Search candidates: 507. Non-200 search rows: 100.
 
 | utility_name | query_rows | search_observation_rows | search_candidate_rows | result_rows | search_execution_status | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Official HUP gap-source broad search | 42 | 0 | 0 | 0 | planned_not_executed | execute_optional_search_or_swap_to_a_more_reliable_provider_before_treating_absence_as_evidence |
-| Official trainee profile search | 1824 | 30 | 120 | 0 | executed_partial_with_endpoint_errors | retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck |
+| Official trainee profile search | 1824 | 30 | 500 | 0 | executed_partial_with_endpoint_errors | retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck |
 | Prior-training background search | 642 | 40 | 0 | 0 | executed_partial_with_endpoint_errors | retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck |
 | Attending historical-link search | 36 | 36 | 7 | 8 | executed_partial_with_endpoint_errors | retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck |
 
@@ -3311,7 +3311,7 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1231. Summed impact count: 11362. Critical rows: 57. High rows: 706.
+Worklist rows: 1231. Summed impact count: 11362. Critical rows: 78. High rows: 685.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3344,17 +3344,17 @@ Worklist rows: 1231. Summed impact count: 11362. Critical rows: 57. High rows: 7
 | person_evidence_review | official_profile_context_display_review | official_profile_context_display_review \| resident \| complex_packet_review \| batch 29 | resident | 1063 | 29 | review_batch_and_record_packet_decisions |
 | official_profile_discovery | review_official_profile_candidate | Mary Decoteau, MD | fellow | 1063 | 1 | review_candidate_for_same_person_official_profile_acceptance |
 | official_profile_discovery | review_official_profile_candidate | Michael Weykamp, MD, MS | fellow | 1063 | 1 | review_candidate_for_same_person_official_profile_acceptance |
-| official_program_coverage | accepted_alias_denominator_policy | Internal Medicine - Categorical | residency | 1053 | 173 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
-| person_evidence_review | official_profile_context_display_review | official_profile_context_display_review \| resident \| moderate_manual_review \| batch 32 | resident | 1050 | 19 | review_batch_and_record_packet_decisions |
-| person_evidence_review | publication_identity_final_check | publication_identity_final_check \| fellow \| moderate_manual_review \| batch 4 | fellow | 1050 | 5 | review_batch_and_record_packet_decisions |
-| person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| moderate_manual_review \| batch 9 | fellow | 1049 | 15 | review_batch_and_record_packet_decisions |
-| person_evidence_review | publication_with_official_profile_anchor_review | publication_with_official_profile_anchor_review \| resident \| complex_packet_review \| batch 8 | resident | 1044 | 7 | review_batch_and_record_packet_decisions |
-| person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| quick_manual_review \| batch 27 | fellow | 1042 | 13 | review_batch_and_record_packet_decisions |
-| person_evidence_review | official_profile_context_display_review | official_profile_context_display_review \| resident \| moderate_manual_review \| batch 33 | resident | 1032 | 10 | review_batch_and_record_packet_decisions |
-| person_evidence_review | publication_with_official_profile_anchor_review | publication_with_official_profile_anchor_review \| fellow \| complex_packet_review \| batch 11 | fellow | 1030 | 1 | review_batch_and_record_packet_decisions |
-| person_evidence_review | secondary_identity_anchor_context_review | secondary_identity_anchor_context_review \| fellow \| quick_manual_review \| batch 35 | fellow | 1025 | 7 | review_batch_and_record_packet_decisions |
-| person_evidence_review | secondary_identity_anchor_context_review | secondary_identity_anchor_context_review \| fellow \| moderate_manual_review \| batch 30 | fellow | 1022 | 5 | review_batch_and_record_packet_decisions |
-| person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| quick_manual_review \| batch 28 | resident | 1022 | 3 | review_batch_and_record_packet_decisions |
+| official_profile_discovery | review_official_profile_candidate | Aashish Bhardwaj, MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Abigail Black MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Abigail Taye MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Ahmed Gawash DO | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Alec Gayner MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Alex Swanger, MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Alexa Larsen, MD, MSc | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Alexandra Makhoul, MD, MBA | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Anitra Persaud, MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Anne Albright MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
+| official_profile_discovery | review_official_profile_candidate | Arthur Thomas, MD | resident | 1056 | 1 | review_candidate_for_same_person_official_profile_acceptance |
 
 Learning: unresolved evidence should be ranked as operator work, not inferred away. Program gaps, search execution, person evidence packets, contact verification, temporal-state refreshes, enrichment collectors, and attending-trend bridges all have different acceptance gates, so the worklist keeps their required next evidence explicit.
 

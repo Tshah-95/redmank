@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T20:22:23.342065+00:00",
+  "generated_at": "2026-06-02T20:30:00.262531+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -26696,12 +26696,12 @@
     }
   ],
   "search_utility_assurance_summary": {
-    "audited_at": "2026-06-02T20:14:59.423707+00:00",
+    "audited_at": "2026-06-02T20:29:59.850643+00:00",
     "by_search_execution_status": {
       "executed_partial_with_endpoint_errors": 3,
       "planned_not_executed": 1
     },
-    "candidate_rows": 206,
+    "candidate_rows": 586,
     "csv": "artifacts/data/search_utility_assurance.csv",
     "error_rows": 100,
     "json": "artifacts/data/search_utility_assurance.json",
@@ -26709,7 +26709,7 @@
     "policy": "Search utilities are discovery surfaces. Query manifests, observations, result rows, and candidates are audited separately so endpoint failures or skipped runs cannot masquerade as absence of public evidence.",
     "query_rows": 2544,
     "result_rows": 8,
-    "search_candidate_rows": 127,
+    "search_candidate_rows": 507,
     "search_observation_rows": 106,
     "successful_search_rows": 6,
     "utility_rows": 4
@@ -26738,7 +26738,7 @@
       "by_search_error_json": "{}",
       "recommended_next_action": "execute_optional_search_or_swap_to_a_more_reliable_provider_before_treating_absence_as_evidence",
       "source_quality_learning": "A query manifest is planning evidence, not search evidence; public absence remains untested until observations exist.",
-      "audited_at": "2026-06-02T20:14:59.423707+00:00"
+      "audited_at": "2026-06-02T20:29:59.850643+00:00"
     },
     {
       "utility_key": "trainee_profile_search",
@@ -26750,20 +26750,20 @@
       "candidate_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "query_rows": "1824",
       "search_observation_rows": "30",
-      "candidate_rows": "120",
-      "search_candidate_rows": "120",
+      "candidate_rows": "500",
+      "search_candidate_rows": "500",
       "result_rows": "0",
       "successful_search_rows": "2",
       "non_200_search_rows": "28",
       "error_rows": "28",
       "search_coverage_rate": "0.0164",
-      "candidate_yield_per_observation": "4.0",
+      "candidate_yield_per_observation": "16.6667",
       "search_execution_status": "executed_partial_with_endpoint_errors",
       "by_search_http_status_json": "{\"200\": 2, \"202\": 28}",
       "by_search_error_json": "{\"search_endpoint_non_200\": 28}",
       "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
       "source_quality_learning": "Broad search can produce useful candidates while still being incomplete; endpoint errors must travel with the evidence.",
-      "audited_at": "2026-06-02T20:14:59.423707+00:00"
+      "audited_at": "2026-06-02T20:29:59.850643+00:00"
     },
     {
       "utility_key": "prior_training_background_search",
@@ -26788,7 +26788,7 @@
       "by_search_error_json": "{\"search_endpoint_non_200\": 38}",
       "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
       "source_quality_learning": "Broad search can produce useful candidates while still being incomplete; endpoint errors must travel with the evidence.",
-      "audited_at": "2026-06-02T20:14:59.423707+00:00"
+      "audited_at": "2026-06-02T20:29:59.850643+00:00"
     },
     {
       "utility_key": "attending_historical_link_search",
@@ -26813,7 +26813,7 @@
       "by_search_error_json": "{\"search_endpoint_non_200\": 34}",
       "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
       "source_quality_learning": "Broad search can produce useful candidates while still being incomplete; endpoint errors must travel with the evidence.",
-      "audited_at": "2026-06-02T20:14:59.423707+00:00"
+      "audited_at": "2026-06-02T20:29:59.850643+00:00"
     }
   ],
   "corpus_action_worklist_summary": {
@@ -26830,23 +26830,23 @@
       "training_temporal_contract": 86
     },
     "by_priority_band": {
-      "critical": 57,
-      "high": 706,
+      "critical": 78,
+      "high": 685,
       "low": 30,
       "medium": 438
     },
-    "critical_rows": 57,
+    "critical_rows": 78,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-02T20:21:58.317815+00:00",
-    "high_rows": 706,
+    "generated_at": "2026-06-02T20:29:59.906951+00:00",
+    "high_rows": 685,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
     "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
     "top_action_scope_counts": {
       "contact_verification:ready_for_reviewer_verification": 312,
-      "official_profile_discovery:direct_probe_low_signal_review": 14,
-      "official_profile_discovery:planned_search_not_executed": 579,
-      "official_profile_discovery:review_official_profile_candidate": 6,
+      "official_profile_discovery:direct_probe_low_signal_review": 49,
+      "official_profile_discovery:planned_search_not_executed": 523,
+      "official_profile_discovery:review_official_profile_candidate": 27,
       "official_profile_discovery:search_endpoint_blocked_retry": 8,
       "official_program_coverage:accepted_alias_denominator_policy": 13,
       "official_program_coverage:alias_review": 6,
@@ -27145,7 +27145,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"423\", \"packet_count\": \"35\", \"review_ready_record_count\": \"111\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 20, \\\"npi_registry\\\": 42, \\\"official_penn_profile_or_roster\\\": 8, \\\"orcid_registry\\\": 3, \\\"publication_index\\\": 101}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 7, \\\"orcid_work_publication_review\\\": 2, \\\"review_ready_orcid_seeded_article\\\": 6, \\\"review_ready_training_topic_anchor\\\": 20}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:100; npiregistry.cms.hhs.gov:42; doi.org:15; www3.pennmedicine.org:8; openalex.org:5; pub.orcid.org:3; eutils.ncbi.nlm.nih.gov:1\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_4f43796f5111a86134c8",
@@ -27167,7 +27167,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"699\", \"packet_count\": \"29\", \"review_ready_record_count\": \"473\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 22, \\\"publication_index\\\": 123}\", \"top_best_decisions_json\": \"{\\\"orcid_work_publication_review\\\": 2, \\\"review_ready_orcid_seeded_article\\\": 19, \\\"review_ready_training_topic_anchor\\\": 8}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:123; doi.org:21; openalex.org:1\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_f31a430c62797e15a5ad",
@@ -27189,7 +27189,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"276\", \"packet_count\": \"35\", \"review_ready_record_count\": \"41\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 48, \\\"official_penn_profile_or_roster\\\": 34, \\\"publication_index\\\": 42}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:48; www3.pennmedicine.org:34; eutils.ncbi.nlm.nih.gov:30; pubmed.ncbi.nlm.nih.gov:12\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_acd1ed6938b9db93b0c4",
@@ -27211,7 +27211,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"314\", \"packet_count\": \"28\", \"review_ready_record_count\": \"54\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 51, \\\"official_penn_profile_or_roster\\\": 8, \\\"publication_index\\\": 80}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 20, \\\"review_ready_training_topic_anchor\\\": 8}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:77; npiregistry.cms.hhs.gov:51; www3.pennmedicine.org:8; eutils.ncbi.nlm.nih.gov:3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_a04f9aa9b941d0f86fb6",
@@ -27233,7 +27233,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"130\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 35, \\\"official_penn_profile_or_roster\\\": 35, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:35; www3.pennmedicine.org:35; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_0682c46e27eaa305afc5",
@@ -27255,7 +27255,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"328\", \"packet_count\": \"35\", \"review_ready_record_count\": \"40\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 47, \\\"official_penn_profile_or_roster\\\": 24, \\\"publication_index\\\": 102}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:91; npiregistry.cms.hhs.gov:47; www3.pennmedicine.org:24; eutils.ncbi.nlm.nih.gov:11\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_cd8f29b4e5c53019f117",
@@ -27277,7 +27277,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"75\", \"packet_count\": \"35\", \"review_ready_record_count\": \"36\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 40, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:40; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_2f433f65024481c21fa3",
@@ -27299,7 +27299,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"72\", \"packet_count\": \"35\", \"review_ready_record_count\": \"36\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 37, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:37; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_bac9712bd6123faed2cb",
@@ -27321,7 +27321,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"254\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 42, \\\"official_penn_profile_or_roster\\\": 35, \\\"publication_index\\\": 37}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:42; www3.pennmedicine.org:35; eutils.ncbi.nlm.nih.gov:34; pubmed.ncbi.nlm.nih.gov:3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_138483df9da45ed2f5bd",
@@ -27343,7 +27343,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"400\", \"packet_count\": \"35\", \"review_ready_record_count\": \"36\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 39, \\\"official_penn_profile_or_roster\\\": 11, \\\"publication_index\\\": 125}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:125; npiregistry.cms.hhs.gov:39; www3.pennmedicine.org:11\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_f5759ca615ed05131121",
@@ -27365,7 +27365,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"128\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 35, \\\"official_penn_profile_or_roster\\\": 35, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:35; www3.pennmedicine.org:35; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_d505d2a11a0a151578fa",
@@ -27387,7 +27387,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"132\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 35, \\\"official_penn_profile_or_roster\\\": 34, \\\"publication_index\\\": 36}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:35; eutils.ncbi.nlm.nih.gov:35; www3.pennmedicine.org:34; pubmed.ncbi.nlm.nih.gov:1\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_b747d055ae0b556e6c72",
@@ -27409,7 +27409,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"123\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 35, \\\"official_penn_profile_or_roster\\\": 33, \\\"publication_index\\\": 37}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:35; eutils.ncbi.nlm.nih.gov:35; www3.pennmedicine.org:33; pubmed.ncbi.nlm.nih.gov:2\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_be61c0e1646f95dfd52c",
@@ -27431,7 +27431,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"72\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 37, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:37; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_656e06e18b56faa9c67a",
@@ -27453,7 +27453,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"71\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 36, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:36; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_abffc7704d079a44d7df",
@@ -27475,7 +27475,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"74\", \"packet_count\": \"35\", \"review_ready_record_count\": \"35\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 39, \\\"publication_index\\\": 35}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 35}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:39; eutils.ncbi.nlm.nih.gov:35\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_59c7008f482bf510b0b2",
@@ -27497,7 +27497,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"151\", \"packet_count\": \"31\", \"review_ready_record_count\": \"33\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 52, \\\"official_penn_profile_or_roster\\\": 17, \\\"publication_index\\\": 68}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 31}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:52; pubmed.ncbi.nlm.nih.gov:39; eutils.ncbi.nlm.nih.gov:29; www3.pennmedicine.org:17\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_b23ee52182e770c9ce26",
@@ -27519,7 +27519,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"232\", \"packet_count\": \"16\", \"review_ready_record_count\": \"108\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 3, \\\"publication_index\\\": 77}\", \"top_best_decisions_json\": \"{\\\"orcid_work_publication_review\\\": 1, \\\"review_ready_orcid_seeded_article\\\": 2, \\\"review_ready_training_topic_anchor\\\": 13}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:77; doi.org:3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_d6148f9948353ed00536",
@@ -27541,7 +27541,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"185\", \"packet_count\": \"24\", \"review_ready_record_count\": \"26\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 30, \\\"official_penn_profile_or_roster\\\": 24, \\\"publication_index\\\": 33}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 23, \\\"review_ready_training_topic_anchor\\\": 1}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:30; www3.pennmedicine.org:24; eutils.ncbi.nlm.nih.gov:19; pubmed.ncbi.nlm.nih.gov:14\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_79036ef31c4b07936140",
@@ -27563,7 +27563,7 @@
       "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
       "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/allan-stolarski\", \"blocked_query_count\": \"3\", \"observed_query_count\": \"3\", \"official_candidate_count\": \"1\", \"person_key\": \"person_allan-stolarski-md-ms_bb615dd872ac\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_4d5fba4bd473b8ab99d6\", \"unsearched_query_count\": \"0\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_006969e599f181f64c51",
@@ -27585,7 +27585,7 @@
       "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
       "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/vascular-surgery-fellowship/fellows/jackie-zhang\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_jackie-zhang-md_1cc440dab925\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_c71688e1f27874097548\", \"unsearched_query_count\": \"3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_6b8d9b8444daf64fad78",
@@ -27607,7 +27607,7 @@
       "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
       "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/microvascular-reconstructive-surgery-fellowship/fellows/laura-barnes\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_laura-barnes-md_503959d8cc53\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_3b14315a616978050c5e\", \"unsearched_query_count\": \"3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_654d3c561869e4450e80",
@@ -27629,7 +27629,7 @@
       "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
       "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/madison-harris\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_madison-harris-do_b296586278e6\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_060c6f32258f384c4061\", \"unsearched_query_count\": \"3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_886d483eade41c418577",
@@ -27651,7 +27651,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"312\", \"packet_count\": \"28\", \"review_ready_record_count\": \"30\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 36, \\\"official_penn_profile_or_roster\\\": 3, \\\"publication_index\\\": 101}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 28}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:101; npiregistry.cms.hhs.gov:36; www3.pennmedicine.org:3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_9f80e702eae3b2ef748f",
@@ -27673,7 +27673,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"183\", \"packet_count\": \"22\", \"review_ready_record_count\": \"22\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 37, \\\"official_penn_profile_or_roster\\\": 20, \\\"publication_index\\\": 24}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 22}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:37; www3.pennmedicine.org:20; eutils.ncbi.nlm.nih.gov:16; pubmed.ncbi.nlm.nih.gov:8\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_0478cfcec2b642131602",
@@ -27695,7 +27695,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"77\", \"packet_count\": \"18\", \"review_ready_record_count\": \"20\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 18, \\\"official_penn_profile_or_roster\\\": 14, \\\"publication_index\\\": 22}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 16, \\\"review_ready_training_topic_anchor\\\": 2}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:18; eutils.ncbi.nlm.nih.gov:18; www3.pennmedicine.org:14; pubmed.ncbi.nlm.nih.gov:4\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_fd27b5625ebd4466f7be",
@@ -27717,7 +27717,7 @@
       "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
       "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
       "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"189\", \"packet_count\": \"24\", \"review_ready_record_count\": \"29\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 52, \\\"npi_registry\\\": 35, \\\"official_penn_profile_or_roster\\\": 24, \\\"orcid_registry\\\": 6}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 24}\", \"top_source_domains\": \"openalex.org:51; npiregistry.cms.hhs.gov:35; pathology.med.upenn.edu:15; neuroresidency.uphs.upenn.edu:9; pub.orcid.org:6; doi.org:1\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_559056919bf5e9cbb44a",
@@ -27739,7 +27739,7 @@
       "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
       "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/mary-decoteau\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_mary-decoteau-md_107185e399b5\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_73a61744d3cd4bd11e58\", \"unsearched_query_count\": \"3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
       "work_item_key": "corpus_action_cdf6831235f00cca6dd0",
@@ -27761,249 +27761,249 @@
       "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
       "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
       "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship/fellows/michael-weykamp\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_michael-weykamp-md-ms_df24588b4705\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_b1d692970e77fe7af60a\", \"unsearched_query_count\": \"3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
-      "work_item_key": "corpus_action_617746d0d9f8fec30a0b",
-      "action_surface": "official_program_coverage",
-      "action_scope": "accepted_alias_denominator_policy",
-      "entity_type": "official_program",
-      "entity_key": "hup_gme_residency_internal-medicine-categorical_9138b3db3c42",
-      "display_label": "Internal Medicine - Categorical",
-      "role": "residency",
-      "program_name": "Internal Medicine - Categorical",
-      "priority": "1053",
-      "priority_band": "critical",
-      "impact_count": "173",
-      "readiness_status": "covered_current_roster",
-      "blocker_status": "accepted_alias_mapping_not_yet_denominator_closed",
-      "required_next_evidence": "Decide whether the accepted official-to-loaded program alias can be promoted into denominator-closed coverage or must remain a non-mutating bridge.",
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy",
-      "source_artifact": "artifacts/data/official_program_coverage_action_queue.csv",
-      "target_artifact": "artifacts/data/official_program_coverage_assurance_audit.csv",
-      "downstream_tables_json": "[\"official_program_coverage_assurance_audit\", \"official_program_alias_review_packets\", \"official_program_alias_reviewer_decision_queue\", \"person_program_memberships\", \"person_training_states\"]",
-      "evidence_json": "{\"assurance_level\": \"3\", \"assurance_status\": \"alias_method_current_roster_review\", \"candidate_source_count\": \"0\", \"candidate_url\": \"\", \"official_program_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_13ca497786d6cad8db00",
-      "action_surface": "person_evidence_review",
-      "action_scope": "official_profile_context_display_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_19c4aacbc561c8d15472",
-      "display_label": "official_profile_context_display_review | resident | moderate_manual_review | batch 32",
+      "work_item_key": "corpus_action_8546cae6d92c43bbcb0f",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_f6cac9f0515383ff5029",
+      "display_label": "Aashish Bhardwaj, MD",
       "role": "resident",
-      "program_name": "",
-      "priority": "1050",
-      "priority_band": "critical",
-      "impact_count": "19",
-      "readiness_status": "moderate_manual_review",
-      "blocker_status": "mixed_evidence_review_risk",
-      "required_next_evidence": "Which official-profile fields are useful context, and are any personal fields safe for the intended display?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"99\", \"packet_count\": \"19\", \"review_ready_record_count\": \"19\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 54, \\\"npi_registry\\\": 19, \\\"official_penn_profile_or_roster\\\": 19}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 19}\", \"top_source_domains\": \"openalex.org:54; npiregistry.cms.hhs.gov:19; pathology.med.upenn.edu:10; neuroresidency.uphs.upenn.edu:9\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_43d852a1457048469bd1",
-      "action_surface": "person_evidence_review",
-      "action_scope": "publication_identity_final_check",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_82450c66557f96b85c0d",
-      "display_label": "publication_identity_final_check | fellow | moderate_manual_review | batch 4",
-      "role": "fellow",
-      "program_name": "",
-      "priority": "1050",
-      "priority_band": "critical",
-      "impact_count": "5",
-      "readiness_status": "moderate_manual_review",
-      "blocker_status": "mixed_evidence_review_risk",
-      "required_next_evidence": "Are there enough non-name author anchors to accept this publication, or should a secondary anchor be required?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"11\", \"packet_count\": \"2\", \"review_ready_record_count\": \"5\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 3, \\\"publication_index\\\": 7}\", \"top_best_decisions_json\": \"{\\\"review_ready_orcid_seeded_article\\\": 1, \\\"review_ready_training_topic_anchor\\\": 1}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:6; doi.org:2; openalex.org:1; eutils.ncbi.nlm.nih.gov:1\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_32eebc1e717d5083ec24",
-      "action_surface": "person_evidence_review",
-      "action_scope": "publication_with_secondary_identity_anchor_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_268348724d371ae72e9d",
-      "display_label": "publication_with_secondary_identity_anchor_review | fellow | moderate_manual_review | batch 9",
-      "role": "fellow",
-      "program_name": "",
-      "priority": "1049",
-      "priority_band": "critical",
-      "impact_count": "15",
-      "readiness_status": "moderate_manual_review",
-      "blocker_status": "mixed_evidence_review_risk",
-      "required_next_evidence": "Does the publication author, secondary identifier, and current Penn trainee roster row describe the same person?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"47\", \"packet_count\": \"9\", \"review_ready_record_count\": \"15\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 17, \\\"official_penn_profile_or_roster\\\": 2, \\\"publication_index\\\": 21}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 7, \\\"review_ready_training_topic_anchor\\\": 2}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:17; pubmed.ncbi.nlm.nih.gov:14; eutils.ncbi.nlm.nih.gov:7; www3.pennmedicine.org:2\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_6b99687bf65b5fd45e01",
-      "action_surface": "person_evidence_review",
-      "action_scope": "publication_with_official_profile_anchor_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_5c5f52a78eb37e6536c8",
-      "display_label": "publication_with_official_profile_anchor_review | resident | complex_packet_review | batch 8",
-      "role": "resident",
-      "program_name": "",
-      "priority": "1044",
-      "priority_band": "critical",
-      "impact_count": "7",
-      "readiness_status": "complex_packet_review",
-      "blocker_status": "mixed_evidence_review_risk",
-      "required_next_evidence": "Does the official Penn profile or roster context independently support the publication author identity?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"53\", \"packet_count\": \"5\", \"review_ready_record_count\": \"7\", \"source_family_counts_json\": \"{\\\"official_penn_profile_or_roster\\\": 5, \\\"publication_index\\\": 20}\", \"top_best_decisions_json\": \"{\\\"review_ready_training_topic_anchor\\\": 5}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:20; www3.pennmedicine.org:5\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_f14ecd9869477f99a9e3",
-      "action_surface": "person_evidence_review",
-      "action_scope": "publication_with_secondary_identity_anchor_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_c7a8a2257e210b5c428e",
-      "display_label": "publication_with_secondary_identity_anchor_review | fellow | quick_manual_review | batch 27",
-      "role": "fellow",
-      "program_name": "",
-      "priority": "1042",
-      "priority_band": "critical",
-      "impact_count": "13",
-      "readiness_status": "quick_manual_review",
-      "blocker_status": "identity_anchor_verification_risk",
-      "required_next_evidence": "Does the publication author, secondary identifier, and current Penn trainee roster row describe the same person?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"26\", \"packet_count\": \"13\", \"review_ready_record_count\": \"13\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 13, \\\"publication_index\\\": 13}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 13}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:13; eutils.ncbi.nlm.nih.gov:13\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_095f3a1f41b0728af01a",
-      "action_surface": "person_evidence_review",
-      "action_scope": "official_profile_context_display_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_cbb8b10df688cdc6af00",
-      "display_label": "official_profile_context_display_review | resident | moderate_manual_review | batch 33",
-      "role": "resident",
-      "program_name": "",
-      "priority": "1032",
-      "priority_band": "critical",
-      "impact_count": "10",
-      "readiness_status": "moderate_manual_review",
-      "blocker_status": "identity_anchor_verification_risk",
-      "required_next_evidence": "Which official-profile fields are useful context, and are any personal fields safe for the intended display?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"30\", \"packet_count\": \"10\", \"review_ready_record_count\": \"10\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 10, \\\"npi_registry\\\": 10, \\\"official_penn_profile_or_roster\\\": 10}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 10}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:10; openalex.org:10; neuroresidency.uphs.upenn.edu:8; pathology.med.upenn.edu:2\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_81e1ce95a31cb8cdffbe",
-      "action_surface": "person_evidence_review",
-      "action_scope": "publication_with_official_profile_anchor_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_528516c1e2495bef5c56",
-      "display_label": "publication_with_official_profile_anchor_review | fellow | complex_packet_review | batch 11",
-      "role": "fellow",
-      "program_name": "",
-      "priority": "1030",
+      "program_name": "Physical Medicine and Rehabilitation Residency",
+      "priority": "1056",
       "priority_band": "critical",
       "impact_count": "1",
-      "readiness_status": "complex_packet_review",
-      "blocker_status": "mixed_evidence_review_risk",
-      "required_next_evidence": "Does the official Penn profile or roster context independently support the publication author identity?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"13\", \"packet_count\": \"1\", \"review_ready_record_count\": \"1\", \"source_family_counts_json\": \"{\\\"official_penn_profile_or_roster\\\": 1, \\\"publication_index\\\": 4}\", \"top_best_decisions_json\": \"{\\\"review_ready_training_topic_anchor\\\": 1}\", \"top_source_domains\": \"pubmed.ncbi.nlm.nih.gov:4; www3.pennmedicine.org:1\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program/current-residents/pgy2/bhardwaj-aashish\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_aashish-bhardwaj-md_085a7aaf0c58\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_a04c63c576e7a8fe7071\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     },
     {
-      "work_item_key": "corpus_action_90412fb3d8964d4f0ba4",
-      "action_surface": "person_evidence_review",
-      "action_scope": "secondary_identity_anchor_context_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_bb355a16f7f6f0ad356f",
-      "display_label": "secondary_identity_anchor_context_review | fellow | quick_manual_review | batch 35",
-      "role": "fellow",
-      "program_name": "",
-      "priority": "1025",
-      "priority_band": "critical",
-      "impact_count": "7",
-      "readiness_status": "quick_manual_review",
-      "blocker_status": "identity_anchor_verification_risk",
-      "required_next_evidence": "Does this NPI/ORCID-style identifier belong to the same current Penn trainee and support later claims?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"16\", \"packet_count\": \"7\", \"review_ready_record_count\": \"7\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 9, \\\"npi_registry\\\": 7}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 7}\", \"top_source_domains\": \"openalex.org:9; npiregistry.cms.hhs.gov:7\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_e3ab1a4707b0f34cd4cc",
-      "action_surface": "person_evidence_review",
-      "action_scope": "secondary_identity_anchor_context_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_1a3d52c53c167ca74016",
-      "display_label": "secondary_identity_anchor_context_review | fellow | moderate_manual_review | batch 30",
-      "role": "fellow",
-      "program_name": "",
-      "priority": "1022",
-      "priority_band": "critical",
-      "impact_count": "5",
-      "readiness_status": "moderate_manual_review",
-      "blocker_status": "mixed_evidence_review_risk",
-      "required_next_evidence": "Does this NPI/ORCID-style identifier belong to the same current Penn trainee and support later claims?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"17\", \"packet_count\": \"4\", \"review_ready_record_count\": \"5\", \"source_family_counts_json\": \"{\\\"external_web_source\\\": 9, \\\"npi_registry\\\": 6, \\\"orcid_registry\\\": 2}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 4}\", \"top_source_domains\": \"openalex.org:9; npiregistry.cms.hhs.gov:6; pub.orcid.org:2\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
-    },
-    {
-      "work_item_key": "corpus_action_4e867e3d58dd1bb7bfeb",
-      "action_surface": "person_evidence_review",
-      "action_scope": "publication_with_secondary_identity_anchor_review",
-      "entity_type": "person_evidence_review_batch",
-      "entity_key": "person_evidence_review_batch_a3620a93b3d3ef9f725a",
-      "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 28",
+      "work_item_key": "corpus_action_0d53f6b3223ee40c7cee",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_684463fe8780f7564cec",
+      "display_label": "Abigail Black MD",
       "role": "resident",
-      "program_name": "",
-      "priority": "1022",
+      "program_name": "Internal Medicine Residency",
+      "priority": "1056",
       "priority_band": "critical",
-      "impact_count": "3",
-      "readiness_status": "quick_manual_review",
-      "blocker_status": "identity_anchor_verification_risk",
-      "required_next_evidence": "Does the publication author, secondary identifier, and current Penn trainee roster row describe the same person?",
-      "recommended_next_action": "review_batch_and_record_packet_decisions",
-      "source_artifact": "artifacts/data/person_evidence_review_batches.csv",
-      "target_artifact": "artifacts/data/person_evidence_reviewer_decisions.csv",
-      "downstream_tables_json": "[\"person_evidence_review_batches\", \"person_evidence_review_triage\", \"person_evidence_reviewer_decision_queue\", \"person_evidence_reviewer_decision_audit\", \"enrichment_acceptance_audit\", \"accepted_enrichment_claims\"]",
-      "evidence_json": "{\"acceptance_rule\": \"Batch rows are non-mutating. A fact is accepted only after a reviewer decision with the current packet_fingerprint and required identity/source/non-name-anchor/display confirmations.\", \"evidence_record_count\": \"6\", \"packet_count\": \"3\", \"review_ready_record_count\": \"3\", \"source_family_counts_json\": \"{\\\"npi_registry\\\": 3, \\\"publication_index\\\": 3}\", \"top_best_decisions_json\": \"{\\\"npi_secondary_identity_anchor_review\\\": 3}\", \"top_source_domains\": \"npiregistry.cms.hhs.gov:3; eutils.ncbi.nlm.nih.gov:3\"}",
-      "generated_at": "2026-06-02T20:21:58.317815+00:00"
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/black-abigail\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"abigail black\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_e2ce1fcb4d956b9bff1a\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_3f6d816a10d18119ceb6",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_499d116470074596b42c",
+      "display_label": "Abigail Taye MD",
+      "role": "resident",
+      "program_name": "Internal Medicine Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-1/taye-abigail\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"abigail taye\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_4b92e2271ba36089ea3c\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_47f2f08d806ea53f4bff",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_c9e11bc5c3b2ab41ee94",
+      "display_label": "Ahmed Gawash DO",
+      "role": "resident",
+      "program_name": "Internal Medicine Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-1/gawash-ahmed\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"ahmed gawash\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_b42dea729b46071e810a\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_884612bca56f7a15f813",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_e0c3fe409804c2887d82",
+      "display_label": "Alec Gayner MD",
+      "role": "resident",
+      "program_name": "Internal Medicine Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/gayner-alec\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"alec gayner\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_399b1f27617b25408504\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_512a7d3fbd97be62f757",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_07063e4ce0ce3941ea50",
+      "display_label": "Alex Swanger, MD",
+      "role": "resident",
+      "program_name": "Anesthesiology Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents/ca3/swanger-alex\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_alex-swanger-md_bf924cc4b79f\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_7269da4a8f145d64abb8\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_dfc09640dc55642932e6",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_ba10b207ba9000c82ed9",
+      "display_label": "Alexa Larsen, MD, MSc",
+      "role": "resident",
+      "program_name": "Internal Medicine Primary Care Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/larsen-alexa\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"alexa larsen\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_bf9edc075229210146c7\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_cae81aaf62264ada39ad",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_6bb143a9b821c82ea401",
+      "display_label": "Alexandra Makhoul, MD, MBA",
+      "role": "resident",
+      "program_name": "Anesthesiology Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents/ca3/makhoul-alexandra\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_alexandra-makhoul-md-mba_dcf2dbfb17a0\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_df5d269d7e1169340470\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_bd8dabddcc470527d40f",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_b53d907c0973bf867e72",
+      "display_label": "Anitra Persaud, MD",
+      "role": "resident",
+      "program_name": "Internal Medicine Primary Care Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-3/persaud-anitra\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"anitra persaud\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_b7d5799f65e00195d16c\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_0e1c4929a525a555a3f2",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_1505256bb38f74c6ebed",
+      "display_label": "Anne Albright MD",
+      "role": "resident",
+      "program_name": "Internal Medicine Primary Care Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents/pgy-2/albright-anne\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"anne albright\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_e3923a08248ed1edba11\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
+    },
+    {
+      "work_item_key": "corpus_action_f18905a47bb15b4b783a",
+      "action_surface": "official_profile_discovery",
+      "action_scope": "review_official_profile_candidate",
+      "entity_type": "person_profile_gap",
+      "entity_key": "official_profile_workbench_d40e438a4a94d07442d7",
+      "display_label": "Arthur Thomas, MD",
+      "role": "resident",
+      "program_name": "Anesthesiology Residency",
+      "priority": "1056",
+      "priority_band": "critical",
+      "impact_count": "1",
+      "readiness_status": "missing_profile_url",
+      "blocker_status": "official_profile_candidate",
+      "required_next_evidence": "Official-domain profile candidate with same-person name, program/department or roster-linked context, URL, content hash, and reviewer/profile acceptance gate.",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "source_artifact": "artifacts/data/official_profile_discovery_workbench.csv",
+      "target_artifact": "artifacts/data/trainee_profile_discovery_candidates.csv",
+      "downstream_tables_json": "[\"official_profile_discovery_workbench\", \"trainee_profile_search_queries\", \"trainee_profile_search_observations\", \"trainee_profile_discovery_candidates\", \"evidence_claims\"]",
+      "evidence_json": "{\"best_candidate_confidence\": \"0.92\", \"best_candidate_url\": \"https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents/ca3/thomas-arthur\", \"blocked_query_count\": \"0\", \"observed_query_count\": \"0\", \"official_candidate_count\": \"1\", \"person_key\": \"person_arthur-thomas-md_4c4f6e4f501e\", \"query_count\": \"3\", \"source_domains\": \"www3.pennmedicine.org\", \"task_key\": \"person_enrichment_task_0cc5214d399eba7d36b0\", \"unsearched_query_count\": \"3\"}",
+      "generated_at": "2026-06-02T20:29:59.906951+00:00"
     }
   ],
   "medical_student_source_audit_summary": {

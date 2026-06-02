@@ -1,17 +1,17 @@
 {
   "by_candidate_status": {
-    "low_signal_search_result": 114,
-    "official_profile_candidate": 6
+    "low_signal_search_result": 473,
+    "official_profile_candidate": 27
   },
   "by_direct_probe_kind_this_run": {
-    "direct_roster_profile_sibling_probe": 120
+    "direct_roster_profile_sibling_probe": 500
   },
   "by_result_domain": {
-    "www3.pennmedicine.org": 120
+    "www3.pennmedicine.org": 500
   },
   "by_role": {
-    "fellow": 60,
-    "resident": 60
+    "fellow": 176,
+    "resident": 324
   },
   "by_search_error": {
     "search_endpoint_non_200": 28
@@ -20,19 +20,19 @@
     "200": 2,
     "202": 28
   },
-  "candidate_rows": 120,
-  "claim_rows": 6,
+  "candidate_rows": 500,
+  "claim_rows": 27,
   "claims_json": "artifacts/data/trainee_profile_discovery_claims.json",
   "csv": "artifacts/data/trainee_profile_discovery_candidates.csv",
-  "direct_probe_rows": 120,
-  "direct_probed_this_run": 120,
+  "direct_probe_rows": 500,
+  "direct_probed_this_run": 500,
   "direct_provider_slug_probe_rows": 0,
   "direct_provider_slug_probed_this_run": 0,
-  "direct_roster_profile_sibling_probe_rows": 120,
-  "direct_roster_profile_sibling_probed_this_run": 120,
-  "generated_at": "2026-06-02T18:47:51.116457+00:00",
-  "official_or_context_candidate_people": 6,
-  "official_profile_candidate_people": 6,
+  "direct_roster_profile_sibling_probe_rows": 500,
+  "direct_roster_profile_sibling_probed_this_run": 500,
+  "generated_at": "2026-06-02T20:24:56.052965+00:00",
+  "official_or_context_candidate_people": 27,
+  "official_profile_candidate_people": 27,
   "people_considered": 608,
   "policy": "Discovered profile URLs are candidate evidence only. They do not mutate people.profile_url unless an official roster-linked profile or reviewer-accepted evidence later confirms same-person/current-trainee context.",
   "query_rows": 1824,
@@ -41,7 +41,7 @@
   "search_observations": 30,
   "search_skipped": true,
   "searched_this_run": 0,
-  "source_rows": 6,
+  "source_rows": 27,
   "sources_json": "artifacts/data/trainee_profile_discovery_sources.json",
   "unsearched_query_rows": 1794
 }
