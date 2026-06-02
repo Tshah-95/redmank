@@ -55,6 +55,8 @@ Core tables:
 - `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
 - `official_program_gap_reason_audit`: deterministic reason ledger for uncovered official programs, separating context-only pages, parser/manual-review candidates, low-content official pages, related loaded-source alias reviews, and broader-discovery gaps.
 - `official_program_alias_reconciliation_candidates`: non-mutating candidate ledger for official denominator rows that may correspond to related loaded program labels.
+- `program_identifier_source_observations`: ACGME public-search query observations with HTTP status, result count, relevant-result count, and content hash.
+- `program_identifier_candidates`: non-mutating ACGME program-code candidates for official denominator rows, classified as strong, ambiguous, review, or no-code-found.
 - `medical_student_source_audit`: source-access audit for public MSTP, protected MD-student, MD Program context, and MD-PhD graduate-directory cross-check sources.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
@@ -136,6 +138,14 @@ The audit probes official PSOM/MSTP pages and writes:
 - SQLite table `medical_student_source_audit`: queryable version of the same source-access ledger.
 
 The accepted finding is conservative: the public MSTP directory is a partial current-student truth anchor; the official MD-student directory is PennKey protected and should not be scraped; public graduate-program directories can cross-check or enrich MD-PhD students but should not expand the MD-student denominator because they overlap MSTP and broader PhD populations. This keeps “we do not have all MD students” as an evidence-backed source-access state rather than an accidental omission.
+
+### External Program Identifiers
+
+`scripts/discover_acgme_program_identifier_candidates.py` queries the public ACGME program search once for Pennsylvania and reconciles the returned code/specialty/name/city rows against the official Penn/HUP GME denominator. It stores the ACGME page response as a source observation with a content hash, then writes candidate rows rather than mutating program records.
+
+The current pass produces strong candidates when the ACGME specialty, Penn/UPHS naming, city, and inferred residency/fellowship family agree. It keeps duplicate UPHS facilities, combined programs, CHOP-affiliate rows, and broad specialty families in ambiguous or review states. Non-ACGME, selective, dental, and locally named programs can legitimately be `no_acgme_identifier_found`.
+
+ACGME identifiers are useful for accreditation and lifecycle grounding, but they are not roster truth. They should be attached to canonical program/track records only after review confirms the local Penn program row maps to that ACGME row and not to a facility-specific sibling, combined track, or non-ACGME training offering.
 
 ## Recursive Enrichment Loop
 
@@ -232,11 +242,11 @@ NPI candidates do not mutate roster truth. They are useful secondary identity an
 
 `scripts/audit_source_utility_scorecard.py` turns those observations into an operational scorecard:
 
-- `source_utility_scorecard.csv` / `.json`: one row per utility surface, including official roster truth, official denominator coverage, gap-roster extraction, Penn-wide source discovery, PubMed author discovery, PubMed article reconciliation, OpenAlex, attending profiles, faculty-biosketch bridge evidence, historical-link discovery, public contacts, organization normalization, and training state-machine readiness.
+- `source_utility_scorecard.csv` / `.json`: one row per utility surface, including official roster truth, official denominator coverage, ACGME program identifiers, gap-roster extraction, Penn-wide source discovery, PubMed author discovery, PubMed article reconciliation, OpenAlex, attending profiles, faculty-biosketch bridge evidence, historical-link discovery, public contacts, organization normalization, and training state-machine readiness.
 - `source_utility_scorecard_summary.json`: counts by quality band, source family, and recommended next action.
 - SQLite table `source_utility_scorecard`: queryable version of the same ledger.
 
-The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; broad source discovery as a queue, not truth; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as blocked in the latest full-corpus pass by rate limiting; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
+The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; ACGME public search as strong for candidate program codes but not trainee truth; broad source discovery as a queue, not truth; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as blocked in the latest full-corpus pass by rate limiting; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
 
 ## Public Contact Evidence
 

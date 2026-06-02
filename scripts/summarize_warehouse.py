@@ -49,6 +49,8 @@ def main() -> None:
         "official_program_source_candidates",
         "official_program_gap_reason_audit",
         "official_program_alias_reconciliation_candidates",
+        "program_identifier_source_observations",
+        "program_identifier_candidates",
     ]
     counts = {table: conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] for table in tables}
     resolver_counts = {
@@ -229,6 +231,26 @@ def main() -> None:
             """
         )
     }
+    program_identifier_candidate_counts = {
+        row["candidate_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT candidate_status, COUNT(*) AS count
+            FROM program_identifier_candidates
+            GROUP BY candidate_status
+            """
+        )
+    }
+    program_identifier_source_counts = {
+        row["identifier_source"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT identifier_source, COUNT(*) AS count
+            FROM program_identifier_candidates
+            GROUP BY identifier_source
+            """
+        )
+    }
     source_utility_scorecard_counts = {
         row["quality_band"]: row["count"]
         for row in conn.execute(
@@ -344,6 +366,13 @@ def main() -> None:
         )
     else:
         medical_student_source_audit_summary = {}
+    program_identifier_candidate_summary_path = ARTIFACTS / "program_identifier_candidate_summary.json"
+    if program_identifier_candidate_summary_path.exists():
+        program_identifier_candidate_summary = json.loads(
+            program_identifier_candidate_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        program_identifier_candidate_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -371,6 +400,8 @@ def main() -> None:
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "official_program_gap_reason_counts": official_program_gap_reason_counts,
         "official_program_alias_reconciliation_counts": official_program_alias_reconciliation_counts,
+        "program_identifier_candidate_counts": program_identifier_candidate_counts,
+        "program_identifier_source_counts": program_identifier_source_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "medical_student_source_audit_counts": medical_student_source_audit_counts,
@@ -389,6 +420,7 @@ def main() -> None:
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
         "medical_student_source_audit_summary": medical_student_source_audit_summary,
+        "program_identifier_candidate_summary": program_identifier_candidate_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

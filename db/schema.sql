@@ -191,6 +191,43 @@ CREATE TABLE IF NOT EXISTS official_program_alias_reconciliation_candidates (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
+  observation_key TEXT PRIMARY KEY,
+  identifier_source TEXT NOT NULL,
+  query_scope TEXT NOT NULL,
+  query_url TEXT NOT NULL,
+  query_params_json TEXT NOT NULL,
+  http_status INTEGER,
+  result_count INTEGER NOT NULL DEFAULT 0,
+  relevant_result_count INTEGER NOT NULL DEFAULT 0,
+  content_sha256 TEXT,
+  fetched_at TEXT NOT NULL,
+  source_status TEXT NOT NULL,
+  error_text TEXT
+);
+
+CREATE TABLE IF NOT EXISTS program_identifier_candidates (
+  candidate_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  official_department TEXT,
+  identifier_type TEXT NOT NULL,
+  identifier_value TEXT,
+  identifier_source TEXT NOT NULL,
+  source_program_specialty TEXT,
+  source_program_name TEXT,
+  source_city TEXT,
+  source_state TEXT,
+  source_status_json TEXT,
+  source_url TEXT,
+  candidate_status TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  match_reasons_json TEXT,
+  evidence_json TEXT,
+  observed_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
   packet_key TEXT PRIMARY KEY,
   person_or_name_key TEXT NOT NULL,

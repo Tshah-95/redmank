@@ -17,8 +17,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.9,
     "required_next_evidence": "Review official biosketch line against current endpoint before accepting trend link.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"patrick gleeson\", \"faculty_index_label\": \"Patrick Gleeson, MD, MSCE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"first_last_name\", \"source_last_updated\": \"Last updated: 04/09/2026\", \"source_sha256\": \"9fd0d2eb168114055b4cd784d4b243b24e7c3b99b513ee3206163d08e48be010\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"patrick gleeson\", \"faculty_index_label\": \"Patrick Gleeson, MD, MSCE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"first_last_name\", \"source_last_updated\": \"Last updated: 04/09/2026\", \"source_sha256\": \"1ba0604c84bbe504d1c3d92126135d0cb27aa71f3c6640a023f21122918b7926\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_72c69588f7603463",
@@ -38,8 +38,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.72,
     "required_next_evidence": "Use as research-training context only; do not count as GME trainee-to-attending trend bridge.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"patrick gleeson\", \"faculty_index_label\": \"Patrick Gleeson, MD, MSCE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"first_last_name\", \"source_last_updated\": \"Last updated: 04/09/2026\", \"source_sha256\": \"9fd0d2eb168114055b4cd784d4b243b24e7c3b99b513ee3206163d08e48be010\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"patrick gleeson\", \"faculty_index_label\": \"Patrick Gleeson, MD, MSCE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"first_last_name\", \"source_last_updated\": \"Last updated: 04/09/2026\", \"source_sha256\": \"1ba0604c84bbe504d1c3d92126135d0cb27aa71f3c6640a023f21122918b7926\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_09bbe14bb7f76e6b",
@@ -59,8 +59,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.5,
     "required_next_evidence": "Use as background only unless another source links Penn training.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"patrick gleeson\", \"faculty_index_label\": \"Patrick Gleeson, MD, MSCE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"first_last_name\", \"source_last_updated\": \"Last updated: 04/09/2026\", \"source_sha256\": \"9fd0d2eb168114055b4cd784d4b243b24e7c3b99b513ee3206163d08e48be010\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"patrick gleeson\", \"faculty_index_label\": \"Patrick Gleeson, MD, MSCE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"first_last_name\", \"source_last_updated\": \"Last updated: 04/09/2026\", \"source_sha256\": \"1ba0604c84bbe504d1c3d92126135d0cb27aa71f3c6640a023f21122918b7926\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_a003ac46e05a6ee7",
@@ -80,8 +80,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.9,
     "required_next_evidence": "Review official biosketch line against current endpoint before accepting trend link.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"b95ce800dfb2c66bc6617dd4eff291e02ec5bd7f84461405da7a23e09ed2b4fc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"a68e3b23b2f1c5f168d3966f0360cf72af791bd63d2f5f050ee88bd1b43ef841\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_7c80313f9f966935",
@@ -101,8 +101,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.5,
     "required_next_evidence": "Use as background only unless another source links Penn training.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"b95ce800dfb2c66bc6617dd4eff291e02ec5bd7f84461405da7a23e09ed2b4fc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"a68e3b23b2f1c5f168d3966f0360cf72af791bd63d2f5f050ee88bd1b43ef841\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_6e0fe3317479dcd0",
@@ -122,8 +122,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.5,
     "required_next_evidence": "Use as background only unless another source links Penn training.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"b95ce800dfb2c66bc6617dd4eff291e02ec5bd7f84461405da7a23e09ed2b4fc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"a68e3b23b2f1c5f168d3966f0360cf72af791bd63d2f5f050ee88bd1b43ef841\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_a86902213fe1905d",
@@ -143,8 +143,8 @@
     "ten_year_trend_window": "no",
     "confidence": 0.5,
     "required_next_evidence": "Use as background only unless another source links Penn training.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"b95ce800dfb2c66bc6617dd4eff291e02ec5bd7f84461405da7a23e09ed2b4fc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"a68e3b23b2f1c5f168d3966f0360cf72af791bd63d2f5f050ee88bd1b43ef841\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_42e6e456a2d007d2",
@@ -164,8 +164,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.5,
     "required_next_evidence": "Use as background only unless another source links Penn training.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"b95ce800dfb2c66bc6617dd4eff291e02ec5bd7f84461405da7a23e09ed2b4fc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"priya patel\", \"faculty_index_label\": \"Priya Patel, MD\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/18/2026\", \"source_sha256\": \"a68e3b23b2f1c5f168d3966f0360cf72af791bd63d2f5f050ee88bd1b43ef841\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_33d0084f976a2612",
@@ -185,8 +185,8 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.9,
     "required_next_evidence": "Review official biosketch line against current endpoint before accepting trend link.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"timothy buckey\", \"faculty_index_label\": \"Timothy Buckey, MD MBE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/27/2026\", \"source_sha256\": \"e97e5ec7c4219598641cb6ddfa43001278ae0dfd7d3c6d08ae8e1bebb686c9dc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"timothy buckey\", \"faculty_index_label\": \"Timothy Buckey, MD MBE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/27/2026\", \"source_sha256\": \"bbf67f55c6a020de3bbc182bd24a68ef49dc2723a10563d423b776b60a26efd7\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   },
   {
     "candidate_key": "attending_biosketch_bridge_683592b3fc05a14b",
@@ -206,7 +206,7 @@
     "ten_year_trend_window": "yes",
     "confidence": 0.5,
     "required_next_evidence": "Use as background only unless another source links Penn training.",
-    "evidence_json": "{\"faculty_index_clean_name\": \"timothy buckey\", \"faculty_index_label\": \"Timothy Buckey, MD MBE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/27/2026\", \"source_sha256\": \"e97e5ec7c4219598641cb6ddfa43001278ae0dfd7d3c6d08ae8e1bebb686c9dc\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
-    "audited_at": "2026-06-02T08:50:19.731594+00:00"
+    "evidence_json": "{\"faculty_index_clean_name\": \"timothy buckey\", \"faculty_index_label\": \"Timothy Buckey, MD MBE\", \"faculty_index_url\": \"https://www.med.upenn.edu/apps/faculty/index.php/g353\", \"faculty_name_match_type\": \"exact_clean_name\", \"source_last_updated\": \"Last updated: 03/27/2026\", \"source_sha256\": \"bbf67f55c6a020de3bbc182bd24a68ef49dc2723a10563d423b776b60a26efd7\", \"target_best_linkage_status\": \"profile_penn_training_claim_needs_historical_roster\", \"target_required_next_evidence\": \"Search historical Penn roster/alumni/CV/profile evidence for a dated Penn trainee record.\"}",
+    "audited_at": "2026-06-02T09:27:05.800965+00:00"
   }
 ]

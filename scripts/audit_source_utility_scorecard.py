@@ -190,6 +190,32 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         "SELECT COUNT(*) FROM official_program_source_candidates WHERE candidate_status = 'roster_source_candidate'",
     )
+    program_identifier_candidates = scalar(conn, "SELECT COUNT(*) FROM program_identifier_candidates")
+    strong_program_identifiers = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_identifier_candidates
+        WHERE candidate_status = 'strong_acgme_identifier_candidate'
+        """,
+    )
+    ambiguous_program_identifiers = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_identifier_candidates
+        WHERE candidate_status = 'ambiguous_acgme_identifier_candidate'
+        """,
+    )
+    no_acgme_identifiers = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM program_identifier_candidates
+        WHERE candidate_status = 'no_acgme_identifier_found'
+        """,
+    )
+    acgme_observation_summary = read_json(ARTIFACTS / "program_identifier_candidate_summary.json", {})
     gap_roster_people = read_json(ARTIFACTS / "penn_gme_gap_roster_summary.json", {})
     roster_extracted = int(gap_roster_people.get("person_records") or 0)
     roster_sources_attempted = int(gap_roster_people.get("sources_attempted") or 0)
@@ -484,6 +510,38 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "gap_reasons": gap_reasons,
                 "alias_candidate_rows": alias_rows,
                 "coverage_mutation_allowed_rows": alias_mutations,
+            },
+        ),
+        make_row(
+            scorecard_key="acgme_program_identifier_candidates",
+            utility_key="external_program_identifier",
+            utility_label="ACGME public program identifier candidates",
+            source_family="acgme_public_data",
+            claim_surface="program accreditation code, specialty, sponsoring program name, city, and accreditation-row context",
+            input_records=official_programs,
+            output_records=program_identifier_candidates,
+            accepted_records=strong_program_identifiers,
+            candidate_records=program_identifier_candidates,
+            needs_review_records=ambiguous_program_identifiers,
+            blocked_records=no_acgme_identifiers,
+            score=82.0,
+            strengths=[
+                "Uses the official ACGME public program search as the identifier source",
+                "Adds source-backed ACGME codes for many Penn/HUP denominator programs",
+                "Separates strong, ambiguous, review, and no-ACGME-found outcomes before lifecycle mutation",
+            ],
+            limitations=[
+                "ACGME is not trainee roster truth and does not identify individual residents or fellows",
+                "UPHS has duplicate or facility-specific rows for some specialties",
+                "Non-ACGME, dental, selective, and locally named fellowship programs legitimately have no ACGME code",
+            ],
+            recommended_next_action="review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records",
+            evidence={
+                "candidate_rows": program_identifier_candidates,
+                "strong_identifier_rows": strong_program_identifiers,
+                "ambiguous_identifier_rows": ambiguous_program_identifiers,
+                "no_acgme_identifier_rows": no_acgme_identifiers,
+                "summary": acgme_observation_summary,
             },
         ),
         make_row(

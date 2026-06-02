@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T09:10:56.708610+00:00
+Generated: 2026-06-02T09:29:04.441323+00:00
 
 ## What This Pass Did
 
@@ -490,12 +490,13 @@ Learning: annual diffs should be state-machine informed before they are person-t
 
 ## Source Utility Scorecard
 
-Scorecard rows: 16.
+Scorecard rows: 17.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 78 | 1558 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
 | Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 64 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
+| ACGME public program identifier candidates | program accreditation code, specialty, sponsoring program name, city, and accreditation-row context | 91 | 113 | 82.0 | strong_with_known_limits | review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records |
 | Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
 | Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 32 | 524 | 81.0 | strong_with_known_limits | add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage |
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
@@ -503,7 +504,7 @@ Scorecard rows: 16.
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
-| Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 0 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
+| Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
 | Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
 | Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | review_ready_trend_rows_then_record_explicit_acceptance_decisions |
 | NPPES NPI Registry candidates | candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review | 1257 | 1073 | 62.0 | useful_candidate_layer | use_npi_candidates_as_secondary_identity_anchors_only |
@@ -687,7 +688,7 @@ Learning: current Penn attending pages are endpoint evidence, not trend-line fac
 
 ## Attending Historical Link Discovery
 
-Groups considered: 4. Seeded source rows: 8. Search observations: 36. Search skipped: False. Candidate rows: 8.
+Groups considered: 4. Seeded source rows: 8. Search observations: 36. Search skipped: False. Candidate rows: 15.
 
 Candidate statuses:
 
@@ -695,15 +696,26 @@ Candidate statuses:
 | --- | --- |
 | current_profile_context_candidate | 2 |
 | current_profile_training_context_candidate | 3 |
+| historical_roster_or_alumni_candidate | 1 |
+| historical_training_search_candidate | 4 |
+| low_signal_search_result | 1 |
 | penn_context_candidate | 3 |
+| profile_identity_anchor_candidate | 1 |
 
 Top historical-link candidates:
 
 | display_name | query_kind | candidate_status | confidence | priority | result_domain | probe_title | required_next_evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Emily Gordon, MD, MSEd | historical_penn_training | historical_roster_or_alumni_candidate | 0.95 | 120 | www.linkedin.com |  | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | historical_penn_training | historical_training_search_candidate | 0.95 | 95 | www.doximity.com | Dr. Emily Gordon, MD – Philadelphia, PA \| Anesthesiology | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | historical_penn_training | historical_training_search_candidate | 0.95 | 95 | www.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | historical_penn_training | historical_training_search_candidate | 0.95 | 95 | www.researchgate.net | ResearchGate - Temporarily Unavailable | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | historical_penn_training | historical_training_search_candidate | 0.95 | 95 | www3.pennmedicine.org | Anesthesiologists - Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
 | Emily Gordon, MD, MSEd | existing_linkage_source_url | current_profile_training_context_candidate | 0.78 | 78 | www3.pennmedicine.org | Emily Gordon - Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
 | Priya Patel, MD | existing_linkage_source_url | current_profile_training_context_candidate | 0.78 | 78 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
 | Timothy Buckey, MD, MBE | existing_linkage_source_url | current_profile_training_context_candidate | 0.78 | 78 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
+| Emily Gordon, MD, MSEd | historical_penn_training | profile_identity_anchor_candidate | 0.7 | 70 | www.linkedin.com |  | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | historical_penn_training | low_signal_search_result | 0.6 | 60 | www.mapquest.com |  | Keep only as discovery context unless another source supplies Penn-training or identity anchors. |
 | Emily Gordon, MD, MSEd | existing_linkage_source_url | current_profile_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Department of Anesthesiology Education Leadership Team | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
 | Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | penn_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
 | Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | current_profile_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
@@ -751,7 +763,7 @@ Trend statuses:
 | --- | --- |
 | context_only_not_trend_ready | 21 |
 | current_endpoint_needs_training_claim | 45 |
-| profile_claim_still_needs_dated_bridge | 1 |
+| historical_link_candidate_review | 1 |
 | review_ready_official_biosketch_bridge | 3 |
 
 Top trend reconciliation rows:
@@ -761,7 +773,7 @@ Top trend reconciliation rows:
 | Patrick Kevin Gleeson, MD, MSCE | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2020 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
 | Priya Patel, MD | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2019 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
 | Timothy Buckey, MD, MBE | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2024 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
-| Emily Gordon, MD, MSEd | profile_claim_still_needs_dated_bridge | 2 | unknown |  |  |  | Current Penn endpoint and Penn-training profile claim exist, but a dated bridge source is still missing. |
+| Emily Gordon, MD, MSEd | historical_link_candidate_review | 3 | unknown |  |  |  | Review historical-link candidate for explicit same-person, Penn-training, program, and date anchors. |
 | Alana Sagin, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Alison Wakoff Loren, MD, MSCE | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Anar A. Dossumbekova, MD, PhD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |

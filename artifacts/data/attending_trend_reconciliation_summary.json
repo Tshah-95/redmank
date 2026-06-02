@@ -3,7 +3,7 @@
   "by_assurance_level": {
     "0": 21,
     "1": 45,
-    "2": 1,
+    "3": 1,
     "4": 3
   },
   "by_ten_year_trend_window": {
@@ -13,11 +13,11 @@
   "by_trend_status": {
     "context_only_not_trend_ready": 21,
     "current_endpoint_needs_training_claim": 45,
-    "profile_claim_still_needs_dated_bridge": 1,
+    "historical_link_candidate_review": 1,
     "review_ready_official_biosketch_bridge": 3
   },
   "csv": "artifacts/data/attending_trend_reconciliation.csv",
-  "generated_at": "2026-06-02T08:56:37.468980+00:00",
+  "generated_at": "2026-06-02T09:27:25.184026+00:00",
   "groups_with_current_endpoint": 49,
   "groups_with_penn_training_claim": 4,
   "groups_with_recent_dated_biosketch_bridge": 3,

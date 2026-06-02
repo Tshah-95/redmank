@@ -86,6 +86,18 @@
       "acceptance_rule": "Accept only with strong name, location, specialty, and institutional agreement; never by name alone."
     },
     {
+      "utility_key": "external_program_identifier",
+      "display_name": "External program identifier registry",
+      "source_family": "program_identifier_registry",
+      "default_tier": "silver",
+      "default_status": "candidate",
+      "default_confidence": 0.65,
+      "claim_types": ["acgme_program_code", "program_specialty", "accreditation_context"],
+      "strengths": ["Adds source-backed program codes", "Useful for accreditation and lifecycle grounding", "Can support cross-institution normalization"],
+      "limitations": ["Does not identify individual trainees", "Local tracks and facility-specific rows can share broad specialty labels", "Non-ACGME programs legitimately lack registry codes"],
+      "acceptance_rule": "Use as a candidate program identifier only after local program, specialty, institution, city, and track/facility context agree."
+    },
+    {
       "utility_key": "clinicaltrials_api",
       "display_name": "ClinicalTrials.gov API",
       "source_family": "trial_registry_api",

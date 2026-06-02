@@ -31,7 +31,7 @@
     "student_directory_index": 1
   },
   "csv": "artifacts/data/penn_med_student_source_audit.csv",
-  "generated_at": "2026-06-02T08:35:41.166608+00:00",
+  "generated_at": "2026-06-02T09:23:57.539538+00:00",
   "graduate_crosscheck_rows": 9,
   "json": "artifacts/data/penn_med_student_source_audit.json",
   "protected_md_directory_rows": 1,

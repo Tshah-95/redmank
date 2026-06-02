@@ -2,7 +2,11 @@
   "by_candidate_status": {
     "current_profile_context_candidate": 2,
     "current_profile_training_context_candidate": 3,
-    "penn_context_candidate": 3
+    "historical_roster_or_alumni_candidate": 1,
+    "historical_training_search_candidate": 4,
+    "low_signal_search_result": 1,
+    "penn_context_candidate": 3,
+    "profile_identity_anchor_candidate": 1
   },
   "by_query_kind": {
     "historical_penn_training": 20,
@@ -11,18 +15,23 @@
     "upenn_profile_or_cv": 4
   },
   "by_result_domain": {
-    "www3.pennmedicine.org": 8
+    "www.doximity.com": 1,
+    "www.linkedin.com": 2,
+    "www.mapquest.com": 1,
+    "www.pennmedicine.org": 1,
+    "www.researchgate.net": 1,
+    "www3.pennmedicine.org": 9
   },
   "by_search_error": {
-    "search_endpoint_non_200": 36
+    "search_endpoint_non_200": 34
   },
   "by_search_http_status": {
-    "202": 15,
-    "403": 21
+    "200": 2,
+    "202": 34
   },
   "candidate_csv": "artifacts/data/attending_historical_link_candidates.csv",
-  "candidate_rows": 8,
-  "generated_at": "2026-06-02T08:15:06.960837+00:00",
+  "candidate_rows": 15,
+  "generated_at": "2026-06-02T09:27:25.133908+00:00",
   "groups_considered": 4,
   "observation_csv": "artifacts/data/attending_historical_link_search_observations.csv",
   "query_csv": "artifacts/data/attending_historical_link_search_queries.csv",

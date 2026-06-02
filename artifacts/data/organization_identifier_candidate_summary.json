@@ -9,11 +9,11 @@
     "ror": 204
   },
   "by_match_status": {
-    "low_signal_identifier_candidate": 97,
+    "low_signal_identifier_candidate": 95,
     "parent_identifier_candidate": 33,
-    "review_identifier_candidate": 8,
+    "review_identifier_candidate": 9,
     "strong_identifier_candidate": 33,
-    "weak_identifier_candidate": 66
+    "weak_identifier_candidate": 67
   },
   "by_observation_status": {
     "error": 1,
@@ -21,12 +21,12 @@
   },
   "candidate_rows": 237,
   "csv": "artifacts/data/organization_identifier_candidates.csv",
-  "generated_at": "2026-06-02T08:29:43.624147+00:00",
+  "generated_at": "2026-06-02T09:25:03.653647+00:00",
   "json": "artifacts/data/organization_identifier_candidates.json",
   "observation_csv": "artifacts/data/organization_identifier_source_observations.csv",
   "organizations_queried": 80,
   "organizations_with_candidates": 79,
-  "review_candidate_rows": 8,
+  "review_candidate_rows": 9,
   "source_observation_rows": 80,
   "strong_or_parent_candidate_rows": 66
 }

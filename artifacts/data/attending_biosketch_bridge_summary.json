@@ -17,7 +17,7 @@
   },
   "candidate_rows": 10,
   "csv": "artifacts/data/attending_biosketch_bridge_candidates.csv",
-  "generated_at": "2026-06-02T08:50:19.731594+00:00",
+  "generated_at": "2026-06-02T09:27:05.800965+00:00",
   "groups_with_candidates": 3,
   "groups_with_recent_dated_bridge_candidates": 3,
   "index_urls": [

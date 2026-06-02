@@ -23,7 +23,7 @@
     },
     "candidate_rows": 10,
     "csv": "artifacts/data/attending_biosketch_bridge_candidates.csv",
-    "generated_at": "2026-06-02T08:50:19.731594+00:00",
+    "generated_at": "2026-06-02T09:27:05.800965+00:00",
     "groups_with_candidates": 3,
     "groups_with_recent_dated_bridge_candidates": 3,
     "index_urls": [
@@ -38,7 +38,11 @@
     "by_candidate_status": {
       "current_profile_context_candidate": 2,
       "current_profile_training_context_candidate": 3,
-      "penn_context_candidate": 3
+      "historical_roster_or_alumni_candidate": 1,
+      "historical_training_search_candidate": 4,
+      "low_signal_search_result": 1,
+      "penn_context_candidate": 3,
+      "profile_identity_anchor_candidate": 1
     },
     "by_query_kind": {
       "historical_penn_training": 20,
@@ -47,18 +51,23 @@
       "upenn_profile_or_cv": 4
     },
     "by_result_domain": {
-      "www3.pennmedicine.org": 8
+      "www.doximity.com": 1,
+      "www.linkedin.com": 2,
+      "www.mapquest.com": 1,
+      "www.pennmedicine.org": 1,
+      "www.researchgate.net": 1,
+      "www3.pennmedicine.org": 9
     },
     "by_search_error": {
-      "search_endpoint_non_200": 36
+      "search_endpoint_non_200": 34
     },
     "by_search_http_status": {
-      "202": 15,
-      "403": 21
+      "200": 2,
+      "202": 34
     },
     "candidate_csv": "artifacts/data/attending_historical_link_candidates.csv",
-    "candidate_rows": 8,
-    "generated_at": "2026-06-02T08:15:06.960837+00:00",
+    "candidate_rows": 15,
+    "generated_at": "2026-06-02T09:27:25.133908+00:00",
     "groups_considered": 4,
     "observation_csv": "artifacts/data/attending_historical_link_search_observations.csv",
     "query_csv": "artifacts/data/attending_historical_link_search_queries.csv",
@@ -108,7 +117,7 @@
   "attending_trend_reconciliation_counts": {
     "context_only_not_trend_ready": 21,
     "current_endpoint_needs_training_claim": 45,
-    "profile_claim_still_needs_dated_bridge": 1,
+    "historical_link_candidate_review": 1,
     "review_ready_official_biosketch_bridge": 3
   },
   "attending_trend_reconciliation_summary": {
@@ -116,7 +125,7 @@
     "by_assurance_level": {
       "0": 21,
       "1": 45,
-      "2": 1,
+      "3": 1,
       "4": 3
     },
     "by_ten_year_trend_window": {
@@ -126,11 +135,11 @@
     "by_trend_status": {
       "context_only_not_trend_ready": 21,
       "current_endpoint_needs_training_claim": 45,
-      "profile_claim_still_needs_dated_bridge": 1,
+      "historical_link_candidate_review": 1,
       "review_ready_official_biosketch_bridge": 3
     },
     "csv": "artifacts/data/attending_trend_reconciliation.csv",
-    "generated_at": "2026-06-02T08:56:37.468980+00:00",
+    "generated_at": "2026-06-02T09:27:25.184026+00:00",
     "groups_with_current_endpoint": 49,
     "groups_with_penn_training_claim": 4,
     "groups_with_recent_dated_biosketch_bridge": 3,
@@ -169,11 +178,13 @@
     "person_evidence_review_packets": 1263,
     "person_training_events": 1775,
     "person_training_states": 1630,
+    "program_identifier_candidates": 113,
+    "program_identifier_source_observations": 1,
     "program_lifecycle_rules": 13,
     "programs": 95,
     "source_quality_observations": 3,
-    "source_utilities": 9,
-    "source_utility_scorecard": 16,
+    "source_utilities": 10,
+    "source_utility_scorecard": 17,
     "sources": 1390,
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
@@ -353,7 +364,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T09:10:59.382863+00:00",
+  "generated_at": "2026-06-02T09:29:04.486748+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -481,7 +492,7 @@
       "student_directory_index": 1
     },
     "csv": "artifacts/data/penn_med_student_source_audit.csv",
-    "generated_at": "2026-06-02T08:35:41.166608+00:00",
+    "generated_at": "2026-06-02T09:23:57.539538+00:00",
     "graduate_crosscheck_rows": 9,
     "json": "artifacts/data/penn_med_student_source_audit.json",
     "protected_md_directory_rows": 1,
@@ -571,7 +582,7 @@
     },
     "candidate_rows": 1073,
     "csv": "artifacts/data/npi_candidate_claims.csv",
-    "generated_at": "2026-06-02T09:03:39.691004+00:00",
+    "generated_at": "2026-06-02T09:26:51.606894+00:00",
     "json": "artifacts/data/npi_candidate_claims.json",
     "observation_csv": "artifacts/data/npi_source_observations.csv",
     "queries_with_candidates": 832,
@@ -644,11 +655,11 @@
     "undergraduate_institution": 187
   },
   "organization_identifier_candidate_counts": {
-    "low_signal_identifier_candidate": 97,
+    "low_signal_identifier_candidate": 95,
     "parent_identifier_candidate": 33,
-    "review_identifier_candidate": 8,
+    "review_identifier_candidate": 9,
     "strong_identifier_candidate": 33,
-    "weak_identifier_candidate": 66
+    "weak_identifier_candidate": 67
   },
   "organization_identifier_candidate_summary": {
     "by_category": {
@@ -661,11 +672,11 @@
       "ror": 204
     },
     "by_match_status": {
-      "low_signal_identifier_candidate": 97,
+      "low_signal_identifier_candidate": 95,
       "parent_identifier_candidate": 33,
-      "review_identifier_candidate": 8,
+      "review_identifier_candidate": 9,
       "strong_identifier_candidate": 33,
-      "weak_identifier_candidate": 66
+      "weak_identifier_candidate": 67
     },
     "by_observation_status": {
       "error": 1,
@@ -673,12 +684,12 @@
     },
     "candidate_rows": 237,
     "csv": "artifacts/data/organization_identifier_candidates.csv",
-    "generated_at": "2026-06-02T08:29:43.624147+00:00",
+    "generated_at": "2026-06-02T09:25:03.653647+00:00",
     "json": "artifacts/data/organization_identifier_candidates.json",
     "observation_csv": "artifacts/data/organization_identifier_source_observations.csv",
     "organizations_queried": 80,
     "organizations_with_candidates": 79,
-    "review_candidate_rows": 8,
+    "review_candidate_rows": 9,
     "source_observation_rows": 80,
     "strong_or_parent_candidate_rows": 66
   },
@@ -722,12 +733,58 @@
       "publication_identity_review": 381
     },
     "csv": "artifacts/data/person_evidence_review_packets.csv",
-    "generated_at": "2026-06-02T09:09:25.680232+00:00",
+    "generated_at": "2026-06-02T09:27:25.258366+00:00",
     "json": "artifacts/data/person_evidence_review_packets.json",
     "needs_secondary_anchor_packets": 91,
     "packet_rows": 1263,
     "publication_review_packets": 381,
     "review_ready_packets": 692
+  },
+  "program_identifier_candidate_counts": {
+    "ambiguous_acgme_identifier_candidate": 20,
+    "no_acgme_identifier_found": 7,
+    "review_acgme_identifier_candidate": 11,
+    "strong_acgme_identifier_candidate": 75
+  },
+  "program_identifier_candidate_summary": {
+    "acceptance_rule": "Use ACGME code as a program identifier candidate only; do not mutate trainee roster truth or lifecycle rules without review when local tracks, duplicate sites, or non-ACGME programs are possible.",
+    "audited_at": "2026-06-02T09:29:04.298829+00:00",
+    "by_candidate_status": {
+      "ambiguous_acgme_identifier_candidate": 20,
+      "no_acgme_identifier_found": 7,
+      "review_acgme_identifier_candidate": 11,
+      "strong_acgme_identifier_candidate": 75
+    },
+    "by_official_program_type": {
+      "fellowship": 71,
+      "residency": 42
+    },
+    "candidate_rows": 113,
+    "csv": "artifacts/data/program_identifier_candidates.csv",
+    "json": "artifacts/data/program_identifier_candidates.json",
+    "observation": {
+      "content_sha256": "68a261c786e6fa7f8eec7526864195a6ba37e77360d2a701451c6f4f63fc2c09",
+      "error_text": "",
+      "fetched_at": "2026-06-02T09:29:00.531218+00:00",
+      "http_status": 200,
+      "identifier_source": "acgme_public_program_search",
+      "observation_key": "acgme_observation_pennsylvania-2026-06-02t09-29-00-531218-00-00_660b931de7a26a93",
+      "query_params_json": "{\"CaptureProgramId\": \"\", \"ShowProgramsList\": \"True\", \"accreditationTypeId\": \"2\", \"city\": \"\", \"g-recaptcha-response\": \"\", \"numCode\": \"\", \"specialtyCategoryTypeId\": \"\", \"specialtyId\": \"\", \"stateId\": \"39\"}",
+      "query_scope": "state:pennsylvania",
+      "query_url": "https://apps.acgme.org/ads/Public/Programs/Search",
+      "relevant_result_count": 151,
+      "result_count": 1105,
+      "source_status": "ok"
+    },
+    "observation_csv": "artifacts/data/program_identifier_source_observations.csv",
+    "official_program_rows": 91,
+    "rows_with_identifier": 106,
+    "source": "ACGME public program search",
+    "source_url": "https://apps.acgme.org/ads/Public/Programs/Search",
+    "strong_or_review_identifier_rows": 86
+  },
+  "program_identifier_source_counts": {
+    "acgme_public_program_search": 113
   },
   "resolver_counts": {
     "cleaned_label": 824,
@@ -742,7 +799,7 @@
     "blocked_or_low_current_utility": 1,
     "discovery_or_review_only": 2,
     "high_utility": 2,
-    "strong_with_known_limits": 7,
+    "strong_with_known_limits": 8,
     "useful_candidate_layer": 4
   },
   "source_utility_scorecard_summary": {
@@ -751,7 +808,7 @@
       "blocked_or_low_current_utility": 1,
       "discovery_or_review_only": 2,
       "high_utility": 2,
-      "strong_with_known_limits": 7,
+      "strong_with_known_limits": 8,
       "useful_candidate_layer": 4
     },
     "by_recommended_next_action": {
@@ -763,6 +820,7 @@
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
+      "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
       "run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits": 1,
       "seek_historical_identity_bridge_before_accepting_trend_links": 1,
@@ -773,6 +831,7 @@
       "verify_contact_channels_against_current_official_source_before_use": 1
     },
     "by_source_family": {
+      "acgme_public_data": 1,
       "evidence_reconciliation": 1,
       "licensure_api": 1,
       "normalization": 1,
@@ -783,10 +842,10 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T09:09:36.466661+00:00",
+    "generated_at": "2026-06-02T09:29:04.366807+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
-    "scorecard_rows": 16,
+    "scorecard_rows": 17,
     "top_rows": [
       {
         "quality_band": "high_utility",
@@ -808,6 +867,13 @@
         "score": 84.0,
         "scorecard_key": "training_state_machine_longitudinal_readiness",
         "utility_label": "Training state machine and longitudinal readiness"
+      },
+      {
+        "quality_band": "strong_with_known_limits",
+        "recommended_next_action": "review_strong_and_ambiguous_acgme_identifier_candidates_before_attaching_codes_to_program_records",
+        "score": 82.0,
+        "scorecard_key": "acgme_program_identifier_candidates",
+        "utility_label": "ACGME public program identifier candidates"
       },
       {
         "quality_band": "strong_with_known_limits",
@@ -836,13 +902,6 @@
         "score": 78.0,
         "scorecard_key": "medical_student_public_source_audit",
         "utility_label": "Penn medical-student public-source audit"
-      },
-      {
-        "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "append_alias_and_identifier_candidates_with_source_backed_evidence",
-        "score": 74.0,
-        "scorecard_key": "organization_normalization_resolver",
-        "utility_label": "Organization normalization resolver"
       }
     ]
   },
