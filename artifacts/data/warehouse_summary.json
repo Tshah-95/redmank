@@ -166,7 +166,7 @@
     "organizations": 834,
     "people": 1483,
     "person_contacts": 313,
-    "person_evidence_review_packets": 1161,
+    "person_evidence_review_packets": 1263,
     "person_training_events": 1775,
     "person_training_states": 1630,
     "program_lifecycle_rules": 13,
@@ -189,12 +189,12 @@
       "thin_enrichment_surface": 183
     },
     "by_recommended_next_action": {
-      "collect_article_level_research_candidates": 254,
+      "collect_article_level_research_candidates": 53,
       "monitor_refresh_and_diff": 205,
       "official_profile_search": 514,
       "organization_alias_review": 387,
-      "public_contact_search": 33,
-      "reconcile_high_priority_evidence": 49,
+      "public_contact_search": 26,
+      "reconcile_high_priority_evidence": 257,
       "review_training_state_machine": 22,
       "source_medical_school_background": 15,
       "source_residency_background": 4
@@ -208,7 +208,7 @@
     "contact_coverage_rate": 0.188,
     "npi_candidate_coverage_rate": 0.561,
     "npi_needs_review_coverage_rate": 0.511,
-    "people_with_reconciliation_queue": 1111,
+    "people_with_reconciliation_queue": 1213,
     "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
     "person_rows": 1483,
     "profile_coverage_rate": 0.639,
@@ -220,6 +220,7 @@
     "by_claim_type": {
       "current_penn_attending_candidate": 49,
       "education_history_candidate": 6,
+      "npi_candidate": 1073,
       "penn_alumni_outcome_candidate": 36,
       "penn_training_history_candidate": 5,
       "personal_profile_candidate": 2,
@@ -236,6 +237,9 @@
       "discovery_only": 1111,
       "low_signal_candidate": 912,
       "needs_secondary_identity_anchor": 727,
+      "npi_candidate_with_partial_anchor": 138,
+      "npi_low_signal_candidate": 134,
+      "npi_secondary_identity_anchor_review": 801,
       "outcome_context_only": 36,
       "profile_context_candidate": 15,
       "review_ready_high_anchor": 5,
@@ -243,7 +247,8 @@
     },
     "by_record_type": {
       "career_event": 105,
-      "evidence_claim": 2969
+      "evidence_claim": 2969,
+      "npi_candidate": 1073
     },
     "by_ten_year_trend_window": {
       "no": 3,
@@ -251,20 +256,24 @@
       "yes": 2
     },
     "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
-    "decision_rows": 3074,
-    "person_or_name_rows": 1161,
+    "decision_rows": 4147,
+    "person_or_name_rows": 1263,
     "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
-    "review_ready_rows": 120
+    "review_ready_rows": 921
   },
   "evidence_reconciliation_queue_counts": {
     "career_event:candidate": 100,
     "career_event:needs_review": 5,
     "evidence_claim:candidate": 2119,
-    "evidence_claim:needs_review": 850
+    "evidence_claim:needs_review": 850,
+    "npi_candidate:candidate": 146,
+    "npi_candidate:low_signal_npi_candidate": 126,
+    "npi_candidate:needs_review": 801
   },
   "evidence_reconciliation_top_claim_counts": {
     "current_penn_attending_candidate": 49,
     "education_history_candidate": 6,
+    "npi_candidate": 1073,
     "penn_alumni_outcome_candidate": 36,
     "penn_training_history_candidate": 5,
     "personal_profile_candidate": 2,
@@ -344,7 +353,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T09:05:02.527738+00:00",
+  "generated_at": "2026-06-02T09:10:59.382863+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -674,42 +683,51 @@
     "strong_or_parent_candidate_rows": 66
   },
   "person_evidence_review_packet_counts": {
-    "discovery_only_packet": 860,
-    "low_signal_candidate_packet": 56,
-    "needs_secondary_identity_anchor_packet": 161,
-    "partial_anchor_candidate_packet": 16,
-    "review_ready_publication_packet": 65,
+    "discovery_only_packet": 356,
+    "low_signal_candidate_packet": 22,
+    "needs_secondary_identity_anchor_packet": 91,
+    "npi_secondary_identity_anchor_packet": 97,
+    "partial_anchor_candidate_packet": 5,
+    "review_ready_mixed_identity_anchor_packet": 661,
+    "review_ready_mixed_packet": 5,
+    "review_ready_publication_packet": 23,
     "review_ready_recent_attending_trend_packet": 3
   },
   "person_evidence_review_packet_summary": {
     "attending_trend_packets": 50,
     "by_packet_status": {
-      "discovery_only_packet": 860,
-      "low_signal_candidate_packet": 56,
-      "needs_secondary_identity_anchor_packet": 161,
-      "partial_anchor_candidate_packet": 16,
-      "review_ready_publication_packet": 65,
+      "discovery_only_packet": 356,
+      "low_signal_candidate_packet": 22,
+      "needs_secondary_identity_anchor_packet": 91,
+      "npi_secondary_identity_anchor_packet": 97,
+      "partial_anchor_candidate_packet": 5,
+      "review_ready_mixed_identity_anchor_packet": 661,
+      "review_ready_mixed_packet": 5,
+      "review_ready_publication_packet": 23,
       "review_ready_recent_attending_trend_packet": 3
     },
     "by_recommended_next_action": {
-      "collect_additional_identity_anchors": 16,
-      "deprioritize_until_stronger_source_appears": 56,
-      "manual_review_for_candidate_acceptance": 65,
+      "collect_additional_identity_anchors": 5,
+      "deprioritize_until_stronger_source_appears": 22,
+      "manual_review_for_candidate_acceptance": 689,
       "review_official_biosketch_bridge_for_trend_acceptance": 3,
-      "seek_profile_or_identifier_or_coauthor_anchor": 161,
-      "use_only_as_discovery_seed": 860
+      "seek_profile_or_identifier_or_coauthor_anchor": 91,
+      "use_npi_as_secondary_identity_anchor": 97,
+      "use_only_as_discovery_seed": 356
     },
     "by_review_kind": {
       "attending_trend_identity_link": 50,
-      "publication_identity_review": 1111
+      "mixed_identity_anchor_review": 730,
+      "npi_identity_anchor_review": 102,
+      "publication_identity_review": 381
     },
     "csv": "artifacts/data/person_evidence_review_packets.csv",
-    "generated_at": "2026-06-02T08:57:14.315226+00:00",
+    "generated_at": "2026-06-02T09:09:25.680232+00:00",
     "json": "artifacts/data/person_evidence_review_packets.json",
-    "needs_secondary_anchor_packets": 161,
-    "packet_rows": 1161,
-    "publication_review_packets": 1111,
-    "review_ready_packets": 68
+    "needs_secondary_anchor_packets": 91,
+    "packet_rows": 1263,
+    "publication_review_packets": 381,
+    "review_ready_packets": 692
   },
   "resolver_counts": {
     "cleaned_label": 824,
@@ -765,7 +783,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T09:05:02.516663+00:00",
+    "generated_at": "2026-06-02T09:09:36.466661+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 16,

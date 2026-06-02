@@ -28,11 +28,13 @@ REVIEW_READY_DECISIONS = {
     "attending_training_claim_review_ready",
     "attending_training_claim_linkable_name_match",
     "trend_review_ready_official_biosketch_bridge",
+    "npi_secondary_identity_anchor_review",
 }
 SECONDARY_ANCHOR_DECISIONS = {
     "needs_secondary_identity_anchor",
     "attending_training_claim_needs_identity_link",
     "trend_profile_claim_still_needs_dated_bridge",
+    "npi_candidate_with_partial_anchor",
 }
 ATTENDING_DECISIONS = {
     "attending_training_claim_review_ready",
@@ -53,6 +55,11 @@ PUBLICATION_DECISIONS = {
     "candidate_with_partial_anchor",
     "low_signal_candidate",
     "discovery_only",
+}
+NPI_DECISIONS = {
+    "npi_secondary_identity_anchor_review",
+    "npi_candidate_with_partial_anchor",
+    "npi_low_signal_candidate",
 }
 
 
@@ -198,8 +205,13 @@ def group_key(row: dict) -> tuple[str, str]:
 def review_kind(decisions: Counter) -> str:
     has_attending = any(decision in ATTENDING_DECISIONS for decision in decisions)
     has_publication = any(decision in PUBLICATION_DECISIONS for decision in decisions)
+    has_npi = any(decision in NPI_DECISIONS for decision in decisions)
+    if has_npi and not has_attending and not has_publication:
+        return "npi_identity_anchor_review"
     if has_attending and has_publication:
         return "mixed_publication_and_attending_trend"
+    if has_npi and (has_attending or has_publication):
+        return "mixed_identity_anchor_review"
     if has_attending:
         return "attending_trend_identity_link"
     if has_publication:
@@ -221,6 +233,20 @@ def classify_packet(items: list[dict], decisions: Counter) -> tuple[str, str, st
             "review_official_biosketch_bridge_for_trend_acceptance",
             "Needs reviewer acceptance before accepted trend-line use; do not mutate current trainee roster.",
             max_priority + 30,
+        )
+    if decisions.get("npi_secondary_identity_anchor_review", 0) and kind == "npi_identity_anchor_review":
+        return (
+            "npi_secondary_identity_anchor_packet",
+            "use_npi_as_secondary_identity_anchor",
+            "Needs official profile, roster, publication, or another independent source before accepted enrichment.",
+            max_priority + 10,
+        )
+    if decisions.get("npi_secondary_identity_anchor_review", 0):
+        return (
+            "review_ready_mixed_identity_anchor_packet",
+            "manual_review_for_candidate_acceptance",
+            "NPI may corroborate identity, but acceptance still needs the non-NPI source context checked.",
+            max_priority + 12,
         )
     if review_ready and kind == "attending_trend_identity_link":
         return (
@@ -292,6 +318,7 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
         review_ready_count = sum(decision_counts.get(decision, 0) for decision in REVIEW_READY_DECISIONS)
         secondary_count = sum(decision_counts.get(decision, 0) for decision in SECONDARY_ANCHOR_DECISIONS)
         publication_count = sum(1 for row in items if row.get("claim_type") in {"pubmed_article_candidate", "pubmed_author_query_candidate"})
+        npi_count = sum(1 for row in items if row.get("claim_type") == "npi_candidate")
         attending_count = sum(1 for row in items if row.get("record_type") == "career_event")
         endpoint_count = sum(1 for row in items if row.get("decision") == "current_attending_endpoint_candidate")
         top_urls = []
@@ -310,6 +337,7 @@ def packet_rows(decisions: list[dict]) -> list[dict]:
         )
         evidence = {
             "decision_counts": dict(sorted(decision_counts.items())),
+            "npi_candidate_count": npi_count,
             "top_records": [
                 {
                     "record_type": row.get("record_type"),

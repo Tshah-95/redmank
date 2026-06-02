@@ -3,6 +3,7 @@
   "by_claim_type": {
     "current_penn_attending_candidate": 49,
     "education_history_candidate": 6,
+    "npi_candidate": 1073,
     "penn_alumni_outcome_candidate": 36,
     "penn_training_history_candidate": 5,
     "personal_profile_candidate": 2,
@@ -19,6 +20,9 @@
     "discovery_only": 1111,
     "low_signal_candidate": 912,
     "needs_secondary_identity_anchor": 727,
+    "npi_candidate_with_partial_anchor": 138,
+    "npi_low_signal_candidate": 134,
+    "npi_secondary_identity_anchor_review": 801,
     "outcome_context_only": 36,
     "profile_context_candidate": 15,
     "review_ready_high_anchor": 5,
@@ -26,7 +30,8 @@
   },
   "by_record_type": {
     "career_event": 105,
-    "evidence_claim": 2969
+    "evidence_claim": 2969,
+    "npi_candidate": 1073
   },
   "by_ten_year_trend_window": {
     "no": 3,
@@ -34,8 +39,8 @@
     "yes": 2
   },
   "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
-  "decision_rows": 3074,
-  "person_or_name_rows": 1161,
+  "decision_rows": 4147,
+  "person_or_name_rows": 1263,
   "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
-  "review_ready_rows": 120
+  "review_ready_rows": 921
 }

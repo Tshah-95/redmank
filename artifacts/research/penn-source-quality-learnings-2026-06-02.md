@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T09:05:02.566782+00:00
+Generated: 2026-06-02T09:10:56.708610+00:00
 
 ## What This Pass Did
 
@@ -519,12 +519,15 @@ Learning: a source utility should be judged by the claim surface it supports, no
 | --- | --- | --- | --- | --- | --- |
 | career_event | needs_review | penn_training_history_candidate | 5 | 118.0 | 0.756 |
 | evidence_claim | needs_review | pubmed_article_candidate | 850 | 106.3 | 0.841 |
+| npi_candidate | needs_review | npi_candidate | 801 | 105.5 | 0.736 |
+| npi_candidate | candidate | npi_candidate | 146 | 69.2 | 0.602 |
 | evidence_claim | candidate | pubmed_article_candidate | 1008 | 51.9 | 0.652 |
 | career_event | candidate | education_history_candidate | 6 | 47.3 | 0.62 |
 | career_event | candidate | prior_training_history_candidate | 6 | 43.7 | 0.573 |
 | career_event | candidate | research_interest_candidate | 1 | 40.0 | 0.55 |
 | career_event | candidate | personal_profile_candidate | 2 | 39.0 | 0.45 |
 | career_event | candidate | current_penn_attending_candidate | 49 | 35.0 | 0.55 |
+| npi_candidate | low_signal_npi_candidate | npi_candidate | 126 | 30.9 | 0.47 |
 | career_event | candidate | penn_alumni_outcome_candidate | 36 | 23.6 | 0.411 |
 | evidence_claim | candidate | pubmed_author_query_candidate | 1111 | 13.7 | 0.204 |
 
@@ -567,7 +570,7 @@ Learning: candidate evidence needs a ranked reconciliation surface. The queue se
 
 ## Reconciliation Decision Ledger
 
-Decision rows: 3074. Review-ready rows: 120. Person/name rollups: 1161.
+Decision rows: 4147. Review-ready rows: 921. Person/name rollups: 1263.
 
 Decision counts:
 
@@ -580,6 +583,9 @@ Decision counts:
 | discovery_only | 1111 |
 | low_signal_candidate | 912 |
 | needs_secondary_identity_anchor | 727 |
+| npi_candidate_with_partial_anchor | 138 |
+| npi_low_signal_candidate | 134 |
+| npi_secondary_identity_anchor_review | 801 |
 | outcome_context_only | 36 |
 | profile_context_candidate | 15 |
 | review_ready_high_anchor | 5 |
@@ -870,12 +876,12 @@ Recommended next actions:
 
 | recommended_next_action | count |
 | --- | --- |
-| collect_article_level_research_candidates | 254 |
+| collect_article_level_research_candidates | 53 |
 | monitor_refresh_and_diff | 205 |
 | official_profile_search | 514 |
 | organization_alias_review | 387 |
-| public_contact_search | 33 |
-| reconcile_high_priority_evidence | 49 |
+| public_contact_search | 26 |
+| reconcile_high_priority_evidence | 257 |
 | review_training_state_machine | 22 |
 | source_medical_school_background | 15 |
 | source_residency_background | 4 |

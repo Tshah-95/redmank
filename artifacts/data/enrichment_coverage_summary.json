@@ -7,12 +7,12 @@
     "thin_enrichment_surface": 183
   },
   "by_recommended_next_action": {
-    "collect_article_level_research_candidates": 254,
+    "collect_article_level_research_candidates": 53,
     "monitor_refresh_and_diff": 205,
     "official_profile_search": 514,
     "organization_alias_review": 387,
-    "public_contact_search": 33,
-    "reconcile_high_priority_evidence": 49,
+    "public_contact_search": 26,
+    "reconcile_high_priority_evidence": 257,
     "review_training_state_machine": 22,
     "source_medical_school_background": 15,
     "source_residency_background": 4
@@ -26,7 +26,7 @@
   "contact_coverage_rate": 0.188,
   "npi_candidate_coverage_rate": 0.561,
   "npi_needs_review_coverage_rate": 0.511,
-  "people_with_reconciliation_queue": 1111,
+  "people_with_reconciliation_queue": 1213,
   "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
   "person_rows": 1483,
   "profile_coverage_rate": 0.639,

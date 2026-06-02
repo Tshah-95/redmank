@@ -605,6 +605,16 @@ CREATE TABLE IF NOT EXISTS source_utility_scorecard (
   audited_at TEXT NOT NULL
 );
 
+DROP VIEW IF EXISTS v_public_person_contacts;
+DROP VIEW IF EXISTS v_evidence_reconciliation_queue;
+DROP VIEW IF EXISTS v_review_ready_attending_trends;
+DROP VIEW IF EXISTS v_recent_attending_trend_candidates;
+DROP VIEW IF EXISTS v_official_program_source_queue;
+DROP VIEW IF EXISTS v_official_program_coverage_gaps;
+DROP VIEW IF EXISTS v_current_training_states;
+DROP VIEW IF EXISTS v_organization_review_queue;
+DROP VIEW IF EXISTS v_person_training;
+
 CREATE VIEW IF NOT EXISTS v_person_training AS
 SELECT
   p.person_key,
@@ -856,6 +866,47 @@ SELECT
 FROM career_events c
 LEFT JOIN people p ON p.person_key = c.person_key
 WHERE c.status IN ('candidate', 'needs_review')
+UNION ALL
+SELECT
+  'npi_candidate' AS record_type,
+  n.candidate_key AS record_id,
+  n.person_key,
+  n.display_name,
+  p.role,
+  'npi_candidate' AS claim_type,
+  n.npi || ': ' || n.provider_name
+    || CASE WHEN n.primary_taxonomy IS NOT NULL AND n.primary_taxonomy != '' THEN ' / ' || n.primary_taxonomy ELSE '' END
+    || CASE WHEN n.practice_state IS NOT NULL AND n.practice_state != '' THEN ' / ' || n.practice_state ELSE '' END AS claim_value,
+  '' AS event_type,
+  '' AS organization_name,
+  NULL AS event_year,
+  'nppes_npi_registry' AS source_key,
+  n.source_url,
+  'licensure_api' AS source_type,
+  n.candidate_status AS status,
+  n.confidence,
+  n.match_features_json,
+  'NPPES/NPI candidate; use as secondary identity anchor only after name, location, taxonomy, and source context agree.' AS reconciliation_notes,
+  CASE
+    WHEN n.candidate_status = 'needs_review' THEN 70
+    WHEN n.candidate_status = 'candidate' THEN 45
+    ELSE 15
+  END
+  + CASE WHEN n.match_features_json LIKE '%exact_first_last_name%' THEN 10 ELSE 0 END
+  + CASE WHEN n.match_features_json LIKE '%state_location_match%' THEN 8 ELSE 0 END
+  + CASE WHEN n.match_features_json LIKE '%philadelphia_location%' THEN 5 ELSE 0 END
+  + CASE WHEN n.match_features_json LIKE '%physician_specialty_taxonomy%' THEN 5 ELSE 0 END
+  + CASE WHEN n.match_features_json LIKE '%student_or_training_taxonomy%' THEN 5 ELSE 0 END
+  + CASE WHEN n.match_features_json LIKE '%program_taxonomy_topic_match%' THEN 6 ELSE 0 END
+  + CAST(n.confidence * 10 AS INTEGER) AS priority,
+  CASE
+    WHEN n.candidate_status = 'needs_review' THEN 'Review NPI name, taxonomy, PA/location, and official profile or roster context before using as an identity anchor.'
+    WHEN n.candidate_status = 'candidate' THEN 'Keep as NPI candidate; seek stronger location, taxonomy, profile, or publication corroboration.'
+    ELSE 'Low-signal NPI candidate; do not use without stronger non-name anchors.'
+  END AS review_action
+FROM npi_candidate_claims n
+JOIN people p ON p.person_key = n.person_key
+WHERE n.candidate_status IN ('needs_review', 'candidate', 'low_signal_npi_candidate')
 ORDER BY priority DESC, confidence DESC, display_name, record_type, record_id;
 
 CREATE VIEW IF NOT EXISTS v_public_person_contacts AS

@@ -1,30 +1,36 @@
 {
   "attending_trend_packets": 50,
   "by_packet_status": {
-    "discovery_only_packet": 860,
-    "low_signal_candidate_packet": 56,
-    "needs_secondary_identity_anchor_packet": 161,
-    "partial_anchor_candidate_packet": 16,
-    "review_ready_publication_packet": 65,
+    "discovery_only_packet": 356,
+    "low_signal_candidate_packet": 22,
+    "needs_secondary_identity_anchor_packet": 91,
+    "npi_secondary_identity_anchor_packet": 97,
+    "partial_anchor_candidate_packet": 5,
+    "review_ready_mixed_identity_anchor_packet": 661,
+    "review_ready_mixed_packet": 5,
+    "review_ready_publication_packet": 23,
     "review_ready_recent_attending_trend_packet": 3
   },
   "by_recommended_next_action": {
-    "collect_additional_identity_anchors": 16,
-    "deprioritize_until_stronger_source_appears": 56,
-    "manual_review_for_candidate_acceptance": 65,
+    "collect_additional_identity_anchors": 5,
+    "deprioritize_until_stronger_source_appears": 22,
+    "manual_review_for_candidate_acceptance": 689,
     "review_official_biosketch_bridge_for_trend_acceptance": 3,
-    "seek_profile_or_identifier_or_coauthor_anchor": 161,
-    "use_only_as_discovery_seed": 860
+    "seek_profile_or_identifier_or_coauthor_anchor": 91,
+    "use_npi_as_secondary_identity_anchor": 97,
+    "use_only_as_discovery_seed": 356
   },
   "by_review_kind": {
     "attending_trend_identity_link": 50,
-    "publication_identity_review": 1111
+    "mixed_identity_anchor_review": 730,
+    "npi_identity_anchor_review": 102,
+    "publication_identity_review": 381
   },
   "csv": "artifacts/data/person_evidence_review_packets.csv",
-  "generated_at": "2026-06-02T08:57:14.315226+00:00",
+  "generated_at": "2026-06-02T09:09:25.680232+00:00",
   "json": "artifacts/data/person_evidence_review_packets.json",
-  "needs_secondary_anchor_packets": 161,
-  "packet_rows": 1161,
-  "publication_review_packets": 1111,
-  "review_ready_packets": 68
+  "needs_secondary_anchor_packets": 91,
+  "packet_rows": 1263,
+  "publication_review_packets": 381,
+  "review_ready_packets": 692
 }

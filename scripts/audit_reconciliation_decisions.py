@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
+SCHEMA = ROOT / "db" / "schema.sql"
 
 REVIEW_READY_PUBMED_FEATURES = {
     "penn_affiliation",
@@ -23,7 +24,14 @@ REVIEW_READY_PUBMED_FEATURES = {
     "program_topic_match",
     "orcid_present",
 }
-NON_NAME_FEATURES = REVIEW_READY_PUBMED_FEATURES | {"recent_publication", "bounded_author_query"}
+NPI_REVIEW_FEATURES = {
+    "state_location_match",
+    "philadelphia_location",
+    "physician_specialty_taxonomy",
+    "student_or_training_taxonomy",
+    "program_taxonomy_topic_match",
+}
+NON_NAME_FEATURES = REVIEW_READY_PUBMED_FEATURES | NPI_REVIEW_FEATURES | {"recent_publication", "bounded_author_query"}
 
 
 def norm_space(value: str | None) -> str:
@@ -176,6 +184,37 @@ def career_decision(row: dict, features: set[str], match_count: int, as_of_year:
     )
 
 
+def npi_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
+    confidence = float(row.get("confidence") or 0)
+    has_exact_name = "exact_first_last_name" in features
+    has_location = bool(features & {"state_location_match", "philadelphia_location"})
+    has_taxonomy = bool(
+        features
+        & {
+            "physician_specialty_taxonomy",
+            "student_or_training_taxonomy",
+            "program_taxonomy_topic_match",
+        }
+    )
+    if row["status"] == "needs_review" and confidence >= 0.65 and has_exact_name and has_location and has_taxonomy:
+        return (
+            "npi_secondary_identity_anchor_review",
+            "NPPES candidate has exact name plus location and taxonomy anchors.",
+            "Use only as a secondary identity anchor; accept person enrichment only when official profile, roster, publication, or another independent source also agrees.",
+        )
+    if row["status"] in {"needs_review", "candidate"} and has_exact_name and (has_location or has_taxonomy):
+        return (
+            "npi_candidate_with_partial_anchor",
+            "NPPES candidate has exact name plus one non-name anchor, but not enough corroboration for review-ready identity support.",
+            "Seek official profile, publication affiliation, or stronger location/taxonomy corroboration before using.",
+        )
+    return (
+        "npi_low_signal_candidate",
+        "NPPES candidate lacks enough non-name identity support or is likely name-collision noise.",
+        "Do not use without stronger independent anchors.",
+    )
+
+
 def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
     names = person_name_index(conn)
     decisions = []
@@ -184,6 +223,9 @@ def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
         name_matches = names.get(normalized_person_name(row.get("display_name")), [])
         if row["record_type"] == "evidence_claim":
             decision, rationale, required = pubmed_decision(row, features)
+            trend_window = ""
+        elif row["record_type"] == "npi_candidate":
+            decision, rationale, required = npi_decision(row, features)
             trend_window = ""
         else:
             decision, trend_window, rationale, required = career_decision(row, features, len(name_matches), as_of_year)
@@ -233,7 +275,9 @@ def person_rollups(decisions: list[dict]) -> list[dict]:
                 "review_ready_records": sum(
                     count
                     for decision, count in decisions_count.items()
-                    if decision.startswith("review_ready") or decision.startswith("attending_training_claim_review_ready")
+                    if decision.startswith("review_ready")
+                    or decision.startswith("attending_training_claim_review_ready")
+                    or decision == "npi_secondary_identity_anchor_review"
                 ),
                 "decision_counts_json": json.dumps(dict(sorted(decisions_count.items())), sort_keys=True),
                 "top_decision": decisions_count.most_common(1)[0][0],
@@ -268,6 +312,7 @@ def write_outputs(decisions: list[dict], people: list[dict], as_of_year: int) ->
             for row in decisions
             if row["decision"].startswith("review_ready")
             or row["decision"].startswith("attending_training_claim_review_ready")
+            or row["decision"] == "npi_secondary_identity_anchor_review"
         ),
         "decision_csv": "artifacts/data/evidence_reconciliation_decisions.csv",
         "person_rollup_csv": "artifacts/data/person_reconciliation_decisions.csv",
@@ -287,6 +332,7 @@ def main() -> None:
     parser.add_argument("--as-of-year", type=int, default=date.today().year)
     args = parser.parse_args()
     conn = sqlite3.connect(args.db)
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
     decisions = make_decisions(conn, args.as_of_year)
     conn.close()
     write_outputs(decisions, person_rollups(decisions), args.as_of_year)
