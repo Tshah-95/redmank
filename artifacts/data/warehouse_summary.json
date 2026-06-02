@@ -159,6 +159,7 @@
     "attending_biosketch_bridge_candidates": 10,
     "attending_trend_reconciliation": 70,
     "career_events": 105,
+    "enrichment_acceptance_audit": 4147,
     "evidence_claims": 4744,
     "medical_student_source_audit": 16,
     "npi_candidate_claims": 1073,
@@ -187,13 +188,77 @@
     "programs": 95,
     "source_quality_observations": 3,
     "source_utilities": 10,
-    "source_utility_scorecard": 17,
+    "source_utility_scorecard": 18,
     "sources": 1390,
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558
   },
   "database_path": "artifacts/data/redmank.sqlite",
+  "enrichment_acceptance_counts": {
+    "attending_endpoint_only": 49,
+    "context_or_review_queue_only": 51,
+    "low_signal_or_discovery_only": 2157,
+    "machine_acceptance_candidate_cross_source": 5,
+    "needs_secondary_identity_anchor": 867,
+    "partial_anchor_candidate": 102,
+    "review_ready_attending_training_claim": 3,
+    "review_ready_publication_identity": 112,
+    "secondary_identity_anchor_available": 801
+  },
+  "enrichment_acceptance_summary": {
+    "acceptance_rows": 4147,
+    "acceptance_rule": "Do not mutate roster truth. A PubMed article becomes a machine-acceptance candidate only with review_ready_high_anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person.",
+    "audited_at": "2026-06-02T09:49:49.414971+00:00",
+    "by_acceptance_status": {
+      "attending_endpoint_only": 49,
+      "context_or_review_queue_only": 51,
+      "low_signal_or_discovery_only": 2157,
+      "machine_acceptance_candidate_cross_source": 5,
+      "needs_secondary_identity_anchor": 867,
+      "partial_anchor_candidate": 102,
+      "review_ready_attending_training_claim": 3,
+      "review_ready_publication_identity": 112,
+      "secondary_identity_anchor_available": 801
+    },
+    "by_assurance_level": {
+      "0": 2157,
+      "1": 202,
+      "2": 1668,
+      "3": 115,
+      "4": 5
+    },
+    "by_claim_type": {
+      "current_penn_attending_candidate": 49,
+      "education_history_candidate": 6,
+      "npi_candidate": 1073,
+      "penn_alumni_outcome_candidate": 36,
+      "penn_training_history_candidate": 5,
+      "personal_profile_candidate": 2,
+      "prior_training_history_candidate": 6,
+      "pubmed_article_candidate": 1858,
+      "pubmed_author_query_candidate": 1111,
+      "research_interest_candidate": 1
+    },
+    "by_recommended_action": {
+      "collect_additional_identity_anchors": 102,
+      "collect_profile_identifier_coauthor_or_historical_bridge_evidence": 867,
+      "deprioritize_until_stronger_independent_source_appears": 2157,
+      "find_training_history_or_start_date_evidence_before_trend_use": 49,
+      "promote_to_accepted_enrichment_after_final_duplicate_author_position_check": 5,
+      "retain_in_reconciliation_queue": 51,
+      "review_article_author_affiliation_topic_and_secondary_identity_anchors": 112,
+      "seek_historical_roster_cv_or_biosketch_bridge_before_accepting_trend": 3,
+      "use_as_secondary_identity_anchor_with_profile_publication_or_roster_context": 801
+    },
+    "csv": "artifacts/data/enrichment_acceptance_audit.csv",
+    "json": "artifacts/data/enrichment_acceptance_audit.json",
+    "machine_acceptance_candidate_people": 3,
+    "machine_acceptance_candidate_rows": 5,
+    "person_rows": 1263,
+    "review_ready_publication_rows": 112,
+    "secondary_identity_anchor_rows": 801
+  },
   "enrichment_coverage_summary": {
     "article_candidate_coverage_rate": 0.2,
     "avg_coverage_score": 60.66,
@@ -367,7 +432,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T09:41:39.770228+00:00",
+  "generated_at": "2026-06-02T09:49:49.864582+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -879,7 +944,7 @@
     "blocked_or_low_current_utility": 1,
     "discovery_or_review_only": 2,
     "high_utility": 2,
-    "strong_with_known_limits": 8,
+    "strong_with_known_limits": 9,
     "useful_candidate_layer": 4
   },
   "source_utility_scorecard_summary": {
@@ -888,7 +953,7 @@
       "blocked_or_low_current_utility": 1,
       "discovery_or_review_only": 2,
       "high_utility": 2,
-      "strong_with_known_limits": 8,
+      "strong_with_known_limits": 9,
       "useful_candidate_layer": 4
     },
     "by_recommended_next_action": {
@@ -897,6 +962,7 @@
       "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
       "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
       "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
+      "promote_cross_source_publication_candidates_after_final_duplicate_author_position_check": 1,
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
@@ -912,7 +978,7 @@
     },
     "by_source_family": {
       "acgme_public_data": 1,
-      "evidence_reconciliation": 1,
+      "evidence_reconciliation": 2,
       "licensure_api": 1,
       "normalization": 1,
       "official_institutional_web": 7,
@@ -922,10 +988,10 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T09:41:39.655412+00:00",
+    "generated_at": "2026-06-02T09:49:49.742346+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
-    "scorecard_rows": 17,
+    "scorecard_rows": 18,
     "top_rows": [
       {
         "quality_band": "high_utility",

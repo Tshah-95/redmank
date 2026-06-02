@@ -75,6 +75,7 @@ Core tables:
 - `person_contacts`: public contact candidates with source, scope, verification status, confidence, and candidate status.
 - `evidence_claims`: accepted and candidate claims for recursive enrichment.
 - `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
+- `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
@@ -186,6 +187,8 @@ The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor`
 - `person_evidence_review_packet_summary.json`: counts by packet status, review kind, and next action.
 
 Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge.
+
+`scripts/audit_enrichment_acceptance.py` is the stricter acceptance-assurance gate after reconciliation decisions. It still does not mutate roster truth or flip `evidence_claims.status`. Its strictest publication tier, `machine_acceptance_candidate_cross_source`, requires a PubMed article candidate with `review_ready_high_anchor`, confidence at least 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person. Other rows remain review-ready, secondary-anchor-needed, partial, endpoint-only, or low-signal with explicit blockers and next actions.
 
 `scripts/audit_enrichment_coverage.py` turns the current evidence layers into person- and program-level coverage rows:
 

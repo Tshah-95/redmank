@@ -49,6 +49,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_reconciliation_decisions.csv`: person/name-level reconciliation decision rollup.
 - `artifacts/data/person_evidence_review_packets.csv`: person/name-level review packets with top evidence, review kind, blocker, and next action.
 - `artifacts/data/person_evidence_review_packet_summary.json`: packet counts for review-ready publication, attending-trend, secondary-anchor, and discovery-only work.
+- `artifacts/data/enrichment_acceptance_audit.csv`: non-mutating acceptance assurance ledger for publication, NPI, profile, and trend evidence.
+- `artifacts/data/enrichment_acceptance_summary.json`: acceptance-tier counts, including cross-source publication machine-acceptance candidates.
 - `artifacts/data/attending_trend_linkage_events.csv`: event-level assurance audit for whether attending/faculty/outcome evidence can support a Penn-trainee trend link.
 - `artifacts/data/attending_trend_linkage_groups.csv`: person/source-group rollup for recent-attending trend linkage candidates.
 - `artifacts/data/attending_historical_link_candidates.csv`: seeded/search-discovered source candidates that may bridge current Penn attending endpoints to dated historical trainee records.
@@ -158,14 +160,14 @@ python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/audit_enrichment_coverage.py
+python3 scripts/collect_npi_candidates.py --sleep 0.03
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
-python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026
 python3 scripts/audit_attending_biosketch_bridges.py --as-of-year 2026
 python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-results 4 --probe-pages --sleep 0.2
 python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
-python3 scripts/collect_npi_candidates.py --sleep 0.03
+python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py

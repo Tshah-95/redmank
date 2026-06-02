@@ -332,6 +332,11 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     packets_by_status = packets_summary.get("by_packet_status") or {}
     review_ready_packets = int(packets_summary.get("review_ready_packets") or 0)
     secondary_packets = int(packets_summary.get("needs_secondary_anchor_packets") or 0)
+    enrichment_acceptance_summary = read_json(ARTIFACTS / "enrichment_acceptance_summary.json", {})
+    machine_acceptance_candidate_rows = int(enrichment_acceptance_summary.get("machine_acceptance_candidate_rows") or 0)
+    machine_acceptance_candidate_people = int(enrichment_acceptance_summary.get("machine_acceptance_candidate_people") or 0)
+    acceptance_review_ready_publications = int(enrichment_acceptance_summary.get("review_ready_publication_rows") or 0)
+    acceptance_secondary_identity_anchors = int(enrichment_acceptance_summary.get("secondary_identity_anchor_rows") or 0)
 
     openalex_obs = conn.execute(
         """
@@ -697,6 +702,39 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "packet_status_counts": packets_by_status,
                 "review_ready_packets": review_ready_packets,
                 "needs_secondary_anchor_packets": secondary_packets,
+            },
+        ),
+        make_row(
+            scorecard_key="enrichment_acceptance_assurance_ledger",
+            utility_key="",
+            utility_label="Enrichment acceptance assurance ledger",
+            source_family="evidence_reconciliation",
+            claim_surface="non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence",
+            input_records=int(enrichment_acceptance_summary.get("acceptance_rows") or 0),
+            output_records=int(enrichment_acceptance_summary.get("acceptance_rows") or 0),
+            accepted_records=machine_acceptance_candidate_rows,
+            candidate_records=int(enrichment_acceptance_summary.get("acceptance_rows") or 0),
+            needs_review_records=acceptance_review_ready_publications,
+            review_ready_records=machine_acceptance_candidate_rows,
+            low_signal_records=int((enrichment_acceptance_summary.get("by_acceptance_status") or {}).get("low_signal_or_discovery_only") or 0),
+            score=77.0,
+            strengths=[
+                "Separates machine-acceptance candidates from review-ready and low-signal evidence",
+                "Requires cross-source PubMed plus NPI corroboration for the strictest publication tier",
+                "Keeps accepted-enrichment eligibility non-mutating and fully provenance-backed",
+            ],
+            limitations=[
+                "Machine-acceptance candidates still need final author-position and same-name sanity checks before display",
+                "Current strict tier is intentionally narrow and mostly publication-focused",
+                "NPI remains secondary identity evidence and can be stale",
+            ],
+            recommended_next_action="promote_cross_source_publication_candidates_after_final_duplicate_author_position_check",
+            evidence={
+                "summary": enrichment_acceptance_summary,
+                "machine_acceptance_candidate_rows": machine_acceptance_candidate_rows,
+                "machine_acceptance_candidate_people": machine_acceptance_candidate_people,
+                "review_ready_publication_rows": acceptance_review_ready_publications,
+                "secondary_identity_anchor_rows": acceptance_secondary_identity_anchors,
             },
         ),
         make_row(

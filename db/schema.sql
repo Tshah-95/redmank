@@ -669,6 +669,32 @@ CREATE TABLE IF NOT EXISTS evidence_claims (
   evidence_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS enrichment_acceptance_audit (
+  acceptance_key TEXT PRIMARY KEY,
+  record_type TEXT NOT NULL,
+  record_id TEXT NOT NULL,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  claim_type TEXT NOT NULL,
+  accepted_claim_type TEXT,
+  accepted_claim_value TEXT,
+  source_key TEXT,
+  source_url TEXT,
+  prior_decision TEXT NOT NULL,
+  acceptance_status TEXT NOT NULL,
+  assurance_level INTEGER NOT NULL DEFAULT 0,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  corroborating_source_count INTEGER NOT NULL DEFAULT 0,
+  corroborating_sources_json TEXT NOT NULL,
+  anchor_features_json TEXT NOT NULL,
+  acceptance_blocker TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

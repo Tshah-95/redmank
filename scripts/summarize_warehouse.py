@@ -41,6 +41,7 @@ def main() -> None:
         "npi_source_observations",
         "person_contacts",
         "evidence_claims",
+        "enrichment_acceptance_audit",
         "source_quality_observations",
         "source_utility_scorecard",
         "official_program_universe",
@@ -191,6 +192,16 @@ def main() -> None:
             SELECT packet_status, COUNT(*) AS count
             FROM person_evidence_review_packets
             GROUP BY packet_status
+            """
+        )
+    }
+    enrichment_acceptance_counts = {
+        row["acceptance_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT acceptance_status, COUNT(*) AS count
+            FROM enrichment_acceptance_audit
+            GROUP BY acceptance_status
             """
         )
     }
@@ -380,6 +391,11 @@ def main() -> None:
         person_evidence_packet_summary = json.loads(person_evidence_packet_summary_path.read_text(encoding="utf-8"))
     else:
         person_evidence_packet_summary = {}
+    enrichment_acceptance_summary_path = ARTIFACTS / "enrichment_acceptance_summary.json"
+    if enrichment_acceptance_summary_path.exists():
+        enrichment_acceptance_summary = json.loads(enrichment_acceptance_summary_path.read_text(encoding="utf-8"))
+    else:
+        enrichment_acceptance_summary = {}
     source_utility_scorecard_summary_path = ARTIFACTS / "source_utility_scorecard_summary.json"
     if source_utility_scorecard_summary_path.exists():
         source_utility_scorecard_summary = json.loads(source_utility_scorecard_summary_path.read_text(encoding="utf-8"))
@@ -442,6 +458,7 @@ def main() -> None:
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
         "evidence_reconciliation_top_claim_counts": evidence_reconciliation_top_claim_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
+        "enrichment_acceptance_counts": enrichment_acceptance_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
@@ -467,6 +484,7 @@ def main() -> None:
         "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
+        "enrichment_acceptance_summary": enrichment_acceptance_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
         "medical_student_source_audit_summary": medical_student_source_audit_summary,
