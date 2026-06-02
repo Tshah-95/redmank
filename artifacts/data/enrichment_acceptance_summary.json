@@ -1,7 +1,7 @@
 {
   "acceptance_rows": 8520,
   "acceptance_rule": "Do not mutate roster truth. A PubMed article becomes a machine-acceptance candidate only with review_ready_high_anchor, confidence >= 0.95, at least four non-name anchors, and an NPI secondary identity anchor for the same person.",
-  "audited_at": "2026-06-02T18:52:38.393304+00:00",
+  "audited_at": "2026-06-02T19:06:06.373544+00:00",
   "by_acceptance_status": {
     "attending_endpoint_only": 49,
     "context_or_review_queue_only": 36,

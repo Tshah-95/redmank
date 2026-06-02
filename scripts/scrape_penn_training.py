@@ -290,6 +290,59 @@ def fetch(key: str, url: str) -> tuple[str, dict]:
     return body, meta
 
 
+def fetch_error_meta(key: str, url: str, exc: requests.RequestException) -> dict:
+    response = getattr(exc, "response", None)
+    return {
+        "source_key": key,
+        "url": url,
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "http_status": getattr(response, "status_code", "") or "",
+        "effective_url": getattr(response, "url", "") or "",
+        "extraction_status": "http_error",
+        "error": f"{type(exc).__name__}: {exc}",
+    }
+
+
+def existing_training_artifacts() -> tuple[dict[str, list[dict]], dict[str, dict]]:
+    people_path = OUT / "penn_training_people.json"
+    sources_path = OUT / "penn_training_sources.json"
+    people_by_source: dict[str, list[dict]] = {}
+    sources_by_key: dict[str, dict] = {}
+    if people_path.exists():
+        for row in json.loads(people_path.read_text(encoding="utf-8")):
+            source_key = row.get("source_key") or ""
+            if source_key:
+                people_by_source.setdefault(source_key, []).append(row)
+    if sources_path.exists():
+        for row in json.loads(sources_path.read_text(encoding="utf-8")):
+            source_key = row.get("source_key") or ""
+            if source_key:
+                sources_by_key[source_key] = row
+    return people_by_source, sources_by_key
+
+
+def preserved_source_meta(key: str, source: dict, latest_meta: dict, previous_source: dict, row_count: int, reason: str) -> dict:
+    policies = {
+        "http_error": "Retain previously captured public Medicine roster rows when a later refresh has a transport-level fetch error; stale/refresh status is handled by the training state machine.",
+        "no_supported_person_structure": "Retain previously captured public Medicine roster rows when a later reachable page no longer exposes parser-supported roster structure; stale/refresh status is handled by the training state machine.",
+    }
+    return {
+        **previous_source,
+        "source_key": key,
+        "url": source["url"],
+        "program": source.get("program"),
+        "population": source.get("population"),
+        "parser": source.get("parser"),
+        "latest_refresh_http_status": latest_meta.get("http_status"),
+        "latest_refresh_effective_url": latest_meta.get("effective_url"),
+        "latest_refresh_error": latest_meta.get("error", ""),
+        "latest_refresh_attempted_at": latest_meta.get("fetched_at"),
+        "extraction_status": f"preserved_previous_records_after_{reason}",
+        "records_extracted": row_count,
+        "preservation_policy": policies[reason],
+    }
+
+
 def redact_html(html: str) -> str:
     html = re.sub(
         r'(configureCloudV2Endpoint\(\s*"[^"]+"\s*,\s*")[^"]+(")',
@@ -710,7 +763,7 @@ def unique_people(records: list[dict]) -> list[dict]:
     return unique
 
 
-def summarize(records: list[dict]) -> dict:
+def summarize(records: list[dict], source_meta: list[dict]) -> dict:
     people = [row for row in records if row.get("name")]
     unique = unique_people(records)
     by_source = {}
@@ -738,16 +791,32 @@ def summarize(records: list[dict]) -> dict:
             "residency_program": residency,
             "profile_url": profile_links,
         },
+        "source_refresh_status": dict(sorted(Counter(row.get("extraction_status", "unknown") for row in source_meta).items())),
+        "preserved_source_count": sum(
+            1 for row in source_meta if str(row.get("extraction_status", "")).startswith("preserved_previous_records")
+        ),
     }
 
 
 def main() -> None:
     RAW.mkdir(parents=True, exist_ok=True)
+    previous_records_by_source, previous_sources_by_key = existing_training_artifacts()
     all_records = []
     source_meta = []
     for key, source in SOURCES.items():
-        html, meta = fetch(key, source["url"])
-        source_meta.append(meta)
+        previous_rows = previous_records_by_source.get(key, [])
+        previous_source = previous_sources_by_key.get(key, {})
+        try:
+            html, meta = fetch(key, source["url"])
+        except requests.RequestException as exc:
+            meta = fetch_error_meta(key, source["url"], exc)
+            if previous_rows:
+                all_records.extend(previous_rows)
+                source_meta.append(preserved_source_meta(key, source, meta, previous_source, len(previous_rows), "http_error"))
+            else:
+                meta["records_extracted"] = 0
+                source_meta.append(meta)
+            continue
         if source["parser"] == "penn_bio":
             records = parse_penn_bio_page(key, html, source)
         elif source["parser"] == "chop_med_peds":
@@ -756,6 +825,13 @@ def main() -> None:
             records = parse_palliative_prose(key, html, source)
         else:
             records = parse_note_page(key, html, source)
+        if not records and source["parser"] != "faq_note" and previous_rows:
+            all_records.extend(previous_rows)
+            source_meta.append(preserved_source_meta(key, source, meta, previous_source, len(previous_rows), "no_supported_person_structure"))
+            continue
+        meta["extraction_status"] = "success"
+        meta["records_extracted"] = len(records)
+        source_meta.append(meta)
         all_records.extend(records)
 
     for row in all_records:
@@ -766,7 +842,7 @@ def main() -> None:
 
     write_outputs(all_records, source_meta)
     (OUT / "penn_training_summary.json").write_text(
-        json.dumps(summarize(all_records), indent=2, ensure_ascii=False) + "\n",
+        json.dumps(summarize(all_records, source_meta), indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T16:38:03.011118+00:00",
+  "generated_at": "2026-06-02T19:05:53.185882+00:00",
   "sources_scraped": 17,
   "person_records": 306,
   "by_role": {
@@ -32,6 +32,11 @@
     "Vascular Surgery Fellowship": 4,
     "Vascular Surgery Integrated Residency": 9
   },
+  "source_refresh_status": {
+    "preserved_previous_records_after_no_supported_person_structure": 2,
+    "success": 15
+  },
+  "preserved_source_count": 2,
   "generic_program_label_count": 0,
   "by_source": {
     "penn_affiliated_departments_and_centers_ophthalmology_education_and_training_current_r_eec75b1532": 30,

@@ -288,6 +288,60 @@ def parse_source(session: requests.Session, source: dict) -> tuple[list[dict], d
     return rows, meta
 
 
+def fetch_error_meta(source: dict, exc: requests.RequestException) -> dict:
+    response = getattr(exc, "response", None)
+    url = source["url"]
+    return {
+        "source_key": source_key_for(url),
+        "url": url,
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "http_status": getattr(response, "status_code", "") or "",
+        "effective_url": getattr(response, "url", "") or "",
+        "discovery_classification": source.get("classification"),
+        "extraction_status": "http_error",
+        "error": f"{type(exc).__name__}: {exc}",
+    }
+
+
+def existing_affiliated_artifacts() -> tuple[dict[str, list[dict]], dict[str, dict]]:
+    people_path = OUT / "penn_affiliated_people.json"
+    sources_path = OUT / "penn_affiliated_sources.json"
+    people_by_url: dict[str, list[dict]] = {}
+    sources_by_url: dict[str, dict] = {}
+    if people_path.exists():
+        for row in json.loads(people_path.read_text(encoding="utf-8")):
+            source_url = (row.get("source_url") or "").rstrip("/")
+            if source_url:
+                people_by_url.setdefault(source_url, []).append(row)
+    if sources_path.exists():
+        for row in json.loads(sources_path.read_text(encoding="utf-8")):
+            source_url = (row.get("url") or "").rstrip("/")
+            if source_url:
+                sources_by_url[source_url] = row
+    return people_by_url, sources_by_url
+
+
+def preserved_source_meta(source: dict, latest_meta: dict, previous_source: dict, row_count: int, reason: str) -> dict:
+    policies = {
+        "http_error": "Retain previously captured public affiliated roster rows when a later refresh has a transport-level fetch error; stale/refresh status is handled by the training state machine.",
+        "no_supported_person_structure": "Retain previously captured public affiliated roster rows when a later reachable page no longer exposes parser-supported roster structure; stale/refresh status is handled by the training state machine.",
+    }
+    return {
+        **previous_source,
+        "source_key": source_key_for(source["url"]),
+        "url": source["url"],
+        "candidate_title": source.get("title"),
+        "discovery_classification": source.get("classification"),
+        "latest_refresh_http_status": latest_meta.get("http_status"),
+        "latest_refresh_effective_url": latest_meta.get("effective_url"),
+        "latest_refresh_error": latest_meta.get("error", ""),
+        "latest_refresh_attempted_at": latest_meta.get("fetched_at"),
+        "extraction_status": f"preserved_previous_records_after_{reason}",
+        "records_extracted": row_count,
+        "preservation_policy": policies[reason],
+    }
+
+
 def write_outputs(records: list[dict], source_meta: list[dict]) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "penn_affiliated_people.json").write_text(
@@ -309,6 +363,10 @@ def write_outputs(records: list[dict], source_meta: list[dict]) -> None:
         "person_records": len(records),
         "by_role": dict(sorted(Counter(row.get("role", "") for row in records).items())),
         "by_program": dict(sorted(Counter(row.get("program", "") for row in records).items())),
+        "source_refresh_status": dict(sorted(Counter(row.get("extraction_status", "unknown") for row in source_meta).items())),
+        "preserved_source_count": sum(
+            1 for row in source_meta if str(row.get("extraction_status", "")).startswith("preserved_previous_records")
+        ),
         "generic_program_label_count": sum(1 for row in records if row.get("program") in {"Residents", "Fellows"}),
         "by_source": {
             meta["source_key"]: sum(1 for row in records if row["source_key"] == meta["source_key"])
@@ -324,12 +382,32 @@ def write_outputs(records: list[dict], source_meta: list[dict]) -> None:
 def main() -> None:
     discovery = json.loads(DISCOVERY.read_text(encoding="utf-8"))
     candidates = [row for row in discovery["findings"] if should_scrape_source(row)]
+    previous_records_by_url, previous_sources_by_url = existing_affiliated_artifacts()
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-penn-affiliated-roster-scraper/0.1"
     records = []
     sources = []
     for candidate in candidates:
-        rows, meta = parse_source(session, candidate)
+        url = candidate["url"].rstrip("/")
+        previous_rows = previous_records_by_url.get(url, [])
+        previous_source = previous_sources_by_url.get(url, {})
+        try:
+            rows, meta = parse_source(session, candidate)
+        except requests.RequestException as exc:
+            meta = fetch_error_meta(candidate, exc)
+            if previous_rows:
+                records.extend(previous_rows)
+                sources.append(preserved_source_meta(candidate, meta, previous_source, len(previous_rows), "http_error"))
+            else:
+                meta["records_extracted"] = 0
+                sources.append(meta)
+            continue
+        if not rows and previous_rows:
+            records.extend(previous_rows)
+            sources.append(preserved_source_meta(candidate, meta, previous_source, len(previous_rows), "no_supported_person_structure"))
+            continue
+        meta["extraction_status"] = "success"
+        meta["records_extracted"] = len(rows)
         records.extend(rows)
         sources.append(meta)
     write_outputs(records, sources)
