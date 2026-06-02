@@ -35,6 +35,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/evidence_reconciliation_queue.csv`: ranked review queue for candidate evidence and career-event reconciliation.
 - `artifacts/data/evidence_reconciliation_decisions.csv`: deterministic decision ledger for queued evidence, separating review-ready, discovery-only, secondary-anchor-needed, and attending-trend candidates.
 - `artifacts/data/person_reconciliation_decisions.csv`: person/name-level reconciliation decision rollup.
+- `artifacts/data/person_evidence_review_packets.csv`: person/name-level review packets with top evidence, review kind, blocker, and next action.
+- `artifacts/data/person_evidence_review_packet_summary.json`: packet counts for review-ready publication, attending-trend, secondary-anchor, and discovery-only work.
 - `artifacts/data/attending_trend_linkage_events.csv`: event-level assurance audit for whether attending/faculty/outcome evidence can support a Penn-trainee trend link.
 - `artifacts/data/attending_trend_linkage_groups.csv`: person/source-group rollup for recent-attending trend linkage candidates.
 - `artifacts/data/attending_historical_link_candidates.csv`: seeded/search-discovered source candidates that may bridge current Penn attending endpoints to dated historical trainee records.
@@ -130,6 +132,7 @@ python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
+python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026
 python3 scripts/discover_attending_historical_links.py --max-groups 4 --probe-pages --skip-search --sleep 0.1
 python3 scripts/report_source_quality.py
@@ -206,6 +209,7 @@ The initial methodology is conservative:
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
 - Rank candidate enrichment in an evidence reconciliation queue before accepting profile, publication, or attending-trend claims.
+- Roll item-level evidence decisions into person/name review packets so manual or automated verifiers can see the best evidence, blocker, and next action before accepting enrichment.
 - Keep current-attending endpoints separate from accepted trend-line links until a historical roster, alumni page, CV, or independent profile connects the attending identity to a dated Penn trainee record.
 - Resolve school/hospital/program labels into organization rows with raw values, aliases, identifiers, and review status instead of overwriting source strings.
 - Keep scholarly API results as candidate evidence until reconciliation supplies enough non-name anchors.

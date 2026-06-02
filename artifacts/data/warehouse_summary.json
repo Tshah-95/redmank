@@ -83,6 +83,7 @@
     "organizations": 834,
     "people": 1483,
     "person_contacts": 313,
+    "person_evidence_review_packets": 1161,
     "person_training_events": 1775,
     "person_training_states": 1630,
     "program_lifecycle_rules": 13,
@@ -257,7 +258,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T07:50:00.250897+00:00",
+  "generated_at": "2026-06-02T07:55:01.167053+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -405,6 +406,44 @@
     "graduate_institution": 24,
     "medical_school": 450,
     "undergraduate_institution": 187
+  },
+  "person_evidence_review_packet_counts": {
+    "discovery_only_packet": 860,
+    "low_signal_candidate_packet": 56,
+    "needs_secondary_identity_anchor_packet": 161,
+    "partial_anchor_candidate_packet": 16,
+    "review_ready_attending_trend_packet": 3,
+    "review_ready_publication_packet": 65
+  },
+  "person_evidence_review_packet_summary": {
+    "attending_trend_packets": 50,
+    "by_packet_status": {
+      "discovery_only_packet": 860,
+      "low_signal_candidate_packet": 56,
+      "needs_secondary_identity_anchor_packet": 161,
+      "partial_anchor_candidate_packet": 16,
+      "review_ready_attending_trend_packet": 3,
+      "review_ready_publication_packet": 65
+    },
+    "by_recommended_next_action": {
+      "collect_additional_identity_anchors": 16,
+      "deprioritize_until_stronger_source_appears": 56,
+      "manual_review_for_candidate_acceptance": 65,
+      "review_attending_training_claim_and_seek_historical_identity_link": 3,
+      "seek_profile_or_identifier_or_coauthor_anchor": 161,
+      "use_only_as_discovery_seed": 860
+    },
+    "by_review_kind": {
+      "attending_trend_identity_link": 50,
+      "publication_identity_review": 1111
+    },
+    "csv": "artifacts/data/person_evidence_review_packets.csv",
+    "generated_at": "2026-06-02T07:54:39.546666+00:00",
+    "json": "artifacts/data/person_evidence_review_packets.json",
+    "needs_secondary_anchor_packets": 161,
+    "packet_rows": 1161,
+    "publication_review_packets": 1111,
+    "review_ready_packets": 68
   },
   "resolver_counts": {
     "cleaned_label": 824,

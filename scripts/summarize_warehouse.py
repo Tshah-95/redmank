@@ -28,6 +28,7 @@ def main() -> None:
         "organization_identifiers",
         "person_training_events",
         "person_training_states",
+        "person_evidence_review_packets",
         "training_state_snapshots",
         "training_state_snapshot_rows",
         "training_state_transition_events",
@@ -129,6 +130,16 @@ def main() -> None:
             """
         )
     }
+    person_evidence_review_packet_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM person_evidence_review_packets
+            GROUP BY packet_status
+            """
+        )
+    }
     contact_counts = {
         row["contact_type"]: row["count"]
         for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
@@ -211,6 +222,11 @@ def main() -> None:
         )
     else:
         attending_historical_link_summary = {}
+    person_evidence_packet_summary_path = ARTIFACTS / "person_evidence_review_packet_summary.json"
+    if person_evidence_packet_summary_path.exists():
+        person_evidence_packet_summary = json.loads(person_evidence_packet_summary_path.read_text(encoding="utf-8"))
+    else:
+        person_evidence_packet_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -228,6 +244,7 @@ def main() -> None:
         "career_event_counts": career_event_counts,
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
         "evidence_reconciliation_top_claim_counts": evidence_reconciliation_top_claim_counts,
+        "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
         "contact_counts": contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
@@ -241,6 +258,7 @@ def main() -> None:
         "training_state_snapshot_summary": training_state_snapshot_summary,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
+        "person_evidence_review_packet_summary": person_evidence_packet_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

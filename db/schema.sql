@@ -191,6 +191,34 @@ CREATE TABLE IF NOT EXISTS official_program_alias_reconciliation_candidates (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_evidence_review_packets (
+  packet_key TEXT PRIMARY KEY,
+  person_or_name_key TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  packet_status TEXT NOT NULL,
+  review_kind TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  acceptance_blocker TEXT NOT NULL,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  secondary_anchor_needed_count INTEGER NOT NULL DEFAULT 0,
+  low_signal_record_count INTEGER NOT NULL DEFAULT 0,
+  discovery_only_count INTEGER NOT NULL DEFAULT 0,
+  publication_candidate_count INTEGER NOT NULL DEFAULT 0,
+  attending_candidate_count INTEGER NOT NULL DEFAULT 0,
+  current_attending_endpoint_count INTEGER NOT NULL DEFAULT 0,
+  evidence_record_count INTEGER NOT NULL DEFAULT 0,
+  best_decision TEXT,
+  best_source_url TEXT,
+  top_source_urls TEXT,
+  top_claim_types TEXT,
+  top_match_features TEXT,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_program_memberships (
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
   program_key TEXT NOT NULL REFERENCES programs(program_key) ON DELETE CASCADE,

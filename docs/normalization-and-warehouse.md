@@ -60,6 +60,7 @@ Core tables:
 - `career_events`: candidate current Penn attending and alumni/outcome events used for future trend reconciliation.
 - `person_contacts`: public contact candidates with source, scope, verification status, confidence, and candidate status.
 - `evidence_claims`: accepted and candidate claims for recursive enrichment.
+- `person_evidence_review_packets`: person/name-level packet ledger for review-ready or high-burden evidence reconciliation.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
 
@@ -136,6 +137,14 @@ This lets the method improve without quietly poisoning the corpus.
 - `evidence_reconciliation_decision_summary.json`: decision counts by record type, claim type, decision class, and ten-year trend window.
 
 The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor` and `review_ready_training_topic_anchor` mean a human or later verifier has enough non-name evidence to review efficiently; they do not change `evidence_claims.status`. PubMed author-query rows remain `discovery_only`. Current-attending and Penn-training-history profile claims are separated from accepted trend-line facts until a historical trainee identity or independent public anchor links them.
+
+`scripts/audit_person_evidence_review_packets.py` rolls item-level decisions into packet rows:
+
+- `person_evidence_review_packets.csv`: one row per person/name with packet status, review kind, top evidence URLs, claim types, match features, acceptance blocker, and recommended next action.
+- `person_evidence_review_packets.json`: same rows with top evidence records in structured JSON.
+- `person_evidence_review_packet_summary.json`: counts by packet status, review kind, and next action.
+
+Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge.
 
 `scripts/audit_enrichment_coverage.py` turns the current evidence layers into person- and program-level coverage rows:
 
