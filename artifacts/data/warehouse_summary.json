@@ -31,7 +31,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T21:52:53.515131+00:00",
+    "generated_at": "2026-06-02T22:02:17.874948+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -171,7 +171,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T21:52:54.138121+00:00",
+    "generated_at": "2026-06-02T22:02:18.434908+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 2,
@@ -223,7 +223,7 @@
     "current_endpoint_missing_training_groups": 43,
     "dossier_rows": 70,
     "event_group_count": 70,
-    "generated_at": "2026-06-02T21:52:54.293711+00:00",
+    "generated_at": "2026-06-02T22:02:18.584170+00:00",
     "json": "artifacts/data/attending_trend_dossiers.json",
     "policy": "Attending trend dossiers are non-mutating group summaries. They separate current endpoint evidence, Penn training evidence, dated biosketch bridges, review claims, reviewer queues, and accepted trend facts.",
     "review_ready_groups": 2,
@@ -319,7 +319,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T21:52:53.910588+00:00",
+    "generated_at": "2026-06-02T22:02:18.271472+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -372,7 +372,7 @@
       "2021": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-02T21:52:54.179663+00:00",
+    "generated_at": "2026-06-02T22:02:18.471378+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 3,
     "pending_reviewer_decision_rows": 2,
@@ -422,7 +422,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T21:52:53.698671+00:00",
+    "generated_at": "2026-06-02T22:02:18.065532+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -474,7 +474,7 @@
     "csv": "artifacts/data/contact_verification_contracts.csv",
     "domain_review_required_rows": 1,
     "fresh_official_reobservation_required_rows": 312,
-    "generated_at": "2026-06-02T21:52:53.768084+00:00",
+    "generated_at": "2026-06-02T22:02:18.132683+00:00",
     "json": "artifacts/data/contact_verification_contracts.json",
     "person_count": 279,
     "policy": "Contact contracts are non-mutating. They define how future fresh source observations, absences, domain anomalies, and changed values should be classified before a contact candidate can become a verified contact fact.",
@@ -513,7 +513,7 @@
     },
     "display_policy": "Public contacts are not private contact discovery and do not imply outreach permission.",
     "domain_review_rows": 1,
-    "generated_at": "2026-06-02T21:52:53.809274+00:00",
+    "generated_at": "2026-06-02T22:02:18.170055+00:00",
     "manual_decision_csv": "artifacts/data/contact_verification_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "pending_reviewer_decision_rows": 312,
@@ -527,6 +527,7 @@
       "official_profile_discovery": 608,
       "official_program_coverage": 42,
       "official_roster_refresh_execution": 14,
+      "person_action_member_execution": 43,
       "person_enrichment_execution": 45,
       "person_evidence_review": 42,
       "program_lifecycle_duration_review": 10,
@@ -535,15 +536,15 @@
       "training_temporal_contract": 86
     },
     "by_priority_band": {
-      "critical": 81,
-      "high": 685,
+      "critical": 110,
+      "high": 699,
       "low": 30,
       "medium": 438
     },
-    "critical_rows": 81,
+    "critical_rows": 110,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-02T21:53:24.789396+00:00",
-    "high_rows": 685,
+    "generated_at": "2026-06-02T22:02:49.347630+00:00",
+    "high_rows": 699,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
     "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -559,22 +560,262 @@
       "official_program_coverage:source_candidate_probe": 14,
       "official_roster_refresh_execution:mixed_refresh_with_manual_review": 5,
       "official_roster_refresh_execution:source_reobservation_required": 6,
+      "person_action_member_execution:enrichment_collector_execution:pending_execution_decision": 13,
+      "person_action_member_execution:official_profile_discovery:pending_execution_decision": 6,
+      "person_action_member_execution:person_evidence_review:pending_execution_decision": 20,
       "person_enrichment_execution:contact:public_contact_verification": 15,
       "person_enrichment_execution:normalization:organization_alias_review": 7,
       "person_enrichment_execution:prior_training:source_medical_school_background": 5,
       "person_enrichment_execution:research:research_identity_search": 15,
-      "person_evidence_review:attending_trend_bridge_review": 4,
-      "person_evidence_review:official_profile_context_display_review": 3,
       "person_evidence_review:publication_identity_final_check": 4,
       "person_evidence_review:publication_with_secondary_identity_anchor_review": 23,
       "person_evidence_review:secondary_identity_anchor_context_review": 6,
-      "program_lifecycle_duration_review:not_ready_for_reviewer_decision": 4,
       "recent_attending_trend_discovery:context_only_monitor": 21,
       "recent_attending_trend_discovery:current_endpoint_query_plan_missing": 43,
       "training_temporal_contract:manual_review_required": 12,
       "training_temporal_contract:source_refresh_required": 74
     },
     "top_work_items": [
+      {
+        "action_scope": "enrichment_collector_execution:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "enrichment_collector_execution | pending_execution_decision | medium | batch 19",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers",
+        "role": "medical_student"
+      },
+      {
+        "action_scope": "enrichment_collector_execution:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "enrichment_collector_execution | pending_execution_decision | medium | batch 20",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers",
+        "role": "medical_student"
+      },
+      {
+        "action_scope": "enrichment_collector_execution:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "enrichment_collector_execution | pending_execution_decision | medium | batch 21",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers",
+        "role": "medical_student"
+      },
+      {
+        "action_scope": "enrichment_collector_execution:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "enrichment_collector_execution | pending_execution_decision | medium | batch 22",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers",
+        "role": "medical_student"
+      },
+      {
+        "action_scope": "official_profile_discovery:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_discovery | pending_execution_decision | high | batch 6",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_profile_discovery_then_rebuild_profile_workbench_and_reviewer_queue",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "official_profile_discovery:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_discovery | pending_execution_decision | high | batch 7",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_profile_discovery_then_rebuild_profile_workbench_and_reviewer_queue",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_profile_discovery:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_discovery | pending_execution_decision | high | batch 8",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_profile_discovery_then_rebuild_profile_workbench_and_reviewer_queue",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_profile_discovery:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_discovery | pending_execution_decision | high | batch 9",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_profile_discovery_then_rebuild_profile_workbench_and_reviewer_queue",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 10",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 12",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 15",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 16",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 4",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 5",
+        "impact_count": 50,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_profile_discovery:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_discovery | pending_execution_decision | high | batch 11",
+        "impact_count": 46,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_profile_discovery_then_rebuild_profile_workbench_and_reviewer_queue",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "official_profile_discovery:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_discovery | pending_execution_decision | high | batch 13",
+        "impact_count": 21,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_profile_discovery_then_rebuild_profile_workbench_and_reviewer_queue",
+        "role": "resident"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 17",
+        "impact_count": 16,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "official_profile_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_review | pending_execution_decision | critical | batch 1",
+        "impact_count": 6,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_profile_candidate_and_record_profile_reviewer_decision",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "official_profile_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_review | pending_execution_decision | high | batch 2",
+        "impact_count": 6,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_profile_candidate_and_record_profile_reviewer_decision",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "enrichment_collector_execution:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "enrichment_collector_execution | pending_execution_decision | medium | batch 23",
+        "impact_count": 5,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers",
+        "role": "medical_student"
+      },
+      {
+        "action_scope": "enrichment_collector_execution:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "enrichment_collector_execution | pending_execution_decision | medium | batch 18",
+        "impact_count": 4,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | medium | batch 24",
+        "impact_count": 4,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "fellow"
+      },
+      {
+        "action_scope": "official_profile_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "official_profile_review | pending_execution_decision | high | batch 3",
+        "impact_count": 2,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_profile_candidate_and_record_profile_reviewer_decision",
+        "role": "resident"
+      },
+      {
+        "action_scope": "person_evidence_review:pending_execution_decision",
+        "action_surface": "person_action_member_execution",
+        "display_label": "person_evidence_review | pending_execution_decision | high | batch 14",
+        "impact_count": 2,
+        "priority": 1250,
+        "program_name": "",
+        "recommended_next_action": "review_packet_and_record_source_specific_reviewer_decision",
+        "role": "fellow"
+      },
       {
         "action_scope": "publication_with_secondary_identity_anchor_review",
         "action_surface": "person_evidence_review",
@@ -584,250 +825,10 @@
         "program_name": "",
         "recommended_next_action": "review_batch_and_record_packet_decisions",
         "role": "resident"
-      },
-      {
-        "action_scope": "publication_identity_final_check",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_identity_final_check | resident | complex_packet_review | batch 2",
-        "impact_count": 473,
-        "priority": 1115,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | careful_manual_review | batch 6",
-        "impact_count": 41,
-        "priority": 1106,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | fellow | complex_packet_review | batch 5",
-        "impact_count": 54,
-        "priority": 1099,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | moderate_manual_review | batch 12",
-        "impact_count": 35,
-        "priority": 1095,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | complex_packet_review | batch 13",
-        "impact_count": 40,
-        "priority": 1094,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 15",
-        "impact_count": 36,
-        "priority": 1093,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | fellow | quick_manual_review | batch 16",
-        "impact_count": 36,
-        "priority": 1092,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | careful_manual_review | batch 17",
-        "impact_count": 35,
-        "priority": 1092,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | complex_packet_review | batch 19",
-        "impact_count": 36,
-        "priority": 1088,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | moderate_manual_review | batch 20",
-        "impact_count": 35,
-        "priority": 1088,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | moderate_manual_review | batch 21",
-        "impact_count": 35,
-        "priority": 1088,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | moderate_manual_review | batch 22",
-        "impact_count": 35,
-        "priority": 1088,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 23",
-        "impact_count": 35,
-        "priority": 1086,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 24",
-        "impact_count": 35,
-        "priority": 1086,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | moderate_manual_review | batch 14",
-        "impact_count": 32,
-        "priority": 1084,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_identity_final_check",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_identity_final_check | fellow | complex_packet_review | batch 3",
-        "impact_count": 108,
-        "priority": 1082,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | quick_manual_review | batch 25",
-        "impact_count": 33,
-        "priority": 1082,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | fellow | careful_manual_review | batch 7",
-        "impact_count": 26,
-        "priority": 1082,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "review_official_profile_candidate",
-        "action_surface": "official_profile_discovery",
-        "display_label": "Allan Stolarski, MD, MS",
-        "impact_count": 1,
-        "priority": 1076,
-        "program_name": "Trauma and Surgical Critical Care Fellowship",
-        "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "review_official_profile_candidate",
-        "action_surface": "official_profile_discovery",
-        "display_label": "Jackie Zhang, MD",
-        "impact_count": 1,
-        "priority": 1076,
-        "program_name": "Vascular Surgery Fellowship",
-        "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "review_official_profile_candidate",
-        "action_surface": "official_profile_discovery",
-        "display_label": "Laura Barnes, MD",
-        "impact_count": 1,
-        "priority": 1076,
-        "program_name": "Microvascular Reconstructive Surgery Fellowship",
-        "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "review_official_profile_candidate",
-        "action_surface": "official_profile_discovery",
-        "display_label": "Madison Harris, DO",
-        "impact_count": 1,
-        "priority": 1076,
-        "program_name": "Trauma and Surgical Critical Care Fellowship",
-        "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
-        "role": "fellow"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | resident | careful_manual_review | batch 18",
-        "impact_count": 22,
-        "priority": 1066,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "resident"
-      },
-      {
-        "action_scope": "publication_with_secondary_identity_anchor_review",
-        "action_surface": "person_evidence_review",
-        "display_label": "publication_with_secondary_identity_anchor_review | fellow | moderate_manual_review | batch 10",
-        "impact_count": 20,
-        "priority": 1066,
-        "program_name": "",
-        "recommended_next_action": "review_batch_and_record_packet_decisions",
-        "role": "fellow"
       }
     ],
-    "total_impact_count": 12181,
-    "worklist_rows": 1234
+    "total_impact_count": 13716,
+    "worklist_rows": 1277
   },
   "counts": {
     "accepted_attending_trend_facts": 3,
@@ -856,7 +857,7 @@
     "contact_verification_reviewer_decision_audit": 313,
     "contact_verification_reviewer_decision_queue": 313,
     "contact_verification_reviewer_decisions": 0,
-    "corpus_action_worklist": 1234,
+    "corpus_action_worklist": 1277,
     "enrichment_acceptance_audit": 8541,
     "evidence_claims": 10065,
     "evidence_reconciliation_decisions": 8541,
@@ -898,6 +899,9 @@
     "person_contacts": 313,
     "person_enrichment_action_batch_members": 1535,
     "person_enrichment_action_batches": 43,
+    "person_enrichment_action_member_execution_audit": 1535,
+    "person_enrichment_action_member_execution_decisions": 0,
+    "person_enrichment_action_member_execution_queue": 1535,
     "person_enrichment_action_packets": 1535,
     "person_enrichment_coverage": 1535,
     "person_enrichment_dossiers": 1535,
@@ -938,7 +942,7 @@
     "search_utility_assurance": 4,
     "source_quality_observations": 9,
     "source_utilities": 16,
-    "source_utility_scorecard": 32,
+    "source_utility_scorecard": 33,
     "sources": 2350,
     "trainee_profile_discovery_candidates": 2643,
     "trainee_profile_search_observations": 30,
@@ -955,7 +959,7 @@
     "training_state_transition_rollups": 219,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 123
+    "warehouse_reproducibility_audit": 126
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2271,7 +2275,7 @@
     "contract_rows": 10386,
     "contracts_csv": "artifacts/data/evidence_temporal_contracts.csv",
     "durable_until_contradicted_rows": 1780,
-    "generated_at": "2026-06-02T21:53:21.354257+00:00",
+    "generated_at": "2026-06-02T22:02:45.750010+00:00",
     "person_count": 1527,
     "policy": "Evidence temporal contracts are non-mutating. They describe when enrichment facts can be retained, refreshed, reviewed, or invalidated before any person truth or display surface is updated.",
     "refresh_bound_rows": 3759,
@@ -2287,7 +2291,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T21:53:27.121906+00:00",
+  "generated_at": "2026-06-02T22:02:51.709495+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -2583,7 +2587,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T21:53:22.211798+00:00",
+    "generated_at": "2026-06-02T22:02:46.665934+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -2623,7 +2627,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T21:53:22.135722+00:00",
+    "generated_at": "2026-06-02T22:02:46.585791+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 551,
     "loaded_person_count": 551,
@@ -2649,7 +2653,7 @@
       "fellow": 15,
       "resident": 12
     },
-    "generated_at": "2026-06-02T21:53:20.086744+00:00",
+    "generated_at": "2026-06-02T22:02:43.309656+00:00",
     "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "pending_reviewer_decision_rows": 27,
@@ -2724,7 +2728,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-02T21:53:22.357728+00:00",
+    "generated_at": "2026-06-02T22:02:46.813159+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2885,7 +2889,7 @@
       "needs_more_evidence": 1,
       "pending": 17
     },
-    "generated_at": "2026-06-02T21:53:22.397614+00:00",
+    "generated_at": "2026-06-02T22:02:46.858421+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 15,
     "not_ready_rows": 17,
@@ -2944,7 +2948,7 @@
       "residency": 12
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T21:53:22.293922+00:00",
+    "generated_at": "2026-06-02T22:02:46.749438+00:00",
     "highest_priority": 1053,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -3158,7 +3162,7 @@
     "covered_people_count": 1248,
     "covered_program_rows": 65,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T21:53:22.251252+00:00",
+    "generated_at": "2026-06-02T22:02:46.706322+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 821,
     "level_4_program_rows": 49,
@@ -3245,7 +3249,7 @@
     "csv": "artifacts/data/official_program_coverage_dossiers.csv",
     "denominator_closed_or_accepted_alias_rows": 62,
     "dossier_rows": 91,
-    "generated_at": "2026-06-02T21:53:22.493159+00:00",
+    "generated_at": "2026-06-02T22:02:46.971428+00:00",
     "json": "artifacts/data/official_program_coverage_dossiers.json",
     "level_4_rows": 49,
     "official_program_count": 91,
@@ -3650,7 +3654,7 @@
       "medium": 213
     },
     "csv": "artifacts/data/person_enrichment_action_batch_members.csv",
-    "generated_at": "2026-06-02T21:53:21.312092+00:00",
+    "generated_at": "2026-06-02T22:02:45.399307+00:00",
     "json": "artifacts/data/person_enrichment_action_batch_members.json",
     "packet_count": 1535,
     "person_count": 1535,
@@ -3903,7 +3907,7 @@
       "medium": 7
     },
     "csv": "artifacts/data/person_enrichment_action_batches.csv",
-    "generated_at": "2026-06-02T21:53:21.130516+00:00",
+    "generated_at": "2026-06-02T22:02:45.179379+00:00",
     "impact_count_policy": "Summed across batches; each person packet appears in exactly one action batch.",
     "json": "artifacts/data/person_enrichment_action_batches.json",
     "max_batch_size": 50,
@@ -4154,6 +4158,58 @@
       }
     ]
   },
+  "person_enrichment_action_member_execution_lane_counts": {
+    "enrichment_collector_execution": 453,
+    "official_profile_discovery": 267,
+    "official_profile_review": 14,
+    "person_evidence_review": 792,
+    "profile_search_retry": 9
+  },
+  "person_enrichment_action_member_execution_queue_counts": {
+    "blocked_retry_or_replace_search_endpoint": 9,
+    "ready_for_collector_execution_decision": 720,
+    "ready_for_manual_review_execution_decision": 806
+  },
+  "person_enrichment_action_member_execution_status_counts": {
+    "blocked_upstream_not_ready": 9,
+    "pending_execution_decision": 1526
+  },
+  "person_enrichment_action_member_execution_summary": {
+    "audit_csv": "artifacts/data/person_enrichment_action_member_execution_audit.csv",
+    "audit_json": "artifacts/data/person_enrichment_action_member_execution_audit.json",
+    "audit_rows": 1535,
+    "blocked_queue_rows": 9,
+    "by_execution_decision": {
+      "pending": 1535
+    },
+    "by_execution_status": {
+      "blocked_upstream_not_ready": 9,
+      "pending_execution_decision": 1526
+    },
+    "by_primary_action_lane": {
+      "enrichment_collector_execution": 453,
+      "official_profile_discovery": 267,
+      "official_profile_review": 14,
+      "person_evidence_review": 792,
+      "profile_search_retry": 9
+    },
+    "by_queue_status": {
+      "blocked_retry_or_replace_search_endpoint": 9,
+      "ready_for_collector_execution_decision": 720,
+      "ready_for_manual_review_execution_decision": 806
+    },
+    "executed_outputs_routed_rows": 0,
+    "generated_at": "2026-06-02T22:02:45.445986+00:00",
+    "invalid_or_stale_decision_rows": 0,
+    "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+    "manual_decision_rows": 0,
+    "pending_execution_decision_rows": 1526,
+    "policy": "Execution ledgers are non-mutating. They record whether batch members were worked and whether outputs were routed to source-specific ledgers; no person fact is accepted from execution notes alone.",
+    "queue_csv": "artifacts/data/person_enrichment_action_member_execution_queue.csv",
+    "queue_json": "artifacts/data/person_enrichment_action_member_execution_queue.json",
+    "queue_rows": 1535,
+    "ready_queue_rows": 1526
+  },
   "person_enrichment_action_packet_lane_counts": {
     "enrichment_collector_execution": 453,
     "official_profile_discovery": 267,
@@ -4205,7 +4261,7 @@
     "contact_reobservation_ready_rows": 0,
     "critical_packet_rows": 6,
     "csv": "artifacts/data/person_enrichment_action_packets.csv",
-    "generated_at": "2026-06-02T21:53:21.030313+00:00",
+    "generated_at": "2026-06-02T22:02:45.075060+00:00",
     "high_packet_rows": 602,
     "json": "artifacts/data/person_enrichment_action_packets.json",
     "person_count": 1535,
@@ -4451,7 +4507,7 @@
     "contact_contract_people": 279,
     "csv": "artifacts/data/person_enrichment_dossiers.csv",
     "dossier_rows": 1535,
-    "generated_at": "2026-06-02T21:52:59.503655+00:00",
+    "generated_at": "2026-06-02T22:02:23.356817+00:00",
     "json": "artifacts/data/person_enrichment_dossiers.json",
     "person_count": 1535,
     "policy": "Dossiers are non-mutating person summaries. Accepted facts, candidate evidence, review-ready evidence, contact contracts, and missing surfaces are separated so downstream display or scoring can choose its assurance threshold explicitly.",
@@ -4512,7 +4568,7 @@
       "source_residency_background": 1
     },
     "csv": "artifacts/data/person_enrichment_execution_batches.csv",
-    "generated_at": "2026-06-02T21:53:19.911058+00:00",
+    "generated_at": "2026-06-02T22:02:43.141114+00:00",
     "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
     "json": "artifacts/data/person_enrichment_execution_batches.json",
     "manual_review_batch_rows": 7,
@@ -4773,7 +4829,7 @@
     },
     "csv": "artifacts/data/person_evidence_review_batch_packets.csv",
     "evidence_record_count": 5281,
-    "generated_at": "2026-06-02T21:52:56.479657+00:00",
+    "generated_at": "2026-06-02T22:02:20.601264+00:00",
     "json": "artifacts/data/person_evidence_review_batch_packets.json",
     "packet_count": 792,
     "person_count": 792,
@@ -5166,7 +5222,7 @@
     "csv": "artifacts/data/person_training_stage_state.csv",
     "duplicate_contract_rows": 144,
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T21:52:58.707263+00:00",
+    "generated_at": "2026-06-02T22:02:22.635923+00:00",
     "json": "artifacts/data/person_training_stage_state.json",
     "person_count": 1535,
     "policy": "Person training stage state is a non-mutating front door over temporal contracts. It describes current stage, staleness, permitted next-refresh classifications, and required evidence before any annual update changes person/program truth.",
@@ -5367,7 +5423,7 @@
       "pending": 10
     },
     "context_review_rows": 3,
-    "generated_at": "2026-06-02T21:52:51.977979+00:00",
+    "generated_at": "2026-06-02T22:02:16.243342+00:00",
     "manual_decision_csv": "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "not_ready_rows": 4,
@@ -5440,7 +5496,7 @@
   "source_utility_scorecard_counts": {
     "discovery_or_review_only": 3,
     "high_utility": 4,
-    "strong_with_known_limits": 17,
+    "strong_with_known_limits": 18,
     "useful_candidate_layer": 8
   },
   "source_utility_scorecard_summary": {
@@ -5448,12 +5504,13 @@
     "by_quality_band": {
       "discovery_or_review_only": 3,
       "high_utility": 4,
-      "strong_with_known_limits": 17,
+      "strong_with_known_limits": 18,
       "useful_candidate_layer": 8
     },
     "by_recommended_next_action": {
       "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
       "execute_high_priority_action_packets_then_feed_results_back_through_source_specific_acceptance_ledgers": 1,
+      "execute_or_review_ready_members_then_record_routed_outputs_with_matching_fingerprints": 1,
       "execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile": 1,
       "execute_ready_action_batches_and_feed_outputs_back_to_source_specific_ledgers": 1,
       "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
@@ -5492,7 +5549,7 @@
       "licensure_api": 1,
       "normalization": 1,
       "official_institutional_web": 10,
-      "orchestration": 6,
+      "orchestration": 7,
       "scholarly_api": 5,
       "state_machine": 1,
       "warehouse_provenance": 2,
@@ -5500,10 +5557,10 @@
     },
     "candidate_or_discovery_rows": 11,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T21:53:24.667475+00:00",
+    "generated_at": "2026-06-02T22:02:49.229682+00:00",
     "high_utility_rows": 4,
     "json": "artifacts/data/source_utility_scorecard.json",
-    "scorecard_rows": 32,
+    "scorecard_rows": 33,
     "top_rows": [
       {
         "quality_band": "high_utility",
@@ -5891,7 +5948,7 @@
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T21:52:57.296479+00:00",
+    "generated_at": "2026-06-02T22:02:21.380157+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
     "person_count": 1535,
@@ -5965,7 +6022,7 @@
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T21:52:57.485951+00:00",
+    "generated_at": "2026-06-02T22:02:21.567736+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
     "person_count": 1535,
@@ -6005,12 +6062,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 123
+    "ok": 126
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 123,
-    "audited_at": "2026-06-02T21:53:25.201184+00:00",
+    "artifact_rows": 126,
+    "audited_at": "2026-06-02T22:02:49.774895+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -6064,6 +6121,8 @@
       "operator_worklist": 1,
       "person_enrichment_action_batch_ledger": 1,
       "person_enrichment_action_batch_member_ledger": 1,
+      "person_enrichment_action_member_execution_input": 1,
+      "person_enrichment_action_member_execution_ledger": 2,
       "person_enrichment_action_packet_ledger": 1,
       "person_enrichment_coverage_ledger": 2,
       "person_enrichment_dossier_ledger": 1,
@@ -6093,17 +6152,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 123
+      "ok": 126
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 309313536,
+    "sqlite_byte_size": 320057344,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "7f5ba0fe95a91e8916c24fe5334014e050ee174fa1c1ae160a2d729f5c9c785a",
+    "sqlite_sha256": "a287dcd9b9d2c604493ed9b11d78f5dd385d85b914c6a2e741f02c8cb8aece04",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

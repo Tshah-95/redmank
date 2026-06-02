@@ -477,6 +477,27 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+        "person_enrichment_action_member_execution_input",
+        "csv",
+        "person_enrichment_action_member_execution_decisions",
+        True,
+    ),
+    (
+        "artifacts/data/person_enrichment_action_member_execution_queue.csv",
+        "person_enrichment_action_member_execution_ledger",
+        "csv",
+        "person_enrichment_action_member_execution_queue",
+        True,
+    ),
+    (
+        "artifacts/data/person_enrichment_action_member_execution_audit.csv",
+        "person_enrichment_action_member_execution_ledger",
+        "csv",
+        "person_enrichment_action_member_execution_audit",
+        True,
+    ),
+    (
         "artifacts/data/penn_trainee_profile_claims.csv",
         "trainee_profile_enrichment_ledger",
         "csv",

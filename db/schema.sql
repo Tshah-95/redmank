@@ -3164,6 +3164,86 @@ CREATE TABLE IF NOT EXISTS person_enrichment_action_batch_members (
   UNIQUE(action_batch_key, action_packet_key)
 );
 
+CREATE TABLE IF NOT EXISTS person_enrichment_action_member_execution_queue (
+  execution_decision_key TEXT PRIMARY KEY,
+  action_batch_member_key TEXT NOT NULL REFERENCES person_enrichment_action_batch_members(action_batch_member_key) ON DELETE CASCADE,
+  action_batch_key TEXT NOT NULL,
+  action_packet_key TEXT NOT NULL,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  primary_action_lane TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  priority_band TEXT NOT NULL,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  member_order INTEGER NOT NULL DEFAULT 0,
+  packet_priority INTEGER NOT NULL DEFAULT 0,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  queue_status TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  allowed_execution_decisions TEXT NOT NULL,
+  recommended_execution_action TEXT NOT NULL,
+  required_output_routing TEXT NOT NULL,
+  expected_downstream_artifacts_json TEXT NOT NULL,
+  command_hints_json TEXT NOT NULL,
+  top_source_urls TEXT,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS person_enrichment_action_member_execution_decisions (
+  execution_decision_key TEXT PRIMARY KEY,
+  action_batch_member_key TEXT NOT NULL,
+  action_packet_key TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  execution_decision TEXT NOT NULL,
+  executor_name TEXT,
+  executed_at TEXT,
+  command_run TEXT,
+  output_artifacts_json TEXT NOT NULL DEFAULT '[]',
+  output_record_count INTEGER NOT NULL DEFAULT 0,
+  routed_to_downstream_ledgers INTEGER NOT NULL DEFAULT 0,
+  downstream_ledger_notes TEXT,
+  decision_notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS person_enrichment_action_member_execution_audit (
+  execution_decision_key TEXT PRIMARY KEY,
+  action_batch_member_key TEXT NOT NULL,
+  action_batch_key TEXT NOT NULL,
+  action_packet_key TEXT NOT NULL,
+  person_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  primary_action_lane TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  priority_band TEXT NOT NULL,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  member_order INTEGER NOT NULL DEFAULT 0,
+  packet_priority INTEGER NOT NULL DEFAULT 0,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  queue_status TEXT NOT NULL,
+  execution_decision TEXT NOT NULL,
+  execution_status TEXT NOT NULL,
+  execution_blocker TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  decision_member_fingerprint TEXT,
+  executor_name TEXT,
+  executed_at TEXT,
+  command_run TEXT,
+  output_artifacts_json TEXT NOT NULL DEFAULT '[]',
+  output_record_count INTEGER NOT NULL DEFAULT 0,
+  routed_to_downstream_ledgers INTEGER NOT NULL DEFAULT 0,
+  downstream_ledger_notes TEXT,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

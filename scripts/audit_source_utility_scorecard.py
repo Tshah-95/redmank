@@ -790,6 +790,35 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         "SELECT COUNT(*) FROM person_enrichment_action_batch_members WHERE ready_to_execute = 0",
     )
+    action_member_execution_summary = read_json(
+        ARTIFACTS / "person_enrichment_action_member_execution_summary.json",
+        {},
+    )
+    action_member_execution_queue_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_member_execution_queue")
+    action_member_execution_pending = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_action_member_execution_audit
+        WHERE execution_status = 'pending_execution_decision'
+        """,
+    )
+    action_member_execution_blocked = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_action_member_execution_audit
+        WHERE execution_status = 'blocked_upstream_not_ready'
+        """,
+    )
+    action_member_execution_routed = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_action_member_execution_audit
+        WHERE execution_status = 'executed_outputs_routed'
+        """,
+    )
 
     return [
         make_row(
@@ -1857,6 +1886,38 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "ready_member_rows": action_batch_member_ready,
                 "blocked_member_rows": action_batch_member_blocked,
                 "action_batch_member_summary": action_batch_member_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="person_enrichment_action_member_execution_ledger",
+            utility_key="",
+            utility_label="Person enrichment action member execution ledger",
+            source_family="orchestration",
+            claim_surface="fingerprinted per-member execution outcomes and downstream routing audit",
+            input_records=action_batch_member_rows,
+            output_records=action_member_execution_queue_rows,
+            candidate_records=action_member_execution_pending,
+            accepted_records=action_member_execution_routed,
+            blocked_records=action_member_execution_blocked,
+            score=82.0,
+            strengths=[
+                "Adds a fingerprinted decision surface for every action-batch member",
+                "Separates execution outcomes from accepted facts so collector output must still pass source-specific gates",
+                "Flags stale, invalid, unrouted, blocked, and pending execution decisions",
+            ],
+            limitations=[
+                "Manual execution decisions are empty until operators run or review members",
+                "Does not execute collectors by itself",
+                "Outcome quality depends on downstream ledgers being rebuilt after execution",
+            ],
+            recommended_next_action="execute_or_review_ready_members_then_record_routed_outputs_with_matching_fingerprints",
+            evidence={
+                "action_batch_member_rows": action_batch_member_rows,
+                "execution_queue_rows": action_member_execution_queue_rows,
+                "pending_execution_decision_rows": action_member_execution_pending,
+                "blocked_execution_rows": action_member_execution_blocked,
+                "executed_outputs_routed_rows": action_member_execution_routed,
+                "execution_summary": action_member_execution_summary,
             },
         ),
     ]

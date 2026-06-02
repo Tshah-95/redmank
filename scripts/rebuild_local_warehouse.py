@@ -60,6 +60,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_person_enrichment_action_packets.py"],
     ["python3", "scripts/materialize_person_enrichment_action_batches.py"],
     ["python3", "scripts/materialize_person_enrichment_action_batch_members.py"],
+    ["python3", "scripts/materialize_person_enrichment_action_member_execution.py"],
     ["python3", "scripts/materialize_evidence_temporal_contracts.py"],
     ["python3", "scripts/audit_official_gap_roster_reconciliation.py"],
     ["python3", "scripts/audit_official_gap_roster_program_resolution.py"],

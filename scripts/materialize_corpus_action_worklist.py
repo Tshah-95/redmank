@@ -945,6 +945,85 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def action_member_execution_actions(generated_at: str) -> list[dict]:
+    audit_path = ARTIFACTS / "person_enrichment_action_member_execution_audit.csv"
+    if not audit_path.exists():
+        return []
+    grouped: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
+    for item in read_csv(audit_path):
+        status = item.get("execution_status") or ""
+        if status in {"executed_outputs_routed", "executed_no_public_output", "skipped_superseded"}:
+            continue
+        key = (item.get("action_batch_key") or "", item.get("primary_action_lane") or "", status)
+        grouped[key].append(item)
+
+    rows = []
+    for (batch_key, lane, status), group in grouped.items():
+        max_priority = max(as_int(item.get("packet_priority")) for item in group)
+        priority = 760 + min(max_priority, 400)
+        if status == "pending_execution_decision":
+            priority += 90
+        if status == "blocked_upstream_not_ready":
+            priority -= 120
+        if status in {"invalid_execution_decision", "stale_execution_decision", "invalid_execution_routing"}:
+            priority += 160
+        sample = group[0]
+        rows.append(
+            row(
+                action_surface="person_action_member_execution",
+                action_scope=f"{lane}:{status}",
+                entity_type="person_enrichment_action_batch",
+                entity_key=batch_key,
+                display_label=" | ".join(
+                    part
+                    for part in [
+                        lane,
+                        status,
+                        sample.get("priority_band"),
+                        f"batch {sample.get('execution_order')}",
+                    ]
+                    if part
+                ),
+                role=sample.get("role") or "",
+                program_name="",
+                priority=priority,
+                impact_count=len(group),
+                readiness_status=sample.get("queue_status") or "",
+                blocker_status=status,
+                required_next_evidence="A matching member_fingerprint execution decision plus routed downstream source-specific artifacts when outputs are produced.",
+                recommended_next_action=sample.get("recommended_next_action") or "record_execution_decision_with_matching_member_fingerprint",
+                source_artifact="artifacts/data/person_enrichment_action_member_execution_audit.csv",
+                target_artifact="artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+                downstream_tables=[
+                    "person_enrichment_action_member_execution_decisions",
+                    "person_enrichment_action_member_execution_audit",
+                    "person_evidence_reviewer_decision_audit",
+                    "official_profile_reviewer_decision_audit",
+                    "evidence_reconciliation_decisions",
+                    "accepted_enrichment_claims",
+                ],
+                evidence={
+                    "action_batch_key": batch_key,
+                    "primary_action_lane": lane,
+                    "execution_status": status,
+                    "member_count": len(group),
+                    "top_members": [
+                        {
+                            "action_batch_member_key": item.get("action_batch_member_key"),
+                            "display_name": item.get("display_name"),
+                            "packet_status": item.get("packet_status"),
+                            "packet_priority": item.get("packet_priority"),
+                            "execution_blocker": item.get("execution_blocker"),
+                        }
+                        for item in group[:10]
+                    ],
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def write_csv(path: Path, rows: list[dict]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
@@ -1011,6 +1090,7 @@ def main() -> None:
     rows.extend(official_profile_discovery_actions(generated_at))
     rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))
+    rows.extend(action_member_execution_actions(generated_at))
     attending_discovery_rows = attending_trend_discovery_actions(generated_at)
     rows.extend(attending_discovery_rows if attending_discovery_rows else attending_trend_actions(generated_at))
     rows.sort(key=lambda item: (-as_int(item["priority"]), -as_int(item["impact_count"]), item["action_surface"], item["display_label"]))

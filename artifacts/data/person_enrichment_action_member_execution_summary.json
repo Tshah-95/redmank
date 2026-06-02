@@ -1,0 +1,36 @@
+{
+  "audit_csv": "artifacts/data/person_enrichment_action_member_execution_audit.csv",
+  "audit_json": "artifacts/data/person_enrichment_action_member_execution_audit.json",
+  "audit_rows": 1535,
+  "blocked_queue_rows": 9,
+  "by_execution_decision": {
+    "pending": 1535
+  },
+  "by_execution_status": {
+    "blocked_upstream_not_ready": 9,
+    "pending_execution_decision": 1526
+  },
+  "by_primary_action_lane": {
+    "enrichment_collector_execution": 453,
+    "official_profile_discovery": 267,
+    "official_profile_review": 14,
+    "person_evidence_review": 792,
+    "profile_search_retry": 9
+  },
+  "by_queue_status": {
+    "blocked_retry_or_replace_search_endpoint": 9,
+    "ready_for_collector_execution_decision": 720,
+    "ready_for_manual_review_execution_decision": 806
+  },
+  "executed_outputs_routed_rows": 0,
+  "generated_at": "2026-06-02T22:02:45.445986+00:00",
+  "invalid_or_stale_decision_rows": 0,
+  "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+  "manual_decision_rows": 0,
+  "pending_execution_decision_rows": 1526,
+  "policy": "Execution ledgers are non-mutating. They record whether batch members were worked and whether outputs were routed to source-specific ledgers; no person fact is accepted from execution notes alone.",
+  "queue_csv": "artifacts/data/person_enrichment_action_member_execution_queue.csv",
+  "queue_json": "artifacts/data/person_enrichment_action_member_execution_queue.json",
+  "queue_rows": 1535,
+  "ready_queue_rows": 1526
+}
