@@ -68,6 +68,7 @@ Core tables:
 - `training_state_snapshot_rows`: stable row-level state observations loaded from snapshot CSVs. The canonical comparison key is `person_key + program_name`; raw observations remain separate through `state_key`.
 - `training_state_transition_events`: expected-vs-review transition ledger between materialized snapshots.
 - `training_state_machine_audit`, `person_training_state_machine_audit`, `program_training_state_machine_audit`: queryable state-machine health ledgers for state-, person-, and program-level refresh decisions.
+- `training_temporal_contracts`, `training_temporal_contract_rollups`: explicit next-run stale/transition contracts that define allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete training-state observations.
 - `training_state_refresh_expectations`, `person_refresh_expectations`, `program_refresh_expectations`, `category_refresh_expectations`: queryable next-refresh expectation ledgers for missing, unchanged, advanced, stale, and review-required outcomes.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
@@ -329,6 +330,14 @@ The audit categories are intentionally operational:
 - `stale_now`: rows past stale-after date.
 
 That gives yearly runs a stable decision surface. A PGY-2 row in a three-year residency can become an expected advancement candidate around July 1; a second-year fellow in a two-year fellowship can become a terminal completion candidate; an MSTP PhD-phase row remains refresh-required because the individualized duration is not inferable from the label. The stale bit is therefore derived from the state machine, not from how old a CSV file feels.
+
+`scripts/materialize_training_temporal_contracts.py` turns that decision surface into an explicit contract ledger:
+
+- `training_temporal_contracts.csv`: one row per current state observation with a canonical person/program key, current temporal state code, temporal validity status, next-refresh contract, allowed automatic diff outcomes, review triggers, stale policy, and evidence required to retain, advance, or complete the row.
+- `training_temporal_contract_rollups.csv`: rollups by corpus, institution, country, role, trainee category, program, program-role, institution-role, lifecycle code, current temporal state, next-refresh contract, and diff-readiness status.
+- `training_temporal_contract_summary.json`: machine-readable counts for guardrail status, next-refresh contract type, stale-by-refresh burden, source-refresh burden, and review-bound burden.
+
+This is the answer to the “when is it stale?” problem. A row can be stale without being false, and an expected transition can be known without being accepted. The contract says which future evidence permits a mutation and which future evidence must be routed to review. That lets later refreshes produce diff views at individual, program, institution, category, and eventually national scopes without losing the provenance of the original observation.
 
 The intended freshness semantics are:
 

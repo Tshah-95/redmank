@@ -50,6 +50,8 @@ def main() -> None:
         "training_lifecycle_assurance_rollups",
         "training_state_transition_plan",
         "training_state_transition_plan_rollups",
+        "training_temporal_contracts",
+        "training_temporal_contract_rollups",
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
@@ -438,6 +440,46 @@ def main() -> None:
             """
             SELECT rollup_scope, COUNT(*) AS count
             FROM training_state_transition_plan_rollups
+            GROUP BY rollup_scope
+            """
+        )
+    }
+    temporal_contract_counts = {
+        row["next_refresh_contract"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT next_refresh_contract, COUNT(*) AS count
+            FROM training_temporal_contracts
+            GROUP BY next_refresh_contract
+            """
+        )
+    }
+    temporal_contract_state_counts = {
+        row["current_temporal_state_code"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT current_temporal_state_code, COUNT(*) AS count
+            FROM training_temporal_contracts
+            GROUP BY current_temporal_state_code
+            """
+        )
+    }
+    temporal_contract_guardrail_counts = {
+        row["guardrail_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT guardrail_status, COUNT(*) AS count
+            FROM training_temporal_contract_rollups
+            GROUP BY guardrail_status
+            """
+        )
+    }
+    temporal_contract_rollup_scope_counts = {
+        row["rollup_scope"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT rollup_scope, COUNT(*) AS count
+            FROM training_temporal_contract_rollups
             GROUP BY rollup_scope
             """
         )
@@ -840,6 +882,13 @@ def main() -> None:
         )
     else:
         training_state_transition_plan_summary = {}
+    training_temporal_contract_summary_path = ARTIFACTS / "training_temporal_contract_summary.json"
+    if training_temporal_contract_summary_path.exists():
+        training_temporal_contract_summary = json.loads(
+            training_temporal_contract_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        training_temporal_contract_summary = {}
     attending_trend_linkage_summary_path = ARTIFACTS / "attending_trend_linkage_summary.json"
     if attending_trend_linkage_summary_path.exists():
         attending_trend_linkage_summary = json.loads(attending_trend_linkage_summary_path.read_text(encoding="utf-8"))
@@ -1044,6 +1093,10 @@ def main() -> None:
         "transition_plan_policy_counts": transition_plan_policy_counts,
         "transition_plan_diff_counts": transition_plan_diff_counts,
         "transition_plan_rollup_scope_counts": transition_plan_rollup_scope_counts,
+        "temporal_contract_counts": temporal_contract_counts,
+        "temporal_contract_state_counts": temporal_contract_state_counts,
+        "temporal_contract_guardrail_counts": temporal_contract_guardrail_counts,
+        "temporal_contract_rollup_scope_counts": temporal_contract_rollup_scope_counts,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_display_safety_counts": contact_display_safety_counts,
@@ -1088,6 +1141,7 @@ def main() -> None:
         "training_state_snapshot_summary": training_state_snapshot_summary,
         "training_lifecycle_assurance_summary": training_lifecycle_assurance_summary,
         "training_state_transition_plan_summary": training_state_transition_plan_summary,
+        "training_temporal_contract_summary": training_temporal_contract_summary,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,

@@ -54,6 +54,8 @@ CSV_TABLES = [
     ("training_lifecycle_assurance_rollups.csv", "training_lifecycle_assurance_rollups"),
     ("training_state_transition_plan.csv", "training_state_transition_plan"),
     ("training_state_transition_plan_rollups.csv", "training_state_transition_plan_rollups"),
+    ("training_temporal_contracts.csv", "training_temporal_contracts"),
+    ("training_temporal_contract_rollups.csv", "training_temporal_contract_rollups"),
     ("training_state_transition_events.csv", "training_state_transition_events"),
     ("training_state_transition_rollups.csv", "training_state_transition_rollups"),
     ("person_enrichment_coverage.csv", "person_enrichment_coverage"),

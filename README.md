@@ -115,6 +115,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_state_transition_plan.csv`: row-level next-refresh transition policy for every current state, separating expected advancement, expected completion, source refresh, manual review, and no-change lanes.
 - `artifacts/data/training_state_transition_plan_rollups.csv`: transition-plan rollups by corpus, institution, country, role, category, program, program-role, institution-role, lifecycle code, policy lane, and diff-readiness status.
 - `artifacts/data/training_state_transition_plan_summary.json`: one-glance counts for auto-classifiable, fresh-observation-required, source-bound, and review-bound future transitions.
+- `artifacts/data/training_temporal_contracts.csv`: explicit per-state stale/transition contract for next runs, including the current temporal state code, allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete the row.
+- `artifacts/data/training_temporal_contract_rollups.csv`: temporal-contract rollups by corpus, institution, country, role, category, program, program-role, lifecycle code, temporal state, next-refresh contract, and diff-readiness status.
+- `artifacts/data/training_temporal_contract_summary.json`: one-glance stale-policy, guardrail, and next-refresh contract counts.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
 - `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
@@ -298,6 +301,14 @@ python3 scripts/materialize_training_lifecycle_assurance.py
 ```
 
 The assurance materializer writes `artifacts/data/training_lifecycle_assurance_rollups.csv` plus `artifacts/data/training_lifecycle_assurance_summary.json` and reloads the rollups into SQLite. It summarizes whether each corpus/program/category slice is deterministic-clock-supported, source-refresh-bound, or review-bound, and states the stale-information policy to use before next-year mutations.
+
+Materialize explicit temporal contracts:
+
+```bash
+python3 scripts/materialize_training_temporal_contracts.py
+```
+
+The temporal-contract materializer writes row-level and rollup artifacts that make the future state machine queryable without reading several ledgers at once. Each row says what stage is currently valid, when it becomes stale, what evidence is needed to retain/advance/complete it, which diff outcomes are auto-classifiable, and which observations must enter review.
 
 ## Data Policy
 

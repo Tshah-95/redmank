@@ -26,6 +26,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_attending_trend_reviewer_decisions.py"],
     ["python3", "scripts/materialize_training_lifecycle_assurance.py"],
     ["python3", "scripts/materialize_training_state_transition_plan.py"],
+    ["python3", "scripts/materialize_training_temporal_contracts.py"],
     ["python3", "scripts/audit_enrichment_coverage.py"],
     ["python3", "scripts/generate_enrichment_queue.py"],
     ["python3", "scripts/materialize_person_enrichment_execution_readiness.py"],

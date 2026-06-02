@@ -194,6 +194,20 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/training_temporal_contracts.csv",
+        "longitudinal_temporal_contract_ledger",
+        "csv",
+        "training_temporal_contracts",
+        True,
+    ),
+    (
+        "artifacts/data/training_temporal_contract_rollups.csv",
+        "longitudinal_temporal_contract_ledger",
+        "csv",
+        "training_temporal_contract_rollups",
+        True,
+    ),
+    (
         "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
         "longitudinal_snapshot_ledger",
         "json_object",

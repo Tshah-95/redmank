@@ -9,4 +9,8 @@ regexes = [
   '''person_[a-z0-9][a-z0-9_-]*_[0-9a-f]{3,12}''',
   '''hup_gme_[a-z0-9][a-z0-9_-]*_[0-9a-f]{3,12}''',
   '''penn_gme_gap_[a-z0-9][a-z0-9_-]*_[0-9a-f]{3,12}''',
+  '''attending_trend[a-z0-9_-]*_[0-9a-f]{12,24}''',
+  '''attending_biosketch_bridge_[0-9a-f]{12,24}''',
+  '''attending_history_[a-z0-9][a-z0-9_-]*_[0-9a-f]{12,24}''',
+  '''acgme_observation_[a-z0-9][a-z0-9_-]*_[0-9a-f]{12,24}''',
 ]

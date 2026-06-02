@@ -982,6 +982,98 @@ CREATE TABLE IF NOT EXISTS training_state_transition_plan_rollups (
   evidence_json TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS training_temporal_contracts (
+  contract_key TEXT PRIMARY KEY,
+  canonical_person_program_key TEXT NOT NULL,
+  person_key TEXT NOT NULL,
+  display_name TEXT,
+  role TEXT,
+  trainee_category TEXT,
+  program_name TEXT,
+  institution TEXT NOT NULL,
+  country TEXT NOT NULL,
+  country_code TEXT NOT NULL,
+  source_key TEXT,
+  observed_at TEXT,
+  as_of_date TEXT,
+  projected_refresh_date TEXT NOT NULL,
+  current_stage_label TEXT,
+  current_stage_code TEXT,
+  stage_family TEXT,
+  stage_index INTEGER,
+  stage_rank INTEGER,
+  lifecycle_rule_key TEXT,
+  lifecycle_code TEXT,
+  lifecycle_stage TEXT,
+  academic_year TEXT,
+  expected_next_stage TEXT,
+  expected_next_date TEXT,
+  expected_exit_date TEXT,
+  stale_after_date TEXT,
+  clock_model TEXT,
+  current_temporal_state_code TEXT NOT NULL,
+  temporal_validity_status TEXT NOT NULL,
+  policy_lane TEXT NOT NULL,
+  diff_readiness_status TEXT NOT NULL,
+  next_refresh_contract TEXT NOT NULL,
+  if_missing_change_type TEXT NOT NULL,
+  if_same_stage_change_type TEXT NOT NULL,
+  if_expected_next_stage_change_type TEXT NOT NULL,
+  allowed_auto_diff_outcomes_json TEXT NOT NULL,
+  review_trigger_json TEXT NOT NULL,
+  evidence_required_to_retain TEXT NOT NULL,
+  evidence_required_to_advance TEXT NOT NULL,
+  evidence_required_to_complete TEXT NOT NULL,
+  stale_information_policy TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  stale_by_refresh INTEGER NOT NULL DEFAULT 0,
+  advance_due_by_refresh INTEGER NOT NULL DEFAULT 0,
+  completion_window_by_refresh INTEGER NOT NULL DEFAULT 0,
+  source_refresh_required_by_refresh INTEGER NOT NULL DEFAULT 0,
+  human_review_required_by_refresh INTEGER NOT NULL DEFAULT 0,
+  auto_classifiable_transition INTEGER NOT NULL DEFAULT 0,
+  fresh_observation_required INTEGER NOT NULL DEFAULT 0,
+  confidence REAL,
+  evidence_json TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_training_temporal_contracts_person_program
+ON training_temporal_contracts(canonical_person_program_key);
+
+CREATE INDEX IF NOT EXISTS idx_training_temporal_contracts_scope
+ON training_temporal_contracts(program_name, role, lifecycle_code, policy_lane);
+
+CREATE TABLE IF NOT EXISTS training_temporal_contract_rollups (
+  rollup_key TEXT PRIMARY KEY,
+  rollup_scope TEXT NOT NULL,
+  rollup_value TEXT NOT NULL,
+  institution TEXT,
+  country TEXT,
+  country_code TEXT,
+  role TEXT,
+  trainee_category TEXT,
+  program_name TEXT,
+  lifecycle_code TEXT,
+  projected_refresh_date TEXT NOT NULL,
+  contract_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  program_count INTEGER NOT NULL DEFAULT 0,
+  expected_advancement_contract_count INTEGER NOT NULL DEFAULT 0,
+  expected_completion_contract_count INTEGER NOT NULL DEFAULT 0,
+  source_refresh_contract_count INTEGER NOT NULL DEFAULT 0,
+  manual_review_contract_count INTEGER NOT NULL DEFAULT 0,
+  carry_forward_contract_count INTEGER NOT NULL DEFAULT 0,
+  stale_by_refresh_count INTEGER NOT NULL DEFAULT 0,
+  fresh_observation_required_count INTEGER NOT NULL DEFAULT 0,
+  auto_classifiable_transition_count INTEGER NOT NULL DEFAULT 0,
+  dominant_next_refresh_contract TEXT NOT NULL,
+  dominant_diff_readiness_status TEXT NOT NULL,
+  guardrail_status TEXT NOT NULL,
+  stale_information_policy TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,
