@@ -239,6 +239,10 @@ def main() -> None:
         ARTIFACTS / "official_gap_roster_program_resolution_summary.json",
         {},
     )
+    official_program_coverage_assurance_summary = read_json(
+        ARTIFACTS / "official_program_coverage_assurance_summary.json",
+        {},
+    )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -422,6 +426,7 @@ def main() -> None:
         "hup_gme_gap_roster_summary": hup_gap_roster_summary,
         "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
+        "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -454,6 +459,20 @@ def main() -> None:
         f"Official HUP programs parsed: {hup_coverage_summary.get('programs', 0)}.",
         "",
         *md_table(hup_coverage_counts, ["coverage_status", "count"]),
+        "",
+        "Coverage assurance tiers:",
+        "",
+        f"Level-4 supported programs: {official_program_coverage_assurance_summary.get('level_4_program_rows', 0)} covering {official_program_coverage_assurance_summary.get('level_4_people_count', 0)} people. Alias/count-review programs: {official_program_coverage_assurance_summary.get('alias_review_program_rows', 0)}. Open denominator gaps: {official_program_coverage_assurance_summary.get('open_gap_rows', 0)}.",
+        "",
+        *md_table(
+            [
+                {"assurance_status": status, "count": count}
+                for status, count in sorted(
+                    (official_program_coverage_assurance_summary.get("by_assurance_status") or {}).items()
+                )
+            ],
+            ["assurance_status", "count"],
+        ),
         "",
         "Sample uncovered or partially covered official programs:",
         "",

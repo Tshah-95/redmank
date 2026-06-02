@@ -74,6 +74,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_program_coverage_assurance_audit.csv",
+        "official_program_coverage_assurance_ledger",
+        "csv",
+        "official_program_coverage_assurance_audit",
+        True,
+    ),
+    (
         "artifacts/data/official_program_alias_reconciliation_candidates.csv",
         "official_program_alias_ledger",
         "csv",

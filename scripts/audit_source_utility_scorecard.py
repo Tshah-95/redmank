@@ -176,6 +176,14 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         "SELECT COUNT(*) FROM official_program_coverage_audit WHERE coverage_status != 'covered_current_roster'",
     )
+    coverage_assurance_summary = read_json(
+        ARTIFACTS / "official_program_coverage_assurance_summary.json",
+        {},
+    )
+    level_4_covered_programs = int(coverage_assurance_summary.get("level_4_program_rows") or 0)
+    level_4_covered_people = int(coverage_assurance_summary.get("level_4_people_count") or 0)
+    alias_review_programs = int(coverage_assurance_summary.get("alias_review_program_rows") or 0)
+    assurance_open_gaps = int(coverage_assurance_summary.get("open_gap_rows") or official_gaps)
     gap_reasons = counter_query(
         conn,
         "SELECT gap_reason_status, COUNT(*) FROM official_program_gap_reason_audit GROUP BY gap_reason_status",
@@ -524,13 +532,14 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             claim_surface="institution program universe, coverage gaps, and denominator drift",
             input_records=official_programs,
             output_records=official_covered,
-            accepted_records=official_covered,
-            coverage_gap_records=official_gaps,
-            needs_review_records=alias_rows,
+            accepted_records=level_4_covered_programs,
+            coverage_gap_records=assurance_open_gaps,
+            needs_review_records=alias_rows + alias_review_programs,
             score=86.0,
             strengths=[
                 "Separates denominator coverage from person extraction",
                 "Makes missing programs auditable instead of invisible",
+                "Assigns assurance tiers to coverage claims instead of treating all covered rows equally",
                 "Supports institution and category-level annual diffs",
             ],
             limitations=[
@@ -542,10 +551,14 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             evidence={
                 "official_programs": official_programs,
                 "covered_current_roster": official_covered,
+                "level_4_covered_programs": level_4_covered_programs,
+                "level_4_covered_people": level_4_covered_people,
                 "coverage_gaps": official_gaps,
+                "assurance_open_gaps": assurance_open_gaps,
                 "gap_reasons": gap_reasons,
                 "alias_candidate_rows": alias_rows,
                 "coverage_mutation_allowed_rows": alias_mutations,
+                "coverage_assurance_summary": coverage_assurance_summary,
             },
         ),
         make_row(

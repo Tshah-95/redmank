@@ -238,6 +238,32 @@ CREATE TABLE IF NOT EXISTS official_gap_roster_program_resolution (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_coverage_assurance_audit (
+  assurance_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  coverage_status TEXT NOT NULL,
+  captured_people_count INTEGER NOT NULL DEFAULT 0,
+  matched_program_key TEXT,
+  matched_program_name TEXT,
+  match_method TEXT,
+  match_confidence REAL NOT NULL DEFAULT 0.0,
+  resolution_source_count INTEGER NOT NULL DEFAULT 0,
+  resolution_record_count INTEGER NOT NULL DEFAULT 0,
+  resolution_review_record_count INTEGER NOT NULL DEFAULT 0,
+  alias_review_count INTEGER NOT NULL DEFAULT 0,
+  alias_review_person_count INTEGER NOT NULL DEFAULT 0,
+  assurance_status TEXT NOT NULL,
+  assurance_level INTEGER NOT NULL DEFAULT 0,
+  denominator_evidence_status TEXT NOT NULL,
+  coverage_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
   observation_key TEXT PRIMARY KEY,
   identifier_source TEXT NOT NULL,

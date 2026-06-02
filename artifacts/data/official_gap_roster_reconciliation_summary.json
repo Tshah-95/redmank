@@ -12,7 +12,7 @@
     "student_fellows_directory_not_gme_roster": 1
   },
   "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-  "generated_at": "2026-06-02T11:14:43.028657+00:00",
+  "generated_at": "2026-06-02T11:20:37.300179+00:00",
   "json": "artifacts/data/official_gap_roster_reconciliation.json",
   "loaded_membership_count": 499,
   "loaded_person_count": 499,

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T11:14:43.594606+00:00
+Generated: 2026-06-02T11:20:37.982698+00:00
 
 ## What This Pass Did
 
@@ -28,6 +28,20 @@ Official HUP programs parsed: 91.
 | covered_current_roster | 64 |
 | discovered_no_current_roster | 12 |
 | not_discovered | 15 |
+
+Coverage assurance tiers:
+
+Level-4 supported programs: 48 covering 769 people. Alias/count-review programs: 15. Open denominator gaps: 27.
+
+| assurance_status | count |
+| --- | --- |
+| alias_method_current_roster_review | 15 |
+| direct_normalized_name_current_roster | 29 |
+| discovered_source_without_current_roster | 7 |
+| exact_resolution_backed_current_roster | 19 |
+| exact_resolution_count_conflict_review | 1 |
+| not_discovered_by_current_strategy | 15 |
+| open_gap_with_alias_review | 5 |
 
 Sample uncovered or partially covered official programs:
 
@@ -523,7 +537,7 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 44 | 44 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 45 | 45 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
