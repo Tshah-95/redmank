@@ -305,6 +305,22 @@ def transition_map(conn: sqlite3.Connection) -> dict[str, dict]:
     return result
 
 
+def evidence_packet_map(conn: sqlite3.Connection) -> dict[str, dict]:
+    result = {}
+    for row in read_rows(
+        conn,
+        """
+        SELECT person_key, person_or_name_key, packet_status, review_kind,
+               recommended_next_action, review_priority, review_ready_record_count,
+               evidence_record_count, best_decision, best_source_url
+        FROM person_evidence_review_packets
+        WHERE person_key IS NOT NULL AND person_key != ''
+        """,
+    ):
+        result[row["person_key"]] = row
+    return result
+
+
 def split_programs(value: str) -> list[str]:
     programs = [part.strip() for part in (value or "").split("; ") if part.strip()]
     return programs or [""]
@@ -392,6 +408,9 @@ def add_task(tasks: list[dict], person: dict, transition: dict, task_type: str, 
             "article_candidate_count": int(person.get("pubmed_article_candidate_count") or 0),
             "article_needs_review_count": int(person.get("pubmed_article_needs_review_count") or 0),
             "reconciliation_queue_count": int(person.get("reconciliation_queue_count") or 0),
+            "evidence_packet_status": person.get("evidence_packet_status") or "",
+            "evidence_packet_review_ready_count": int(person.get("evidence_packet_review_ready_count") or 0),
+            "evidence_packet_recommended_next_action": person.get("evidence_packet_recommended_next_action") or "",
         },
         "transition": {
             "policy_lane": policy_lane,
@@ -442,9 +461,14 @@ def add_task(tasks: list[dict], person: dict, transition: dict, task_type: str, 
 def make_queue(conn: sqlite3.Connection) -> list[dict]:
     people = coverage_rows(conn)
     transitions = transition_map(conn)
+    evidence_packets = evidence_packet_map(conn)
     tasks: list[dict] = []
     for person in people:
         transition = transitions.get(person["person_key"], {})
+        packet = evidence_packets.get(person["person_key"], {})
+        person["evidence_packet_status"] = packet.get("packet_status") or ""
+        person["evidence_packet_review_ready_count"] = packet.get("review_ready_record_count") or "0"
+        person["evidence_packet_recommended_next_action"] = packet.get("recommended_next_action") or ""
         next_action = person.get("recommended_next_action") or ""
         role = person.get("role") or ""
 
@@ -473,14 +497,29 @@ def make_queue(conn: sqlite3.Connection) -> list[dict]:
                 "Profile absence weakens identity, contact, background, and research disambiguation.",
             )
 
-        if int(person.get("max_reconciliation_priority") or 0) >= 85 or next_action == "reconcile_high_priority_evidence":
+        packet_status = person.get("evidence_packet_status") or ""
+        packet_is_accepted_monitor_only = packet_status in {
+            "accepted_enrichment_fact_packet",
+            "accepted_attending_trend_fact_packet",
+        }
+        if (
+            not packet_is_accepted_monitor_only
+            and (
+                int(person.get("max_reconciliation_priority") or 0) >= 85
+                or next_action == "reconcile_high_priority_evidence"
+            )
+        ):
             add_task(
                 tasks,
                 person,
                 transition,
                 "evidence_reconciliation_review",
                 90,
-                "High-priority candidate evidence is present but not yet accepted or rejected.",
+                (
+                    "Accepted enrichment exists, but remaining review-ready candidate evidence still needs a decision."
+                    if packet_status == "accepted_enrichment_with_remaining_review_packet"
+                    else "High-priority candidate evidence is present but not yet accepted or rejected."
+                ),
             )
 
         if role in {"resident", "fellow"} and not int(person.get("medical_school_count") or 0):

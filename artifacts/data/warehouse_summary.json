@@ -31,7 +31,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T14:20:46.991586+00:00",
+    "generated_at": "2026-06-02T14:25:31.743212+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -150,7 +150,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T14:20:47.136661+00:00",
+    "generated_at": "2026-06-02T14:25:31.891618+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 3,
@@ -243,7 +243,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T14:20:47.092757+00:00",
+    "generated_at": "2026-06-02T14:25:31.847240+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -288,7 +288,7 @@
       "2020": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-02T14:20:47.173776+00:00",
+    "generated_at": "2026-06-02T14:25:31.928030+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 3,
     "pending_reviewer_decision_rows": 0,
@@ -338,7 +338,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T14:20:47.058128+00:00",
+    "generated_at": "2026-06-02T14:25:31.810770+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -393,9 +393,9 @@
     "people": 1535,
     "person_contacts": 313,
     "person_enrichment_coverage": 1535,
-    "person_enrichment_execution_readiness": 6349,
+    "person_enrichment_execution_readiness": 6346,
     "person_enrichment_execution_readiness_rollups": 37,
-    "person_enrichment_work_queue": 6349,
+    "person_enrichment_work_queue": 6346,
     "person_evidence_review_packets": 1504,
     "person_reconciliation_decisions": 1504,
     "person_refresh_expectations": 1535,
@@ -1637,7 +1637,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T14:21:10.683766+00:00",
+  "generated_at": "2026-06-02T14:25:55.328383+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -1933,7 +1933,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T14:21:08.080368+00:00",
+    "generated_at": "2026-06-02T14:25:52.716878+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -1975,7 +1975,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T14:21:08.002628+00:00",
+    "generated_at": "2026-06-02T14:25:52.638751+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 551,
     "loaded_person_count": 551,
@@ -2051,7 +2051,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-02T14:21:08.228027+00:00",
+    "generated_at": "2026-06-02T14:25:52.865926+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2212,7 +2212,7 @@
       "needs_more_evidence": 1,
       "pending": 17
     },
-    "generated_at": "2026-06-02T14:21:08.270204+00:00",
+    "generated_at": "2026-06-02T14:25:52.909423+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 15,
     "not_ready_rows": 17,
@@ -2263,7 +2263,7 @@
       "residency": 12
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T14:21:08.163807+00:00",
+    "generated_at": "2026-06-02T14:25:52.801514+00:00",
     "highest_priority": 1093,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -2477,7 +2477,7 @@
     "covered_people_count": 1248,
     "covered_program_rows": 65,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T14:21:08.121544+00:00",
+    "generated_at": "2026-06-02T14:25:52.759024+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 821,
     "level_4_program_rows": 49,
@@ -2555,30 +2555,30 @@
     "collector_available_partial_source_coverage": 1522,
     "collector_available_queue_driven": 2107,
     "collector_available_review_required": 617,
-    "manual_decision_ready": 847
+    "manual_decision_ready": 844
   },
   "person_enrichment_execution_lane_counts": {
     "collector_then_manual_normalization": 617,
     "collector_with_reconciliation_required": 1522,
     "dependent_on_roster_or_profile_refresh": 1256,
     "queue_driven_collector_available": 2107,
-    "reviewer_decision_required": 847
+    "reviewer_decision_required": 844
   },
   "person_enrichment_execution_requirement_counts": {
-    "requires_manual_review": 4345,
+    "requires_manual_review": 4342,
     "requires_network": 5502,
     "requires_new_parser": 0,
     "requires_script_extension": 0
   },
   "person_enrichment_queue_policy_lane_counts": {
     "carry_forward_no_change": 49,
-    "deterministic_expected_advancement": 2522,
+    "deterministic_expected_advancement": 2521,
     "deterministic_expected_completion": 880,
-    "manual_review_required": 602,
-    "source_refresh_required": 2296
+    "manual_review_required": 601,
+    "source_refresh_required": 2295
   },
   "person_enrichment_queue_priority_counts": {
-    "critical": 2369,
+    "critical": 2366,
     "high": 698,
     "low": 1256,
     "medium": 2026
@@ -2590,11 +2590,11 @@
     "official_roster": 1522,
     "prior_training": 321,
     "research": 1178,
-    "review_queue": 847
+    "review_queue": 844
   },
   "person_enrichment_queue_task_counts": {
     "current_roster_state_reconciliation": 1522,
-    "evidence_reconciliation_review": 847,
+    "evidence_reconciliation_review": 844,
     "official_profile_search": 608,
     "organization_alias_review": 617,
     "public_contact_verification": 1256,
@@ -2891,7 +2891,7 @@
     },
     "candidate_or_discovery_rows": 7,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T14:21:09.532251+00:00",
+    "generated_at": "2026-06-02T14:25:54.182084+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 23,
@@ -3231,7 +3231,7 @@
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T14:20:47.978248+00:00",
+    "generated_at": "2026-06-02T14:25:32.719208+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
     "person_count": 1535,
@@ -3304,7 +3304,7 @@
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T14:20:48.158824+00:00",
+    "generated_at": "2026-06-02T14:25:32.921736+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
     "person_count": 1535,
@@ -3349,7 +3349,7 @@
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     "artifact_rows": 74,
-    "audited_at": "2026-06-02T14:21:09.702171+00:00",
+    "audited_at": "2026-06-02T14:25:54.349791+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -3404,10 +3404,10 @@
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 153202688,
+    "sqlite_byte_size": 159485952,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "c2730d3af44a0c54912d412f76c7429279a6c156a3e701270464414560671216",
+    "sqlite_sha256": "bdd9147b55f85c147cc645f7465335e6c0ae796cdd233151e538f0bbe32eafde",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }
