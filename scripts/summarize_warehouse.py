@@ -37,6 +37,8 @@ def main() -> None:
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
+        "npi_candidate_claims",
+        "npi_source_observations",
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",
@@ -130,6 +132,28 @@ def main() -> None:
             SELECT trend_status, COUNT(*) AS count
             FROM attending_trend_reconciliation
             GROUP BY trend_status
+            """
+        )
+    }
+    npi_candidate_counts = {
+        row["candidate_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT candidate_status, COUNT(*) AS count
+            FROM npi_candidate_claims
+            GROUP BY candidate_status
+            """
+        )
+    }
+    npi_primary_taxonomy_counts = {
+        row["primary_taxonomy"] or "none": row["count"]
+        for row in conn.execute(
+            """
+            SELECT primary_taxonomy, COUNT(*) AS count
+            FROM npi_candidate_claims
+            GROUP BY primary_taxonomy
+            ORDER BY count DESC, primary_taxonomy
+            LIMIT 30
             """
         )
     }
@@ -291,6 +315,11 @@ def main() -> None:
         )
     else:
         attending_trend_reconciliation_summary = {}
+    npi_candidate_summary_path = ARTIFACTS / "npi_candidate_summary.json"
+    if npi_candidate_summary_path.exists():
+        npi_candidate_summary = json.loads(npi_candidate_summary_path.read_text(encoding="utf-8"))
+    else:
+        npi_candidate_summary = {}
     person_evidence_packet_summary_path = ARTIFACTS / "person_evidence_review_packet_summary.json"
     if person_evidence_packet_summary_path.exists():
         person_evidence_packet_summary = json.loads(person_evidence_packet_summary_path.read_text(encoding="utf-8"))
@@ -332,6 +361,8 @@ def main() -> None:
         "career_event_counts": career_event_counts,
         "attending_biosketch_bridge_counts": attending_biosketch_bridge_counts,
         "attending_trend_reconciliation_counts": attending_trend_reconciliation_counts,
+        "npi_candidate_counts": npi_candidate_counts,
+        "npi_primary_taxonomy_counts": npi_primary_taxonomy_counts,
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
         "evidence_reconciliation_top_claim_counts": evidence_reconciliation_top_claim_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
@@ -353,6 +384,7 @@ def main() -> None:
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,
         "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
+        "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T08:57:30.031359+00:00
+Generated: 2026-06-02T09:05:02.566782+00:00
 
 ## What This Pass Did
 
@@ -490,7 +490,7 @@ Learning: annual diffs should be state-machine informed before they are person-t
 
 ## Source Utility Scorecard
 
-Scorecard rows: 15.
+Scorecard rows: 16.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -506,6 +506,7 @@ Scorecard rows: 15.
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 0 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
 | Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
 | Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | review_ready_trend_rows_then_record_explicit_acceptance_decisions |
+| NPPES NPI Registry candidates | candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review | 1257 | 1073 | 62.0 | useful_candidate_layer | use_npi_candidates_as_secondary_identity_anchors_only |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 66.0 | useful_candidate_layer | verify_contact_channels_against_current_official_source_before_use |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
@@ -779,17 +780,91 @@ Top trend reconciliation rows:
 
 Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance, but the reviewer decision should be recorded separately before an accepted trend fact is emitted.
 
+## NPPES NPI Registry Candidate Enrichment
+
+NPI queries run: 1257. Candidate rows: 1073. Queries with candidates: 832. Queries with no results: 425. Query errors: 0.
+
+Candidate statuses:
+
+| candidate_status | count |
+| --- | --- |
+| candidate | 146 |
+| low_signal_npi_candidate | 126 |
+| needs_review | 801 |
+
+Top NPI primary taxonomies:
+
+| primary_taxonomy | count |
+| --- | --- |
+| Anesthesiology | 12 |
+| Counselor, Mental Health | 9 |
+| Counselor, Professional | 4 |
+| Dentist | 5 |
+| Dentist, General Practice | 6 |
+| Dietitian, Registered | 4 |
+| Emergency Medicine | 11 |
+| Family Medicine | 15 |
+| Hospitalist | 7 |
+| Internal Medicine | 61 |
+| Internal Medicine, Gastroenterology | 5 |
+| Internal Medicine, Infectious Disease | 4 |
+| Internal Medicine, Nephrology | 7 |
+| Nurse Practitioner | 5 |
+| Obstetrics & Gynecology | 11 |
+| Occupational Therapist | 8 |
+| Ophthalmology | 7 |
+| Orthopaedic Surgery | 9 |
+| Pediatrics | 12 |
+| Pharmacist | 11 |
+
+Sample NPI candidates:
+
+| display_name | role | candidate_status | confidence | provider_name | primary_taxonomy | practice_city | practice_state | source_url |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Aardra Rajendran, MD | fellow | needs_review | 0.73 | AARDRA RAJENDRAN | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1750955530 |
+| Abigail Black MD | resident | needs_review | 0.73 | ABIGAIL MARIE BLACK MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1487414330 |
+| Abigail Taye MD | resident | needs_review | 0.73 | ABIGAIL MESFIN TAYE MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1811784853 |
+| Adam Barsouk, MD | resident | needs_review | 0.73 | ADAM BARSOUK MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1689377798 |
+| Adam Tuchinsky, DO | fellow | needs_review | 0.77 | ADAM JOSHUA TUCHINSKY DO | Internal Medicine | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1881278729 |
+| Ahmed Gawash DO | resident | needs_review | 0.73 | AHMED MOHAMED GAWASH | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1053113985 |
+| Akshatha Kiran MD | resident | needs_review | 0.73 | AKSHATHA KIRAN MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1467212431 |
+| Akshayaa Chittibabu MD | resident | needs_review | 0.73 | AKSHAYAA KETHINNI CHITTIBABU MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1972305977 |
+| Alan Tang, MD, PhD | fellow | needs_review | 0.73 | ALAN TIEN TANG MD PhD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1013536861 |
+| Alec Gayner MD | resident | needs_review | 0.73 | ALEC GAYNER | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1184483380 |
+| Alexa Larsen, MD, MSc | resident | low_signal_npi_candidate | 0.57 | ALEXANDRA LYNN LARSEN MD, MSc | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1437853173 |
+| Alexander Ortiz, MD | fellow | needs_review | 0.73 | ALEXANDER ORTIZ MD | Internal Medicine | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1285196493 |
+| Alexandra Leto, MD | fellow | needs_review | 0.67 | ALEXANDRA CAROLINE LETO MD | Internal Medicine | WYNNEWOOD | PA | https://npiregistry.cms.hhs.gov/provider-view/1336723071 |
+| Alexandria Nicole Tartt MD | resident | needs_review | 0.73 | ALEXANDRIA TARTT | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1891582441 |
+| Alison Leslie MD | resident | needs_review | 0.73 | ALISON LESLIE MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1003676719 |
+| Alison Leslie MD | resident | candidate | 0.59 | ALISON FEDORIS LESLIE LCSW | Social Worker, Clinical | PENN VALLEY | PA | https://npiregistry.cms.hhs.gov/provider-view/1568227304 |
+| Alison Ranum MD | resident | needs_review | 0.73 | ALISON NICOLE RANUM MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1073200341 |
+| Amanda Perez, MD | resident | needs_review | 0.79 | AMANDA ESTRELLITA PEREZ | Internal Medicine | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1770343733 |
+| Amanda Perez, MD | resident | candidate | 0.65 | AMANDA LUZ PEREZ | Case Manager/Care Coordinator | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1740838481 |
+| Amber Meservey, MD | fellow | needs_review | 0.77 | AMBER JOY MESERVEY MD | Internal Medicine, Pulmonary Disease | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1710448758 |
+| Andrea Szabo, MD | resident | needs_review | 0.79 | ANDREA SZABO MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1568112266 |
+| Andrea Szabo, MD | resident | low_signal_npi_candidate | 0.55 | ANDREW JOSEPH SZABO D.O. | Surgery | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1023338258 |
+| Andrew Jarrah, MD, MBA | fellow | needs_review | 0.73 | ANDREW AMIR JARRAH | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1396205951 |
+| Andrew Lin MD | resident | needs_review | 0.73 | ANDREW AUSTIN LIN MD, Ph.D. | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1841092467 |
+| Andrew Lin MD | resident | low_signal_npi_candidate | 0.55 | ANDREA LIN MD | Surgery | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1891534566 |
+| Andrew Pham, MD | fellow | needs_review | 0.77 | ANDREW TUAN QUOC PHAM | Internal Medicine | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1841878675 |
+| Angela Liu, MD | fellow | needs_review | 0.71 | ANGELA JIN LIU MD | Obstetrics & Gynecology | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1700379716 |
+| Anitra Persaud, MD | resident | needs_review | 0.73 | ANITRA PERSAUD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1861187866 |
+| Anjali Agarwalla, MD | fellow | needs_review | 0.71 | ANJALI AGARWALLA | Internal Medicine | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1558980391 |
+| Anjana Murali MD | resident | needs_review | 0.79 | ANJANA MURALI MD | Student in an Organized Health Care Education/Training Program | PHILADELPHIA | PA | https://npiregistry.cms.hhs.gov/provider-view/1508561333 |
+
+Learning: NPPES is an official provider registry and useful as a secondary identity anchor, especially when exact name, PA/Philadelphia location, physician or trainee taxonomy, and program specialty agree. It is not roster truth. Residents and fellows may have missing, stale, student-training, or non-Penn practice data, and name collisions are expected.
+
 ## Enrichment Coverage Audit
 
-People audited: 1483. Program/role groups audited: 95. Average coverage score: 58.52.
+People audited: 1483. Program/role groups audited: 95. Average coverage score: 60.66.
 
 Coverage bands:
 
 | coverage_band | count |
 | --- | --- |
-| broad_enrichment_surface | 95 |
-| moderate_enrichment_surface | 1158 |
-| thin_enrichment_surface | 230 |
+| broad_enrichment_surface | 163 |
+| moderate_enrichment_surface | 1137 |
+| thin_enrichment_surface | 183 |
 
 Recommended next actions:
 
@@ -807,33 +882,33 @@ Recommended next actions:
 
 Lowest-scoring program/role surfaces:
 
-| program_name | role | person_count | avg_coverage_score | profile_coverage_rate | medical_school_coverage_rate | article_candidate_coverage_rate | top_recommended_next_action |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Breast Pathology Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Clinical Chemistry Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Clinical Microbiology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Cytopathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| GI/Hepatic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Gynecologic Oncology Fellowship | fellow | 6 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Hematopathology Fellowship | fellow | 4 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Maternal Fetal Medicine Fellowship | fellow | 8 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Molecular Genetic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Neuropathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Soft Tissue/Bone Pathology Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Surgical Pathology Fellowship | fellow | 6 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Transfusion Medicine/Blood Bank Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Adult Reconstructive Orthopedics Fellowship | fellow | 3 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| CHOP Otolaryngology Fellowship | fellow | 4 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Facial Plastic and Reconstructive Surgery Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Foot and Ankle Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Neurotology Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Rhinology and Skull Base Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Shoulder and Elbow Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Sleep Medicine and Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Spine Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Oral Medicine Residency | resident | 8 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
-| Otorhinolaryngology Residency | resident | 31 | 25.65 | 0.0 | 0.0 | 0.065 | official_profile_search |
+| program_name | role | person_count | avg_coverage_score | profile_coverage_rate | medical_school_coverage_rate | article_candidate_coverage_rate | npi_candidate_coverage_rate | npi_needs_review_coverage_rate | top_recommended_next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Clinical Microbiology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| GI/Hepatic Pathology Fellowship | fellow | 2 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Soft Tissue/Bone Pathology Fellowship | fellow | 1 | 20.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Gynecologic Oncology Fellowship | fellow | 6 | 20.67 | 0.0 | 0.0 | 0.0 | 0.167 | 0.167 | official_profile_search |
+| Hematopathology Fellowship | fellow | 4 | 21.0 | 0.0 | 0.0 | 0.0 | 0.25 | 0.25 | official_profile_search |
+| Maternal Fetal Medicine Fellowship | fellow | 8 | 21.0 | 0.0 | 0.0 | 0.0 | 0.25 | 0.25 | official_profile_search |
+| Surgical Pathology Fellowship | fellow | 6 | 21.67 | 0.0 | 0.0 | 0.0 | 0.5 | 0.333 | official_profile_search |
+| Clinical Chemistry Fellowship | fellow | 2 | 22.0 | 0.0 | 0.0 | 0.0 | 0.5 | 0.5 | official_profile_search |
+| Cytopathology Fellowship | fellow | 2 | 22.0 | 0.0 | 0.0 | 0.0 | 0.5 | 0.5 | official_profile_search |
+| Molecular Genetic Pathology Fellowship | fellow | 2 | 23.0 | 0.0 | 0.0 | 0.0 | 1.0 | 0.5 | official_profile_search |
+| Breast Pathology Fellowship | fellow | 1 | 24.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | official_profile_search |
+| Neuropathology Fellowship | fellow | 2 | 24.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | official_profile_search |
+| Transfusion Medicine/Blood Bank Fellowship | fellow | 1 | 24.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | official_profile_search |
+| CHOP Otolaryngology Fellowship | fellow | 4 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Facial Plastic and Reconstructive Surgery Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Foot and Ankle Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Neurotology Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Rhinology and Skull Base Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Shoulder and Elbow Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Sleep Medicine and Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Spine Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Oral Medicine Residency | resident | 8 | 25.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Otorhinolaryngology Residency | resident | 31 | 26.42 | 0.0 | 0.0 | 0.065 | 0.194 | 0.194 | official_profile_search |
+| Adult Reconstructive Orthopedics Fellowship | fellow | 3 | 27.0 | 0.0 | 0.0 | 0.0 | 0.667 | 0.333 | official_profile_search |
 
 Learning: coverage needs to be audited separately from evidence acceptance. This pass shows where the recursive loop should work next: official profile search, organization alias review, article-level research collection, and high-priority reconciliation.
 

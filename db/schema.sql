@@ -459,6 +459,48 @@ CREATE TABLE IF NOT EXISTS attending_trend_reconciliation (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS npi_candidate_claims (
+  candidate_key TEXT PRIMARY KEY,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  role TEXT,
+  program_names TEXT,
+  npi TEXT NOT NULL,
+  provider_name TEXT NOT NULL,
+  provider_credential TEXT,
+  enumeration_type TEXT,
+  primary_taxonomy TEXT,
+  taxonomy_descriptions TEXT,
+  practice_city TEXT,
+  practice_state TEXT,
+  practice_postal_code TEXT,
+  result_rank INTEGER NOT NULL DEFAULT 0,
+  total_results INTEGER NOT NULL DEFAULT 0,
+  candidate_status TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  source_url TEXT NOT NULL,
+  match_features_json TEXT,
+  evidence_json TEXT,
+  queried_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS npi_source_observations (
+  query_key TEXT PRIMARY KEY,
+  person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  state_filter TEXT,
+  request_url TEXT NOT NULL,
+  queried_at TEXT NOT NULL,
+  http_status INTEGER NOT NULL DEFAULT 0,
+  total_results INTEGER NOT NULL DEFAULT 0,
+  candidate_rows INTEGER NOT NULL DEFAULT 0,
+  error TEXT,
+  sha256 TEXT
+);
+
 CREATE TABLE IF NOT EXISTS person_training_events (
   training_event_id INTEGER PRIMARY KEY,
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,

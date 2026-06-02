@@ -226,6 +226,10 @@ The first expanded resident/fellow research pass processed 759 Penn-affiliated r
 
 The current acceptance rule is deliberately strict: accept research enrichment only when at least two non-name anchors agree, such as official profile link plus ORCID, OpenAlex Penn affiliation plus specialty-topic match, PubMed affiliation plus coauthor cluster, or NPI specialty/location plus official profile.
 
+`scripts/collect_npi_candidates.py` implements the NPPES/NPI lane as candidate-only identity enrichment for current residents and fellows. It queries the official NPPES API with exact first/last name and a PA state filter, stores query observations separately from candidate rows, and scores features such as exact name match, PA/Philadelphia practice location, physician or student-training taxonomy, and program-taxonomy topic overlap.
+
+NPI candidates do not mutate roster truth. They are useful secondary identity anchors for profile/publication/trend reconciliation, especially when location and taxonomy agree, but NPPES can be stale, sparse, or name-colliding for residents and fellows. The accepted person/program source remains the official trainee roster.
+
 `scripts/audit_source_utility_scorecard.py` turns those observations into an operational scorecard:
 
 - `source_utility_scorecard.csv` / `.json`: one row per utility surface, including official roster truth, official denominator coverage, gap-roster extraction, Penn-wide source discovery, PubMed author discovery, PubMed article reconciliation, OpenAlex, attending profiles, faculty-biosketch bridge evidence, historical-link discovery, public contacts, organization normalization, and training state-machine readiness.

@@ -389,6 +389,21 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
+    npi_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
+    npi_observations = scalar(conn, "SELECT COUNT(*) FROM npi_source_observations")
+    npi_candidate_rows = scalar(conn, "SELECT COUNT(*) FROM npi_candidate_claims")
+    npi_review_ready = scalar(
+        conn,
+        "SELECT COUNT(*) FROM npi_candidate_claims WHERE candidate_status = 'needs_review'",
+    )
+    npi_candidate = scalar(
+        conn,
+        "SELECT COUNT(*) FROM npi_candidate_claims WHERE candidate_status = 'candidate'",
+    )
+    npi_low_signal = scalar(
+        conn,
+        "SELECT COUNT(*) FROM npi_candidate_claims WHERE candidate_status = 'low_signal_npi_candidate'",
+    )
 
     contact_count = scalar(conn, "SELECT COUNT(*) FROM person_contacts")
     contact_by_verification = counter_query(
@@ -769,6 +784,42 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "trend_rows": trend_reconciliation_rows,
                 "review_ready_rows": trend_reconciliation_review_ready,
                 "needs_bridge_or_training_rows": trend_reconciliation_needs_bridge,
+            },
+        ),
+        make_row(
+            scorecard_key="nppes_npi_registry_candidates",
+            utility_key="nppes_npi_registry",
+            utility_label="NPPES NPI Registry candidates",
+            source_family="licensure_api",
+            claim_surface="candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review",
+            input_records=npi_observations,
+            output_records=npi_candidate_rows,
+            candidate_records=npi_candidate_rows,
+            needs_review_records=npi_review_ready + npi_candidate,
+            review_ready_records=npi_review_ready,
+            low_signal_records=npi_low_signal,
+            score=62.0,
+            strengths=[
+                "Official CMS/NPPES public provider registry",
+                "Adds durable NPI, taxonomy, and location anchors for physician identity review",
+                "Useful corroborating evidence alongside official profile, publication, and roster context",
+            ],
+            limitations=[
+                "Name collisions remain common and NPI locations can lag training status",
+                "Residents/fellows may use student/training taxonomy or older practice locations",
+                "No NPI candidate is accepted without non-name source corroboration",
+            ],
+            recommended_next_action="use_npi_candidates_as_secondary_identity_anchors_only",
+            evidence={
+                "summary": npi_summary,
+                "source_observations": npi_observations,
+                "candidate_rows": npi_candidate_rows,
+                "review_ready_rows": npi_review_ready,
+                "candidate_rows_by_status": {
+                    "needs_review": npi_review_ready,
+                    "candidate": npi_candidate,
+                    "low_signal_npi_candidate": npi_low_signal,
+                },
             },
         ),
         make_row(

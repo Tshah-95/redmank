@@ -152,6 +152,8 @@
     "career_events": 105,
     "evidence_claims": 4744,
     "medical_student_source_audit": 16,
+    "npi_candidate_claims": 1073,
+    "npi_source_observations": 1257,
     "official_program_alias_reconciliation_candidates": 16,
     "official_program_coverage_audit": 91,
     "official_program_gap_reason_audit": 27,
@@ -171,7 +173,7 @@
     "programs": 95,
     "source_quality_observations": 3,
     "source_utilities": 9,
-    "source_utility_scorecard": 15,
+    "source_utility_scorecard": 16,
     "sources": 1390,
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
@@ -180,11 +182,11 @@
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_coverage_summary": {
     "article_candidate_coverage_rate": 0.2,
-    "avg_coverage_score": 58.52,
+    "avg_coverage_score": 60.66,
     "by_coverage_band": {
-      "broad_enrichment_surface": 95,
-      "moderate_enrichment_surface": 1158,
-      "thin_enrichment_surface": 230
+      "broad_enrichment_surface": 163,
+      "moderate_enrichment_surface": 1137,
+      "thin_enrichment_surface": 183
     },
     "by_recommended_next_action": {
       "collect_article_level_research_candidates": 254,
@@ -204,6 +206,8 @@
     },
     "cleaned_org_review_people": 617,
     "contact_coverage_rate": 0.188,
+    "npi_candidate_coverage_rate": 0.561,
+    "npi_needs_review_coverage_rate": 0.511,
     "people_with_reconciliation_queue": 1111,
     "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
     "person_rows": 1483,
@@ -340,7 +344,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T08:57:30.053765+00:00",
+  "generated_at": "2026-06-02T09:05:02.527738+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -507,6 +511,99 @@
     "MSTP_PHD_PHASE": 123,
     "POSTDOCTORAL_RESEARCH_FELLOW": 7
   },
+  "npi_candidate_counts": {
+    "candidate": 146,
+    "low_signal_npi_candidate": 126,
+    "needs_review": 801
+  },
+  "npi_candidate_summary": {
+    "api_base": "https://npiregistry.cms.hhs.gov/api/",
+    "api_version": "2.1",
+    "by_candidate_status": {
+      "candidate": 146,
+      "low_signal_npi_candidate": 126,
+      "needs_review": 801
+    },
+    "by_primary_taxonomy": {
+      "Anesthesiology": 12,
+      "Counselor, Mental Health": 9,
+      "Counselor, Professional": 4,
+      "Dentist": 5,
+      "Dentist, General Practice": 6,
+      "Dietitian, Registered": 4,
+      "Emergency Medicine": 11,
+      "Family Medicine": 15,
+      "Hospitalist": 7,
+      "Internal Medicine": 61,
+      "Internal Medicine, Gastroenterology": 5,
+      "Internal Medicine, Infectious Disease": 4,
+      "Internal Medicine, Nephrology": 7,
+      "Nurse Practitioner": 5,
+      "Obstetrics & Gynecology": 11,
+      "Occupational Therapist": 8,
+      "Ophthalmology": 7,
+      "Orthopaedic Surgery": 9,
+      "Pediatrics": 12,
+      "Pharmacist": 11,
+      "Physical Therapist": 8,
+      "Physician Assistant": 8,
+      "Psychiatry & Neurology, Neurology": 5,
+      "Psychiatry & Neurology, Psychiatry": 6,
+      "Radiology, Diagnostic Radiology": 18,
+      "Social Worker, Clinical": 5,
+      "Speech-Language Pathologist,": 6,
+      "Student in an Organized Health Care Education/Training Program": 647,
+      "Surgery": 14,
+      "Thoracic Surgery (Cardiothoracic Vascular Surgery)": 5
+    },
+    "by_role": {
+      "fellow": 239,
+      "resident": 834
+    },
+    "candidate_rows": 1073,
+    "csv": "artifacts/data/npi_candidate_claims.csv",
+    "generated_at": "2026-06-02T09:03:39.691004+00:00",
+    "json": "artifacts/data/npi_candidate_claims.json",
+    "observation_csv": "artifacts/data/npi_source_observations.csv",
+    "queries_with_candidates": 832,
+    "queries_with_error": 0,
+    "queries_with_no_results": 425,
+    "state_filter": "PA",
+    "target_queries": 1257,
+    "utility_key": "nppes_npi_registry"
+  },
+  "npi_primary_taxonomy_counts": {
+    "Anesthesiology": 12,
+    "Counselor, Mental Health": 9,
+    "Counselor, Professional": 4,
+    "Dentist": 5,
+    "Dentist, General Practice": 6,
+    "Dietitian, Registered": 4,
+    "Emergency Medicine": 11,
+    "Family Medicine": 15,
+    "Hospitalist": 7,
+    "Internal Medicine": 61,
+    "Internal Medicine, Gastroenterology": 5,
+    "Internal Medicine, Infectious Disease": 4,
+    "Internal Medicine, Nephrology": 7,
+    "Nurse Practitioner": 5,
+    "Obstetrics & Gynecology": 11,
+    "Occupational Therapist": 8,
+    "Ophthalmology": 7,
+    "Orthopaedic Surgery": 9,
+    "Pediatrics": 12,
+    "Pharmacist": 11,
+    "Physical Therapist": 8,
+    "Physician Assistant": 8,
+    "Psychiatry & Neurology, Neurology": 5,
+    "Psychiatry & Neurology, Psychiatry": 6,
+    "Radiology, Diagnostic Radiology": 18,
+    "Social Worker, Clinical": 5,
+    "Speech-Language Pathologist,": 6,
+    "Student in an Organized Health Care Education/Training Program": 647,
+    "Surgery": 14,
+    "Thoracic Surgery (Cardiothoracic Vascular Surgery)": 5
+  },
   "official_program_alias_reconciliation_counts": {
     "combined_track_not_categorical_coverage": 1,
     "official_type_or_track_mismatch_review": 1,
@@ -628,7 +725,7 @@
     "discovery_or_review_only": 2,
     "high_utility": 2,
     "strong_with_known_limits": 7,
-    "useful_candidate_layer": 3
+    "useful_candidate_layer": 4
   },
   "source_utility_scorecard_summary": {
     "blocked_or_low_current_utility_rows": 1,
@@ -637,7 +734,7 @@
       "discovery_or_review_only": 2,
       "high_utility": 2,
       "strong_with_known_limits": 7,
-      "useful_candidate_layer": 3
+      "useful_candidate_layer": 4
     },
     "by_recommended_next_action": {
       "add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage": 1,
@@ -652,24 +749,26 @@
       "run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits": 1,
       "seek_historical_identity_bridge_before_accepting_trend_links": 1,
       "treat_as_queue_then_probe_and_parse_only_source_backed_rosters": 1,
+      "use_npi_candidates_as_secondary_identity_anchors_only": 1,
       "use_only_to_seed_article_level_reconciliation": 1,
       "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
       "verify_contact_channels_against_current_official_source_before_use": 1
     },
     "by_source_family": {
       "evidence_reconciliation": 1,
+      "licensure_api": 1,
       "normalization": 1,
       "official_institutional_web": 7,
       "scholarly_api": 3,
       "state_machine": 1,
       "web_search": 2
     },
-    "candidate_or_discovery_rows": 5,
+    "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T08:57:21.580483+00:00",
+    "generated_at": "2026-06-02T09:05:02.516663+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
-    "scorecard_rows": 15,
+    "scorecard_rows": 16,
     "top_rows": [
       {
         "quality_band": "high_utility",

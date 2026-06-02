@@ -231,6 +231,7 @@ def main() -> None:
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
     attending_trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
+    npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
@@ -239,6 +240,7 @@ def main() -> None:
     top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
     top_attending_biosketch_bridges = read_csv(ARTIFACTS / "attending_biosketch_bridge_candidates.csv", limit=25)
     top_attending_trend_reconciliation = read_csv(ARTIFACTS / "attending_trend_reconciliation.csv", limit=25)
+    top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     top_reconciliation_decisions = [
         row
@@ -308,6 +310,14 @@ def main() -> None:
         {"trend_status": status, "count": count}
         for status, count in sorted((attending_trend_reconciliation_summary.get("by_trend_status") or {}).items())
     ]
+    npi_candidate_status_counts = [
+        {"candidate_status": status, "count": count}
+        for status, count in sorted((npi_candidate_summary.get("by_candidate_status") or {}).items())
+    ]
+    npi_taxonomy_counts = [
+        {"primary_taxonomy": taxonomy, "count": count}
+        for taxonomy, count in list((npi_candidate_summary.get("by_primary_taxonomy") or {}).items())[:20]
+    ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
         for status, count in sorted((hup_gap_probe_summary.get("by_candidate_status") or {}).items())
@@ -367,6 +377,8 @@ def main() -> None:
         "top_attending_biosketch_bridges": top_attending_biosketch_bridges,
         "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
         "top_attending_trend_reconciliation": top_attending_trend_reconciliation,
+        "npi_candidate_summary": npi_candidate_summary,
+        "top_npi_candidates": top_npi_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
         "medical_student_source_audit_summary": med_student_source_audit_summary,
@@ -725,6 +737,37 @@ def main() -> None:
         "",
         "Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance, but the reviewer decision should be recorded separately before an accepted trend fact is emitted.",
         "",
+        "## NPPES NPI Registry Candidate Enrichment",
+        "",
+        f"NPI queries run: {npi_candidate_summary.get('target_queries', 0)}. Candidate rows: {npi_candidate_summary.get('candidate_rows', 0)}. Queries with candidates: {npi_candidate_summary.get('queries_with_candidates', 0)}. Queries with no results: {npi_candidate_summary.get('queries_with_no_results', 0)}. Query errors: {npi_candidate_summary.get('queries_with_error', 0)}.",
+        "",
+        "Candidate statuses:",
+        "",
+        *md_table(npi_candidate_status_counts, ["candidate_status", "count"]),
+        "",
+        "Top NPI primary taxonomies:",
+        "",
+        *md_table(npi_taxonomy_counts, ["primary_taxonomy", "count"]),
+        "",
+        "Sample NPI candidates:",
+        "",
+        *md_table(
+            top_npi_candidates,
+            [
+                "display_name",
+                "role",
+                "candidate_status",
+                "confidence",
+                "provider_name",
+                "primary_taxonomy",
+                "practice_city",
+                "practice_state",
+                "source_url",
+            ],
+        ),
+        "",
+        "Learning: NPPES is an official provider registry and useful as a secondary identity anchor, especially when exact name, PA/Philadelphia location, physician or trainee taxonomy, and program specialty agree. It is not roster truth. Residents and fellows may have missing, stale, student-training, or non-Penn practice data, and name collisions are expected.",
+        "",
         "## Enrichment Coverage Audit",
         "",
         f"People audited: {enrichment_coverage_summary.get('person_rows', 0)}. Program/role groups audited: {enrichment_coverage_summary.get('program_rows', 0)}. Average coverage score: {enrichment_coverage_summary.get('avg_coverage_score', 0)}.",
@@ -749,6 +792,8 @@ def main() -> None:
                 "profile_coverage_rate",
                 "medical_school_coverage_rate",
                 "article_candidate_coverage_rate",
+                "npi_candidate_coverage_rate",
+                "npi_needs_review_coverage_rate",
                 "top_recommended_next_action",
             ],
         ),

@@ -130,6 +130,22 @@ def career_map(conn: sqlite3.Connection) -> dict[str, dict]:
     return out
 
 
+def npi_map(conn: sqlite3.Connection) -> dict[str, dict]:
+    out: dict[str, dict] = defaultdict(lambda: {"count": 0, "statuses": Counter(), "taxonomies": Counter()})
+    for row in rows(
+        conn,
+        """
+        SELECT person_key, candidate_status, primary_taxonomy
+        FROM npi_candidate_claims
+        """,
+    ):
+        target = out[row["person_key"]]
+        target["count"] += 1
+        target["statuses"][row["candidate_status"]] += 1
+        target["taxonomies"][row["primary_taxonomy"] or "none"] += 1
+    return out
+
+
 def queue_map(conn: sqlite3.Connection) -> dict[str, dict]:
     out: dict[str, dict] = defaultdict(lambda: {"count": 0, "max_priority": 0, "types": Counter()})
     for row in rows(
@@ -152,7 +168,7 @@ def count_int(mapping: dict, key: str) -> int:
     return int(value or 0)
 
 
-def coverage_score(person: dict, programs: set[str], training: dict, contacts: dict, evidence: dict, state: dict) -> int:
+def coverage_score(person: dict, programs: set[str], training: dict, contacts: dict, evidence: dict, state: dict, npi: dict) -> int:
     score = 0
     role = person.get("role") or ""
     training_events = training.get("events", Counter())
@@ -187,6 +203,10 @@ def coverage_score(person: dict, programs: set[str], training: dict, contacts: d
         score += 15
     elif claims.get("pubmed_author_query_candidate"):
         score += 5
+    if npi.get("statuses", Counter()).get("needs_review"):
+        score += 4
+    elif npi.get("count"):
+        score += 2
     if resolver and not resolver.get("cleaned_label"):
         score += 7
     elif resolver.get("cleaned_label"):
@@ -240,6 +260,7 @@ def person_rows(conn: sqlite3.Connection) -> list[dict]:
     contacts = contact_map(conn)
     evidences = evidence_map(conn)
     careers = career_map(conn)
+    npis = npi_map(conn)
     queues = queue_map(conn)
     states = read_state_audit()
     out = []
@@ -250,12 +271,14 @@ def person_rows(conn: sqlite3.Connection) -> list[dict]:
         contact = contacts.get(person_key, {})
         evidence = evidences.get(person_key, {})
         career = careers.get(person_key, {})
+        npi = npis.get(person_key, {})
         queue = queues.get(person_key, {})
         state = states.get(person_key, {})
         training_events = training.get("events", Counter())
         resolver = training.get("resolver", Counter())
         claim_statuses = evidence.get("statuses", Counter())
-        score = coverage_score(person, person_programs, training, contact, evidence, state)
+        npi_statuses = npi.get("statuses", Counter())
+        score = coverage_score(person, person_programs, training, contact, evidence, state, npi)
         out.append(
             {
                 "person_key": person_key,
@@ -277,6 +300,10 @@ def person_rows(conn: sqlite3.Connection) -> list[dict]:
                 "pubmed_article_candidate_count": count_int(claim_statuses, "pubmed_article_candidate:candidate"),
                 "pubmed_article_needs_review_count": count_int(claim_statuses, "pubmed_article_candidate:needs_review"),
                 "career_event_candidate_count": sum(career.get("events", Counter()).values()),
+                "npi_candidate_count": npi.get("count", 0),
+                "npi_needs_review_count": count_int(npi_statuses, "needs_review"),
+                "npi_candidate_status_count": count_int(npi_statuses, "candidate"),
+                "npi_low_signal_count": count_int(npi_statuses, "low_signal_npi_candidate"),
                 "reconciliation_queue_count": queue.get("count", 0),
                 "max_reconciliation_priority": queue.get("max_priority", 0),
                 "worst_state_machine_status": state.get("worst_state_machine_status", ""),
@@ -325,6 +352,10 @@ def program_rows(persons: list[dict]) -> list[dict]:
                     / total,
                     3,
                 ),
+                "npi_candidate_coverage_rate": round(sum(1 for row in rows_for_program if row["npi_candidate_count"]) / total, 3),
+                "npi_needs_review_coverage_rate": round(
+                    sum(1 for row in rows_for_program if row["npi_needs_review_count"]) / total, 3
+                ),
                 "cleaned_org_review_count": sum(row["cleaned_training_org_count"] for row in rows_for_program),
                 "reconciliation_queue_count": sum(row["reconciliation_queue_count"] for row in rows_for_program),
                 "top_recommended_next_action": actions.most_common(1)[0][0],
@@ -358,6 +389,15 @@ def summary(persons: list[dict], programs: list[dict]) -> dict:
         "article_candidate_coverage_rate": round(
             sum(1 for row in persons if row["pubmed_article_candidate_count"] or row["pubmed_article_needs_review_count"])
             / len(persons),
+            3,
+        )
+        if persons
+        else 0,
+        "npi_candidate_coverage_rate": round(sum(1 for row in persons if row["npi_candidate_count"]) / len(persons), 3)
+        if persons
+        else 0,
+        "npi_needs_review_coverage_rate": round(
+            sum(1 for row in persons if row["npi_needs_review_count"]) / len(persons),
             3,
         )
         if persons

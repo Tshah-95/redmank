@@ -50,6 +50,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_biosketch_bridge_summary.json`: status counts for dated recent Penn training bridge candidates, non-Penn context, and research-training context.
 - `artifacts/data/attending_trend_reconciliation.csv`: non-mutating trend acceptance ledger combining endpoint, Penn-training, biosketch, and historical-link evidence.
 - `artifacts/data/attending_trend_reconciliation_summary.json`: review-ready recent attending trend counts and remaining bridge gaps.
+- `artifacts/data/npi_candidate_claims.csv`: candidate NPPES/NPI identity, taxonomy, and PA practice-location anchors for current residents/fellows.
+- `artifacts/data/npi_candidate_summary.json`: NPI query, status, role, and taxonomy counts.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
 - `artifacts/data/program_enrichment_coverage.csv`: per-program/role enrichment coverage rollup and next-action summary.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
@@ -153,6 +155,7 @@ python3 scripts/audit_attending_biosketch_bridges.py --as-of-year 2026
 python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-results 4 --probe-pages --sleep 0.2
 python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
+python3 scripts/collect_npi_candidates.py --sleep 0.03
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
