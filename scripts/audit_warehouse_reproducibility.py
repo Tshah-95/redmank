@@ -81,6 +81,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_program_coverage_action_queue.csv",
+        "official_program_coverage_action_queue",
+        "csv",
+        "official_program_coverage_action_queue",
+        True,
+    ),
+    (
         "artifacts/data/official_program_alias_reconciliation_candidates.csv",
         "official_program_alias_ledger",
         "csv",

@@ -1,0 +1,183 @@
+{
+  "by_action_lane": {
+    "alias_review": 20,
+    "count_conflict_review": 1,
+    "parser_or_roster_source_review": 7,
+    "source_candidate_probe": 15
+  },
+  "by_assurance_level": {
+    "0": 15,
+    "1": 12,
+    "3": 16
+  },
+  "by_blocker_status": {
+    "candidate_source_without_people": 7,
+    "covered_by_alias_without_explicit_acceptance": 15,
+    "exact_resolution_count_conflict": 1,
+    "not_covered_but_candidate_sources_exist": 15,
+    "open_gap_with_related_loaded_people": 5
+  },
+  "by_program_type": {
+    "fellowship": 30,
+    "residency": 13
+  },
+  "csv": "artifacts/data/official_program_coverage_action_queue.csv",
+  "generated_at": "2026-06-02T11:25:07.960181+00:00",
+  "highest_priority": 1093,
+  "json": "artifacts/data/official_program_coverage_action_queue.json",
+  "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
+  "queue_rows": 43,
+  "top_actions": [
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Internal Medicine",
+      "official_program_name": "Internal Medicine - Categorical",
+      "official_program_type": "residency",
+      "person_impact_count": 173,
+      "priority": 1093,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+      "official_department": "Pathology and Laboratory Medicine",
+      "official_program_name": "Soft Tissue/Bone (Selective)",
+      "official_program_type": "fellowship",
+      "person_impact_count": 69,
+      "priority": 1009,
+      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+    },
+    {
+      "action_lane": "count_conflict_review",
+      "candidate_url": "",
+      "official_department": "Orthopedic Surgery",
+      "official_program_name": "Adult Reconstructive Orthopedics",
+      "official_program_type": "fellowship",
+      "person_impact_count": 3,
+      "priority": 1003,
+      "recommended_next_action": "review_count_conflict_before_denominator_mutation"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Radiology",
+      "official_program_name": "Radiology - Diagnostic",
+      "official_program_type": "residency",
+      "person_impact_count": 54,
+      "priority": 974,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents",
+      "official_department": "Radiology",
+      "official_program_name": "Radiology - Interventional, Independent",
+      "official_program_type": "residency",
+      "person_impact_count": 19,
+      "priority": 971,
+      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "https://dermatology.upenn.edu/residents/combined-medicine-and-dermatology-track",
+      "official_department": "Dermatology",
+      "official_program_name": "Dermatology",
+      "official_program_type": "residency",
+      "person_impact_count": 3,
+      "priority": 963,
+      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents",
+      "official_department": "Surgery",
+      "official_program_name": "Plastic Surgery",
+      "official_program_type": "fellowship",
+      "person_impact_count": 22,
+      "priority": 962,
+      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Internal Medicine",
+      "official_program_name": "Internal Medicine - Pediatrics",
+      "official_program_type": "residency",
+      "person_impact_count": 25,
+      "priority": 945,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Surgery",
+      "official_program_name": "Plastic Surgery - Integrated",
+      "official_program_type": "residency",
+      "person_impact_count": 22,
+      "priority": 942,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Radiology",
+      "official_program_name": "Radiology - Interventional, Integrated",
+      "official_program_type": "residency",
+      "person_impact_count": 19,
+      "priority": 939,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Surgery",
+      "official_program_name": "Thoracic Surgery - Integrated",
+      "official_program_type": "residency",
+      "person_impact_count": 15,
+      "priority": 935,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Internal Medicine",
+      "official_program_name": "Pulmonary Disease and Critical Care Medicine",
+      "official_program_type": "fellowship",
+      "person_impact_count": 34,
+      "priority": 934,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
+      "official_department": "Internal Medicine",
+      "official_program_name": "Transplant Hepatology",
+      "official_program_type": "fellowship",
+      "person_impact_count": 2,
+      "priority": 926,
+      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Internal Medicine",
+      "official_program_name": "Internal Medicine - Dermatology",
+      "official_program_type": "residency",
+      "person_impact_count": 5,
+      "priority": 925,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_url": "",
+      "official_department": "Internal Medicine",
+      "official_program_name": "Gastroenterology",
+      "official_program_type": "fellowship",
+      "person_impact_count": 23,
+      "priority": 923,
+      "recommended_next_action": "accept_or_split_alias_mapping"
+    }
+  ],
+  "total_person_impact_count": 542
+}

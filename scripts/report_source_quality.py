@@ -243,6 +243,10 @@ def main() -> None:
         ARTIFACTS / "official_program_coverage_assurance_summary.json",
         {},
     )
+    official_program_coverage_action_queue_summary = read_json(
+        ARTIFACTS / "official_program_coverage_action_queue_summary.json",
+        {},
+    )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
@@ -427,6 +431,7 @@ def main() -> None:
         "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
+        "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
     }
     if openalex_features:
         openalex_learning = "Learning: OpenAlex is useful for generating review candidates when name, Penn affiliation, prior institution, and ORCID features cluster. It is not safe as a direct profile mutator because author disambiguation and stale affiliations remain real risks."
@@ -472,6 +477,27 @@ def main() -> None:
                 )
             ],
             ["assurance_status", "count"],
+        ),
+        "",
+        "Coverage action queue:",
+        "",
+        f"Action rows: {official_program_coverage_action_queue_summary.get('queue_rows', 0)}. Person-impact count: {official_program_coverage_action_queue_summary.get('total_person_impact_count', 0)}.",
+        "",
+        *md_table(
+            [
+                {"action_lane": lane, "count": count}
+                for lane, count in sorted(
+                    (official_program_coverage_action_queue_summary.get("by_action_lane") or {}).items()
+                )
+            ],
+            ["action_lane", "count"],
+        ),
+        "",
+        "Top coverage actions:",
+        "",
+        *md_table(
+            official_program_coverage_action_queue_summary.get("top_actions") or [],
+            ["official_program_name", "official_program_type", "action_lane", "priority", "person_impact_count", "recommended_next_action"],
         ),
         "",
         "Sample uncovered or partially covered official programs:",

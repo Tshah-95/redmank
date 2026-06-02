@@ -69,6 +69,7 @@ def main() -> None:
         "official_gap_roster_reconciliation",
         "official_gap_roster_program_resolution",
         "official_program_coverage_assurance_audit",
+        "official_program_coverage_action_queue",
         "official_program_alias_reconciliation_candidates",
         "program_identifier_source_observations",
         "program_identifier_candidates",
@@ -495,6 +496,36 @@ def main() -> None:
             """
         )
     }
+    official_program_coverage_action_lane_counts = {
+        row["action_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT action_lane, COUNT(*) AS count
+            FROM official_program_coverage_action_queue
+            GROUP BY action_lane
+            """
+        )
+    }
+    official_program_coverage_action_blocker_counts = {
+        row["blocker_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT blocker_status, COUNT(*) AS count
+            FROM official_program_coverage_action_queue
+            GROUP BY blocker_status
+            """
+        )
+    }
+    official_program_coverage_action_level_counts = {
+        str(row["assurance_level"]): row["count"]
+        for row in conn.execute(
+            """
+            SELECT assurance_level, COUNT(*) AS count
+            FROM official_program_coverage_action_queue
+            GROUP BY assurance_level
+            """
+        )
+    }
     official_program_alias_reconciliation_counts = {
         row["relation_status"]: row["count"]
         for row in conn.execute(
@@ -755,6 +786,13 @@ def main() -> None:
         )
     else:
         official_program_coverage_assurance_summary = {}
+    official_program_coverage_action_queue_summary_path = ARTIFACTS / "official_program_coverage_action_queue_summary.json"
+    if official_program_coverage_action_queue_summary_path.exists():
+        official_program_coverage_action_queue_summary = json.loads(
+            official_program_coverage_action_queue_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        official_program_coverage_action_queue_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -806,6 +844,9 @@ def main() -> None:
         "official_program_coverage_assurance_counts": official_program_coverage_assurance_counts,
         "official_program_coverage_assurance_level_counts": official_program_coverage_assurance_level_counts,
         "official_program_coverage_assurance_evidence_counts": official_program_coverage_assurance_evidence_counts,
+        "official_program_coverage_action_lane_counts": official_program_coverage_action_lane_counts,
+        "official_program_coverage_action_blocker_counts": official_program_coverage_action_blocker_counts,
+        "official_program_coverage_action_level_counts": official_program_coverage_action_level_counts,
         "official_program_alias_reconciliation_counts": official_program_alias_reconciliation_counts,
         "program_identifier_candidate_counts": program_identifier_candidate_counts,
         "program_identifier_source_counts": program_identifier_source_counts,
@@ -843,6 +884,7 @@ def main() -> None:
         "official_gap_roster_reconciliation_summary": official_gap_roster_reconciliation_summary,
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
+        "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

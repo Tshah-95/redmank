@@ -180,6 +180,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         ARTIFACTS / "official_program_coverage_assurance_summary.json",
         {},
     )
+    coverage_action_queue_summary = read_json(
+        ARTIFACTS / "official_program_coverage_action_queue_summary.json",
+        {},
+    )
     level_4_covered_programs = int(coverage_assurance_summary.get("level_4_program_rows") or 0)
     level_4_covered_people = int(coverage_assurance_summary.get("level_4_people_count") or 0)
     alias_review_programs = int(coverage_assurance_summary.get("alias_review_program_rows") or 0)
@@ -559,6 +563,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "alias_candidate_rows": alias_rows,
                 "coverage_mutation_allowed_rows": alias_mutations,
                 "coverage_assurance_summary": coverage_assurance_summary,
+                "coverage_action_queue_summary": coverage_action_queue_summary,
             },
         ),
         make_row(

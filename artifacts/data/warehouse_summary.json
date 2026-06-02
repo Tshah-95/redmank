@@ -28,7 +28,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T11:20:37.065617+00:00",
+    "generated_at": "2026-06-02T11:25:07.590457+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -140,7 +140,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T11:20:37.203537+00:00",
+    "generated_at": "2026-06-02T11:25:07.720945+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 3,
@@ -233,7 +233,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T11:20:37.159883+00:00",
+    "generated_at": "2026-06-02T11:25:07.682320+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -298,7 +298,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T11:20:37.127402+00:00",
+    "generated_at": "2026-06-02T11:25:07.650902+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -329,6 +329,7 @@
     "official_gap_roster_program_resolution": 24,
     "official_gap_roster_reconciliation": 37,
     "official_program_alias_reconciliation_candidates": 16,
+    "official_program_coverage_action_queue": 43,
     "official_program_coverage_assurance_audit": 91,
     "official_program_coverage_audit": 91,
     "official_program_gap_reason_audit": 27,
@@ -367,7 +368,7 @@
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558,
     "training_state_transition_rollups": 216,
-    "warehouse_reproducibility_audit": 45
+    "warehouse_reproducibility_audit": 46
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -628,7 +629,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T11:20:38.448926+00:00",
+  "generated_at": "2026-06-02T11:25:09.011335+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -920,7 +921,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T11:20:37.384569+00:00",
+    "generated_at": "2026-06-02T11:25:07.882923+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 430,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -959,7 +960,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T11:20:37.300179+00:00",
+    "generated_at": "2026-06-02T11:25:07.816102+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 499,
     "loaded_person_count": 499,
@@ -977,6 +978,207 @@
     "section_level_split_candidate": 1,
     "track_split_unresolved_review": 1,
     "weak_related_source_review": 10
+  },
+  "official_program_coverage_action_blocker_counts": {
+    "candidate_source_without_people": 7,
+    "covered_by_alias_without_explicit_acceptance": 15,
+    "exact_resolution_count_conflict": 1,
+    "not_covered_but_candidate_sources_exist": 15,
+    "open_gap_with_related_loaded_people": 5
+  },
+  "official_program_coverage_action_lane_counts": {
+    "alias_review": 20,
+    "count_conflict_review": 1,
+    "parser_or_roster_source_review": 7,
+    "source_candidate_probe": 15
+  },
+  "official_program_coverage_action_level_counts": {
+    "0": 15,
+    "1": 12,
+    "3": 16
+  },
+  "official_program_coverage_action_queue_summary": {
+    "by_action_lane": {
+      "alias_review": 20,
+      "count_conflict_review": 1,
+      "parser_or_roster_source_review": 7,
+      "source_candidate_probe": 15
+    },
+    "by_assurance_level": {
+      "0": 15,
+      "1": 12,
+      "3": 16
+    },
+    "by_blocker_status": {
+      "candidate_source_without_people": 7,
+      "covered_by_alias_without_explicit_acceptance": 15,
+      "exact_resolution_count_conflict": 1,
+      "not_covered_but_candidate_sources_exist": 15,
+      "open_gap_with_related_loaded_people": 5
+    },
+    "by_program_type": {
+      "fellowship": 30,
+      "residency": 13
+    },
+    "csv": "artifacts/data/official_program_coverage_action_queue.csv",
+    "generated_at": "2026-06-02T11:25:07.960181+00:00",
+    "highest_priority": 1093,
+    "json": "artifacts/data/official_program_coverage_action_queue.json",
+    "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
+    "queue_rows": 43,
+    "top_actions": [
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Internal Medicine",
+        "official_program_name": "Internal Medicine - Categorical",
+        "official_program_type": "residency",
+        "person_impact_count": 173,
+        "priority": 1093,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "https://pathology.med.upenn.edu/department/people/fellows",
+        "official_department": "Pathology and Laboratory Medicine",
+        "official_program_name": "Soft Tissue/Bone (Selective)",
+        "official_program_type": "fellowship",
+        "person_impact_count": 69,
+        "priority": 1009,
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+      },
+      {
+        "action_lane": "count_conflict_review",
+        "candidate_url": "",
+        "official_department": "Orthopedic Surgery",
+        "official_program_name": "Adult Reconstructive Orthopedics",
+        "official_program_type": "fellowship",
+        "person_impact_count": 3,
+        "priority": 1003,
+        "recommended_next_action": "review_count_conflict_before_denominator_mutation"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Radiology",
+        "official_program_name": "Radiology - Diagnostic",
+        "official_program_type": "residency",
+        "person_impact_count": 54,
+        "priority": 974,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents",
+        "official_department": "Radiology",
+        "official_program_name": "Radiology - Interventional, Independent",
+        "official_program_type": "residency",
+        "person_impact_count": 19,
+        "priority": 971,
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "https://dermatology.upenn.edu/residents/combined-medicine-and-dermatology-track",
+        "official_department": "Dermatology",
+        "official_program_name": "Dermatology",
+        "official_program_type": "residency",
+        "person_impact_count": 3,
+        "priority": 963,
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents",
+        "official_department": "Surgery",
+        "official_program_name": "Plastic Surgery",
+        "official_program_type": "fellowship",
+        "person_impact_count": 22,
+        "priority": 962,
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Internal Medicine",
+        "official_program_name": "Internal Medicine - Pediatrics",
+        "official_program_type": "residency",
+        "person_impact_count": 25,
+        "priority": 945,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Surgery",
+        "official_program_name": "Plastic Surgery - Integrated",
+        "official_program_type": "residency",
+        "person_impact_count": 22,
+        "priority": 942,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Radiology",
+        "official_program_name": "Radiology - Interventional, Integrated",
+        "official_program_type": "residency",
+        "person_impact_count": 19,
+        "priority": 939,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Surgery",
+        "official_program_name": "Thoracic Surgery - Integrated",
+        "official_program_type": "residency",
+        "person_impact_count": 15,
+        "priority": 935,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Internal Medicine",
+        "official_program_name": "Pulmonary Disease and Critical Care Medicine",
+        "official_program_type": "fellowship",
+        "person_impact_count": 34,
+        "priority": 934,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
+        "official_department": "Internal Medicine",
+        "official_program_name": "Transplant Hepatology",
+        "official_program_type": "fellowship",
+        "person_impact_count": 2,
+        "priority": 926,
+        "recommended_next_action": "resolve_related_loaded_program_before_gap_closure"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Internal Medicine",
+        "official_program_name": "Internal Medicine - Dermatology",
+        "official_program_type": "residency",
+        "person_impact_count": 5,
+        "priority": 925,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      },
+      {
+        "action_lane": "alias_review",
+        "candidate_url": "",
+        "official_department": "Internal Medicine",
+        "official_program_name": "Gastroenterology",
+        "official_program_type": "fellowship",
+        "person_impact_count": 23,
+        "priority": 923,
+        "recommended_next_action": "accept_or_split_alias_mapping"
+      }
+    ],
+    "total_person_impact_count": 542
   },
   "official_program_coverage_assurance_counts": {
     "alias_method_current_roster_review": 15,
@@ -1033,7 +1235,7 @@
     "covered_people_count": 1196,
     "covered_program_rows": 64,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T11:20:37.425772+00:00",
+    "generated_at": "2026-06-02T11:25:07.921558+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 769,
     "level_4_program_rows": 48,
@@ -1354,7 +1556,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T11:20:37.910814+00:00",
+    "generated_at": "2026-06-02T11:25:08.467040+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -1593,12 +1795,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 45
+    "ok": 46
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 45,
-    "audited_at": "2026-06-02T11:20:38.032651+00:00",
+    "artifact_rows": 46,
+    "audited_at": "2026-06-02T11:25:08.572636+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -1613,6 +1815,7 @@
       "longitudinal_readiness_ledger": 4,
       "longitudinal_snapshot_ledger": 4,
       "official_program_alias_ledger": 1,
+      "official_program_coverage_action_queue": 1,
       "official_program_coverage_assurance_ledger": 1,
       "official_program_denominator_ledger": 1,
       "official_program_gap_probe_ledger": 1,
@@ -1630,17 +1833,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 45
+      "ok": 46
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 61112320,
+    "sqlite_byte_size": 61652992,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "6cdcf50a6f8c24b80b38dca476c82041f25db3c8e160e77aba1f65584959cbd8",
+    "sqlite_sha256": "d0f79fe3ad62abb6a73b6218d80787ee36c573342e336126d67fb7bffa01de28",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

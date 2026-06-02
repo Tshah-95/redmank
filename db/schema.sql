@@ -264,6 +264,28 @@ CREATE TABLE IF NOT EXISTS official_program_coverage_assurance_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_coverage_action_queue (
+  queue_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  assurance_status TEXT NOT NULL,
+  assurance_level INTEGER NOT NULL DEFAULT 0,
+  coverage_status TEXT NOT NULL,
+  action_lane TEXT NOT NULL,
+  priority INTEGER NOT NULL DEFAULT 0,
+  person_impact_count INTEGER NOT NULL DEFAULT 0,
+  candidate_source_count INTEGER NOT NULL DEFAULT 0,
+  candidate_url TEXT,
+  official_program_url TEXT,
+  blocker_status TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  review_question TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS program_identifier_source_observations (
   observation_key TEXT PRIMARY KEY,
   identifier_source TEXT NOT NULL,

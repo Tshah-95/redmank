@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T11:20:37.982698+00:00
+Generated: 2026-06-02T11:25:08.536706+00:00
 
 ## What This Pass Did
 
@@ -42,6 +42,37 @@ Level-4 supported programs: 48 covering 769 people. Alias/count-review programs:
 | exact_resolution_count_conflict_review | 1 |
 | not_discovered_by_current_strategy | 15 |
 | open_gap_with_alias_review | 5 |
+
+Coverage action queue:
+
+Action rows: 43. Person-impact count: 542.
+
+| action_lane | count |
+| --- | --- |
+| alias_review | 20 |
+| count_conflict_review | 1 |
+| parser_or_roster_source_review | 7 |
+| source_candidate_probe | 15 |
+
+Top coverage actions:
+
+| official_program_name | official_program_type | action_lane | priority | person_impact_count | recommended_next_action |
+| --- | --- | --- | --- | --- | --- |
+| Internal Medicine - Categorical | residency | alias_review | 1093 | 173 | accept_or_split_alias_mapping |
+| Soft Tissue/Bone (Selective) | fellowship | alias_review | 1009 | 69 | resolve_related_loaded_program_before_gap_closure |
+| Adult Reconstructive Orthopedics | fellowship | count_conflict_review | 1003 | 3 | review_count_conflict_before_denominator_mutation |
+| Radiology - Diagnostic | residency | alias_review | 974 | 54 | accept_or_split_alias_mapping |
+| Radiology - Interventional, Independent | residency | alias_review | 971 | 19 | resolve_related_loaded_program_before_gap_closure |
+| Dermatology | residency | alias_review | 963 | 3 | resolve_related_loaded_program_before_gap_closure |
+| Plastic Surgery | fellowship | alias_review | 962 | 22 | resolve_related_loaded_program_before_gap_closure |
+| Internal Medicine - Pediatrics | residency | alias_review | 945 | 25 | accept_or_split_alias_mapping |
+| Plastic Surgery - Integrated | residency | alias_review | 942 | 22 | accept_or_split_alias_mapping |
+| Radiology - Interventional, Integrated | residency | alias_review | 939 | 19 | accept_or_split_alias_mapping |
+| Thoracic Surgery - Integrated | residency | alias_review | 935 | 15 | accept_or_split_alias_mapping |
+| Pulmonary Disease and Critical Care Medicine | fellowship | alias_review | 934 | 34 | accept_or_split_alias_mapping |
+| Transplant Hepatology | fellowship | alias_review | 926 | 2 | resolve_related_loaded_program_before_gap_closure |
+| Internal Medicine - Dermatology | residency | alias_review | 925 | 5 | accept_or_split_alias_mapping |
+| Gastroenterology | fellowship | alias_review | 923 | 23 | accept_or_split_alias_mapping |
 
 Sample uncovered or partially covered official programs:
 
@@ -537,7 +568,7 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 45 | 45 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 46 | 46 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |

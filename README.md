@@ -35,6 +35,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
 - `artifacts/data/official_program_coverage_assurance_audit.csv`: non-mutating assurance tiers for each official HUP coverage claim, separating direct/resolution-backed coverage from alias/count-review and open gaps.
 - `artifacts/data/official_program_coverage_assurance_summary.json`: level counts, covered-people counts, and denominator-evidence status rollups for coverage trust.
+- `artifacts/data/official_program_coverage_action_queue.csv`: prioritized non-mutating worklist for official HUP programs that are not level-4 denominator truth.
+- `artifacts/data/official_program_coverage_action_queue_summary.json`: action-lane counts and top next actions for parser, alias, count-conflict, and discovery work.
 - `artifacts/data/penn_gme_gap_source_candidates.csv`: prioritized source queue for official HUP programs without captured current roster people.
 - `artifacts/data/penn_gme_gap_source_probes.json`: reachability and page-signal observations for uncovered official HUP program URLs.
 - `artifacts/data/hup_gap_reason_audit.csv`: deterministic reason ledger for remaining official HUP coverage gaps.
@@ -170,6 +172,7 @@ python3 scripts/audit_hup_gap_reasons.py
 python3 scripts/audit_official_gap_roster_reconciliation.py
 python3 scripts/audit_official_gap_roster_program_resolution.py
 python3 scripts/audit_official_program_coverage_assurance.py
+python3 scripts/materialize_official_program_coverage_action_queue.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
@@ -284,6 +287,7 @@ The initial methodology is conservative:
 - Classify official denominator gaps by evidence-backed reason before treating them as missing people: context-only public page, parser/manual-review candidate, low-content official page, related-program alias review, or broader-discovery-needed.
 - Resolve seed-extracted gap rosters against the official denominator with a separate program-resolution ledger; exact name/type/department candidates may become reviewer-ready, while role mismatches and broad department pages remain non-mutating review evidence.
 - Assign assurance tiers to official coverage claims so denominator reports distinguish direct normalized-name support, exact program-resolution support, alias-method coverage requiring review, count conflicts, and open gaps.
+- Materialize a prioritized action queue for non-level-4 official programs so the next loop can choose between parser work, source discovery, alias review, and count-conflict review from a stable evidence-backed list.
 - Keep official-program alias/denominator reconciliation as a candidate ledger until the relation is strong enough to mutate coverage or split a loaded broad program into a narrower official program.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Treat the official MD-student directory as unavailable to public scraping when PennKey protection is observed; keep public MSTP records as partial student truth and public graduate-program directories as MD-PhD cross-check/enrichment candidates only.

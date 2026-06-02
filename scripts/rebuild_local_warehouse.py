@@ -26,6 +26,7 @@ PIPELINE = [
     ["python3", "scripts/audit_official_gap_roster_reconciliation.py"],
     ["python3", "scripts/audit_official_gap_roster_program_resolution.py"],
     ["python3", "scripts/audit_official_program_coverage_assurance.py"],
+    ["python3", "scripts/materialize_official_program_coverage_action_queue.py"],
     ["python3", "scripts/audit_warehouse_reproducibility.py"],
     ["python3", "scripts/audit_source_utility_scorecard.py"],
     ["python3", "scripts/report_source_quality.py"],
