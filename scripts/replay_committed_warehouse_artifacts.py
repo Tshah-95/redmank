@@ -77,6 +77,7 @@ CSV_TABLES = [
     ("trainee_profile_search_observations.csv", "trainee_profile_search_observations"),
     ("trainee_profile_discovery_candidates.csv", "trainee_profile_discovery_candidates"),
     ("official_profile_discovery_workbench.csv", "official_profile_discovery_workbench"),
+    ("official_profile_reobservation_audit.csv", "official_profile_reobservation_audit"),
     ("official_profile_reviewer_decisions.csv", "official_profile_reviewer_decisions"),
     ("official_profile_reviewer_decision_queue.csv", "official_profile_reviewer_decision_queue"),
     ("official_profile_reviewer_decision_audit.csv", "official_profile_reviewer_decision_audit"),
@@ -137,6 +138,11 @@ JSON_TABLES = [
     ("penn_gme_gap_source_probes.json", "official_program_source_probes"),
 ]
 
+NULLABLE_REPLAY_COLUMNS = {
+    "contact_assurance_audit": {"person_key"},
+    "program_lifecycle_consistency_audit": {"matched_program_key", "identifier_key"},
+}
+
 
 def table_columns(conn: sqlite3.Connection, table: str) -> list[str]:
     return [row[1] for row in conn.execute(f"PRAGMA table_info({table})")]
@@ -172,12 +178,10 @@ def insert_rows(conn: sqlite3.Connection, table: str, rows: list[dict], delete_f
             value = row.get(column, "")
             if isinstance(value, (dict, list)):
                 value = json.dumps(value, ensure_ascii=False, sort_keys=True)
+            if column in NULLABLE_REPLAY_COLUMNS.get(table, set()) and value == "":
+                value = None
             prepared[column] = value
         prepared_rows.append(prepared)
-    if table == "contact_assurance_audit":
-        for row in prepared_rows:
-            if not row.get("person_key"):
-                row["person_key"] = None
     conn.executemany(f"INSERT INTO {table} ({column_sql}) VALUES ({placeholders})", prepared_rows)
     return len(rows)
 

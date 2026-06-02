@@ -72,6 +72,7 @@ def main() -> None:
         "official_roster_refresh_workbench",
         "official_roster_refresh_batches",
         "official_profile_discovery_workbench",
+        "official_profile_reobservation_audit",
         "official_profile_reviewer_decisions",
         "official_profile_reviewer_decision_queue",
         "official_profile_reviewer_decision_audit",

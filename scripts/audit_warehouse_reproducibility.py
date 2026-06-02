@@ -316,6 +316,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_profile_reobservation_audit.csv",
+        "official_profile_reobservation_ledger",
+        "csv",
+        "official_profile_reobservation_audit",
+        True,
+    ),
+    (
         "artifacts/data/official_profile_reviewer_decisions.csv",
         "official_profile_reviewer_decision_input",
         "csv",

@@ -1764,6 +1764,32 @@ CREATE TABLE IF NOT EXISTS official_profile_reviewer_decision_queue (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_profile_reobservation_audit (
+  profile_reobservation_key TEXT PRIMARY KEY,
+  profile_workbench_key TEXT NOT NULL REFERENCES official_profile_discovery_workbench(profile_workbench_key) ON DELETE CASCADE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  candidate_url TEXT NOT NULL,
+  candidate_domain TEXT,
+  fetch_status TEXT NOT NULL,
+  http_status INTEGER,
+  source_hash TEXT,
+  title TEXT,
+  canonical_url TEXT,
+  name_present INTEGER NOT NULL DEFAULT 0,
+  program_context_present INTEGER NOT NULL DEFAULT 0,
+  role_or_training_context_present INTEGER NOT NULL DEFAULT 0,
+  official_domain_confirmed INTEGER NOT NULL DEFAULT 0,
+  profile_path_confirmed INTEGER NOT NULL DEFAULT 0,
+  reobservation_status TEXT NOT NULL,
+  evidence_strength INTEGER NOT NULL DEFAULT 0,
+  match_context TEXT,
+  reobserved_at TEXT NOT NULL,
+  evidence_json TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS official_profile_reviewer_decisions (
   reviewer_decision_key TEXT PRIMARY KEY,
   profile_workbench_key TEXT NOT NULL,

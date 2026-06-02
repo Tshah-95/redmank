@@ -26,6 +26,7 @@ AUDIT_JSON = ARTIFACTS / "contact_verification_reviewer_decision_audit.json"
 ACCEPTED_CSV = ARTIFACTS / "accepted_verified_contact_facts.csv"
 ACCEPTED_JSON = ARTIFACTS / "accepted_verified_contact_facts.json"
 SUMMARY_JSON = ARTIFACTS / "contact_verification_reviewer_decision_summary.json"
+REOBSERVATION_CSV = ARTIFACTS / "contact_reobservation_audit.csv"
 
 ALLOWED_DECISIONS = [
     "accept_verified_contact",
@@ -203,6 +204,29 @@ def ensure_manual_decisions_file() -> None:
 def sqlite_rows(conn: sqlite3.Connection, query: str) -> list[dict]:
     conn.row_factory = sqlite3.Row
     return [dict(row) for row in conn.execute(query)]
+
+
+def replay_reobservations(conn: sqlite3.Connection) -> None:
+    if not REOBSERVATION_CSV.exists():
+        return
+    rows = read_csv(REOBSERVATION_CSV)
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    conn.execute("DELETE FROM contact_reobservation_audit")
+    if not rows:
+        return
+    columns = {row[1] for row in conn.execute("PRAGMA table_info(contact_reobservation_audit)")}
+    row_columns = [column for column in rows[0].keys() if column in columns]
+    fields = ", ".join(row_columns)
+    placeholders = ", ".join(f":{field}" for field in row_columns)
+    db_rows = []
+    for row in rows:
+        db_row = {field: row.get(field, "") for field in row_columns}
+        if "person_key" in db_row and not db_row.get("person_key"):
+            db_row["person_key"] = None
+        if "http_status" in db_row and db_row.get("http_status") == "":
+            db_row["http_status"] = None
+        db_rows.append(db_row)
+    conn.executemany(f"INSERT OR REPLACE INTO contact_reobservation_audit ({fields}) VALUES ({placeholders})", db_rows)
 
 
 def read_contracts(conn: sqlite3.Connection) -> list[dict]:
@@ -413,7 +437,7 @@ def classify_decision(queue_row: dict, decision: dict | None) -> tuple[str, int,
             "pending_reviewer_decision",
             0,
             "manual_reviewer_decision_missing",
-            "record_accept_reject_or_needs_more_evidence_decision",
+            queue_row.get("recommended_next_action") or "record_accept_reject_or_needs_more_evidence_decision",
         )
     reviewer_decision = decision.get("reviewer_decision") or ""
     if reviewer_decision not in ALLOWED_DECISIONS:
@@ -656,6 +680,8 @@ def main() -> None:
 
     generated_at = now_utc()
     conn = sqlite3.connect(args.db)
+    with conn:
+        replay_reobservations(conn)
     queue = build_queue(read_contracts(conn), read_reobservations(conn), generated_at)
     audits = audit_rows(queue, generated_at)
     accepted = accepted_contacts(queue, audits, generated_at)

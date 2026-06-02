@@ -1,0 +1,23 @@
+{
+  "by_fetch_status": {
+    "fetched": 27
+  },
+  "by_reobservation_status": {
+    "fresh_source_resolved_to_generic_academic_departments_page": 27
+  },
+  "by_role": {
+    "fellow": 15,
+    "resident": 12
+  },
+  "csv": "artifacts/data/official_profile_reobservation_audit.csv",
+  "fresh_profile_context_rows": 0,
+  "generated_at": "2026-06-02T22:34:50.827122+00:00",
+  "generic_page_resolution_rows": 27,
+  "identity_context_review_rows": 0,
+  "identity_not_reobserved_rows": 0,
+  "json": "artifacts/data/official_profile_reobservation_audit.json",
+  "policy": "Official profile reobservation is non-mutating. It records current source hash and context checks; accepted profile URL facts still require explicit reviewer acceptance.",
+  "reobservation_rows": 27,
+  "source_fetch_problem_rows": 0,
+  "unique_candidate_url_count": 27
+}

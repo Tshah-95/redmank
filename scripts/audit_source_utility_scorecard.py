@@ -556,6 +556,14 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     trainee_profile_discovery_summary = read_json(ARTIFACTS / "trainee_profile_discovery_summary.json", {})
+    official_profile_reobservation_summary = read_json(ARTIFACTS / "official_profile_reobservation_summary.json", {})
+    official_profile_reviewer_decision_summary = read_json(ARTIFACTS / "official_profile_reviewer_decision_summary.json", {})
+    official_profile_generic_route_rows = int(
+        official_profile_reobservation_summary.get("generic_page_resolution_rows") or 0
+    )
+    official_profile_fresh_context_rows = int(
+        official_profile_reobservation_summary.get("fresh_profile_context_rows") or 0
+    )
     trainee_profile_discovery_claims = scalar(
         conn,
         "SELECT COUNT(*) FROM evidence_claims WHERE claim_type = 'official_profile_url_candidate'",
@@ -1398,22 +1406,26 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             input_records=int(trainee_profile_discovery_summary.get("direct_probe_rows") or 0),
             output_records=trainee_profile_discovery_candidates,
             candidate_records=trainee_profile_discovery_claims,
-            needs_review_records=trainee_profile_discovery_needs_review,
+            needs_review_records=trainee_profile_discovery_needs_review + official_profile_generic_route_rows,
+            review_ready_records=official_profile_fresh_context_rows,
             low_signal_records=trainee_profile_discovery_low_signal,
-            score=58.0,
+            score=52.0 if official_profile_generic_route_rows else 58.0,
             strengths=[
                 "Deterministic sibling probes reuse observed same-program official profile bases",
-                "Successful candidates include HTTP 200, content hash, name, program, and role/training evidence",
+                "Candidate URLs are now independently reobserved before reviewer acceptance",
                 "All discovered URLs remain review-only and do not mutate roster truth",
             ],
             limitations=[
                 "Sparse route: most probed sibling slugs return 404",
                 "Only exact program-role profile bases are used, so programs without known profile bases are not helped",
+                "Current reobservation shows review-ready profile candidates resolving to generic Academic Departments pages",
                 "Candidate URLs still need same-person/current-trainee review before acceptance",
             ],
-            recommended_next_action="review_official_profile_url_candidates_and_prioritize_roster_refresh_for_remaining_profile_gaps",
+            recommended_next_action="reprobe_or_replace_generic_profile_routes_before_accepting_profile_url_candidates",
             evidence={
                 "summary": trainee_profile_discovery_summary,
+                "official_profile_reobservation_summary": official_profile_reobservation_summary,
+                "official_profile_reviewer_decision_summary": official_profile_reviewer_decision_summary,
                 "candidate_rows": trainee_profile_discovery_candidates,
                 "review_candidate_claims": trainee_profile_discovery_claims,
                 "needs_review_claims": trainee_profile_discovery_needs_review,

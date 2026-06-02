@@ -680,7 +680,19 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
     if not source_path.exists():
         return rows
     source = "artifacts/data/official_profile_discovery_workbench.csv"
+    profile_audit_by_workbench = {
+        item.get("profile_workbench_key"): item
+        for item in read_csv(ARTIFACTS / "official_profile_reviewer_decision_audit.csv")
+        if item.get("profile_workbench_key")
+    }
+    profile_reobs_by_workbench = {
+        item.get("profile_workbench_key"): item
+        for item in read_csv(ARTIFACTS / "official_profile_reobservation_audit.csv")
+        if item.get("profile_workbench_key")
+    }
     for item in read_csv(source_path):
+        audit = profile_audit_by_workbench.get(item.get("profile_workbench_key") or "", {})
+        reobservation = profile_reobs_by_workbench.get(item.get("profile_workbench_key") or "", {})
         priority = 650 + as_int(item.get("discovery_priority")) // 3
         if item.get("discovery_lane") == "review_official_profile_candidate":
             priority += 80
@@ -702,11 +714,14 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
                 readiness_status=item.get("profile_gap_status") or "",
                 blocker_status=item.get("best_candidate_status") or item.get("discovery_lane") or "",
                 required_next_evidence=item.get("evidence_required") or "",
-                recommended_next_action=item.get("recommended_next_action") or "",
+                recommended_next_action=audit.get("recommended_next_action") or item.get("recommended_next_action") or "",
                 source_artifact=source,
                 target_artifact="artifacts/data/trainee_profile_discovery_candidates.csv",
                 downstream_tables=[
                     "official_profile_discovery_workbench",
+                    "official_profile_reobservation_audit",
+                    "official_profile_reviewer_decision_queue",
+                    "official_profile_reviewer_decision_audit",
                     "trainee_profile_search_queries",
                     "trainee_profile_search_observations",
                     "trainee_profile_discovery_candidates",
@@ -723,6 +738,12 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
                     "best_candidate_url": item.get("best_candidate_url"),
                     "best_candidate_confidence": item.get("best_candidate_confidence"),
                     "source_domains": item.get("source_domains"),
+                    "profile_reobservation_status": reobservation.get("reobservation_status"),
+                    "profile_reobserved_at": reobservation.get("reobserved_at"),
+                    "profile_reobservation_title": reobservation.get("title"),
+                    "profile_reobservation_canonical_url": reobservation.get("canonical_url"),
+                    "profile_decision_status": audit.get("decision_status"),
+                    "profile_decision_blocker": audit.get("decision_blocker"),
                 },
                 generated_at=generated_at,
             )

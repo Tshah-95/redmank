@@ -134,6 +134,18 @@
       "acceptance_rule": "Accept when ORCID is linked from an official profile/publication or multiple public fields match the trainee."
     },
     {
+      "utility_key": "orcid_work_candidates",
+      "display_name": "ORCID public work candidates",
+      "source_family": "scholarly_api",
+      "default_tier": "silver",
+      "default_status": "needs_review",
+      "default_confidence": 0.62,
+      "claim_types": ["orcid_work_candidate", "doi", "pmid", "pmc", "publication_candidate"],
+      "strengths": ["Starts from public ORCID work identifiers", "Often supplies stable DOI, PMID, or PMC anchors", "Useful bridge into PubMed/OpenAlex article reconciliation"],
+      "limitations": ["ORCID ownership is still candidate identity evidence unless independently linked", "Works can be self-asserted or incomplete", "Publication authorship must be reconciled at the article level before acceptance"],
+      "acceptance_rule": "Use as work-level discovery and reconciliation evidence only. Promote publication authorship after DOI/PMID resolution plus same-person identity review or explicit reviewer acceptance."
+    },
+    {
       "utility_key": "nppes_npi_registry",
       "display_name": "NPPES NPI Registry",
       "source_family": "licensure_api",

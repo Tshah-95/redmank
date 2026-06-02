@@ -26,6 +26,7 @@ AUDIT_JSON = ARTIFACTS / "official_profile_reviewer_decision_audit.json"
 ACCEPTED_CSV = ARTIFACTS / "accepted_official_profile_url_facts.csv"
 ACCEPTED_JSON = ARTIFACTS / "accepted_official_profile_url_facts.json"
 SUMMARY_JSON = ARTIFACTS / "official_profile_reviewer_decision_summary.json"
+REOBSERVATION_CSV = ARTIFACTS / "official_profile_reobservation_audit.csv"
 
 ALLOWED_DECISIONS = [
     "accept_official_profile_url",
@@ -179,6 +180,33 @@ def sqlite_rows(conn: sqlite3.Connection, query: str) -> list[dict]:
     return [dict(row) for row in conn.execute(query)]
 
 
+def replay_reobservations(conn: sqlite3.Connection) -> None:
+    if not REOBSERVATION_CSV.exists():
+        return
+    rows = read_csv(REOBSERVATION_CSV)
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    columns = {row[1] for row in conn.execute("PRAGMA table_info(official_profile_reobservation_audit)")}
+    if "canonical_url" not in columns:
+        conn.execute("ALTER TABLE official_profile_reobservation_audit ADD COLUMN canonical_url TEXT")
+        columns.add("canonical_url")
+    conn.execute("DELETE FROM official_profile_reobservation_audit")
+    if not rows:
+        return
+    row_columns = [column for column in rows[0].keys() if column in columns]
+    fields = ", ".join(row_columns)
+    placeholders = ", ".join(f":{field}" for field in row_columns)
+    db_rows = []
+    for row in rows:
+        db_row = {field: row.get(field, "") for field in row_columns}
+        if "http_status" in db_row and db_row.get("http_status") == "":
+            db_row["http_status"] = None
+        db_rows.append(db_row)
+    conn.executemany(
+        f"INSERT OR REPLACE INTO official_profile_reobservation_audit ({fields}) VALUES ({placeholders})",
+        db_rows,
+    )
+
+
 def candidate_records(row: dict) -> list[dict]:
     try:
         records = json.loads(row.get("candidate_evidence_json") or "[]")
@@ -250,6 +278,21 @@ def read_candidate_index(conn: sqlite3.Connection) -> dict[str, dict]:
     return {row["candidate_key"]: row for row in rows}
 
 
+def read_reobservations(conn: sqlite3.Connection) -> dict[str, dict]:
+    rows = sqlite_rows(
+        conn,
+        """
+        SELECT *
+        FROM official_profile_reobservation_audit
+        ORDER BY profile_workbench_key, reobserved_at DESC, evidence_strength DESC
+        """,
+    )
+    latest = {}
+    for row in rows:
+        latest.setdefault(row["profile_workbench_key"], row)
+    return latest
+
+
 def candidate_detail(candidate: dict, candidate_index: dict[str, dict]) -> dict:
     candidate_key = candidate.get("candidate_key") or ""
     if not candidate_key:
@@ -304,16 +347,57 @@ def compact_workbench(row: dict, candidate: dict) -> dict:
     }
 
 
-def build_queue(workbench_rows: list[dict], candidate_index: dict[str, dict], generated_at: str) -> list[dict]:
+def recommended_action(reobservation: dict | None = None) -> str:
+    if (
+        reobservation
+        and reobservation.get("reobservation_status") == "fresh_source_resolved_to_generic_academic_departments_page"
+    ):
+        return "replace_or_reprobe_stale_profile_candidate_before_reviewer_acceptance"
+    if (
+        reobservation
+        and reobservation.get("reobservation_status") == "fresh_official_profile_context_reobserved"
+    ):
+        return "record_accept_reject_or_needs_more_evidence_decision_using_fresh_profile_reobservation"
+    if (
+        reobservation
+        and reobservation.get("reobservation_status") == "fresh_official_profile_identity_reobserved_context_review"
+    ):
+        return "review_profile_context_then_record_accept_reject_or_needs_more_evidence_decision"
+    return "record_accept_reject_or_needs_more_evidence_decision"
+
+
+def build_queue(
+    workbench_rows: list[dict],
+    candidate_index: dict[str, dict],
+    reobservations: dict[str, dict],
+    generated_at: str,
+) -> list[dict]:
     queue = []
     for row in workbench_rows:
         candidate = best_candidate_record(row)
         detail = candidate_detail(candidate, candidate_index)
-        source_sha256 = candidate_source_sha256(candidate, detail)
+        reobservation = reobservations.get(row["profile_workbench_key"])
+        source_sha256 = (reobservation or {}).get("source_hash") or candidate_source_sha256(candidate, detail)
         fingerprint = profile_fingerprint(row, source_sha256)
         evidence = {
             "official_profile_discovery_workbench": compact_workbench(row, candidate),
             "trainee_profile_candidate_source_observation": detail,
+            "current_source_reobservation": {
+                "profile_reobservation_key": (reobservation or {}).get("profile_reobservation_key", ""),
+                "reobservation_status": (reobservation or {}).get("reobservation_status", ""),
+                "evidence_strength": (reobservation or {}).get("evidence_strength", ""),
+                "source_hash": (reobservation or {}).get("source_hash", ""),
+                "http_status": (reobservation or {}).get("http_status", ""),
+                "title": (reobservation or {}).get("title", ""),
+                "canonical_url": (reobservation or {}).get("canonical_url", ""),
+                "name_present": (reobservation or {}).get("name_present", ""),
+                "program_context_present": (reobservation or {}).get("program_context_present", ""),
+                "role_or_training_context_present": (reobservation or {}).get("role_or_training_context_present", ""),
+                "official_domain_confirmed": (reobservation or {}).get("official_domain_confirmed", ""),
+                "profile_path_confirmed": (reobservation or {}).get("profile_path_confirmed", ""),
+                "match_context": (reobservation or {}).get("match_context", ""),
+                "reobserved_at": (reobservation or {}).get("reobserved_at", ""),
+            },
             "manual_decision_file": str(MANUAL_DECISIONS_CSV.relative_to(ROOT)),
             "decision_policy": {
                 "accepted_profile_url_requires": [
@@ -348,7 +432,7 @@ def build_queue(workbench_rows: list[dict], candidate_index: dict[str, dict], ge
             "profile_fingerprint": fingerprint,
             "required_confirmation_fields": "; ".join(CONFIRMATION_FIELDS),
             "required_reviewer_action": REQUIRED_REVIEWER_ACTION,
-            "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
+            "recommended_next_action": recommended_action(reobservation),
             "display_safety_status": "review_ready_not_accepted_profile_url",
             "evidence_json": dumps(evidence),
             "generated_at": generated_at,
@@ -379,7 +463,7 @@ def classify_decision(queue_row: dict, decision: dict | None) -> tuple[str, int,
             "pending_reviewer_decision",
             0,
             "manual_reviewer_decision_missing",
-            "record_accept_reject_or_needs_more_evidence_decision",
+            queue_row.get("recommended_next_action") or "record_accept_reject_or_needs_more_evidence_decision",
         )
     reviewer_decision = decision.get("reviewer_decision") or ""
     if reviewer_decision not in ALLOWED_DECISIONS:
@@ -544,9 +628,11 @@ def main() -> None:
 
     generated_at = now_utc()
     conn = sqlite3.connect(args.db)
+    with conn:
+        replay_reobservations(conn)
     workbench_rows = read_workbench(conn)
     candidate_index = read_candidate_index(conn)
-    queue = build_queue(workbench_rows, candidate_index, generated_at)
+    queue = build_queue(workbench_rows, candidate_index, read_reobservations(conn), generated_at)
     audit = build_audit(queue, generated_at)
     accepted = build_accepted_facts(queue, audit, generated_at)
 
