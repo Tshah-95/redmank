@@ -26,7 +26,7 @@
     "residency": 12
   },
   "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-  "generated_at": "2026-06-02T18:29:47.502351+00:00",
+  "generated_at": "2026-06-02T18:36:22.843275+00:00",
   "highest_priority": 1053,
   "json": "artifacts/data/official_program_coverage_action_queue.json",
   "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",

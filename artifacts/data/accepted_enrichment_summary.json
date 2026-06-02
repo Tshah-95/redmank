@@ -20,7 +20,7 @@
   },
   "csv": "artifacts/data/accepted_enrichment_claims.csv",
   "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-  "generated_at": "2026-06-02T18:29:22.460126+00:00",
+  "generated_at": "2026-06-02T18:36:00.452153+00:00",
   "json": "artifacts/data/accepted_enrichment_claims.json",
   "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
 }

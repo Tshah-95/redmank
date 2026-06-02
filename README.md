@@ -143,7 +143,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_temporal_contract_summary.json`: one-glance stale-policy, guardrail, and next-refresh contract counts.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
-- `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
+- `artifacts/data/training_state_transition_rollups.csv`: transition rollups by corpus, country, institution, role, trainee category, program, program-role, institution-role, and lifecycle code for annual diff views.
 - `artifacts/data/training_state_snapshot_summary.json`: snapshot and transition counts for the current materialized state.
 - `config/training_lifecycle_rules.json`: local lifecycle codes and nominal-duration rules used to interpret trainee stages over time.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
@@ -340,7 +340,7 @@ python3 scripts/diff_training_states.py \
 
 If `--old` is omitted, the script reads `artifacts/data/training_state_snapshot_summary.json` and compares against the recorded `previous_snapshot_id`.
 
-The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, temporal policy lane, and change type. By default it also reads `artifacts/data/training_temporal_contracts.csv`, so each row carries the contract key, policy lane, next-refresh contract, evidence requirement, review triggers, and expected-vs-review assurance used to classify the transition. The durable snapshot materializer also writes `artifacts/data/training_state_transition_rollups.csv`, which preserves transition views across corpus, institution, trainee category, role, program, program-role, institution-role, and lifecycle-code scopes. Snapshot transition events and rollups include `snapshot_comparison_kind`, snapshot as-of dates, and `days_between_snapshots` so same-day corpus revisions are not confused with annual advancement/completion flows.
+The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, temporal policy lane, and change type. By default it also reads `artifacts/data/training_temporal_contracts.csv`, so each row carries the contract key, policy lane, next-refresh contract, evidence requirement, review triggers, and expected-vs-review assurance used to classify the transition. The durable snapshot materializer also writes `artifacts/data/training_state_transition_rollups.csv`, which preserves transition views across corpus, country, institution, trainee category, role, program, program-role, institution-role, and lifecycle-code scopes. Snapshot transition events and rollups include `snapshot_comparison_kind`, snapshot as-of dates, and `days_between_snapshots` so same-day corpus revisions are not confused with annual advancement/completion flows.
 
 Materialize a durable state snapshot:
 

@@ -4,6 +4,7 @@
   },
   "by_rollup_scope": {
     "corpus": 1,
+    "country": 1,
     "institution": 3,
     "institution_role": 4,
     "lifecycle_code": 13,
@@ -26,6 +27,6 @@
   "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_51568c30e857.json",
   "transition_event_rows": 1610,
   "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
-  "transition_rollup_rows": 218,
+  "transition_rollup_rows": 219,
   "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
 }

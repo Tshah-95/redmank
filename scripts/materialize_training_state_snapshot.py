@@ -65,6 +65,8 @@ EVENT_FIELDS = [
     "display_name",
     "program_name",
     "role",
+    "country",
+    "country_code",
     "old_state_key",
     "new_state_key",
     "change_type",
@@ -93,6 +95,8 @@ ROLLUP_FIELDS = [
     "rollup_scope",
     "rollup_value",
     "institution",
+    "country",
+    "country_code",
     "role",
     "trainee_category",
     "program_name",
@@ -238,6 +242,7 @@ def temporal_contract_lookup(conn: sqlite3.Connection) -> dict[tuple[str, str, s
             """
             SELECT contract_key, person_key, program_name, role, trainee_category,
                    current_temporal_state_code, temporal_validity_status,
+                   country, country_code,
                    policy_lane, diff_readiness_status, next_refresh_contract,
                    if_missing_change_type, if_same_stage_change_type,
                    if_expected_next_stage_change_type, allowed_auto_diff_outcomes_json,
@@ -394,12 +399,16 @@ def ensure_transition_context_columns(conn: sqlite3.Connection) -> None:
             "old_snapshot_as_of_date": "TEXT",
             "new_snapshot_as_of_date": "TEXT",
             "days_between_snapshots": "INTEGER",
+            "country": "TEXT",
+            "country_code": "TEXT",
         },
         "training_state_transition_rollups": {
             "snapshot_comparison_kind": "TEXT NOT NULL DEFAULT ''",
             "old_snapshot_as_of_date": "TEXT",
             "new_snapshot_as_of_date": "TEXT",
             "days_between_snapshots": "INTEGER",
+            "country": "TEXT",
+            "country_code": "TEXT",
         },
     }
     for table, columns in additions.items():
@@ -685,6 +694,8 @@ def write_transition_events(
             source.get("trainee_category") or "",
         )
         contract = contracts.get(contract_key)
+        country = (contract or {}).get("country") or "United States"
+        country_code = (contract or {}).get("country_code") or "US"
         event = {
             "old_snapshot_id": old_snapshot_id,
             "new_snapshot_id": new_snapshot_id,
@@ -695,6 +706,8 @@ def write_transition_events(
             "program_name": program_name,
             "role": role,
             "institution": institution_lookup.get((program_name, role), institution_lookup.get((program_name, ""), "")),
+            "country": country,
+            "country_code": country_code,
             "trainee_category": source.get("trainee_category") or "",
             "lifecycle_code": lifecycle_code,
             "old_state_key": (old or {}).get("state_key"),
@@ -715,6 +728,8 @@ def write_transition_events(
                 "old_trainee_category": (old or {}).get("trainee_category"),
                 "new_trainee_category": (new or {}).get("trainee_category"),
                 "institution": event["institution"],
+                "country": event["country"],
+                "country_code": event["country_code"],
                 "old_state_fingerprint": (old or {}).get("state_fingerprint"),
                 "new_state_fingerprint": (new or {}).get("state_fingerprint"),
                 "compare_date": compare_date.isoformat(),
@@ -732,12 +747,13 @@ def write_transition_events(
             INSERT OR REPLACE INTO training_state_transition_events
             (old_snapshot_id, new_snapshot_id, canonical_person_program_key,
              snapshot_comparison_kind, old_snapshot_as_of_date, new_snapshot_as_of_date,
-             days_between_snapshots, person_key, display_name, program_name, role, old_state_key, new_state_key,
+             days_between_snapshots, person_key, display_name, program_name, role, country, country_code,
+             old_state_key, new_state_key,
              change_type, transition_assurance, expected_by_state_machine,
              old_stage, new_stage, old_expected_next_stage, old_expected_next_date,
              old_expected_exit_date, old_expected_transition_type, old_stale_after_date,
              review_action, notes, evidence_json)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 event["old_snapshot_id"],
@@ -751,6 +767,8 @@ def write_transition_events(
                 event["display_name"],
                 event["program_name"],
                 event["role"],
+                event["country"],
+                event["country_code"],
                 event["old_state_key"],
                 event["new_state_key"],
                 event["change_type"],
@@ -780,12 +798,15 @@ def event_groups(events: list[dict]) -> list[dict]:
     grouped: dict[tuple, dict] = {}
     for event in events:
         institution = event.get("institution") or "unknown_institution"
+        country = event.get("country") or "United States"
+        country_code = event.get("country_code") or "US"
         role = event.get("role") or ""
         trainee_category = event.get("trainee_category") or role or ""
         program_name = event.get("program_name") or ""
         lifecycle_code = event.get("lifecycle_code") or ""
         scopes = [
             ("corpus", "United States medical trainees"),
+            ("country", country_code),
             ("institution", institution),
             ("trainee_category", trainee_category),
             ("role", role),
@@ -818,6 +839,8 @@ def event_groups(events: list[dict]) -> list[dict]:
                     "rollup_scope": scope,
                     "rollup_value": value,
                     "institution": institution if scope in {"institution", "institution_role"} else "",
+                    "country": country if scope == "country" else "",
+                    "country_code": country_code if scope == "country" else "",
                     "role": role if scope in {"role", "program_role", "institution_role"} else "",
                     "trainee_category": trainee_category if scope == "trainee_category" else "",
                     "program_name": program_name if scope in {"program", "program_role"} else "",
@@ -841,6 +864,8 @@ def event_groups(events: list[dict]) -> list[dict]:
             {
                 "rollup_scope": row["rollup_scope"],
                 "rollup_value": row["rollup_value"],
+                "country": row["country"],
+                "country_code": row["country_code"],
                 "old_snapshot_id": row["old_snapshot_id"],
                 "new_snapshot_id": row["new_snapshot_id"],
                 "snapshot_comparison_kind": row["snapshot_comparison_kind"],
