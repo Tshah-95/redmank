@@ -184,6 +184,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         ARTIFACTS / "official_program_coverage_action_queue_summary.json",
         {},
     )
+    coverage_dossier_summary = read_json(
+        ARTIFACTS / "official_program_coverage_dossier_summary.json",
+        {},
+    )
     alias_review_packets_summary = read_json(
         ARTIFACTS / "official_program_alias_review_packets_summary.json",
         {},
@@ -653,6 +657,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Separates denominator coverage from person extraction",
                 "Makes missing programs auditable instead of invisible",
                 "Assigns assurance tiers to coverage claims instead of treating all covered rows equally",
+                "Adds all-program dossiers so closed, review-ready, accepted-alias, candidate-source, and open-gap programs are comparable",
                 "Supports institution and category-level annual diffs",
             ],
             limitations=[
@@ -673,6 +678,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "coverage_mutation_allowed_rows": alias_mutations,
                 "coverage_assurance_summary": coverage_assurance_summary,
                 "coverage_action_queue_summary": coverage_action_queue_summary,
+                "coverage_dossier_summary": coverage_dossier_summary,
                 "alias_review_packets_summary": alias_review_packets_summary,
                 "alias_reviewer_decision_summary": alias_reviewer_decision_summary,
             },

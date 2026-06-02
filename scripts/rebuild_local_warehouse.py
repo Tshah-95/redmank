@@ -50,6 +50,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_official_program_coverage_action_queue.py"],
     ["python3", "scripts/materialize_official_program_alias_review_packets.py"],
     ["python3", "scripts/materialize_official_program_alias_reviewer_decisions.py"],
+    ["python3", "scripts/materialize_official_program_coverage_dossiers.py"],
     ["python3", "scripts/export_warehouse_views.py"],
     ["python3", "scripts/audit_warehouse_reproducibility.py"],
     ["python3", "scripts/audit_source_utility_scorecard.py"],

@@ -99,6 +99,7 @@ def main() -> None:
         "official_gap_roster_program_resolution",
         "official_program_coverage_assurance_audit",
         "official_program_coverage_action_queue",
+        "official_program_coverage_dossiers",
         "official_program_alias_review_packets",
         "official_program_alias_reviewer_decisions",
         "official_program_alias_reviewer_decision_queue",
@@ -750,6 +751,36 @@ def main() -> None:
             """
         )
     }
+    official_program_coverage_dossier_status_counts = {
+        row["denominator_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT denominator_status, COUNT(*) AS count
+            FROM official_program_coverage_dossiers
+            GROUP BY denominator_status
+            """
+        )
+    }
+    official_program_coverage_dossier_safety_counts = {
+        row["display_safety_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT display_safety_status, COUNT(*) AS count
+            FROM official_program_coverage_dossiers
+            GROUP BY display_safety_status
+            """
+        )
+    }
+    official_program_coverage_dossier_level_counts = {
+        str(row["assurance_level"]): row["count"]
+        for row in conn.execute(
+            """
+            SELECT assurance_level, COUNT(*) AS count
+            FROM official_program_coverage_dossiers
+            GROUP BY assurance_level
+            """
+        )
+    }
     official_program_alias_review_packet_counts = {
         row["alias_decision_status"]: row["count"]
         for row in conn.execute(
@@ -1192,6 +1223,13 @@ def main() -> None:
         )
     else:
         official_program_coverage_action_queue_summary = {}
+    official_program_coverage_dossier_summary_path = ARTIFACTS / "official_program_coverage_dossier_summary.json"
+    if official_program_coverage_dossier_summary_path.exists():
+        official_program_coverage_dossier_summary = json.loads(
+            official_program_coverage_dossier_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        official_program_coverage_dossier_summary = {}
     official_program_alias_review_packets_summary_path = ARTIFACTS / "official_program_alias_review_packets_summary.json"
     if official_program_alias_review_packets_summary_path.exists():
         official_program_alias_review_packets_summary = json.loads(
@@ -1279,6 +1317,9 @@ def main() -> None:
         "official_program_coverage_action_lane_counts": official_program_coverage_action_lane_counts,
         "official_program_coverage_action_blocker_counts": official_program_coverage_action_blocker_counts,
         "official_program_coverage_action_level_counts": official_program_coverage_action_level_counts,
+        "official_program_coverage_dossier_status_counts": official_program_coverage_dossier_status_counts,
+        "official_program_coverage_dossier_safety_counts": official_program_coverage_dossier_safety_counts,
+        "official_program_coverage_dossier_level_counts": official_program_coverage_dossier_level_counts,
         "official_program_alias_review_packet_counts": official_program_alias_review_packet_counts,
         "official_program_alias_review_packet_reviewer_ready_counts": official_program_alias_review_packet_reviewer_ready_counts,
         "official_program_alias_reviewer_decision_counts": official_program_alias_reviewer_decision_counts,
@@ -1337,6 +1378,7 @@ def main() -> None:
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
         "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
+        "official_program_coverage_dossier_summary": official_program_coverage_dossier_summary,
         "official_program_alias_review_packets_summary": official_program_alias_review_packets_summary,
         "official_program_alias_reviewer_decision_summary": official_program_alias_reviewer_decision_summary,
     }
