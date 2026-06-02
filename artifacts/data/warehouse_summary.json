@@ -188,7 +188,7 @@
     "source_refresh_required": 670,
     "stage_outside_nominal_duration_review": 21
   },
-  "generated_at": "2026-06-02T06:57:40.709507+00:00",
+  "generated_at": "2026-06-02T07:03:39.338658+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -205,6 +205,74 @@
     "US_GME_RESIDENCY_DURATION_UNKNOWN": 44,
     "US_MD_PHD_MSTP_VARIABLE": 225,
     "none": 13
+  },
+  "longitudinal_change_readiness_summary": {
+    "advance_due_by_refresh_rows": 1414,
+    "by_category_and_readiness_status": {
+      "fellow:active_no_change_expected": 13,
+      "fellow:expected_advancement_window": 98,
+      "fellow:expected_completion_window": 59,
+      "fellow:review_required_window": 11,
+      "fellow:source_refresh_required_window": 182,
+      "fellow:stale_without_transition_review": 4,
+      "medical_student:source_refresh_required_window": 225,
+      "resident:expected_advancement_window": 559,
+      "resident:expected_completion_window": 191,
+      "resident:review_required_window": 10,
+      "resident:source_refresh_required_window": 202,
+      "resident:stale_without_transition_review": 44
+    },
+    "by_missing_expectation": {
+      "absence_requires_source_reconciliation": 678,
+      "expected_absence_after_completion": 250,
+      "unexpected_absence_review": 670
+    },
+    "by_next_stage_expectation": {
+      "early_expected_next_stage_review": 400,
+      "expected_next_stage_accept_candidate": 657,
+      "no_expected_next_stage": 541
+    },
+    "by_readiness_status": {
+      "active_no_change_expected": 13,
+      "expected_advancement_window": 657,
+      "expected_completion_window": 250,
+      "review_required_window": 21,
+      "source_refresh_required_window": 609,
+      "stale_without_transition_review": 48
+    },
+    "by_role_and_readiness_status": {
+      "fellow:active_no_change_expected": 13,
+      "fellow:expected_advancement_window": 98,
+      "fellow:expected_completion_window": 59,
+      "fellow:review_required_window": 11,
+      "fellow:source_refresh_required_window": 182,
+      "fellow:stale_without_transition_review": 4,
+      "medical_student:source_refresh_required_window": 225,
+      "resident:expected_advancement_window": 559,
+      "resident:expected_completion_window": 191,
+      "resident:review_required_window": 10,
+      "resident:source_refresh_required_window": 202,
+      "resident:stale_without_transition_review": 44
+    },
+    "by_same_stage_expectation": {
+      "same_stage_after_expected_transition_review": 657,
+      "same_stage_expected": 13,
+      "same_stage_requires_fresh_source": 678,
+      "same_terminal_stage_after_completion_review": 250
+    },
+    "category_csv": "artifacts/data/category_refresh_expectations.csv",
+    "category_rows": 3,
+    "completion_window_by_refresh_rows": 250,
+    "person_csv": "artifacts/data/person_refresh_expectations.csv",
+    "person_rows": 1451,
+    "program_csv": "artifacts/data/program_refresh_expectations.csv",
+    "program_rows": 90,
+    "projected_refresh_date": "2027-08-15",
+    "requires_human_review_by_refresh_rows": 69,
+    "requires_source_refresh_by_refresh_rows": 609,
+    "stale_by_refresh_rows": 1585,
+    "state_csv": "artifacts/data/training_state_refresh_expectations.csv",
+    "state_rows": 1598
   },
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,

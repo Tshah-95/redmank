@@ -1,0 +1,91 @@
+program_name,role,person_count,program_count,state_observation_count,worst_readiness_status,worst_readiness_priority,dominant_program_coverage_status,expected_advancement_window_count,expected_completion_window_count,source_refresh_required_window_count,review_required_window_count,stale_without_transition_review_count,unexpected_absence_review_count,absence_requires_source_reconciliation_count,expected_absence_after_completion_count,recommended_refresh_action
+Cardiovascular Disease Fellowship,fellow,33,1,33,review_required_window,100,covered_current_roster,22,10,0,1,0,22,1,10,review_lifecycle_or_source_before_mutation
+Geriatric Medicine Fellowship,fellow,3,1,3,review_required_window,100,covered_current_roster,0,0,2,1,0,0,3,0,review_lifecycle_or_source_before_mutation
+Infectious Diseases Fellowship,fellow,15,1,17,review_required_window,100,covered_current_roster,6,6,3,2,0,6,5,6,review_lifecycle_or_source_before_mutation
+Internal Medicine Residency - Global Health Equities Track,resident,20,1,32,review_required_window,100,not_in_official_hup_audit,9,15,0,8,0,9,8,15,review_lifecycle_or_source_before_mutation
+Internal Medicine Residency - Medical Education Leadership Track,resident,9,1,13,review_required_window,100,not_in_official_hup_audit,2,9,0,2,0,2,2,9,review_lifecycle_or_source_before_mutation
+Pulmonary and Critical Care Fellowship,fellow,34,1,34,review_required_window,100,covered_current_roster,16,9,3,6,0,16,9,9,review_lifecycle_or_source_before_mutation
+Rheumatology Fellowship,fellow,15,1,15,review_required_window,100,covered_current_roster,5,5,4,1,0,5,5,5,review_lifecycle_or_source_before_mutation
+Internal Medicine Residency - Global Health Equities Track,fellow,2,1,4,stale_without_transition_review,95,not_in_official_hup_audit,0,0,0,0,4,0,4,0,review_lifecycle_or_source_before_mutation
+Pathology - Anatomic and Clinical Residency,resident,44,1,44,stale_without_transition_review,95,covered_current_roster,0,0,0,0,44,0,44,0,review_lifecycle_or_source_before_mutation
+ABR Alternate Pathway to Certification,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Abdominal Imaging Fellowship,fellow,9,1,9,source_refresh_required_window,85,covered_current_roster,0,0,9,0,0,0,9,0,refresh_source_before_retaining_state
+Adult Congenital Heart Disease Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Adult Reconstructive Orthopedics Fellowship,fellow,3,1,3,source_refresh_required_window,85,covered_current_roster,0,0,3,0,0,0,3,0,refresh_source_before_retaining_state
+Advanced Gastroenterology and Hepatology Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Advanced Heart Failure Transplant Cardiology Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Advanced Musculoskeletal Fellowship,fellow,3,1,3,source_refresh_required_window,85,not_in_official_hup_audit,0,0,3,0,0,0,3,0,refresh_source_before_retaining_state
+Advanced Noninvasive Cardiac Imaging Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Advanced Nuclear Radiology Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Anesthesiology Residency,resident,97,1,97,source_refresh_required_window,85,covered_current_roster,71,23,3,0,0,71,3,23,refresh_source_before_retaining_state
+Aortic Surgery Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Breast Pathology Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+CHOP Otolaryngology Fellowship,fellow,4,1,4,source_refresh_required_window,85,not_in_official_hup_audit,0,0,4,0,0,0,4,0,refresh_source_before_retaining_state
+Cardio-Oncology Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Cardiothoracic Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Cardiothoracic Surgery Residency,resident,15,1,15,source_refresh_required_window,85,covered_current_roster,8,2,5,0,0,8,5,2,refresh_source_before_retaining_state
+Cardiothoracic Transplantation Surgery Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Clinical Cardiac Electrophysiology Fellowship,fellow,12,1,12,source_refresh_required_window,85,covered_current_roster,0,0,12,0,0,0,12,0,refresh_source_before_retaining_state
+Clinical Chemistry Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Clinical Microbiology Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Colon and Rectal Surgery Fellowship,fellow,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Craniofacial Surgery Fellowship,fellow,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Cytopathology Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Diagnostic Radiology Residency,resident,54,1,54,source_refresh_required_window,85,covered_current_roster,0,0,54,0,0,0,54,0,refresh_source_before_retaining_state
+Facial Plastic and Reconstructive Surgery Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Foot and Ankle Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+GI/Hepatic Pathology Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+General Surgery Residency,resident,75,1,75,source_refresh_required_window,85,covered_current_roster,36,13,26,0,0,36,26,13,refresh_source_before_retaining_state
+Hand Surgery Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+"Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship",fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Hematology/Oncology Fellowship,fellow,32,1,32,source_refresh_required_window,85,covered_current_roster,18,9,5,0,0,18,5,9,refresh_source_before_retaining_state
+Hematopathology Fellowship,fellow,4,1,4,source_refresh_required_window,85,covered_current_roster,0,0,4,0,0,0,4,0,refresh_source_before_retaining_state
+Hospice and Palliative Medicine Fellowship,fellow,5,1,5,source_refresh_required_window,85,covered_current_roster,0,0,5,0,0,0,5,0,refresh_source_before_retaining_state
+Interventional Cardiology Fellowship,fellow,4,1,4,source_refresh_required_window,85,covered_current_roster,0,0,4,0,0,0,4,0,refresh_source_before_retaining_state
+Interventional Radiology Integrated Residency,resident,19,1,19,source_refresh_required_window,85,covered_current_roster,0,0,19,0,0,0,19,0,refresh_source_before_retaining_state
+Medical Scientist Training Program,medical_student,225,1,225,source_refresh_required_window,85,not_in_official_hup_audit,0,0,225,0,0,0,225,0,refresh_source_before_retaining_state
+Microvascular Reconstructive Surgery Fellowship,fellow,5,1,5,source_refresh_required_window,85,not_in_official_hup_audit,0,0,5,0,0,0,5,0,refresh_source_before_retaining_state
+Molecular Genetic Pathology Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Nephrology Fellowship,fellow,22,1,22,source_refresh_required_window,85,covered_current_roster,9,7,6,0,0,9,6,7,refresh_source_before_retaining_state
+Neurology Residency,resident,54,1,54,source_refresh_required_window,85,covered_current_roster,0,0,54,0,0,0,54,0,refresh_source_before_retaining_state
+Neuropathology Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Neuroradiology Fellowship,fellow,11,1,11,source_refresh_required_window,85,covered_current_roster,0,0,11,0,0,0,11,0,refresh_source_before_retaining_state
+Neurotology Fellowship,fellow,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Nuclear Radiology Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Oncologic Imaging Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Ophthalmology Fellowship,fellow,10,1,10,source_refresh_required_window,85,covered_current_roster,0,0,10,0,0,0,10,0,refresh_source_before_retaining_state
+Ophthalmology Residency,resident,20,1,20,source_refresh_required_window,85,covered_current_roster,5,0,15,0,0,5,15,0,refresh_source_before_retaining_state
+Orthopedic Surgery Residency,resident,40,1,40,source_refresh_required_window,85,covered_current_roster,31,7,2,0,0,31,2,7,refresh_source_before_retaining_state
+Penn-CHOP Internal Medicine-Pediatrics Residency,resident,25,1,38,source_refresh_required_window,85,covered_current_roster,30,7,1,0,0,30,1,7,refresh_source_before_retaining_state
+Physical Medicine and Rehabilitation Residency,resident,22,1,22,source_refresh_required_window,85,covered_current_roster,16,3,3,0,0,16,3,3,refresh_source_before_retaining_state
+Plastic Surgery Residency,resident,22,1,22,source_refresh_required_window,85,covered_current_roster,17,3,2,0,0,17,2,3,refresh_source_before_retaining_state
+Radiation Oncology Residency,resident,17,1,17,source_refresh_required_window,85,covered_current_roster,0,0,17,0,0,0,17,0,refresh_source_before_retaining_state
+Rhinology and Skull Base Surgery Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Shoulder and Elbow Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Sleep Medicine Fellowship,fellow,7,1,7,source_refresh_required_window,85,covered_current_roster,0,0,7,0,0,0,7,0,refresh_source_before_retaining_state
+Sleep Medicine and Surgery Fellowship,fellow,2,1,2,source_refresh_required_window,85,not_in_official_hup_audit,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Soft Tissue/Bone Pathology Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Spine Fellowship,fellow,1,1,1,source_refresh_required_window,85,not_in_official_hup_audit,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Sports Medicine Fellowship,fellow,2,1,2,source_refresh_required_window,85,covered_current_roster,0,0,2,0,0,0,2,0,refresh_source_before_retaining_state
+Surgical Pathology Fellowship,fellow,6,1,6,source_refresh_required_window,85,covered_current_roster,0,0,6,0,0,0,6,0,refresh_source_before_retaining_state
+Thoracic Surgery - Thoracic Track Fellowship,fellow,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Thoracic Surgery Fellowship - Cardiac Track,fellow,4,1,4,source_refresh_required_window,85,covered_current_roster,0,0,4,0,0,0,4,0,refresh_source_before_retaining_state
+Transfusion Medicine/Blood Bank Fellowship,fellow,1,1,1,source_refresh_required_window,85,covered_current_roster,0,0,1,0,0,0,1,0,refresh_source_before_retaining_state
+Transplant Surgery Fellowship,fellow,3,1,3,source_refresh_required_window,85,not_in_official_hup_audit,0,0,3,0,0,0,3,0,refresh_source_before_retaining_state
+Trauma and Surgical Critical Care Fellowship,fellow,12,1,12,source_refresh_required_window,85,covered_current_roster,0,0,12,0,0,0,12,0,refresh_source_before_retaining_state
+Urology Residency,resident,22,1,22,source_refresh_required_window,85,covered_current_roster,17,4,1,0,0,17,1,4,refresh_source_before_retaining_state
+Vascular Surgery Fellowship,fellow,4,1,4,source_refresh_required_window,85,covered_current_roster,0,0,4,0,0,0,4,0,refresh_source_before_retaining_state
+Allergy and Immunology Fellowship,fellow,4,1,4,expected_completion_window,70,covered_current_roster,2,2,0,0,0,2,0,2,allow_completion_absence_or_confirm_alumni_endpoint
+Combined Internal Medicine-Dermatology Residency,resident,5,1,7,expected_completion_window,70,covered_current_roster,6,1,0,0,0,6,0,1,allow_completion_absence_or_confirm_alumni_endpoint
+"Endocrinology, Diabetes and Metabolism Fellowship",fellow,21,1,21,expected_completion_window,70,covered_current_roster,4,4,0,0,0,17,0,4,allow_completion_absence_or_confirm_alumni_endpoint
+Family Medicine Residency,resident,35,1,35,expected_completion_window,70,covered_current_roster,23,12,0,0,0,23,0,12,allow_completion_absence_or_confirm_alumni_endpoint
+Gastroenterology and Hepatology Fellowship,fellow,23,1,23,expected_completion_window,70,covered_current_roster,16,7,0,0,0,16,0,7,allow_completion_absence_or_confirm_alumni_endpoint
+Internal Medicine Physician-Scientist Pathway,resident,15,1,27,expected_completion_window,70,not_in_official_hup_audit,25,2,0,0,0,25,0,2,allow_completion_absence_or_confirm_alumni_endpoint
+Internal Medicine Primary Care Residency,resident,21,1,21,expected_completion_window,70,not_in_official_hup_audit,14,7,0,0,0,14,0,7,allow_completion_absence_or_confirm_alumni_endpoint
+Internal Medicine Residency,resident,173,1,194,expected_completion_window,70,covered_current_roster,144,50,0,0,0,144,0,50,allow_completion_absence_or_confirm_alumni_endpoint
+Internal Medicine Residency - Healthcare Leadership in Quality Track,resident,25,1,29,expected_completion_window,70,not_in_official_hup_audit,17,12,0,0,0,17,0,12,allow_completion_absence_or_confirm_alumni_endpoint
+Neurological Surgery Residency,resident,21,1,21,expected_completion_window,70,covered_current_roster,18,3,0,0,0,18,0,3,allow_completion_absence_or_confirm_alumni_endpoint
+Obstetrics and Gynecology Residency,resident,32,1,32,expected_completion_window,70,covered_current_roster,24,8,0,0,0,24,0,8,allow_completion_absence_or_confirm_alumni_endpoint
+Otorhinolaryngology Residency,resident,31,1,31,expected_completion_window,70,covered_current_roster,26,5,0,0,0,26,0,5,allow_completion_absence_or_confirm_alumni_endpoint
+Podiatric Surgery Residency,resident,16,1,16,expected_completion_window,70,covered_current_roster,12,4,0,0,0,12,0,4,allow_completion_absence_or_confirm_alumni_endpoint
+Vascular Surgery Integrated Residency,resident,9,1,9,expected_completion_window,70,covered_current_roster,8,1,0,0,0,8,0,1,allow_completion_absence_or_confirm_alumni_endpoint

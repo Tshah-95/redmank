@@ -39,6 +39,10 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_state_machine_audit.csv`: per-state lifecycle/staleness audit classifying annual-clock, terminal-year, source-refresh, and review-required rows.
 - `artifacts/data/person_training_state_machine_audit.csv`: per-person rollup of state-machine health and next action.
 - `artifacts/data/program_training_state_machine_audit.csv`: per-program/role rollup for annual refresh and national-scale diff views.
+- `artifacts/data/training_state_refresh_expectations.csv`: projected next-refresh expectations for whether each state should advance, complete, refresh from source, or require review.
+- `artifacts/data/person_refresh_expectations.csv`: per-person longitudinal readiness rollup for future diff/reconciliation runs.
+- `artifacts/data/program_refresh_expectations.csv`: per-program/role longitudinal readiness rollup.
+- `artifacts/data/category_refresh_expectations.csv`: resident/fellow/student category rollup for institution-level monitoring.
 - `config/training_lifecycle_rules.json`: local lifecycle codes and nominal-duration rules used to interpret trainee stages over time.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
@@ -109,6 +113,7 @@ python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 1
 python3 scripts/build_sqlite.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/audit_training_state_machine.py
+python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/report_source_quality.py
@@ -145,6 +150,14 @@ python3 scripts/audit_training_state_machine.py --as-of-date 2026-06-02
 
 The audit writes state-, person-, and program-level CSVs plus `artifacts/data/training_state_machine_summary.json`. It distinguishes annual-clock rows that can advance after their expected date from source-refresh rows that should never be guessed forward, such as MSTP PhD phase, unknown fellow year, research/lab year, and other individualized states.
 
+Project expected refresh behavior:
+
+```bash
+python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
+```
+
+The readiness audit writes state-, person-, program-, and category-level CSVs plus `artifacts/data/longitudinal_change_readiness_summary.json`. It describes how the next refresh should interpret missing, unchanged, or advanced rows before mutating the person table: expected completion, expected advancement, source-refresh-required, human-review-required, or no-change-expected.
+
 ## Data Policy
 
 This project uses public web sources only. It does not bypass login walls, private directories, robots exclusions, or application-only systems. Public institutional contact channels may be stored only as structured contact candidates with source URL, scope, verification status, confidence, and candidate status; raw HTML remains redacted and ignored by Git. Records should retain source URLs and quality notes so downstream users can distinguish official roster facts from inferred categorization and enrichment candidates.
@@ -160,6 +173,7 @@ The initial methodology is conservative:
 - Infer broad Penn program names from page URL plus section heading when official roster page titles are generic, because pages like Radiology fellows contain multiple programs on one source page.
 - Normalize training labels into state observations with transition rules and stale-after dates so future runs can distinguish expected annual advancement from surprising changes.
 - Attach conservative lifecycle semantics to state observations so PGY/fellowship-year labels can be interpreted as annual advancement, terminal completion, unknown-duration refresh, or review-required states.
+- Project state observations into refresh expectations so future annual runs can produce person-, program-, and category-level diffs with expected-vs-surprising change semantics.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.

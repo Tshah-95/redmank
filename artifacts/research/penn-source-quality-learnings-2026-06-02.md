@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:57:40.666064+00:00
+Generated: 2026-06-02T07:03:39.343853+00:00
 
 ## What This Pass Did
 
@@ -298,6 +298,42 @@ Clock models:
 Auto-advance candidate rows: 657. Completion candidate rows: 250. Stale/review rows: 21.
 
 Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.
+
+## Longitudinal Change Readiness
+
+Projected refresh date: 2027-08-15. State rows: 1598. Person rows: 1451. Program rows: 90.
+
+Readiness statuses:
+
+| readiness_status | count |
+| --- | --- |
+| active_no_change_expected | 13 |
+| expected_advancement_window | 657 |
+| expected_completion_window | 250 |
+| review_required_window | 21 |
+| source_refresh_required_window | 609 |
+| stale_without_transition_review | 48 |
+
+Missing-on-refresh expectations:
+
+| missing_expectation | count |
+| --- | --- |
+| absence_requires_source_reconciliation | 678 |
+| expected_absence_after_completion | 250 |
+| unexpected_absence_review | 670 |
+
+Same-stage-on-refresh expectations:
+
+| same_stage_expectation | count |
+| --- | --- |
+| same_stage_after_expected_transition_review | 657 |
+| same_stage_expected | 13 |
+| same_stage_requires_fresh_source | 678 |
+| same_terminal_stage_after_completion_review | 250 |
+
+Advancement due rows: 1414. Completion-window rows: 250. Source-refresh-required rows: 609. Human-review rows: 69.
+
+Learning: annual diffs should be state-machine informed before they are person-table mutations. A missing terminal-year fellow after the stale-after date is likely completion; a missing PGY-2 before the expected exit is a review item; an unchanged MSTP PhD-phase student needs a fresh source rather than an inferred clock advancement.
 
 ## Evidence Counts
 

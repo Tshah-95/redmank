@@ -187,6 +187,14 @@ This creates the future diff surface: when the corpus is rerun, we can compare p
 - `program_training_state_machine_audit.csv`: one row per program/role summarizing lifecycle codes, clock models, stale/review counts, and next action.
 - `training_state_machine_summary.json`: machine-readable status, role, lifecycle, clock, and action counts.
 
+`scripts/audit_longitudinal_change_readiness.py` projects the same current-state observations into next-refresh semantics. For a target refresh date, it writes:
+
+- `training_state_refresh_expectations.csv`: every state observation with expected behavior if the next run finds the person missing, unchanged, or advanced.
+- `person_refresh_expectations.csv`: per-person rollup of expected advancement, completion, source-refresh, and human-review windows.
+- `program_refresh_expectations.csv`: per-program/role rollup, including the current official HUP coverage status when available.
+- `category_refresh_expectations.csv`: trainee-category rollup for resident/fellow/student monitoring.
+- `longitudinal_change_readiness_summary.json`: machine-readable readiness counts and artifact paths.
+
 The audit categories are intentionally operational:
 
 - `annual_clock_active`: PGY/CY/fellowship-year rows with a future expected next date.
@@ -205,6 +213,8 @@ The intended freshness semantics are:
 - Source refresh required: PhD phase, lab/research residents, postdoc fellows, chief residents, unknown-year fellows/residents, and public contact channels become stale unless a fresh public source repeats or updates them.
 - Surprising change: disappearance before an expected end date, program-family change, regression in normalized stage, or conflicting concurrent stage labels should become review items, not automatic mutations.
 - Denominator change: official program-universe additions/removals should be separated from person-level roster movement so an annual diff can tell the difference between “program disappeared from Penn’s public list” and “our scraper missed the page.”
+
+The readiness layer is the bridge between current-state audit and future two-snapshot diffs. It makes the next run pre-explainable: a missing terminal-year fellow can be classified as expected completion, an unchanged PGY row after July can require a fresh-source check, and a source-dependent MSTP or research state can be retained only when the public source repeats it.
 
 ## Next Programs
 

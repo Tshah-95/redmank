@@ -226,6 +226,7 @@ def main() -> None:
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
     enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
     reconciliation_decision_summary = read_json(ARTIFACTS / "evidence_reconciliation_decision_summary.json", {})
+    longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
     top_reconciliation_decisions = [
         row
@@ -244,6 +245,20 @@ def main() -> None:
     state_machine_clock_counts = [
         {"clock_model": clock, "count": count}
         for clock, count in sorted((state_machine_summary.get("by_clock_model") or {}).items())
+    ]
+    longitudinal_readiness_counts = [
+        {"readiness_status": status, "count": count}
+        for status, count in sorted((longitudinal_readiness_summary.get("by_readiness_status") or {}).items())
+    ]
+    longitudinal_missing_counts = [
+        {"missing_expectation": expectation, "count": count}
+        for expectation, count in sorted((longitudinal_readiness_summary.get("by_missing_expectation") or {}).items())
+    ]
+    longitudinal_same_stage_counts = [
+        {"same_stage_expectation": expectation, "count": count}
+        for expectation, count in sorted(
+            (longitudinal_readiness_summary.get("by_same_stage_expectation") or {}).items()
+        )
     ]
     enrichment_coverage_bands = [
         {"coverage_band": band, "count": count}
@@ -307,6 +322,7 @@ def main() -> None:
         "transition_rule_counts": transition_rule_counts,
         "lifecycle_code_counts": lifecycle_code_counts,
         "training_state_machine_summary": state_machine_summary,
+        "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
@@ -436,6 +452,26 @@ def main() -> None:
         f"Auto-advance candidate rows: {state_machine_summary.get('auto_advance_candidate_rows', 0)}. Completion candidate rows: {state_machine_summary.get('completion_candidate_rows', 0)}. Stale/review rows: {state_machine_summary.get('stale_or_review_state_rows', 0)}.",
         "",
         "Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed. The audit layer makes that operational: a row is only stale, advanceable, or removable when its lifecycle rule says so.",
+        "",
+        "## Longitudinal Change Readiness",
+        "",
+        f"Projected refresh date: {longitudinal_readiness_summary.get('projected_refresh_date', 'not generated')}. State rows: {longitudinal_readiness_summary.get('state_rows', 0)}. Person rows: {longitudinal_readiness_summary.get('person_rows', 0)}. Program rows: {longitudinal_readiness_summary.get('program_rows', 0)}.",
+        "",
+        "Readiness statuses:",
+        "",
+        *md_table(longitudinal_readiness_counts, ["readiness_status", "count"]),
+        "",
+        "Missing-on-refresh expectations:",
+        "",
+        *md_table(longitudinal_missing_counts, ["missing_expectation", "count"]),
+        "",
+        "Same-stage-on-refresh expectations:",
+        "",
+        *md_table(longitudinal_same_stage_counts, ["same_stage_expectation", "count"]),
+        "",
+        f"Advancement due rows: {longitudinal_readiness_summary.get('advance_due_by_refresh_rows', 0)}. Completion-window rows: {longitudinal_readiness_summary.get('completion_window_by_refresh_rows', 0)}. Source-refresh-required rows: {longitudinal_readiness_summary.get('requires_source_refresh_by_refresh_rows', 0)}. Human-review rows: {longitudinal_readiness_summary.get('requires_human_review_by_refresh_rows', 0)}.",
+        "",
+        "Learning: annual diffs should be state-machine informed before they are person-table mutations. A missing terminal-year fellow after the stale-after date is likely completion; a missing PGY-2 before the expected exit is a review item; an unchanged MSTP PhD-phase student needs a fresh source rather than an inferred clock advancement.",
         "",
         "## Evidence Counts",
         "",
