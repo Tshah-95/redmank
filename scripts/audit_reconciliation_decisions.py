@@ -32,7 +32,21 @@ NPI_REVIEW_FEATURES = {
     "student_or_training_taxonomy",
     "program_taxonomy_topic_match",
 }
-NON_NAME_FEATURES = REVIEW_READY_PUBMED_FEATURES | NPI_REVIEW_FEATURES | {"recent_publication", "bounded_author_query"}
+PROFILE_REVIEW_FEATURES = {
+    "official_trainee_profile",
+    "official_student_directory",
+    "roster_linked_profile",
+    "directory_linked_profile_anchor",
+    "structured_profile_field",
+    "roster_structured_field_crosscheck",
+    "research_training_field",
+}
+NON_NAME_FEATURES = (
+    REVIEW_READY_PUBMED_FEATURES
+    | NPI_REVIEW_FEATURES
+    | PROFILE_REVIEW_FEATURES
+    | {"recent_publication", "bounded_author_query"}
+)
 
 
 def norm_space(value: str | None) -> str:
@@ -226,6 +240,40 @@ def npi_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
     )
 
 
+def profile_decision(row: dict, features: set[str]) -> tuple[str, str, str]:
+    claim_type = row.get("claim_type") or ""
+    confidence = float(row.get("confidence") or 0)
+    if claim_type in {"education_history_candidate", "prior_training_history_candidate"}:
+        if "roster_structured_field_crosscheck" in features and confidence >= 0.75:
+            return (
+                "review_ready_profile_background_field",
+                "Official roster-linked profile field is backed by a structured roster/profile value.",
+                "Reviewer may promote background enrichment after checking the source URL, field label, and duplicate-person context.",
+            )
+        return (
+            "profile_background_candidate",
+            "Official roster-linked profile contains education or prior-training background, but it remains candidate enrichment.",
+            "Corroborate with another profile/CV/roster field or explicit reviewer acceptance before treating as accepted background.",
+        )
+    if claim_type in {"research_interest_candidate", "career_interest_candidate"}:
+        return (
+            "profile_interest_context_candidate",
+            "Official profile exposes research or career interest context.",
+            "Use as enrichment context only; do not treat as publication, outcome, or program-quality evidence without downstream support.",
+        )
+    if claim_type == "personal_profile_candidate":
+        return (
+            "profile_personal_context_display_review",
+            "Official profile exposes personal context that may be useful for qualitative enrichment but has display-safety concerns.",
+            "Apply display policy before use and avoid treating personal context as identity, quality, or outreach evidence.",
+        )
+    return (
+        "profile_context_candidate",
+        "Official profile candidate evidence is useful context but not acceptance-ready.",
+        "Keep in reconciliation queue until a source-specific acceptance rule applies.",
+    )
+
+
 def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
     names = person_name_index(conn)
     decisions = []
@@ -233,7 +281,10 @@ def make_decisions(conn: sqlite3.Connection, as_of_year: int) -> list[dict]:
         features = set(parse_json(row.get("match_features_json"), []))
         name_matches = names.get(normalized_person_name(row.get("display_name")), [])
         if row["record_type"] == "evidence_claim":
-            decision, rationale, required = pubmed_decision(row, features)
+            if row.get("source_type") == "official_trainee_profile":
+                decision, rationale, required = profile_decision(row, features)
+            else:
+                decision, rationale, required = pubmed_decision(row, features)
             trend_window = ""
         elif row["record_type"] == "npi_candidate":
             decision, rationale, required = npi_decision(row, features)

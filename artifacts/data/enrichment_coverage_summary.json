@@ -26,7 +26,7 @@
   "contact_coverage_rate": 0.188,
   "npi_candidate_coverage_rate": 0.561,
   "npi_needs_review_coverage_rate": 0.511,
-  "people_with_reconciliation_queue": 1438,
+  "people_with_reconciliation_queue": 1454,
   "person_coverage_csv": "artifacts/data/person_enrichment_coverage.csv",
   "person_rows": 1483,
   "profile_coverage_rate": 0.639,

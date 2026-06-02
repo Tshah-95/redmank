@@ -1888,6 +1888,17 @@ SELECT
     WHEN e.status = 'needs_review' THEN 50 ELSE 10
   END
   + CASE
+      WHEN e.source_type = 'official_trainee_profile'
+       AND e.claim_type IN ('education_history_candidate', 'prior_training_history_candidate') THEN 35
+      WHEN e.source_type = 'official_trainee_profile'
+       AND e.claim_type IN ('research_interest_candidate', 'career_interest_candidate') THEN 25
+      WHEN e.source_type = 'official_trainee_profile'
+       AND e.claim_type = 'personal_profile_candidate' THEN 10
+      ELSE 0
+    END
+  + CASE WHEN e.source_type = 'official_trainee_profile' AND e.match_features_json LIKE '%roster_structured_field_crosscheck%' THEN 8 ELSE 0 END
+  + CASE WHEN e.source_type = 'official_trainee_profile' AND e.match_features_json LIKE '%structured_profile_field%' THEN 5 ELSE 0 END
+  + CASE
       WHEN e.claim_type = 'pubmed_article_candidate' THEN 30
       WHEN e.claim_type = 'research_author_candidate' THEN 20
       WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 2
@@ -1900,6 +1911,12 @@ SELECT
   + CASE WHEN e.match_features_json LIKE '%bounded_author_query%' THEN 5 ELSE 0 END
   + CAST(e.confidence * 10 AS INTEGER) AS priority,
   CASE
+    WHEN e.source_type = 'official_trainee_profile'
+     AND e.claim_type IN ('education_history_candidate', 'prior_training_history_candidate') THEN 'Review official roster-linked profile background field before promoting to accepted enrichment or using as identity anchor.'
+    WHEN e.source_type = 'official_trainee_profile'
+     AND e.claim_type IN ('research_interest_candidate', 'career_interest_candidate') THEN 'Review official profile interest field as enrichment context; do not treat as publication or outcome evidence.'
+    WHEN e.source_type = 'official_trainee_profile'
+     AND e.claim_type = 'personal_profile_candidate' THEN 'Review display-safety policy before using personal profile context.'
     WHEN e.claim_type = 'pubmed_article_candidate' THEN 'Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment.'
     WHEN e.claim_type = 'pubmed_author_query_candidate' THEN 'Use only as discovery input; fetch/review article-level evidence before accepting.'
     WHEN e.claim_type = 'research_author_candidate' THEN 'Review OpenAlex/ORCID/affiliation anchors before accepting author identity.'
@@ -1912,7 +1929,21 @@ WHERE e.status IN ('candidate', 'needs_review')
     'pubmed_article_candidate',
     'pubmed_author_query_candidate',
     'research_author_candidate',
-    'research_author_candidate_error'
+    'research_author_candidate_error',
+    'education_history_candidate',
+    'prior_training_history_candidate',
+    'research_interest_candidate',
+    'career_interest_candidate',
+    'personal_profile_candidate'
+  )
+  AND (
+    e.source_type = 'official_trainee_profile'
+    OR e.claim_type IN (
+      'pubmed_article_candidate',
+      'pubmed_author_query_candidate',
+      'research_author_candidate',
+      'research_author_candidate_error'
+    )
   )
 UNION ALL
 SELECT

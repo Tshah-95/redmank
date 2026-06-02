@@ -57,6 +57,12 @@ SECONDARY_DECISIONS = {
     "attending_training_claim_needs_identity_link",
 }
 LOW_SIGNAL_DECISIONS = {"low_signal_candidate", "npi_low_signal_candidate", "discovery_only"}
+PROFILE_CONTEXT_DECISIONS = {
+    "profile_background_candidate",
+    "profile_interest_context_candidate",
+    "profile_personal_context_display_review",
+    "profile_context_candidate",
+}
 
 
 def now_utc() -> str:
@@ -248,6 +254,20 @@ def classify(row: dict, corroborating_sources: list[dict]) -> tuple[str, int, st
             3,
             "Official profile training claim needs a historical trainee bridge before trend acceptance.",
             "seek_historical_roster_cv_or_biosketch_bridge_before_accepting_trend",
+        )
+    if decision == "review_ready_profile_background_field":
+        return (
+            "review_ready_profile_background",
+            2,
+            "Official trainee profile background field is roster-linked but still requires reviewer acceptance before becoming an accepted enrichment fact.",
+            "review_profile_background_field_before_acceptance",
+        )
+    if decision in PROFILE_CONTEXT_DECISIONS:
+        return (
+            "profile_context_candidate",
+            1,
+            "Official trainee profile evidence is useful context but is not accepted roster, research, contact, or trend truth.",
+            "retain_profile_context_with_display_policy",
         )
     if decision.startswith("current_attending_endpoint"):
         return (

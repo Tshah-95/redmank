@@ -15,7 +15,12 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
-INPUT = ARTIFACTS / "penn_training_people_unique.json"
+INPUTS = [
+    ARTIFACTS / "penn_training_people_unique.json",
+    ARTIFACTS / "penn_affiliated_people.json",
+    ARTIFACTS / "penn_gme_gap_roster_people.json",
+    ARTIFACTS / "penn_mstp_students.json",
+]
 CLAIMS_JSON = ARTIFACTS / "penn_trainee_profile_claims.json"
 CLAIMS_CSV = ARTIFACTS / "penn_trainee_profile_claims.csv"
 SOURCES_JSON = ARTIFACTS / "penn_trainee_profile_sources.json"
@@ -61,6 +66,30 @@ LABEL_SPECS = {
         "status": "candidate",
         "display_safety_status": "safe_for_default_display",
         "features": ["official_trainee_profile", "roster_linked_profile", "structured_profile_field"],
+    },
+    "Graduate School": {
+        "claim_type": "education_history_candidate",
+        "field_key": "graduate_school",
+        "confidence": 0.58,
+        "status": "candidate",
+        "display_safety_status": "safe_for_default_display",
+        "features": ["official_trainee_profile", "roster_linked_profile", "structured_profile_field"],
+    },
+    "Graduate Group": {
+        "claim_type": "education_history_candidate",
+        "field_key": "graduate_group",
+        "confidence": 0.56,
+        "status": "candidate",
+        "display_safety_status": "safe_for_default_display",
+        "features": ["official_student_directory", "directory_linked_profile_anchor", "structured_profile_field"],
+    },
+    "Thesis Advisor": {
+        "claim_type": "research_interest_candidate",
+        "field_key": "thesis_advisor",
+        "confidence": 0.5,
+        "status": "candidate",
+        "display_safety_status": "safe_for_default_display",
+        "features": ["official_student_directory", "directory_linked_profile_anchor", "research_training_field"],
     },
     "Career Interests": {
         "claim_type": "career_interest_candidate",
@@ -179,7 +208,12 @@ def norm(text: str | None) -> str:
 def normalized_label(text: str | None) -> str:
     text = norm(text).lower()
     text = text.replace("&", " and ")
+    text = re.sub(r"\b(univ|univ\.|university\.)\b", "university", text)
+    text = re.sub(r"\b(hosp|hosp\.)\b", "hospital", text)
+    text = re.sub(r"\b(med|med\.)\b", "medical", text)
+    text = re.sub(r"\b(sch|sch\.)\b", "school", text)
     text = re.sub(r"[^a-z0-9]+", " ", text)
+    text = re.sub(r"\b(the|at|of|and)\b", " ", text)
     return norm(text)
 
 
@@ -201,6 +235,16 @@ def source_key_for(url: str) -> str:
     slug = re.sub(r"[^a-zA-Z0-9_]+", "_", path).strip("_").lower()[:72]
     digest = hashlib.sha1(url.encode("utf-8")).hexdigest()[:10]
     return f"penn_trainee_profile_{slug}_{digest}"
+
+
+def key_for(prefix: str, text: str) -> str:
+    digest = hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
+    slug = re.sub(r"[^a-z0-9]+", "-", normalized_label(text)).strip("-")[:48]
+    return f"{prefix}_{slug}_{digest}"
+
+
+def person_key_for(record: dict) -> str:
+    return record.get("person_key") or key_for("person", record.get("name", ""))
 
 
 def claim_key_for(row: dict) -> str:
@@ -281,7 +325,7 @@ def add_claim(claims: list[dict], record: dict, source: dict, claim_type: str, c
 
 
 def source_record(record: dict, text: str, generated_at: str) -> dict:
-    source_url = record.get("profile_url", "")
+    source_url = raw_profile_url(record)
     return {
         "source_key": source_key_for(source_url),
         "url": source_url,
@@ -291,7 +335,7 @@ def source_record(record: dict, text: str, generated_at: str) -> dict:
         "http_status": int(record.get("profile_fetch_status") or 0) or None,
         "sha256": sha256_text(text),
         "display_name": record.get("name", ""),
-        "person_key": record.get("person_key", ""),
+        "person_key": person_key_for(record),
         "role": record.get("role", ""),
         "program": record.get("program", ""),
         "roster_source_key": record.get("source_key", ""),
@@ -300,8 +344,66 @@ def source_record(record: dict, text: str, generated_at: str) -> dict:
     }
 
 
+def raw_profile_url(record: dict) -> str:
+    url = record.get("profile_url") or record.get("profile_anchor_url") or ""
+    if not re.match(r"^https?://", url, flags=re.I):
+        return ""
+    return url
+
+
+def synthetic_profile_text(record: dict) -> str:
+    parts = [record.get("profile_text_excerpt") or ""]
+    for field, label in [
+        ("medical_school", "Medical School"),
+        ("residency_program", "Residency Program"),
+        ("undergraduate_school", "Undergraduate"),
+        ("graduate_school", "Graduate School"),
+        ("graduate_group", "Graduate Group"),
+        ("academic_interests", "Academic Interests"),
+        ("thesis_advisor", "Thesis Advisor"),
+        ("hobbies_and_interests", "Hobbies/Interests"),
+        ("bio_text", "Bio"),
+    ]:
+        value = record.get(field)
+        if isinstance(value, list):
+            value = "; ".join(norm(item) for item in value if norm(item))
+        value = norm(value)
+        if value and value not in " ".join(parts):
+            parts.append(f"{label}: {value}")
+    return norm(" ".join(part for part in parts if norm(part)))
+
+
+def structured_fields(record: dict) -> list[tuple[str, str, str]]:
+    fields = []
+    for field, label in [
+        ("medical_school", "Medical School"),
+        ("residency_program", "Residency Program"),
+        ("undergraduate_school", "Undergraduate"),
+        ("graduate_school", "Graduate School"),
+        ("graduate_group", "Graduate Group"),
+        ("academic_interests", "Academic Interests"),
+        ("thesis_advisor", "Thesis Advisor"),
+        ("hobbies_and_interests", "Hobbies/Interests"),
+    ]:
+        value = record.get(field)
+        if isinstance(value, list):
+            value = "; ".join(norm(item) for item in value if norm(item))
+        value = norm(value)
+        if value and label in LABEL_SPECS:
+            fields.append((label, label, value))
+    return fields
+
+
 def materialize() -> tuple[list[dict], list[dict], dict]:
-    records = json.loads(INPUT.read_text(encoding="utf-8"))
+    records = []
+    input_counts = {}
+    for path in INPUTS:
+        if not path.exists():
+            continue
+        loaded = json.loads(path.read_text(encoding="utf-8"))
+        input_counts[str(path.relative_to(ROOT))] = len(loaded)
+        for record in loaded:
+            records.append({**record, "_input_artifact": str(path.relative_to(ROOT))})
     generated_at = datetime.now(timezone.utc).isoformat()
     claims: list[dict] = []
     sources_by_url: dict[str, dict] = {}
@@ -312,8 +414,8 @@ def materialize() -> tuple[list[dict], list[dict], dict]:
     skipped = Counter()
 
     for record in records:
-        profile_url = record.get("profile_url") or ""
-        raw_text = record.get("profile_text_excerpt") or ""
+        profile_url = raw_profile_url(record)
+        raw_text = synthetic_profile_text(record)
         if not profile_url:
             continue
         profile_records += 1
@@ -321,10 +423,10 @@ def materialize() -> tuple[list[dict], list[dict], dict]:
         text = truncate_provider_noise(redact_text(norm(raw_text)))
         source = source_record(record, text, generated_at)
         sources_by_url[profile_url] = source
-        if not text:
+        if text:
+            parsed_profile_records += 1
+        else:
             skipped["missing_profile_text_excerpt"] += 1
-            continue
-        parsed_profile_records += 1
         profile_evidence = {
             "origin": "official_roster_linked_profile",
             "utility_key": "official_trainee_profile",
@@ -334,22 +436,34 @@ def materialize() -> tuple[list[dict], list[dict], dict]:
             "roster_source_key": record.get("source_key", ""),
             "roster_source_url": record.get("source_url", ""),
             "profile_text_sha256": sha256_text(text),
+            "input_artifact": record.get("_input_artifact", ""),
         }
+        profile_features = ["official_roster_source", "linked_profile_url"]
+        if record.get("profile_fetch_status") == "200":
+            profile_features.append("profile_fetch_status_200")
+        else:
+            profile_features.append("profile_url_observed_without_profile_fetch")
         add_claim(
             claims,
-            record,
+            {**record, "person_key": person_key_for(record)},
             source,
             "official_profile_url",
             profile_url,
-            0.9,
+            0.9 if record.get("profile_fetch_status") == "200" else 0.82,
             "accepted",
-            ["official_roster_source", "linked_profile_url", "profile_fetch_status_200"],
+            profile_features,
             profile_evidence,
             "Accepted only as the official profile URL linked from an official trainee roster; profile-derived fields remain candidate evidence.",
         )
         emitted_fields = 0
-        for canonical, raw_label, value in parsed_fields(text):
+        field_candidates = (parsed_fields(text) if text else []) + structured_fields(record)
+        seen_fields = set()
+        for canonical, raw_label, value in field_candidates:
             spec = LABEL_SPECS[canonical]
+            field_seen_key = (spec["field_key"], norm(value).lower())
+            if field_seen_key in seen_fields:
+                continue
+            seen_fields.add(field_seen_key)
             field_counts[spec["field_key"]] += 1
             emitted_fields += 1
             raw_profile_value = value
@@ -376,10 +490,11 @@ def materialize() -> tuple[list[dict], list[dict], dict]:
                 "roster_source_key": record.get("source_key", ""),
                 "roster_source_url": record.get("source_url", ""),
                 "profile_text_sha256": sha256_text(text),
+                "input_artifact": record.get("_input_artifact", ""),
             }
             add_claim(
                 claims,
-                record,
+                {**record, "person_key": person_key_for(record)},
                 source,
                 spec["claim_type"],
                 f"{canonical}: {clean_value}",
@@ -392,11 +507,12 @@ def materialize() -> tuple[list[dict], list[dict], dict]:
         if emitted_fields == 0:
             skipped["no_known_profile_fields"] += 1
 
-    claims = sorted(claims, key=lambda row: (row["person_key"], row["claim_type"], row["claim_value"], row["source_key"]))
+    deduped_claims = {row["claim_key"]: row for row in claims}
+    claims = sorted(deduped_claims.values(), key=lambda row: (row["person_key"], row["claim_type"], row["claim_value"], row["source_key"]))
     sources = sorted(sources_by_url.values(), key=lambda row: row["source_key"])
     summary = {
         "generated_at": generated_at,
-        "input": str(INPUT.relative_to(ROOT)),
+        "inputs": input_counts,
         "profiles_with_url": profile_records,
         "profiles_with_text": parsed_profile_records,
         "sources": len(sources),
