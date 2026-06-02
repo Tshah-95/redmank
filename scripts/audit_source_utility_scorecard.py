@@ -368,6 +368,27 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         "SELECT COUNT(DISTINCT event_group_key) FROM attending_biosketch_bridge_candidates",
     )
+    trend_reconciliation_rows = scalar(conn, "SELECT COUNT(*) FROM attending_trend_reconciliation")
+    trend_reconciliation_review_ready = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM attending_trend_reconciliation
+        WHERE trend_status = 'review_ready_official_biosketch_bridge'
+        """,
+    )
+    trend_reconciliation_needs_bridge = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM attending_trend_reconciliation
+        WHERE trend_status IN (
+          'profile_claim_still_needs_dated_bridge',
+          'current_endpoint_needs_training_claim'
+        )
+        """,
+    )
+    trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
 
     contact_count = scalar(conn, "SELECT COUNT(*) FROM person_contacts")
     contact_by_verification = counter_query(
@@ -718,6 +739,36 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "groups_with_candidates": biosketch_groups,
                 "recent_dated_gme_bridge_rows": biosketch_recent_bridge,
                 "gme_context_rows": biosketch_gme_context,
+            },
+        ),
+        make_row(
+            scorecard_key="attending_trend_reconciliation_ledger",
+            utility_key="official_profile",
+            utility_label="Attending trend reconciliation ledger",
+            source_family="evidence_reconciliation",
+            claim_surface="non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence",
+            input_records=trend_reconciliation_rows,
+            output_records=trend_reconciliation_rows,
+            candidate_records=trend_reconciliation_rows,
+            needs_review_records=trend_reconciliation_needs_bridge,
+            review_ready_records=trend_reconciliation_review_ready,
+            score=82.0,
+            strengths=[
+                "Combines endpoint, Penn-training profile, official biosketch, and historical-link evidence without mutating rosters",
+                "Separates review-ready recent attending trend candidates from profile claims that still need dated bridges",
+                "Produces queryable person/group-level trend assurance and ten-year-window labels",
+            ],
+            limitations=[
+                "Review-ready rows still need explicit reviewer acceptance before becoming accepted trend facts",
+                "Current recall is bounded by attending profile and biosketch discovery",
+                "Historical web search remains rate-limit and ranking sensitive",
+            ],
+            recommended_next_action="review_ready_trend_rows_then_record_explicit_acceptance_decisions",
+            evidence={
+                "summary": trend_reconciliation_summary,
+                "trend_rows": trend_reconciliation_rows,
+                "review_ready_rows": trend_reconciliation_review_ready,
+                "needs_bridge_or_training_rows": trend_reconciliation_needs_bridge,
             },
         ),
         make_row(

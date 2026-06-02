@@ -434,6 +434,31 @@ CREATE TABLE IF NOT EXISTS attending_biosketch_bridge_candidates (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS attending_trend_reconciliation (
+  trend_key TEXT PRIMARY KEY,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  trend_status TEXT NOT NULL,
+  trend_assurance_level INTEGER NOT NULL DEFAULT 0,
+  ten_year_trend_window TEXT NOT NULL,
+  has_current_attending_endpoint INTEGER NOT NULL DEFAULT 0,
+  has_penn_training_claim INTEGER NOT NULL DEFAULT 0,
+  has_recent_dated_biosketch_bridge INTEGER NOT NULL DEFAULT 0,
+  has_historical_link_candidate INTEGER NOT NULL DEFAULT 0,
+  has_current_trainee_name_match INTEGER NOT NULL DEFAULT 0,
+  bridge_candidate_keys TEXT,
+  historical_candidate_keys TEXT,
+  best_training_type TEXT,
+  best_training_line TEXT,
+  best_training_start_year INTEGER,
+  best_training_end_year INTEGER,
+  best_source_url TEXT,
+  required_next_evidence TEXT NOT NULL,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_training_events (
   training_event_id INTEGER PRIMARY KEY,
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
@@ -677,6 +702,25 @@ ORDER BY
   event_year DESC,
   confidence DESC,
   display_name;
+
+CREATE VIEW IF NOT EXISTS v_review_ready_attending_trends AS
+SELECT
+  trend_key,
+  event_group_key,
+  display_name,
+  normalized_name,
+  trend_status,
+  trend_assurance_level,
+  ten_year_trend_window,
+  best_training_type,
+  best_training_line,
+  best_training_start_year,
+  best_training_end_year,
+  best_source_url,
+  required_next_evidence
+FROM attending_trend_reconciliation
+WHERE trend_status = 'review_ready_official_biosketch_bridge'
+ORDER BY best_training_end_year DESC, display_name;
 
 CREATE VIEW IF NOT EXISTS v_evidence_reconciliation_queue AS
 SELECT

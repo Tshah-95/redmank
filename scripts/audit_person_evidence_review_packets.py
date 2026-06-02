@@ -19,6 +19,7 @@ ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
 SCHEMA = ROOT / "db" / "schema.sql"
 DECISIONS_CSV = ARTIFACTS / "evidence_reconciliation_decisions.csv"
+TREND_RECONCILIATION_CSV = ARTIFACTS / "attending_trend_reconciliation.csv"
 PACKETS_CSV = ARTIFACTS / "person_evidence_review_packets.csv"
 
 REVIEW_READY_DECISIONS = {
@@ -26,10 +27,12 @@ REVIEW_READY_DECISIONS = {
     "review_ready_training_topic_anchor",
     "attending_training_claim_review_ready",
     "attending_training_claim_linkable_name_match",
+    "trend_review_ready_official_biosketch_bridge",
 }
 SECONDARY_ANCHOR_DECISIONS = {
     "needs_secondary_identity_anchor",
     "attending_training_claim_needs_identity_link",
+    "trend_profile_claim_still_needs_dated_bridge",
 }
 ATTENDING_DECISIONS = {
     "attending_training_claim_review_ready",
@@ -38,6 +41,10 @@ ATTENDING_DECISIONS = {
     "current_attending_endpoint_candidate",
     "outcome_context_only",
     "profile_context_candidate",
+    "trend_review_ready_official_biosketch_bridge",
+    "trend_profile_claim_still_needs_dated_bridge",
+    "trend_current_endpoint_needs_training_claim",
+    "trend_context_only_not_ready",
 }
 PUBLICATION_DECISIONS = {
     "review_ready_high_anchor",
@@ -115,6 +122,62 @@ def read_decisions(path: Path) -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def trend_decision_for_status(status: str) -> str:
+    if status == "review_ready_official_biosketch_bridge":
+        return "trend_review_ready_official_biosketch_bridge"
+    if status == "profile_claim_still_needs_dated_bridge":
+        return "trend_profile_claim_still_needs_dated_bridge"
+    if status == "current_endpoint_needs_training_claim":
+        return "trend_current_endpoint_needs_training_claim"
+    return "trend_context_only_not_ready"
+
+
+def read_trend_reconciliation(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    decisions = []
+    for row in rows:
+        decision = trend_decision_for_status(row.get("trend_status") or "")
+        assurance = as_int(row.get("trend_assurance_level"))
+        priority = 120 + assurance * 20
+        decisions.append(
+            {
+                "record_type": "attending_trend_reconciliation",
+                "record_id": row.get("trend_key") or "",
+                "person_key": "",
+                "display_name": row.get("display_name") or "",
+                "role": "attending_or_outcome_candidate",
+                "claim_type": "recent_attending_trend_candidate",
+                "event_type": "recent_attending_trend_candidate",
+                "status": row.get("trend_status") or "",
+                "confidence": round(min(0.99, 0.55 + assurance * 0.1), 3),
+                "priority": priority,
+                "decision": decision,
+                "decision_rationale": row.get("trend_status") or "",
+                "required_next_evidence": row.get("required_next_evidence") or "",
+                "non_name_anchor_count": assurance,
+                "matched_current_person_count": row.get("has_current_trainee_name_match") or "0",
+                "matched_current_person_keys": "",
+                "ten_year_trend_window": row.get("ten_year_trend_window") or "",
+                "source_key": "attending_trend_reconciliation",
+                "source_url": row.get("best_source_url") or "",
+                "match_features": "; ".join(
+                    feature
+                    for feature, flag in [
+                        ("current_attending_endpoint", row.get("has_current_attending_endpoint")),
+                        ("penn_training_claim", row.get("has_penn_training_claim")),
+                        ("official_biosketch_bridge", row.get("has_recent_dated_biosketch_bridge")),
+                        ("historical_link_candidate", row.get("has_historical_link_candidate")),
+                    ]
+                    if as_int(flag)
+                ),
+            }
+        )
+    return decisions
+
+
 def as_int(value: str | int | None) -> int:
     if value in {None, ""}:
         return 0
@@ -152,6 +215,13 @@ def classify_packet(items: list[dict], decisions: Counter) -> tuple[str, str, st
     discovery = decisions.get("discovery_only", 0)
     kind = review_kind(decisions)
     max_priority = max(as_int(row.get("priority")) for row in items)
+    if decisions.get("trend_review_ready_official_biosketch_bridge", 0):
+        return (
+            "review_ready_recent_attending_trend_packet",
+            "review_official_biosketch_bridge_for_trend_acceptance",
+            "Needs reviewer acceptance before accepted trend-line use; do not mutate current trainee roster.",
+            max_priority + 30,
+        )
     if review_ready and kind == "attending_trend_identity_link":
         return (
             "review_ready_attending_trend_packet",
@@ -364,9 +434,11 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", type=Path, default=DB)
     parser.add_argument("--decisions", type=Path, default=DECISIONS_CSV)
+    parser.add_argument("--trend-reconciliation", type=Path, default=TREND_RECONCILIATION_CSV)
     args = parser.parse_args()
 
     decisions = read_decisions(args.decisions)
+    decisions.extend(read_trend_reconciliation(args.trend_reconciliation))
     rows = packet_rows(decisions)
     summary = summary_payload(rows)
     conn = sqlite3.connect(args.db)

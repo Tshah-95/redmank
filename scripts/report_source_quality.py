@@ -230,6 +230,7 @@ def main() -> None:
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
+    attending_trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
@@ -237,6 +238,7 @@ def main() -> None:
     top_attending_linkage_groups = read_csv(ARTIFACTS / "attending_trend_linkage_groups.csv", limit=20)
     top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
     top_attending_biosketch_bridges = read_csv(ARTIFACTS / "attending_biosketch_bridge_candidates.csv", limit=25)
+    top_attending_trend_reconciliation = read_csv(ARTIFACTS / "attending_trend_reconciliation.csv", limit=25)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     top_reconciliation_decisions = [
         row
@@ -302,6 +304,10 @@ def main() -> None:
         {"bridge_status": status, "count": count}
         for status, count in sorted((attending_biosketch_bridge_summary.get("by_bridge_status") or {}).items())
     ]
+    attending_trend_reconciliation_counts = [
+        {"trend_status": status, "count": count}
+        for status, count in sorted((attending_trend_reconciliation_summary.get("by_trend_status") or {}).items())
+    ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
         for status, count in sorted((hup_gap_probe_summary.get("by_candidate_status") or {}).items())
@@ -359,6 +365,8 @@ def main() -> None:
         "top_attending_historical_link_candidates": top_attending_historical_candidates,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,
         "top_attending_biosketch_bridges": top_attending_biosketch_bridges,
+        "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
+        "top_attending_trend_reconciliation": top_attending_trend_reconciliation,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
         "medical_student_source_audit_summary": med_student_source_audit_summary,
@@ -690,6 +698,32 @@ def main() -> None:
         ),
         "",
         "Learning: official Penn Faculty Biosketch pages are a high-quality bridge utility when they provide dated Penn residency/fellowship lines for current faculty. They still remain review candidates rather than accepted trend facts because a profile training line is not the same evidence class as a historical roster or alumni record. Postdoctoral research lines are retained as context, not counted as GME trainee-flow bridges.",
+        "",
+        "## Attending Trend Reconciliation Ledger",
+        "",
+        f"Trend groups reconciled: {attending_trend_reconciliation_summary.get('trend_rows', 0)}. Review-ready recent bridge rows: {attending_trend_reconciliation_summary.get('review_ready_recent_bridge_rows', 0)}. Groups with current endpoints: {attending_trend_reconciliation_summary.get('groups_with_current_endpoint', 0)}. Groups with Penn-training claims: {attending_trend_reconciliation_summary.get('groups_with_penn_training_claim', 0)}.",
+        "",
+        "Trend statuses:",
+        "",
+        *md_table(attending_trend_reconciliation_counts, ["trend_status", "count"]),
+        "",
+        "Top trend reconciliation rows:",
+        "",
+        *md_table(
+            top_attending_trend_reconciliation,
+            [
+                "display_name",
+                "trend_status",
+                "trend_assurance_level",
+                "ten_year_trend_window",
+                "best_training_type",
+                "best_training_end_year",
+                "best_source_url",
+                "required_next_evidence",
+            ],
+        ),
+        "",
+        "Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance, but the reviewer decision should be recorded separately before an accepted trend fact is emitted.",
         "",
         "## Enrichment Coverage Audit",
         "",

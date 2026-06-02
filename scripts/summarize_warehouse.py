@@ -36,6 +36,7 @@ def main() -> None:
         "training_state_transition_events",
         "career_events",
         "attending_biosketch_bridge_candidates",
+        "attending_trend_reconciliation",
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",
@@ -119,6 +120,16 @@ def main() -> None:
             SELECT bridge_status, COUNT(*) AS count
             FROM attending_biosketch_bridge_candidates
             GROUP BY bridge_status
+            """
+        )
+    }
+    attending_trend_reconciliation_counts = {
+        row["trend_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT trend_status, COUNT(*) AS count
+            FROM attending_trend_reconciliation
+            GROUP BY trend_status
             """
         )
     }
@@ -273,6 +284,13 @@ def main() -> None:
         )
     else:
         attending_biosketch_bridge_summary = {}
+    attending_trend_reconciliation_summary_path = ARTIFACTS / "attending_trend_reconciliation_summary.json"
+    if attending_trend_reconciliation_summary_path.exists():
+        attending_trend_reconciliation_summary = json.loads(
+            attending_trend_reconciliation_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        attending_trend_reconciliation_summary = {}
     person_evidence_packet_summary_path = ARTIFACTS / "person_evidence_review_packet_summary.json"
     if person_evidence_packet_summary_path.exists():
         person_evidence_packet_summary = json.loads(person_evidence_packet_summary_path.read_text(encoding="utf-8"))
@@ -313,6 +331,7 @@ def main() -> None:
         "evidence_source_counts": evidence_source_counts,
         "career_event_counts": career_event_counts,
         "attending_biosketch_bridge_counts": attending_biosketch_bridge_counts,
+        "attending_trend_reconciliation_counts": attending_trend_reconciliation_counts,
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
         "evidence_reconciliation_top_claim_counts": evidence_reconciliation_top_claim_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
@@ -333,6 +352,7 @@ def main() -> None:
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,
+        "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,

@@ -1843,6 +1843,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "training_state_transition_events",
         "career_events",
         "attending_biosketch_bridge_candidates",
+        "attending_trend_reconciliation",
         "person_contacts",
         "evidence_claims",
         "source_quality_observations",

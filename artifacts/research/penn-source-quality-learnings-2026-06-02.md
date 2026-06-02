@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T08:50:49.553000+00:00
+Generated: 2026-06-02T08:57:30.031359+00:00
 
 ## What This Pass Did
 
@@ -490,7 +490,7 @@ Learning: annual diffs should be state-machine informed before they are person-t
 
 ## Source Utility Scorecard
 
-Scorecard rows: 14.
+Scorecard rows: 15.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -505,6 +505,7 @@ Scorecard rows: 14.
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 0 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
 | Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
+| Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | review_ready_trend_rows_then_record_explicit_acceptance_decisions |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 66.0 | useful_candidate_layer | verify_contact_channels_against_current_official_source_before_use |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
@@ -732,6 +733,51 @@ Top biosketch bridge candidates:
 | Timothy Buckey, MD, MBE | non_penn_training_context | residency | 2019 | 2022 | yes | Residency, Internal Medicine, Katz School of Medicine, Temple University Hospital, Philadelphia, PA, 2019-2022. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 |
 
 Learning: official Penn Faculty Biosketch pages are a high-quality bridge utility when they provide dated Penn residency/fellowship lines for current faculty. They still remain review candidates rather than accepted trend facts because a profile training line is not the same evidence class as a historical roster or alumni record. Postdoctoral research lines are retained as context, not counted as GME trainee-flow bridges.
+
+## Attending Trend Reconciliation Ledger
+
+Trend groups reconciled: 70. Review-ready recent bridge rows: 3. Groups with current endpoints: 49. Groups with Penn-training claims: 4.
+
+Trend statuses:
+
+| trend_status | count |
+| --- | --- |
+| context_only_not_trend_ready | 21 |
+| current_endpoint_needs_training_claim | 45 |
+| profile_claim_still_needs_dated_bridge | 1 |
+| review_ready_official_biosketch_bridge | 3 |
+
+Top trend reconciliation rows:
+
+| display_name | trend_status | trend_assurance_level | ten_year_trend_window | best_training_type | best_training_end_year | best_source_url | required_next_evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Patrick Kevin Gleeson, MD, MSCE | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2020 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
+| Priya Patel, MD | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2019 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
+| Timothy Buckey, MD, MBE | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2024 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
+| Emily Gordon, MD, MSEd | profile_claim_still_needs_dated_bridge | 2 | unknown |  |  |  | Current Penn endpoint and Penn-training profile claim exist, but a dated bridge source is still missing. |
+| Alana Sagin, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Alison Wakoff Loren, MD, MSCE | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Anar A. Dossumbekova, MD, PhD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Andrea J. Apter, MD, MA, MSc | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Ann Soliman, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Barbara A. Carr | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Bridget Durkin, MD, MBE | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Christine Ciunci, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Christopher A. D'Avella, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Daniel J. Landsburg, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| David M. Mintzer, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Denis Hadjiliadis, MD, PhD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Douglas Eric Guggenheim, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Edward A. Stadtmauer, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Emily Chan, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Erin O. Aakhus, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Geeta Ravi Patel, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Janet Long | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Jesse Kiefer MD MSEd | current_endpoint_needs_training_claim | 1 | yes |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Katherine Courtright, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Kathryn A. McGrath, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+
+Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance, but the reviewer decision should be recorded separately before an accepted trend fact is emitted.
 
 ## Enrichment Coverage Audit
 

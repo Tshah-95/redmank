@@ -105,6 +105,39 @@
     "linkage_event_csv": "artifacts/data/attending_trend_linkage_events.csv",
     "linkage_group_csv": "artifacts/data/attending_trend_linkage_groups.csv"
   },
+  "attending_trend_reconciliation_counts": {
+    "context_only_not_trend_ready": 21,
+    "current_endpoint_needs_training_claim": 45,
+    "profile_claim_still_needs_dated_bridge": 1,
+    "review_ready_official_biosketch_bridge": 3
+  },
+  "attending_trend_reconciliation_summary": {
+    "as_of_year": 2026,
+    "by_assurance_level": {
+      "0": 21,
+      "1": 45,
+      "2": 1,
+      "4": 3
+    },
+    "by_ten_year_trend_window": {
+      "unknown": 66,
+      "yes": 4
+    },
+    "by_trend_status": {
+      "context_only_not_trend_ready": 21,
+      "current_endpoint_needs_training_claim": 45,
+      "profile_claim_still_needs_dated_bridge": 1,
+      "review_ready_official_biosketch_bridge": 3
+    },
+    "csv": "artifacts/data/attending_trend_reconciliation.csv",
+    "generated_at": "2026-06-02T08:56:37.468980+00:00",
+    "groups_with_current_endpoint": 49,
+    "groups_with_penn_training_claim": 4,
+    "groups_with_recent_dated_biosketch_bridge": 3,
+    "json": "artifacts/data/attending_trend_reconciliation.json",
+    "review_ready_recent_bridge_rows": 3,
+    "trend_rows": 70
+  },
   "career_event_counts": {
     "attending_profile_training_history_candidate": 20,
     "current_penn_attending_candidate": 49,
@@ -115,6 +148,7 @@
   },
   "counts": {
     "attending_biosketch_bridge_candidates": 10,
+    "attending_trend_reconciliation": 70,
     "career_events": 105,
     "evidence_claims": 4744,
     "medical_student_source_audit": 16,
@@ -137,7 +171,7 @@
     "programs": 95,
     "source_quality_observations": 3,
     "source_utilities": 9,
-    "source_utility_scorecard": 14,
+    "source_utility_scorecard": 15,
     "sources": 1390,
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
@@ -306,7 +340,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T08:50:49.595550+00:00",
+  "generated_at": "2026-06-02T08:57:30.053765+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -547,8 +581,8 @@
     "low_signal_candidate_packet": 56,
     "needs_secondary_identity_anchor_packet": 161,
     "partial_anchor_candidate_packet": 16,
-    "review_ready_attending_trend_packet": 3,
-    "review_ready_publication_packet": 65
+    "review_ready_publication_packet": 65,
+    "review_ready_recent_attending_trend_packet": 3
   },
   "person_evidence_review_packet_summary": {
     "attending_trend_packets": 50,
@@ -557,14 +591,14 @@
       "low_signal_candidate_packet": 56,
       "needs_secondary_identity_anchor_packet": 161,
       "partial_anchor_candidate_packet": 16,
-      "review_ready_attending_trend_packet": 3,
-      "review_ready_publication_packet": 65
+      "review_ready_publication_packet": 65,
+      "review_ready_recent_attending_trend_packet": 3
     },
     "by_recommended_next_action": {
       "collect_additional_identity_anchors": 16,
       "deprioritize_until_stronger_source_appears": 56,
       "manual_review_for_candidate_acceptance": 65,
-      "review_attending_training_claim_and_seek_historical_identity_link": 3,
+      "review_official_biosketch_bridge_for_trend_acceptance": 3,
       "seek_profile_or_identifier_or_coauthor_anchor": 161,
       "use_only_as_discovery_seed": 860
     },
@@ -573,7 +607,7 @@
       "publication_identity_review": 1111
     },
     "csv": "artifacts/data/person_evidence_review_packets.csv",
-    "generated_at": "2026-06-02T07:54:39.546666+00:00",
+    "generated_at": "2026-06-02T08:57:14.315226+00:00",
     "json": "artifacts/data/person_evidence_review_packets.json",
     "needs_secondary_anchor_packets": 161,
     "packet_rows": 1161,
@@ -593,7 +627,7 @@
     "blocked_or_low_current_utility": 1,
     "discovery_or_review_only": 2,
     "high_utility": 2,
-    "strong_with_known_limits": 6,
+    "strong_with_known_limits": 7,
     "useful_candidate_layer": 3
   },
   "source_utility_scorecard_summary": {
@@ -602,7 +636,7 @@
       "blocked_or_low_current_utility": 1,
       "discovery_or_review_only": 2,
       "high_utility": 2,
-      "strong_with_known_limits": 6,
+      "strong_with_known_limits": 7,
       "useful_candidate_layer": 3
     },
     "by_recommended_next_action": {
@@ -613,6 +647,7 @@
       "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
+      "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
       "run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits": 1,
       "seek_historical_identity_bridge_before_accepting_trend_links": 1,
@@ -622,6 +657,7 @@
       "verify_contact_channels_against_current_official_source_before_use": 1
     },
     "by_source_family": {
+      "evidence_reconciliation": 1,
       "normalization": 1,
       "official_institutional_web": 7,
       "scholarly_api": 3,
@@ -630,10 +666,10 @@
     },
     "candidate_or_discovery_rows": 5,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T08:50:29.057441+00:00",
+    "generated_at": "2026-06-02T08:57:21.580483+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
-    "scorecard_rows": 14,
+    "scorecard_rows": 15,
     "top_rows": [
       {
         "quality_band": "high_utility",
@@ -655,6 +691,13 @@
         "score": 84.0,
         "scorecard_key": "training_state_machine_longitudinal_readiness",
         "utility_label": "Training state machine and longitudinal readiness"
+      },
+      {
+        "quality_band": "strong_with_known_limits",
+        "recommended_next_action": "review_ready_trend_rows_then_record_explicit_acceptance_decisions",
+        "score": 82.0,
+        "scorecard_key": "attending_trend_reconciliation_ledger",
+        "utility_label": "Attending trend reconciliation ledger"
       },
       {
         "quality_band": "strong_with_known_limits",
@@ -683,13 +726,6 @@
         "score": 74.0,
         "scorecard_key": "organization_normalization_resolver",
         "utility_label": "Organization normalization resolver"
-      },
-      {
-        "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "seek_historical_identity_bridge_before_accepting_trend_links",
-        "score": 73.0,
-        "scorecard_key": "official_attending_profile_claims",
-        "utility_label": "Official Penn attending/profile claims"
       }
     ]
   },

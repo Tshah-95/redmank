@@ -211,6 +211,10 @@ Historical-link candidates are also classified by source surface. Current Penn p
 
 This bridge audit is still non-mutating. A faculty biosketch is much stronger than a search result because it is official, dated, and profile-attached, but it is still not the same source class as a historical roster or alumni record. The trend layer should treat it as review-ready bridge evidence until the reconciliation policy explicitly accepts official biosketch training lines as sufficient for a given trend analysis.
 
+`scripts/audit_attending_trend_reconciliation.py` is the policy ledger above those source utilities. It joins trend-linkage groups, official biosketch bridge candidates, and historical-link candidates into `attending_trend_reconciliation.csv` and SQLite table `attending_trend_reconciliation`. The ledger classifies groups as review-ready official-biosketch bridges, profile claims still needing a dated bridge, endpoints needing Penn-training evidence, or context-only rows.
+
+This table is the right place to build the ten-year recent-attending trend line. It is deliberately still non-mutating: `review_ready_official_biosketch_bridge` means endpoint evidence, Penn-training claim, and dated recent official Penn GME biosketch evidence agree enough for explicit reviewer acceptance. It does not rewrite the current trainee roster or promote profile claims into accepted trend facts by itself.
+
 ## First Research Utility Learnings
 
 The first expanded resident/fellow research pass processed 759 Penn-affiliated resident/fellow people from official Penn roster sources.
