@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T10:08:41.535350+00:00",
+  "generated_at": "2026-06-02T10:12:18.075396+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -5876,7 +5876,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T10:08:41.469219+00:00",
+    "generated_at": "2026-06-02T10:12:18.008046+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -5974,7 +5974,7 @@
       "output_records": "64",
       "accepted_records": "64",
       "candidate_records": "0",
-      "needs_review_records": "0",
+      "needs_review_records": "16",
       "review_ready_records": "0",
       "discovery_only_records": "0",
       "low_signal_records": "0",
@@ -5985,8 +5985,8 @@
       "strengths": "Separates denominator coverage from person extraction; Makes missing programs auditable instead of invisible; Supports institution and category-level annual diffs",
       "limitations": "Official list does not guarantee a public current roster; Track aliases and section-level splits need explicit reconciliation; Coverage mutations are intentionally blocked until evidence is stronger",
       "recommended_next_action": "resolve_gap_reason_and_alias_candidates_before_count_mutation",
-      "evidence_json": "{\"alias_candidate_rows\": 0, \"coverage_gaps\": 27, \"coverage_mutation_allowed_rows\": 0, \"covered_current_roster\": 64, \"gap_reasons\": {}, \"official_programs\": 91}",
-      "audited_at": "2026-06-02T10:05:31.676905+00:00"
+      "evidence_json": "{\"alias_candidate_rows\": 16, \"coverage_gaps\": 27, \"coverage_mutation_allowed_rows\": 0, \"covered_current_roster\": 64, \"gap_reasons\": {\"official_page_empty_or_low_content\": 3, \"public_program_context_no_current_roster\": 19, \"source_already_loaded_related_program_review\": 5}, \"official_programs\": 91}",
+      "audited_at": "2026-06-02T10:12:18.008046+00:00"
     },
     {
       "scorecard_key": "acgme_program_identifier_candidates",
@@ -6162,9 +6162,9 @@
       "utility_label": "Warehouse reproducibility provenance audit",
       "source_family": "warehouse_provenance",
       "claim_surface": "artifact existence, row-count parity, content hashes, and repository-size pressure",
-      "input_records": "27",
-      "output_records": "27",
-      "accepted_records": "26",
+      "input_records": "32",
+      "output_records": "32",
+      "accepted_records": "31",
       "candidate_records": "0",
       "needs_review_records": "0",
       "review_ready_records": "0",
@@ -6177,8 +6177,8 @@
       "strengths": "Compares major flat artifacts to SQLite table counts; Stores artifact hashes and byte sizes for provenance review; Separates data mismatches from repository storage warnings",
       "limitations": "Row-count parity does not prove semantic equivalence for every field; SQLite binary remains large for ordinary Git hosting; Network-sourced artifacts still need source-specific refresh audits",
       "recommended_next_action": "move_sqlite_to_lfs_or_generated_artifact_after_preserving_rebuild_manifest",
-      "evidence_json": "{\"acceptance_rule\": \"A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.\", \"artifact_rows\": 27, \"audited_at\": \"2026-06-02T10:08:41.257655+00:00\", \"binary_size_warning_rows\": 1, \"by_artifact_role\": {\"acceptance_ledger\": 1, \"attending_trend_input\": 1, \"attending_trend_ledger\": 2, \"contact_ledger\": 1, \"identity_enrichment_ledger\": 1, \"longitudinal_readiness_ledger\": 4, \"program_identifier_ledger\": 3, \"program_lifecycle_ledger\": 1, \"reconciliation_ledger\": 3, \"source_observation_ledger\": 1, \"source_quality_ledger\": 1, \"sqlite_warehouse_binary\": 1, \"state_machine_ledger\": 3, \"warehouse_export\": 4}, \"by_row_count_status\": {\"binary_size_warning\": 1, \"ok\": 26}, \"csv\": \"artifacts/data/warehouse_reproducibility_audit.csv\", \"github_recommended_file_limit_bytes\": 52428800, \"json\": \"artifacts/data/warehouse_reproducibility_audit.json\", \"required_missing_artifacts\": 0, \"row_count_mismatch_rows\": 0, \"sqlite_byte_size\": 58576896}",
-      "audited_at": "2026-06-02T10:08:41.469219+00:00"
+      "evidence_json": "{\"acceptance_rule\": \"A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.\", \"artifact_rows\": 32, \"audited_at\": \"2026-06-02T10:12:17.793691+00:00\", \"binary_size_warning_rows\": 1, \"by_artifact_role\": {\"acceptance_ledger\": 1, \"attending_trend_input\": 1, \"attending_trend_ledger\": 2, \"contact_ledger\": 1, \"identity_enrichment_ledger\": 1, \"longitudinal_readiness_ledger\": 4, \"official_program_alias_ledger\": 1, \"official_program_denominator_ledger\": 1, \"official_program_gap_probe_ledger\": 1, \"official_program_gap_reason_ledger\": 1, \"official_program_gap_source_ledger\": 1, \"program_identifier_ledger\": 3, \"program_lifecycle_ledger\": 1, \"reconciliation_ledger\": 3, \"source_observation_ledger\": 1, \"source_quality_ledger\": 1, \"sqlite_warehouse_binary\": 1, \"state_machine_ledger\": 3, \"warehouse_export\": 4}, \"by_row_count_status\": {\"binary_size_warning\": 1, \"ok\": 31}, \"csv\": \"artifacts/data/warehouse_reproducibility_audit.csv\", \"github_recommended_file_limit_bytes\": 52428800, \"json\": \"artifacts/data/warehouse_reproducibility_audit.json\", \"required_missing_artifacts\": 0, \"row_count_mismatch_rows\": 0, \"sqlite_byte_size\": 58724352}",
+      "audited_at": "2026-06-02T10:12:18.008046+00:00"
     },
     {
       "scorecard_key": "openalex_author_search",

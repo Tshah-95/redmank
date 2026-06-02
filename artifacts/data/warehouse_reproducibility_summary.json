@@ -1,7 +1,7 @@
 {
   "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-  "artifact_rows": 27,
-  "audited_at": "2026-06-02T10:08:41.567783+00:00",
+  "artifact_rows": 32,
+  "audited_at": "2026-06-02T10:12:18.107981+00:00",
   "binary_size_warning_rows": 1,
   "by_artifact_role": {
     "acceptance_ledger": 1,
@@ -10,6 +10,11 @@
     "contact_ledger": 1,
     "identity_enrichment_ledger": 1,
     "longitudinal_readiness_ledger": 4,
+    "official_program_alias_ledger": 1,
+    "official_program_denominator_ledger": 1,
+    "official_program_gap_probe_ledger": 1,
+    "official_program_gap_reason_ledger": 1,
+    "official_program_gap_source_ledger": 1,
     "program_identifier_ledger": 3,
     "program_lifecycle_ledger": 1,
     "reconciliation_ledger": 3,
@@ -21,12 +26,12 @@
   },
   "by_row_count_status": {
     "binary_size_warning": 1,
-    "ok": 26
+    "ok": 31
   },
   "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
   "github_recommended_file_limit_bytes": 52428800,
   "json": "artifacts/data/warehouse_reproducibility_audit.json",
   "required_missing_artifacts": 0,
   "row_count_mismatch_rows": 0,
-  "sqlite_byte_size": 58580992
+  "sqlite_byte_size": 58728448
 }

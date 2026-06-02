@@ -153,6 +153,8 @@ python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
+python3 scripts/audit_hup_gap_reasons.py
+python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/audit_penn_med_student_sources.py
 python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 python3 scripts/discover_acgme_program_identifier_candidates.py
