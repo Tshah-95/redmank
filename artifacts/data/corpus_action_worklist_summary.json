@@ -9,22 +9,23 @@
     "training_temporal_contract": 86
   },
   "by_priority_band": {
-    "critical": 24,
-    "high": 866,
+    "critical": 23,
+    "high": 867,
     "low": 321,
     "medium": 174
   },
-  "critical_rows": 24,
+  "critical_rows": 23,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T18:04:14.968656+00:00",
-  "high_rows": 866,
+  "generated_at": "2026-06-02T18:11:34.396250+00:00",
+  "high_rows": 867,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
   "top_action_scope_counts": {
-    "contact_verification:domain_review_before_contact_use": 1,
     "contact_verification:fresh_official_reobservation_required": 312,
-    "official_program_coverage:alias_review": 20,
+    "official_program_coverage:accepted_alias_denominator_policy": 13,
+    "official_program_coverage:accepted_alias_open_gap_policy": 1,
+    "official_program_coverage:alias_review": 6,
     "official_program_coverage:count_conflict_review": 1,
     "official_program_coverage:parser_or_roster_source_review": 7,
     "official_program_coverage:source_candidate_probe": 14,
@@ -44,7 +45,6 @@
     "recent_attending_trend:review_ready_official_biosketch_bridge": 5,
     "search_utility_assurance:official_program_gap_discovery": 1,
     "search_utility_assurance:person_background_discovery": 1,
-    "search_utility_assurance:person_profile_discovery": 1,
     "training_temporal_contract:manual_review_required": 12,
     "training_temporal_contract:source_refresh_required": 74
   },
@@ -160,16 +160,6 @@
       "role": "fellow"
     },
     {
-      "action_scope": "alias_review",
-      "action_surface": "official_program_coverage",
-      "display_label": "Internal Medicine - Categorical",
-      "impact_count": 173,
-      "priority": 1093,
-      "program_name": "Internal Medicine - Categorical",
-      "recommended_next_action": "accept_or_split_alias_mapping",
-      "role": "residency"
-    },
-    {
       "action_scope": "official_roster:current_roster_state_reconciliation",
       "action_surface": "person_enrichment_execution",
       "display_label": "fellow current_roster_state_reconciliation",
@@ -180,6 +170,16 @@
       "role": "fellow"
     },
     {
+      "action_scope": "accepted_alias_denominator_policy",
+      "action_surface": "official_program_coverage",
+      "display_label": "Internal Medicine - Categorical",
+      "impact_count": 173,
+      "priority": 1053,
+      "program_name": "Internal Medicine - Categorical",
+      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy",
+      "role": "residency"
+    },
+    {
       "action_scope": "mixed_identity_anchor_review",
       "action_surface": "person_evidence_review",
       "display_label": "Sabine Schneider, MD PhD",
@@ -188,16 +188,6 @@
       "program_name": "",
       "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
       "role": "resident"
-    },
-    {
-      "action_scope": "alias_review",
-      "action_surface": "official_program_coverage",
-      "display_label": "Soft Tissue/Bone (Selective)",
-      "impact_count": 69,
-      "priority": 1009,
-      "program_name": "Soft Tissue/Bone (Selective)",
-      "recommended_next_action": "resolve_related_loaded_program_before_gap_closure",
-      "role": "fellowship"
     },
     {
       "action_scope": "review_queue:evidence_reconciliation_review",
@@ -297,6 +287,16 @@
       "priority": 998,
       "program_name": "",
       "recommended_next_action": "refresh_roster_and_reconcile_state_machine",
+      "role": "resident"
+    },
+    {
+      "action_scope": "mixed_identity_anchor_review",
+      "action_surface": "person_evidence_review",
+      "display_label": "Alec Gibson, MD, PhD",
+      "impact_count": 37,
+      "priority": 995,
+      "program_name": "",
+      "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision",
       "role": "resident"
     }
   ],

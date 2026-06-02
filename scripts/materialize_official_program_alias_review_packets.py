@@ -285,7 +285,12 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
             """
             SELECT *
             FROM official_program_coverage_action_queue
-            WHERE action_lane IN ('alias_review', 'count_conflict_review')
+            WHERE action_lane IN (
+                'alias_review',
+                'accepted_alias_denominator_policy',
+                'accepted_alias_open_gap_policy',
+                'count_conflict_review'
+            )
             ORDER BY priority DESC
             """
         )
@@ -356,9 +361,25 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
                     "mutation": "This packet is non-mutating; reviewer_ready means ready for explicit acceptance/rejection, not automatic coverage mutation.",
                 },
             }
-            packet_key = "official_program_alias_review_packet_" + sha256_text(
-                queue["queue_key"] + "|" + loaded_program_name + "|" + loaded_role + "|" + loaded.get("alias_reconciliation_key", "")
-            )[:20]
+            packet_identity_lane = (
+                "alias_review"
+                if queue.get("action_lane", "").startswith("accepted_alias_")
+                else queue.get("action_lane", "")
+            )
+            packet_identity_queue_key = (
+                "official_program_coverage_action_"
+                + sha256_text(queue["official_program_key"] + "|" + packet_identity_lane)[:20]
+            )
+            packet_identity_key = (
+                packet_identity_queue_key
+                + "|"
+                + loaded_program_name
+                + "|"
+                + loaded_role
+                + "|"
+                + loaded.get("alias_reconciliation_key", "")
+            )
+            packet_key = "official_program_alias_review_packet_" + sha256_text(packet_identity_key)[:20]
             row = {
                 "packet_key": packet_key,
                 "queue_key": queue["queue_key"],

@@ -46,7 +46,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
 - `artifacts/data/official_program_coverage_assurance_audit.csv`: non-mutating assurance tiers for each official HUP coverage claim, separating direct/resolution-backed coverage from alias/count-review and open gaps.
 - `artifacts/data/official_program_coverage_assurance_summary.json`: level counts, covered-people counts, and denominator-evidence status rollups for coverage trust.
-- `artifacts/data/official_program_coverage_action_queue.csv`: prioritized non-mutating worklist for official HUP programs that are not level-4 denominator truth.
+- `artifacts/data/official_program_coverage_action_queue.csv`: prioritized non-mutating worklist for official HUP programs that are not level-4 denominator truth, with separate lanes for unresolved alias review versus accepted-alias denominator-closure policy.
 - `artifacts/data/official_program_coverage_action_queue_summary.json`: action-lane counts and top next actions for parser, alias, count-conflict, and discovery work.
 - `artifacts/data/official_program_alias_review_packets.csv`: review packets for alias-related coverage actions, joining official program rows, loaded labels, role/scope signals, and reviewer-ready decisions.
 - `artifacts/data/official_program_alias_review_packets_summary.json`: reviewer-ready alias packet counts and top packet recommendations.
@@ -391,6 +391,7 @@ The initial methodology is conservative:
 - Assign assurance tiers to official coverage claims so denominator reports distinguish direct normalized-name support, exact program-resolution support, alias-method coverage requiring review, count conflicts, and open gaps.
 - Materialize a prioritized action queue for non-level-4 official programs so the next loop can choose between parser work, source discovery, alias review, and count-conflict review from a stable evidence-backed list.
 - Materialize alias review packets for alias-related coverage actions so broad labels, combined tracks, section splits, weak related sources, and count conflicts can be reviewed with consistent evidence before any denominator mutation.
+- Separate accepted official-program alias bridges from unresolved alias review in the action queue; accepted bridges remain non-mutating until an explicit denominator-closure policy promotes or crosswalks them.
 - Keep official-program alias/denominator reconciliation as a candidate ledger until the relation is strong enough to mutate coverage or split a loaded broad program into a narrower official program.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Treat the official MD-student directory as unavailable to public scraping when PennKey protection is observed; keep public MSTP records as partial student truth and public graduate-program directories as MD-PhD cross-check/enrichment candidates only.

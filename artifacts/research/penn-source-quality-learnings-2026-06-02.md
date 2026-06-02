@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T18:04:15.275021+00:00
+Generated: 2026-06-02T18:11:34.695441+00:00
 
 ## What This Pass Did
 
@@ -49,7 +49,9 @@ Action rows: 42. Person-impact count: 542.
 
 | action_lane | count |
 | --- | --- |
-| alias_review | 20 |
+| accepted_alias_denominator_policy | 13 |
+| accepted_alias_open_gap_policy | 1 |
+| alias_review | 6 |
 | count_conflict_review | 1 |
 | parser_or_roster_source_review | 7 |
 | source_candidate_probe | 14 |
@@ -58,21 +60,21 @@ Top coverage actions:
 
 | official_program_name | official_program_type | action_lane | priority | person_impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- |
-| Internal Medicine - Categorical | residency | alias_review | 1093 | 173 | accept_or_split_alias_mapping |
-| Soft Tissue/Bone (Selective) | fellowship | alias_review | 1009 | 69 | resolve_related_loaded_program_before_gap_closure |
+| Internal Medicine - Categorical | residency | accepted_alias_denominator_policy | 1053 | 173 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
 | Adult Reconstructive Orthopedics | fellowship | count_conflict_review | 1003 | 3 | review_count_conflict_before_denominator_mutation |
-| Radiology - Diagnostic | residency | alias_review | 974 | 54 | accept_or_split_alias_mapping |
 | Radiology - Interventional, Independent | residency | alias_review | 971 | 19 | resolve_related_loaded_program_before_gap_closure |
 | Dermatology | residency | alias_review | 963 | 3 | resolve_related_loaded_program_before_gap_closure |
 | Plastic Surgery | fellowship | alias_review | 962 | 22 | resolve_related_loaded_program_before_gap_closure |
-| Internal Medicine - Pediatrics | residency | alias_review | 945 | 25 | accept_or_split_alias_mapping |
-| Plastic Surgery - Integrated | residency | alias_review | 942 | 22 | accept_or_split_alias_mapping |
-| Radiology - Interventional, Integrated | residency | alias_review | 939 | 19 | accept_or_split_alias_mapping |
+| Soft Tissue/Bone (Selective) | fellowship | accepted_alias_open_gap_policy | 949 | 69 | review_accepted_alias_bridge_before_denominator_closure |
 | Thoracic Surgery - Integrated | residency | alias_review | 935 | 15 | accept_or_split_alias_mapping |
-| Pulmonary Disease and Critical Care Medicine | fellowship | alias_review | 934 | 34 | accept_or_split_alias_mapping |
+| Radiology - Diagnostic | residency | accepted_alias_denominator_policy | 934 | 54 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
 | Transplant Hepatology | fellowship | alias_review | 926 | 2 | resolve_related_loaded_program_before_gap_closure |
-| Internal Medicine - Dermatology | residency | alias_review | 925 | 5 | accept_or_split_alias_mapping |
-| Gastroenterology | fellowship | alias_review | 923 | 23 | accept_or_split_alias_mapping |
+| Abdominal Radiology | fellowship | alias_review | 909 | 9 | accept_or_split_alias_mapping |
+| Internal Medicine - Pediatrics | residency | accepted_alias_denominator_policy | 905 | 25 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
+| Plastic Surgery - Integrated | residency | accepted_alias_denominator_policy | 902 | 22 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
+| Radiology - Interventional, Integrated | residency | accepted_alias_denominator_policy | 899 | 19 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
+| Pulmonary Disease and Critical Care Medicine | fellowship | accepted_alias_denominator_policy | 894 | 34 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
+| Internal Medicine - Dermatology | residency | accepted_alias_denominator_policy | 885 | 5 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
 
 Alias review packets:
 
@@ -3282,7 +3284,7 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1385. Summed impact count: 11963. Critical rows: 24. High rows: 866.
+Worklist rows: 1385. Summed impact count: 11963. Critical rows: 23. High rows: 867.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3297,10 +3299,9 @@ Worklist rows: 1385. Summed impact count: 11963. Critical rows: 24. High rows: 8
 | person_enrichment_execution | review_queue:evidence_reconciliation_review | fellow evidence_reconciliation_review | fellow | 1122 | 113 | review_reconciliation_packet |
 | person_enrichment_execution | official_profile:official_profile_search | resident official_profile_search | resident | 1120 | 330 | collect_official_profile_evidence |
 | person_enrichment_execution | official_profile:official_profile_search | fellow official_profile_search | fellow | 1120 | 257 | collect_official_profile_evidence |
-| official_program_coverage | alias_review | Internal Medicine - Categorical | residency | 1093 | 173 | accept_or_split_alias_mapping |
 | person_enrichment_execution | official_roster:current_roster_state_reconciliation | fellow current_roster_state_reconciliation | fellow | 1088 | 94 | refresh_roster_and_reconcile_state_machine |
+| official_program_coverage | accepted_alias_denominator_policy | Internal Medicine - Categorical | residency | 1053 | 173 | promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy |
 | person_evidence_review | mixed_identity_anchor_review | Sabine Schneider, MD PhD | resident | 1010 | 30 | record_accept_reject_or_needs_more_evidence_decision |
-| official_program_coverage | alias_review | Soft Tissue/Bone (Selective) | fellowship | 1009 | 69 | resolve_related_loaded_program_before_gap_closure |
 | person_enrichment_execution | review_queue:evidence_reconciliation_review | fellow evidence_reconciliation_review | fellow | 1009 | 55 | review_reconciliation_packet |
 | person_evidence_review | mixed_identity_anchor_review | Robert Eisinger, MD, PhD | resident | 1003 | 41 | record_accept_reject_or_needs_more_evidence_decision |
 | person_evidence_review | mixed_identity_anchor_review | Benjamin J. Peipert, MD | fellow | 1003 | 39 | record_accept_reject_or_needs_more_evidence_decision |
@@ -3326,6 +3327,7 @@ Worklist rows: 1385. Summed impact count: 11963. Critical rows: 24. High rows: 8
 | person_evidence_review | mixed_identity_anchor_review | Chenxu Shi, MD, PhD | resident | 980 | 8 | record_accept_reject_or_needs_more_evidence_decision |
 | person_evidence_review | mixed_identity_anchor_review | Aaron M. Williams, MD, PhD | resident | 980 | 7 | record_accept_reject_or_needs_more_evidence_decision |
 | person_evidence_review | mixed_identity_anchor_review | John T. Cook, MD | resident | 980 | 7 | record_accept_reject_or_needs_more_evidence_decision |
+| person_evidence_review | mixed_identity_anchor_review | Katharine F. Michel, MD | resident | 976 | 10 | record_accept_reject_or_needs_more_evidence_decision |
 
 Learning: unresolved evidence should be ranked as operator work, not inferred away. Program gaps, search execution, person evidence packets, contact verification, temporal-state refreshes, enrichment collectors, and attending-trend bridges all have different acceptance gates, so the worklist keeps their required next evidence explicit.
 
@@ -3897,7 +3899,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T18:03:46.707372+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T18:11:05.667379+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |
 | orcid_public_api | 48 | 27 | 0 | 0 | 378 | {"claims": 405, "mean_confidence": 0.7955, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 405} |

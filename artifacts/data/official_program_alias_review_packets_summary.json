@@ -15,9 +15,11 @@
     "weak_alias_review": 2
   },
   "by_blocker_status": {
-    "covered_by_alias_without_explicit_acceptance": 15,
+    "accepted_alias_bridge_exists_but_official_gap_remains_open": 12,
+    "accepted_alias_mapping_not_yet_denominator_closed": 13,
+    "covered_by_alias_without_explicit_acceptance": 2,
     "exact_resolution_count_conflict": 1,
-    "open_gap_with_related_loaded_people": 16
+    "open_gap_with_related_loaded_people": 4
   },
   "by_recommended_next_action": {
     "accept_alias_only_if_loaded_source_excludes_combined_tracks": 1,
@@ -36,7 +38,7 @@
   },
   "coverage_mutation_allowed_rows": 0,
   "csv": "artifacts/data/official_program_alias_review_packets.csv",
-  "generated_at": "2026-06-02T18:04:13.305673+00:00",
+  "generated_at": "2026-06-02T18:11:32.740959+00:00",
   "json": "artifacts/data/official_program_alias_review_packets.json",
   "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
   "packet_rows": 32,

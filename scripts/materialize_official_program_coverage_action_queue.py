@@ -88,9 +88,28 @@ def grouped_rows(conn: sqlite3.Connection, query: str, key: str) -> dict[str, li
     return groups
 
 
-def classify_action(row: dict, candidate_rows: list[dict], gap_reason: dict | None) -> tuple[str, str, str, str]:
+def classify_action(
+    row: dict,
+    candidate_rows: list[dict],
+    gap_reason: dict | None,
+    accepted_alias_rows: list[dict],
+) -> tuple[str, str, str, str]:
     assurance_status = row.get("assurance_status") or ""
     coverage_status = row.get("coverage_status") or ""
+    if accepted_alias_rows and coverage_status == "covered_current_roster":
+        return (
+            "accepted_alias_denominator_policy",
+            "accepted_alias_mapping_not_yet_denominator_closed",
+            "Decide whether the accepted official-to-loaded program alias can be promoted into denominator-closed coverage or must remain a non-mutating bridge.",
+            "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy",
+        )
+    if accepted_alias_rows:
+        return (
+            "accepted_alias_open_gap_policy",
+            "accepted_alias_bridge_exists_but_official_gap_remains_open",
+            "Review the accepted alias bridge against the official denominator row and decide whether this closes the gap, needs a section split, or should remain non-mutating evidence.",
+            "review_accepted_alias_bridge_before_denominator_closure",
+        )
     if assurance_status == "exact_resolution_count_conflict_review":
         return (
             "count_conflict_review",
@@ -152,6 +171,8 @@ def priority_for(row: dict, action_lane: str, person_impact: int, candidate_coun
     base_by_lane = {
         "count_conflict_review": 1000,
         "alias_review": 900,
+        "accepted_alias_denominator_policy": 860,
+        "accepted_alias_open_gap_policy": 840,
         "parser_or_roster_source_review": 760,
         "source_candidate_probe": 700,
         "official_page_manual_review": 620,
@@ -195,6 +216,15 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
     )
     gap_reasons = rows_by_key(conn, "SELECT * FROM official_program_gap_reason_audit", "official_program_key")
     aliases_by_program = grouped_rows(conn, "SELECT * FROM official_program_alias_reconciliation_candidates", "official_program_key")
+    accepted_aliases_by_program = grouped_rows(
+        conn,
+        """
+        SELECT *
+        FROM accepted_official_program_alias_mappings
+        ORDER BY official_program_key, loaded_person_count DESC, accepted_alias_key
+        """,
+        "official_program_key",
+    )
     resolutions_by_program = grouped_rows(conn, "SELECT * FROM official_gap_roster_program_resolution", "official_program_key")
 
     rows = []
@@ -204,12 +234,14 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
         candidates = candidates_by_program.get(official_key, [])
         gap_reason = gap_reasons.get(official_key, {})
         aliases = aliases_by_program.get(official_key, [])
+        accepted_aliases = accepted_aliases_by_program.get(official_key, [])
         resolutions = resolutions_by_program.get(official_key, [])
-        action_lane, blocker, review_question, action = classify_action(assurance, candidates, gap_reason)
+        action_lane, blocker, review_question, action = classify_action(assurance, candidates, gap_reason, accepted_aliases)
         person_impact = max(
             int(assurance.get("captured_people_count") or 0),
             int(assurance.get("alias_review_person_count") or 0),
             int(assurance.get("resolution_review_record_count") or 0),
+            sum(int(row.get("loaded_person_count") or 0) for row in accepted_aliases),
         )
         priority = priority_for(assurance, action_lane, person_impact, len(candidates))
         candidate_url = ""
@@ -223,6 +255,7 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
             "gap_reason": gap_reason or {},
             "source_candidates": candidates,
             "alias_review_rows": aliases,
+            "accepted_alias_mappings": accepted_aliases,
             "program_resolution_rows": resolutions,
         }
         row = {

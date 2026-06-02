@@ -145,6 +145,8 @@ This is the reconciliation layer between source discovery and roster extraction.
 
 `scripts/audit_official_program_alias_reconciliation.py` is a narrower non-mutating follow-up for `source_already_loaded_related_program_review` gaps. It compares the official denominator row to the loaded program label, role, source URL, and section/training-year labels. It can identify likely same-program aliases, section-level split candidates, track/type mismatches, combined-track-not-categorical cases, and weak related-source cases. None of these rows mutate official coverage by themselves; they make the mapping decision auditable before a later alias-map or program-splitting pass changes counts.
 
+Accepted alias mappings are still treated as bridge evidence, not automatic denominator closure. `scripts/materialize_official_program_coverage_action_queue.py` separates unresolved alias review from accepted-alias denominator-policy work, so a reviewer-accepted bridge can be promoted, crosswalked, or left non-mutating without repeatedly appearing as an unaccepted alias.
+
 ## Medical Student Source Coverage
 
 The current public medical-student layer is intentionally partial. `scripts/scrape_penn_mstp_students.py` loads the official public MSTP student directory as current MD-PhD student evidence. `scripts/audit_penn_med_student_sources.py` separately audits whether broader Penn medical-student sources are public.
