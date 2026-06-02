@@ -496,6 +496,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
     trend_acceptance_summary = read_json(ARTIFACTS / "attending_trend_acceptance_summary.json", {})
     trend_reviewer_decision_summary = read_json(ARTIFACTS / "attending_trend_reviewer_decision_summary.json", {})
+    trend_dossier_summary = read_json(ARTIFACTS / "attending_trend_dossier_summary.json", {})
     trend_review_claim_rows = int(trend_review_claims_summary.get("trend_review_claim_rows") or 0)
     trend_review_rollup_rows = int(trend_review_claims_summary.get("trend_review_rollup_rows") or 0)
     accepted_trend_fact_rows = int(trend_reviewer_decision_summary.get("accepted_trend_fact_rows") or 0)
@@ -1145,6 +1146,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Combines endpoint, Penn-training profile, official biosketch, and historical-link evidence without mutating rosters",
                 "Separates review-ready recent attending trend candidates from profile claims that still need dated bridges",
                 "Produces queryable person/group-level trend assurance, review-claim rows, rollups, and ten-year-window labels",
+                "Adds group-level dossiers that make accepted facts, review-ready bridges, endpoint-only cases, and missing evidence explicit",
             ],
             limitations=[
                 (
@@ -1169,6 +1171,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "trend_review_claims_summary": trend_review_claims_summary,
                 "trend_acceptance_summary": trend_acceptance_summary,
                 "trend_reviewer_decision_summary": trend_reviewer_decision_summary,
+                "trend_dossier_summary": trend_dossier_summary,
                 "accepted_trend_fact_rows": accepted_trend_fact_rows,
                 "pending_reviewer_decision_rows": pending_trend_reviewer_decisions,
                 "needs_bridge_or_training_rows": trend_reconciliation_needs_bridge,

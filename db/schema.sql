@@ -1469,6 +1469,44 @@ CREATE TABLE IF NOT EXISTS accepted_attending_trend_facts (
   materialized_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS attending_trend_dossiers (
+  trend_dossier_key TEXT PRIMARY KEY,
+  trend_key TEXT NOT NULL REFERENCES attending_trend_reconciliation(trend_key) ON DELETE CASCADE,
+  event_group_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  normalized_name TEXT NOT NULL,
+  trend_status TEXT NOT NULL,
+  trend_assurance_level INTEGER NOT NULL DEFAULT 0,
+  ten_year_trend_window TEXT NOT NULL,
+  has_current_attending_endpoint INTEGER NOT NULL DEFAULT 0,
+  has_penn_training_claim INTEGER NOT NULL DEFAULT 0,
+  has_recent_dated_biosketch_bridge INTEGER NOT NULL DEFAULT 0,
+  has_historical_link_candidate INTEGER NOT NULL DEFAULT 0,
+  has_current_trainee_name_match INTEGER NOT NULL DEFAULT 0,
+  bridge_candidate_count INTEGER NOT NULL DEFAULT 0,
+  recent_bridge_candidate_count INTEGER NOT NULL DEFAULT 0,
+  non_penn_training_context_count INTEGER NOT NULL DEFAULT 0,
+  review_claim_count INTEGER NOT NULL DEFAULT 0,
+  reviewer_queue_count INTEGER NOT NULL DEFAULT 0,
+  accepted_trend_fact_count INTEGER NOT NULL DEFAULT 0,
+  dossier_status TEXT NOT NULL,
+  display_safety_status TEXT NOT NULL,
+  best_training_type TEXT,
+  best_training_line TEXT,
+  best_training_start_year INTEGER,
+  best_training_end_year INTEGER,
+  best_source_url TEXT,
+  accepted_fact_keys TEXT,
+  bridge_candidate_keys TEXT,
+  reviewer_decision_keys TEXT,
+  missing_evidence_summary TEXT,
+  required_next_evidence TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  top_source_urls TEXT,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS attending_trend_review_rollups (
   trend_rollup_key TEXT PRIMARY KEY,
   rollup_scope TEXT NOT NULL,

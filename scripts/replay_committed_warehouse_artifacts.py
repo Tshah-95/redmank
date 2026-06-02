@@ -91,6 +91,7 @@ CSV_TABLES = [
     ("attending_trend_reviewer_decision_queue.csv", "attending_trend_reviewer_decision_queue"),
     ("attending_trend_reviewer_decision_audit.csv", "attending_trend_reviewer_decision_audit"),
     ("accepted_attending_trend_facts.csv", "accepted_attending_trend_facts"),
+    ("attending_trend_dossiers.csv", "attending_trend_dossiers"),
     ("attending_trend_review_rollups.csv", "attending_trend_review_rollups"),
 ]
 
