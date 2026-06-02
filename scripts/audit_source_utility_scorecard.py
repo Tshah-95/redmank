@@ -522,6 +522,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         "SELECT verification_status, COUNT(*) FROM person_contacts GROUP BY verification_status",
     )
     contact_assurance_summary = read_json(ARTIFACTS / "contact_assurance_summary.json", {})
+    contact_verification_contract_summary = read_json(ARTIFACTS / "contact_verification_contract_summary.json", {})
     contact_assurance_status = contact_assurance_summary.get("by_assurance_status") or {}
     contact_review_required = int(contact_assurance_summary.get("review_required_rows") or 0)
     contact_verified = int(contact_assurance_summary.get("verified_contact_fact_rows") or 0)
@@ -1205,6 +1206,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "Stores contact channels separately from person identity truth",
                 "Retains source, scope, verification status, confidence, and candidate status",
                 "Classifies public contacts into display-safety and verification-required tiers without dropping public data",
+                "Adds non-mutating verification contracts with stale dates and future refresh outcomes",
             ],
             limitations=[
                 "Current contacts are public-directory/profile unverified candidates, not verified contact facts",
@@ -1216,6 +1218,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "contact_count": contact_count,
                 "by_verification_status": contact_by_verification,
                 "contact_assurance_summary": contact_assurance_summary,
+                "contact_verification_contract_summary": contact_verification_contract_summary,
                 "contact_assurance_status": contact_assurance_status,
             },
         ),

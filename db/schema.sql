@@ -1606,6 +1606,43 @@ CREATE TABLE IF NOT EXISTS contact_assurance_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS contact_verification_contracts (
+  contact_contract_key TEXT PRIMARY KEY,
+  contact_assurance_key TEXT NOT NULL REFERENCES contact_assurance_audit(contact_assurance_key) ON DELETE CASCADE,
+  contact_key TEXT NOT NULL REFERENCES person_contacts(contact_key) ON DELETE CASCADE,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  contact_type TEXT NOT NULL,
+  normalized_contact_value TEXT NOT NULL,
+  contact_domain TEXT,
+  canonical_contact_domain TEXT,
+  domain_status TEXT NOT NULL,
+  source_key TEXT,
+  source_url TEXT,
+  source_type TEXT,
+  source_assurance_class TEXT NOT NULL,
+  source_observed_at TEXT,
+  current_assurance_status TEXT NOT NULL,
+  current_display_safety_status TEXT NOT NULL,
+  verification_lane TEXT NOT NULL,
+  verification_confidence REAL NOT NULL DEFAULT 0.0,
+  operational_use_status TEXT NOT NULL,
+  stale_after_date TEXT,
+  next_refresh_date TEXT,
+  if_reobserved_same_value_change_type TEXT NOT NULL,
+  if_reobserved_different_value_change_type TEXT NOT NULL,
+  if_missing_on_refresh_change_type TEXT NOT NULL,
+  evidence_required_to_verify TEXT NOT NULL,
+  evidence_required_to_reject TEXT NOT NULL,
+  recommended_reverification_query TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  allowed_auto_outcomes_json TEXT NOT NULL,
+  review_trigger_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS evidence_claims (
   evidence_id INTEGER PRIMARY KEY,
   person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,

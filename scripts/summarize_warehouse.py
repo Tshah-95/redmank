@@ -75,6 +75,7 @@ def main() -> None:
         "npi_source_observations",
         "person_contacts",
         "contact_assurance_audit",
+        "contact_verification_contracts",
         "evidence_claims",
         "evidence_reconciliation_decisions",
         "person_reconciliation_decisions",
@@ -561,6 +562,26 @@ def main() -> None:
             """
         )
     }
+    contact_verification_lane_counts = {
+        row["verification_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT verification_lane, COUNT(*) AS count
+            FROM contact_verification_contracts
+            GROUP BY verification_lane
+            """
+        )
+    }
+    contact_operational_use_counts = {
+        row["operational_use_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT operational_use_status, COUNT(*) AS count
+            FROM contact_verification_contracts
+            GROUP BY operational_use_status
+            """
+        )
+    }
     official_program_coverage_counts = {
         row["coverage_status"]: row["count"]
         for row in conn.execute(
@@ -1028,6 +1049,13 @@ def main() -> None:
         contact_assurance_summary = json.loads(contact_assurance_summary_path.read_text(encoding="utf-8"))
     else:
         contact_assurance_summary = {}
+    contact_verification_contract_summary_path = ARTIFACTS / "contact_verification_contract_summary.json"
+    if contact_verification_contract_summary_path.exists():
+        contact_verification_contract_summary = json.loads(
+            contact_verification_contract_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        contact_verification_contract_summary = {}
     warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
     if warehouse_reproducibility_summary_path.exists():
         warehouse_reproducibility_summary = json.loads(
@@ -1176,6 +1204,8 @@ def main() -> None:
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_display_safety_counts": contact_display_safety_counts,
+        "contact_verification_lane_counts": contact_verification_lane_counts,
+        "contact_operational_use_counts": contact_operational_use_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "official_program_gap_reason_counts": official_program_gap_reason_counts,
@@ -1232,6 +1262,7 @@ def main() -> None:
         "enrichment_acceptance_summary": enrichment_acceptance_summary,
         "accepted_enrichment_summary": accepted_enrichment_summary,
         "contact_assurance_summary": contact_assurance_summary,
+        "contact_verification_contract_summary": contact_verification_contract_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,

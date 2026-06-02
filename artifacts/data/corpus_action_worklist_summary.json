@@ -11,19 +11,19 @@
   "by_priority_band": {
     "critical": 16,
     "high": 768,
-    "low": 9,
-    "medium": 486
+    "low": 321,
+    "medium": 174
   },
   "critical_rows": 16,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T15:44:48.363710+00:00",
+  "generated_at": "2026-06-02T15:58:12.004704+00:00",
   "high_rows": 768,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
   "top_action_scope_counts": {
-    "contact_verification:domain_review_required": 1,
-    "contact_verification:official_public_unverified_contact": 312,
+    "contact_verification:domain_review_before_contact_use": 1,
+    "contact_verification:fresh_official_reobservation_required": 312,
     "official_program_coverage:alias_review": 20,
     "official_program_coverage:count_conflict_review": 1,
     "official_program_coverage:parser_or_roster_source_review": 7,
