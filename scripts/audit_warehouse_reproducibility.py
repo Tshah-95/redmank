@@ -147,6 +147,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_program_denominator_closure_audit.csv",
+        "official_program_denominator_closure_ledger",
+        "csv",
+        "official_program_denominator_closure_audit",
+        True,
+    ),
+    (
         "artifacts/data/official_program_alias_reconciliation_candidates.csv",
         "official_program_alias_ledger",
         "csv",

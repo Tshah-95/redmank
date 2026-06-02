@@ -168,6 +168,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/contact_verification_contracts.csv`: per-contact freshness/verification contracts that define stale dates, allowed refresh outcomes, and evidence required before verified use.
 - `artifacts/data/contact_reobservation_audit.csv`: current public-source reobservation audit for contact candidates, recording source fetch status, page hash, whether the same value is still present, and match context without accepting the contact.
 - `artifacts/data/contact_reobservation_summary.json`: reobservation counts by status, source fetch outcome, domain status, and source URL burden.
+- `artifacts/data/official_program_denominator_closure_audit.csv`: accepted-alias denominator-closure audit for official Penn/HUP programs, separating reporting crosswalk closure from roster-truth mutation.
+- `artifacts/data/official_program_denominator_closure_summary.json`: denominator-closure counts and policy notes for accepted official-program alias mappings.
 - `artifacts/data/contact_verification_reviewer_decision_queue.csv`: reviewer-decision queue for public contact verification, including contact fingerprints and required confirmation fields.
 - `artifacts/data/contact_verification_reviewer_decisions.csv`: manual reviewer decision input file for accepting/rejecting verified contact facts.
 - `artifacts/data/contact_verification_reviewer_decision_audit.csv`: audit of manual contact decisions against the current contact fingerprint and confirmation requirements.
@@ -257,9 +259,11 @@ python3 scripts/audit_hup_gap_reasons.py
 python3 scripts/audit_official_gap_roster_reconciliation.py
 python3 scripts/audit_official_gap_roster_program_resolution.py
 python3 scripts/audit_official_program_coverage_assurance.py
-python3 scripts/materialize_official_program_coverage_action_queue.py
+python3 scripts/materialize_official_program_coverage_action_queue.py --ignore-closure
 python3 scripts/materialize_official_program_alias_review_packets.py
 python3 scripts/materialize_official_program_alias_reviewer_decisions.py
+python3 scripts/materialize_official_program_denominator_closure_audit.py
+python3 scripts/materialize_official_program_coverage_action_queue.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py

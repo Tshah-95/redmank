@@ -137,6 +137,7 @@ def main() -> None:
         "official_program_alias_reviewer_decision_queue",
         "official_program_alias_reviewer_decision_audit",
         "accepted_official_program_alias_mappings",
+        "official_program_denominator_closure_audit",
         "official_program_alias_reconciliation_candidates",
         "program_identifier_source_observations",
         "program_identifier_candidates",

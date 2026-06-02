@@ -1,6 +1,6 @@
 {
   "by_action_lane": {
-    "accepted_alias_denominator_policy": 13,
+    "accepted_alias_denominator_closed_monitor": 13,
     "accepted_alias_open_gap_policy": 1,
     "alias_review": 6,
     "count_conflict_review": 1,
@@ -14,7 +14,7 @@
   },
   "by_blocker_status": {
     "accepted_alias_bridge_exists_but_official_gap_remains_open": 1,
-    "accepted_alias_mapping_not_yet_denominator_closed": 13,
+    "accepted_alias_denominator_closed": 13,
     "candidate_source_without_people": 7,
     "covered_by_alias_without_explicit_acceptance": 2,
     "exact_resolution_count_conflict": 1,
@@ -26,22 +26,12 @@
     "residency": 12
   },
   "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-  "generated_at": "2026-06-02T22:50:22.698269+00:00",
-  "highest_priority": 1053,
+  "generated_at": "2026-06-02T23:03:19.365331+00:00",
+  "highest_priority": 1003,
   "json": "artifacts/data/official_program_coverage_action_queue.json",
   "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
   "queue_rows": 42,
   "top_actions": [
-    {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Internal Medicine",
-      "official_program_name": "Internal Medicine - Categorical",
-      "official_program_type": "residency",
-      "person_impact_count": 173,
-      "priority": 1053,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
-    },
     {
       "action_lane": "count_conflict_review",
       "candidate_url": "",
@@ -103,16 +93,6 @@
       "recommended_next_action": "accept_or_split_alias_mapping"
     },
     {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Radiology",
-      "official_program_name": "Radiology - Diagnostic",
-      "official_program_type": "residency",
-      "person_impact_count": 54,
-      "priority": 934,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
-    },
-    {
       "action_lane": "alias_review",
       "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/gastroenterology/education-and-training/fellowship-programs/advanced-gastroenterology-fellows",
       "official_department": "Internal Medicine",
@@ -133,54 +113,74 @@
       "recommended_next_action": "accept_or_split_alias_mapping"
     },
     {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Internal Medicine",
-      "official_program_name": "Internal Medicine - Pediatrics",
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine",
+      "official_department": "Emergency Medicine",
+      "official_program_name": "Emergency Medicine",
       "official_program_type": "residency",
-      "person_impact_count": 25,
-      "priority": 905,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
+      "person_impact_count": 0,
+      "priority": 796,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
     },
     {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Surgery",
-      "official_program_name": "Plastic Surgery - Integrated",
-      "official_program_type": "residency",
-      "person_impact_count": 22,
-      "priority": 902,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
-    },
-    {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Radiology",
-      "official_program_name": "Radiology - Interventional, Integrated",
-      "official_program_type": "residency",
-      "person_impact_count": 19,
-      "priority": 899,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
-    },
-    {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Internal Medicine",
-      "official_program_name": "Pulmonary Disease and Critical Care Medicine",
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/emergency-medicine/education-and-training/fellowship-program/hyperbaric-medicine",
+      "official_department": "Emergency Medicine",
+      "official_program_name": "Undersea and Hyperbaric Medicine",
       "official_program_type": "fellowship",
-      "person_impact_count": 34,
-      "priority": 894,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
+      "person_impact_count": 0,
+      "priority": 776,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
     },
     {
-      "action_lane": "accepted_alias_denominator_policy",
-      "candidate_url": "",
-      "official_department": "Internal Medicine",
-      "official_program_name": "Internal Medicine - Dermatology",
-      "official_program_type": "residency",
-      "person_impact_count": 5,
-      "priority": 885,
-      "recommended_next_action": "promote_or_crosswalk_accepted_alias_mapping_into_denominator_closure_policy"
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/fellowship",
+      "official_department": "Family Medicine",
+      "official_program_name": "Addiction Medicine",
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "priority": 776,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/fellowship-programs",
+      "official_department": "Anesthesiology",
+      "official_program_name": "Adult Cardiothoracic Anesthesiology",
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "priority": 768,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/fellowship-programs",
+      "official_department": "Anesthesiology",
+      "official_program_name": "Critical Care Medicine",
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "priority": 768,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/fellowship-programs",
+      "official_department": "Anesthesiology",
+      "official_program_name": "Pain Medicine",
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "priority": 768,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/physical-medicine-and-rehabilitation-fellowship-programs/traumatic-brain-injury-fellowship",
+      "official_department": "Physical Medicine and Rehabilitation",
+      "official_program_name": "Brain Injury Medicine",
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "priority": 768,
+      "recommended_next_action": "improve_parser_or_mark_context_only"
     }
   ],
   "total_person_impact_count": 542

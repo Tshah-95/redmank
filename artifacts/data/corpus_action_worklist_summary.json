@@ -13,15 +13,15 @@
     "training_temporal_contract": 86
   },
   "by_priority_band": {
-    "critical": 110,
-    "high": 696,
-    "low": 30,
-    "medium": 438
+    "critical": 109,
+    "high": 684,
+    "low": 39,
+    "medium": 442
   },
-  "critical_rows": 110,
+  "critical_rows": 109,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T22:50:25.521713+00:00",
-  "high_rows": 696,
+  "generated_at": "2026-06-02T23:03:21.976046+00:00",
+  "high_rows": 684,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -31,7 +31,7 @@
     "official_profile_discovery:planned_search_not_executed": 398,
     "official_profile_discovery:review_official_profile_candidate": 27,
     "official_profile_discovery:search_endpoint_blocked_retry": 8,
-    "official_program_coverage:accepted_alias_denominator_policy": 13,
+    "official_program_coverage:accepted_alias_denominator_closed_monitor": 13,
     "official_program_coverage:alias_review": 6,
     "official_program_coverage:parser_or_roster_source_review": 7,
     "official_program_coverage:source_candidate_probe": 14,

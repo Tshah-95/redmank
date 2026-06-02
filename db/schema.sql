@@ -324,6 +324,28 @@ CREATE TABLE IF NOT EXISTS official_program_coverage_action_queue (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_denominator_closure_audit (
+  closure_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  accepted_alias_key TEXT REFERENCES accepted_official_program_alias_mappings(accepted_alias_key) ON DELETE CASCADE,
+  official_program_name TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  official_department TEXT,
+  loaded_program_name TEXT NOT NULL,
+  loaded_role TEXT,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  coverage_status TEXT NOT NULL,
+  assurance_status TEXT NOT NULL,
+  closure_status TEXT NOT NULL,
+  closure_confidence REAL NOT NULL DEFAULT 0.0,
+  denominator_closure_allowed INTEGER NOT NULL DEFAULT 0,
+  roster_truth_mutation_allowed INTEGER NOT NULL DEFAULT 0,
+  required_next_evidence TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS official_program_coverage_dossiers (
   dossier_key TEXT PRIMARY KEY,
   official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
@@ -371,7 +393,7 @@ CREATE TABLE IF NOT EXISTS official_program_coverage_dossiers (
 
 CREATE TABLE IF NOT EXISTS official_program_alias_review_packets (
   packet_key TEXT PRIMARY KEY,
-  queue_key TEXT REFERENCES official_program_coverage_action_queue(queue_key) ON DELETE CASCADE,
+  queue_key TEXT,
   official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
   official_program_name TEXT NOT NULL,
   official_program_type TEXT NOT NULL,
@@ -396,7 +418,7 @@ CREATE TABLE IF NOT EXISTS official_program_alias_review_packets (
 CREATE TABLE IF NOT EXISTS official_program_alias_reviewer_decision_queue (
   reviewer_decision_key TEXT PRIMARY KEY,
   packet_key TEXT NOT NULL REFERENCES official_program_alias_review_packets(packet_key) ON DELETE CASCADE,
-  queue_key TEXT REFERENCES official_program_coverage_action_queue(queue_key) ON DELETE CASCADE,
+  queue_key TEXT,
   official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
   official_program_name TEXT NOT NULL,
   official_program_type TEXT NOT NULL,

@@ -55,6 +55,7 @@ CSV_TABLES = [
     ("official_program_alias_reviewer_decision_queue.csv", "official_program_alias_reviewer_decision_queue"),
     ("official_program_alias_reviewer_decision_audit.csv", "official_program_alias_reviewer_decision_audit"),
     ("accepted_official_program_alias_mappings.csv", "accepted_official_program_alias_mappings"),
+    ("official_program_denominator_closure_audit.csv", "official_program_denominator_closure_audit"),
     ("official_program_alias_reconciliation_candidates.csv", "official_program_alias_reconciliation_candidates"),
     ("training_state_machine_audit.csv", "training_state_machine_audit"),
     ("person_training_state_machine_audit.csv", "person_training_state_machine_audit"),

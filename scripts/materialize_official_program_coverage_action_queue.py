@@ -3,10 +3,12 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
 import sqlite3
+import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -42,6 +44,8 @@ FIELDNAMES = [
     "evidence_json",
     "audited_at",
 ]
+
+csv.field_size_limit(sys.maxsize)
 
 
 def dumps(value) -> str:
@@ -93,9 +97,17 @@ def classify_action(
     candidate_rows: list[dict],
     gap_reason: dict | None,
     accepted_alias_rows: list[dict],
+    closure_rows: list[dict],
 ) -> tuple[str, str, str, str]:
     assurance_status = row.get("assurance_status") or ""
     coverage_status = row.get("coverage_status") or ""
+    if any(closure.get("closure_status") == "denominator_closed_by_accepted_alias_crosswalk" for closure in closure_rows):
+        return (
+            "accepted_alias_denominator_closed_monitor",
+            "accepted_alias_denominator_closed",
+            "Retain accepted alias denominator closure and reopen only when source scope, official denominator, or roster evidence changes.",
+            "retain_accepted_alias_denominator_closure_and_monitor_future_refresh",
+        )
     if accepted_alias_rows and coverage_status == "covered_current_roster":
         return (
             "accepted_alias_denominator_policy",
@@ -173,6 +185,7 @@ def priority_for(row: dict, action_lane: str, person_impact: int, candidate_coun
         "alias_review": 900,
         "accepted_alias_denominator_policy": 860,
         "accepted_alias_open_gap_policy": 840,
+        "accepted_alias_denominator_closed_monitor": 260,
         "parser_or_roster_source_review": 760,
         "source_candidate_probe": 700,
         "official_page_manual_review": 620,
@@ -184,7 +197,7 @@ def priority_for(row: dict, action_lane: str, person_impact: int, candidate_coun
     return base + min(person_impact, 250) + min(candidate_count * 8, 40) + program_weight + discovery_weight
 
 
-def build_rows(conn: sqlite3.Connection) -> list[dict]:
+def build_rows(conn: sqlite3.Connection, use_closure: bool = True) -> list[dict]:
     timestamp = now_utc()
     existing = existing_rows()
     programs = rows_by_key(
@@ -225,6 +238,19 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
         "official_program_key",
     )
+    closure_by_program = (
+        grouped_rows(
+            conn,
+            """
+            SELECT *
+            FROM official_program_denominator_closure_audit
+            ORDER BY denominator_closure_allowed DESC, loaded_person_count DESC, closure_key
+            """,
+            "official_program_key",
+        )
+        if use_closure
+        else {}
+    )
     resolutions_by_program = grouped_rows(conn, "SELECT * FROM official_gap_roster_program_resolution", "official_program_key")
 
     rows = []
@@ -235,8 +261,11 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
         gap_reason = gap_reasons.get(official_key, {})
         aliases = aliases_by_program.get(official_key, [])
         accepted_aliases = accepted_aliases_by_program.get(official_key, [])
+        closure_rows = closure_by_program.get(official_key, [])
         resolutions = resolutions_by_program.get(official_key, [])
-        action_lane, blocker, review_question, action = classify_action(assurance, candidates, gap_reason, accepted_aliases)
+        action_lane, blocker, review_question, action = classify_action(
+            assurance, candidates, gap_reason, accepted_aliases, closure_rows
+        )
         person_impact = max(
             int(assurance.get("captured_people_count") or 0),
             int(assurance.get("alias_review_person_count") or 0),
@@ -256,6 +285,7 @@ def build_rows(conn: sqlite3.Connection) -> list[dict]:
             "source_candidates": candidates,
             "alias_review_rows": aliases,
             "accepted_alias_mappings": accepted_aliases,
+            "denominator_closure_rows": closure_rows,
             "program_resolution_rows": resolutions,
         }
         row = {
@@ -297,15 +327,31 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 
 def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
-    conn.execute("DELETE FROM official_program_coverage_action_queue")
     if not rows:
         return
     placeholders = ", ".join(f":{field}" for field in FIELDNAMES)
     field_sql = ", ".join(FIELDNAMES)
+    updates = ", ".join(
+        f"{field}=excluded.{field}"
+        for field in FIELDNAMES
+        if field != "queue_key"
+    )
     conn.executemany(
-        f"INSERT INTO official_program_coverage_action_queue ({field_sql}) VALUES ({placeholders})",
+        f"""
+        INSERT INTO official_program_coverage_action_queue ({field_sql})
+        VALUES ({placeholders})
+        ON CONFLICT(queue_key) DO UPDATE SET {updates}
+        """,
         rows,
     )
+    active_keys = {row["queue_key"] for row in rows}
+    stale_keys = [
+        row[0]
+        for row in conn.execute("SELECT queue_key FROM official_program_coverage_action_queue")
+        if row[0] not in active_keys
+    ]
+    for key in stale_keys:
+        conn.execute("DELETE FROM official_program_coverage_action_queue WHERE queue_key = ?", (key,))
 
 
 def write_summary(rows: list[dict]) -> None:
@@ -343,10 +389,17 @@ def write_summary(rows: list[dict]) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--ignore-closure",
+        action="store_true",
+        help="Build the preliminary alias-review queue before accepted-alias closure is applied.",
+    )
+    args = parser.parse_args()
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     with conn:
-        rows = build_rows(conn)
+        rows = build_rows(conn, use_closure=not args.ignore_closure)
         write_csv(OUT_CSV, rows)
         OUT_JSON.write_text(json.dumps(rows, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
         write_summary(rows)
