@@ -28,7 +28,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T10:32:10.601956+00:00",
+    "generated_at": "2026-06-02T10:38:55.737034+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -180,6 +180,50 @@
     "review_ready_recent_bridge_rows": 3,
     "trend_rows": 70
   },
+  "attending_trend_review_claim_counts": {
+    "recent_penn_trained_current_attending_candidate": 3
+  },
+  "attending_trend_review_claims_summary": {
+    "acceptance_policy": "Materialize only current Penn attending groups with a Penn-training profile claim and a dated recent official Penn Faculty Biosketch residency/fellowship bridge. Keep as review-ready until an explicit reviewer acceptance decision is recorded.",
+    "by_source_scope": {
+      "official_penn_faculty_biosketch": 3
+    },
+    "by_training_end_year": {
+      "2019": 1,
+      "2020": 1,
+      "2024": 1
+    },
+    "by_training_type": {
+      "fellowship": 3
+    },
+    "by_trend_status": {
+      "review_ready_official_biosketch_bridge": 3
+    },
+    "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
+    "claims_json": "artifacts/data/attending_trend_review_claims.json",
+    "display_safety_status": "review_ready_not_accepted_trend_fact",
+    "generated_at": "2026-06-02T10:38:55.777056+00:00",
+    "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
+    "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
+    "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
+    "trend_claim_type": "recent_penn_trained_current_attending_candidate",
+    "trend_review_claim_rows": 3,
+    "trend_review_people": 3,
+    "trend_review_rollup_rows": 10
+  },
+  "attending_trend_review_end_year_counts": {
+    "2019": 1,
+    "2020": 1,
+    "2024": 1
+  },
+  "attending_trend_review_rollup_scope_counts": {
+    "corpus": 1,
+    "source_scope": 1,
+    "ten_year_trend_window": 1,
+    "training_end_year": 3,
+    "training_type": 1,
+    "training_type_end_year": 3
+  },
   "career_event_counts": {
     "attending_profile_training_history_candidate": 20,
     "current_penn_attending_candidate": 49,
@@ -192,6 +236,8 @@
     "accepted_enrichment_claims": 5,
     "attending_biosketch_bridge_candidates": 10,
     "attending_trend_reconciliation": 70,
+    "attending_trend_review_claims": 3,
+    "attending_trend_review_rollups": 10,
     "career_events": 105,
     "category_refresh_expectations": 3,
     "enrichment_acceptance_audit": 4147,
@@ -237,7 +283,7 @@
     "training_state_snapshots": 1,
     "training_state_transition_events": 1558,
     "training_state_transition_rollups": 216,
-    "warehouse_reproducibility_audit": 37
+    "warehouse_reproducibility_audit": 39
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -498,7 +544,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T10:32:11.524995+00:00",
+  "generated_at": "2026-06-02T10:38:56.860188+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -1078,7 +1124,7 @@
     },
     "candidate_or_discovery_rows": 6,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T10:32:11.038957+00:00",
+    "generated_at": "2026-06-02T10:38:56.288069+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 19,
@@ -1275,18 +1321,18 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 37
+    "ok": 39
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 37,
-    "audited_at": "2026-06-02T10:32:11.144387+00:00",
+    "artifact_rows": 39,
+    "audited_at": "2026-06-02T10:38:56.403262+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
       "accepted_enrichment_ledger": 1,
       "attending_trend_input": 1,
-      "attending_trend_ledger": 2,
+      "attending_trend_ledger": 4,
       "contact_ledger": 1,
       "identity_enrichment_ledger": 1,
       "longitudinal_readiness_ledger": 4,
@@ -1306,17 +1352,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 37
+      "ok": 39
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 59097088,
+    "sqlite_byte_size": 59166720,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "879557db7524d05453334578a0788f96e548f98bd81082b7143fb594ab3d839f",
+    "sqlite_sha256": "acd66a9b86c4a9db00de8944177e75fa625daaed8dc080b1fdbb94ce105b5adc",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

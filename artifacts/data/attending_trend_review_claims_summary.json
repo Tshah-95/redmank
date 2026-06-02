@@ -1,0 +1,28 @@
+{
+  "acceptance_policy": "Materialize only current Penn attending groups with a Penn-training profile claim and a dated recent official Penn Faculty Biosketch residency/fellowship bridge. Keep as review-ready until an explicit reviewer acceptance decision is recorded.",
+  "by_source_scope": {
+    "official_penn_faculty_biosketch": 3
+  },
+  "by_training_end_year": {
+    "2019": 1,
+    "2020": 1,
+    "2024": 1
+  },
+  "by_training_type": {
+    "fellowship": 3
+  },
+  "by_trend_status": {
+    "review_ready_official_biosketch_bridge": 3
+  },
+  "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
+  "claims_json": "artifacts/data/attending_trend_review_claims.json",
+  "display_safety_status": "review_ready_not_accepted_trend_fact",
+  "generated_at": "2026-06-02T10:38:55.777056+00:00",
+  "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
+  "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
+  "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
+  "trend_claim_type": "recent_penn_trained_current_attending_candidate",
+  "trend_review_claim_rows": 3,
+  "trend_review_people": 3,
+  "trend_review_rollup_rows": 10
+}

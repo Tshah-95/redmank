@@ -63,6 +63,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_biosketch_bridge_summary.json`: status counts for dated recent Penn training bridge candidates, non-Penn context, and research-training context.
 - `artifacts/data/attending_trend_reconciliation.csv`: non-mutating trend acceptance ledger combining endpoint, Penn-training, biosketch, and historical-link evidence.
 - `artifacts/data/attending_trend_reconciliation_summary.json`: review-ready recent attending trend counts and remaining bridge gaps.
+- `artifacts/data/attending_trend_review_claims.csv`: materialized review-ready recent Penn-trained current-attending trend candidates, still not accepted trend facts until reviewer acceptance.
+- `artifacts/data/attending_trend_review_rollups.csv`: trend-review rollups by corpus, training type, training end year, source scope, and ten-year-window scope.
+- `artifacts/data/attending_trend_review_claims_summary.json`: review-ready trend claim, person, end-year, and rollup counts.
 - `artifacts/data/npi_candidate_claims.csv`: candidate NPPES/NPI identity, taxonomy, and PA practice-location anchors for current residents/fellows.
 - `artifacts/data/npi_candidate_summary.json`: NPI query, status, role, and taxonomy counts.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
@@ -178,6 +181,7 @@ python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
+python3 scripts/materialize_attending_trend_review_claims.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T10:32:11.108234+00:00
+Generated: 2026-06-02T10:38:56.362943+00:00
 
 ## What This Pass Did
 
@@ -503,7 +503,7 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 37 | 37 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 39 | 39 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
@@ -797,6 +797,31 @@ Top trend reconciliation rows:
 | Jesse Kiefer MD MSEd | current_endpoint_needs_training_claim | 1 | yes |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Katherine Courtright, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Kathryn A. McGrath, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+
+Review-ready trend claims:
+
+Materialized review-ready trend claims: 3. People: 3. Rollup rows: 10. Display status: review_ready_not_accepted_trend_fact.
+
+| display_name | trend_claim_type | training_type | training_start_year | training_end_year | source_scope | source_url | display_safety_status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Timothy Buckey, MD, MBE | recent_penn_trained_current_attending_candidate | fellowship | 2022 | 2024 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 | review_ready_not_accepted_trend_fact |
+| Patrick Kevin Gleeson, MD, MSCE | recent_penn_trained_current_attending_candidate | fellowship | 2018 | 2020 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 | review_ready_not_accepted_trend_fact |
+| Priya Patel, MD | recent_penn_trained_current_attending_candidate | fellowship | 2017 | 2019 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 | review_ready_not_accepted_trend_fact |
+
+Trend review rollups:
+
+| rollup_scope | rollup_value | training_type | training_end_year | claim_count | person_count |
+| --- | --- | --- | --- | --- | --- |
+| corpus | recent_penn_trained_current_attending_candidates | fellowship |  | 3 | 3 |
+| source_scope | official_penn_faculty_biosketch | fellowship |  | 3 | 3 |
+| ten_year_trend_window | yes | fellowship |  | 3 | 3 |
+| training_end_year | 2019 | fellowship | 2019 | 1 | 1 |
+| training_end_year | 2020 | fellowship | 2020 | 1 | 1 |
+| training_end_year | 2024 | fellowship | 2024 | 1 | 1 |
+| training_type | fellowship | fellowship |  | 3 | 3 |
+| training_type_end_year | fellowship::2019 | fellowship | 2019 | 1 | 1 |
+| training_type_end_year | fellowship::2020 | fellowship | 2020 | 1 | 1 |
+| training_type_end_year | fellowship::2024 | fellowship | 2024 | 1 | 1 |
 
 Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance, but the reviewer decision should be recorded separately before an accepted trend fact is emitted.
 

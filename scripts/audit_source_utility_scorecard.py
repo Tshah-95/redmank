@@ -428,6 +428,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
+    trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
+    trend_review_claim_rows = int(trend_review_claims_summary.get("trend_review_claim_rows") or 0)
+    trend_review_rollup_rows = int(trend_review_claims_summary.get("trend_review_rollup_rows") or 0)
     npi_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     npi_observations = scalar(conn, "SELECT COUNT(*) FROM npi_source_observations")
     npi_candidate_rows = scalar(conn, "SELECT COUNT(*) FROM npi_candidate_claims")
@@ -918,12 +921,12 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             output_records=trend_reconciliation_rows,
             candidate_records=trend_reconciliation_rows,
             needs_review_records=trend_reconciliation_needs_bridge,
-            review_ready_records=trend_reconciliation_review_ready,
+            review_ready_records=trend_review_claim_rows or trend_reconciliation_review_ready,
             score=82.0,
             strengths=[
                 "Combines endpoint, Penn-training profile, official biosketch, and historical-link evidence without mutating rosters",
                 "Separates review-ready recent attending trend candidates from profile claims that still need dated bridges",
-                "Produces queryable person/group-level trend assurance and ten-year-window labels",
+                "Produces queryable person/group-level trend assurance, review-claim rows, rollups, and ten-year-window labels",
             ],
             limitations=[
                 "Review-ready rows still need explicit reviewer acceptance before becoming accepted trend facts",
@@ -935,6 +938,9 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "summary": trend_reconciliation_summary,
                 "trend_rows": trend_reconciliation_rows,
                 "review_ready_rows": trend_reconciliation_review_ready,
+                "trend_review_claim_rows": trend_review_claim_rows,
+                "trend_review_rollup_rows": trend_review_rollup_rows,
+                "trend_review_claims_summary": trend_review_claims_summary,
                 "needs_bridge_or_training_rows": trend_reconciliation_needs_bridge,
             },
         ),

@@ -45,6 +45,8 @@ def main() -> None:
         "career_events",
         "attending_biosketch_bridge_candidates",
         "attending_trend_reconciliation",
+        "attending_trend_review_claims",
+        "attending_trend_review_rollups",
         "npi_candidate_claims",
         "npi_source_observations",
         "person_contacts",
@@ -150,6 +152,36 @@ def main() -> None:
             SELECT trend_status, COUNT(*) AS count
             FROM attending_trend_reconciliation
             GROUP BY trend_status
+            """
+        )
+    }
+    attending_trend_review_claim_counts = {
+        row["trend_claim_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT trend_claim_type, COUNT(*) AS count
+            FROM attending_trend_review_claims
+            GROUP BY trend_claim_type
+            """
+        )
+    }
+    attending_trend_review_end_year_counts = {
+        str(row["training_end_year"]): row["count"]
+        for row in conn.execute(
+            """
+            SELECT training_end_year, COUNT(*) AS count
+            FROM attending_trend_review_claims
+            GROUP BY training_end_year
+            """
+        )
+    }
+    attending_trend_review_rollup_scope_counts = {
+        row["rollup_scope"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT rollup_scope, COUNT(*) AS count
+            FROM attending_trend_review_rollups
+            GROUP BY rollup_scope
             """
         )
     }
@@ -473,6 +505,13 @@ def main() -> None:
         )
     else:
         attending_trend_reconciliation_summary = {}
+    attending_trend_review_claims_summary_path = ARTIFACTS / "attending_trend_review_claims_summary.json"
+    if attending_trend_review_claims_summary_path.exists():
+        attending_trend_review_claims_summary = json.loads(
+            attending_trend_review_claims_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        attending_trend_review_claims_summary = {}
     npi_candidate_summary_path = ARTIFACTS / "npi_candidate_summary.json"
     if npi_candidate_summary_path.exists():
         npi_candidate_summary = json.loads(npi_candidate_summary_path.read_text(encoding="utf-8"))
@@ -557,6 +596,9 @@ def main() -> None:
         "career_event_counts": career_event_counts,
         "attending_biosketch_bridge_counts": attending_biosketch_bridge_counts,
         "attending_trend_reconciliation_counts": attending_trend_reconciliation_counts,
+        "attending_trend_review_claim_counts": attending_trend_review_claim_counts,
+        "attending_trend_review_end_year_counts": attending_trend_review_end_year_counts,
+        "attending_trend_review_rollup_scope_counts": attending_trend_review_rollup_scope_counts,
         "npi_candidate_counts": npi_candidate_counts,
         "npi_primary_taxonomy_counts": npi_primary_taxonomy_counts,
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
@@ -594,6 +636,7 @@ def main() -> None:
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
         "attending_biosketch_bridge_summary": attending_biosketch_bridge_summary,
         "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
+        "attending_trend_review_claims_summary": attending_trend_review_claims_summary,
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "enrichment_acceptance_summary": enrichment_acceptance_summary,

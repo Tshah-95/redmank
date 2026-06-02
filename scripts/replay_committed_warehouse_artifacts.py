@@ -47,6 +47,8 @@ CSV_TABLES = [
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("warehouse_reproducibility_audit.csv", "warehouse_reproducibility_audit"),
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),
+    ("attending_trend_review_claims.csv", "attending_trend_review_claims"),
+    ("attending_trend_review_rollups.csv", "attending_trend_review_rollups"),
 ]
 
 JSON_TABLES = [

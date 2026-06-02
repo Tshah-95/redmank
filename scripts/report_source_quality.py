@@ -231,6 +231,7 @@ def main() -> None:
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
     attending_trend_reconciliation_summary = read_json(ARTIFACTS / "attending_trend_reconciliation_summary.json", {})
+    attending_trend_review_claims_summary = read_json(ARTIFACTS / "attending_trend_review_claims_summary.json", {})
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
@@ -240,6 +241,8 @@ def main() -> None:
     top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
     top_attending_biosketch_bridges = read_csv(ARTIFACTS / "attending_biosketch_bridge_candidates.csv", limit=25)
     top_attending_trend_reconciliation = read_csv(ARTIFACTS / "attending_trend_reconciliation.csv", limit=25)
+    top_attending_trend_review_claims = read_csv(ARTIFACTS / "attending_trend_review_claims.csv", limit=25)
+    top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     top_reconciliation_decisions = [
@@ -377,6 +380,9 @@ def main() -> None:
         "top_attending_biosketch_bridges": top_attending_biosketch_bridges,
         "attending_trend_reconciliation_summary": attending_trend_reconciliation_summary,
         "top_attending_trend_reconciliation": top_attending_trend_reconciliation,
+        "attending_trend_review_claims_summary": attending_trend_review_claims_summary,
+        "top_attending_trend_review_claims": top_attending_trend_review_claims,
+        "top_attending_trend_review_rollups": top_attending_trend_review_rollups,
         "npi_candidate_summary": npi_candidate_summary,
         "top_npi_candidates": top_npi_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
@@ -732,6 +738,38 @@ def main() -> None:
                 "best_training_end_year",
                 "best_source_url",
                 "required_next_evidence",
+            ],
+        ),
+        "",
+        "Review-ready trend claims:",
+        "",
+        f"Materialized review-ready trend claims: {attending_trend_review_claims_summary.get('trend_review_claim_rows', 0)}. People: {attending_trend_review_claims_summary.get('trend_review_people', 0)}. Rollup rows: {attending_trend_review_claims_summary.get('trend_review_rollup_rows', 0)}. Display status: {attending_trend_review_claims_summary.get('display_safety_status', '')}.",
+        "",
+        *md_table(
+            top_attending_trend_review_claims,
+            [
+                "display_name",
+                "trend_claim_type",
+                "training_type",
+                "training_start_year",
+                "training_end_year",
+                "source_scope",
+                "source_url",
+                "display_safety_status",
+            ],
+        ),
+        "",
+        "Trend review rollups:",
+        "",
+        *md_table(
+            top_attending_trend_review_rollups,
+            [
+                "rollup_scope",
+                "rollup_value",
+                "training_type",
+                "training_end_year",
+                "claim_count",
+                "person_count",
             ],
         ),
         "",

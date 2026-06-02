@@ -148,6 +148,8 @@ ARTIFACT_SPECS = [
     ("artifacts/data/person_contacts.csv", "contact_ledger", "csv", "person_contacts", True),
     ("artifacts/data/career_events.csv", "attending_trend_input", "csv", "career_events", True),
     ("artifacts/data/attending_trend_reconciliation.csv", "attending_trend_ledger", "csv", "attending_trend_reconciliation", True),
+    ("artifacts/data/attending_trend_review_claims.csv", "attending_trend_ledger", "csv", "attending_trend_review_claims", True),
+    ("artifacts/data/attending_trend_review_rollups.csv", "attending_trend_ledger", "csv", "attending_trend_review_rollups", True),
     ("artifacts/data/attending_biosketch_bridge_candidates.csv", "attending_trend_ledger", "csv", "attending_biosketch_bridge_candidates", True),
     ("artifacts/data/program_identifier_candidates.csv", "program_identifier_ledger", "csv", "program_identifier_candidates", True),
     ("artifacts/data/program_identifier_reconciliation.csv", "program_identifier_ledger", "csv", "program_identifier_reconciliation", True),
