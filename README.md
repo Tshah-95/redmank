@@ -12,6 +12,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_training_summary.json`: counts and field coverage for the resident/fellow corpus.
 - `artifacts/data/penn_source_discovery.json`: crawler-based review list of candidate Penn Department of Medicine training pages.
 - `artifacts/data/penn_mstp_students.json`: separate public MSTP student-directory extract.
+- `artifacts/data/penn_med_student_source_audit.csv`: source-access audit for public MSTP, protected MD-student directory, MD Program context, and MD-PhD graduate-directory cross-checks.
+- `artifacts/data/penn_med_student_source_audit_summary.json`: student-source access and capture-status counts.
 - `artifacts/data/redmank.sqlite`: SQLite warehouse built from the generated artifacts.
 - SQLite tables `official_program_universe` and `official_program_coverage_audit`: queryable official-program denominator and coverage status.
 - `artifacts/data/warehouse_summary.json`: warehouse table counts and resolver status counts.
@@ -104,6 +106,7 @@ Build the SQLite warehouse and review queues:
 
 ```bash
 python3 scripts/build_sqlite.py
+python3 scripts/audit_penn_med_student_sources.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 ```
@@ -132,6 +135,7 @@ python3 scripts/generate_enrichment_queue.py
 python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
+python3 scripts/audit_penn_med_student_sources.py
 python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
@@ -214,6 +218,7 @@ The initial methodology is conservative:
 - Classify official denominator gaps by evidence-backed reason before treating them as missing people: context-only public page, parser/manual-review candidate, low-content official page, related-program alias review, or broader-discovery-needed.
 - Keep official-program alias/denominator reconciliation as a candidate ledger until the relation is strong enough to mutate coverage or split a loaded broad program into a narrower official program.
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
+- Treat the official MD-student directory as unavailable to public scraping when PennKey protection is observed; keep public MSTP records as partial student truth and public graduate-program directories as MD-PhD cross-check/enrichment candidates only.
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
 - Rank candidate enrichment in an evidence reconciliation queue before accepting profile, publication, or attending-trend claims.

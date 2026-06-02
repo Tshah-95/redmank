@@ -391,6 +391,27 @@ CREATE TABLE IF NOT EXISTS organization_identifier_candidates (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS medical_student_source_audit (
+  audit_key TEXT PRIMARY KEY,
+  source_url TEXT NOT NULL,
+  source_title TEXT,
+  source_scope TEXT NOT NULL,
+  access_status TEXT NOT NULL,
+  capture_status TEXT NOT NULL,
+  source_role TEXT NOT NULL,
+  observed_http_status INTEGER,
+  effective_url TEXT,
+  public_person_count_observed INTEGER NOT NULL DEFAULT 0,
+  loaded_person_count INTEGER NOT NULL DEFAULT 0,
+  md_phd_signal_count INTEGER NOT NULL DEFAULT 0,
+  current_student_signal_count INTEGER NOT NULL DEFAULT 0,
+  directory_signal_count INTEGER NOT NULL DEFAULT 0,
+  recommended_next_action TEXT NOT NULL,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  evidence_json TEXT,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_training_events (
   training_event_id INTEGER PRIMARY KEY,
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,

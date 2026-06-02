@@ -81,6 +81,7 @@
   "counts": {
     "career_events": 105,
     "evidence_claims": 4744,
+    "medical_student_source_audit": 16,
     "official_program_alias_reconciliation_candidates": 16,
     "official_program_coverage_audit": 91,
     "official_program_gap_reason_audit": 27,
@@ -100,7 +101,7 @@
     "programs": 95,
     "source_quality_observations": 3,
     "source_utilities": 9,
-    "source_utility_scorecard": 12,
+    "source_utility_scorecard": 13,
     "sources": 1390,
     "training_state_snapshot_rows": 1630,
     "training_state_snapshots": 1,
@@ -269,7 +270,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T08:29:55.634690+00:00",
+  "generated_at": "2026-06-02T08:39:07.942281+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -354,6 +355,55 @@
     "stale_by_refresh_rows": 1617,
     "state_csv": "artifacts/data/training_state_refresh_expectations.csv",
     "state_rows": 1630
+  },
+  "medical_student_source_audit_counts": {
+    "accepted_public_mstp_roster": 1,
+    "points_to_medical_student_directory_without_public_records": 1,
+    "protected_no_public_roster_records": 1,
+    "public_md_phd_crosscheck_candidate": 9,
+    "public_md_program_context_no_student_roster": 1,
+    "student_directory_index_with_protected_md_notice": 1,
+    "unreachable_review": 2
+  },
+  "medical_student_source_audit_summary": {
+    "audit_rows": 16,
+    "by_access_status": {
+      "fetch_error_or_unreachable": 2,
+      "pennkey_protected": 1,
+      "public": 13
+    },
+    "by_capture_status": {
+      "accepted_public_mstp_roster": 1,
+      "points_to_medical_student_directory_without_public_records": 1,
+      "protected_no_public_roster_records": 1,
+      "public_md_phd_crosscheck_candidate": 9,
+      "public_md_program_context_no_student_roster": 1,
+      "student_directory_index_with_protected_md_notice": 1,
+      "unreachable_review": 2
+    },
+    "by_recommended_next_action": {
+      "probe_medical_student_directory_but_do_not_scrape_pennkey_content": 1,
+      "record_as_not_public_and_monitor_index_for_access_change": 1,
+      "record_context_and_do_not_infer_student_people": 1,
+      "retain_as_partial_medical_student_truth_anchor_and_refresh_annually": 1,
+      "use_index_to_monitor_whether_md_student_directory_becomes_public": 1,
+      "use_only_for_mstp_crosscheck_or_background_enrichment_not_md_denominator": 11
+    },
+    "by_source_scope": {
+      "graduate_directory_md_phd_filter": 11,
+      "md_phd_public_directory": 1,
+      "md_program_context": 1,
+      "md_student_directory": 1,
+      "psom_directory_context": 1,
+      "student_directory_index": 1
+    },
+    "csv": "artifacts/data/penn_med_student_source_audit.csv",
+    "generated_at": "2026-06-02T08:35:41.166608+00:00",
+    "graduate_crosscheck_rows": 9,
+    "json": "artifacts/data/penn_med_student_source_audit.json",
+    "protected_md_directory_rows": 1,
+    "public_mstp_loaded_people": 225,
+    "public_mstp_observed_people": 225
   },
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,
@@ -507,7 +557,7 @@
     "blocked_or_low_current_utility": 1,
     "discovery_or_review_only": 2,
     "high_utility": 2,
-    "strong_with_known_limits": 4,
+    "strong_with_known_limits": 5,
     "useful_candidate_layer": 3
   },
   "source_utility_scorecard_summary": {
@@ -516,13 +566,14 @@
       "blocked_or_low_current_utility": 1,
       "discovery_or_review_only": 2,
       "high_utility": 2,
-      "strong_with_known_limits": 4,
+      "strong_with_known_limits": 5,
       "useful_candidate_layer": 3
     },
     "by_recommended_next_action": {
       "add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage": 1,
       "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
       "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
+      "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
       "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
       "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
@@ -535,17 +586,17 @@
     },
     "by_source_family": {
       "normalization": 1,
-      "official_institutional_web": 5,
+      "official_institutional_web": 6,
       "scholarly_api": 3,
       "state_machine": 1,
       "web_search": 2
     },
     "candidate_or_discovery_rows": 5,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T08:29:55.535015+00:00",
+    "generated_at": "2026-06-02T08:39:07.831997+00:00",
     "high_utility_rows": 2,
     "json": "artifacts/data/source_utility_scorecard.json",
-    "scorecard_rows": 12,
+    "scorecard_rows": 13,
     "top_rows": [
       {
         "quality_band": "high_utility",
@@ -577,6 +628,13 @@
       },
       {
         "quality_band": "strong_with_known_limits",
+        "recommended_next_action": "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck",
+        "score": 78.0,
+        "scorecard_key": "medical_student_public_source_audit",
+        "utility_label": "Penn medical-student public-source audit"
+      },
+      {
+        "quality_band": "strong_with_known_limits",
         "recommended_next_action": "append_alias_and_identifier_candidates_with_source_backed_evidence",
         "score": 74.0,
         "scorecard_key": "organization_normalization_resolver",
@@ -595,13 +653,6 @@
         "score": 69.0,
         "scorecard_key": "pubmed_article_reconciliation",
         "utility_label": "PubMed article-level reconciliation"
-      },
-      {
-        "quality_band": "useful_candidate_layer",
-        "recommended_next_action": "verify_contact_channels_against_current_official_source_before_use",
-        "score": 66.0,
-        "scorecard_key": "public_contact_candidate_extraction",
-        "utility_label": "Public contact candidate extraction"
       }
     ]
   },

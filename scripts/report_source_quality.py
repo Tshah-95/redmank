@@ -230,6 +230,8 @@ def main() -> None:
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
+    med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
+    med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
     top_attending_linkage_groups = read_csv(ARTIFACTS / "attending_trend_linkage_groups.csv", limit=20)
     top_attending_historical_candidates = read_csv(ARTIFACTS / "attending_historical_link_candidates.csv", limit=20)
@@ -351,6 +353,8 @@ def main() -> None:
         "top_attending_historical_link_candidates": top_attending_historical_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
+        "medical_student_source_audit_summary": med_student_source_audit_summary,
+        "medical_student_source_audit": med_student_source_audit,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -449,6 +453,36 @@ def main() -> None:
         f"Generic `Residents`/`Fellows` program labels remaining: {sum(row['count'] for row in generic_program_labels)}.",
         "",
         "Learning: program names often require URL-plus-section inference. Page titles alone are too weak because official pages can be titled `Residents` or `Fellows`, while one source page can contain multiple program sections.",
+        "",
+        "## Penn Medical Student Public-Source Audit",
+        "",
+        f"Student-source audit rows: {med_student_source_audit_summary.get('audit_rows', 0)}. Public MSTP loaded people: {med_student_source_audit_summary.get('public_mstp_loaded_people', 0)}. Protected MD-directory rows: {med_student_source_audit_summary.get('protected_md_directory_rows', 0)}. Graduate cross-check rows: {med_student_source_audit_summary.get('graduate_crosscheck_rows', 0)}.",
+        "",
+        "Capture statuses:",
+        "",
+        *md_table(
+            [
+                {"capture_status": status, "count": count}
+                for status, count in sorted((med_student_source_audit_summary.get("by_capture_status") or {}).items())
+            ],
+            ["capture_status", "count"],
+        ),
+        "",
+        "Audited student source surfaces:",
+        "",
+        *md_table(
+            med_student_source_audit,
+            [
+                "source_scope",
+                "access_status",
+                "capture_status",
+                "public_person_count_observed",
+                "loaded_person_count",
+                "source_url",
+            ],
+        ),
+        "",
+        "Learning: the public medical-student universe is not the same as the full medical-student universe. The official MSTP directory is a public current MD-PhD roster and remains accepted as a partial student truth anchor. The official MD student directory is PennKey protected, so it should be recorded as unavailable to public scraping and monitored for access changes. Graduate-program student directories can cross-check or enrich MD-PhD students, but they overlap MSTP and broader PhD populations and should not mutate the MD-student denominator.",
         "",
         "## Training State Machine",
         "",

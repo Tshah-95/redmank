@@ -208,6 +208,41 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     broad_trainee_candidates = discovery_by_class.get("trainee_roster_candidate", 0)
     broad_context = discovery_by_class.get("program_context", 0)
 
+    med_student_source_rows = scalar(conn, "SELECT COUNT(*) FROM medical_student_source_audit")
+    med_student_loaded = scalar(
+        conn,
+        """
+        SELECT COALESCE(SUM(loaded_person_count), 0)
+        FROM medical_student_source_audit
+        WHERE capture_status = 'accepted_public_mstp_roster'
+        """,
+    )
+    med_student_protected = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM medical_student_source_audit
+        WHERE capture_status = 'protected_no_public_roster_records'
+        """,
+    )
+    med_student_crosscheck = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM medical_student_source_audit
+        WHERE capture_status = 'public_md_phd_crosscheck_candidate'
+        """,
+    )
+    med_student_review = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM medical_student_source_audit
+        WHERE capture_status IN ('unreachable_review', 'review_required')
+        """,
+    )
+    med_student_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
+
     pubmed_author_claims = scalar(
         conn,
         """
@@ -391,6 +426,39 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "gap_reasons": gap_reasons,
                 "alias_candidate_rows": alias_rows,
                 "coverage_mutation_allowed_rows": alias_mutations,
+            },
+        ),
+        make_row(
+            scorecard_key="medical_student_public_source_audit",
+            utility_key="official_roster",
+            utility_label="Penn medical-student public-source audit",
+            source_family="official_institutional_web",
+            claim_surface="public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks",
+            input_records=med_student_source_rows,
+            output_records=med_student_source_rows,
+            accepted_records=med_student_loaded,
+            candidate_records=med_student_crosscheck,
+            needs_review_records=med_student_review,
+            blocked_records=med_student_protected,
+            score=78.0,
+            strengths=[
+                "Separates public MD-PhD roster truth from protected MD-only directory access",
+                "Uses official PSOM/MSTP pages as source-access evidence",
+                "Keeps graduate-program directories as cross-check/enrichment candidates without inflating the MD denominator",
+            ],
+            limitations=[
+                "The official MD-only medical student directory is PennKey protected and must not be scraped",
+                "Graduate directories overlap MSTP and broader PhD populations, so they are not accepted denominator records",
+                "A small number of linked graduate directories are unreachable and need periodic recheck",
+            ],
+            recommended_next_action="monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck",
+            evidence={
+                "medical_student_source_rows": med_student_source_rows,
+                "public_mstp_loaded_people": med_student_loaded,
+                "protected_md_directory_rows": med_student_protected,
+                "graduate_crosscheck_rows": med_student_crosscheck,
+                "review_rows": med_student_review,
+                "summary": med_student_audit_summary,
             },
         ),
         make_row(

@@ -1834,6 +1834,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "organization_aliases",
         "organization_identifiers",
         "organization_identifier_candidates",
+        "medical_student_source_audit",
         "person_training_events",
         "person_training_states",
         "person_evidence_review_packets",

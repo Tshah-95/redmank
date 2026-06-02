@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T08:29:55.594661+00:00
+Generated: 2026-06-02T08:39:07.892256+00:00
 
 ## What This Pass Did
 
@@ -160,6 +160,45 @@ Learning: queue-driven extraction should stay template-aware. Pages without supp
 Generic `Residents`/`Fellows` program labels remaining: 0.
 
 Learning: program names often require URL-plus-section inference. Page titles alone are too weak because official pages can be titled `Residents` or `Fellows`, while one source page can contain multiple program sections.
+
+## Penn Medical Student Public-Source Audit
+
+Student-source audit rows: 16. Public MSTP loaded people: 225. Protected MD-directory rows: 1. Graduate cross-check rows: 9.
+
+Capture statuses:
+
+| capture_status | count |
+| --- | --- |
+| accepted_public_mstp_roster | 1 |
+| points_to_medical_student_directory_without_public_records | 1 |
+| protected_no_public_roster_records | 1 |
+| public_md_phd_crosscheck_candidate | 9 |
+| public_md_program_context_no_student_roster | 1 |
+| student_directory_index_with_protected_md_notice | 1 |
+| unreachable_review | 2 |
+
+Audited student source surfaces:
+
+| source_scope | access_status | capture_status | public_person_count_observed | loaded_person_count | source_url |
+| --- | --- | --- | --- | --- | --- |
+| student_directory_index | public | student_directory_index_with_protected_md_notice | 0 | 0 | https://www.med.upenn.edu/mstp/student-directories.html |
+| md_phd_public_directory | public | accepted_public_mstp_roster | 225 | 225 | https://www.med.upenn.edu/mstp/student-directory/ |
+| psom_directory_context | public | points_to_medical_student_directory_without_public_records | 0 | 0 | https://www.med.upenn.edu/psom/directory.html |
+| md_program_context | public | public_md_program_context_no_student_roster | 0 | 0 | https://my.med.upenn.edu/student/ |
+| md_student_directory | pennkey_protected | protected_no_public_roster_records | 0 | 0 | https://www.med.upenn.edu/apps/my/sms/studentdir/ |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 1 | 0 | https://www.sas.upenn.edu/anthropology/graduate/md/phd-program |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 0 | 0 | https://www.med.upenn.edu/bmbgrad/students_current.html |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 393 | 0 | https://www.med.upenn.edu/camb/current-students/#group=students&program=0&degree=0&year=0&advisor=0 |
+| graduate_directory_md_phd_filter | fetch_error_or_unreachable | unreachable_review | 0 | 0 | https://www.med.upenn.edu/ggeb/current-students/#group=students&program=0&degree=0&year=0&advisor=0 |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 65 | 0 | https://www.med.upenn.edu/gcb/student-directory/#group=students&degree=0&year=0&advisor=0 |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 101 | 0 | https://www.med.upenn.edu/immun/current-students/#group=students&degree=0&year=0&advisor=0 |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 145 | 0 | https://www.med.upenn.edu/ngg/current-students/#group=students&degree=0&year=0&advisor=0 |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 68 | 0 | https://www.med.upenn.edu/pgg/current-students/#group=students&degree=0&year=0&advisor=0 |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 1 | 0 | https://be.seas.upenn.edu/doctoral/our-students/student-directory/ |
+| graduate_directory_md_phd_filter | public | public_md_phd_crosscheck_candidate | 0 | 0 | https://hcmg.wharton.upenn.edu/programs/phd/students/ |
+| graduate_directory_md_phd_filter | fetch_error_or_unreachable | unreachable_review | 3 | 0 | https://hss.sas.upenn.edu/people/graduate-students |
+
+Learning: the public medical-student universe is not the same as the full medical-student universe. The official MSTP directory is a public current MD-PhD roster and remains accepted as a partial student truth anchor. The official MD student directory is PennKey protected, so it should be recorded as unavailable to public scraping and monitored for access changes. Graduate-program student directories can cross-check or enrich MD-PhD students, but they overlap MSTP and broader PhD populations and should not mutate the MD-student denominator.
 
 ## Training State Machine
 
@@ -451,12 +490,13 @@ Learning: annual diffs should be state-machine informed before they are person-t
 
 ## Source Utility Scorecard
 
-Scorecard rows: 12.
+Scorecard rows: 13.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Official roster current-membership extraction | current trainee identity, role, program, stage, and source-backed background | 78 | 1558 | 92.0 | high_utility | keep_as_truth_anchor_and_refresh_on_program_clock |
 | Official HUP program denominator coverage | institution program universe, coverage gaps, and denominator drift | 91 | 64 | 86.0 | high_utility | resolve_gap_reason_and_alias_candidates_before_count_mutation |
+| Penn medical-student public-source audit | public MSTP directory, protected MD directory, MD program context, and MD-PhD graduate-directory cross-checks | 16 | 16 | 78.0 | strong_with_known_limits | monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck |
 | Official gap roster queue extraction | named resident/fellow extraction from prioritized uncovered-program pages | 32 | 524 | 81.0 | strong_with_known_limits | add_supported_parsers_for_roster_candidate_gaps_then_rerun_coverage |
 | Penn-wide source discovery crawler | candidate roster, program context, alumni/outcome, and attending/faculty sources | 878 | 395 | 58.0 | useful_candidate_layer | treat_as_queue_then_probe_and_parse_only_source_backed_rosters |
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |

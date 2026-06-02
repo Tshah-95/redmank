@@ -27,6 +27,7 @@ def main() -> None:
         "organization_aliases",
         "organization_identifiers",
         "organization_identifier_candidates",
+        "medical_student_source_audit",
         "person_training_events",
         "person_training_states",
         "person_evidence_review_packets",
@@ -206,6 +207,16 @@ def main() -> None:
             """
         )
     }
+    medical_student_source_audit_counts = {
+        row["capture_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT capture_status, COUNT(*) AS count
+            FROM medical_student_source_audit
+            GROUP BY capture_status
+            """
+        )
+    }
     conn.close()
     state_machine_summary_path = ARTIFACTS / "training_state_machine_summary.json"
     if state_machine_summary_path.exists():
@@ -261,6 +272,13 @@ def main() -> None:
         )
     else:
         organization_identifier_candidate_summary = {}
+    medical_student_source_audit_summary_path = ARTIFACTS / "penn_med_student_source_audit_summary.json"
+    if medical_student_source_audit_summary_path.exists():
+        medical_student_source_audit_summary = json.loads(
+            medical_student_source_audit_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        medical_student_source_audit_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -286,6 +304,7 @@ def main() -> None:
         "official_program_alias_reconciliation_counts": official_program_alias_reconciliation_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
+        "medical_student_source_audit_counts": medical_student_source_audit_counts,
         "organization_category_counts": category_counts,
         "training_state_machine_summary": state_machine_summary,
         "enrichment_coverage_summary": enrichment_coverage_summary,
@@ -297,6 +316,7 @@ def main() -> None:
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
+        "medical_student_source_audit_summary": medical_student_source_audit_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

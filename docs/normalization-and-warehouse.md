@@ -55,6 +55,7 @@ Core tables:
 - `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
 - `official_program_gap_reason_audit`: deterministic reason ledger for uncovered official programs, separating context-only pages, parser/manual-review candidates, low-content official pages, related loaded-source alias reviews, and broader-discovery gaps.
 - `official_program_alias_reconciliation_candidates`: non-mutating candidate ledger for official denominator rows that may correspond to related loaded program labels.
+- `medical_student_source_audit`: source-access audit for public MSTP, protected MD-student, MD Program context, and MD-PhD graduate-directory cross-check sources.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
 - `program_lifecycle_rules`: local lifecycle codes and nominal-duration assumptions used to interpret training states over time.
@@ -123,6 +124,18 @@ The source probe treats body-text mentions like “fellows rotate” as weak ros
 This is the reconciliation layer between source discovery and roster extraction. It prevents the corpus from interpreting all remaining official gaps as equal and gives future agents a specific next action for each program.
 
 `scripts/audit_official_program_alias_reconciliation.py` is a narrower non-mutating follow-up for `source_already_loaded_related_program_review` gaps. It compares the official denominator row to the loaded program label, role, source URL, and section/training-year labels. It can identify likely same-program aliases, section-level split candidates, track/type mismatches, combined-track-not-categorical cases, and weak related-source cases. None of these rows mutate official coverage by themselves; they make the mapping decision auditable before a later alias-map or program-splitting pass changes counts.
+
+## Medical Student Source Coverage
+
+The current public medical-student layer is intentionally partial. `scripts/scrape_penn_mstp_students.py` loads the official public MSTP student directory as current MD-PhD student evidence. `scripts/audit_penn_med_student_sources.py` separately audits whether broader Penn medical-student sources are public.
+
+The audit probes official PSOM/MSTP pages and writes:
+
+- `penn_med_student_source_audit.csv` / `.json`: source-level rows with URL, access status, capture status, public person-like count, loaded count, MD-PhD/directory signals, confidence, and evidence JSON.
+- `penn_med_student_source_audit_summary.json`: rollups by access status, capture status, source scope, and recommended next action.
+- SQLite table `medical_student_source_audit`: queryable version of the same source-access ledger.
+
+The accepted finding is conservative: the public MSTP directory is a partial current-student truth anchor; the official MD-student directory is PennKey protected and should not be scraped; public graduate-program directories can cross-check or enrich MD-PhD students but should not expand the MD-student denominator because they overlap MSTP and broader PhD populations. This keeps “we do not have all MD students” as an evidence-backed source-access state rather than an accidental omission.
 
 ## Recursive Enrichment Loop
 
