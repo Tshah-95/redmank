@@ -1,23 +1,32 @@
 {
   "by_candidate_status": {},
   "by_result_domain": {},
-  "by_search_error": {},
-  "by_search_http_status": {},
+  "by_search_error": {
+    "search_endpoint_non_200": 38
+  },
+  "by_search_http_status": {
+    "200": 2,
+    "202": 38
+  },
   "by_task_type": {
-    "source_medical_school_background": 179,
+    "source_medical_school_background": 231,
     "source_residency_background": 90
   },
   "candidate_rows": 0,
   "claim_rows": 0,
   "claims_json": "artifacts/data/prior_training_discovery_claims.json",
   "csv": "artifacts/data/prior_training_discovery_candidates.csv",
-  "generated_at": "2026-06-02T13:35:17.186676+00:00",
-  "people_considered": 183,
+  "existing_search_observations": 0,
+  "generated_at": "2026-06-02T19:10:35.920581+00:00",
+  "people_considered": 235,
   "policy": "Prior-training background discoveries are candidate evidence only. They do not mutate accepted education or GME background without explicit source-text review and reconciliation.",
-  "query_rows": 538,
-  "search_observations": 0,
-  "search_skipped": true,
+  "query_rows": 642,
+  "resume_existing": true,
+  "search_observations": 40,
+  "search_skipped": false,
+  "searched_this_run": 40,
   "source_rows": 0,
   "sources_json": "artifacts/data/prior_training_discovery_sources.json",
-  "tasks_considered": 269
+  "tasks_considered": 321,
+  "unsearched_query_rows": 602
 }

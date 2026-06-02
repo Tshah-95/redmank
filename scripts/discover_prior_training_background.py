@@ -274,16 +274,26 @@ def write_csv(path: Path, rows: list[dict], fields: list[str]) -> None:
         writer.writerows(rows)
 
 
+def read_csv(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", type=Path, default=DB)
     parser.add_argument("--max-tasks", type=int)
     parser.add_argument("--max-queries-per-task", type=int, default=2)
+    parser.add_argument("--max-search-queries", type=int)
     parser.add_argument("--max-results", type=int, default=4)
     parser.add_argument("--search-timeout", type=float, default=8.0)
     parser.add_argument("--probe-pages", action="store_true")
     parser.add_argument("--skip-search", action="store_true")
+    parser.add_argument("--resume-existing", action="store_true")
     parser.add_argument("--sleep", type=float, default=0.2)
+    parser.add_argument("--progress-every", type=int, default=25)
     args = parser.parse_args()
 
     generated_at = datetime.now(timezone.utc).isoformat()
@@ -294,9 +304,20 @@ def main() -> None:
 
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-prior-training-background-discovery/0.1"
-    observations = []
-    candidates_by_key = {}
-    for spec in [] if args.skip_search else queries:
+    existing_observations = read_csv(OBSERVATION_CSV) if args.resume_existing else []
+    observations = list(existing_observations)
+    searched_query_keys = {row.get("query_key") for row in observations if row.get("query_key")}
+    candidates_by_key = {
+        row["candidate_key"]: row
+        for row in (read_csv(CANDIDATE_CSV) if args.resume_existing else [])
+        if row.get("candidate_key")
+    }
+    runnable_queries = [] if args.skip_search else [query for query in queries if query["query_key"] not in searched_query_keys]
+    if args.max_search_queries is not None:
+        runnable_queries = runnable_queries[: args.max_search_queries]
+
+    searched_this_run = 0
+    for spec in runnable_queries:
         try:
             results, observation = ddg_results(session, spec, args.max_results, args.search_timeout)
         except requests.RequestException as exc:
@@ -309,6 +330,7 @@ def main() -> None:
                 "error": f"{type(exc).__name__}: {str(exc)[:220]}",
             }
         observations.append(observation)
+        searched_this_run += 1
         for result in results:
             if args.probe_pages:
                 result.update(probe_page(session, result))
@@ -364,6 +386,18 @@ def main() -> None:
             if not current or int(candidate["priority"]) > int(current["priority"]):
                 candidates_by_key[candidate["candidate_key"]] = candidate
         time.sleep(args.sleep)
+        if args.progress_every and searched_this_run % args.progress_every == 0:
+            print(
+                json.dumps(
+                    {
+                        "searched_this_run": searched_this_run,
+                        "observations": len(observations),
+                        "candidate_rows": len(candidates_by_key),
+                    },
+                    sort_keys=True,
+                ),
+                flush=True,
+            )
 
     candidates = sorted(
         candidates_by_key.values(),
@@ -397,6 +431,10 @@ def main() -> None:
         "query_rows": len(queries),
         "search_skipped": args.skip_search,
         "search_observations": len(observations),
+        "existing_search_observations": len(existing_observations),
+        "searched_this_run": searched_this_run,
+        "resume_existing": args.resume_existing,
+        "unsearched_query_rows": max(len(queries) - len({row.get("query_key") for row in observations if row.get("query_key")}), 0),
         "candidate_rows": len(candidates),
         "claim_rows": len(claims),
         "source_rows": len(sources),
