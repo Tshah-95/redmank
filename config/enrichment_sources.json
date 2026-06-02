@@ -26,6 +26,18 @@
       "acceptance_rule": "Accept if linked from an official roster or exact person/program/institution match on an official Penn/CHOP page."
     },
     {
+      "utility_key": "official_trainee_profile",
+      "display_name": "Official roster-linked trainee profile",
+      "source_family": "official_institutional_web",
+      "default_tier": "gold",
+      "default_status": "candidate",
+      "default_confidence": 0.72,
+      "claim_types": ["official_profile_url", "education_history_candidate", "prior_training_history_candidate", "research_interest_candidate", "career_interest_candidate", "personal_profile_candidate"],
+      "strengths": ["Profile URL is anchored by an official trainee roster", "Often exposes richer education, prior-training, research, career-interest, and personal context", "Can retain display-safety metadata for personal fields"],
+      "limitations": ["Coverage is uneven by department and program", "Free-text fields need parser audits", "Personal fields should not be default-display or outreach signals without explicit product policy"],
+      "acceptance_rule": "Accept only the roster-linked official profile URL as a profile-location fact. Keep extracted education, prior-training, interest, and personal-context fields as candidate enrichment until independently reconciled or explicitly reviewed."
+    },
+    {
       "utility_key": "openalex_author_search",
       "display_name": "OpenAlex author search",
       "source_family": "scholarly_api",

@@ -396,6 +396,29 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     attending_profile_review_ready = decision_counts.get("attending_training_claim_review_ready", 0)
     attending_profile_context = decision_counts.get("profile_context_candidate", 0)
     current_attending_endpoint = decision_counts.get("current_attending_endpoint_candidate", 0)
+    trainee_profile_summary = read_json(ARTIFACTS / "penn_trainee_profile_summary.json", {})
+    trainee_profile_claims = scalar(
+        conn,
+        "SELECT COUNT(*) FROM evidence_claims WHERE source_type = 'official_trainee_profile'",
+    )
+    trainee_profile_accepted = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM evidence_claims
+        WHERE source_type = 'official_trainee_profile'
+          AND status = 'accepted'
+        """,
+    )
+    trainee_profile_candidate = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM evidence_claims
+        WHERE source_type = 'official_trainee_profile'
+          AND status = 'candidate'
+        """,
+    )
     trend_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     trend_linkage = trend_summary.get("by_linkage_status") or {}
     historical_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
@@ -922,6 +945,35 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             evidence={
                 "rate_limit_observed": bool(openalex_blocked),
                 "observation": dict(openalex_obs) if openalex_obs else {},
+            },
+        ),
+        make_row(
+            scorecard_key="official_trainee_profile_claims",
+            utility_key="official_trainee_profile",
+            utility_label="Official Penn trainee profile claims",
+            source_family="official_institutional_web",
+            claim_surface="roster-linked profile URLs, education, prior training, research/career interests, and personal-context snippets",
+            input_records=int(trainee_profile_summary.get("profiles_with_text") or 0),
+            output_records=trainee_profile_claims,
+            accepted_records=trainee_profile_accepted,
+            candidate_records=trainee_profile_candidate,
+            score=81.0,
+            strengths=[
+                "Profile links are anchored by official trainee rosters",
+                "Structured profile fields add education, prior-training, research/career-interest, and personal-context enrichment",
+                "Display-safety metadata separates default-safe background from personal or sensitive snippets",
+            ],
+            limitations=[
+                "Profile field richness is concentrated in Department of Medicine pages",
+                "Free-text pages can contain narrative bleed and require parser audits",
+                "Personal fields should not be default-display or outreach signals without explicit product policy",
+            ],
+            recommended_next_action="use_as_profile_enrichment_and_parser_training_set_then_expand_to_uncovered_official_profiles",
+            evidence={
+                "summary": trainee_profile_summary,
+                "claims": trainee_profile_claims,
+                "accepted_profile_url_facts": trainee_profile_accepted,
+                "candidate_profile_fields": trainee_profile_candidate,
             },
         ),
         make_row(

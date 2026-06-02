@@ -9,6 +9,10 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_training_people_unique.json`: deduplicated Department of Medicine resident/fellow corpus.
 - `artifacts/data/penn_training_people_unique.csv`: spreadsheet-friendly version of the same corpus.
 - `artifacts/data/penn_profile_index.md`: human review index for the resident/fellow corpus.
+- `artifacts/data/penn_trainee_profile_claims.json`: roster-linked official trainee profile URL, education, prior-training, interest, and personal-context candidate claims.
+- `artifacts/data/penn_trainee_profile_claims.csv`: spreadsheet-friendly profile-claim export.
+- `artifacts/data/penn_trainee_profile_sources.json`: official trainee profile source rows with fetch status and content hash.
+- `artifacts/data/penn_trainee_profile_summary.json`: profile extraction counts by claim type, role, status, and display-safety class.
 - `artifacts/data/penn_training_summary.json`: counts and field coverage for the resident/fellow corpus.
 - `artifacts/data/penn_source_discovery.json`: crawler-based review list of candidate Penn Department of Medicine training pages.
 - `artifacts/data/penn_mstp_students.json`: separate public MSTP student-directory extract.
@@ -128,7 +132,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
-As of the latest local generation, the warehouse has 1,483 people: 873 residents, 385 fellows, and 225 public MSTP student-directory records. It also has 1,775 accepted roster/training event rows, 1,111 PubMed author-query research candidates, 313 public contact candidates, and 105 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
+As of the latest local generation, the warehouse has 1,483 people: 873 residents, 385 fellows, and 225 public MSTP student-directory records. It also has 1,775 accepted roster/training event rows, 1,111 PubMed author-query research candidates, 1,110 official trainee profile claims, 313 public contact candidates, and 105 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
 
 The official HUP GME coverage audit currently parses 91 public HUP programs: 64 have captured current roster people, 12 are discovered as program/source pages without current roster capture, and 15 are not yet discovered by the current Penn-wide crawl.
 
@@ -200,6 +204,7 @@ python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
 python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
+python3 scripts/materialize_trainee_profile_claims.py
 python3 scripts/build_sqlite.py
 python3 scripts/audit_hup_gap_reasons.py
 python3 scripts/audit_official_program_alias_reconciliation.py

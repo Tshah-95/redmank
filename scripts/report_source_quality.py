@@ -110,6 +110,28 @@ def main() -> None:
         LIMIT 30
         """,
     )
+    trainee_profile_counts = rows(
+        conn,
+        """
+        SELECT status, claim_type, COUNT(*) AS count,
+               ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM evidence_claims
+        WHERE source_type = 'official_trainee_profile'
+        GROUP BY status, claim_type
+        ORDER BY status, claim_type
+        """,
+    )
+    trainee_profile_safety_counts = rows(
+        conn,
+        """
+        SELECT json_extract(evidence_json, '$.display_safety_status') AS display_safety_status,
+               COUNT(*) AS count
+        FROM evidence_claims
+        WHERE source_type = 'official_trainee_profile'
+        GROUP BY display_safety_status
+        ORDER BY count DESC, display_safety_status
+        """,
+    )
     broad_discovery = rows(
         conn,
         """
@@ -256,6 +278,7 @@ def main() -> None:
         {},
     )
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
+    trainee_profile_summary = read_json(ARTIFACTS / "penn_trainee_profile_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
     enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
@@ -1108,6 +1131,20 @@ def main() -> None:
         *md_table(pubmed_article_features, ["match_features_json", "count", "avg_confidence"]),
         "",
         "Learning: article-level PubMed XML is materially better than author-query counts because it exposes the target author, affiliation strings, publication year, journal/title, and topic hints. It is still candidate evidence: many records have one strong non-name anchor, but acceptance should require at least two independent anchors or a human review step.",
+        "",
+        "## Official Trainee Profile Enrichment",
+        "",
+        f"Roster-linked trainee profiles with text: {trainee_profile_summary.get('profiles_with_text', 0)}. Claims extracted: {trainee_profile_summary.get('claims', 0)}. People with profile claims: {trainee_profile_summary.get('people_with_claims', 0)}.",
+        "",
+        "Profile claim counts:",
+        "",
+        *md_table(trainee_profile_counts, ["status", "claim_type", "count", "avg_confidence"]),
+        "",
+        "Display-safety policy counts:",
+        "",
+        *md_table(trainee_profile_safety_counts, ["display_safety_status", "count"]),
+        "",
+        "Learning: roster-linked official profile pages are strong identity/profile-location anchors and can expose education, residency background, research or career interests, and personal context. The URL fact is accepted when linked from an official roster, but extracted profile fields remain candidate enrichment with display-safety metadata, especially hobbies, home-state, family, and free-text personal snippets.",
         "",
         "## Career / Attending Trend Candidates",
         "",
