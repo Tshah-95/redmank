@@ -1,0 +1,127 @@
+{
+  "by_policy_lane": {
+    "carry_forward_no_change": 49,
+    "deterministic_expected_advancement": 2504,
+    "deterministic_expected_completion": 877,
+    "manual_review_required": 342,
+    "source_refresh_required": 2354
+  },
+  "by_priority_band": {
+    "critical": 2315,
+    "high": 625,
+    "low": 1204,
+    "medium": 1982
+  },
+  "by_role": {
+    "fellow": 1879,
+    "medical_student": 470,
+    "resident": 3777
+  },
+  "by_source_family": {
+    "contact": 1204,
+    "normalization": 617,
+    "official_profile": 535,
+    "official_roster": 1470,
+    "prior_training": 269,
+    "research": 1186,
+    "review_queue": 845
+  },
+  "by_task_type": {
+    "current_roster_state_reconciliation": 1470,
+    "evidence_reconciliation_review": 845,
+    "official_profile_search": 535,
+    "organization_alias_review": 617,
+    "public_contact_verification": 1204,
+    "research_identity_search": 1186,
+    "source_medical_school_background": 179,
+    "source_residency_background": 90
+  },
+  "fresh_observation_required_tasks": 6077,
+  "person_count": 1483,
+  "queue_csv": "artifacts/data/person_enrichment_queue.csv",
+  "queue_json": "artifacts/data/person_enrichment_queue.json",
+  "queue_rows": 6126,
+  "stale_by_refresh_tasks": 6077,
+  "top_critical_tasks": [
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Aardra Rajendran, MD",
+      "priority": 100,
+      "program_name": "Cardiovascular Disease Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Aaron Cheng, MD",
+      "priority": 100,
+      "program_name": "Hematology/Oncology Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Abdalnasir Limay, MD",
+      "priority": 100,
+      "program_name": "Nuclear Radiology Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Abhishek Gami, MD",
+      "priority": 100,
+      "program_name": "Cardiovascular Disease Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Adam S. Vesole, M.D.",
+      "priority": 100,
+      "program_name": "Neurotology Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Adam Tuchinsky, DO",
+      "priority": 100,
+      "program_name": "Nephrology Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Adrian Alonzo, MD",
+      "priority": 100,
+      "program_name": "Rheumatology Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Ahmed Alsayed, MBBS",
+      "priority": 100,
+      "program_name": "Hand Surgery Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Ahmed Beydoun, M.D.",
+      "priority": 100,
+      "program_name": "Sleep Medicine and Surgery Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "blocking_risk": "Training state may become stale or misclassified without a fresh current-roster observation.",
+      "display_name": "Ahmed Beydoun, MD",
+      "priority": 100,
+      "program_name": "Sleep Medicine Fellowship",
+      "role": "fellow",
+      "task_type": "current_roster_state_reconciliation"
+    }
+  ]
+}

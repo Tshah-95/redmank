@@ -35,6 +35,9 @@ def main() -> None:
         "training_state_snapshot_rows",
         "training_state_transition_events",
         "training_state_transition_rollups",
+        "person_enrichment_coverage",
+        "program_enrichment_coverage",
+        "person_enrichment_work_queue",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",
@@ -697,6 +700,46 @@ def main() -> None:
             """
         )
     }
+    person_enrichment_queue_priority_counts = {
+        row["priority_band"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT priority_band, COUNT(*) AS count
+            FROM person_enrichment_work_queue
+            GROUP BY priority_band
+            """
+        )
+    }
+    person_enrichment_queue_task_counts = {
+        row["task_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT task_type, COUNT(*) AS count
+            FROM person_enrichment_work_queue
+            GROUP BY task_type
+            """
+        )
+    }
+    person_enrichment_queue_source_counts = {
+        row["source_family"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT source_family, COUNT(*) AS count
+            FROM person_enrichment_work_queue
+            GROUP BY source_family
+            """
+        )
+    }
+    person_enrichment_queue_policy_lane_counts = {
+        row["policy_lane"] or "none": row["count"]
+        for row in conn.execute(
+            """
+            SELECT policy_lane, COUNT(*) AS count
+            FROM person_enrichment_work_queue
+            GROUP BY policy_lane
+            """
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -992,6 +1035,10 @@ def main() -> None:
         "official_program_identifier_counts": official_program_identifier_counts,
         "program_lifecycle_consistency_counts": program_lifecycle_consistency_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
+        "person_enrichment_queue_priority_counts": person_enrichment_queue_priority_counts,
+        "person_enrichment_queue_task_counts": person_enrichment_queue_task_counts,
+        "person_enrichment_queue_source_counts": person_enrichment_queue_source_counts,
+        "person_enrichment_queue_policy_lane_counts": person_enrichment_queue_policy_lane_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "medical_student_source_audit_counts": medical_student_source_audit_counts,
         "organization_category_counts": category_counts,

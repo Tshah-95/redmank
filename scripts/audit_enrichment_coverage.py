@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
+SCHEMA = ROOT / "db" / "schema.sql"
 STATE_AUDIT = ARTIFACTS / "person_training_state_machine_audit.csv"
 
 
@@ -374,6 +375,21 @@ def write_csv(path: Path, output_rows: list[dict]) -> None:
         writer.writerows(output_rows)
 
 
+def write_db_table(conn: sqlite3.Connection, table: str, output_rows: list[dict]) -> None:
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    conn.execute(f"DELETE FROM {table}")
+    if not output_rows:
+        return
+    columns = [row[1] for row in conn.execute(f"PRAGMA table_info({table})")]
+    row_columns = [column for column in output_rows[0].keys() if column in columns]
+    placeholders = ", ".join(f":{column}" for column in row_columns)
+    column_sql = ", ".join(row_columns)
+    conn.executemany(
+        f"INSERT INTO {table} ({column_sql}) VALUES ({placeholders})",
+        [{column: row.get(column, "") for column in row_columns} for row in output_rows],
+    )
+
+
 def summary(persons: list[dict], programs: list[dict]) -> dict:
     return {
         "person_rows": len(persons),
@@ -411,9 +427,12 @@ def summary(persons: list[dict], programs: list[dict]) -> dict:
 
 def main() -> None:
     conn = sqlite3.connect(DB)
-    persons = person_rows(conn)
+    with conn:
+        persons = person_rows(conn)
+        programs = program_rows(persons)
+        write_db_table(conn, "person_enrichment_coverage", persons)
+        write_db_table(conn, "program_enrichment_coverage", programs)
     conn.close()
-    programs = program_rows(persons)
     payload = summary(persons, programs)
     write_csv(ARTIFACTS / "person_enrichment_coverage.csv", persons)
     write_csv(ARTIFACTS / "program_enrichment_coverage.csv", programs)

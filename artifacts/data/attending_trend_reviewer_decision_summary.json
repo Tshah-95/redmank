@@ -18,7 +18,7 @@
     "2020": 1,
     "2024": 1
   },
-  "generated_at": "2026-06-02T11:53:18.383852+00:00",
+  "generated_at": "2026-06-02T12:03:45.688922+00:00",
   "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "pending_reviewer_decision_rows": 3,

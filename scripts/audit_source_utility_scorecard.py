@@ -510,6 +510,22 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     lifecycle_assurance_summary = read_json(ARTIFACTS / "training_lifecycle_assurance_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
     transition_policy_lanes = transition_plan_summary.get("by_policy_lane") or {}
+    enrichment_queue_summary = read_json(ARTIFACTS / "person_enrichment_queue_summary.json", {})
+    enrichment_queue_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_work_queue")
+    enrichment_queue_people = scalar(conn, "SELECT COUNT(DISTINCT person_key) FROM person_enrichment_work_queue")
+    enrichment_queue_high = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_work_queue WHERE priority_band IN ('critical', 'high')",
+    )
+    enrichment_queue_review_or_refresh = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM person_enrichment_work_queue
+        WHERE fresh_observation_required = 1
+           OR policy_lane IN ('manual_review_required', 'source_refresh_required')
+        """,
+    )
 
     return [
         make_row(
@@ -1141,6 +1157,37 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "transition_plan_summary": transition_plan_summary,
                 "transition_policy_lanes": transition_policy_lanes,
                 "program_lifecycle_consistency_summary": program_lifecycle_consistency_summary,
+            },
+        ),
+        make_row(
+            scorecard_key="recursive_enrichment_work_queue",
+            utility_key="",
+            utility_label="Recursive enrichment work queue",
+            source_family="orchestration",
+            claim_surface="person-level next-source tasks with state-machine urgency and evidence gates",
+            input_records=people,
+            output_records=enrichment_queue_rows,
+            candidate_records=enrichment_queue_rows,
+            needs_review_records=enrichment_queue_review_or_refresh,
+            review_ready_records=enrichment_queue_high,
+            score=81.0,
+            strengths=[
+                "Covers residents, fellows, and medical students in one source-aware work queue",
+                "Prioritizes source tasks using enrichment coverage, evidence queues, and lifecycle/diff risk",
+                "Stores acceptance, provenance, and recency policy per task before any future scraper mutates facts",
+            ],
+            limitations=[
+                "Queue quality depends on current coverage and transition-plan inputs",
+                "Queries are candidate search plans, not evidence facts",
+                "Human/reviewer decision loops are still required before accepting ambiguous enrichment",
+            ],
+            recommended_next_action="run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers",
+            evidence={
+                "queue_rows": enrichment_queue_rows,
+                "person_count": enrichment_queue_people,
+                "high_or_critical_rows": enrichment_queue_high,
+                "review_or_refresh_rows": enrichment_queue_review_or_refresh,
+                "queue_summary": enrichment_queue_summary,
             },
         ),
     ]
