@@ -54,6 +54,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_program_alias_reviewer_decision_summary.json`: alias decision queue, pending, rejected/deferred, and accepted-mapping counts.
 - `artifacts/data/penn_gme_gap_source_candidates.csv`: prioritized source queue for official HUP programs without captured current roster people.
 - `artifacts/data/penn_gme_gap_source_probes.json`: reachability and page-signal observations for uncovered official HUP program URLs.
+- `artifacts/data/penn_gme_gap_source_search_queries.csv`: reproducible search-query manifest for official HUP programs still missing public current-roster coverage.
+- `artifacts/data/penn_gme_gap_source_search_observations.csv`: optional live-search execution ledger for official HUP gap-source searches.
 - `artifacts/data/hup_gap_reason_audit.csv`: deterministic reason ledger for remaining official HUP coverage gaps.
 - `artifacts/data/hup_gap_reason_summary.json`: gap-reason counts and recommended next-action counts.
 - `artifacts/data/official_gap_roster_reconciliation.csv`: source-level reconciliation between extracted HUP gap-roster sources, official denominator rows, loaded memberships, and denominator-link status.
@@ -267,6 +269,12 @@ python3 scripts/collect_research_candidates.py --only openalex --skip-existing-s
 ```
 
 Broad web search for attending historical-link discovery is optional and rate-limit sensitive. The latest pass attempted polite DuckDuckGo HTML queries for the four Penn-training-claim groups and recorded non-200 search responses as source-quality evidence; add `--skip-search` when you only want the seeded official Penn/provider baseline.
+
+Official HUP gap-source search expansion is also optional. The default gap probe records search queries for not-discovered programs without calling a live search endpoint. Run an explicit search pass when broadening the official program universe:
+
+```bash
+python3 scripts/probe_penn_gme_gap_sources.py --search --search-scope not_discovered --max-search-queries-per-program 3 --max-search-results 4 --search-timeout 8 --sleep 0.2
+```
 
 Official trainee profile discovery is also queue-driven and rate-limit sensitive. The committed artifact is a no-network manifest for all uncovered profile-search rows; run the collector separately when refreshing candidate URLs:
 

@@ -39,6 +39,8 @@ CSV_TABLES = [
     ("hup_gap_reason_audit.csv", "official_program_gap_reason_audit"),
     ("official_gap_roster_reconciliation.csv", "official_gap_roster_reconciliation"),
     ("official_gap_roster_program_resolution.csv", "official_gap_roster_program_resolution"),
+    ("penn_gme_gap_source_search_queries.csv", "official_program_source_search_queries"),
+    ("penn_gme_gap_source_search_observations.csv", "official_program_source_search_observations"),
     ("official_program_coverage_assurance_audit.csv", "official_program_coverage_assurance_audit"),
     ("official_program_coverage_action_queue.csv", "official_program_coverage_action_queue"),
     ("official_program_alias_review_packets.csv", "official_program_alias_review_packets"),

@@ -1,17 +1,28 @@
 {
   "by_candidate_status": {
     "low_value_candidate": 5,
-    "program_context_candidate": 53,
+    "program_context_candidate": 52,
     "roster_source_candidate": 14
   },
   "by_coverage_status": {
     "discovered_no_current_roster": 54,
-    "not_discovered": 18
+    "not_discovered": 17
   },
-  "candidate_urls": 72,
-  "gap_programs": 27,
-  "generated_at": "2026-06-02T12:54:10.982445+00:00",
-  "source_pages_probed": 23,
+  "by_search_error": {},
+  "by_search_http_status": {},
+  "by_source_role": {
+    "known_discovery_url": 3,
+    "linked_candidate": 43,
+    "official_program_url": 25
+  },
+  "candidate_urls": 71,
+  "gap_programs": 26,
+  "generated_at": "2026-06-02T14:57:33.442656+00:00",
+  "search_enabled": false,
+  "search_observation_rows": 0,
+  "search_query_rows": 42,
+  "search_scope": "not_discovered",
+  "source_pages_probed": 22,
   "top_roster_candidates": [
     {
       "candidate_title": "Current Residents",

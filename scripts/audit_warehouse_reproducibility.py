@@ -56,6 +56,20 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/penn_gme_gap_source_search_queries.csv",
+        "official_program_gap_source_search_ledger",
+        "csv",
+        "official_program_source_search_queries",
+        True,
+    ),
+    (
+        "artifacts/data/penn_gme_gap_source_search_observations.csv",
+        "official_program_gap_source_search_ledger",
+        "csv",
+        "official_program_source_search_observations",
+        True,
+    ),
+    (
         "artifacts/data/hup_gap_reason_audit.csv",
         "official_program_gap_reason_ledger",
         "csv",

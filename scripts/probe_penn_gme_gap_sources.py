@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -10,10 +11,11 @@ import os
 import re
 import sqlite3
 import sys
+import time
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urldefrag, urljoin, urlparse
+from urllib.parse import quote_plus, unquote, urldefrag, urljoin, urlparse
 
 DEPS_PATH = Path(os.environ.get("PENN_CORPUS_DEPS", "/tmp/penn_corpus_deps"))
 if DEPS_PATH.exists():
@@ -44,6 +46,10 @@ ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 DB = ARTIFACTS / "redmank.sqlite"
 SCHEMA = ROOT / "db" / "schema.sql"
+DDG_HTML = "https://html.duckduckgo.com/html/"
+
+SEARCH_QUERY_CSV = ARTIFACTS / "penn_gme_gap_source_search_queries.csv"
+SEARCH_OBSERVATION_CSV = ARTIFACTS / "penn_gme_gap_source_search_observations.csv"
 
 ROSTER_PATTERNS = [
     re.compile(pattern, re.I)
@@ -114,11 +120,34 @@ def key_for(prefix: str, value: str) -> str:
     return f"{prefix}_{slug}_{digest}"
 
 
+def query_key_for(row: sqlite3.Row, query_kind: str, query: str) -> str:
+    return key_for("program_source_query", f"{row['official_program_key']}:{query_kind}:{query}")
+
+
+def observation_key_for(query_key: str) -> str:
+    return key_for("program_source_search_observation", query_key)
+
+
 def canonical_url(url: str) -> str:
     if not url:
         return ""
     clean, _fragment = urldefrag(url)
     return clean.rstrip("/")
+
+
+def normalize_search_url(url: str) -> str:
+    if not url:
+        return ""
+    if url.startswith("//duckduckgo.com/l/?"):
+        parsed = urlparse("https:" + url)
+        params = {}
+        for item in parsed.query.split("&"):
+            if "=" in item:
+                key, value = item.split("=", 1)
+                params[key] = value
+        if params.get("uddg"):
+            return unquote(params["uddg"])
+    return url
 
 
 def is_http_url(url: str) -> bool:
@@ -199,6 +228,123 @@ def gap_rows(conn: sqlite3.Connection) -> list[sqlite3.Row]:
         ORDER BY a.coverage_status, u.department, u.program_type, u.program_name
         """
     ).fetchall()
+
+
+def search_query_specs(rows: list[sqlite3.Row], generated_at: str, max_queries_per_program: int | None) -> list[dict]:
+    specs = []
+    for row in rows:
+        base = [
+            (
+                "official_program_current_roster_search",
+                f'site:pennmedicine.org "{row["program_name"]}" "current" "{row["program_type"]}"',
+            ),
+            (
+                "upenn_current_roster_search",
+                f'site:upenn.edu "{row["program_name"]}" "current" "{row["program_type"]}" "Penn"',
+            ),
+            (
+                "department_current_roster_search",
+                f'"Penn" "{row["department"]}" "{row["program_name"]}" "current" "fellows" "residents"',
+            ),
+        ]
+        seen = set()
+        emitted = 0
+        for index, (query_kind, query) in enumerate(base):
+            query = norm(query)
+            if not query or query in seen:
+                continue
+            seen.add(query)
+            specs.append(
+                {
+                    "query_key": query_key_for(row, query_kind, query),
+                    "official_program_key": row["official_program_key"],
+                    "department": row["department"],
+                    "program_type": row["program_type"],
+                    "program_name": row["program_name"],
+                    "coverage_status": row["coverage_status"],
+                    "query_kind": query_kind,
+                    "query": query,
+                    "query_url": f"{DDG_HTML}?q={quote_plus(query)}",
+                    "priority": 100 - index * 10 + (15 if row["coverage_status"] == "not_discovered" else 0),
+                    "generated_at": generated_at,
+                }
+            )
+            emitted += 1
+            if max_queries_per_program and emitted >= max_queries_per_program:
+                break
+    return specs
+
+
+def write_csv(path: Path, rows: list[dict], fields: list[str]) -> None:
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({field: row.get(field, "") for field in fields})
+
+
+def search_rows_for_scope(rows: list[sqlite3.Row], search_scope: str) -> list[sqlite3.Row]:
+    if search_scope == "all_gaps":
+        return rows
+    if search_scope == "not_discovered":
+        return [row for row in rows if row["coverage_status"] == "not_discovered"]
+    if search_scope == "discovered_no_current_roster":
+        return [row for row in rows if row["coverage_status"] == "discovered_no_current_roster"]
+    raise ValueError(f"unknown search scope: {search_scope}")
+
+
+def search_results(
+    session: requests.Session,
+    spec: dict,
+    max_results: int,
+    search_timeout: float,
+) -> tuple[list[dict], dict]:
+    searched_at = datetime.now(timezone.utc).isoformat()
+    try:
+        response = session.get(DDG_HTML, params={"q": spec["query"]}, timeout=search_timeout)
+    except requests.RequestException as exc:
+        return [], {
+            "observation_key": observation_key_for(spec["query_key"]),
+            **spec,
+            "searched_at": searched_at,
+            "search_http_status": 0,
+            "result_count": 0,
+            "error": f"{type(exc).__name__}: {str(exc)[:300]}",
+        }
+    soup = BeautifulSoup(response.text, "lxml")
+    observation = {
+        "observation_key": observation_key_for(spec["query_key"]),
+        **spec,
+        "searched_at": searched_at,
+        "search_http_status": response.status_code,
+        "result_count": 0,
+        "error": "" if response.status_code == 200 else "search_endpoint_non_200",
+    }
+    if response.status_code != 200:
+        return [], observation
+    rows = []
+    for rank, result in enumerate(soup.select(".result")[:max_results], start=1):
+        link = result.select_one(".result__a")
+        if not link:
+            continue
+        url = canonical_url(normalize_search_url(link.get("href", "")))
+        if not url or not is_http_url(url):
+            continue
+        snippet = result.select_one(".result__snippet")
+        rows.append(
+            {
+                **spec,
+                "result_rank": rank,
+                "result_url": url,
+                "result_domain": urlparse(url).netloc.lower(),
+                "result_title": norm(link.get_text(" ")),
+                "result_snippet": norm(snippet.get_text(" ") if snippet else ""),
+                "searched_at": searched_at,
+                "search_http_status": response.status_code,
+            }
+        )
+    observation["result_count"] = len(rows)
+    return rows, observation
 
 
 def fetch_page(session: requests.Session, url: str) -> dict:
@@ -373,6 +519,73 @@ def make_candidate(
     }
 
 
+def make_search_candidate(row: dict) -> dict:
+    page = {
+        "url": row["result_url"],
+        "title": row.get("result_title", ""),
+        "http_status": row.get("search_http_status", ""),
+        "content_type": "",
+        "text_length": 0,
+        "roster_term_count": 0,
+        "context_term_count": 0,
+    }
+    official_row = {
+        "official_program_key": row["official_program_key"],
+        "sponsoring_institution": "Hospital of the University of Pennsylvania",
+        "department": row["department"],
+        "program_type": row["program_type"],
+        "program_name": row["program_name"],
+        "coverage_status": row["coverage_status"],
+    }
+    status, confidence, reasons = classify_candidate(
+        f"{row.get('result_title', '')} {row.get('result_snippet', '')}",
+        row["result_url"],
+        "search_result",
+    )
+    if same_pennish_domain(row["result_url"]):
+        confidence = min(round(confidence + 0.08, 3), 0.95)
+        reasons = sorted(set(reasons + ["pennish_search_result_domain"]))
+    if row.get("result_rank") and int(row["result_rank"]) <= 2:
+        confidence = min(round(confidence + 0.03, 3), 0.95)
+        reasons = sorted(set(reasons + ["top_search_result"]))
+    if status == "low_value_candidate" and same_pennish_domain(row["result_url"]):
+        status = "program_context_candidate"
+    candidate_key = key_for(
+        "program_source_candidate",
+        f"{row['official_program_key']}:{row['result_url']}:search_result:{row['query_key']}",
+    )
+    return {
+        "candidate_key": candidate_key,
+        "official_program_key": official_row["official_program_key"],
+        "sponsoring_institution": official_row["sponsoring_institution"],
+        "department": official_row["department"],
+        "program_type": official_row["program_type"],
+        "program_name": official_row["program_name"],
+        "coverage_status": official_row["coverage_status"],
+        "source_role": "search_result",
+        "candidate_status": status,
+        "candidate_url": row["result_url"],
+        "candidate_title": row.get("result_title", ""),
+        "http_status": page["http_status"],
+        "content_type": "",
+        "fetched_at": row.get("searched_at", ""),
+        "sha256": "",
+        "text_length": 0,
+        "roster_term_count": 0,
+        "context_term_count": 0,
+        "supported_person_structure_count": 0,
+        "supported_person_structure_types": [],
+        "confidence": confidence,
+        "priority": priority(status, confidence, row["coverage_status"], "linked_candidate"),
+        "reasons": sorted(set(reasons + ["gap_search_result", f"query_kind:{row['query_kind']}"])),
+        "error": "",
+        "query_key": row["query_key"],
+        "query": row["query"],
+        "result_rank": row["result_rank"],
+        "result_snippet": row.get("result_snippet", ""),
+    }
+
+
 def priority(status: str, confidence: float, coverage_status: str, source_role: str) -> int:
     score = int(round(confidence * 100))
     if status == "roster_source_candidate":
@@ -390,14 +603,21 @@ def priority(status: str, confidence: float, coverage_status: str, source_role: 
     return max(0, min(score, 175))
 
 
-def probe() -> tuple[list[dict], list[dict], dict]:
+def probe(args: argparse.Namespace) -> tuple[list[dict], list[dict], list[dict], list[dict], dict]:
     conn = sqlite3.connect(DB)
     rows = gap_rows(conn)
     conn.close()
+    generated_at = datetime.now(timezone.utc).isoformat()
+    search_specs = search_query_specs(
+        search_rows_for_scope(rows, args.search_scope),
+        generated_at,
+        args.max_search_queries_per_program,
+    )
     session = requests.Session()
     session.headers["User-Agent"] = "redmank-penn-gme-gap-source-probe/0.1"
     candidates = []
     probes = []
+    search_observations = []
     fetched: dict[str, dict] = {}
     for row in rows:
         for source_role, url in source_urls_for_gap(row):
@@ -458,6 +678,19 @@ def probe() -> tuple[list[dict], list[dict], dict]:
                     "context_term_count": 0,
                 }
                 candidates.append(make_candidate(row, "linked_candidate", href, link_page, label=label))
+    if args.search:
+        search_candidate_rows = []
+        for spec in search_specs:
+            results, observation = search_results(session, spec, args.max_search_results, args.search_timeout)
+            search_observations.append(observation)
+            for result in results:
+                candidate = make_search_candidate(result)
+                candidates.append(candidate)
+                search_candidate_rows.append(candidate)
+            if args.sleep:
+                time.sleep(args.sleep)
+    else:
+        search_observations = []
     unique_candidates = {}
     for candidate in candidates:
         current = unique_candidates.get(candidate["candidate_key"])
@@ -471,9 +704,16 @@ def probe() -> tuple[list[dict], list[dict], dict]:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "gap_programs": len(rows),
         "source_pages_probed": len(fetched),
+        "search_scope": args.search_scope,
+        "search_enabled": bool(args.search),
+        "search_query_rows": len(search_specs),
+        "search_observation_rows": len(search_observations),
         "candidate_urls": len(candidates),
         "by_candidate_status": dict(Counter(row["candidate_status"] for row in candidates)),
         "by_coverage_status": dict(Counter(row["coverage_status"] for row in candidates)),
+        "by_source_role": dict(Counter(row["source_role"] for row in candidates)),
+        "by_search_error": dict(Counter(row.get("error", "") for row in search_observations if row.get("error"))),
+        "by_search_http_status": dict(Counter(str(row.get("search_http_status", "")) for row in search_observations)),
         "top_roster_candidates": [
             {
                 "program_name": row["program_name"],
@@ -489,10 +729,16 @@ def probe() -> tuple[list[dict], list[dict], dict]:
             if row["candidate_status"] == "roster_source_candidate"
         ][:25],
     }
-    return candidates, probes, summary
+    return candidates, probes, search_specs, search_observations, summary
 
 
-def write_outputs(candidates: list[dict], probes: list[dict], summary: dict) -> None:
+def write_outputs(
+    candidates: list[dict],
+    probes: list[dict],
+    search_specs: list[dict],
+    search_observations: list[dict],
+    summary: dict,
+) -> None:
     ARTIFACTS.mkdir(parents=True, exist_ok=True)
     (ARTIFACTS / "penn_gme_gap_source_candidates.json").write_text(
         json.dumps(candidates, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
@@ -505,6 +751,42 @@ def write_outputs(candidates: list[dict], probes: list[dict], summary: dict) -> 
     (ARTIFACTS / "penn_gme_gap_source_probe_summary.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
         encoding="utf-8",
+    )
+    write_csv(
+        SEARCH_QUERY_CSV,
+        search_specs,
+        [
+            "query_key",
+            "official_program_key",
+            "department",
+            "program_type",
+            "program_name",
+            "coverage_status",
+            "query_kind",
+            "query",
+            "query_url",
+            "priority",
+            "generated_at",
+        ],
+    )
+    write_csv(
+        SEARCH_OBSERVATION_CSV,
+        search_observations,
+        [
+            "observation_key",
+            "query_key",
+            "official_program_key",
+            "department",
+            "program_type",
+            "program_name",
+            "coverage_status",
+            "query_kind",
+            "query",
+            "searched_at",
+            "search_http_status",
+            "result_count",
+            "error",
+        ],
     )
     fields = [
         "candidate_key",
@@ -551,7 +833,12 @@ def ensure_sqlite_columns(conn: sqlite3.Connection) -> None:
     ensure_column(conn, "official_program_source_candidates", "supported_person_structure_types", "TEXT")
 
 
-def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
+def write_sqlite(
+    candidates: list[dict],
+    probes: list[dict],
+    search_specs: list[dict],
+    search_observations: list[dict],
+) -> None:
     if not DB.exists():
         return
     conn = sqlite3.connect(DB)
@@ -561,6 +848,55 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
         ensure_sqlite_columns(conn)
         conn.execute("DELETE FROM official_program_source_candidates")
         conn.execute("DELETE FROM official_program_source_probes")
+        conn.execute("DELETE FROM official_program_source_search_queries")
+        conn.execute("DELETE FROM official_program_source_search_observations")
+        for row in search_specs:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO official_program_source_search_queries
+                (query_key, official_program_key, department, program_type, program_name,
+                 coverage_status, query_kind, query, query_url, priority, generated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    row["query_key"],
+                    row["official_program_key"],
+                    row.get("department"),
+                    row.get("program_type"),
+                    row.get("program_name"),
+                    row.get("coverage_status"),
+                    row["query_kind"],
+                    row["query"],
+                    row["query_url"],
+                    int(row.get("priority") or 0),
+                    row["generated_at"],
+                ),
+            )
+        for row in search_observations:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO official_program_source_search_observations
+                (observation_key, query_key, official_program_key, department, program_type,
+                 program_name, coverage_status, query_kind, query, searched_at,
+                 search_http_status, result_count, error)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    row["observation_key"],
+                    row["query_key"],
+                    row["official_program_key"],
+                    row.get("department"),
+                    row.get("program_type"),
+                    row.get("program_name"),
+                    row.get("coverage_status"),
+                    row["query_kind"],
+                    row["query"],
+                    row["searched_at"],
+                    row.get("search_http_status"),
+                    int(row.get("result_count") or 0),
+                    row.get("error", ""),
+                ),
+            )
         for row in probes:
             conn.execute(
                 """
@@ -630,9 +966,21 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
 
 
 def main() -> None:
-    candidates, probes, summary = probe()
-    write_outputs(candidates, probes, summary)
-    write_sqlite(candidates, probes)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--search", action="store_true", help="Execute opt-in DuckDuckGo HTML searches for gap programs.")
+    parser.add_argument(
+        "--search-scope",
+        choices=["not_discovered", "discovered_no_current_roster", "all_gaps"],
+        default="not_discovered",
+    )
+    parser.add_argument("--max-search-queries-per-program", type=int, default=3)
+    parser.add_argument("--max-search-results", type=int, default=4)
+    parser.add_argument("--search-timeout", type=float, default=8.0)
+    parser.add_argument("--sleep", type=float, default=0.2)
+    args = parser.parse_args()
+    candidates, probes, search_specs, search_observations, summary = probe(args)
+    write_outputs(candidates, probes, search_specs, search_observations, summary)
+    write_sqlite(candidates, probes, search_specs, search_observations)
     print(json.dumps(summary, sort_keys=True))
 
 

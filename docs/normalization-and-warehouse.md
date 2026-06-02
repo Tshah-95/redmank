@@ -52,6 +52,7 @@ Core tables:
 - `official_program_universe`: official external denominator programs, starting with the public HUP GME program list.
 - `official_program_coverage_audit`: comparison of official denominator programs to captured current roster memberships and discovered source pages.
 - `official_program_source_probes`: reachability, title, content hash, and page-signal observations for official program gap URLs.
+- `official_program_source_search_queries` and `official_program_source_search_observations`: optional broad-search expansion state for official program gaps, kept separate from source candidates so query planning and live search reliability are auditable.
 - `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
 - `official_program_gap_reason_audit`: deterministic reason ledger for uncovered official programs, separating context-only pages, parser/manual-review candidates, low-content official pages, related loaded-source alias reviews, and broader-discovery gaps.
 - `official_program_alias_reconciliation_candidates`: non-mutating candidate ledger for official denominator rows that may correspond to related loaded program labels.
@@ -127,6 +128,8 @@ The gap-source queue is also deliberately separate from person evidence. It lets
 The gap-roster scraper is refresh-conservative. If a later run has a transport-level fetch error for a URL that previously yielded public roster rows, the scraper preserves those prior rows and marks the source as `preserved_previous_records_after_refresh_error`. That prevents a temporary source outage from masquerading as 100 departed residents. The preserved rows are still subject to the training state machine: time can make them stale, but deletion or advancement requires the future evidence/review rules described below.
 
 The source probe treats body-text mentions like “fellows rotate” as weak roster language unless the title or URL has a stronger current-roster cue such as `current fellows`, `current residents`, `meet our fellows`, `resident profiles`, or a roster/directory path. This prevents a program overview or faculty page from being mislabeled as a parser gap when no named current trainees are public on the page.
+
+The gap-source probe also writes `penn_gme_gap_source_search_queries.csv` on default runs. Live search is opt-in via `scripts/probe_penn_gme_gap_sources.py --search`, and search hits enter `official_program_source_candidates` only as candidate source URLs with `source_role=search_result`. They do not create person records until a later probe/parser pass finds supported public roster structure.
 
 `scripts/audit_hup_gap_reasons.py` reads the official denominator, coverage audit, source probes, source candidates, and already-loaded source URLs. Its job is not to scrape new people. It classifies why each official uncovered program remains uncovered:
 

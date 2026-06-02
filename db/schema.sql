@@ -125,6 +125,36 @@ CREATE TABLE IF NOT EXISTS official_program_source_probes (
   error TEXT
 );
 
+CREATE TABLE IF NOT EXISTS official_program_source_search_queries (
+  query_key TEXT PRIMARY KEY,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  department TEXT,
+  program_type TEXT,
+  program_name TEXT,
+  coverage_status TEXT,
+  query_kind TEXT NOT NULL,
+  query TEXT NOT NULL,
+  query_url TEXT NOT NULL,
+  priority INTEGER NOT NULL DEFAULT 0,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS official_program_source_search_observations (
+  observation_key TEXT PRIMARY KEY,
+  query_key TEXT NOT NULL REFERENCES official_program_source_search_queries(query_key) ON DELETE CASCADE,
+  official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
+  department TEXT,
+  program_type TEXT,
+  program_name TEXT,
+  coverage_status TEXT,
+  query_kind TEXT NOT NULL,
+  query TEXT NOT NULL,
+  searched_at TEXT NOT NULL,
+  search_http_status INTEGER,
+  result_count INTEGER NOT NULL DEFAULT 0,
+  error TEXT
+);
+
 CREATE TABLE IF NOT EXISTS official_program_source_candidates (
   candidate_key TEXT PRIMARY KEY,
   official_program_key TEXT REFERENCES official_program_universe(official_program_key) ON DELETE CASCADE,
