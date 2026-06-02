@@ -120,6 +120,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/trainee_profile_discovery_candidates.csv`: discovered profile/context URL candidates with match features and required next evidence.
 - `artifacts/data/trainee_profile_discovery_claims.json`: replayable candidate evidence claims emitted by the profile discovery lane.
 - `artifacts/data/trainee_profile_discovery_summary.json`: people/query/candidate counts and non-mutating profile-discovery policy.
+- `artifacts/data/official_profile_discovery_workbench.csv`: person-level profile-gap workbench that reconciles planned queries, live search observations, direct probes, and candidate URLs into a next action per uncovered trainee.
+- `artifacts/data/official_profile_discovery_workbench_summary.json`: profile-discovery counts by role, lane, query status, candidate status, and top review rows.
 - `artifacts/data/prior_training_search_queries.csv`: queue-driven search manifest for medical-school and prior-residency background enrichment gaps.
 - `artifacts/data/prior_training_search_observations.csv`: search execution observations for prior-training background discovery.
 - `artifacts/data/prior_training_discovery_candidates.csv`: candidate pages that may support medical-school or prior-residency background claims.
@@ -168,6 +170,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_triage.csv` when available, so person-evidence actions are grouped by review lane rather than only by raw packet kind.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
+- The worklist consumes `official_profile_discovery_workbench.csv` when available, so missing-profile work becomes person-level review/search/probe actions instead of a broad `official_profile_search` enrichment bucket.
 - `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
@@ -287,6 +290,7 @@ python3 scripts/materialize_attending_trend_reviewer_decisions.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
+python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_corpus_action_worklist.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
@@ -315,6 +319,8 @@ python3 scripts/discover_trainee_official_profiles.py --resume-existing --max-se
 ```
 
 Use `--resume-existing` with `--max-search-queries` for bounded live passes; this preserves the full planned query manifest while adding observations only for unsearched queries. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
+
+After any profile-discovery pass, run `python3 scripts/materialize_official_profile_discovery_workbench.py` to convert raw query/candidate evidence into one person-level action row per uncovered profile-search task. The workbench distinguishes planned-but-unexecuted searches, blocked search endpoints, low-signal direct probes, and official-profile candidates ready for same-person review.
 
 The same collector also supports a bounded direct Penn Medicine provider-profile slug probe. Use it as an optional fallback when broad search is throttled, not as a default corpus-wide step. Direct URL guesses remain low-signal unless the page fetches with HTTP 200 evidence:
 

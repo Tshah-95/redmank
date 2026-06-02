@@ -1452,6 +1452,44 @@ CREATE TABLE IF NOT EXISTS official_roster_refresh_workbench (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_profile_discovery_workbench (
+  profile_workbench_key TEXT PRIMARY KEY,
+  person_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_key TEXT,
+  current_profile_url TEXT,
+  profile_gap_status TEXT NOT NULL,
+  query_count INTEGER NOT NULL DEFAULT 0,
+  observed_query_count INTEGER NOT NULL DEFAULT 0,
+  unsearched_query_count INTEGER NOT NULL DEFAULT 0,
+  blocked_query_count INTEGER NOT NULL DEFAULT 0,
+  successful_query_count INTEGER NOT NULL DEFAULT 0,
+  direct_probe_count INTEGER NOT NULL DEFAULT 0,
+  candidate_count INTEGER NOT NULL DEFAULT 0,
+  official_candidate_count INTEGER NOT NULL DEFAULT 0,
+  low_signal_candidate_count INTEGER NOT NULL DEFAULT 0,
+  best_candidate_status TEXT,
+  best_candidate_url TEXT,
+  best_candidate_title TEXT,
+  best_candidate_domain TEXT,
+  best_candidate_confidence REAL NOT NULL DEFAULT 0.0,
+  best_candidate_http_status INTEGER,
+  best_candidate_features TEXT,
+  discovery_lane TEXT NOT NULL,
+  discovery_priority INTEGER NOT NULL DEFAULT 0,
+  evidence_required TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  source_domains TEXT,
+  query_status_counts_json TEXT NOT NULL,
+  candidate_status_counts_json TEXT NOT NULL,
+  sample_queries_json TEXT NOT NULL,
+  candidate_evidence_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,

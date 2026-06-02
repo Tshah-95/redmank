@@ -491,6 +491,62 @@ def official_roster_refresh_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def official_profile_discovery_actions(generated_at: str) -> list[dict]:
+    rows = []
+    source_path = ARTIFACTS / "official_profile_discovery_workbench.csv"
+    if not source_path.exists():
+        return rows
+    source = "artifacts/data/official_profile_discovery_workbench.csv"
+    for item in read_csv(source_path):
+        priority = 650 + as_int(item.get("discovery_priority")) // 3
+        if item.get("discovery_lane") == "review_official_profile_candidate":
+            priority += 80
+        elif item.get("discovery_lane") == "search_endpoint_blocked_retry":
+            priority += 35
+        elif item.get("discovery_lane") == "planned_search_not_executed":
+            priority += 20
+        rows.append(
+            row(
+                action_surface="official_profile_discovery",
+                action_scope=item.get("discovery_lane") or "official_profile_discovery",
+                entity_type="person_profile_gap",
+                entity_key=item.get("profile_workbench_key") or stable_key(item.get("person_key"), item.get("task_key")),
+                display_label=item.get("display_name") or "",
+                role=item.get("role") or "",
+                program_name=item.get("program_name") or "",
+                priority=priority,
+                impact_count=1,
+                readiness_status=item.get("profile_gap_status") or "",
+                blocker_status=item.get("best_candidate_status") or item.get("discovery_lane") or "",
+                required_next_evidence=item.get("evidence_required") or "",
+                recommended_next_action=item.get("recommended_next_action") or "",
+                source_artifact=source,
+                target_artifact="artifacts/data/trainee_profile_discovery_candidates.csv",
+                downstream_tables=[
+                    "official_profile_discovery_workbench",
+                    "trainee_profile_search_queries",
+                    "trainee_profile_search_observations",
+                    "trainee_profile_discovery_candidates",
+                    "evidence_claims",
+                ],
+                evidence={
+                    "person_key": item.get("person_key"),
+                    "task_key": item.get("task_key"),
+                    "query_count": item.get("query_count"),
+                    "observed_query_count": item.get("observed_query_count"),
+                    "unsearched_query_count": item.get("unsearched_query_count"),
+                    "blocked_query_count": item.get("blocked_query_count"),
+                    "official_candidate_count": item.get("official_candidate_count"),
+                    "best_candidate_url": item.get("best_candidate_url"),
+                    "best_candidate_confidence": item.get("best_candidate_confidence"),
+                    "source_domains": item.get("source_domains"),
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
     rows = []
     source = "artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv"
@@ -549,10 +605,13 @@ def enrichment_queue_actions(generated_at: str) -> list[dict]:
     grouped: dict[tuple[str, str, str, str, str, str], dict] = defaultdict(lambda: {"count": 0, "fresh": 0, "sample": None})
     roster_workbench_exists = (ARTIFACTS / "official_roster_refresh_workbench.csv").exists()
     evidence_triage_exists = (ARTIFACTS / "person_evidence_review_triage.csv").exists()
+    profile_workbench_exists = (ARTIFACTS / "official_profile_discovery_workbench.csv").exists()
     for item in read_csv(ARTIFACTS / "person_enrichment_queue.csv"):
         if roster_workbench_exists and item.get("task_type") == "current_roster_state_reconciliation":
             continue
         if evidence_triage_exists and item.get("task_type") == "evidence_reconciliation_review":
+            continue
+        if profile_workbench_exists and item.get("task_type") == "official_profile_search":
             continue
         key = (
             item.get("task_type") or "",
@@ -726,6 +785,7 @@ def main() -> None:
     rows.extend(search_utility_actions(generated_at))
     rows.extend(temporal_contract_actions(generated_at))
     rows.extend(official_roster_refresh_actions(generated_at))
+    rows.extend(official_profile_discovery_actions(generated_at))
     rows.extend(lifecycle_duration_review_actions(generated_at))
     rows.extend(enrichment_queue_actions(generated_at))
     rows.extend(attending_trend_actions(generated_at))

@@ -71,6 +71,7 @@ Core tables:
 - `training_state_machine_audit`, `person_training_state_machine_audit`, `program_training_state_machine_audit`: queryable state-machine health ledgers for state-, person-, and program-level refresh decisions.
 - `training_temporal_contracts`, `training_temporal_contract_rollups`: explicit next-run stale/transition contracts that define allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete training-state observations.
 - `official_roster_refresh_workbench`: source/program-level refresh contracts for official roster URLs, combining temporal-contract burden, source provenance, parser/collector hint, expected transitions, and review/source-bound lanes.
+- `official_profile_discovery_workbench`: person-level profile-gap contracts for uncovered official-profile search tasks, combining query manifests, search observations, direct probes, candidate URLs, source domains, and next evidence required before accepting a profile URL.
 - `training_state_refresh_expectations`, `person_refresh_expectations`, `program_refresh_expectations`, `category_refresh_expectations`: queryable next-refresh expectation ledgers for missing, unchanged, advanced, stale, and review-required outcomes.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
@@ -90,7 +91,7 @@ Core tables:
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
-- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, triage-aware person evidence review, source/program-level roster refresh, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
+- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, triage-aware person evidence review, source/program-level roster refresh, person-level profile discovery, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
 
 Useful views:
 
@@ -228,7 +229,9 @@ The coverage score is not a truth score. A candidate PubMed article can improve 
 - `trainee_profile_discovery_candidates.csv`: URL candidates with official-domain/profile-path/name/program features.
 - `trainee_profile_discovery_claims.json`: candidate `official_profile_url_candidate` evidence for the reconciliation queue.
 
-Profile discovery does not mutate roster truth. Search hits are useful identity and enrichment candidates, but they need official ownership, same-person identity, and current trainee/program context before becoming accepted profile enrichment.
+Run `scripts/materialize_official_profile_discovery_workbench.py` after profile search/probe collection. It turns the raw discovery artifacts into `official_profile_discovery_workbench.csv`, one row per uncovered profile-search task, with explicit lanes for planned searches, blocked search endpoints, low-signal direct probes, official-profile candidates, and no-candidate-after-search cases. The corpus action worklist consumes this workbench and suppresses the older broad `official_profile_search` enrichment group when the person-level rows exist.
+
+Profile discovery does not mutate roster truth. Search hits are useful identity and enrichment candidates, but they need official ownership, same-person identity, and current trainee/program context before becoming accepted profile enrichment. A blocked or partial search endpoint is source-quality evidence about the search utility, not negative evidence about whether a public profile exists.
 
 ## Attending Trend Evidence
 
@@ -272,6 +275,8 @@ This table is the right place to build the ten-year recent-attending trend line.
 Official trainee profile and prior-training background discovery are queue-driven lanes, not default rebuild steps. The committed warehouse stores deterministic no-network manifests so a local rebuild can verify the queue without depending on search-engine availability.
 
 `scripts/discover_trainee_official_profiles.py` searches for missing official profile URLs and profile-context pages. It writes query, observation, candidate, source, claim, and summary artifacts. Discovered URLs can support profile, education, prior-training, research-interest, career-interest, and personal-context candidates, but they do not mutate roster truth unless same-person/current-trainee context is confirmed through a current official roster link or reviewer-accepted evidence.
+
+`scripts/materialize_official_profile_discovery_workbench.py` is the review layer above those raw artifacts. It keeps profile candidates non-mutating, ranks official-profile review candidates above blocked or planned search rows, and preserves query/candidate evidence so the next pass can retry only stale or unresolved discovery lanes.
 
 `scripts/discover_prior_training_background.py` covers the narrower background gap for medical-school and prior-residency history. It reads `source_medical_school_background` and `source_residency_background` tasks from `person_enrichment_work_queue`, materializes deterministic search queries, and can optionally run/probe public search results into:
 

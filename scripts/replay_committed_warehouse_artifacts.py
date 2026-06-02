@@ -72,6 +72,7 @@ CSV_TABLES = [
     ("trainee_profile_search_queries.csv", "trainee_profile_search_queries"),
     ("trainee_profile_search_observations.csv", "trainee_profile_search_observations"),
     ("trainee_profile_discovery_candidates.csv", "trainee_profile_discovery_candidates"),
+    ("official_profile_discovery_workbench.csv", "official_profile_discovery_workbench"),
     ("prior_training_search_queries.csv", "prior_training_search_queries"),
     ("prior_training_search_observations.csv", "prior_training_search_observations"),
     ("prior_training_discovery_candidates.csv", "prior_training_discovery_candidates"),

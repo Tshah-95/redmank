@@ -50,6 +50,7 @@ PIPELINE = [
     ["python3", "scripts/generate_enrichment_queue.py"],
     ["python3", "scripts/materialize_person_enrichment_execution_readiness.py"],
     ["python3", "scripts/materialize_person_enrichment_execution_batches.py"],
+    ["python3", "scripts/materialize_official_profile_discovery_workbench.py"],
     ["python3", "scripts/audit_official_gap_roster_reconciliation.py"],
     ["python3", "scripts/audit_official_gap_roster_program_resolution.py"],
     ["python3", "scripts/audit_official_program_coverage_assurance.py"],

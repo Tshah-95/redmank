@@ -1,9 +1,10 @@
 {
   "by_action_surface": {
     "contact_verification": 313,
+    "official_profile_discovery": 608,
     "official_program_coverage": 42,
     "official_roster_refresh": 114,
-    "person_enrichment_execution": 49,
+    "person_enrichment_execution": 45,
     "person_evidence_review": 792,
     "program_lifecycle_duration_review": 10,
     "recent_attending_trend": 70,
@@ -11,22 +12,25 @@
     "training_temporal_contract": 86
   },
   "by_priority_band": {
-    "critical": 171,
-    "high": 806,
+    "critical": 183,
+    "high": 1398,
     "low": 9,
     "medium": 494
   },
-  "critical_rows": 171,
+  "critical_rows": 183,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-02T19:36:01.533995+00:00",
-  "high_rows": 806,
+  "generated_at": "2026-06-02T19:43:15.928198+00:00",
+  "high_rows": 1398,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
   "top_action_scope_counts": {
     "contact_verification:ready_for_reviewer_verification": 312,
+    "official_profile_discovery:direct_probe_low_signal_review": 14,
+    "official_profile_discovery:planned_search_not_executed": 579,
+    "official_profile_discovery:review_official_profile_candidate": 6,
+    "official_profile_discovery:search_endpoint_blocked_retry": 8,
     "official_program_coverage:accepted_alias_denominator_policy": 13,
-    "official_program_coverage:alias_review": 6,
     "official_program_coverage:parser_or_roster_source_review": 7,
     "official_program_coverage:source_candidate_probe": 14,
     "official_roster_refresh:expected_transition_reconciliation": 25,
@@ -36,8 +40,6 @@
     "official_roster_refresh:source_reobservation_required": 62,
     "person_enrichment_execution:contact:public_contact_verification": 15,
     "person_enrichment_execution:normalization:organization_alias_review": 7,
-    "person_enrichment_execution:official_profile:official_profile_search": 4,
-    "person_enrichment_execution:prior_training:source_medical_school_background": 5,
     "person_enrichment_execution:research:research_identity_search": 15,
     "person_evidence_review:official_profile_context_display_review": 53,
     "person_evidence_review:publication_identity_final_check": 48,
@@ -46,7 +48,6 @@
     "person_evidence_review:secondary_identity_anchor_context_review": 18,
     "recent_attending_trend:context_only_not_trend_ready": 21,
     "recent_attending_trend:current_endpoint_needs_training_claim": 43,
-    "recent_attending_trend:review_ready_official_biosketch_bridge": 5,
     "training_temporal_contract:manual_review_required": 12,
     "training_temporal_contract:source_refresh_required": 74
   },
@@ -90,26 +91,6 @@
       "program_name": "General Surgery Residency",
       "recommended_next_action": "refresh_source_then_classify_expected_transitions_and_source_bound_reobservations",
       "role": "resident"
-    },
-    {
-      "action_scope": "official_profile:official_profile_search",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "resident official_profile_search",
-      "impact_count": 330,
-      "priority": 1120,
-      "program_name": "",
-      "recommended_next_action": "collect_official_profile_evidence",
-      "role": "resident"
-    },
-    {
-      "action_scope": "official_profile:official_profile_search",
-      "action_surface": "person_enrichment_execution",
-      "display_label": "fellow official_profile_search",
-      "impact_count": 257,
-      "priority": 1120,
-      "program_name": "",
-      "recommended_next_action": "collect_official_profile_evidence",
-      "role": "fellow"
     },
     {
       "action_scope": "mixed_expected_transition_and_manual_review",
@@ -272,6 +253,46 @@
       "role": "resident"
     },
     {
+      "action_scope": "review_official_profile_candidate",
+      "action_surface": "official_profile_discovery",
+      "display_label": "Allan Stolarski, MD, MS",
+      "impact_count": 1,
+      "priority": 1076,
+      "program_name": "Trauma and Surgical Critical Care Fellowship",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "role": "fellow"
+    },
+    {
+      "action_scope": "review_official_profile_candidate",
+      "action_surface": "official_profile_discovery",
+      "display_label": "Jackie Zhang, MD",
+      "impact_count": 1,
+      "priority": 1076,
+      "program_name": "Vascular Surgery Fellowship",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "role": "fellow"
+    },
+    {
+      "action_scope": "review_official_profile_candidate",
+      "action_surface": "official_profile_discovery",
+      "display_label": "Laura Barnes, MD",
+      "impact_count": 1,
+      "priority": 1076,
+      "program_name": "Microvascular Reconstructive Surgery Fellowship",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "role": "fellow"
+    },
+    {
+      "action_scope": "review_official_profile_candidate",
+      "action_surface": "official_profile_discovery",
+      "display_label": "Madison Harris, DO",
+      "impact_count": 1,
+      "priority": 1076,
+      "program_name": "Trauma and Surgical Critical Care Fellowship",
+      "recommended_next_action": "review_candidate_for_same_person_official_profile_acceptance",
+      "role": "fellow"
+    },
+    {
       "action_scope": "mixed_expected_transition_and_source_refresh",
       "action_surface": "official_roster_refresh",
       "display_label": "Ophthalmology Residency | resident",
@@ -280,28 +301,8 @@
       "program_name": "Ophthalmology Residency",
       "recommended_next_action": "refresh_source_then_classify_expected_transitions_and_source_bound_reobservations",
       "role": "resident"
-    },
-    {
-      "action_scope": "expected_transition_reconciliation",
-      "action_surface": "official_roster_refresh",
-      "display_label": "Otorhinolaryngology Residency | resident",
-      "impact_count": 31,
-      "priority": 1074,
-      "program_name": "Otorhinolaryngology Residency",
-      "recommended_next_action": "refresh_source_and_compare_against_expected_next_stage_or_completion",
-      "role": "resident"
-    },
-    {
-      "action_scope": "mixed_expected_transition_and_manual_review",
-      "action_surface": "official_roster_refresh",
-      "display_label": "Internal Medicine Residency - Global Health Equities Track | resident",
-      "impact_count": 10,
-      "priority": 1073,
-      "program_name": "Internal Medicine Residency - Global Health Equities Track",
-      "recommended_next_action": "refresh_source_then_review_lifecycle_labels_before_state_mutation",
-      "role": "resident"
     }
   ],
   "total_impact_count": 11362,
-  "worklist_rows": 1480
+  "worklist_rows": 2084
 }

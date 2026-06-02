@@ -281,6 +281,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_profile_discovery_workbench.csv",
+        "official_profile_discovery_workbench_ledger",
+        "csv",
+        "official_profile_discovery_workbench",
+        True,
+    ),
+    (
         "artifacts/data/prior_training_search_queries.csv",
         "prior_training_discovery_ledger",
         "csv",
