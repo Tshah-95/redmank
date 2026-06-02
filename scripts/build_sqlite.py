@@ -18,6 +18,7 @@ ARTIFACTS = ROOT / "artifacts" / "data"
 DEFAULT_DB = ARTIFACTS / "redmank.sqlite"
 ORG_SEEDS = ROOT / "config" / "organization_seed_aliases.json"
 ENRICHMENT_SOURCES = ROOT / "config" / "enrichment_sources.json"
+TRAINING_LIFECYCLE_RULES = ROOT / "config" / "training_lifecycle_rules.json"
 
 PERSON_FILES = [
     ARTIFACTS / "penn_training_people_unique.json",
@@ -54,6 +55,8 @@ TRAINING_FIELDS = {
     "graduate_school": "graduate_school",
 }
 
+LIFECYCLE_RULE_CACHE: list[dict] | None = None
+
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -79,6 +82,31 @@ def normalized_label(text: str | None) -> str:
     text = re.sub(r"[^a-z0-9]+", " ", text)
     text = re.sub(r"\b(the|at|of|and)\b", " ", text)
     return norm_space(text)
+
+
+def load_lifecycle_rules() -> list[dict]:
+    global LIFECYCLE_RULE_CACHE
+    if LIFECYCLE_RULE_CACHE is None:
+        LIFECYCLE_RULE_CACHE = load_json(TRAINING_LIFECYCLE_RULES)["rules"]
+    return LIFECYCLE_RULE_CACHE
+
+
+def match_lifecycle_rule(program_name: str | None, role: str | None) -> dict | None:
+    role = (role or "").lower()
+    program_name = norm_space(program_name)
+    default_rule = None
+    for rule in load_lifecycle_rules():
+        if rule.get("role") != role:
+            continue
+        match_type = rule.get("match_type")
+        if match_type == "default":
+            default_rule = rule
+            continue
+        if match_type == "exact" and program_name in set(rule.get("program_names", [])):
+            return rule
+        if match_type == "regex" and program_name and re.search(rule.get("pattern", ""), program_name, re.I):
+            return rule
+    return default_rule
 
 
 def key_for(prefix: str, text: str) -> str:
@@ -350,6 +378,35 @@ def insert_sources(conn: sqlite3.Connection) -> None:
             "{}",
         ),
     )
+
+
+def insert_lifecycle_rules(conn: sqlite3.Connection) -> None:
+    for rule in load_lifecycle_rules():
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO program_lifecycle_rules
+            (rule_key, role, match_type, pattern, lifecycle_code, lifecycle_family,
+             nominal_years, entry_stage, terminal_stage, clock_rollover_month,
+             auto_advance, source, confidence, metadata_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                rule["rule_key"],
+                rule["role"],
+                rule["match_type"],
+                rule.get("pattern"),
+                rule["lifecycle_code"],
+                rule["lifecycle_family"],
+                rule.get("nominal_years"),
+                rule.get("entry_stage"),
+                rule.get("terminal_stage"),
+                int(rule.get("clock_rollover_month") or 7),
+                1 if rule.get("auto_advance") else 0,
+                rule.get("source"),
+                float(rule.get("confidence") or 0.0),
+                dumps(rule),
+            ),
+        )
 
 
 def insert_source_utilities(conn: sqlite3.Connection) -> None:
@@ -671,6 +728,73 @@ def next_date_for(as_of: date, rollover_month: int) -> date:
     return date(start_year, rollover_month, 1)
 
 
+def academic_exit_date(start: date, stage_index: int | None, nominal_years: int | None, rollover_month: int) -> date | None:
+    if not start or not stage_index or not nominal_years or stage_index <= 0:
+        return None
+    remaining_years_including_current = nominal_years - stage_index + 1
+    if remaining_years_including_current < 1:
+        return None
+    return date(start.year + remaining_years_including_current, rollover_month, 1) - timedelta(days=1)
+
+
+def lifecycle_transition(
+    lifecycle: dict | None,
+    stage_family: str,
+    stage_index: int | None,
+    default_next_stage: str | None,
+    estimated_start_date: date | None,
+    default_policy: str,
+) -> dict:
+    if not lifecycle:
+        return {
+            "lifecycle_rule_key": None,
+            "lifecycle_code": None,
+            "lifecycle_stage": None,
+            "expected_next_stage": default_next_stage,
+            "expected_exit_date": None,
+            "expected_transition_type": default_policy,
+            "refresh_policy": "refresh_from_source",
+        }
+    nominal_years = lifecycle.get("nominal_years")
+    rollover_month = int(lifecycle.get("clock_rollover_month") or 7)
+    expected_exit = academic_exit_date(estimated_start_date, stage_index, nominal_years, rollover_month)
+    lifecycle_stage = None
+    expected_next = default_next_stage
+    transition_type = default_policy
+    refresh_policy = "annual_clock" if lifecycle.get("auto_advance") else "source_refresh_required"
+    if stage_index and nominal_years:
+        if stage_index < nominal_years:
+            lifecycle_stage = f"year_{stage_index}_of_{nominal_years}"
+            transition_type = "expected_annual_advancement"
+        elif stage_index == nominal_years:
+            lifecycle_stage = f"terminal_year_{stage_index}_of_{nominal_years}"
+            expected_next = lifecycle.get("terminal_stage") or "TRAINING_COMPLETION_OR_ALUMNI"
+            transition_type = "expected_completion"
+        else:
+            lifecycle_stage = f"year_{stage_index}_beyond_nominal_{nominal_years}"
+            expected_next = None
+            transition_type = "stage_outside_nominal_duration_review"
+            refresh_policy = "review_required"
+    elif stage_family in {"clinical_postgraduate_research", "research_phase"}:
+        lifecycle_stage = "variable_duration_research_phase"
+        expected_next = None
+        transition_type = "source_refresh_required"
+        refresh_policy = "source_refresh_required"
+    elif stage_index:
+        lifecycle_stage = f"year_{stage_index}_duration_unknown"
+    else:
+        refresh_policy = "source_refresh_required"
+    return {
+        "lifecycle_rule_key": lifecycle.get("rule_key"),
+        "lifecycle_code": lifecycle.get("lifecycle_code"),
+        "lifecycle_stage": lifecycle_stage,
+        "expected_next_stage": expected_next,
+        "expected_exit_date": expected_exit.isoformat() if expected_exit else None,
+        "expected_transition_type": transition_type,
+        "refresh_policy": refresh_policy,
+    }
+
+
 def stage_result(
     raw_label: str,
     normalized_stage: str,
@@ -681,13 +805,26 @@ def stage_result(
     transition_rule: str,
     confidence: float,
     status: str = "current",
+    lifecycle: dict | None = None,
     academic_year_value: str | None = None,
     estimated_start_date: date | None = None,
     estimated_end_date: date | None = None,
     expected_next_stage: str | None = None,
     expected_next_date: date | None = None,
     stale_after_date: date | None = None,
+    expected_transition_type: str = "source_refresh_required",
+    refresh_policy: str = "refresh_from_source",
 ) -> dict:
+    lifecycle_fields = lifecycle_transition(
+        lifecycle,
+        stage_family,
+        stage_index,
+        expected_next_stage,
+        estimated_start_date,
+        expected_transition_type,
+    )
+    if refresh_policy != "refresh_from_source":
+        lifecycle_fields["refresh_policy"] = refresh_policy
     return {
         "raw_stage_label": raw_label,
         "normalized_stage": normalized_stage,
@@ -695,19 +832,25 @@ def stage_result(
         "stage_index": stage_index,
         "stage_rank": stage_rank,
         "trainee_category": trainee_category,
+        "lifecycle_rule_key": lifecycle_fields["lifecycle_rule_key"],
+        "lifecycle_code": lifecycle_fields["lifecycle_code"],
+        "lifecycle_stage": lifecycle_fields["lifecycle_stage"],
         "academic_year": academic_year_value,
         "estimated_start_date": estimated_start_date.isoformat() if estimated_start_date else None,
         "estimated_end_date": estimated_end_date.isoformat() if estimated_end_date else None,
-        "expected_next_stage": expected_next_stage,
+        "expected_next_stage": lifecycle_fields["expected_next_stage"],
         "expected_next_date": expected_next_date.isoformat() if expected_next_date else None,
+        "expected_exit_date": lifecycle_fields["expected_exit_date"],
+        "expected_transition_type": lifecycle_fields["expected_transition_type"],
         "stale_after_date": stale_after_date.isoformat() if stale_after_date else None,
+        "refresh_policy": lifecycle_fields["refresh_policy"],
         "transition_rule": transition_rule,
         "status": status,
         "confidence": confidence,
     }
 
 
-def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
+def infer_training_state(row: dict, raw_label: str, as_of: date, lifecycle: dict | None = None) -> dict:
     label = norm_space(raw_label)
     lower = label.lower()
     role = (row.get("role") or "").lower()
@@ -739,6 +882,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "medical_student",
                 "expected annual medical-school class advancement around Aug 1",
                 0.85,
+                lifecycle=lifecycle,
                 academic_year_value=ay,
                 estimated_start_date=start,
                 estimated_end_date=end,
@@ -756,6 +900,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "medical_student",
                 "expected annual medical-school class advancement around Aug 1",
                 0.85,
+                lifecycle=lifecycle,
                 academic_year_value=ay,
                 estimated_start_date=start,
                 estimated_end_date=end,
@@ -773,6 +918,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "medical_student",
                 "clinical-phase student label is ambiguous; refresh on annual directory update rather than auto-advance",
                 0.62,
+                lifecycle=lifecycle,
                 academic_year_value=ay,
                 estimated_start_date=start,
                 estimated_end_date=end,
@@ -790,6 +936,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "medical_student",
                 "MSTP PhD phase duration is individualized; refresh from public directory annually",
                 0.78,
+                lifecycle=lifecycle,
                 stale_after_date=as_of + timedelta(days=395),
             )
         return stage_result(
@@ -801,6 +948,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "medical_student",
             "unknown student phase; refresh from source",
             0.35,
+            lifecycle=lifecycle,
             stale_after_date=as_of + timedelta(days=395),
         )
     pgy_match = re.search(r"\b(?:pgy|post graduate year)\s*[- ]?(\d+)\b", lower)
@@ -817,6 +965,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             role or "resident",
             "expected GME annual advancement around Jul 1 unless program-specific exception",
             0.9,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -837,6 +986,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             role or "resident",
             "expected clinical-year advancement around Jul 1; map to PGY with program review",
             0.72,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -857,6 +1007,15 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             role or "resident",
             "expected anesthesia clinical-year advancement around Jul 1; map to PGY with program review",
             0.74,
+            lifecycle={
+                **(lifecycle or {}),
+                "rule_key": "anesthesia_ca_phase_3y",
+                "lifecycle_code": "US_GME_ANESTHESIA_CA_PHASE_3Y",
+                "nominal_years": 3,
+                "clock_rollover_month": 7,
+                "auto_advance": True,
+                "terminal_stage": "GME_RESIDENCY_COMPLETION",
+            },
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -875,6 +1034,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "intern label maps to PGY1; expected annual advancement around Jul 1",
             0.78,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -893,6 +1053,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "class-year resident label; derive exact PGY only with program-duration context",
             0.62,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -923,6 +1084,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "ordinal resident-year label maps to PGY with program review",
             0.72,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -941,6 +1103,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "preliminary resident label usually maps to a one-year GME state; verify against program context",
             0.66,
+            lifecycle={"rule_key": "preliminary_one_year", "lifecycle_code": "US_GME_PRELIMINARY_1Y", "nominal_years": 1, "clock_rollover_month": 7, "auto_advance": True, "terminal_stage": "TRANSITION_OUT_OR_PROGRAM_SPECIFIC_NEXT_STATE"},
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -959,6 +1122,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "independent-resident track is program-specific; refresh annually and map with specialty rules",
             0.62,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -975,6 +1139,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "research/lab resident state is program-specific; refresh from roster rather than auto-advance",
             0.68,
+            lifecycle=lifecycle,
             stale_after_date=as_of + timedelta(days=395),
         )
     if "chief" in lower and "resident" in lower:
@@ -988,6 +1153,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "chief year is terminal/program-specific; refresh on next academic-year roster",
             0.72,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -1016,6 +1182,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "fellow",
             "expected fellowship annual advancement around Jul 1; terminal year requires program-length context",
             0.82,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -1043,6 +1210,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "fellow",
                 "fellowship specialty section lacks year; refresh on next roster and use program-specific duration if available",
                 0.58,
+                lifecycle=lifecycle,
                 academic_year_value=ay,
                 estimated_start_date=start,
                 estimated_end_date=end,
@@ -1059,6 +1227,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "fellow",
                 "postdoctoral fellow duration is individualized; refresh annually",
                 0.7,
+                lifecycle=lifecycle,
                 stale_after_date=as_of + timedelta(days=395),
             )
         if "fellow" in lower or "fellowship" in lower or not lower:
@@ -1072,6 +1241,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
                 "fellow",
                 "current fellow but year not normalized; refresh on next roster and use program-specific duration if available",
                 0.52 if lower else 0.42,
+                lifecycle=lifecycle,
                 academic_year_value=ay,
                 estimated_start_date=start,
                 estimated_end_date=end,
@@ -1089,6 +1259,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "current resident but year not visible on source; refresh on next roster",
             0.42,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -1106,6 +1277,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "resident",
             "current resident but exact year not visible on source; refresh on next roster",
             0.46,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -1123,6 +1295,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
             "fellow",
             "current fellow section label lacks year; refresh on next roster and use program-specific duration if available",
             0.5,
+            lifecycle=lifecycle,
             academic_year_value=ay,
             estimated_start_date=start,
             estimated_end_date=end,
@@ -1138,6 +1311,7 @@ def infer_training_state(row: dict, raw_label: str, as_of: date) -> dict:
         role or "trainee",
         "unmapped source label; review rule table before auto-advancing",
         0.25,
+        lifecycle=lifecycle,
         stale_after_date=as_of + timedelta(days=395),
     )
 
@@ -1165,18 +1339,21 @@ def insert_training_states(conn: sqlite3.Connection, row: dict) -> None:
     observed_at = observed_at_for_source(conn, source_key, as_of)
     for program_name in programs:
         program_id = program_key(program_name, row.get("role")) if program_name else None
+        lifecycle = match_lifecycle_rule(program_name, row.get("role"))
         for label in labels:
-            state = infer_training_state(row, label, as_of)
+            state = infer_training_state(row, label, as_of, lifecycle)
             state_key = key_for("state", f"{person_key}:{program_id or ''}:{source_key}:{label}:{state['normalized_stage']}")
             conn.execute(
                 """
                 INSERT OR IGNORE INTO person_training_states
                 (state_key, person_key, program_key, source_key, observed_at, as_of_date,
                  raw_stage_label, normalized_stage, stage_family, stage_index, stage_rank,
-                 trainee_category, academic_year, estimated_start_date, estimated_end_date,
-                 expected_next_stage, expected_next_date, stale_after_date, transition_rule,
+                 trainee_category, lifecycle_rule_key, lifecycle_code, lifecycle_stage,
+                 academic_year, estimated_start_date, estimated_end_date,
+                 expected_next_stage, expected_next_date, expected_exit_date,
+                 expected_transition_type, stale_after_date, refresh_policy, transition_rule,
                  status, confidence, evidence_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     state_key,
@@ -1191,12 +1368,18 @@ def insert_training_states(conn: sqlite3.Connection, row: dict) -> None:
                     state["stage_index"],
                     state["stage_rank"],
                     state["trainee_category"],
+                    state["lifecycle_rule_key"],
+                    state["lifecycle_code"],
+                    state["lifecycle_stage"],
                     state["academic_year"],
                     state["estimated_start_date"],
                     state["estimated_end_date"],
                     state["expected_next_stage"],
                     state["expected_next_date"],
+                    state["expected_exit_date"],
+                    state["expected_transition_type"],
                     state["stale_after_date"],
+                    state["refresh_policy"],
                     state["transition_rule"],
                     state["status"],
                     state["confidence"],
@@ -1205,6 +1388,7 @@ def insert_training_states(conn: sqlite3.Connection, row: dict) -> None:
                             "origin": "source_training_label",
                             "source_url": row.get("source_url") or row.get("profile_anchor_url"),
                             "program": program_name,
+                            "lifecycle_rule_key": state["lifecycle_rule_key"],
                             "raw_row_role": row.get("role"),
                             "raw_current_status": row.get("current_status"),
                         }
@@ -1524,6 +1708,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "people",
         "sources",
         "source_utilities",
+        "program_lifecycle_rules",
         "programs",
         "organizations",
         "organization_aliases",
@@ -1572,12 +1757,18 @@ def main() -> None:
             "INSERT INTO load_runs (loaded_at, input_fingerprint, notes) VALUES (?, ?, ?)",
             (
                 datetime.now(timezone.utc).isoformat(),
-                fingerprint(PERSON_FILES + SOURCE_FILES + OPTIONAL_SOURCE_FILES + [ORG_SEEDS, ENRICHMENT_SOURCES, SCHEMA]),
+                fingerprint(
+                    PERSON_FILES
+                    + SOURCE_FILES
+                    + OPTIONAL_SOURCE_FILES
+                    + [ORG_SEEDS, ENRICHMENT_SOURCES, TRAINING_LIFECYCLE_RULES, SCHEMA]
+                ),
                 "Penn first-pass warehouse build",
             ),
         )
         insert_sources(conn)
         insert_source_utilities(conn)
+        insert_lifecycle_rules(conn)
         insert_manual_source_quality_observations(conn)
         resolver = OrganizationResolver(conn, ORG_SEEDS)
         load_people(conn, resolver)

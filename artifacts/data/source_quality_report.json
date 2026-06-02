@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T05:58:50.468273+00:00",
+  "generated_at": "2026-06-02T06:09:23.558120+00:00",
   "source_counts": [
     {
       "source_type": "official_affiliated_roster",
@@ -1451,6 +1451,232 @@
     {
       "transition_rule": "independent-resident track is program-specific; refresh annually and map with specialty rules",
       "count": 2
+    }
+  ],
+  "lifecycle_code_counts": [
+    {
+      "lifecycle_code": null,
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "refresh_from_source",
+      "count": 13,
+      "avg_confidence": 0.75
+    },
+    {
+      "lifecycle_code": "US_GME_ANESTHESIA_CA_PHASE_3Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 52,
+      "avg_confidence": 0.74
+    },
+    {
+      "lifecycle_code": "US_GME_ANESTHESIA_CA_PHASE_3Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 23,
+      "avg_confidence": 0.74
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_1Y",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 91,
+      "avg_confidence": 0.509
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_1Y",
+      "expected_transition_type": "stage_outside_nominal_duration_review",
+      "refresh_policy": "review_required",
+      "count": 1,
+      "avg_confidence": 0.82
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 26,
+      "avg_confidence": 0.82
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 24,
+      "avg_confidence": 0.82
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 27,
+      "avg_confidence": 0.567
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "expected_transition_type": "stage_outside_nominal_duration_review",
+      "refresh_policy": "review_required",
+      "count": 3,
+      "avg_confidence": 0.873
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_3Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 72,
+      "avg_confidence": 0.82
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_3Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 35,
+      "avg_confidence": 0.82
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_3Y",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 10,
+      "avg_confidence": 0.52
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_3Y",
+      "expected_transition_type": "stage_outside_nominal_duration_review",
+      "refresh_policy": "review_required",
+      "count": 7,
+      "avg_confidence": 0.82
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_DURATION_UNKNOWN",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "annual_clock",
+      "count": 4,
+      "avg_confidence": 0.86
+    },
+    {
+      "lifecycle_code": "US_GME_FELLOWSHIP_DURATION_UNKNOWN",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 29,
+      "avg_confidence": 0.446
+    },
+    {
+      "lifecycle_code": "US_GME_PRELIMINARY_1Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 13,
+      "avg_confidence": 0.66
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_3Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 234,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_3Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 107,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_3Y",
+      "expected_transition_type": "stage_outside_nominal_duration_review",
+      "refresh_policy": "review_required",
+      "count": 10,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_4Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 107,
+      "avg_confidence": 0.879
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_4Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 23,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_4Y",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 7,
+      "avg_confidence": 0.72
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 123,
+      "avg_confidence": 0.801
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 17,
+      "avg_confidence": 0.826
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 115,
+      "avg_confidence": 0.526
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_6Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 25,
+      "avg_confidence": 0.881
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_6Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 5,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_6Y",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 26,
+      "avg_confidence": 0.485
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_7Y",
+      "expected_transition_type": "expected_annual_advancement",
+      "refresh_policy": "annual_clock",
+      "count": 18,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_7Y",
+      "expected_transition_type": "expected_completion",
+      "refresh_policy": "annual_clock",
+      "count": 3,
+      "avg_confidence": 0.9
+    },
+    {
+      "lifecycle_code": "US_GME_RESIDENCY_DURATION_UNKNOWN",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 8,
+      "avg_confidence": 0.46
+    },
+    {
+      "lifecycle_code": "US_MD_PHD_MSTP_VARIABLE",
+      "expected_transition_type": "source_refresh_required",
+      "refresh_policy": "source_refresh_required",
+      "count": 225,
+      "avg_confidence": 0.762
     }
   ],
   "contact_counts": [

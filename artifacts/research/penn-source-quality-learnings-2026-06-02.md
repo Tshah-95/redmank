@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T05:58:50.468273+00:00
+Generated: 2026-06-02T06:09:23.558120+00:00
 
 ## What This Pass Did
 
@@ -243,7 +243,44 @@ Transition rules observed:
 | postdoctoral fellow duration is individualized; refresh annually | 7 |
 | independent-resident track is program-specific; refresh annually and map with specialty rules | 2 |
 
-Learning: roster strings should become normalized state observations with explicit clocks. PGY and fellowship-year states can be expected to stale around the next July academic rollover; medical-student MS states use an annual student-directory refresh clock; MSTP PhD, lab, postdoc, chief, and unknown-year states are source-refresh states, not safe auto-advancement states.
+Lifecycle semantics observed:
+
+| lifecycle_code | expected_transition_type | refresh_policy | count | avg_confidence |
+| --- | --- | --- | --- | --- |
+| None | source_refresh_required | refresh_from_source | 13 | 0.75 |
+| US_GME_ANESTHESIA_CA_PHASE_3Y | expected_annual_advancement | annual_clock | 52 | 0.74 |
+| US_GME_ANESTHESIA_CA_PHASE_3Y | expected_completion | annual_clock | 23 | 0.74 |
+| US_GME_FELLOWSHIP_1Y | source_refresh_required | source_refresh_required | 91 | 0.509 |
+| US_GME_FELLOWSHIP_1Y | stage_outside_nominal_duration_review | review_required | 1 | 0.82 |
+| US_GME_FELLOWSHIP_2Y | expected_annual_advancement | annual_clock | 26 | 0.82 |
+| US_GME_FELLOWSHIP_2Y | expected_completion | annual_clock | 24 | 0.82 |
+| US_GME_FELLOWSHIP_2Y | source_refresh_required | source_refresh_required | 27 | 0.567 |
+| US_GME_FELLOWSHIP_2Y | stage_outside_nominal_duration_review | review_required | 3 | 0.873 |
+| US_GME_FELLOWSHIP_3Y | expected_annual_advancement | annual_clock | 72 | 0.82 |
+| US_GME_FELLOWSHIP_3Y | expected_completion | annual_clock | 35 | 0.82 |
+| US_GME_FELLOWSHIP_3Y | source_refresh_required | source_refresh_required | 10 | 0.52 |
+| US_GME_FELLOWSHIP_3Y | stage_outside_nominal_duration_review | review_required | 7 | 0.82 |
+| US_GME_FELLOWSHIP_DURATION_UNKNOWN | source_refresh_required | annual_clock | 4 | 0.86 |
+| US_GME_FELLOWSHIP_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 29 | 0.446 |
+| US_GME_PRELIMINARY_1Y | expected_completion | annual_clock | 13 | 0.66 |
+| US_GME_RESIDENCY_3Y | expected_annual_advancement | annual_clock | 234 | 0.9 |
+| US_GME_RESIDENCY_3Y | expected_completion | annual_clock | 107 | 0.9 |
+| US_GME_RESIDENCY_3Y | stage_outside_nominal_duration_review | review_required | 10 | 0.9 |
+| US_GME_RESIDENCY_4Y | expected_annual_advancement | annual_clock | 107 | 0.879 |
+| US_GME_RESIDENCY_4Y | expected_completion | annual_clock | 23 | 0.9 |
+| US_GME_RESIDENCY_4Y | source_refresh_required | source_refresh_required | 7 | 0.72 |
+| US_GME_RESIDENCY_5Y | expected_annual_advancement | annual_clock | 123 | 0.801 |
+| US_GME_RESIDENCY_5Y | expected_completion | annual_clock | 17 | 0.826 |
+| US_GME_RESIDENCY_5Y | source_refresh_required | source_refresh_required | 115 | 0.526 |
+| US_GME_RESIDENCY_6Y | expected_annual_advancement | annual_clock | 25 | 0.881 |
+| US_GME_RESIDENCY_6Y | expected_completion | annual_clock | 5 | 0.9 |
+| US_GME_RESIDENCY_6Y | source_refresh_required | source_refresh_required | 26 | 0.485 |
+| US_GME_RESIDENCY_7Y | expected_annual_advancement | annual_clock | 18 | 0.9 |
+| US_GME_RESIDENCY_7Y | expected_completion | annual_clock | 3 | 0.9 |
+| US_GME_RESIDENCY_DURATION_UNKNOWN | source_refresh_required | source_refresh_required | 8 | 0.46 |
+| US_MD_PHD_MSTP_VARIABLE | source_refresh_required | source_refresh_required | 225 | 0.762 |
+
+Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed.
 
 ## Evidence Counts
 

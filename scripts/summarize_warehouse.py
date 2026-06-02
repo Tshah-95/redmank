@@ -21,6 +21,7 @@ def main() -> None:
         "people",
         "sources",
         "source_utilities",
+        "program_lifecycle_rules",
         "programs",
         "organizations",
         "organization_aliases",
@@ -73,6 +74,22 @@ def main() -> None:
             "SELECT normalized_stage, COUNT(*) AS count FROM person_training_states GROUP BY normalized_stage"
         )
     }
+    lifecycle_code_counts = {
+        row["lifecycle_code"] or "none": row["count"]
+        for row in conn.execute(
+            "SELECT lifecycle_code, COUNT(*) AS count FROM person_training_states GROUP BY lifecycle_code"
+        )
+    }
+    expected_transition_type_counts = {
+        row["expected_transition_type"] or "none": row["count"]
+        for row in conn.execute(
+            """
+            SELECT expected_transition_type, COUNT(*) AS count
+            FROM person_training_states
+            GROUP BY expected_transition_type
+            """
+        )
+    }
     stale_by_next_august_count = conn.execute(
         """
         SELECT COUNT(*)
@@ -119,6 +136,8 @@ def main() -> None:
         "generic_program_label_count": generic_program_label_count,
         "training_state_family_counts": training_state_family_counts,
         "normalized_stage_counts": normalized_stage_counts,
+        "lifecycle_code_counts": lifecycle_code_counts,
+        "expected_transition_type_counts": expected_transition_type_counts,
         "stale_by_next_august_count": stale_by_next_august_count,
         "evidence_status_counts": evidence_status_counts,
         "evidence_source_counts": evidence_source_counts,

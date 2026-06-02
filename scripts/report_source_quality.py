@@ -150,6 +150,16 @@ def main() -> None:
         ORDER BY count DESC, transition_rule
         """,
     )
+    lifecycle_code_counts = rows(
+        conn,
+        """
+        SELECT lifecycle_code, expected_transition_type, refresh_policy,
+               COUNT(*) AS count, ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM person_training_states
+        GROUP BY lifecycle_code, expected_transition_type, refresh_policy
+        ORDER BY lifecycle_code, expected_transition_type, refresh_policy
+        """,
+    )
     contact_counts = rows(
         conn,
         """
@@ -211,6 +221,7 @@ def main() -> None:
         "generic_program_labels": generic_program_labels,
         "training_state_counts": training_state_counts,
         "transition_rule_counts": transition_rule_counts,
+        "lifecycle_code_counts": lifecycle_code_counts,
         "contact_counts": contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
@@ -316,7 +327,14 @@ def main() -> None:
         "",
         *md_table(transition_rule_counts, ["transition_rule", "count"]),
         "",
-        "Learning: roster strings should become normalized state observations with explicit clocks. PGY and fellowship-year states can be expected to stale around the next July academic rollover; medical-student MS states use an annual student-directory refresh clock; MSTP PhD, lab, postdoc, chief, and unknown-year states are source-refresh states, not safe auto-advancement states.",
+        "Lifecycle semantics observed:",
+        "",
+        *md_table(
+            lifecycle_code_counts,
+            ["lifecycle_code", "expected_transition_type", "refresh_policy", "count", "avg_confidence"],
+        ),
+        "",
+        "Learning: roster strings should become normalized state observations with explicit clocks and program lifecycle semantics. PGY and fellowship-year states can be annual-clock states, but terminal-year, unknown-duration, research, chief, and source-ambiguous states need different refresh/exit behavior. Lifecycle codes are local `redmank` codes until external ACGME/ERAS/NRMP identifiers are source-backed.",
         "",
         "## Evidence Counts",
         "",

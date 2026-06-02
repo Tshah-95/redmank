@@ -33,12 +33,19 @@ def classify_change(old: dict | None, new: dict | None, compare_date: date) -> d
     if old and not new:
         stale_after = parse_date(old.get("stale_after_date"))
         expected = bool(stale_after and stale_after <= compare_date)
+        transition_type = old.get("expected_transition_type", "")
+        if expected and transition_type == "expected_completion":
+            notes = "Terminal state passed stale-after date; disappearance is consistent with completion."
+        elif expected:
+            notes = "Old state had passed stale-after date."
+        else:
+            notes = "Old state disappeared before expected stale-after date."
         return {
             "change_type": "removed_expected_stale" if expected else "removed_unexpected",
             "old_stage": old.get("normalized_stage"),
             "new_stage": "",
             "old_stale_after_date": old.get("stale_after_date", ""),
-            "notes": "Old state had passed stale-after date." if expected else "Old state disappeared before expected stale-after date.",
+            "notes": notes,
         }
     if new and not old:
         return {
@@ -74,6 +81,7 @@ def main() -> None:
     parser.add_argument("--new", required=True, type=Path)
     parser.add_argument("--out-csv", type=Path, default=Path("artifacts/data/training_state_diff.csv"))
     parser.add_argument("--out-json", type=Path, default=Path("artifacts/data/training_state_diff_summary.json"))
+    parser.add_argument("--out-rollup-csv", type=Path, default=Path("artifacts/data/training_state_diff_rollups.csv"))
     parser.add_argument("--compare-date", default=date.today().isoformat())
     args = parser.parse_args()
 
@@ -96,6 +104,10 @@ def main() -> None:
                 **change,
                 "old_expected_next_stage": (old or {}).get("expected_next_stage", ""),
                 "old_expected_next_date": (old or {}).get("expected_next_date", ""),
+                "old_expected_exit_date": (old or {}).get("expected_exit_date", ""),
+                "old_expected_transition_type": (old or {}).get("expected_transition_type", ""),
+                "old_lifecycle_code": (old or {}).get("lifecycle_code", ""),
+                "new_lifecycle_code": (new or {}).get("lifecycle_code", ""),
                 "new_as_of_date": (new or {}).get("as_of_date", ""),
             }
         )
@@ -112,6 +124,10 @@ def main() -> None:
             "new_stage",
             "old_expected_next_stage",
             "old_expected_next_date",
+            "old_expected_exit_date",
+            "old_expected_transition_type",
+            "old_lifecycle_code",
+            "new_lifecycle_code",
             "old_stale_after_date",
             "new_as_of_date",
             "notes",
@@ -119,6 +135,31 @@ def main() -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(diff_rows)
+
+    rollups: dict[tuple[str, str, str, str], int] = {}
+    for row in diff_rows:
+        key = (
+            row.get("program_name", ""),
+            row.get("role", ""),
+            row.get("new_lifecycle_code") or row.get("old_lifecycle_code", ""),
+            row["change_type"],
+        )
+        rollups[key] = rollups.get(key, 0) + 1
+    with args.out_rollup_csv.open("w", newline="", encoding="utf-8") as f:
+        fieldnames = ["program_name", "role", "lifecycle_code", "change_type", "count"]
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        for key, count in sorted(rollups.items()):
+            program_name, role, lifecycle_code, change_type = key
+            writer.writerow(
+                {
+                    "program_name": program_name,
+                    "role": role,
+                    "lifecycle_code": lifecycle_code,
+                    "change_type": change_type,
+                    "count": count,
+                }
+            )
 
     summary = {
         "old": str(args.old),
@@ -132,9 +173,18 @@ def main() -> None:
         "old_duplicate_keys_collapsed": old_duplicate_keys,
         "new_duplicate_keys_collapsed": new_duplicate_keys,
         "by_change_type": {},
+        "rollup_csv": str(args.out_rollup_csv),
+        "by_role_and_change_type": {},
+        "by_lifecycle_code_and_change_type": {},
     }
     for row in diff_rows:
         summary["by_change_type"][row["change_type"]] = summary["by_change_type"].get(row["change_type"], 0) + 1
+        role_key = f"{row.get('role', '')}:{row['change_type']}"
+        lifecycle_key = f"{row.get('new_lifecycle_code') or row.get('old_lifecycle_code', '')}:{row['change_type']}"
+        summary["by_role_and_change_type"][role_key] = summary["by_role_and_change_type"].get(role_key, 0) + 1
+        summary["by_lifecycle_code_and_change_type"][lifecycle_key] = (
+            summary["by_lifecycle_code_and_change_type"].get(lifecycle_key, 0) + 1
+        )
     args.out_json.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(summary, sort_keys=True))
 

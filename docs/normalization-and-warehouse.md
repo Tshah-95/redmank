@@ -47,6 +47,7 @@ Core tables:
 - `official_program_source_candidates`: prioritized candidate source URLs for closing uncovered official program rosters.
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
+- `program_lifecycle_rules`: local lifecycle codes and nominal-duration assumptions used to interpret training states over time.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
 - `organization_identifiers`: external IDs.
@@ -130,23 +131,28 @@ Broad Penn roster pages cannot always use the page title as the program name. So
 
 ## Training State Machine
 
-Training labels are stored as state observations, not just strings. `person_training_states` keeps the raw source label plus a normalized stage, family, index, academic year, expected next stage/date, stale-after date, transition rule, confidence, and evidence JSON.
+Training labels are stored as state observations, not just strings. `person_training_states` keeps the raw source label plus a normalized stage, family, index, academic year, lifecycle rule/code, expected next stage/date, expected exit date, stale-after date, refresh policy, transition rule, confidence, and evidence JSON.
 
 `observed_at` is source-derived when the source has a fetch timestamp, with a deterministic as-of-date fallback. That keeps rebuilds from creating fake state changes just because SQLite was regenerated later.
 
+Program lifecycle assumptions live in `config/training_lifecycle_rules.json`, not in source records. A lifecycle rule can say that a current PGY-2 observation is `year_2_of_3`, `year_2_of_5`, or `year_2_duration_unknown` depending on the program. This is intentionally an interpretation layer: source rows still preserve exactly what Penn published, while lifecycle codes make time-based comparison possible.
+
+The current lifecycle code namespace is local to `redmank`, for example `US_GME_RESIDENCY_3Y`, `US_GME_FELLOWSHIP_1Y`, and `US_MD_PHD_MSTP_VARIABLE`. External identifiers such as ACGME, ERAS, or NRMP belong on program/track records only after source-backed verification; they should not be guessed from program names.
+
 The current rules are intentionally conservative:
 
-- PGY, CY, intern, and fellowship-year labels use a GME annual-clock assumption around July 1.
+- PGY, CY, intern, and fellowship-year labels use a GME annual-clock assumption around July 1, then lifecycle rules determine whether the state is annual advancement, terminal completion, outside nominal duration, or unknown-duration refresh.
 - MS1/MS2/MS3-4 labels use a medical-student annual-refresh clock around August 1.
 - MSTP PhD phase, lab/research residents, postdoc fellows, chief residents, and unknown-year fellows/residents are not auto-advanced. They become stale on a refresh schedule and require a new public source observation.
 
 This creates the future diff surface: when the corpus is rerun, we can compare person/program/institution/category state observations, identify expected transitions, flag surprising disappearances or regressions, and separate obvious stale data from genuinely changed records.
 
-`scripts/diff_training_states.py` compares exported state snapshots. It collapses multiple raw observations for the same person/program into a canonical comparison key and reports how many duplicate keys were collapsed, so the diff view stays readable while the warehouse still preserves raw state observations.
+`scripts/diff_training_states.py` compares exported state snapshots. It collapses multiple raw observations for the same person/program into a canonical comparison key and reports how many duplicate keys were collapsed, so the diff view stays readable while the warehouse still preserves raw state observations. It also writes rollups by program, role, lifecycle code, and change type for program-, category-, and institution-level monitoring.
 
 The intended freshness semantics are:
 
 - Expected advancement: PGY/CY/fellowship-year and MS-year labels can advance on their academic clocks if the same person/program remains observed.
+- Expected completion: terminal-year observations can disappear after their stale-after date without being treated as a scraper miss.
 - Source refresh required: PhD phase, lab/research residents, postdoc fellows, chief residents, unknown-year fellows/residents, and public contact channels become stale unless a fresh public source repeats or updates them.
 - Surprising change: disappearance before an expected end date, program-family change, regression in normalized stage, or conflicting concurrent stage labels should become review items, not automatic mutations.
 - Denominator change: official program-universe additions/removals should be separated from person-level roster movement so an annual diff can tell the difference between “program disappeared from Penn’s public list” and “our scraper missed the page.”

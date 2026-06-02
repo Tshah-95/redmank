@@ -20,6 +20,7 @@
     "person_contacts": 313,
     "person_training_events": 1661,
     "person_training_states": 1483,
+    "program_lifecycle_rules": 13,
     "programs": 78,
     "source_quality_observations": 2,
     "source_utilities": 8,
@@ -83,8 +84,30 @@
     "accepted": 1661,
     "candidate": 1111
   },
-  "generated_at": "2026-06-02T05:58:50.494794+00:00",
+  "expected_transition_type_counts": {
+    "expected_annual_advancement": 657,
+    "expected_completion": 250,
+    "source_refresh_required": 555,
+    "stage_outside_nominal_duration_review": 21
+  },
+  "generated_at": "2026-06-02T06:09:23.586540+00:00",
   "generic_program_label_count": 0,
+  "lifecycle_code_counts": {
+    "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
+    "US_GME_FELLOWSHIP_1Y": 92,
+    "US_GME_FELLOWSHIP_2Y": 80,
+    "US_GME_FELLOWSHIP_3Y": 124,
+    "US_GME_FELLOWSHIP_DURATION_UNKNOWN": 33,
+    "US_GME_PRELIMINARY_1Y": 13,
+    "US_GME_RESIDENCY_3Y": 351,
+    "US_GME_RESIDENCY_4Y": 137,
+    "US_GME_RESIDENCY_5Y": 255,
+    "US_GME_RESIDENCY_6Y": 56,
+    "US_GME_RESIDENCY_7Y": 21,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN": 8,
+    "US_MD_PHD_MSTP_VARIABLE": 225,
+    "none": 13
+  },
   "normalized_stage_counts": {
     "COMPLETED_OR_FORMER": 13,
     "FELLOWSHIP_CURRENT_YEAR_UNKNOWN": 150,
