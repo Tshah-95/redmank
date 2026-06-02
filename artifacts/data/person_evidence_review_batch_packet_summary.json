@@ -1,0 +1,286 @@
+{
+  "batch_count": 42,
+  "batch_packet_rows": 792,
+  "by_decision_difficulty": {
+    "careful_manual_review": 116,
+    "complex_packet_review": 238,
+    "moderate_manual_review": 248,
+    "quick_manual_review": 190
+  },
+  "by_risk_level": {
+    "display_safety_sensitive": 116,
+    "identity_anchor_verification_risk": 368,
+    "mixed_evidence_review_risk": 308
+  },
+  "by_support_status": {
+    "ready_for_packet_review": 792
+  },
+  "by_triage_lane": {
+    "attending_trend_bridge_review": 13,
+    "official_profile_context_display_review": 53,
+    "publication_identity_final_check": 48,
+    "publication_with_official_profile_anchor_review": 6,
+    "publication_with_secondary_identity_anchor_review": 654,
+    "secondary_identity_anchor_context_review": 18
+  },
+  "csv": "artifacts/data/person_evidence_review_batch_packets.csv",
+  "evidence_record_count": 5281,
+  "generated_at": "2026-06-02T21:23:48.745696+00:00",
+  "json": "artifacts/data/person_evidence_review_batch_packets.json",
+  "packet_count": 792,
+  "person_count": 792,
+  "policy": "Batch packet support rows are non-mutating reviewer aids. Accepted facts still require explicit reviewer decisions with matching packet fingerprints and confirmations.",
+  "review_ready_record_count": 1469,
+  "top_packet_support_rows": [
+    {
+      "batch_packet_order": 1,
+      "best_decision": "review_ready_orcid_seeded_article",
+      "display_name": "Aaron M. Williams, MD, PhD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 7,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 178
+    },
+    {
+      "batch_packet_order": 2,
+      "best_decision": "review_ready_orcid_seeded_article",
+      "display_name": "Geena R. Ianni, MD, PhD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 8,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 178
+    },
+    {
+      "batch_packet_order": 3,
+      "best_decision": "review_ready_orcid_seeded_article",
+      "display_name": "John T. Cook, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 7,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 178
+    },
+    {
+      "batch_packet_order": 4,
+      "best_decision": "review_ready_orcid_seeded_article",
+      "display_name": "Daniel Akuma, MD, PhD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 9,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 176
+    },
+    {
+      "batch_packet_order": 5,
+      "best_decision": "review_ready_orcid_seeded_article",
+      "display_name": "Chenxu Shi, MD, PhD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 8,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 173
+    },
+    {
+      "batch_packet_order": 6,
+      "best_decision": "review_ready_orcid_seeded_article",
+      "display_name": "Phillip Bradshaw, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 169
+    },
+    {
+      "batch_packet_order": 7,
+      "best_decision": "npi_secondary_identity_anchor_review",
+      "display_name": "Ashna Aggarwal, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 7,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 165
+    },
+    {
+      "batch_packet_order": 8,
+      "best_decision": "orcid_work_publication_review",
+      "display_name": "Mikiko Thelwell, MD, MPH",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 161
+    },
+    {
+      "batch_packet_order": 9,
+      "best_decision": "orcid_work_publication_review",
+      "display_name": "Brendan Ho, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 1,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 158
+    },
+    {
+      "batch_packet_order": 10,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Eric Schweppe, MD*",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 3,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 151
+    },
+    {
+      "batch_packet_order": 11,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Natalie A. Moreno, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 3,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 151
+    },
+    {
+      "batch_packet_order": 12,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Nicole (Nikki) Curnes, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 3,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 151
+    },
+    {
+      "batch_packet_order": 13,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Sarah I. Landau, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 3,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 151
+    },
+    {
+      "batch_packet_order": 14,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Emily Eiel, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 150
+    },
+    {
+      "batch_packet_order": 15,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Meridith Pollie, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 150
+    },
+    {
+      "batch_packet_order": 16,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Nathaniel Disser, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 150
+    },
+    {
+      "batch_packet_order": 17,
+      "best_decision": "npi_secondary_identity_anchor_review",
+      "display_name": "John J. Kelly, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 3,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 149
+    },
+    {
+      "batch_packet_order": 18,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Andrew M. Acker, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 19,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Bradley Osemwengie, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 20,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Caroline Granruth, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 21,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Caroline L. Simon, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 22,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "China N. Byrns, MD, PhD, MS",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 23,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Danielle Murashige, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 24,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Elizabeth Critchlow, MD, MPH",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    },
+    {
+      "batch_packet_order": 25,
+      "best_decision": "review_ready_training_topic_anchor",
+      "display_name": "Gokul Kalyanasundaram, MD",
+      "execution_order": 1,
+      "recommended_reviewer_action": "confirm_author_identity_and_secondary_anchor_then_decide_publication",
+      "review_ready_record_count": 2,
+      "triage_lane": "publication_with_secondary_identity_anchor_review",
+      "triage_priority": 148
+    }
+  ]
+}

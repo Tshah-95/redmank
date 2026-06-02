@@ -36,6 +36,7 @@ def main() -> None:
         "person_evidence_reviewer_decision_audit",
         "person_evidence_review_triage",
         "person_evidence_review_batches",
+        "person_evidence_review_batch_packets",
         "official_roster_refresh_execution_audit",
         "training_state_snapshots",
         "training_state_snapshot_rows",
@@ -385,6 +386,26 @@ def main() -> None:
             SELECT packet_status, COUNT(*) AS count
             FROM person_evidence_review_packets
             GROUP BY packet_status
+            """
+        )
+    }
+    person_evidence_review_batch_packet_status_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM person_evidence_review_batch_packets
+            GROUP BY support_status
+            """
+        )
+    }
+    person_evidence_review_batch_packet_lane_counts = {
+        row["triage_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT triage_lane, COUNT(*) AS count
+            FROM person_evidence_review_batch_packets
+            GROUP BY triage_lane
             """
         )
     }
@@ -1295,6 +1316,13 @@ def main() -> None:
         person_evidence_packet_summary = json.loads(person_evidence_packet_summary_path.read_text(encoding="utf-8"))
     else:
         person_evidence_packet_summary = {}
+    person_evidence_batch_packet_summary_path = ARTIFACTS / "person_evidence_review_batch_packet_summary.json"
+    if person_evidence_batch_packet_summary_path.exists():
+        person_evidence_batch_packet_summary = json.loads(
+            person_evidence_batch_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_evidence_batch_packet_summary = {}
     enrichment_acceptance_summary_path = ARTIFACTS / "enrichment_acceptance_summary.json"
     if enrichment_acceptance_summary_path.exists():
         enrichment_acceptance_summary = json.loads(enrichment_acceptance_summary_path.read_text(encoding="utf-8"))
@@ -1495,6 +1523,8 @@ def main() -> None:
         "evidence_reconciliation_decision_counts": evidence_reconciliation_decision_counts,
         "person_reconciliation_decision_counts": person_reconciliation_decision_counts,
         "person_evidence_review_packet_counts": person_evidence_review_packet_counts,
+        "person_evidence_review_batch_packet_status_counts": person_evidence_review_batch_packet_status_counts,
+        "person_evidence_review_batch_packet_lane_counts": person_evidence_review_batch_packet_lane_counts,
         "enrichment_acceptance_counts": enrichment_acceptance_counts,
         "accepted_enrichment_counts": accepted_enrichment_counts,
         "accepted_enrichment_role_counts": accepted_enrichment_role_counts,
@@ -1595,6 +1625,7 @@ def main() -> None:
         "attending_trend_dossier_summary": attending_trend_dossier_summary,
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
+        "person_evidence_review_batch_packet_summary": person_evidence_batch_packet_summary,
         "enrichment_acceptance_summary": enrichment_acceptance_summary,
         "accepted_enrichment_summary": accepted_enrichment_summary,
         "contact_assurance_summary": contact_assurance_summary,

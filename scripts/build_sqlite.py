@@ -2227,6 +2227,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "person_evidence_reviewer_decisions",
         "person_evidence_reviewer_decision_queue",
         "person_evidence_reviewer_decision_audit",
+        "person_evidence_review_batch_packets",
         "training_state_snapshots",
         "training_state_snapshot_rows",
         "training_state_transition_events",

@@ -47,7 +47,7 @@
   "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
   "csv": "artifacts/data/training_temporal_contracts.csv",
   "fresh_observation_required_rows": 1669,
-  "generated_at": "2026-06-02T21:16:19.733680+00:00",
+  "generated_at": "2026-06-02T21:23:49.755361+00:00",
   "human_review_required_rows": 131,
   "json": "artifacts/data/training_temporal_contracts.json",
   "person_count": 1535,
