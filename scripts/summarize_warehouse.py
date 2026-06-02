@@ -104,6 +104,7 @@ def main() -> None:
         "person_contacts",
         "contact_assurance_audit",
         "contact_verification_contracts",
+        "contact_reobservation_audit",
         "contact_verification_reviewer_decisions",
         "contact_verification_reviewer_decision_queue",
         "contact_verification_reviewer_decision_audit",

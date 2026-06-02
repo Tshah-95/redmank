@@ -74,6 +74,15 @@ def read_csv(path: Path) -> list[dict]:
         return list(csv.DictReader(handle))
 
 
+def parse_json(value: str | None, default):
+    if not value:
+        return default
+    try:
+        return json.loads(value)
+    except json.JSONDecodeError:
+        return default
+
+
 def as_int(value) -> int:
     if value in (None, ""):
         return 0
@@ -328,6 +337,8 @@ def contact_actions(generated_at: str) -> list[dict]:
     source = str(source_path.relative_to(ROOT))
     for item in read_csv(source_path):
         status = item.get("queue_status") or item.get("verification_lane") or item.get("assurance_status") or ""
+        queue_evidence = parse_json(item.get("evidence_json"), {})
+        reobservation = queue_evidence.get("current_source_reobservation") or {}
         if status == "ready_for_reviewer_verification":
             base_priority = 330
         elif status == "fresh_official_reobservation_required":
@@ -379,6 +390,10 @@ def contact_actions(generated_at: str) -> list[dict]:
                     "if_reobserved_same_value_change_type": item.get("if_reobserved_same_value_change_type"),
                     "if_missing_on_refresh_change_type": item.get("if_missing_on_refresh_change_type"),
                     "review_question": item.get("review_question"),
+                    "reobservation_status": reobservation.get("reobservation_status"),
+                    "reobserved_same_value": reobservation.get("reobserved_same_value"),
+                    "reobserved_at": reobservation.get("reobserved_at"),
+                    "reobservation_evidence_strength": reobservation.get("evidence_strength"),
                 },
                 generated_at=generated_at,
             )

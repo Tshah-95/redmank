@@ -2419,6 +2419,31 @@ CREATE TABLE IF NOT EXISTS contact_verification_contracts (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS contact_reobservation_audit (
+  contact_reobservation_key TEXT PRIMARY KEY,
+  contact_contract_key TEXT NOT NULL REFERENCES contact_verification_contracts(contact_contract_key) ON DELETE CASCADE,
+  contact_assurance_key TEXT NOT NULL REFERENCES contact_assurance_audit(contact_assurance_key) ON DELETE CASCADE,
+  contact_key TEXT NOT NULL REFERENCES person_contacts(contact_key) ON DELETE CASCADE,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  contact_type TEXT NOT NULL,
+  normalized_contact_value TEXT NOT NULL,
+  contact_domain TEXT,
+  canonical_contact_domain TEXT,
+  domain_status TEXT NOT NULL,
+  source_url TEXT NOT NULL,
+  fetch_status TEXT NOT NULL,
+  http_status INTEGER,
+  source_hash TEXT,
+  reobserved_same_value INTEGER NOT NULL DEFAULT 0,
+  reobservation_status TEXT NOT NULL,
+  evidence_strength INTEGER NOT NULL DEFAULT 0,
+  match_context TEXT,
+  reobserved_at TEXT NOT NULL,
+  evidence_json TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS contact_verification_reviewer_decision_queue (
   reviewer_decision_key TEXT PRIMARY KEY,
   contact_contract_key TEXT NOT NULL REFERENCES contact_verification_contracts(contact_contract_key) ON DELETE CASCADE,

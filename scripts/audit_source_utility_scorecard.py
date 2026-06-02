@@ -677,12 +677,16 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     )
     contact_assurance_summary = read_json(ARTIFACTS / "contact_assurance_summary.json", {})
     contact_verification_contract_summary = read_json(ARTIFACTS / "contact_verification_contract_summary.json", {})
+    contact_reobservation_summary = read_json(ARTIFACTS / "contact_reobservation_summary.json", {})
     contact_reviewer_decision_summary = read_json(
         ARTIFACTS / "contact_verification_reviewer_decision_summary.json",
         {},
     )
     contact_assurance_status = contact_assurance_summary.get("by_assurance_status") or {}
     contact_review_required = int(contact_assurance_summary.get("review_required_rows") or 0)
+    contact_fresh_reobserved = int(contact_reobservation_summary.get("fresh_same_value_rows") or 0)
+    contact_value_absent = int(contact_reobservation_summary.get("value_absent_rows") or 0)
+    contact_source_fetch_problem = int(contact_reobservation_summary.get("source_fetch_problem_rows") or 0)
     contact_verified = scalar(conn, "SELECT COUNT(*) FROM accepted_verified_contact_facts")
 
     org_count = scalar(conn, "SELECT COUNT(*) FROM organizations")
@@ -1629,18 +1633,21 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             output_records=contact_count,
             accepted_records=contact_verified,
             candidate_records=max(contact_count - contact_review_required, 0),
-            needs_review_records=contact_review_required,
-            score=69.0,
+            needs_review_records=contact_review_required + contact_value_absent + contact_source_fetch_problem,
+            review_ready_records=contact_fresh_reobserved,
+            score=74.0 if contact_fresh_reobserved else 69.0,
             strengths=[
                 "Stores contact channels separately from person identity truth",
                 "Retains source, scope, verification status, confidence, and candidate status",
                 "Classifies public contacts into display-safety and verification-required tiers without dropping public data",
                 "Adds non-mutating verification contracts with stale dates and future refresh outcomes",
+                "Adds current-source reobservation evidence before reviewer acceptance",
                 "Gates verified contact facts through explicit reviewer decisions and current-source reobservation",
             ],
             limitations=[
                 "Current contacts are public-directory/profile unverified candidates, not verified contact facts",
                 "Contact channels can be stale or role-specific",
+                "Some historical contact candidates are absent from freshly fetched official pages and require source reconciliation",
                 "Current captured contacts are email-only; phone-support assurance is schema-ready but not populated",
             ],
             recommended_next_action="verify_current_source_before_display_or_outreach_and_review_domain_anomalies",
@@ -1649,6 +1656,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "by_verification_status": contact_by_verification,
                 "contact_assurance_summary": contact_assurance_summary,
                 "contact_verification_contract_summary": contact_verification_contract_summary,
+                "contact_reobservation_summary": contact_reobservation_summary,
                 "contact_verification_reviewer_decision_summary": contact_reviewer_decision_summary,
                 "contact_assurance_status": contact_assurance_status,
             },

@@ -1,0 +1,23 @@
+{
+  "by_domain_status": {
+    "institutional_domain": 312,
+    "likely_domain_typo_review": 1
+  },
+  "by_fetch_status": {
+    "fetched": 313
+  },
+  "by_reobservation_status": {
+    "fresh_official_same_value_reobserved": 205,
+    "fresh_official_value_absent": 108
+  },
+  "csv": "artifacts/data/contact_reobservation_audit.csv",
+  "fresh_same_value_rows": 205,
+  "generated_at": "2026-06-02T22:22:55.876527+00:00",
+  "json": "artifacts/data/contact_reobservation_audit.json",
+  "policy": "Contact reobservation is non-mutating. It records whether the current public source still contains the same contact value; verified contact facts still require explicit reviewer acceptance.",
+  "reobservation_rows": 313,
+  "same_value_domain_review_rows": 0,
+  "source_fetch_problem_rows": 0,
+  "unique_source_url_count": 7,
+  "value_absent_rows": 108
+}

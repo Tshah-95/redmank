@@ -114,6 +114,7 @@ CSV_TABLES = [
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),
     ("contact_assurance_audit.csv", "contact_assurance_audit"),
     ("contact_verification_contracts.csv", "contact_verification_contracts"),
+    ("contact_reobservation_audit.csv", "contact_reobservation_audit"),
     ("contact_verification_reviewer_decisions.csv", "contact_verification_reviewer_decisions"),
     ("contact_verification_reviewer_decision_queue.csv", "contact_verification_reviewer_decision_queue"),
     ("contact_verification_reviewer_decision_audit.csv", "contact_verification_reviewer_decision_audit"),

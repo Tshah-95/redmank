@@ -163,6 +163,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/contact_assurance_audit.csv`: non-mutating assurance ledger for public contact candidates, including domain/source checks, display-safety status, freshness policy, and required next verification.
 - `artifacts/data/contact_assurance_summary.json`: public-contact assurance counts by status, role, domain, source class, and display policy.
 - `artifacts/data/contact_verification_contracts.csv`: per-contact freshness/verification contracts that define stale dates, allowed refresh outcomes, and evidence required before verified use.
+- `artifacts/data/contact_reobservation_audit.csv`: current public-source reobservation audit for contact candidates, recording source fetch status, page hash, whether the same value is still present, and match context without accepting the contact.
+- `artifacts/data/contact_reobservation_summary.json`: reobservation counts by status, source fetch outcome, domain status, and source URL burden.
 - `artifacts/data/contact_verification_reviewer_decision_queue.csv`: reviewer-decision queue for public contact verification, including contact fingerprints and required confirmation fields.
 - `artifacts/data/contact_verification_reviewer_decisions.csv`: manual reviewer decision input file for accepting/rejecting verified contact facts.
 - `artifacts/data/contact_verification_reviewer_decision_audit.csv`: audit of manual contact decisions against the current contact fingerprint and confirmation requirements.

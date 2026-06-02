@@ -557,6 +557,13 @@ ARTIFACT_SPECS = [
     ("artifacts/data/contact_assurance_audit.csv", "contact_assurance_ledger", "csv", "contact_assurance_audit", True),
     ("artifacts/data/contact_verification_contracts.csv", "contact_verification_contract_ledger", "csv", "contact_verification_contracts", True),
     (
+        "artifacts/data/contact_reobservation_audit.csv",
+        "contact_reobservation_ledger",
+        "csv",
+        "contact_reobservation_audit",
+        True,
+    ),
+    (
         "artifacts/data/contact_verification_reviewer_decisions.csv",
         "contact_verification_reviewer_decision_input",
         "csv",

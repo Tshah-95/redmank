@@ -227,6 +227,21 @@ def read_contracts(conn: sqlite3.Connection) -> list[dict]:
     )
 
 
+def read_reobservations(conn: sqlite3.Connection) -> dict[str, dict]:
+    rows = sqlite_rows(
+        conn,
+        """
+        SELECT *
+        FROM contact_reobservation_audit
+        ORDER BY contact_contract_key, reobserved_at DESC, evidence_strength DESC
+        """,
+    )
+    latest = {}
+    for row in rows:
+        latest.setdefault(row["contact_contract_key"], row)
+    return latest
+
+
 def contact_fingerprint(row: dict) -> str:
     stable = {
         "contact_contract_key": row.get("contact_contract_key"),
@@ -265,7 +280,14 @@ def queue_status(row: dict) -> str:
     return "not_ready_for_reviewer_decision"
 
 
-def recommended_action(status: str) -> str:
+def recommended_action(status: str, reobservation: dict | None = None) -> str:
+    if (
+        status == "ready_for_reviewer_verification"
+        and reobservation
+        and str(reobservation.get("reobserved_same_value") or "0") == "1"
+        and reobservation.get("reobservation_status") == "fresh_official_same_value_reobserved"
+    ):
+        return "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation"
     if status == "ready_for_reviewer_verification":
         return "record_accept_reject_or_needs_more_evidence_decision"
     if status == "domain_review_required_before_decision":
@@ -280,11 +302,12 @@ def review_question(row: dict) -> str:
     )
 
 
-def build_queue(rows: list[dict], generated_at: str) -> list[dict]:
+def build_queue(rows: list[dict], reobservations: dict[str, dict], generated_at: str) -> list[dict]:
     queue = []
     for item in rows:
         fingerprint = contact_fingerprint(item)
         status = queue_status(item)
+        reobservation = reobservations.get(item["contact_contract_key"])
         evidence = {
             "contact_contract": {
                 "contact_contract_key": item.get("contact_contract_key"),
@@ -305,6 +328,16 @@ def build_queue(rows: list[dict], generated_at: str) -> list[dict]:
                 "evidence_required_to_verify": item.get("evidence_required_to_verify"),
                 "evidence_required_to_reject": item.get("evidence_required_to_reject"),
                 "review_trigger_json": item.get("review_trigger_json"),
+            },
+            "current_source_reobservation": {
+                "contact_reobservation_key": (reobservation or {}).get("contact_reobservation_key", ""),
+                "reobservation_status": (reobservation or {}).get("reobservation_status", ""),
+                "reobserved_same_value": (reobservation or {}).get("reobserved_same_value", ""),
+                "evidence_strength": (reobservation or {}).get("evidence_strength", ""),
+                "source_hash": (reobservation or {}).get("source_hash", ""),
+                "http_status": (reobservation or {}).get("http_status", ""),
+                "reobserved_at": (reobservation or {}).get("reobserved_at", ""),
+                "match_context": (reobservation or {}).get("match_context", ""),
             },
             "manual_decision_file": str(MANUAL_DECISIONS_CSV.relative_to(ROOT)),
             "decision_policy": {
@@ -348,7 +381,7 @@ def build_queue(rows: list[dict], generated_at: str) -> list[dict]:
             "contact_fingerprint": fingerprint,
             "required_confirmation_fields": "; ".join(CONFIRMATION_FIELDS),
             "required_reviewer_action": REQUIRED_REVIEWER_ACTION,
-            "recommended_next_action": recommended_action(status),
+            "recommended_next_action": recommended_action(status, reobservation),
             "review_question": review_question(item),
             "evidence_json": dumps(evidence),
             "generated_at": generated_at,
@@ -623,7 +656,7 @@ def main() -> None:
 
     generated_at = now_utc()
     conn = sqlite3.connect(args.db)
-    queue = build_queue(read_contracts(conn), generated_at)
+    queue = build_queue(read_contracts(conn), read_reobservations(conn), generated_at)
     audits = audit_rows(queue, generated_at)
     accepted = accepted_contacts(queue, audits, generated_at)
 
