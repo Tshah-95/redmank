@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import csv
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -31,6 +32,14 @@ def read_json(path: Path, default):
     if not path.exists():
         return default
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_csv(path: Path, limit: int | None = None) -> list[dict]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
+        data = list(csv.DictReader(f))
+    return data[:limit] if limit else data
 
 
 def main() -> None:
@@ -215,6 +224,8 @@ def main() -> None:
     pubmed_article_summary = read_json(ARTIFACTS / "pubmed_article_candidate_summary.json", {})
     attending_profile_summary = read_json(ARTIFACTS / "penn_attending_profile_summary.json", {})
     state_machine_summary = read_json(ARTIFACTS / "training_state_machine_summary.json", {})
+    enrichment_coverage_summary = read_json(ARTIFACTS / "enrichment_coverage_summary.json", {})
+    weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
     hup_coverage_counts = [
         {"coverage_status": status, "count": count}
         for status, count in sorted((hup_coverage_summary.get("by_coverage_status") or {}).items())
@@ -226,6 +237,14 @@ def main() -> None:
     state_machine_clock_counts = [
         {"clock_model": clock, "count": count}
         for clock, count in sorted((state_machine_summary.get("by_clock_model") or {}).items())
+    ]
+    enrichment_coverage_bands = [
+        {"coverage_band": band, "count": count}
+        for band, count in sorted((enrichment_coverage_summary.get("by_coverage_band") or {}).items())
+    ]
+    enrichment_next_actions = [
+        {"recommended_next_action": action, "count": count}
+        for action, count in sorted((enrichment_coverage_summary.get("by_recommended_next_action") or {}).items())
     ]
     hup_gap_candidate_counts = [
         {"candidate_status": status, "count": count}
@@ -273,6 +292,8 @@ def main() -> None:
         "transition_rule_counts": transition_rule_counts,
         "lifecycle_code_counts": lifecycle_code_counts,
         "training_state_machine_summary": state_machine_summary,
+        "enrichment_coverage_summary": enrichment_coverage_summary,
+        "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
@@ -418,6 +439,36 @@ def main() -> None:
         ),
         "",
         "Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.",
+        "",
+        "## Enrichment Coverage Audit",
+        "",
+        f"People audited: {enrichment_coverage_summary.get('person_rows', 0)}. Program/role groups audited: {enrichment_coverage_summary.get('program_rows', 0)}. Average coverage score: {enrichment_coverage_summary.get('avg_coverage_score', 0)}.",
+        "",
+        "Coverage bands:",
+        "",
+        *md_table(enrichment_coverage_bands, ["coverage_band", "count"]),
+        "",
+        "Recommended next actions:",
+        "",
+        *md_table(enrichment_next_actions, ["recommended_next_action", "count"]),
+        "",
+        "Lowest-scoring program/role surfaces:",
+        "",
+        *md_table(
+            weakest_program_coverage,
+            [
+                "program_name",
+                "role",
+                "person_count",
+                "avg_coverage_score",
+                "profile_coverage_rate",
+                "medical_school_coverage_rate",
+                "article_candidate_coverage_rate",
+                "top_recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: coverage needs to be audited separately from evidence acceptance. This pass shows where the recursive loop should work next: official profile search, organization alias review, article-level research collection, and high-priority reconciliation.",
         "",
         "## Utility Observations",
         "",

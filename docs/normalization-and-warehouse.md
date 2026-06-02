@@ -108,6 +108,14 @@ This lets the method improve without quietly poisoning the corpus.
 
 `v_evidence_reconciliation_queue` is the review workbench. It combines candidate/needs-review scholarly claims and career-event claims into one ranked surface with a review action. Priority is based on status, source/claim type, confidence, and non-name anchors such as Penn affiliation, prior education/training affiliation, specialty-topic match, ORCID presence, structured provider training fields, and Penn-training language. Low-value discovery signals remain visible but are ranked below article/profile evidence.
 
+`scripts/audit_enrichment_coverage.py` turns the current evidence layers into person- and program-level coverage rows:
+
+- `person_enrichment_coverage.csv`: one row per person with profile/headshot coverage, contact count, official training-event counts, seeded-vs-cleaned organization status, PubMed author/article candidate counts, career-event candidates, reconciliation queue burden, state-machine status, coverage score, and recommended next action.
+- `program_enrichment_coverage.csv`: one row per program/role with profile/contact/background/research coverage rates, unresolved organization-review burden, reconciliation burden, and top next action.
+- `enrichment_coverage_summary.json`: role, coverage-band, next-action, and overall coverage-rate counts.
+
+The coverage score is not a truth score. A candidate PubMed article can improve coverage because there is something to reconcile, but it does not become accepted publication enrichment until a separate evidence-reconciliation pass proves identity anchors. The recommended action column is the recursive loop controller: search official profiles, resolve organization aliases, collect article-level research candidates, reconcile high-priority evidence, or monitor for the next refresh/diff.
+
 ## Attending Trend Evidence
 
 Current Penn attending/faculty pages and official Penn provider/profile pages are loaded as career-event evidence, not as trainee roster truth. `scripts/enrich_penn_attending_profiles.py` follows profile URLs from current attending candidates and extracts only conservative official-profile claims:

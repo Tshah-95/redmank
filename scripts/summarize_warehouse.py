@@ -154,6 +154,11 @@ def main() -> None:
         state_machine_summary = json.loads(state_machine_summary_path.read_text(encoding="utf-8"))
     else:
         state_machine_summary = {}
+    enrichment_coverage_summary_path = ARTIFACTS / "enrichment_coverage_summary.json"
+    if enrichment_coverage_summary_path.exists():
+        enrichment_coverage_summary = json.loads(enrichment_coverage_summary_path.read_text(encoding="utf-8"))
+    else:
+        enrichment_coverage_summary = {}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "database_path": str(DB.relative_to(ROOT)),
@@ -176,6 +181,7 @@ def main() -> None:
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
         "organization_category_counts": category_counts,
         "training_state_machine_summary": state_machine_summary,
+        "enrichment_coverage_summary": enrichment_coverage_summary,
     }
     (ARTIFACTS / "warehouse_summary.json").write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",

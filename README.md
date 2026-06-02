@@ -29,6 +29,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/penn_outcome_candidates.json`: source-level alumni/outcome context claims.
 - `artifacts/data/evidence_claims.csv`: accepted and candidate evidence claims.
 - `artifacts/data/evidence_reconciliation_queue.csv`: ranked review queue for candidate evidence and career-event reconciliation.
+- `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
+- `artifacts/data/program_enrichment_coverage.csv`: per-program/role enrichment coverage rollup and next-action summary.
 - `artifacts/data/research_candidate_claims.json`: durable replay artifact for candidate-only scholarly enrichment claims.
 - `artifacts/data/pubmed_article_candidate_claims.json`: article-level PubMed candidates with author, affiliation, topic, and recency features.
 - `artifacts/data/training_states_current.csv`: normalized person/program training state observations with transition and staleness dates.
@@ -102,6 +104,7 @@ python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 1
 python3 scripts/build_sqlite.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/audit_training_state_machine.py
+python3 scripts/audit_enrichment_coverage.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```

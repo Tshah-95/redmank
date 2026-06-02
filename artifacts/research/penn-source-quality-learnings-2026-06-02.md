@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T06:34:39.083486+00:00
+Generated: 2026-06-02T06:40:36.921497+00:00
 
 ## What This Pass Did
 
@@ -475,6 +475,64 @@ Top queued records:
 | evidence_claim | Elisabeth (Elise) Seyferth, MD | resident | pubmed_article_candidate | needs_review | 0.91 | 114 | Review article author, affiliation, topic, and source profile anchors before accepting publication enrichment. |
 
 Learning: candidate evidence needs a ranked reconciliation surface. The queue separates review-ready items, such as article-level PubMed candidates with non-name anchors and official attending profile Penn-training claims, from low-value discovery signals like name-only PubMed query counts.
+
+## Enrichment Coverage Audit
+
+People audited: 1336. Program/role groups audited: 78. Average coverage score: 60.24.
+
+Coverage bands:
+
+| coverage_band | count |
+| --- | --- |
+| broad_enrichment_surface | 95 |
+| moderate_enrichment_surface | 1078 |
+| thin_enrichment_surface | 163 |
+
+Recommended next actions:
+
+| recommended_next_action | count |
+| --- | --- |
+| collect_article_level_research_candidates | 194 |
+| monitor_refresh_and_diff | 205 |
+| official_profile_search | 467 |
+| organization_alias_review | 355 |
+| public_contact_search | 33 |
+| reconcile_high_priority_evidence | 49 |
+| review_training_state_machine | 20 |
+| source_medical_school_background | 9 |
+| source_residency_background | 4 |
+
+Lowest-scoring program/role surfaces:
+
+| program_name | role | person_count | avg_coverage_score | profile_coverage_rate | medical_school_coverage_rate | article_candidate_coverage_rate | top_recommended_next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Adult Reconstructive Orthopedics Fellowship | fellow | 3 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| CHOP Otolaryngology Fellowship | fellow | 4 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Facial Plastic and Reconstructive Surgery Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Foot and Ankle Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Neurotology Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Rhinology and Skull Base Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Shoulder and Elbow Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Sleep Medicine and Surgery Fellowship | fellow | 2 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Spine Fellowship | fellow | 1 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Oral Medicine Residency | resident | 8 | 25.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Otorhinolaryngology Residency | resident | 31 | 25.65 | 0.0 | 0.0 | 0.065 | official_profile_search |
+| Sleep Medicine Fellowship | fellow | 7 | 26.43 | 0.0 | 0.0 | 0.143 | official_profile_search |
+| Radiation Oncology Residency | resident | 17 | 27.35 | 0.0 | 0.0 | 0.235 | official_profile_search |
+| ABR Alternate Pathway to Certification | fellow | 1 | 30.0 | 0.0 | 0.0 | 0.0 | official_profile_search |
+| Hand Surgery Fellowship | fellow | 2 | 30.0 | 0.0 | 0.0 | 0.5 | official_profile_search |
+| Sports Medicine Fellowship | fellow | 2 | 30.0 | 0.0 | 0.0 | 0.5 | official_profile_search |
+| Thoracic Surgery - Thoracic Track Fellowship | fellow | 1 | 40.0 | 0.0 | 0.0 | 1.0 | official_profile_search |
+| Trauma and Surgical Critical Care Fellowship | fellow | 12 | 41.0 | 0.5 | 0.083 | 0.417 | official_profile_search |
+| Aortic Surgery Fellowship | fellow | 2 | 45.0 | 0.5 | 0.5 | 0.0 | official_profile_search |
+| Penn-CHOP Internal Medicine-Pediatrics Residency | resident | 25 | 47.16 | 0.08 | 0.68 | 0.36 | official_profile_search |
+| Internal Medicine Residency - Medical Education Leadership Track | resident | 9 | 48.33 | 0.667 | 0.556 | 0.111 | organization_alias_review |
+| Ophthalmology Fellowship | fellow | 10 | 52.5 | 0.0 | 0.0 | 0.8 | official_profile_search |
+| Podiatric Surgery Residency | resident | 16 | 52.69 | 0.0 | 1.0 | 0.0 | official_profile_search |
+| Vascular Surgery Fellowship | fellow | 4 | 53.25 | 0.75 | 0.5 | 0.0 | official_profile_search |
+
+Learning: coverage needs to be audited separately from evidence acceptance. This pass shows where the recursive loop should work next: official profile search, organization alias review, article-level research collection, and high-priority reconciliation.
 
 ## Utility Observations
 

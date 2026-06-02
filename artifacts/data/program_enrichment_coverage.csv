@@ -1,0 +1,79 @@
+program_name,role,person_count,avg_coverage_score,broad_enrichment_surface_count,moderate_enrichment_surface_count,thin_enrichment_surface_count,profile_coverage_rate,contact_coverage_rate,medical_school_coverage_rate,residency_coverage_rate,article_candidate_coverage_rate,cleaned_org_review_count,reconciliation_queue_count,top_recommended_next_action
+Adult Reconstructive Orthopedics Fellowship,fellow,3,25.0,0,0,3,0.0,0.0,0.0,0.0,0.0,0,3,official_profile_search
+CHOP Otolaryngology Fellowship,fellow,4,25.0,0,0,4,0.0,0.0,0.0,0.0,0.0,0,4,official_profile_search
+Facial Plastic and Reconstructive Surgery Fellowship,fellow,1,25.0,0,0,1,0.0,0.0,0.0,0.0,0.0,0,1,official_profile_search
+Foot and Ankle Fellowship,fellow,2,25.0,0,0,2,0.0,0.0,0.0,0.0,0.0,0,2,official_profile_search
+"Head and Neck Surgical Oncology, Microvascular Reconstruction, and Robotic Surgery Fellowship",fellow,2,25.0,0,0,2,0.0,0.0,0.0,0.0,0.0,0,2,official_profile_search
+Neurotology Fellowship,fellow,1,25.0,0,0,1,0.0,0.0,0.0,0.0,0.0,0,1,official_profile_search
+Rhinology and Skull Base Surgery Fellowship,fellow,2,25.0,0,0,2,0.0,0.0,0.0,0.0,0.0,0,2,official_profile_search
+Shoulder and Elbow Fellowship,fellow,1,25.0,0,0,1,0.0,0.0,0.0,0.0,0.0,0,1,official_profile_search
+Sleep Medicine and Surgery Fellowship,fellow,2,25.0,0,0,2,0.0,0.0,0.0,0.0,0.0,0,2,official_profile_search
+Spine Fellowship,fellow,1,25.0,0,0,1,0.0,0.0,0.0,0.0,0.0,0,1,official_profile_search
+Oral Medicine Residency,resident,8,25.0,0,0,8,0.0,0.0,0.0,0.0,0.0,0,8,official_profile_search
+Otorhinolaryngology Residency,resident,31,25.65,0,0,31,0.0,0.0,0.0,0.0,0.065,0,51,official_profile_search
+Sleep Medicine Fellowship,fellow,7,26.43,0,0,7,0.0,0.0,0.0,0.0,0.143,0,9,official_profile_search
+Radiation Oncology Residency,resident,17,27.35,0,0,17,0.0,0.0,0.0,0.0,0.235,0,52,official_profile_search
+ABR Alternate Pathway to Certification,fellow,1,30.0,0,0,1,0.0,0.0,0.0,0.0,0.0,0,1,official_profile_search
+Hand Surgery Fellowship,fellow,2,30.0,0,0,2,0.0,0.0,0.0,0.0,0.5,0,9,official_profile_search
+Sports Medicine Fellowship,fellow,2,30.0,0,0,2,0.0,0.0,0.0,0.0,0.5,0,12,official_profile_search
+Thoracic Surgery - Thoracic Track Fellowship,fellow,1,40.0,0,0,1,0.0,0.0,0.0,0.0,1.0,0,2,official_profile_search
+Trauma and Surgical Critical Care Fellowship,fellow,12,41.0,0,2,10,0.5,0.0,0.083,0.0,0.417,0,34,official_profile_search
+Aortic Surgery Fellowship,fellow,2,45.0,0,1,1,0.5,0.0,0.5,0.0,0.0,3,2,official_profile_search
+Penn-CHOP Internal Medicine-Pediatrics Residency,resident,25,47.16,0,12,13,0.08,0.0,0.68,0.0,0.36,11,82,official_profile_search
+Internal Medicine Residency - Medical Education Leadership Track,resident,9,48.33,0,6,3,0.667,0.0,0.556,0.0,0.111,3,12,organization_alias_review
+Ophthalmology Fellowship,fellow,10,52.5,0,8,2,0.0,0.0,0.0,1.0,0.8,9,59,official_profile_search
+Podiatric Surgery Residency,resident,16,52.69,0,16,0,0.0,0.0,1.0,0.0,0.0,17,16,official_profile_search
+Vascular Surgery Fellowship,fellow,4,53.25,0,2,2,0.75,0.0,0.5,0.5,0.0,2,4,official_profile_search
+Combined Internal Medicine-Dermatology Residency,resident,5,54.0,0,4,1,0.2,0.0,1.0,0.0,0.2,2,6,official_profile_search
+Internal Medicine Residency - Global Health Equities Track,resident,20,54.65,0,13,7,0.3,0.0,0.95,0.0,0.4,13,69,review_training_state_machine
+Ophthalmology Residency,resident,20,55.25,0,17,3,0.0,0.0,1.0,0.0,0.45,5,73,official_profile_search
+Internal Medicine Primary Care Residency,resident,21,55.33,0,16,5,0.333,0.0,1.0,0.0,0.19,8,44,official_profile_search
+Anesthesiology Residency,resident,97,56.18,0,83,14,0.32,0.0,1.0,0.0,0.237,27,218,official_profile_search
+Physical Medicine and Rehabilitation Residency,resident,22,58.82,0,20,2,0.727,0.0,1.0,0.0,0.227,12,49,organization_alias_review
+Adult Congenital Heart Disease Fellowship,fellow,2,59.0,0,2,0,0.0,0.0,1.0,1.0,0.0,3,2,official_profile_search
+Advanced Noninvasive Cardiac Imaging Fellowship,fellow,2,59.0,0,2,0,0.0,0.0,1.0,1.0,0.0,4,2,official_profile_search
+Cardio-Oncology Fellowship,fellow,2,59.0,0,2,0,0.0,0.0,1.0,1.0,0.0,3,2,official_profile_search
+Geriatric Medicine Fellowship,fellow,3,59.0,0,3,0,0.0,0.0,1.0,1.0,0.0,4,3,official_profile_search
+Internal Medicine Residency,resident,173,59.75,0,163,10,0.728,0.0,0.988,0.0,0.283,75,472,organization_alias_review
+Internal Medicine Residency - Healthcare Leadership in Quality Track,resident,25,59.8,0,24,1,0.8,0.0,1.0,0.0,0.2,11,47,organization_alias_review
+Cardiothoracic Transplantation Surgery Fellowship,fellow,1,60.0,0,1,0,1.0,0.0,1.0,0.0,0.0,2,1,source_residency_background
+Internal Medicine Physician-Scientist Pathway,resident,15,60.33,0,15,0,0.6,0.0,1.0,0.0,0.333,3,56,official_profile_search
+Hematology/Oncology Fellowship,fellow,32,61.97,0,32,0,0.0,0.0,1.0,1.0,0.094,30,46,official_profile_search
+Medical Scientist Training Program,medical_student,225,62.29,0,225,0,1.0,0.911,0.0,0.0,0.0,0,0,monitor_refresh_and_diff
+Family Medicine Residency,resident,35,62.66,0,34,1,1.0,0.0,0.971,0.0,0.257,9,89,collect_article_level_research_candidates
+Interventional Cardiology Fellowship,fellow,4,62.75,0,4,0,0.0,0.0,1.0,1.0,0.25,6,14,official_profile_search
+General Surgery Residency,resident,75,63.68,9,58,8,0.867,0.0,0.92,0.013,0.36,61,255,organization_alias_review
+Advanced Heart Failure Transplant Cardiology Fellowship,fellow,2,64.0,0,2,0,0.0,0.0,1.0,1.0,0.5,3,3,official_profile_search
+"Endocrinology, Diabetes and Metabolism Fellowship",fellow,21,64.0,1,20,0,0.143,0.0,1.0,1.0,0.238,27,37,official_profile_search
+Vascular Surgery Integrated Residency,resident,9,64.22,1,8,0,1.0,0.0,1.0,0.0,0.111,7,19,organization_alias_review
+Diagnostic Radiology Residency,resident,54,64.74,1,53,0,1.0,0.0,1.0,0.0,0.185,51,108,organization_alias_review
+Clinical Cardiac Electrophysiology Fellowship,fellow,12,64.83,0,12,0,0.0,0.0,1.0,1.0,0.417,11,50,official_profile_search
+Cardiovascular Disease Fellowship,fellow,33,65.21,0,33,0,0.0,0.0,1.0,1.0,0.424,25,133,official_profile_search
+Plastic Surgery Residency,resident,22,65.32,0,22,0,1.0,0.0,1.0,0.045,0.182,21,62,organization_alias_review
+Urology Residency,resident,22,65.41,2,20,0,1.0,0.0,1.0,0.0,0.227,19,53,organization_alias_review
+Cardiothoracic Surgery Residency,resident,15,66.0,0,15,0,1.0,0.0,1.0,0.0,0.267,15,45,organization_alias_review
+Orthopedic Surgery Residency,resident,40,66.88,4,36,0,0.95,0.0,1.0,0.0,0.375,34,159,organization_alias_review
+Hospice and Palliative Medicine Fellowship,fellow,5,67.0,1,4,0,0.4,0.0,1.0,1.0,0.4,10,17,official_profile_search
+Advanced Gastroenterology and Hepatology Fellowship,fellow,2,69.0,0,2,0,1.0,0.0,1.0,1.0,0.0,3,2,organization_alias_review
+Advanced Musculoskeletal Fellowship,fellow,3,69.0,0,3,0,1.0,0.0,1.0,1.0,0.0,6,3,organization_alias_review
+Advanced Nuclear Radiology Fellowship,fellow,1,69.0,0,1,0,1.0,0.0,1.0,1.0,0.0,1,1,organization_alias_review
+Craniofacial Surgery Fellowship,fellow,1,69.0,0,1,0,1.0,0.0,1.0,1.0,0.0,2,1,organization_alias_review
+Oncologic Imaging Fellowship,fellow,1,69.0,0,1,0,1.0,0.0,1.0,1.0,0.0,2,1,organization_alias_review
+Microvascular Reconstructive Surgery Fellowship,fellow,5,69.2,4,0,1,0.8,0.0,0.8,0.8,0.8,7,42,organization_alias_review
+Obstetrics and Gynecology Residency,resident,32,69.44,9,23,0,1.0,0.0,1.0,0.0,0.406,13,115,collect_article_level_research_candidates
+Nephrology Fellowship,fellow,22,69.45,6,16,0,0.545,0.0,1.0,1.0,0.5,39,68,organization_alias_review
+Allergy and Immunology Fellowship,fellow,4,69.5,1,3,0,0.0,1.0,1.0,1.0,0.25,7,14,official_profile_search
+Interventional Radiology Integrated Residency,resident,19,69.63,4,15,0,1.0,0.0,1.0,0.0,0.421,6,78,collect_article_level_research_candidates
+Transplant Surgery Fellowship,fellow,3,70.0,0,3,0,1.0,0.0,1.0,1.0,0.0,4,3,organization_alias_review
+Neuroradiology Fellowship,fellow,11,70.64,1,10,0,1.0,0.0,1.0,0.909,0.091,13,21,organization_alias_review
+Gastroenterology and Hepatology Fellowship,fellow,23,70.74,3,20,0,0.957,0.0,1.0,1.0,0.13,29,38,organization_alias_review
+Pulmonary and Critical Care Fellowship,fellow,34,70.82,9,25,0,0.0,1.0,1.0,1.0,0.265,34,80,official_profile_search
+Abdominal Imaging Fellowship,fellow,9,71.22,2,7,0,1.0,0.0,1.0,1.0,0.222,19,13,organization_alias_review
+Rheumatology Fellowship,fellow,15,71.67,4,11,0,1.0,0.0,1.0,1.0,0.267,32,30,organization_alias_review
+Colon and Rectal Surgery Fellowship,fellow,1,72.0,0,1,0,1.0,0.0,1.0,1.0,0.0,1,1,organization_alias_review
+Thoracic Surgery Fellowship - Cardiac Track,fellow,4,72.25,1,3,0,1.0,0.0,1.0,1.0,0.25,7,14,organization_alias_review
+Neurological Surgery Residency,resident,21,74.52,17,4,0,1.0,1.0,1.0,0.0,0.048,5,25,collect_article_level_research_candidates
+Infectious Diseases Fellowship,fellow,15,78.0,12,3,0,0.533,1.0,1.0,1.0,0.467,32,67,organization_alias_review
+Internal Medicine Residency - Global Health Equities Track,fellow,2,78.5,2,0,0,0.0,1.0,1.0,1.0,1.0,4,16,review_training_state_machine
+Cardiothoracic Fellowship,fellow,1,79.0,1,0,0,1.0,0.0,1.0,1.0,1.0,2,5,organization_alias_review
+Nuclear Radiology Fellowship,fellow,2,79.0,2,0,0,1.0,0.0,1.0,1.0,1.0,4,14,organization_alias_review
