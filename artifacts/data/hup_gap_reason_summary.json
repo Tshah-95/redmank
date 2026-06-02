@@ -23,9 +23,10 @@
   },
   "csv": "artifacts/data/hup_gap_reason_audit.csv",
   "gap_rows": 27,
-  "generated_at": "2026-06-02T08:09:55.387631+00:00",
+  "generated_at": "2026-06-02T12:54:38.234872+00:00",
   "json": "artifacts/data/hup_gap_reason_audit.json",
   "low_content_gap_rows": 3,
   "related_loaded_source_gap_rows": 5,
-  "roster_candidate_gap_rows": 5
+  "roster_candidate_gap_rows": 5,
+  "supported_person_structure_gap_rows": 2
 }

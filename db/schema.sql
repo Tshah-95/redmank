@@ -117,6 +117,9 @@ CREATE TABLE IF NOT EXISTS official_program_source_probes (
   text_length INTEGER NOT NULL DEFAULT 0,
   roster_term_count INTEGER NOT NULL DEFAULT 0,
   context_term_count INTEGER NOT NULL DEFAULT 0,
+  supported_person_structure_count INTEGER NOT NULL DEFAULT 0,
+  supported_person_structure_types TEXT,
+  heading_name_list_support_allowed INTEGER NOT NULL DEFAULT 0,
   sha256 TEXT,
   fetched_at TEXT,
   error TEXT
@@ -138,6 +141,8 @@ CREATE TABLE IF NOT EXISTS official_program_source_candidates (
   http_status INTEGER,
   roster_term_count INTEGER NOT NULL DEFAULT 0,
   context_term_count INTEGER NOT NULL DEFAULT 0,
+  supported_person_structure_count INTEGER NOT NULL DEFAULT 0,
+  supported_person_structure_types TEXT,
   reasons_json TEXT,
   evidence_json TEXT
 );
@@ -160,6 +165,9 @@ CREATE TABLE IF NOT EXISTS official_program_gap_reason_audit (
   low_content_probe_count INTEGER NOT NULL DEFAULT 0,
   max_roster_term_count INTEGER NOT NULL DEFAULT 0,
   max_context_term_count INTEGER NOT NULL DEFAULT 0,
+  supported_person_structure_candidate_count INTEGER NOT NULL DEFAULT 0,
+  max_supported_person_structure_count INTEGER NOT NULL DEFAULT 0,
+  supported_person_structure_types TEXT,
   related_loaded_source_count INTEGER NOT NULL DEFAULT 0,
   related_loaded_person_count INTEGER NOT NULL DEFAULT 0,
   top_candidate_url TEXT,

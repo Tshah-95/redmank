@@ -1,8 +1,8 @@
 {
   "by_candidate_status": {
     "low_value_candidate": 5,
-    "program_context_candidate": 55,
-    "roster_source_candidate": 12
+    "program_context_candidate": 53,
+    "roster_source_candidate": 14
   },
   "by_coverage_status": {
     "discovered_no_current_roster": 54,
@@ -10,7 +10,7 @@
   },
   "candidate_urls": 72,
   "gap_programs": 27,
-  "generated_at": "2026-06-02T08:09:34.060478+00:00",
+  "generated_at": "2026-06-02T12:54:10.982445+00:00",
   "source_pages_probed": 23,
   "top_roster_candidates": [
     {
@@ -19,7 +19,9 @@
       "confidence": 0.75,
       "department": "Radiology",
       "priority": 135,
-      "program_name": "Radiology - Interventional, Independent"
+      "program_name": "Radiology - Interventional, Independent",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Meet Our Residents",
@@ -27,7 +29,9 @@
       "confidence": 0.75,
       "department": "Surgery",
       "priority": 135,
-      "program_name": "Plastic Surgery"
+      "program_name": "Plastic Surgery",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Fellows",
@@ -35,7 +39,9 @@
       "confidence": 0.7,
       "department": "Pathology and Laboratory Medicine",
       "priority": 130,
-      "program_name": "Soft Tissue/Bone (Selective)"
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Residents",
@@ -43,7 +49,9 @@
       "confidence": 0.7,
       "department": "Pathology and Laboratory Medicine",
       "priority": 130,
-      "program_name": "Soft Tissue/Bone (Selective)"
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Fellows",
@@ -51,7 +59,9 @@
       "confidence": 0.65,
       "department": "Pathology and Laboratory Medicine",
       "priority": 125,
-      "program_name": "Soft Tissue/Bone (Selective)"
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Meet our Integrated IR residents",
@@ -59,7 +69,9 @@
       "confidence": 0.65,
       "department": "Radiology",
       "priority": 125,
-      "program_name": "Radiology - Interventional, Independent"
+      "program_name": "Radiology - Interventional, Independent",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Student Fellows",
@@ -67,7 +79,9 @@
       "confidence": 0.6,
       "department": "Pathology and Laboratory Medicine",
       "priority": 120,
-      "program_name": "Soft Tissue/Bone (Selective)"
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Penn Medicine Dermatology site",
@@ -75,7 +89,9 @@
       "confidence": 0.55,
       "department": "Dermatology",
       "priority": 115,
-      "program_name": "Dermatology"
+      "program_name": "Dermatology",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Chief Residents",
@@ -83,7 +99,9 @@
       "confidence": 0.55,
       "department": "Dermatology",
       "priority": 115,
-      "program_name": "Dermatology"
+      "program_name": "Dermatology",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Medicine-Dermatology Residents",
@@ -91,7 +109,9 @@
       "confidence": 0.55,
       "department": "Dermatology",
       "priority": 115,
-      "program_name": "Dermatology"
+      "program_name": "Dermatology",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Advanced Gastroenterology and Hepatology Fellows",
@@ -99,7 +119,9 @@
       "confidence": 0.55,
       "department": "Internal Medicine",
       "priority": 115,
-      "program_name": "Transplant Hepatology"
+      "program_name": "Transplant Hepatology",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
     },
     {
       "candidate_title": "Current",
@@ -107,7 +129,33 @@
       "confidence": 0.55,
       "department": "Pathology and Laboratory Medicine",
       "priority": 115,
-      "program_name": "Soft Tissue/Bone (Selective)"
+      "program_name": "Soft Tissue/Bone (Selective)",
+      "supported_person_structure_count": 0,
+      "supported_person_structure_types": []
+    },
+    {
+      "candidate_title": "Interventional Radiology Integrated and Independent Residency",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/irdr-interventional-radiology",
+      "confidence": 0.57,
+      "department": "Radiology",
+      "priority": 92,
+      "program_name": "Radiology - Interventional, Independent",
+      "supported_person_structure_count": 5,
+      "supported_person_structure_types": [
+        "heading_name_list"
+      ]
+    },
+    {
+      "candidate_title": "Plastic Surgery Integrated & Independent Residency - Penn Medicine",
+      "candidate_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery",
+      "confidence": 0.57,
+      "department": "Surgery",
+      "priority": 92,
+      "program_name": "Plastic Surgery",
+      "supported_person_structure_count": 1,
+      "supported_person_structure_types": [
+        "heading_name_list"
+      ]
     }
   ]
 }

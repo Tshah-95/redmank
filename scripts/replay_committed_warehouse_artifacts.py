@@ -106,7 +106,15 @@ def insert_rows(conn: sqlite3.Connection, table: str, rows: list[dict], delete_f
         raise ValueError(f"{table} artifact is missing table columns: {required_missing}")
     placeholders = ", ".join(f":{column}" for column in row_columns)
     column_sql = ", ".join(row_columns)
-    prepared_rows = [{column: row.get(column, "") for column in row_columns} for row in rows]
+    prepared_rows = []
+    for row in rows:
+        prepared = {}
+        for column in row_columns:
+            value = row.get(column, "")
+            if isinstance(value, (dict, list)):
+                value = json.dumps(value, ensure_ascii=False, sort_keys=True)
+            prepared[column] = value
+        prepared_rows.append(prepared)
     if table == "contact_assurance_audit":
         for row in prepared_rows:
             if not row.get("person_key"):

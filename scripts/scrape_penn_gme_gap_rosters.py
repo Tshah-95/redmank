@@ -427,6 +427,14 @@ def record_for(
     profile_url: str = "",
     headshot_url: str = "",
 ) -> dict:
+    contacts = list(contacts or [])
+    if profile_url.lower().startswith("mailto:"):
+        email = email_from_href(profile_url)
+        if email:
+            contacts.append(contact_from_email(email, "Profile email link", source_url))
+        profile_url = ""
+    if profile_url and not re.match(r"^https?://", profile_url, flags=re.I):
+        profile_url = ""
     quality_notes = [
         "official_hup_gap_queue_source",
         "queue_driven_roster_scrape_needs_review",

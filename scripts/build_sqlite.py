@@ -1837,9 +1837,10 @@ def insert_official_program_gap_source_candidates(conn: sqlite3.Connection) -> N
                 INSERT INTO official_program_source_probes
                 (official_program_key, program_name, coverage_status, source_role,
                  requested_url, effective_url, http_status, title, content_type,
-                 text_length, roster_term_count, context_term_count, sha256,
-                 fetched_at, error)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 text_length, roster_term_count, context_term_count,
+                 supported_person_structure_count, supported_person_structure_types,
+                 heading_name_list_support_allowed, sha256, fetched_at, error)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     row["official_program_key"],
@@ -1854,6 +1855,9 @@ def insert_official_program_gap_source_candidates(conn: sqlite3.Connection) -> N
                     int(row.get("text_length") or 0),
                     int(row.get("roster_term_count") or 0),
                     int(row.get("context_term_count") or 0),
+                    int(row.get("supported_person_structure_count") or 0),
+                    dumps(row.get("supported_person_structure_types", [])),
+                    int(row.get("heading_name_list_support_allowed") or 0),
                     row.get("sha256"),
                     row.get("fetched_at"),
                     row.get("error"),
@@ -1867,8 +1871,9 @@ def insert_official_program_gap_source_candidates(conn: sqlite3.Connection) -> N
                 (candidate_key, official_program_key, department, program_type,
                  program_name, coverage_status, source_role, candidate_status,
                  priority, confidence, candidate_title, candidate_url, http_status,
-                 roster_term_count, context_term_count, reasons_json, evidence_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 roster_term_count, context_term_count, supported_person_structure_count,
+                 supported_person_structure_types, reasons_json, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     row["candidate_key"],
@@ -1886,6 +1891,8 @@ def insert_official_program_gap_source_candidates(conn: sqlite3.Connection) -> N
                     row.get("http_status") if row.get("http_status") != "" else None,
                     int(row.get("roster_term_count") or 0),
                     int(row.get("context_term_count") or 0),
+                    int(row.get("supported_person_structure_count") or 0),
+                    dumps(row.get("supported_person_structure_types", [])),
                     dumps(row.get("reasons", [])),
                     dumps(row),
                 ),

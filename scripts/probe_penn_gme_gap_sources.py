@@ -28,6 +28,17 @@ except ModuleNotFoundError as exc:
         "python3 -m pip install --target /tmp/penn_corpus_deps -r requirements.txt"
     ) from exc
 
+from scrape_penn_gme_gap_rosters import (
+    extract_accordion_headers,
+    extract_bio_cards,
+    extract_heading_name_lists,
+    extract_neurology_archive_cards,
+    extract_obgyn_current_fellows,
+    extract_pathology_current_residents,
+    extract_pathology_people_accordion,
+    extract_profiles,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
@@ -259,10 +270,60 @@ def link_candidates(soup: BeautifulSoup, base_url: str) -> list[tuple[str, str]]
     return candidates[:25]
 
 
-def make_candidate(row: sqlite3.Row, source_role: str, url: str, page: dict, label: str = "") -> dict:
+def parser_supported_structure(
+    row: sqlite3.Row,
+    soup: BeautifulSoup,
+    url: str,
+    allow_heading_name_list: bool,
+) -> tuple[int, list[str]]:
+    if not soup:
+        return 0, []
+    candidate = {
+        "candidate_key": "",
+        "official_program_key": row["official_program_key"],
+        "priority": 0,
+        "confidence": 0.0,
+        "candidate_title": "",
+        "candidate_url": url,
+        "department": row["department"],
+        "program_name": row["program_name"],
+        "program_type": row["program_type"],
+        "coverage_status": row["coverage_status"],
+    }
+    extractors = [
+        ("bio_component", extract_bio_cards),
+        ("profile_component", extract_profiles),
+        ("accordion_header", extract_accordion_headers),
+        ("neurology_archive_card", extract_neurology_archive_cards),
+        ("pathology_current_resident_accordion", extract_pathology_current_residents),
+        ("pathology_people_accordion", extract_pathology_people_accordion),
+        ("obgyn_current_fellows", extract_obgyn_current_fellows),
+    ]
+    if allow_heading_name_list:
+        extractors.append(("heading_name_list", extract_heading_name_lists))
+    count = 0
+    names = []
+    for name, extractor in extractors:
+        rows = extractor(soup, candidate, "probe_supported_structure", url)
+        if rows:
+            names.append(name)
+            count += len(rows)
+    return count, names
+
+
+def make_candidate(
+    row: sqlite3.Row,
+    source_role: str,
+    url: str,
+    page: dict,
+    label: str = "",
+    supported_structure_count: int = 0,
+    supported_structure_types: list[str] | None = None,
+) -> dict:
     title = label or page.get("title", "")
     status, confidence, reasons = classify_candidate(title, url, source_role)
     strong_roster_cues = pattern_hits(f"{title} {url}", STRONG_ROSTER_CUE_PATTERNS)
+    supported_structure_types = supported_structure_types or []
     if page.get("roster_term_count", 0) and strong_roster_cues:
         confidence = min(round(confidence + 0.1, 3), 0.95)
         reasons = sorted(set(reasons + ["page_roster_terms"]))
@@ -270,6 +331,11 @@ def make_candidate(row: sqlite3.Row, source_role: str, url: str, page: dict, lab
             status = "roster_source_candidate"
     elif page.get("roster_term_count", 0):
         reasons = sorted(set(reasons + ["weak_body_roster_language"]))
+    if supported_structure_count:
+        confidence = min(round(confidence + 0.22, 3), 0.95)
+        reasons = sorted(set(reasons + ["supported_person_structure"]))
+        if status != "unreachable_or_error":
+            status = "roster_source_candidate"
     if page.get("http_status") and int(page["http_status"]) >= 400:
         confidence = min(confidence, 0.2)
         status = "unreachable_or_error"
@@ -298,6 +364,8 @@ def make_candidate(row: sqlite3.Row, source_role: str, url: str, page: dict, lab
         "text_length": page.get("text_length", 0),
         "roster_term_count": page.get("roster_term_count", 0),
         "context_term_count": page.get("context_term_count", 0),
+        "supported_person_structure_count": supported_structure_count,
+        "supported_person_structure_types": supported_structure_types,
         "confidence": confidence,
         "priority": priority(status, confidence, row["coverage_status"], source_role),
         "reasons": reasons,
@@ -336,6 +404,14 @@ def probe() -> tuple[list[dict], list[dict], dict]:
             if url not in fetched:
                 fetched[url] = fetch_page(session, url)
             page = fetched[url]
+            strong_roster_cues = bool(pattern_hits(f"{page.get('title', '')} {page.get('url') or url}", STRONG_ROSTER_CUE_PATTERNS))
+            allow_heading_name_list = strong_roster_cues or int(page.get("roster_term_count") or 0) >= 2
+            supported_count, supported_types = parser_supported_structure(
+                row,
+                page["soup"],
+                page.get("url") or url,
+                allow_heading_name_list=allow_heading_name_list,
+            )
             probes.append(
                 {
                     "official_program_key": row["official_program_key"],
@@ -350,12 +426,24 @@ def probe() -> tuple[list[dict], list[dict], dict]:
                     "text_length": page.get("text_length", 0),
                     "roster_term_count": page.get("roster_term_count", 0),
                     "context_term_count": page.get("context_term_count", 0),
+                    "supported_person_structure_count": supported_count,
+                    "supported_person_structure_types": supported_types,
+                    "heading_name_list_support_allowed": int(allow_heading_name_list),
                     "sha256": page.get("sha256", ""),
                     "fetched_at": page.get("fetched_at", ""),
                     "error": page.get("error", ""),
                 }
             )
-            candidates.append(make_candidate(row, source_role, page.get("url") or url, page))
+            candidates.append(
+                make_candidate(
+                    row,
+                    source_role,
+                    page.get("url") or url,
+                    page,
+                    supported_structure_count=supported_count,
+                    supported_structure_types=supported_types,
+                )
+            )
             for label, href in link_candidates(page["soup"], page.get("url") or url):
                 link_page = {
                     "url": href,
@@ -394,6 +482,8 @@ def probe() -> tuple[list[dict], list[dict], dict]:
                 "candidate_title": row["candidate_title"],
                 "priority": row["priority"],
                 "confidence": row["confidence"],
+                "supported_person_structure_count": row["supported_person_structure_count"],
+                "supported_person_structure_types": row["supported_person_structure_types"],
             }
             for row in candidates
             if row["candidate_status"] == "roster_source_candidate"
@@ -432,6 +522,8 @@ def write_outputs(candidates: list[dict], probes: list[dict], summary: dict) -> 
         "http_status",
         "roster_term_count",
         "context_term_count",
+        "supported_person_structure_count",
+        "supported_person_structure_types",
         "reasons",
         "error",
     ]
@@ -441,7 +533,22 @@ def write_outputs(candidates: list[dict], probes: list[dict], summary: dict) -> 
         for row in candidates:
             out = {field: row.get(field, "") for field in fields}
             out["reasons"] = ";".join(row.get("reasons", []))
+            out["supported_person_structure_types"] = ";".join(row.get("supported_person_structure_types", []))
             writer.writerow(out)
+
+
+def ensure_column(conn: sqlite3.Connection, table: str, column: str, definition: str) -> None:
+    existing = {row[1] for row in conn.execute(f"PRAGMA table_info({table})")}
+    if column not in existing:
+        conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
+
+
+def ensure_sqlite_columns(conn: sqlite3.Connection) -> None:
+    ensure_column(conn, "official_program_source_probes", "supported_person_structure_count", "INTEGER NOT NULL DEFAULT 0")
+    ensure_column(conn, "official_program_source_probes", "supported_person_structure_types", "TEXT")
+    ensure_column(conn, "official_program_source_probes", "heading_name_list_support_allowed", "INTEGER NOT NULL DEFAULT 0")
+    ensure_column(conn, "official_program_source_candidates", "supported_person_structure_count", "INTEGER NOT NULL DEFAULT 0")
+    ensure_column(conn, "official_program_source_candidates", "supported_person_structure_types", "TEXT")
 
 
 def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
@@ -451,6 +558,7 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
     with conn:
         conn.execute("PRAGMA foreign_keys = ON")
         conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+        ensure_sqlite_columns(conn)
         conn.execute("DELETE FROM official_program_source_candidates")
         conn.execute("DELETE FROM official_program_source_probes")
         for row in probes:
@@ -459,9 +567,10 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
                 INSERT INTO official_program_source_probes
                 (official_program_key, program_name, coverage_status, source_role,
                  requested_url, effective_url, http_status, title, content_type,
-                 text_length, roster_term_count, context_term_count, sha256,
-                 fetched_at, error)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 text_length, roster_term_count, context_term_count,
+                 supported_person_structure_count, supported_person_structure_types,
+                 heading_name_list_support_allowed, sha256, fetched_at, error)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     row["official_program_key"],
@@ -476,6 +585,9 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
                     row["text_length"],
                     row["roster_term_count"],
                     row["context_term_count"],
+                    row.get("supported_person_structure_count", 0),
+                    dumps(row.get("supported_person_structure_types", [])),
+                    row.get("heading_name_list_support_allowed", 0),
                     row["sha256"],
                     row["fetched_at"],
                     row["error"],
@@ -488,8 +600,9 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
                 (candidate_key, official_program_key, department, program_type,
                  program_name, coverage_status, source_role, candidate_status,
                  priority, confidence, candidate_title, candidate_url, http_status,
-                 roster_term_count, context_term_count, reasons_json, evidence_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 roster_term_count, context_term_count, supported_person_structure_count,
+                 supported_person_structure_types, reasons_json, evidence_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     row["candidate_key"],
@@ -507,6 +620,8 @@ def write_sqlite(candidates: list[dict], probes: list[dict]) -> None:
                     row["http_status"] if row["http_status"] != "" else None,
                     row["roster_term_count"],
                     row["context_term_count"],
+                    row.get("supported_person_structure_count", 0),
+                    dumps(row.get("supported_person_structure_types", [])),
                     dumps(row.get("reasons", [])),
                     dumps(row),
                 ),

@@ -63,6 +63,9 @@ def stable_audited_at(existing: dict[str, dict], row: dict, new_value: str) -> s
         "low_content_probe_count",
         "max_roster_term_count",
         "max_context_term_count",
+        "supported_person_structure_candidate_count",
+        "max_supported_person_structure_count",
+        "supported_person_structure_types",
         "related_loaded_source_count",
         "related_loaded_person_count",
         "top_candidate_url",
@@ -225,6 +228,9 @@ def classify_gap(row: dict, candidates: list[dict], probes: list[dict], related_
     roster_count = sum(1 for item in candidates if item.get("candidate_status") == "roster_source_candidate")
     context_count = sum(1 for item in candidates if item.get("candidate_status") == "program_context_candidate")
     low_value_count = sum(1 for item in candidates if item.get("candidate_status") == "low_value_candidate")
+    supported_structure_count = sum(
+        1 for item in candidates + probes if int(item.get("supported_person_structure_count") or 0) > 0
+    )
     reachable_probe_count = sum(1 for item in probes if int(item.get("http_status") or 0) and int(item.get("http_status") or 0) < 400)
     low_content_count = sum(
         1
@@ -240,6 +246,13 @@ def classify_gap(row: dict, candidates: list[dict], probes: list[dict], related_
             "review_program_alias_or_official_denominator_mapping",
             0.86,
             "A candidate roster/source URL is already represented by accepted people under a related program label.",
+        )
+    if supported_structure_count:
+        return (
+            "supported_public_person_structure_needs_roster_reconciliation",
+            "run_gap_roster_scraper_and_reconcile_supported_person_rows",
+            0.82,
+            "A public Penn source has person-like structure supported by current roster parsers, but denominator coverage still needs source-backed reconciliation.",
         )
     if low_content_count and low_content_count >= reachable_probe_count and reachable_probe_count:
         return (
@@ -316,6 +329,20 @@ def audit_rows(conn: sqlite3.Connection) -> list[dict]:
             if int(item.get("http_status") or 0) == 200 and int(item.get("text_length") or 0) < 200
         )
         related_person_count = sum(int(item["person_count"]) for item in related_hits)
+        supported_structure_items = [
+            item for item in probes + candidates if int(item.get("supported_person_structure_count") or 0) > 0
+        ]
+        supported_structure_types = sorted(
+            {
+                structure_type
+                for item in supported_structure_items
+                for structure_type in (
+                    json.loads(item.get("supported_person_structure_types") or "[]")
+                    if isinstance(item.get("supported_person_structure_types"), str)
+                    else item.get("supported_person_structure_types") or []
+                )
+            }
+        )
         evidence = {
             "classification_rationale": rationale,
             "coverage_discovery_classification": row.get("discovery_classification") or "",
@@ -330,6 +357,8 @@ def audit_rows(conn: sqlite3.Connection) -> list[dict]:
                     "text_length": probe.get("text_length"),
                     "roster_term_count": probe.get("roster_term_count"),
                     "context_term_count": probe.get("context_term_count"),
+                    "supported_person_structure_count": probe.get("supported_person_structure_count"),
+                    "supported_person_structure_types": probe.get("supported_person_structure_types"),
                 }
                 for probe in probes
             ],
@@ -356,6 +385,11 @@ def audit_rows(conn: sqlite3.Connection) -> list[dict]:
                 "max_context_term_count": max(
                     [int(item.get("context_term_count") or 0) for item in probes + candidates] or [0]
                 ),
+                "supported_person_structure_candidate_count": len(supported_structure_items),
+                "max_supported_person_structure_count": max(
+                    [int(item.get("supported_person_structure_count") or 0) for item in probes + candidates] or [0]
+                ),
+                "supported_person_structure_types": dumps(supported_structure_types),
                 "related_loaded_source_count": len(related_hits),
                 "related_loaded_person_count": related_person_count,
                 "top_candidate_url": top.get("candidate_url", ""),
@@ -382,8 +416,31 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def ensure_column(conn: sqlite3.Connection, table: str, column: str, definition: str) -> None:
+    existing = {row[1] for row in conn.execute(f"PRAGMA table_info({table})")}
+    if column not in existing:
+        conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
+
+
+def ensure_sqlite_columns(conn: sqlite3.Connection) -> None:
+    ensure_column(
+        conn,
+        "official_program_gap_reason_audit",
+        "supported_person_structure_candidate_count",
+        "INTEGER NOT NULL DEFAULT 0",
+    )
+    ensure_column(
+        conn,
+        "official_program_gap_reason_audit",
+        "max_supported_person_structure_count",
+        "INTEGER NOT NULL DEFAULT 0",
+    )
+    ensure_column(conn, "official_program_gap_reason_audit", "supported_person_structure_types", "TEXT")
+
+
 def write_sqlite(conn: sqlite3.Connection, rows: list[dict]) -> None:
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    ensure_sqlite_columns(conn)
     conn.execute("DELETE FROM official_program_gap_reason_audit")
     for row in rows:
         conn.execute(
@@ -394,10 +451,12 @@ def write_sqlite(conn: sqlite3.Connection, rows: list[dict]) -> None:
              candidate_count, roster_candidate_count, context_candidate_count,
              low_value_candidate_count, probed_url_count, reachable_probe_count,
              low_content_probe_count, max_roster_term_count, max_context_term_count,
+             supported_person_structure_candidate_count, max_supported_person_structure_count,
+             supported_person_structure_types,
              related_loaded_source_count, related_loaded_person_count,
              top_candidate_url, top_candidate_title, top_candidate_status,
              top_candidate_priority, top_candidate_confidence, evidence_json, audited_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 row["official_program_key"],
@@ -417,6 +476,9 @@ def write_sqlite(conn: sqlite3.Connection, rows: list[dict]) -> None:
                 row["low_content_probe_count"],
                 row["max_roster_term_count"],
                 row["max_context_term_count"],
+                row["supported_person_structure_candidate_count"],
+                row["max_supported_person_structure_count"],
+                row["supported_person_structure_types"],
                 row["related_loaded_source_count"],
                 row["related_loaded_person_count"],
                 row["top_candidate_url"],
@@ -445,6 +507,7 @@ def summary_payload(rows: list[dict]) -> dict:
         "roster_candidate_gap_rows": sum(1 for row in rows if row["roster_candidate_count"]),
         "related_loaded_source_gap_rows": sum(1 for row in rows if row["related_loaded_source_count"]),
         "low_content_gap_rows": sum(1 for row in rows if row["low_content_probe_count"]),
+        "supported_person_structure_gap_rows": sum(1 for row in rows if row["supported_person_structure_candidate_count"]),
         "csv": "artifacts/data/hup_gap_reason_audit.csv",
         "json": "artifacts/data/hup_gap_reason_audit.json",
     }
