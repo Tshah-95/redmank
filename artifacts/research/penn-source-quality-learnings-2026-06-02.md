@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T08:10:16.749547+00:00
+Generated: 2026-06-02T08:15:33.014367+00:00
 
 ## What This Pass Did
 
@@ -463,7 +463,7 @@ Scorecard rows: 12.
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
-| Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 8 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
+| Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 8 | 0 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 66.0 | useful_candidate_layer | verify_contact_channels_against_current_official_source_before_use |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
@@ -638,26 +638,28 @@ Learning: current Penn attending pages are endpoint evidence, not trend-line fac
 
 ## Attending Historical Link Discovery
 
-Groups considered: 4. Seeded source rows: 8. Search observations: 0. Search skipped: True. Candidate rows: 8.
+Groups considered: 4. Seeded source rows: 8. Search observations: 36. Search skipped: False. Candidate rows: 8.
 
 Candidate statuses:
 
 | candidate_status | count |
 | --- | --- |
-| historical_link_source_candidate | 8 |
+| current_profile_context_candidate | 2 |
+| current_profile_training_context_candidate | 3 |
+| penn_context_candidate | 3 |
 
 Top historical-link candidates:
 
 | display_name | query_kind | candidate_status | confidence | priority | result_domain | probe_title | required_next_evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Emily Gordon, MD, MSEd | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Department of Anesthesiology Education Leadership Team | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Emily Gordon, MD, MSEd | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Emily Gordon - Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Priya Patel, MD | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Priya Patel, MD | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Timothy Buckey, MD, MBE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
-| Timothy Buckey, MD, MBE | existing_linkage_source_url | historical_link_source_candidate | 0.95 | 120 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Emily Gordon, MD, MSEd | existing_linkage_source_url | current_profile_training_context_candidate | 0.78 | 78 | www3.pennmedicine.org | Emily Gordon - Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
+| Priya Patel, MD | existing_linkage_source_url | current_profile_training_context_candidate | 0.78 | 78 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
+| Timothy Buckey, MD, MBE | existing_linkage_source_url | current_profile_training_context_candidate | 0.78 | 78 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
+| Emily Gordon, MD, MSEd | existing_linkage_source_url | current_profile_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Department of Anesthesiology Education Leadership Team | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
+| Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | penn_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Patrick Kevin Gleeson, MD, MSCE | existing_linkage_source_url | current_profile_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Provider Profile \| Penn Medicine | Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance. |
+| Priya Patel, MD | existing_linkage_source_url | penn_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
+| Timothy Buckey, MD, MBE | existing_linkage_source_url | penn_context_candidate | 0.55 | 55 | www3.pennmedicine.org | Section of Allergy and Immunology Faculty | Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link. |
 
 Learning: seeded official Penn/provider URLs give a deterministic baseline for trend-link discovery, while broad web search is an optional, rate-limited enrichment utility. Even strong official profile candidates remain review candidates until the page text supplies explicit same-person, Penn-training, program, and date anchors.
 

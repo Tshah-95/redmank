@@ -1,6 +1,8 @@
 {
   "by_candidate_status": {
-    "historical_link_source_candidate": 8
+    "current_profile_context_candidate": 2,
+    "current_profile_training_context_candidate": 3,
+    "penn_context_candidate": 3
   },
   "by_query_kind": {
     "historical_penn_training": 20,
@@ -11,15 +13,22 @@
   "by_result_domain": {
     "www3.pennmedicine.org": 8
   },
+  "by_search_error": {
+    "search_endpoint_non_200": 36
+  },
+  "by_search_http_status": {
+    "202": 15,
+    "403": 21
+  },
   "candidate_csv": "artifacts/data/attending_historical_link_candidates.csv",
   "candidate_rows": 8,
-  "generated_at": "2026-06-02T07:25:31.988010+00:00",
+  "generated_at": "2026-06-02T08:15:06.960837+00:00",
   "groups_considered": 4,
   "observation_csv": "artifacts/data/attending_historical_link_search_observations.csv",
   "query_csv": "artifacts/data/attending_historical_link_search_queries.csv",
   "query_rows": 36,
-  "search_observations": 0,
-  "search_skipped": true,
+  "search_observations": 36,
+  "search_skipped": false,
   "searched_group_keys": [
     "emily gordon",
     "patrick kevin gleeson",

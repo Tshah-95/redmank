@@ -296,7 +296,20 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     historical_actionable = sum(
         int(value or 0)
         for key, value in (historical_summary.get("by_candidate_status") or {}).items()
-        if key in {"historical_link_source_candidate", "identity_bridge_candidate", "profile_or_cv_candidate"}
+        if key
+        in {
+            "historical_link_source_candidate",
+            "historical_roster_or_alumni_candidate",
+            "historical_training_search_candidate",
+            "identity_bridge_candidate",
+            "profile_or_cv_candidate",
+            "profile_or_cv_bridge_candidate",
+        }
+    )
+    current_context_only = sum(
+        int(value or 0)
+        for key, value in (historical_summary.get("by_candidate_status") or {}).items()
+        if key in {"current_profile_training_context_candidate", "current_profile_context_candidate"}
     )
 
     contact_count = scalar(conn, "SELECT COUNT(*) FROM person_contacts")
@@ -568,7 +581,7 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             output_records=historical_actionable,
             candidate_records=historical_candidates,
             needs_review_records=historical_actionable,
-            blocked_records=max(historical_candidates - historical_actionable, 0),
+            blocked_records=max(historical_candidates - historical_actionable - current_context_only, 0),
             score=47.0,
             strengths=[
                 "Makes the exact missing bridge evidence explicit",

@@ -56,6 +56,16 @@ PENN_TERMS = [
     "perelman",
 ]
 PROFILE_TERMS = ["cv", "curriculum vitae", "profile", "bio", "biography", "qualifications", "education"]
+CURRENT_PROFILE_PATH_RE = re.compile(
+    r"/providers/profile/|/faculty|/leadership|/departments-and-centers/.+/(faculty|leadership)",
+    re.I,
+)
+HISTORICAL_BRIDGE_RE = re.compile(
+    r"\b(alumni|graduates?|former|class of|past fellows?|past residents?|current fellows?|current residents?|"
+    r"fellows? and alumni|residents? and alumni|cv|curriculum vitae)\b|"
+    r"/(alumni|graduates?|former|current-)?(fellows?|residents?)(/|\.html|$)|\.pdf($|\?)",
+    re.I,
+)
 
 
 def norm(text: str | None) -> str:
@@ -277,6 +287,29 @@ def term_hits(text: str) -> list[str]:
     return hits
 
 
+def source_surface(row: dict, haystack: str) -> str:
+    url = row.get("result_url", "")
+    query_kind = row.get("query_kind", "")
+    if query_kind == "existing_linkage_source_url" and CURRENT_PROFILE_PATH_RE.search(url):
+        return "current_profile_or_faculty_context"
+    if HISTORICAL_BRIDGE_RE.search(f"{url} {haystack}"):
+        if re.search(r"\bcv|curriculum vitae\b|\.pdf($|\?)", f"{url} {haystack}", re.I):
+            return "profile_or_cv_bridge_candidate"
+        return "historical_roster_or_alumni_bridge_candidate"
+    if CURRENT_PROFILE_PATH_RE.search(url):
+        return "current_profile_or_faculty_context"
+    return "general_search_context"
+
+
+def name_hit(row: dict, haystack: str) -> bool:
+    name = normalized_name(row.get("display_name", ""))
+    if not name:
+        return False
+    compact_haystack = normalized_name(haystack)
+    tokens = [token for token in name.split() if len(token) > 1]
+    return bool(tokens) and all(token in compact_haystack for token in tokens)
+
+
 def classify_result(row: dict) -> tuple[str, float, list[str], str]:
     haystack = " ".join(
         [
@@ -290,8 +323,16 @@ def classify_result(row: dict) -> tuple[str, float, list[str], str]:
     hits = term_hits(haystack)
     reasons = list(hits)
     domain = row.get("result_domain", "")
+    surface = source_surface(row, haystack)
+    if surface:
+        reasons.append(surface)
+    has_name_hit = name_hit(row, haystack + " " + row.get("result_url", ""))
+    if has_name_hit:
+        reasons.append("name_present")
     score = 0.1
     status = "low_signal_search_result"
+    if has_name_hit:
+        score += 0.2
     if "penn_term" in hits:
         score += 0.25
     if "historical_training_term" in hits:
@@ -305,14 +346,30 @@ def classify_result(row: dict) -> tuple[str, float, list[str], str]:
         reasons.append("official_or_penn_domain")
     if row.get("query_kind") in {"historical_penn_training", "historical_roster_or_alumni"}:
         score += 0.05
-    if "penn_term" in hits and "historical_training_term" in hits:
-        status = "historical_link_source_candidate"
-    elif "penn_term" in hits and "profile_term" in hits:
+    if surface == "historical_roster_or_alumni_bridge_candidate" and has_name_hit and "penn_term" in hits:
+        status = "historical_roster_or_alumni_candidate"
+        score += 0.2
+    elif surface == "profile_or_cv_bridge_candidate" and has_name_hit and ("penn_term" in hits or "historical_training_term" in hits):
+        status = "profile_or_cv_bridge_candidate"
+        score += 0.15
+    elif surface == "current_profile_or_faculty_context" and "penn_term" in hits:
+        if has_name_hit and "historical_training_term" in hits:
+            status = "current_profile_training_context_candidate"
+            score = min(score, 0.78)
+        else:
+            status = "current_profile_context_candidate"
+            score = min(score, 0.65 if has_name_hit else 0.55)
+    elif "penn_term" in hits and "historical_training_term" in hits and has_name_hit:
+        status = "historical_training_search_candidate"
+    elif "penn_term" in hits and "profile_term" in hits and has_name_hit:
         status = "profile_identity_anchor_candidate"
     elif domain.endswith("pennmedicine.org") or domain.endswith("upenn.edu"):
         status = "penn_context_candidate"
+        score = min(score, 0.55 if not has_name_hit else 0.7)
     confidence = round(min(score, 0.95), 3)
     required = "Review page text for explicit same-person, Penn-training, program, and date anchors before accepting trend link."
+    if status in {"current_profile_training_context_candidate", "current_profile_context_candidate"}:
+        required = "Use as current profile/training context only; still requires dated historical roster, alumni, CV, or independent profile bridge for trend acceptance."
     if status == "low_signal_search_result":
         required = "Keep only as discovery context unless another source supplies Penn-training or identity anchors."
     return status, confidence, sorted(set(reasons)), required
@@ -375,7 +432,8 @@ def main() -> None:
                 "candidate_key": slug_key("attending_history_candidate", f"{result['event_group_key']}:{result['result_url']}"),
                 "candidate_status": status,
                 "confidence": confidence,
-                "priority": int(round(confidence * 100)) + (25 if status == "historical_link_source_candidate" else 0),
+                "priority": int(round(confidence * 100))
+                + (25 if status in {"historical_roster_or_alumni_candidate", "profile_or_cv_bridge_candidate"} else 0),
                 "classification_reasons": "; ".join(reasons + ["seeded_from_existing_linkage_group"]),
                 "required_next_evidence": required,
             }
@@ -411,7 +469,8 @@ def main() -> None:
                     "candidate_key": slug_key("attending_history_candidate", f"{result['event_group_key']}:{result['result_url']}"),
                     "candidate_status": status,
                     "confidence": confidence,
-                    "priority": int(round(confidence * 100)) + (25 if status == "historical_link_source_candidate" else 0),
+                    "priority": int(round(confidence * 100))
+                    + (25 if status in {"historical_roster_or_alumni_candidate", "profile_or_cv_bridge_candidate"} else 0),
                     "classification_reasons": "; ".join(reasons),
                     "required_next_evidence": required,
                 }
@@ -435,6 +494,8 @@ def main() -> None:
         "candidate_rows": len(candidate_rows),
         "by_candidate_status": dict(sorted(Counter(row["candidate_status"] for row in candidate_rows).items())),
         "by_query_kind": dict(sorted(Counter(row["query_kind"] for row in query_rows).items())),
+        "by_search_http_status": dict(sorted(Counter(str(row.get("search_http_status", "")) for row in observations).items())),
+        "by_search_error": dict(sorted(Counter(row.get("error", "") for row in observations if row.get("error")).items())),
         "by_result_domain": dict(sorted(Counter(row["result_domain"] for row in candidate_rows).most_common(25))),
         "searched_group_keys": [row["event_group_key"] for row in groups],
         "candidate_csv": "artifacts/data/attending_historical_link_candidates.csv",

@@ -136,7 +136,7 @@ python3 scripts/audit_enrichment_coverage.py
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026
-python3 scripts/discover_attending_historical_links.py --max-groups 4 --probe-pages --skip-search --sleep 0.1
+python3 scripts/discover_attending_historical_links.py --max-groups 4 --max-results 4 --probe-pages --sleep 0.2
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
@@ -148,7 +148,7 @@ OpenAlex author search is implemented as a candidate utility, but the latest ful
 python3 scripts/collect_research_candidates.py --only openalex --skip-existing-source openalex_author_search --sleep 0.5
 ```
 
-Broad web search for attending historical-link discovery is also optional. The default reproducible pass can use seeded official Penn/provider URLs with `--skip-search`; remove that flag only for a polite, rate-limit-aware discovery run.
+Broad web search for attending historical-link discovery is optional and rate-limit sensitive. The latest pass attempted polite DuckDuckGo HTML queries for the four Penn-training-claim groups and recorded non-200 search responses as source-quality evidence; add `--skip-search` when you only want the seeded official Penn/provider baseline.
 
 Validate scripts:
 
