@@ -1,7 +1,7 @@
 {
   "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
   "artifact_rows": 126,
-  "audited_at": "2026-06-02T22:02:49.774895+00:00",
+  "audited_at": "2026-06-02T22:10:06.160112+00:00",
   "binary_size_warning_rows": 0,
   "by_artifact_role": {
     "acceptance_ledger": 1,
@@ -93,9 +93,9 @@
   "json": "artifacts/data/warehouse_reproducibility_audit.json",
   "required_missing_artifacts": 0,
   "row_count_mismatch_rows": 0,
-  "sqlite_byte_size": 320057344,
+  "sqlite_byte_size": 321585152,
   "sqlite_git_tracked": false,
   "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-  "sqlite_sha256": "a287dcd9b9d2c604493ed9b11d78f5dd385d85b914c6a2e741f02c8cb8aece04",
+  "sqlite_sha256": "100e9bf77e362776ebe762032d51e8301fc76feb9b5ce77ac88266d7181885b9",
   "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
 }

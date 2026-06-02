@@ -94,6 +94,8 @@ ROLLUP_FIELDS = [
     "days_between_snapshots",
     "rollup_scope",
     "rollup_value",
+    "person_key",
+    "display_name",
     "institution",
     "country",
     "country_code",
@@ -407,6 +409,8 @@ def ensure_transition_context_columns(conn: sqlite3.Connection) -> None:
             "old_snapshot_as_of_date": "TEXT",
             "new_snapshot_as_of_date": "TEXT",
             "days_between_snapshots": "INTEGER",
+            "person_key": "TEXT",
+            "display_name": "TEXT",
             "country": "TEXT",
             "country_code": "TEXT",
         },
@@ -800,6 +804,8 @@ def event_groups(events: list[dict]) -> list[dict]:
         institution = event.get("institution") or "unknown_institution"
         country = event.get("country") or "United States"
         country_code = event.get("country_code") or "US"
+        person_key = event.get("person_key") or ""
+        display_name = event.get("display_name") or ""
         role = event.get("role") or ""
         trainee_category = event.get("trainee_category") or role or ""
         program_name = event.get("program_name") or ""
@@ -808,6 +814,7 @@ def event_groups(events: list[dict]) -> list[dict]:
             ("corpus", "United States medical trainees"),
             ("country", country_code),
             ("institution", institution),
+            ("person", person_key),
             ("trainee_category", trainee_category),
             ("role", role),
             ("program", program_name),
@@ -838,11 +845,13 @@ def event_groups(events: list[dict]) -> list[dict]:
                     "days_between_snapshots": event.get("days_between_snapshots"),
                     "rollup_scope": scope,
                     "rollup_value": value,
+                    "person_key": person_key if scope == "person" else "",
+                    "display_name": display_name if scope == "person" else "",
                     "institution": institution if scope in {"institution", "institution_role"} else "",
                     "country": country if scope == "country" else "",
                     "country_code": country_code if scope == "country" else "",
-                    "role": role if scope in {"role", "program_role", "institution_role"} else "",
-                    "trainee_category": trainee_category if scope == "trainee_category" else "",
+                    "role": role if scope in {"person", "role", "program_role", "institution_role"} else "",
+                    "trainee_category": trainee_category if scope in {"person", "trainee_category"} else "",
                     "program_name": program_name if scope in {"program", "program_role"} else "",
                     "lifecycle_code": lifecycle_code if scope == "lifecycle_code" else "",
                     "change_type": event["change_type"],
@@ -866,6 +875,8 @@ def event_groups(events: list[dict]) -> list[dict]:
                 "rollup_value": row["rollup_value"],
                 "country": row["country"],
                 "country_code": row["country_code"],
+                "person_key": row["person_key"],
+                "display_name": row["display_name"],
                 "old_snapshot_id": row["old_snapshot_id"],
                 "new_snapshot_id": row["new_snapshot_id"],
                 "snapshot_comparison_kind": row["snapshot_comparison_kind"],

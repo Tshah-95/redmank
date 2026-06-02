@@ -1073,6 +1073,8 @@ CREATE TABLE IF NOT EXISTS training_state_transition_rollups (
   days_between_snapshots INTEGER,
   rollup_scope TEXT NOT NULL,
   rollup_value TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT,
   institution TEXT,
   country TEXT,
   country_code TEXT,

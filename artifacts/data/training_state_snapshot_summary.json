@@ -8,6 +8,7 @@
     "institution": 3,
     "institution_role": 4,
     "lifecycle_code": 13,
+    "person": 1535,
     "program": 95,
     "program_role": 96,
     "role": 3,
@@ -27,6 +28,6 @@
   "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_5d6a884ed01a.json",
   "transition_event_rows": 1610,
   "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
-  "transition_rollup_rows": 219,
+  "transition_rollup_rows": 1754,
   "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
 }
