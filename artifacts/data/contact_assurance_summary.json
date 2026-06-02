@@ -1,0 +1,39 @@
+{
+  "acceptance_policy": "No public contact candidate is treated as a verified contact fact until a current official source or directory reconfirms contact value, domain, person identity, and intended scope.",
+  "by_assurance_status": {
+    "domain_review_required": 1,
+    "official_public_unverified_contact": 312
+  },
+  "by_contact_domain": {
+    "pennmedicine.upenn.edu": 306,
+    "pennmedine.upenn.edu": 1,
+    "upenn.edu": 5,
+    "wharton.upenn.edu": 1
+  },
+  "by_display_safety_status": {
+    "do_not_display_until_domain_verified": 1,
+    "public_contact_candidate_not_verified": 312
+  },
+  "by_role": {
+    "current_penn_attending_candidate": 34,
+    "fellow": 53,
+    "medical_student": 205,
+    "resident": 21
+  },
+  "by_source_assurance_class": {
+    "official_current_or_gap_roster_contact": 74,
+    "official_profile_contact_candidate": 34,
+    "official_public_student_directory_contact": 205
+  },
+  "contact_assurance_rows": 313,
+  "contact_people": 279,
+  "contact_type_counts": {
+    "email": 313
+  },
+  "csv": "artifacts/data/contact_assurance_audit.csv",
+  "display_policy": "display_as_public_candidate_only_until_verified",
+  "generated_at": "2026-06-02T11:00:09.575043+00:00",
+  "json": "artifacts/data/contact_assurance_audit.json",
+  "review_required_rows": 1,
+  "verified_contact_fact_rows": 0
+}

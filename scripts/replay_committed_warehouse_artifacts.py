@@ -49,6 +49,7 @@ CSV_TABLES = [
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("warehouse_reproducibility_audit.csv", "warehouse_reproducibility_audit"),
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),
+    ("contact_assurance_audit.csv", "contact_assurance_audit"),
     ("attending_trend_review_claims.csv", "attending_trend_review_claims"),
     ("attending_trend_review_rollups.csv", "attending_trend_review_rollups"),
 ]
@@ -85,10 +86,12 @@ def insert_rows(conn: sqlite3.Connection, table: str, rows: list[dict], delete_f
         raise ValueError(f"{table} artifact is missing table columns: {required_missing}")
     placeholders = ", ".join(f":{column}" for column in row_columns)
     column_sql = ", ".join(row_columns)
-    conn.executemany(
-        f"INSERT INTO {table} ({column_sql}) VALUES ({placeholders})",
-        [{column: row.get(column, "") for column in row_columns} for row in rows],
-    )
+    prepared_rows = [{column: row.get(column, "") for column in row_columns} for row in rows]
+    if table == "contact_assurance_audit":
+        for row in prepared_rows:
+            if not row.get("person_key"):
+                row["person_key"] = None
+    conn.executemany(f"INSERT INTO {table} ({column_sql}) VALUES ({placeholders})", prepared_rows)
     return len(rows)
 
 

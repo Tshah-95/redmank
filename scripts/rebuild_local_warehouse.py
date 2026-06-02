@@ -19,6 +19,7 @@ PIPELINE = [
     ["python3", "scripts/audit_person_evidence_review_packets.py"],
     ["python3", "scripts/audit_enrichment_acceptance.py"],
     ["python3", "scripts/materialize_accepted_enrichment.py"],
+    ["python3", "scripts/audit_contact_assurance.py"],
     ["python3", "scripts/materialize_attending_trend_review_claims.py"],
     ["python3", "scripts/materialize_training_lifecycle_assurance.py"],
     ["python3", "scripts/audit_official_gap_roster_reconciliation.py"],

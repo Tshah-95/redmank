@@ -963,6 +963,36 @@ CREATE TABLE IF NOT EXISTS person_contacts (
   UNIQUE (person_key, display_name, subject_type, contact_type, contact_value, source_key)
 );
 
+CREATE TABLE IF NOT EXISTS contact_assurance_audit (
+  contact_assurance_key TEXT PRIMARY KEY,
+  contact_key TEXT NOT NULL REFERENCES person_contacts(contact_key) ON DELETE CASCADE,
+  contact_id INTEGER,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  subject_type TEXT,
+  contact_type TEXT NOT NULL,
+  contact_value TEXT NOT NULL,
+  contact_domain TEXT,
+  contact_label TEXT,
+  contact_scope TEXT,
+  source_key TEXT,
+  source_url TEXT,
+  source_type TEXT,
+  source_assurance_class TEXT NOT NULL,
+  verification_status TEXT NOT NULL,
+  prior_status TEXT NOT NULL,
+  assurance_status TEXT NOT NULL,
+  assurance_level INTEGER NOT NULL DEFAULT 0,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  display_safety_status TEXT NOT NULL,
+  freshness_policy TEXT NOT NULL,
+  required_next_check TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS evidence_claims (
   evidence_id INTEGER PRIMARY KEY,
   person_key TEXT REFERENCES people(person_key) ON DELETE CASCADE,

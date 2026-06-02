@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T10:54:00.035838+00:00
+Generated: 2026-06-02T11:00:10.204091+00:00
 
 ## What This Pass Did
 
@@ -514,14 +514,14 @@ Scorecard rows: 19.
 | PubMed author-query discovery | name-bounded publication discovery seeds | 1111 | 1111 | 39.0 | discovery_or_review_only | use_only_to_seed_article_level_reconciliation |
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 1858 | 1858 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 4147 | 4147 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 41 | 41 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 42 | 42 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 0 | 0 | 24.0 | blocked_or_low_current_utility | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
 | Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
 | Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | review_ready_trend_rows_then_record_explicit_acceptance_decisions |
 | NPPES NPI Registry candidates | candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review | 1257 | 1073 | 62.0 | useful_candidate_layer | use_npi_candidates_as_secondary_identity_anchors_only |
-| Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 66.0 | useful_candidate_layer | verify_contact_channels_against_current_official_source_before_use |
+| Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
 | Training state machine and longitudinal readiness | normalized stages, lifecycle rules, stale-after semantics, and annual diff expectations | 1630 | 1630 | 84.0 | strong_with_known_limits | use_state_machine_expectations_before_mutating_next_year_roster_diffs |
 
@@ -1053,7 +1053,12 @@ Learning: current faculty pages, provider profiles, and alumni/outcome pages sho
 | email | institutional | public_profile_unverified | candidate | 34 | 0.82 |
 | email | institutional | public_roster_unverified | candidate | 74 | 0.82 |
 
-Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. Raw HTML remains redacted; only structured, source-linked public contact candidates are stored.
+| assurance_status | display_safety_status | required_next_check | count | avg_confidence |
+| --- | --- | --- | --- | --- |
+| official_public_unverified_contact | public_contact_candidate_not_verified | confirm_contact_on_current_official_source_or_directory | 312 | 0.82 |
+| domain_review_required | do_not_display_until_domain_verified | verify_institutional_domain_or_source_typo | 1 | 0.82 |
+
+Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. The assurance layer keeps public contacts as candidates until current-source verification, and it catches domain or format anomalies before display or outreach use.
 
 ## Reconciliation Rule Update
 

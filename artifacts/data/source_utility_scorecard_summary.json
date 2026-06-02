@@ -26,7 +26,7 @@
     "use_npi_candidates_as_secondary_identity_anchors_only": 1,
     "use_only_to_seed_article_level_reconciliation": 1,
     "use_state_machine_expectations_before_mutating_next_year_roster_diffs": 1,
-    "verify_contact_channels_against_current_official_source_before_use": 1
+    "verify_current_source_before_display_or_outreach_and_review_domain_anomalies": 1
   },
   "by_source_family": {
     "acgme_public_data": 1,
@@ -41,7 +41,7 @@
   },
   "candidate_or_discovery_rows": 6,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-02T10:53:59.967948+00:00",
+  "generated_at": "2026-06-02T11:00:10.135034+00:00",
   "high_utility_rows": 3,
   "json": "artifacts/data/source_utility_scorecard.json",
   "scorecard_rows": 19,

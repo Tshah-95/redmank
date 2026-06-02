@@ -193,6 +193,16 @@ def main() -> None:
         ORDER BY contact_type, contact_scope, verification_status, status
         """,
     )
+    contact_assurance_counts = rows(
+        conn,
+        """
+        SELECT assurance_status, display_safety_status, required_next_check,
+               COUNT(*) AS count, ROUND(AVG(confidence), 3) AS avg_confidence
+        FROM contact_assurance_audit
+        GROUP BY assurance_status, display_safety_status, required_next_check
+        ORDER BY count DESC, assurance_status
+        """,
+    )
     reconciliation_queue_counts = rows(
         conn,
         """
@@ -396,6 +406,7 @@ def main() -> None:
         "reconciliation_queue_counts": reconciliation_queue_counts,
         "top_reconciliation_queue": top_reconciliation_queue,
         "contact_counts": contact_counts,
+        "contact_assurance_counts": contact_assurance_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
         "hup_gme_gap_source_probe_summary": hup_gap_probe_summary,
@@ -915,7 +926,9 @@ def main() -> None:
         "",
         *md_table(contact_counts, ["contact_type", "contact_scope", "verification_status", "status", "count", "avg_confidence"]),
         "",
-        "Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. Raw HTML remains redacted; only structured, source-linked public contact candidates are stored.",
+        *md_table(contact_assurance_counts, ["assurance_status", "display_safety_status", "required_next_check", "count", "avg_confidence"]),
+        "",
+        "Learning: public contact channels belong in a separate evidence table because a person can have multiple public contacts from sources with different assurance levels. The assurance layer keeps public contacts as candidates until current-source verification, and it catches domain or format anomalies before display or outreach use.",
         "",
         "## Reconciliation Rule Update",
         "",

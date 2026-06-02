@@ -455,6 +455,10 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         "SELECT verification_status, COUNT(*) FROM person_contacts GROUP BY verification_status",
     )
+    contact_assurance_summary = read_json(ARTIFACTS / "contact_assurance_summary.json", {})
+    contact_assurance_status = contact_assurance_summary.get("by_assurance_status") or {}
+    contact_review_required = int(contact_assurance_summary.get("review_required_rows") or 0)
+    contact_verified = int(contact_assurance_summary.get("verified_contact_fact_rows") or 0)
 
     org_count = scalar(conn, "SELECT COUNT(*) FROM organizations")
     org_review = scalar(conn, "SELECT COUNT(*) FROM organizations WHERE resolver_status = 'cleaned_label'")
@@ -996,21 +1000,27 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             claim_surface="public email/contact channels with scope and verification status",
             input_records=contact_count,
             output_records=contact_count,
-            candidate_records=contact_count,
-            needs_review_records=contact_count,
-            score=66.0,
+            accepted_records=contact_verified,
+            candidate_records=max(contact_count - contact_review_required, 0),
+            needs_review_records=contact_review_required,
+            score=69.0,
             strengths=[
                 "Stores contact channels separately from person identity truth",
                 "Retains source, scope, verification status, confidence, and candidate status",
-                "Supports future email/phone assurance without dropping public data",
+                "Classifies public contacts into display-safety and verification-required tiers without dropping public data",
             ],
             limitations=[
-                "Current contacts are public-directory/profile unverified candidates",
+                "Current contacts are public-directory/profile unverified candidates, not verified contact facts",
                 "Contact channels can be stale or role-specific",
-                "No phone-support assurance layer exists yet",
+                "Current captured contacts are email-only; phone-support assurance is schema-ready but not populated",
             ],
-            recommended_next_action="verify_contact_channels_against_current_official_source_before_use",
-            evidence={"contact_count": contact_count, "by_verification_status": contact_by_verification},
+            recommended_next_action="verify_current_source_before_display_or_outreach_and_review_domain_anomalies",
+            evidence={
+                "contact_count": contact_count,
+                "by_verification_status": contact_by_verification,
+                "contact_assurance_summary": contact_assurance_summary,
+                "contact_assurance_status": contact_assurance_status,
+            },
         ),
         make_row(
             scorecard_key="organization_normalization_resolver",

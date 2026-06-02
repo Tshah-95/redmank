@@ -160,6 +160,7 @@ ARTIFACT_SPECS = [
     ("artifacts/data/npi_candidate_claims.csv", "identity_enrichment_ledger", "csv", "npi_candidate_claims", True),
     ("artifacts/data/npi_source_observations.csv", "source_observation_ledger", "csv", "npi_source_observations", True),
     ("artifacts/data/person_contacts.csv", "contact_ledger", "csv", "person_contacts", True),
+    ("artifacts/data/contact_assurance_audit.csv", "contact_assurance_ledger", "csv", "contact_assurance_audit", True),
     ("artifacts/data/career_events.csv", "attending_trend_input", "csv", "career_events", True),
     ("artifacts/data/attending_trend_reconciliation.csv", "attending_trend_ledger", "csv", "attending_trend_reconciliation", True),
     ("artifacts/data/attending_trend_review_claims.csv", "attending_trend_ledger", "csv", "attending_trend_review_claims", True),

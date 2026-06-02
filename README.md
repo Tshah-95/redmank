@@ -90,6 +90,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_state_snapshot_summary.json`: snapshot and transition counts for the current materialized state.
 - `config/training_lifecycle_rules.json`: local lifecycle codes and nominal-duration rules used to interpret trainee stages over time.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
+- `artifacts/data/contact_assurance_audit.csv`: non-mutating assurance ledger for public contact candidates, including domain/source checks, display-safety status, freshness policy, and required next verification.
+- `artifacts/data/contact_assurance_summary.json`: public-contact assurance counts by status, role, domain, source class, and display policy.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
 - `artifacts/data/source_utility_scorecard.csv`: empirical source-utility scorecard across roster truth, denominator coverage, source discovery, research enrichment, attending trends, contact evidence, normalization, and longitudinal state-machine readiness.
@@ -187,6 +189,7 @@ python3 scripts/audit_attending_trend_reconciliation.py --as-of-year 2026
 python3 scripts/audit_person_evidence_review_packets.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
+python3 scripts/audit_contact_assurance.py
 python3 scripts/materialize_attending_trend_review_claims.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
@@ -274,6 +277,7 @@ The initial methodology is conservative:
 - Separate resident/fellow rosters, context-only program pages, alumni/former pages, and partial student directories.
 - Treat the official MD-student directory as unavailable to public scraping when PennKey protection is observed; keep public MSTP records as partial student truth and public graduate-program directories as MD-PhD cross-check/enrichment candidates only.
 - Store public contact channels as provenance-backed contact evidence, not as unqualified person identity fields.
+- Treat public contact channels as display-safe candidates only after source, domain, person identity, and scope verification; domain anomalies remain review-required even when they came from public official pages.
 - Treat publication, grant, trial, NPI, and social-web enrichment as separate evidence layers requiring identity-resolution confidence, not as roster truth.
 - Rank candidate enrichment in an evidence reconciliation queue before accepting profile, publication, or attending-trend claims.
 - Roll item-level evidence decisions into person/name review packets so manual or automated verifiers can see the best evidence, blocker, and next action before accepting enrichment.
