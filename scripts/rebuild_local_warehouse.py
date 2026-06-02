@@ -49,6 +49,7 @@ PIPELINE = [
     ["python3", "scripts/export_warehouse_views.py"],
     ["python3", "scripts/audit_warehouse_reproducibility.py"],
     ["python3", "scripts/audit_source_utility_scorecard.py"],
+    ["python3", "scripts/materialize_search_utility_assurance.py"],
     ["python3", "scripts/report_source_quality.py"],
     ["python3", "scripts/audit_warehouse_reproducibility.py"],
     ["python3", "scripts/summarize_warehouse.py"],

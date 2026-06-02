@@ -83,6 +83,7 @@ def main() -> None:
         "warehouse_reproducibility_audit",
         "source_quality_observations",
         "source_utility_scorecard",
+        "search_utility_assurance",
         "official_program_universe",
         "official_program_coverage_audit",
         "official_program_source_probes",

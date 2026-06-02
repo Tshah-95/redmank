@@ -145,6 +145,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_quality_report.json`: machine-readable source utility observations and feature distributions.
 - `artifacts/data/source_utility_scorecard.csv`: empirical source-utility scorecard across roster truth, denominator coverage, source discovery, research enrichment, attending trends, contact evidence, normalization, and longitudinal state-machine readiness.
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
+- `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
+- `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
@@ -256,6 +258,7 @@ python3 scripts/audit_attending_trend_acceptance.py
 python3 scripts/materialize_attending_trend_reviewer_decisions.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
+python3 scripts/materialize_search_utility_assurance.py
 python3 scripts/report_source_quality.py
 python3 scripts/summarize_warehouse.py
 ```

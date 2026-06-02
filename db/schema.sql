@@ -1993,6 +1993,32 @@ CREATE TABLE IF NOT EXISTS source_quality_observations (
   metrics_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS search_utility_assurance (
+  utility_key TEXT PRIMARY KEY,
+  utility_name TEXT NOT NULL,
+  utility_family TEXT NOT NULL,
+  claim_surface TEXT NOT NULL,
+  query_artifact TEXT NOT NULL,
+  observation_artifact TEXT NOT NULL,
+  candidate_artifact TEXT NOT NULL,
+  query_rows INTEGER NOT NULL DEFAULT 0,
+  search_observation_rows INTEGER NOT NULL DEFAULT 0,
+  candidate_rows INTEGER NOT NULL DEFAULT 0,
+  search_candidate_rows INTEGER NOT NULL DEFAULT 0,
+  result_rows INTEGER NOT NULL DEFAULT 0,
+  successful_search_rows INTEGER NOT NULL DEFAULT 0,
+  non_200_search_rows INTEGER NOT NULL DEFAULT 0,
+  error_rows INTEGER NOT NULL DEFAULT 0,
+  search_coverage_rate REAL NOT NULL DEFAULT 0.0,
+  candidate_yield_per_observation REAL NOT NULL DEFAULT 0.0,
+  search_execution_status TEXT NOT NULL,
+  by_search_http_status_json TEXT NOT NULL,
+  by_search_error_json TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  source_quality_learning TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_utility_scorecard (
   scorecard_key TEXT PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

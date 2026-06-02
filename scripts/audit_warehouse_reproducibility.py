@@ -385,6 +385,7 @@ ARTIFACT_SPECS = [
     ("artifacts/data/official_program_identifiers.csv", "program_identifier_ledger", "csv", "official_program_identifiers", True),
     ("artifacts/data/program_lifecycle_consistency_audit.csv", "program_lifecycle_ledger", "csv", "program_lifecycle_consistency_audit", True),
     ("artifacts/data/source_utility_scorecard.csv", "source_quality_ledger", "csv", "source_utility_scorecard", True),
+    ("artifacts/data/search_utility_assurance.csv", "source_quality_ledger", "csv", "search_utility_assurance", True),
 ]
 
 

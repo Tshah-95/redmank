@@ -87,6 +87,7 @@ Core tables:
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
+- `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
 
 Useful views:
 
@@ -298,6 +299,8 @@ NPI candidates do not mutate roster truth. They are useful secondary identity an
 - SQLite table `source_utility_scorecard`: queryable version of the same ledger.
 
 The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; ACGME public search as strong for candidate program codes but not trainee truth; broad source discovery as a queue, not truth; official trainee profile discovery as a resumable query/probe lane; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as blocked in the latest full-corpus pass by rate limiting; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
+
+`scripts/materialize_search_utility_assurance.py` adds a narrower audit for broad-search lanes. It compares official HUP gap-source search, trainee-profile search, prior-training background search, and attending historical-link search across query rows, search observations, HTTP status/error behavior, candidate yield, and recommended next action. This prevents skipped or throttled search utilities from being misread as evidence that no public source exists.
 
 ## Public Contact Evidence
 

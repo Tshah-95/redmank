@@ -301,6 +301,7 @@ def main() -> None:
     )
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
+    search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
     weakest_program_coverage = read_csv(ARTIFACTS / "program_enrichment_coverage.csv", limit=25)
@@ -321,6 +322,7 @@ def main() -> None:
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
+    search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
     top_alias_reviewer_decisions = read_csv(ARTIFACTS / "official_program_alias_reviewer_decision_audit.csv", limit=25)
     top_reconciliation_decisions = [
         row
@@ -500,6 +502,8 @@ def main() -> None:
         "top_npi_candidates": top_npi_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
+        "search_utility_assurance_summary": search_utility_assurance_summary,
+        "search_utility_assurance": search_utility_assurance,
         "medical_student_source_audit_summary": med_student_source_audit_summary,
         "medical_student_source_audit": med_student_source_audit,
         "reconciliation_queue_counts": reconciliation_queue_counts,
@@ -833,6 +837,25 @@ def main() -> None:
         ),
         "",
         "Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.",
+        "",
+        "## Search Utility Assurance",
+        "",
+        f"Utility rows: {search_utility_assurance_summary.get('utility_rows', 0)}. Query rows: {search_utility_assurance_summary.get('query_rows', 0)}. Search observations: {search_utility_assurance_summary.get('search_observation_rows', 0)}. Search candidates: {search_utility_assurance_summary.get('search_candidate_rows', 0)}. Non-200 search rows: {search_utility_assurance_summary.get('non_200_search_rows', 0)}.",
+        "",
+        *md_table(
+            search_utility_assurance,
+            [
+                "utility_name",
+                "query_rows",
+                "search_observation_rows",
+                "search_candidate_rows",
+                "result_rows",
+                "search_execution_status",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: query manifests, endpoint observations, and discovered candidates are separate evidence classes. A skipped or blocked search lane cannot be interpreted as evidence that no public page exists; it only tells us which discovery utility still needs execution, retry, or replacement.",
         "",
         "## Evidence Reconciliation Queue",
         "",

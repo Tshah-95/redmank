@@ -1,0 +1,19 @@
+{
+  "audited_at": "2026-06-02T15:06:18.368015+00:00",
+  "by_search_execution_status": {
+    "executed_partial_with_endpoint_errors": 1,
+    "planned_not_executed": 3
+  },
+  "candidate_rows": 86,
+  "csv": "artifacts/data/search_utility_assurance.csv",
+  "error_rows": 34,
+  "json": "artifacts/data/search_utility_assurance.json",
+  "non_200_search_rows": 34,
+  "policy": "Search utilities are discovery surfaces. Query manifests, observations, result rows, and candidates are audited separately so endpoint failures or skipped runs cannot masquerade as absence of public evidence.",
+  "query_rows": 2284,
+  "result_rows": 8,
+  "search_candidate_rows": 7,
+  "search_observation_rows": 36,
+  "successful_search_rows": 2,
+  "utility_rows": 4
+}
