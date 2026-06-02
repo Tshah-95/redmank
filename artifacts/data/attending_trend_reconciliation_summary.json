@@ -2,26 +2,27 @@
   "as_of_year": 2026,
   "by_assurance_level": {
     "0": 21,
-    "1": 45,
+    "1": 43,
     "3": 1,
-    "4": 3
+    "4": 5
   },
   "by_ten_year_trend_window": {
-    "unknown": 66,
-    "yes": 4
+    "no": 2,
+    "unknown": 59,
+    "yes": 9
   },
   "by_trend_status": {
     "context_only_not_trend_ready": 21,
-    "current_endpoint_needs_training_claim": 45,
+    "current_endpoint_needs_training_claim": 43,
     "historical_link_candidate_review": 1,
-    "review_ready_official_biosketch_bridge": 3
+    "review_ready_official_biosketch_bridge": 5
   },
   "csv": "artifacts/data/attending_trend_reconciliation.csv",
-  "generated_at": "2026-06-02T10:05:31.048530+00:00",
+  "generated_at": "2026-06-02T15:40:43.499104+00:00",
   "groups_with_current_endpoint": 49,
   "groups_with_penn_training_claim": 4,
-  "groups_with_recent_dated_biosketch_bridge": 3,
+  "groups_with_recent_dated_biosketch_bridge": 5,
   "json": "artifacts/data/attending_trend_reconciliation.json",
-  "review_ready_recent_bridge_rows": 3,
+  "review_ready_recent_bridge_rows": 5,
   "trend_rows": 70
 }

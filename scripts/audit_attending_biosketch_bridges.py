@@ -46,6 +46,7 @@ OBSERVATION_CSV = ARTIFACTS / "attending_biosketch_source_observations.csv"
 SUMMARY_PATH = ARTIFACTS / "attending_biosketch_bridge_summary.json"
 
 DEFAULT_INDEX_URLS = [
+    "https://www.med.upenn.edu/apps/faculty/index.php/",
     "https://www.med.upenn.edu/apps/faculty/index.php/g353",
 ]
 
@@ -177,9 +178,7 @@ def read_target_groups(path: Path) -> list[dict]:
         rows = list(csv.DictReader(f))
     targets = []
     for row in rows:
-        if row.get("has_current_attending_endpoint") != "1":
-            continue
-        if row.get("has_penn_training_claim") != "1" and "penn_training" not in row.get("best_linkage_status", ""):
+        if row.get("has_current_attending_endpoint") != "1" and row.get("has_penn_training_claim") != "1":
             continue
         targets.append(row)
     return sorted(
@@ -202,6 +201,7 @@ def faculty_links(index_payloads: list[dict]) -> tuple[dict[str, list[dict]], li
                 "title": payload["title"],
                 "content_type": payload["content_type"],
                 "candidate_link_count": 0,
+                "unique_clean_name_count": 0,
                 "error": payload["error"],
                 "sha256": sha256_text(payload["html"]) if payload["html"] else "",
             }
@@ -209,6 +209,7 @@ def faculty_links(index_payloads: list[dict]) -> tuple[dict[str, list[dict]], li
         if payload["status"] != 200:
             continue
         count = 0
+        clean_names = set()
         for anchor in payload["soup"].select("a[href]"):
             label = norm(anchor.get_text(" "))
             href = anchor.get("href") or ""
@@ -219,8 +220,10 @@ def faculty_links(index_payloads: list[dict]) -> tuple[dict[str, list[dict]], li
             if not key:
                 continue
             links.setdefault(key, []).append({"label": label, "url": full_url, "index_url": payload["url"]})
+            clean_names.add(key)
             count += 1
         observations[-1]["candidate_link_count"] = count
+        observations[-1]["unique_clean_name_count"] = len(clean_names)
     return links, observations
 
 
@@ -484,6 +487,7 @@ def main() -> None:
         "title",
         "content_type",
         "candidate_link_count",
+        "unique_clean_name_count",
         "error",
         "sha256",
         "matched_event_group_key",
@@ -506,6 +510,17 @@ def main() -> None:
         "target_groups": len(targets),
         "index_urls": index_urls,
         "source_observation_rows": len(observations),
+        "faculty_index_rows": sum(1 for row in observations if row.get("source_scope") == "faculty_index"),
+        "faculty_index_link_count": sum(
+            int(row.get("candidate_link_count") or 0)
+            for row in observations
+            if row.get("source_scope") == "faculty_index"
+        ),
+        "faculty_index_unique_clean_name_count": sum(
+            int(row.get("unique_clean_name_count") or 0)
+            for row in observations
+            if row.get("source_scope") == "faculty_index"
+        ),
         "candidate_rows": len(candidates),
         "groups_with_candidates": len({row["event_group_key"] for row in candidates}),
         "groups_with_recent_dated_bridge_candidates": len(

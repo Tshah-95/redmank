@@ -5,7 +5,23 @@ useDefault = true
 
 [[allowlists]]
 description = "Generated warehouse identifier fields, not credentials."
-regexTarget = "match"
+regexTarget = "line"
 regexes = [
-  '''(?i)(person_key|person_or_name_key|on_or_name_key|official_program_key|trend_key|trend_acceptance_key|trend_rollup_key|matched_current_person_key|matched_current_person_keys|observation_key|entity_key)("{1,2})?\s*[:=]\s*("{1,2})?[^"\n]+("{1,2})?''',
+  '''(?i)([a-z0-9_]*key|matched_current_person_keys)("{1,2})?\s*[:=]\s*("{1,2})?(person|program|hup_gme|official_program|official_program_alias|official_program_coverage|program_source_candidate|trend|trend_acceptance|trend_rollup|observation|entity)_[a-z0-9_.-]+_[0-9a-f]{8,}("{1,2})?''',
+  '''(?i)[a-z0-9_]*key\\":\s*\\"(person|program|hup_gme|official_program|official_program_alias|official_program_coverage|program_source_candidate|trend|trend_acceptance|trend_rollup|observation|entity)_[a-z0-9_.-]+_[0-9a-f]{8,}''',
+  '''(?i)entity_key("{1,2})?\s*[:=]\s*("{1,2})?[0-9a-f]{16,}("{1,2})?''',
+]
+stopwords = [
+  '''person_''',
+  '''program_''',
+  '''hup_gme_''',
+  '''official_program_''',
+  '''official_program_alias_''',
+  '''official_program_coverage_''',
+  '''program_source_candidate_''',
+  '''trend_''',
+  '''trend_acceptance_''',
+  '''trend_rollup_''',
+  '''observation_''',
+  '''entity_''',
 ]

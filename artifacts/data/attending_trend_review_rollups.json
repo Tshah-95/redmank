@@ -1,42 +1,55 @@
 [
   {
-    "claim_count": 3,
-    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\"]}",
-    "materialized_at": "2026-06-02T10:38:38.832431+00:00",
-    "person_count": 3,
+    "claim_count": 5,
+    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Denis Hadjiliadis, MD, PhD\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\", \"Katherine Courtright, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9e4711234145cb36473f\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\", \"attending_trend_review_7a3740e24f8863d906eb\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 5,
     "rollup_scope": "corpus",
     "rollup_value": "recent_penn_trained_current_attending_candidates",
     "source_scope": "official_penn_faculty_biosketch",
     "ten_year_trend_window": "yes",
     "training_end_year": "",
     "training_type": "fellowship",
-    "trend_rollup_key": "attending_trend_rollup_353b77530e221db6c6b3"
+    "trend_rollup_key": "attending_trend_rollup_60b5d5d2aa6bba9ea161"
   },
   {
-    "claim_count": 3,
-    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\"]}",
-    "materialized_at": "2026-06-02T10:38:38.832431+00:00",
-    "person_count": 3,
+    "claim_count": 5,
+    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Denis Hadjiliadis, MD, PhD\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\", \"Katherine Courtright, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9e4711234145cb36473f\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\", \"attending_trend_review_7a3740e24f8863d906eb\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 5,
     "rollup_scope": "source_scope",
     "rollup_value": "official_penn_faculty_biosketch",
     "source_scope": "official_penn_faculty_biosketch",
     "ten_year_trend_window": "yes",
     "training_end_year": "",
     "training_type": "fellowship",
-    "trend_rollup_key": "attending_trend_rollup_87e87cd1d1bce9f8fb34"
+    "trend_rollup_key": "attending_trend_rollup_435d97cfa6a9a2610d73"
   },
   {
-    "claim_count": 3,
-    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\"]}",
-    "materialized_at": "2026-06-02T10:38:38.832431+00:00",
-    "person_count": 3,
+    "claim_count": 5,
+    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Denis Hadjiliadis, MD, PhD\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\", \"Katherine Courtright, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9e4711234145cb36473f\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\", \"attending_trend_review_7a3740e24f8863d906eb\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 5,
     "rollup_scope": "ten_year_trend_window",
     "rollup_value": "yes",
     "source_scope": "official_penn_faculty_biosketch",
     "ten_year_trend_window": "yes",
     "training_end_year": "",
     "training_type": "fellowship",
-    "trend_rollup_key": "attending_trend_rollup_a6cf1f0028f0432aba9d"
+    "trend_rollup_key": "attending_trend_rollup_9e8c4b777a22dd37daac"
+  },
+  {
+    "claim_count": 1,
+    "evidence_json": "{\"display_names\": [\"Katherine Courtright, MD\"], \"trend_claim_keys\": [\"attending_trend_review_7a3740e24f8863d906eb\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 1,
+    "rollup_scope": "training_end_year",
+    "rollup_value": "2017",
+    "source_scope": "official_penn_faculty_biosketch",
+    "ten_year_trend_window": "yes",
+    "training_end_year": 2017,
+    "training_type": "fellowship",
+    "trend_rollup_key": "attending_trend_rollup_95668f6427d2d764617f"
   },
   {
     "claim_count": 1,
@@ -66,6 +79,19 @@
   },
   {
     "claim_count": 1,
+    "evidence_json": "{\"display_names\": [\"Denis Hadjiliadis, MD, PhD\"], \"trend_claim_keys\": [\"attending_trend_review_9e4711234145cb36473f\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 1,
+    "rollup_scope": "training_end_year",
+    "rollup_value": "2021",
+    "source_scope": "official_penn_faculty_biosketch",
+    "ten_year_trend_window": "yes",
+    "training_end_year": 2021,
+    "training_type": "fellowship",
+    "trend_rollup_key": "attending_trend_rollup_176cef6869401535549f"
+  },
+  {
+    "claim_count": 1,
     "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\"]}",
     "materialized_at": "2026-06-02T10:38:38.832431+00:00",
     "person_count": 1,
@@ -78,17 +104,30 @@
     "trend_rollup_key": "attending_trend_rollup_cfa10287329b3fd162ec"
   },
   {
-    "claim_count": 3,
-    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\"]}",
-    "materialized_at": "2026-06-02T10:38:38.832431+00:00",
-    "person_count": 3,
+    "claim_count": 5,
+    "evidence_json": "{\"display_names\": [\"Timothy Buckey, MD, MBE\", \"Denis Hadjiliadis, MD, PhD\", \"Patrick Kevin Gleeson, MD, MSCE\", \"Priya Patel, MD\", \"Katherine Courtright, MD\"], \"trend_claim_keys\": [\"attending_trend_review_835be2dbf566057ce623\", \"attending_trend_review_9e4711234145cb36473f\", \"attending_trend_review_9cf2ddd2d8f9e0c63654\", \"attending_trend_review_dac18578e0c5485fe23e\", \"attending_trend_review_7a3740e24f8863d906eb\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 5,
     "rollup_scope": "training_type",
     "rollup_value": "fellowship",
     "source_scope": "official_penn_faculty_biosketch",
     "ten_year_trend_window": "yes",
     "training_end_year": "",
     "training_type": "fellowship",
-    "trend_rollup_key": "attending_trend_rollup_aa1165cc455e05ad05e6"
+    "trend_rollup_key": "attending_trend_rollup_5afd8503edb22987e93b"
+  },
+  {
+    "claim_count": 1,
+    "evidence_json": "{\"display_names\": [\"Katherine Courtright, MD\"], \"trend_claim_keys\": [\"attending_trend_review_7a3740e24f8863d906eb\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 1,
+    "rollup_scope": "training_type_end_year",
+    "rollup_value": "fellowship::2017",
+    "source_scope": "official_penn_faculty_biosketch",
+    "ten_year_trend_window": "yes",
+    "training_end_year": 2017,
+    "training_type": "fellowship",
+    "trend_rollup_key": "attending_trend_rollup_e136854153e62c6b7539"
   },
   {
     "claim_count": 1,
@@ -115,6 +154,19 @@
     "training_end_year": 2020,
     "training_type": "fellowship",
     "trend_rollup_key": "attending_trend_rollup_55913cd0a259eedd9c4c"
+  },
+  {
+    "claim_count": 1,
+    "evidence_json": "{\"display_names\": [\"Denis Hadjiliadis, MD, PhD\"], \"trend_claim_keys\": [\"attending_trend_review_9e4711234145cb36473f\"]}",
+    "materialized_at": "2026-06-02T15:41:19.447884+00:00",
+    "person_count": 1,
+    "rollup_scope": "training_type_end_year",
+    "rollup_value": "fellowship::2021",
+    "source_scope": "official_penn_faculty_biosketch",
+    "ten_year_trend_window": "yes",
+    "training_end_year": 2021,
+    "training_type": "fellowship",
+    "trend_rollup_key": "attending_trend_rollup_643b23b7c4d45c15effd"
   },
   {
     "claim_count": 1,

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-02T15:36:18.127750+00:00
+Generated: 2026-06-02T15:44:48.659097+00:00
 
 ## What This Pass Did
 
@@ -3213,8 +3213,8 @@ Scorecard rows: 23.
 | Prior training background discovery | medical-school and prior-residency background candidates for trainee enrichment gaps | 269 | 538 | 58.0 | useful_candidate_layer | run_prior_training_background_discovery_then_reconcile_candidates |
 | Official Penn attending/profile claims | current attending endpoints, structured education/training, research interests, and personal profile snippets | 20 | 20 | 73.0 | strong_with_known_limits | seek_historical_identity_bridge_before_accepting_trend_links |
 | Attending historical-link discovery | source candidates that may bridge current Penn attending endpoints to historical trainee records | 15 | 5 | 47.0 | discovery_or_review_only | run_polite_broad_search_and_prioritize_dated_historical_roster_or_cv_hits |
-| Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 4 | 10 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
-| Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts |
+| Official Penn faculty biosketch training bridges | dated post-graduate training lines from official Penn Faculty Biosketch pages | 46 | 36 | 79.0 | strong_with_known_limits | review_dated_biosketch_bridges_before_accepting_recent_attending_trends |
+| Attending trend reconciliation ledger | non-mutating policy ledger for current-attending endpoint, Penn-training, biosketch, and historical-link evidence | 70 | 70 | 82.0 | strong_with_known_limits | review_ready_trend_rows_then_record_explicit_acceptance_decisions |
 | NPPES NPI Registry candidates | candidate NPI, taxonomy, and PA practice-location anchors for current resident/fellow identity review | 1257 | 1073 | 62.0 | useful_candidate_layer | use_npi_candidates_as_secondary_identity_anchors_only |
 | Public contact candidate extraction | public email/contact channels with scope and verification status | 313 | 313 | 69.0 | useful_candidate_layer | verify_current_source_before_display_or_outreach_and_review_domain_anomalies |
 | Organization normalization resolver | medical school, residency, undergraduate, graduate, institution, and program labels | 834 | 854 | 74.0 | strong_with_known_limits | append_alias_and_identifier_candidates_with_source_backed_evidence |
@@ -3239,7 +3239,7 @@ Learning: query manifests, endpoint observations, and discovered candidates are 
 
 ## Corpus Action Worklist
 
-Worklist rows: 1279. Summed impact count: 11317. Critical rows: 16. High rows: 766.
+Worklist rows: 1279. Summed impact count: 11317. Critical rows: 16. High rows: 768.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3556,57 +3556,75 @@ Learning: seeded official Penn/provider URLs give a deterministic baseline for t
 
 ## Official Faculty Biosketch Bridge Audit
 
-Target Penn-training current-attending groups: 4. Source observations: 4. Candidate rows: 10. Groups with recent dated bridge candidates: 3.
+Target Penn-training current-attending groups: 49. Source observations: 46. Candidate rows: 36. Groups with recent dated bridge candidates: 5.
 
 Bridge statuses:
 
 | bridge_status | count |
 | --- | --- |
-| dated_recent_official_biosketch_training_bridge_candidate | 3 |
-| non_penn_training_context | 6 |
-| official_biosketch_research_training_context | 1 |
+| dated_official_biosketch_training_bridge_candidate | 4 |
+| dated_recent_official_biosketch_training_bridge_candidate | 5 |
+| non_penn_training_context | 25 |
+| official_biosketch_research_training_context | 2 |
 
 Top biosketch bridge candidates:
 
 | display_name | bridge_status | training_type | start_year | end_year | ten_year_trend_window | training_line | source_url |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Anar A. Dossumbekova, MD, PhD | non_penn_training_context | fellowship | 2015 | 2017 | yes | Fellow in Allergy and Immunology, University of Texas Medical Branch, Galveston, TX, 2015-2017. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9027622 |
+| Anar A. Dossumbekova, MD, PhD | non_penn_training_context | postdoctoral | 2005 | 2006 | no | Postdoctoral Research Fellow, The Ohio State University, Columbus, OH, 2005-2006. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9027622 |
+| Anar A. Dossumbekova, MD, PhD | non_penn_training_context | residency | 2012 | 2015 | no | Resident in Internal Medicine, Berkshire Medical Center, The University of Massachusetts Medical School Teaching Hospital, Pittsfield, MA, 2012-2015. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9027622 |
+| Anar A. Dossumbekova, MD, PhD | non_penn_training_context | fellowship | 2017 | 2017 | yes | Visiting Fellow, Primary Immunodeficiency Clinic, University of Texas-Houston, Houston, TX, 2017-2017. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9027622 |
+| Anar A. Dossumbekova, MD, PhD | non_penn_training_context | residency | 2014 | 2014 | no | Visiting Resident, Internal Medicine Residency Program, Brigham and Women’s Hospital, The Harvard Medical School Teaching Hospital, Boston, MA, 2014-2014. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9027622 |
+| Denis Hadjiliadis, MD, PhD | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2020 | 2021 | yes | Fellow, Palliative Care and Hospice Medicine, University of Pennsylvania;, 2020-2021. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p5221275 |
+| Denis Hadjiliadis, MD, PhD | non_penn_training_context | fellowship | 2001 | 2002 | no | Fellow, Lung Transplantation and Cystic Fibrosis, University of Toronto, Toronto, Ontario, Canada, 2001-2002. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p5221275 |
+| Denis Hadjiliadis, MD, PhD | non_penn_training_context | fellowship | 1998 | 2001 | no | Fellow, Pulmonary and Critical Care Medicine, Duke University Medical Center, Durham, NC, 1998-2001. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p5221275 |
+| Denis Hadjiliadis, MD, PhD | non_penn_training_context | residency | 1995 | 1998 | no | Resident, Internal Medicine, Mayo Graduate School of Medicine, Rochester, MN, 1995-1998. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p5221275 |
+| Geeta Ravi Patel, MD | non_penn_training_context | fellowship | 2012 | 2014 | no | Fellowship Allergy & Immunology, Northwestern University Feinberg School of Medicine, 2012-2014. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p1946 |
+| Geeta Ravi Patel, MD | non_penn_training_context | residency | 2008 | 2010 | no | Internship/residency Internal Medicine, St. Vincent's Catholic Medical Center, 2008-2010. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p1946 |
+| Geeta Ravi Patel, MD | non_penn_training_context | residency | 2010 | 2011 | no | Residency Internal Medicine, The Mount Sinai School of Medicine, 2010-2011. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p1946 |
+| Katherine Courtright, MD | dated_official_biosketch_training_bridge_candidate | residency | 2011 | 2012 | no | Chief Resident, Internal Medicine, Hospital of the University of Pennsylvania, 2011-2012. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 |
+| Katherine Courtright, MD | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2016 | 2017 | yes | Fellow, Hospice and Palliative Medicine, Penn Medicine, 2016-2017. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 |
+| Katherine Courtright, MD | dated_official_biosketch_training_bridge_candidate | fellowship | 2012 | 2015 | no | Fellow, Pulmonary and Critical Care, Penn Medicine, 2012-2015. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 |
+| Katherine Courtright, MD | dated_official_biosketch_training_bridge_candidate | internship | 2008 | 2009 | no | Internal Medicine, Hospital of the University of Pennsylvania, 2008-2009. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 |
+| Katherine Courtright, MD | dated_official_biosketch_training_bridge_candidate | residency | 2009 | 2011 | no | Resident, Internal Medicine, Hospital of the University of Pennsylvania, 2009-2011. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 |
+| Katherine Courtright, MD | official_biosketch_research_training_context | postdoctoral | 2016 | 2016 | yes | Postdoctoral Research Fellow, Pulmonary and Critical Care, University of Pennsylvania, 2016-2016. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 |
+| Olajumoke O. Fadugba, MD | non_penn_training_context | fellowship | 2012 | 2014 | no | Fellow, Allergy & Immunology, Vanderbilt University School of Medicine, 2012-2014. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8743638 |
+| Olajumoke O. Fadugba, MD | non_penn_training_context | internship | 2009 | 2010 | no | Intern, Internal Medicine, Washington University School of Medicine, 2009-2010. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8743638 |
+| Olajumoke O. Fadugba, MD | non_penn_training_context | residency | 2010 | 2012 | no | Resident, Internal Medicine, Washington University School of Medicine, 2010-2012. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8743638 |
 | Patrick Kevin Gleeson, MD, MSCE | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2018 | 2020 | yes | Fellowship, Allergy and Immunology, Hospital of the University of Pennsylvania, Chief Fellow 2019, 2018-2020. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 |
 | Patrick Kevin Gleeson, MD, MSCE | official_biosketch_research_training_context | postdoctoral | 2020 | 2022 | yes | Post-doctoral Fellow, University of Pennsylvania, 2020-2022. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 |
 | Patrick Kevin Gleeson, MD, MSCE | non_penn_training_context | residency | 2015 | 2018 | yes | Categorical Internal Medicine Residency, Temple University Hospital, 2015-2018. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 |
-| Priya Patel, MD | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2017 | 2019 | yes | Fellow, Allergy & Immunology, Hospital of the University of Pennsylvania, Philadelphia, PA, 2017-2019. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
-| Priya Patel, MD | non_penn_training_context | residency | 2016 | 2017 | yes | Chief Resident, Internal Medicine, VA NJ Health Care System, East Orange Campus, Rutgers New Jersey Medical School, 2016-2017. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
-| Priya Patel, MD | non_penn_training_context | residency | 2015 | 2016 | yes | Chief Resident, Pediatric and Internal Medicine, Rutgers New Jersey Medical School, Newark, NJ, 2015-2016. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
-| Priya Patel, MD | non_penn_training_context | internship | 2012 | 2013 | no | Intern, Pediatrics and Internal Medicine, UMDNJ New Jersey Medical School, Newark, NJ, 2012-2013. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
-| Priya Patel, MD | non_penn_training_context | residency | 2013 | 2016 | yes | Resident, Pediatrics and Internal Medicine, Rutgers (former UMDNJ) New Jersey Medical School, Newark, NJ, 2013-2016. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 |
-| Timothy Buckey, MD, MBE | dated_recent_official_biosketch_training_bridge_candidate | fellowship | 2022 | 2024 | yes | Fellowship, Allergy and Immunology, Perelman School of Medicine, University of Pennsylvania, The Children’s Hospital of Philadelphia, 2022-2024. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 |
-| Timothy Buckey, MD, MBE | non_penn_training_context | residency | 2019 | 2022 | yes | Residency, Internal Medicine, Katz School of Medicine, Temple University Hospital, Philadelphia, PA, 2019-2022. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 |
+| Pavle S. Milutinovic, MD, PhD | non_penn_training_context | fellowship | 2018 | 2022 | yes | Fellow, Allergy and Immunology, NIH (National Institute of Allergy and Infectious Diseases), 2018-2022. | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9647371 |
 
 Learning: official Penn Faculty Biosketch pages are a high-quality bridge utility when they provide dated Penn residency/fellowship lines for current faculty. They still remain review candidates rather than accepted trend facts because a profile training line is not the same evidence class as a historical roster or alumni record. Postdoctoral research lines are retained as context, not counted as GME trainee-flow bridges.
 
 ## Attending Trend Reconciliation Ledger
 
-Trend groups reconciled: 70. Review-ready recent bridge rows: 3. Groups with current endpoints: 49. Groups with Penn-training claims: 4.
+Trend groups reconciled: 70. Review-ready recent bridge rows: 5. Groups with current endpoints: 49. Groups with Penn-training claims: 4.
 
 Trend statuses:
 
 | trend_status | count |
 | --- | --- |
 | context_only_not_trend_ready | 21 |
-| current_endpoint_needs_training_claim | 45 |
+| current_endpoint_needs_training_claim | 43 |
 | historical_link_candidate_review | 1 |
-| review_ready_official_biosketch_bridge | 3 |
+| review_ready_official_biosketch_bridge | 5 |
 
 Top trend reconciliation rows:
 
 | display_name | trend_status | trend_assurance_level | ten_year_trend_window | best_training_type | best_training_end_year | best_source_url | required_next_evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Denis Hadjiliadis, MD, PhD | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2021 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p5221275 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
+| Katherine Courtright, MD | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2017 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
 | Patrick Kevin Gleeson, MD, MSCE | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2020 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
 | Priya Patel, MD | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2019 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
 | Timothy Buckey, MD, MBE | review_ready_official_biosketch_bridge | 4 | yes | fellowship | 2024 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 | Review official biosketch training line against the current attending endpoint; after reviewer acceptance, it can support a recent Penn-trained current-attending trend record. |
 | Emily Gordon, MD, MSEd | historical_link_candidate_review | 3 | unknown |  |  |  | Review historical-link candidate for explicit same-person, Penn-training, program, and date anchors. |
 | Alana Sagin, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Alison Wakoff Loren, MD, MSCE | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
-| Anar A. Dossumbekova, MD, PhD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Anar A. Dossumbekova, MD, PhD | current_endpoint_needs_training_claim | 1 | yes | fellowship | 2017 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9027622 | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Andrea J. Apter, MD, MA, MSc | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Ann Soliman, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Barbara A. Carr | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
@@ -3615,64 +3633,73 @@ Top trend reconciliation rows:
 | Christopher A. D'Avella, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Daniel J. Landsburg, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | David M. Mintzer, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
-| Denis Hadjiliadis, MD, PhD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Douglas Eric Guggenheim, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Edward A. Stadtmauer, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Emily Chan, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Erin O. Aakhus, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
-| Geeta Ravi Patel, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
+| Geeta Ravi Patel, MD | current_endpoint_needs_training_claim | 1 | no | fellowship | 2014 | https://www.med.upenn.edu/apps/faculty/index.php/g353/p1946 | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Janet Long | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Jesse Kiefer MD MSEd | current_endpoint_needs_training_claim | 1 | yes |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
-| Katherine Courtright, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 | Kathryn A. McGrath, MD | current_endpoint_needs_training_claim | 1 | unknown |  |  |  | Current Penn attending endpoint exists; seek official profile, CV, or biosketch training evidence. |
 
 Review-ready trend claims:
 
-Materialized review-ready trend claims: 3. People: 3. Rollup rows: 10. Display status: review_ready_not_accepted_trend_fact.
+Materialized review-ready trend claims: 5. People: 5. Rollup rows: 14. Display status: review_ready_not_accepted_trend_fact.
 
 | display_name | trend_claim_type | training_type | training_start_year | training_end_year | source_scope | source_url | display_safety_status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Timothy Buckey, MD, MBE | recent_penn_trained_current_attending_candidate | fellowship | 2022 | 2024 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8497949 | review_ready_not_accepted_trend_fact |
+| Denis Hadjiliadis, MD, PhD | recent_penn_trained_current_attending_candidate | fellowship | 2020 | 2021 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p5221275 | review_ready_not_accepted_trend_fact |
 | Patrick Kevin Gleeson, MD, MSCE | recent_penn_trained_current_attending_candidate | fellowship | 2018 | 2020 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p8940694 | review_ready_not_accepted_trend_fact |
 | Priya Patel, MD | recent_penn_trained_current_attending_candidate | fellowship | 2017 | 2019 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p9009993 | review_ready_not_accepted_trend_fact |
+| Katherine Courtright, MD | recent_penn_trained_current_attending_candidate | fellowship | 2016 | 2017 | official_penn_faculty_biosketch | https://www.med.upenn.edu/apps/faculty/index.php/g353/p26647 | review_ready_not_accepted_trend_fact |
 
 Trend acceptance audit:
 
-Pre-review acceptance rows: 3. Pre-review accepted facts: 3. Reviewer-accepted trend facts: 3. Pending reviewer decisions: 0.
+Pre-review acceptance rows: 5. Pre-review accepted facts: 3. Reviewer-accepted trend facts: 3. Pending reviewer decisions: 2.
 
 | display_name | training_end_year | acceptance_status | accepted_trend_fact | acceptance_blocker | recommended_next_action |
 | --- | --- | --- | --- | --- | --- |
 | Timothy Buckey, MD, MBE | 2024 | accepted_after_explicit_reviewer_decision | 1 | none | retain_accepted_trend_fact_and_monitor_future_refresh |
+| Denis Hadjiliadis, MD, PhD | 2021 | review_ready_requires_explicit_reviewer_acceptance | 0 | explicit_reviewer_acceptance_missing | record_explicit_reviewer_acceptance_or_rejection |
 | Patrick Kevin Gleeson, MD, MSCE | 2020 | accepted_after_explicit_reviewer_decision | 1 | none | retain_accepted_trend_fact_and_monitor_future_refresh |
 | Priya Patel, MD | 2019 | accepted_after_explicit_reviewer_decision | 1 | none | retain_accepted_trend_fact_and_monitor_future_refresh |
+| Katherine Courtright, MD | 2017 | review_ready_requires_explicit_reviewer_acceptance | 0 | explicit_reviewer_acceptance_missing | record_explicit_reviewer_acceptance_or_rejection |
 
 Reviewer decision queue:
 
-Queue rows: 3. Manual decision rows: 3. Accepted trend facts: 3. Pending reviewer decisions: 0.
+Queue rows: 5. Manual decision rows: 3. Accepted trend facts: 3. Pending reviewer decisions: 2.
 
 | decision_status | count |
 | --- | --- |
 | accepted_reviewer_decision | 3 |
+| pending_reviewer_decision | 2 |
 
 | display_name | reviewer_decision | decision_status | accepted_trend_fact | decision_blocker | recommended_next_action |
 | --- | --- | --- | --- | --- | --- |
 | Timothy Buckey, MD, MBE | accept_trend_fact | accepted_reviewer_decision | 1 | none | materialize_accepted_trend_fact |
+| Denis Hadjiliadis, MD, PhD | pending | pending_reviewer_decision | 0 | manual_reviewer_decision_missing | record_accept_reject_or_needs_more_evidence_decision |
 | Patrick Kevin Gleeson, MD, MSCE | accept_trend_fact | accepted_reviewer_decision | 1 | none | materialize_accepted_trend_fact |
 | Priya Patel, MD | accept_trend_fact | accepted_reviewer_decision | 1 | none | materialize_accepted_trend_fact |
+| Katherine Courtright, MD | pending | pending_reviewer_decision | 0 | manual_reviewer_decision_missing | record_accept_reject_or_needs_more_evidence_decision |
 
 Trend review rollups:
 
 | rollup_scope | rollup_value | training_type | training_end_year | claim_count | person_count |
 | --- | --- | --- | --- | --- | --- |
-| corpus | recent_penn_trained_current_attending_candidates | fellowship |  | 3 | 3 |
-| source_scope | official_penn_faculty_biosketch | fellowship |  | 3 | 3 |
-| ten_year_trend_window | yes | fellowship |  | 3 | 3 |
+| corpus | recent_penn_trained_current_attending_candidates | fellowship |  | 5 | 5 |
+| source_scope | official_penn_faculty_biosketch | fellowship |  | 5 | 5 |
+| ten_year_trend_window | yes | fellowship |  | 5 | 5 |
+| training_end_year | 2017 | fellowship | 2017 | 1 | 1 |
 | training_end_year | 2019 | fellowship | 2019 | 1 | 1 |
 | training_end_year | 2020 | fellowship | 2020 | 1 | 1 |
+| training_end_year | 2021 | fellowship | 2021 | 1 | 1 |
 | training_end_year | 2024 | fellowship | 2024 | 1 | 1 |
-| training_type | fellowship | fellowship |  | 3 | 3 |
+| training_type | fellowship | fellowship |  | 5 | 5 |
+| training_type_end_year | fellowship::2017 | fellowship | 2017 | 1 | 1 |
 | training_type_end_year | fellowship::2019 | fellowship | 2019 | 1 | 1 |
 | training_type_end_year | fellowship::2020 | fellowship | 2020 | 1 | 1 |
+| training_type_end_year | fellowship::2021 | fellowship | 2021 | 1 | 1 |
 | training_type_end_year | fellowship::2024 | fellowship | 2024 | 1 | 1 |
 
 Learning: trend analysis needs its own non-mutating acceptance lane. Endpoint evidence plus a Penn-training profile claim is still not enough. Endpoint plus profile claim plus dated official Penn biosketch GME bridge is review-ready for trend acceptance. Accepted trend facts now require a separate reviewer decision row with a matching claim fingerprint and all confirmation fields set, so stale or partial decisions cannot silently promote changed claims.
@@ -3813,7 +3840,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T15:35:48.745244+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-02T15:44:18.478542+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | pubmed_article_reconciliation | 357 | 1405 | 0 | 0 | 857 | {"artifact": "pubmed_article_candidate_claims.json", "claims": 2262, "mean_confidence": 0.7237, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 2262, "summary": {"article_claims": 2262, "by_feature": {"article_author_name_match": 2262, "bounded_author_query": 2262, "penn_affiliation": 18, "prior_training_or_education_affiliation": 843, "program_topic_match": 234, "recent_publication": 2020}, "by_status": {"candidate": 1405, "needs_review": 857}, "generated_at": "2026-06-02T12:15:53.752328+00:00", "include_high_collision": false, "max_author_count": 20, "query_claims_considered": 365, "unique_pmids_fetched": 2271}} |
 | pubmed_eutilities | 1336 | 2741 | 0 | 0 | 857 | {"claims": 3598, "mean_confidence": 0.5309, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 3598} |

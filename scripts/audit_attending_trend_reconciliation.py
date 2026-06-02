@@ -124,7 +124,7 @@ def trend_window(group: dict, bridge_rows: list[dict], historical_rows: list[dic
 
 def classify(group: dict, bridge_rows: list[dict], historical_rows: list[dict]) -> tuple[str, int, str]:
     has_endpoint = as_int(group.get("has_current_attending_endpoint"))
-    has_training = as_int(group.get("has_penn_training_claim"))
+    has_profile_training = as_int(group.get("has_penn_training_claim"))
     has_name_match = as_int(group.get("has_current_trainee_name_match"))
     has_recent_bridge = any(
         row.get("bridge_status") == "dated_recent_official_biosketch_training_bridge_candidate"
@@ -140,6 +140,7 @@ def classify(group: dict, bridge_rows: list[dict], historical_rows: list[dict]) 
         }
         for row in bridge_rows
     )
+    has_training = has_profile_training or has_dated_bridge
     has_actionable_historical = any(
         row.get("candidate_status") in ACTIONABLE_HISTORICAL_STATUSES for row in historical_rows
     )

@@ -28,9 +28,11 @@ BRIDGE_STATUS = "dated_recent_official_biosketch_training_bridge_candidate"
 TREND_CLAIM_TYPE = "recent_penn_trained_current_attending_candidate"
 SOURCE_KEY = "official_penn_faculty_biosketch"
 ACCEPTANCE_POLICY = (
-    "Materialize only current Penn attending groups with a Penn-training profile claim and "
-    "a dated recent official Penn Faculty Biosketch residency/fellowship bridge. Keep as "
-    "review-ready until an explicit reviewer acceptance decision is recorded."
+    "Materialize only current Penn attending groups with a dated recent official Penn Faculty "
+    "Biosketch residency/fellowship/internship bridge. A separate provider-page Penn-training "
+    "claim is useful corroboration but is not required when the official biosketch itself "
+    "supplies the dated Penn training line. Keep as review-ready until an explicit reviewer "
+    "acceptance decision is recorded."
 )
 DISPLAY_SAFETY_STATUS = "review_ready_not_accepted_trend_fact"
 REQUIRED_REVIEWER_ACTION = (
@@ -179,7 +181,6 @@ def materialize_claims(conn: sqlite3.Connection) -> list[dict]:
         WHERE trend_status = ?
           AND ten_year_trend_window = 'yes'
           AND has_current_attending_endpoint = 1
-          AND has_penn_training_claim = 1
           AND has_recent_dated_biosketch_bridge = 1
         ORDER BY best_training_end_year DESC, display_name
         """,

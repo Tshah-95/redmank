@@ -31,7 +31,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-02T15:35:53.993680+00:00",
+    "generated_at": "2026-06-02T15:44:23.901232+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -43,39 +43,45 @@
     "reviewer_ready_track_alias_candidate": 1
   },
   "attending_biosketch_bridge_counts": {
-    "dated_recent_official_biosketch_training_bridge_candidate": 3,
-    "non_penn_training_context": 6,
-    "official_biosketch_research_training_context": 1
+    "dated_official_biosketch_training_bridge_candidate": 4,
+    "dated_recent_official_biosketch_training_bridge_candidate": 5,
+    "non_penn_training_context": 25,
+    "official_biosketch_research_training_context": 2
   },
   "attending_biosketch_bridge_summary": {
     "as_of_year": 2026,
     "by_bridge_status": {
-      "dated_recent_official_biosketch_training_bridge_candidate": 3,
-      "non_penn_training_context": 6,
-      "official_biosketch_research_training_context": 1
+      "dated_official_biosketch_training_bridge_candidate": 4,
+      "dated_recent_official_biosketch_training_bridge_candidate": 5,
+      "non_penn_training_context": 25,
+      "official_biosketch_research_training_context": 2
     },
     "by_ten_year_trend_window": {
-      "no": 1,
-      "yes": 9
+      "no": 19,
+      "yes": 17
     },
     "by_training_type": {
-      "fellowship": 3,
-      "internship": 1,
-      "postdoctoral": 1,
-      "residency": 5
+      "fellowship": 14,
+      "internship": 4,
+      "postdoctoral": 3,
+      "residency": 15
     },
-    "candidate_rows": 10,
+    "candidate_rows": 36,
     "csv": "artifacts/data/attending_biosketch_bridge_candidates.csv",
-    "generated_at": "2026-06-02T10:05:30.991543+00:00",
-    "groups_with_candidates": 3,
-    "groups_with_recent_dated_bridge_candidates": 3,
+    "faculty_index_link_count": 6245,
+    "faculty_index_rows": 2,
+    "faculty_index_unique_clean_name_count": 6234,
+    "generated_at": "2026-06-02T15:40:43.399915+00:00",
+    "groups_with_candidates": 10,
+    "groups_with_recent_dated_bridge_candidates": 5,
     "index_urls": [
+      "https://www.med.upenn.edu/apps/faculty/index.php/",
       "https://www.med.upenn.edu/apps/faculty/index.php/g353"
     ],
     "json": "artifacts/data/attending_biosketch_bridge_candidates.json",
     "observation_csv": "artifacts/data/attending_biosketch_source_observations.csv",
-    "source_observation_rows": 4,
-    "target_groups": 4
+    "source_observation_rows": 46,
+    "target_groups": 49
   },
   "attending_historical_link_discovery_summary": {
     "by_candidate_status": {
@@ -126,41 +132,49 @@
     "seeded_source_rows": 8
   },
   "attending_trend_acceptance_counts": {
-    "accepted_after_explicit_reviewer_decision": 3
+    "accepted_after_explicit_reviewer_decision": 3,
+    "review_ready_requires_explicit_reviewer_acceptance": 2
   },
   "attending_trend_acceptance_fact_counts": {
+    "0": 2,
     "1": 3
   },
   "attending_trend_acceptance_summary": {
     "acceptance_policy": "No recent-attending trend candidate is accepted as a trend fact until explicit reviewer acceptance confirms same-person identity, current Penn endpoint, training line, program type, and dates.",
     "accepted_trend_fact_rows": 3,
     "by_acceptance_blocker": {
+      "explicit_reviewer_acceptance_missing": 2,
       "none": 3
     },
     "by_acceptance_status": {
-      "accepted_after_explicit_reviewer_decision": 3
+      "accepted_after_explicit_reviewer_decision": 3,
+      "review_ready_requires_explicit_reviewer_acceptance": 2
     },
     "by_display_safety_status": {
-      "accepted_trend_fact_public_source_backed": 3
+      "accepted_trend_fact_public_source_backed": 3,
+      "review_ready_not_accepted_trend_fact": 2
     },
     "by_recommended_next_action": {
+      "record_explicit_reviewer_acceptance_or_rejection": 2,
       "retain_accepted_trend_fact_and_monitor_future_refresh": 3
     },
     "by_training_end_year": {
+      "2017": 1,
       "2019": 1,
       "2020": 1,
+      "2021": 1,
       "2024": 1
     },
     "by_training_type": {
-      "fellowship": 3
+      "fellowship": 5
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
-    "display_safety_status": "accepted_trend_fact_public_source_backed",
-    "generated_at": "2026-06-02T15:35:54.256791+00:00",
+    "display_safety_status": "review_ready_not_accepted_trend_fact",
+    "generated_at": "2026-06-02T15:44:24.180151+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
-    "review_ready_requires_reviewer_acceptance_rows": 0,
-    "trend_acceptance_rows": 3
+    "review_ready_requires_reviewer_acceptance_rows": 2,
+    "trend_acceptance_rows": 5
   },
   "attending_trend_linkage_summary": {
     "as_of_year": 2026,
@@ -196,110 +210,121 @@
   },
   "attending_trend_reconciliation_counts": {
     "context_only_not_trend_ready": 21,
-    "current_endpoint_needs_training_claim": 45,
+    "current_endpoint_needs_training_claim": 43,
     "historical_link_candidate_review": 1,
-    "review_ready_official_biosketch_bridge": 3
+    "review_ready_official_biosketch_bridge": 5
   },
   "attending_trend_reconciliation_summary": {
     "as_of_year": 2026,
     "by_assurance_level": {
       "0": 21,
-      "1": 45,
+      "1": 43,
       "3": 1,
-      "4": 3
+      "4": 5
     },
     "by_ten_year_trend_window": {
-      "unknown": 66,
-      "yes": 4
+      "no": 2,
+      "unknown": 59,
+      "yes": 9
     },
     "by_trend_status": {
       "context_only_not_trend_ready": 21,
-      "current_endpoint_needs_training_claim": 45,
+      "current_endpoint_needs_training_claim": 43,
       "historical_link_candidate_review": 1,
-      "review_ready_official_biosketch_bridge": 3
+      "review_ready_official_biosketch_bridge": 5
     },
     "csv": "artifacts/data/attending_trend_reconciliation.csv",
-    "generated_at": "2026-06-02T10:05:31.048530+00:00",
+    "generated_at": "2026-06-02T15:40:43.499104+00:00",
     "groups_with_current_endpoint": 49,
     "groups_with_penn_training_claim": 4,
-    "groups_with_recent_dated_biosketch_bridge": 3,
+    "groups_with_recent_dated_biosketch_bridge": 5,
     "json": "artifacts/data/attending_trend_reconciliation.json",
-    "review_ready_recent_bridge_rows": 3,
+    "review_ready_recent_bridge_rows": 5,
     "trend_rows": 70
   },
   "attending_trend_review_claim_counts": {
-    "recent_penn_trained_current_attending_candidate": 3
+    "recent_penn_trained_current_attending_candidate": 5
   },
   "attending_trend_review_claims_summary": {
-    "acceptance_policy": "Materialize only current Penn attending groups with a Penn-training profile claim and a dated recent official Penn Faculty Biosketch residency/fellowship bridge. Keep as review-ready until an explicit reviewer acceptance decision is recorded.",
+    "acceptance_policy": "Materialize only current Penn attending groups with a dated recent official Penn Faculty Biosketch residency/fellowship/internship bridge. A separate provider-page Penn-training claim is useful corroboration but is not required when the official biosketch itself supplies the dated Penn training line. Keep as review-ready until an explicit reviewer acceptance decision is recorded.",
     "by_source_scope": {
-      "official_penn_faculty_biosketch": 3
+      "official_penn_faculty_biosketch": 5
     },
     "by_training_end_year": {
+      "2017": 1,
       "2019": 1,
       "2020": 1,
+      "2021": 1,
       "2024": 1
     },
     "by_training_type": {
-      "fellowship": 3
+      "fellowship": 5
     },
     "by_trend_status": {
-      "review_ready_official_biosketch_bridge": 3
+      "review_ready_official_biosketch_bridge": 5
     },
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-02T15:35:54.099173+00:00",
+    "generated_at": "2026-06-02T15:44:24.018188+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
     "trend_claim_type": "recent_penn_trained_current_attending_candidate",
-    "trend_review_claim_rows": 3,
-    "trend_review_people": 3,
-    "trend_review_rollup_rows": 10
+    "trend_review_claim_rows": 5,
+    "trend_review_people": 5,
+    "trend_review_rollup_rows": 14
   },
   "attending_trend_review_end_year_counts": {
+    "2017": 1,
     "2019": 1,
     "2020": 1,
+    "2021": 1,
     "2024": 1
   },
   "attending_trend_review_rollup_scope_counts": {
     "corpus": 1,
     "source_scope": 1,
     "ten_year_trend_window": 1,
-    "training_end_year": 3,
+    "training_end_year": 5,
     "training_type": 1,
-    "training_type_end_year": 3
+    "training_type_end_year": 5
   },
   "attending_trend_reviewer_decision_counts": {
-    "accepted_reviewer_decision": 3
+    "accepted_reviewer_decision": 3,
+    "pending_reviewer_decision": 2
   },
   "attending_trend_reviewer_decision_summary": {
     "acceptance_policy": "Accepted attending-trend facts require an explicit manual reviewer decision, a matching claim fingerprint, and all required confirmation fields set to 1.",
     "accepted_facts_csv": "artifacts/data/accepted_attending_trend_facts.csv",
     "accepted_trend_fact_rows": 3,
     "audit_csv": "artifacts/data/attending_trend_reviewer_decision_audit.csv",
-    "audit_rows": 3,
+    "audit_rows": 5,
     "by_decision_status": {
-      "accepted_reviewer_decision": 3
+      "accepted_reviewer_decision": 3,
+      "pending_reviewer_decision": 2
     },
     "by_recommended_next_action": {
-      "materialize_accepted_trend_fact": 3
+      "materialize_accepted_trend_fact": 3,
+      "record_accept_reject_or_needs_more_evidence_decision": 2
     },
     "by_reviewer_decision": {
-      "accept_trend_fact": 3
+      "accept_trend_fact": 3,
+      "pending": 2
     },
     "by_training_end_year": {
+      "2017": 1,
       "2019": 1,
       "2020": 1,
+      "2021": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-02T15:35:54.293733+00:00",
+    "generated_at": "2026-06-02T15:44:24.218121+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 3,
-    "pending_reviewer_decision_rows": 0,
+    "pending_reviewer_decision_rows": 2,
     "queue_csv": "artifacts/data/attending_trend_reviewer_decision_queue.csv",
-    "queue_rows": 3
+    "queue_rows": 5
   },
   "career_event_counts": {
     "attending_profile_training_history_candidate": 20,
@@ -344,7 +369,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-02T15:35:54.063080+00:00",
+    "generated_at": "2026-06-02T15:44:23.970960+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -368,14 +393,14 @@
     },
     "by_priority_band": {
       "critical": 16,
-      "high": 766,
+      "high": 768,
       "low": 9,
-      "medium": 488
+      "medium": 486
     },
     "critical_rows": 16,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-02T15:36:17.843274+00:00",
-    "high_rows": 766,
+    "generated_at": "2026-06-02T15:44:48.363710+00:00",
+    "high_rows": 768,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
     "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -397,9 +422,9 @@
       "person_evidence_review:mixed_identity_anchor_review": 663,
       "person_evidence_review:publication_identity_review": 23,
       "recent_attending_trend:context_only_not_trend_ready": 21,
-      "recent_attending_trend:current_endpoint_needs_training_claim": 45,
+      "recent_attending_trend:current_endpoint_needs_training_claim": 43,
       "recent_attending_trend:historical_link_candidate_review": 1,
-      "recent_attending_trend:review_ready_official_biosketch_bridge": 3,
+      "recent_attending_trend:review_ready_official_biosketch_bridge": 5,
       "search_utility_assurance:official_program_gap_discovery": 1,
       "search_utility_assurance:person_background_discovery": 1,
       "search_utility_assurance:person_profile_discovery": 1,
@@ -665,13 +690,13 @@
     "accepted_attending_trend_facts": 3,
     "accepted_enrichment_claims": 5,
     "accepted_official_program_alias_mappings": 14,
-    "attending_biosketch_bridge_candidates": 10,
-    "attending_trend_acceptance_audit": 3,
+    "attending_biosketch_bridge_candidates": 36,
+    "attending_trend_acceptance_audit": 5,
     "attending_trend_reconciliation": 70,
-    "attending_trend_review_claims": 3,
-    "attending_trend_review_rollups": 10,
-    "attending_trend_reviewer_decision_audit": 3,
-    "attending_trend_reviewer_decision_queue": 3,
+    "attending_trend_review_claims": 5,
+    "attending_trend_review_rollups": 14,
+    "attending_trend_reviewer_decision_audit": 5,
+    "attending_trend_reviewer_decision_queue": 5,
     "attending_trend_reviewer_decisions": 3,
     "career_events": 105,
     "category_refresh_expectations": 3,
@@ -1955,7 +1980,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T15:36:19.262271+00:00",
+  "generated_at": "2026-06-02T15:44:49.824220+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -2251,7 +2276,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-02T15:36:16.201544+00:00",
+    "generated_at": "2026-06-02T15:44:46.651781+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -2293,7 +2318,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-02T15:36:16.122451+00:00",
+    "generated_at": "2026-06-02T15:44:46.572213+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 551,
     "loaded_person_count": 551,
@@ -2369,7 +2394,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-02T15:36:16.352773+00:00",
+    "generated_at": "2026-06-02T15:44:46.809417+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2530,7 +2555,7 @@
       "needs_more_evidence": 1,
       "pending": 17
     },
-    "generated_at": "2026-06-02T15:36:16.395562+00:00",
+    "generated_at": "2026-06-02T15:44:46.853922+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 15,
     "not_ready_rows": 17,
@@ -2581,7 +2606,7 @@
       "residency": 12
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-02T15:36:16.288782+00:00",
+    "generated_at": "2026-06-02T15:44:46.742105+00:00",
     "highest_priority": 1093,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -2795,7 +2820,7 @@
     "covered_people_count": 1248,
     "covered_program_rows": 65,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-02T15:36:16.244233+00:00",
+    "generated_at": "2026-06-02T15:44:46.695446+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 821,
     "level_4_program_rows": 49,
@@ -2923,14 +2948,15 @@
   "person_evidence_review_packet_counts": {
     "accepted_attending_trend_fact_packet": 3,
     "accepted_enrichment_fact_packet": 3,
-    "discovery_only_packet": 537,
+    "discovery_only_packet": 535,
     "low_signal_candidate_packet": 68,
     "needs_secondary_identity_anchor_packet": 91,
     "npi_secondary_identity_anchor_packet": 97,
     "partial_anchor_candidate_packet": 19,
     "review_ready_mixed_identity_anchor_packet": 658,
     "review_ready_mixed_packet": 5,
-    "review_ready_publication_packet": 23
+    "review_ready_publication_packet": 23,
+    "review_ready_recent_attending_trend_packet": 2
   },
   "person_evidence_review_packet_summary": {
     "accepted_attending_trend_fact_packets": 3,
@@ -2939,14 +2965,15 @@
     "by_packet_status": {
       "accepted_attending_trend_fact_packet": 3,
       "accepted_enrichment_fact_packet": 3,
-      "discovery_only_packet": 537,
+      "discovery_only_packet": 535,
       "low_signal_candidate_packet": 68,
       "needs_secondary_identity_anchor_packet": 91,
       "npi_secondary_identity_anchor_packet": 97,
       "partial_anchor_candidate_packet": 19,
       "review_ready_mixed_identity_anchor_packet": 658,
       "review_ready_mixed_packet": 5,
-      "review_ready_publication_packet": 23
+      "review_ready_publication_packet": 23,
+      "review_ready_recent_attending_trend_packet": 2
     },
     "by_recommended_next_action": {
       "collect_additional_identity_anchors": 19,
@@ -2954,9 +2981,10 @@
       "manual_review_for_candidate_acceptance": 686,
       "retain_accepted_enrichment_and_monitor_remaining_candidates": 3,
       "retain_accepted_trend_fact_and_monitor_future_refresh": 3,
+      "review_official_biosketch_bridge_for_trend_acceptance": 2,
       "seek_profile_or_identifier_or_coauthor_anchor": 91,
       "use_npi_as_secondary_identity_anchor": 97,
-      "use_only_as_discovery_seed": 537
+      "use_only_as_discovery_seed": 535
     },
     "by_review_kind": {
       "attending_trend_identity_link": 50,
@@ -2966,12 +2994,12 @@
       "publication_identity_review": 606
     },
     "csv": "artifacts/data/person_evidence_review_packets.csv",
-    "generated_at": "2026-06-02T14:20:18.918521+00:00",
+    "generated_at": "2026-06-02T15:41:32.219375+00:00",
     "json": "artifacts/data/person_evidence_review_packets.json",
     "needs_secondary_anchor_packets": 91,
     "packet_rows": 1504,
     "publication_review_packets": 606,
-    "review_ready_packets": 686
+    "review_ready_packets": 688
   },
   "person_reconciliation_decision_counts": {
     "attending_training_claim_review_ready": 3,
@@ -3172,7 +3200,6 @@
     "by_recommended_next_action": {
       "append_alias_and_identifier_candidates_with_source_backed_evidence": 1,
       "execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile": 1,
-      "expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts": 1,
       "keep_as_truth_anchor_and_refresh_on_program_clock": 1,
       "monitor_protected_md_directory_and_use_grad_directories_only_for_mstp_crosscheck": 1,
       "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
@@ -3181,6 +3208,7 @@
       "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest": 1,
       "review_dated_biosketch_bridges_before_accepting_recent_attending_trends": 1,
       "review_denominator_resolution_candidates_then_rerun_coverage": 1,
+      "review_ready_trend_rows_then_record_explicit_acceptance_decisions": 1,
       "run_as_resumable_optional_lane_with_rate_limit_backoff": 1,
       "run_high_priority_queue_tasks_and_feed_results_back_through_acceptance_ledgers": 1,
       "run_official_trainee_profile_discovery_then_reconcile_candidates": 1,
@@ -3209,7 +3237,7 @@
     },
     "candidate_or_discovery_rows": 7,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-02T15:36:17.775611+00:00",
+    "generated_at": "2026-06-02T15:44:48.298406+00:00",
     "high_utility_rows": 3,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 23,
@@ -3251,7 +3279,7 @@
       },
       {
         "quality_band": "strong_with_known_limits",
-        "recommended_next_action": "expand_attending_profile_and_historical_bridge_discovery_for_more_trend_facts",
+        "recommended_next_action": "review_ready_trend_rows_then_record_explicit_acceptance_decisions",
         "score": 82.0,
         "scorecard_key": "attending_trend_reconciliation_ledger",
         "utility_label": "Attending trend reconciliation ledger"
@@ -3564,7 +3592,7 @@
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T15:35:55.742345+00:00",
+    "generated_at": "2026-06-02T15:44:25.737911+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
     "person_count": 1535,
@@ -3637,7 +3665,7 @@
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-02T15:35:55.925513+00:00",
+    "generated_at": "2026-06-02T15:44:25.920949+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
     "person_count": 1535,
@@ -3682,7 +3710,7 @@
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
     "artifact_rows": 84,
-    "audited_at": "2026-06-02T15:36:18.175898+00:00",
+    "audited_at": "2026-06-02T15:44:48.706452+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -3742,10 +3770,10 @@
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 172621824,
+    "sqlite_byte_size": 172838912,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "f78e14f2fa4aedccdf7324610837448bb6c8485980a1ca9fb53427c0092621db",
+    "sqlite_sha256": "c667183705682755c1fbe6cb3a06cd6222d8c765c6e6dd271bced9b394b7118f",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

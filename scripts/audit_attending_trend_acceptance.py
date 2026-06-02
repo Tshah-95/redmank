@@ -169,8 +169,8 @@ def check_status(value: bool, ready_status: str = "evidence_present_reviewer_con
 
 def classify(row: dict) -> dict:
     endpoint_ok = bool(int(row.get("has_current_attending_endpoint") or 0))
-    training_claim_ok = bool(int(row.get("has_penn_training_claim") or 0))
     bridge_ok = bool(int(row.get("has_recent_dated_biosketch_bridge") or 0))
+    training_claim_ok = bool(int(row.get("has_penn_training_claim") or 0)) or bridge_ok
     date_window_ok = row.get("ten_year_trend_window") == "yes" and bool(row.get("training_end_year"))
 
     if endpoint_ok and training_claim_ok and bridge_ok and date_window_ok:
@@ -191,7 +191,7 @@ def classify(row: dict) -> dict:
     if not endpoint_ok:
         blockers.append("current_penn_endpoint_missing")
     if not training_claim_ok:
-        blockers.append("penn_training_claim_missing")
+        blockers.append("penn_training_evidence_missing")
     if not bridge_ok:
         blockers.append("recent_dated_biosketch_bridge_missing")
     if not date_window_ok:

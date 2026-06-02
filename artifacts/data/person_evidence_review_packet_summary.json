@@ -5,14 +5,15 @@
   "by_packet_status": {
     "accepted_attending_trend_fact_packet": 3,
     "accepted_enrichment_fact_packet": 3,
-    "discovery_only_packet": 537,
+    "discovery_only_packet": 535,
     "low_signal_candidate_packet": 68,
     "needs_secondary_identity_anchor_packet": 91,
     "npi_secondary_identity_anchor_packet": 97,
     "partial_anchor_candidate_packet": 19,
     "review_ready_mixed_identity_anchor_packet": 658,
     "review_ready_mixed_packet": 5,
-    "review_ready_publication_packet": 23
+    "review_ready_publication_packet": 23,
+    "review_ready_recent_attending_trend_packet": 2
   },
   "by_recommended_next_action": {
     "collect_additional_identity_anchors": 19,
@@ -20,9 +21,10 @@
     "manual_review_for_candidate_acceptance": 686,
     "retain_accepted_enrichment_and_monitor_remaining_candidates": 3,
     "retain_accepted_trend_fact_and_monitor_future_refresh": 3,
+    "review_official_biosketch_bridge_for_trend_acceptance": 2,
     "seek_profile_or_identifier_or_coauthor_anchor": 91,
     "use_npi_as_secondary_identity_anchor": 97,
-    "use_only_as_discovery_seed": 537
+    "use_only_as_discovery_seed": 535
   },
   "by_review_kind": {
     "attending_trend_identity_link": 50,
@@ -32,10 +34,10 @@
     "publication_identity_review": 606
   },
   "csv": "artifacts/data/person_evidence_review_packets.csv",
-  "generated_at": "2026-06-02T14:20:18.918521+00:00",
+  "generated_at": "2026-06-02T15:41:32.219375+00:00",
   "json": "artifacts/data/person_evidence_review_packets.json",
   "needs_secondary_anchor_packets": 91,
   "packet_rows": 1504,
   "publication_review_packets": 606,
-  "review_ready_packets": 686
+  "review_ready_packets": 688
 }

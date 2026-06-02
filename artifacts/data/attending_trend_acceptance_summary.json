@@ -2,30 +2,36 @@
   "acceptance_policy": "No recent-attending trend candidate is accepted as a trend fact until explicit reviewer acceptance confirms same-person identity, current Penn endpoint, training line, program type, and dates.",
   "accepted_trend_fact_rows": 3,
   "by_acceptance_blocker": {
+    "explicit_reviewer_acceptance_missing": 2,
     "none": 3
   },
   "by_acceptance_status": {
-    "accepted_after_explicit_reviewer_decision": 3
+    "accepted_after_explicit_reviewer_decision": 3,
+    "review_ready_requires_explicit_reviewer_acceptance": 2
   },
   "by_display_safety_status": {
-    "accepted_trend_fact_public_source_backed": 3
+    "accepted_trend_fact_public_source_backed": 3,
+    "review_ready_not_accepted_trend_fact": 2
   },
   "by_recommended_next_action": {
+    "record_explicit_reviewer_acceptance_or_rejection": 2,
     "retain_accepted_trend_fact_and_monitor_future_refresh": 3
   },
   "by_training_end_year": {
+    "2017": 1,
     "2019": 1,
     "2020": 1,
+    "2021": 1,
     "2024": 1
   },
   "by_training_type": {
-    "fellowship": 3
+    "fellowship": 5
   },
   "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
-  "display_safety_status": "accepted_trend_fact_public_source_backed",
-  "generated_at": "2026-06-02T15:35:54.256791+00:00",
+  "display_safety_status": "review_ready_not_accepted_trend_fact",
+  "generated_at": "2026-06-02T15:44:24.180151+00:00",
   "json": "artifacts/data/attending_trend_acceptance_audit.json",
   "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
-  "review_ready_requires_reviewer_acceptance_rows": 0,
-  "trend_acceptance_rows": 3
+  "review_ready_requires_reviewer_acceptance_rows": 2,
+  "trend_acceptance_rows": 5
 }
