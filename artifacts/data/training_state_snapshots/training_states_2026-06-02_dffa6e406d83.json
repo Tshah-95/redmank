@@ -1,0 +1,12 @@
+{
+  "as_of_date": "2026-06-02",
+  "canonical_key_count": 1558,
+  "corpus_fingerprint": "dffa6e406d8398399e2bc04ee08c016608bae57b77075c3e23c29a54a8003d99",
+  "created_at": "2026-06-02T07:35:13.351429+00:00",
+  "duplicate_canonical_key_count": 72,
+  "notes": "Current training-state export materialized for longitudinal diffing",
+  "row_count": 1630,
+  "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.csv",
+  "snapshot_id": "training_states_2026-06-02_dffa6e406d83",
+  "source_export_path": "artifacts/data/training_states_current.csv"
+}

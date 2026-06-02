@@ -48,6 +48,9 @@ Core tables:
 - `person_program_memberships`: many-to-many membership links.
 - `person_training_states`: normalized current stage observations with expected transition and stale-after dates.
 - `program_lifecycle_rules`: local lifecycle codes and nominal-duration assumptions used to interpret training states over time.
+- `training_state_snapshots`: materialized longitudinal snapshot metadata with row counts, canonical person/program key counts, duplicate-key counts, and corpus fingerprint.
+- `training_state_snapshot_rows`: stable row-level state observations loaded from snapshot CSVs. The canonical comparison key is `person_key + program_name`; raw observations remain separate through `state_key`.
+- `training_state_transition_events`: expected-vs-review transition ledger between materialized snapshots.
 - `organizations`: resolved organization entities.
 - `organization_aliases`: raw and curated aliases.
 - `organization_identifiers`: external IDs.
@@ -196,6 +199,8 @@ The current rules are intentionally conservative:
 This creates the future diff surface: when the corpus is rerun, we can compare person/program/institution/category state observations, identify expected transitions, flag surprising disappearances or regressions, and separate obvious stale data from genuinely changed records.
 
 `scripts/diff_training_states.py` compares exported state snapshots. It collapses multiple raw observations for the same person/program into a canonical comparison key and reports how many duplicate keys were collapsed, so the diff view stays readable while the warehouse still preserves raw state observations. It also writes rollups by program, role, lifecycle code, and change type for program-, category-, and institution-level monitoring.
+
+`scripts/materialize_training_state_snapshot.py` is the durable version of that diff flow. It stores snapshot manifests and CSVs under `artifacts/data/training_state_snapshots/`, reloads them into SQLite, and emits `training_state_transition_events.csv` from the queryable `training_state_transition_events` table. That makes next-year reruns stateful in a verifiable way: the corpus can show what changed at person, program, and category levels without treating last year's flat file as informal memory.
 
 `scripts/audit_training_state_machine.py` audits the current snapshot before a future diff exists. It writes:
 

@@ -10,6 +10,26 @@ from datetime import date
 from pathlib import Path
 
 
+STAGE_FAMILY_PRIORITY = {
+    "clinical_postgraduate": 90,
+    "fellowship": 80,
+    "medical_school": 70,
+    "research_phase": 60,
+    "clinical_postgraduate_research": 55,
+    "post_training_or_alumni": 20,
+    "unknown": 0,
+}
+
+
+def canonical_rank(row: dict) -> tuple[int, int, float, str]:
+    stage_rank = int(row.get("stage_rank") or 999)
+    has_stage_index = int(bool(row.get("stage_index")))
+    family_rank = STAGE_FAMILY_PRIORITY.get(row.get("stage_family") or "", 0)
+    confidence = float(row.get("confidence") or 0.0)
+    observed = row.get("observed_at") or ""
+    return (has_stage_index, confidence, family_rank, stage_rank, observed)
+
+
 def read_rows(path: Path) -> tuple[dict[tuple[str, str], dict], int, int]:
     with path.open(newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
@@ -19,6 +39,8 @@ def read_rows(path: Path) -> tuple[dict[tuple[str, str], dict], int, int]:
         key = (row["person_key"], row.get("program_name") or "")
         if key in result:
             duplicate_keys += 1
+            if canonical_rank(row) <= canonical_rank(result[key]):
+                continue
         result[key] = row
     return result, len(rows), duplicate_keys
 

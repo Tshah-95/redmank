@@ -87,7 +87,10 @@
     "programs": 95,
     "source_quality_observations": 3,
     "source_utilities": 9,
-    "sources": 1390
+    "sources": 1390,
+    "training_state_snapshot_rows": 1630,
+    "training_state_snapshots": 1,
+    "training_state_transition_events": 1558
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_coverage_summary": {
@@ -252,7 +255,7 @@
     "source_refresh_required": 696,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-02T07:25:39.544365+00:00",
+  "generated_at": "2026-06-02T07:35:13.444919+00:00",
   "generic_program_label_count": 0,
   "lifecycle_code_counts": {
     "US_GME_ANESTHESIA_CA_PHASE_3Y": 75,
@@ -483,5 +486,20 @@
     "stale_or_review_state_rows": 23,
     "state_audit_csv": "artifacts/data/training_state_machine_audit.csv",
     "state_rows": 1630
+  },
+  "training_state_snapshot_summary": {
+    "by_change_type": {
+      "added": 1558
+    },
+    "canonical_key_count": 1558,
+    "compare_date": "2026-06-02",
+    "duplicate_canonical_key_count": 72,
+    "previous_snapshot_id": null,
+    "row_count": 1630,
+    "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.csv",
+    "snapshot_id": "training_states_2026-06-02_dffa6e406d83",
+    "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_dffa6e406d83.json",
+    "transition_event_rows": 1558,
+    "transition_events_csv": "artifacts/data/training_state_transition_events.csv"
   }
 }

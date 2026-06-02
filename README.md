@@ -47,6 +47,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_refresh_expectations.csv`: per-person longitudinal readiness rollup for future diff/reconciliation runs.
 - `artifacts/data/program_refresh_expectations.csv`: per-program/role longitudinal readiness rollup.
 - `artifacts/data/category_refresh_expectations.csv`: resident/fellow/student category rollup for institution-level monitoring.
+- `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
+- `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
+- `artifacts/data/training_state_snapshot_summary.json`: snapshot and transition counts for the current materialized state.
 - `config/training_lifecycle_rules.json`: local lifecycle codes and nominal-duration rules used to interpret trainee stages over time.
 - `artifacts/data/person_contacts.csv`: public person/contact candidates with source, scope, verification status, confidence, and candidate status.
 - `artifacts/data/career_events.csv`: current Penn attending and alumni/outcome candidate events.
@@ -116,6 +119,7 @@ python3 scripts/collect_research_candidates.py --only pubmed --skip-existing-sou
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
 python3 scripts/build_sqlite.py
 python3 scripts/export_warehouse_views.py
+python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/audit_enrichment_coverage.py
@@ -149,6 +153,14 @@ python3 scripts/diff_training_states.py \
 ```
 
 The diff writes both person-level changes and `artifacts/data/training_state_diff_rollups.csv`, grouped by program, role, lifecycle code, and change type.
+
+Materialize a durable state snapshot:
+
+```bash
+python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
+```
+
+The materializer writes `artifacts/data/training_state_snapshots/<snapshot_id>.csv` plus a JSON manifest, reloads every committed snapshot into SQLite, and writes transition events for the current snapshot against the previous one when present. The first snapshot is a baseline where all canonical person/program rows are `added`; later snapshots classify expected advancement, expected completion disappearance, unchanged states, stale removals, regressions, and review-required stage changes.
 
 Audit the current state-machine readiness:
 

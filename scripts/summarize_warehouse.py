@@ -28,6 +28,9 @@ def main() -> None:
         "organization_identifiers",
         "person_training_events",
         "person_training_states",
+        "training_state_snapshots",
+        "training_state_snapshot_rows",
+        "training_state_transition_events",
         "career_events",
         "person_contacts",
         "evidence_claims",
@@ -169,6 +172,11 @@ def main() -> None:
         longitudinal_readiness_summary = json.loads(longitudinal_readiness_summary_path.read_text(encoding="utf-8"))
     else:
         longitudinal_readiness_summary = {}
+    training_state_snapshot_summary_path = ARTIFACTS / "training_state_snapshot_summary.json"
+    if training_state_snapshot_summary_path.exists():
+        training_state_snapshot_summary = json.loads(training_state_snapshot_summary_path.read_text(encoding="utf-8"))
+    else:
+        training_state_snapshot_summary = {}
     attending_trend_linkage_summary_path = ARTIFACTS / "attending_trend_linkage_summary.json"
     if attending_trend_linkage_summary_path.exists():
         attending_trend_linkage_summary = json.loads(attending_trend_linkage_summary_path.read_text(encoding="utf-8"))
@@ -206,6 +214,7 @@ def main() -> None:
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "evidence_reconciliation_decision_summary": reconciliation_decision_summary,
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
+        "training_state_snapshot_summary": training_state_snapshot_summary,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
     }

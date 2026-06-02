@@ -28,7 +28,7 @@ EXPORTS = {
         ORDER BY role, display_name, event_type
     """,
     "training_states_current.csv": """
-        SELECT state_id, person_key, display_name, role, program_name,
+        SELECT state_id, state_key, person_key, display_name, role, program_name,
                observed_at, as_of_date, raw_stage_label, normalized_stage,
                stage_family, stage_index, stage_rank, trainee_category,
                lifecycle_rule_key, lifecycle_code, lifecycle_stage,

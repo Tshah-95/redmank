@@ -185,6 +185,84 @@ CREATE TABLE IF NOT EXISTS person_training_states (
   evidence_json TEXT
 );
 
+CREATE TABLE IF NOT EXISTS training_state_snapshots (
+  snapshot_id TEXT PRIMARY KEY,
+  created_at TEXT NOT NULL,
+  as_of_date TEXT NOT NULL,
+  source_export_path TEXT NOT NULL,
+  corpus_fingerprint TEXT NOT NULL,
+  row_count INTEGER NOT NULL DEFAULT 0,
+  canonical_key_count INTEGER NOT NULL DEFAULT 0,
+  duplicate_canonical_key_count INTEGER NOT NULL DEFAULT 0,
+  notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS training_state_snapshot_rows (
+  snapshot_id TEXT NOT NULL REFERENCES training_state_snapshots(snapshot_id) ON DELETE CASCADE,
+  state_key TEXT NOT NULL,
+  canonical_person_program_key TEXT NOT NULL,
+  person_key TEXT NOT NULL,
+  display_name TEXT,
+  role TEXT,
+  program_name TEXT,
+  observed_at TEXT,
+  as_of_date TEXT,
+  raw_stage_label TEXT,
+  normalized_stage TEXT NOT NULL,
+  stage_family TEXT NOT NULL,
+  stage_index INTEGER,
+  stage_rank INTEGER,
+  trainee_category TEXT,
+  lifecycle_rule_key TEXT,
+  lifecycle_code TEXT,
+  lifecycle_stage TEXT,
+  academic_year TEXT,
+  estimated_start_date TEXT,
+  estimated_end_date TEXT,
+  expected_next_stage TEXT,
+  expected_next_date TEXT,
+  expected_exit_date TEXT,
+  expected_transition_type TEXT,
+  stale_after_date TEXT,
+  refresh_policy TEXT,
+  transition_rule TEXT,
+  status TEXT,
+  confidence REAL NOT NULL DEFAULT 0.0,
+  source_key TEXT,
+  state_fingerprint TEXT NOT NULL,
+  PRIMARY KEY (snapshot_id, state_key)
+);
+
+CREATE INDEX IF NOT EXISTS idx_training_state_snapshot_rows_canonical
+ON training_state_snapshot_rows(snapshot_id, canonical_person_program_key);
+
+CREATE TABLE IF NOT EXISTS training_state_transition_events (
+  transition_id INTEGER PRIMARY KEY,
+  old_snapshot_id TEXT REFERENCES training_state_snapshots(snapshot_id) ON DELETE CASCADE,
+  new_snapshot_id TEXT NOT NULL REFERENCES training_state_snapshots(snapshot_id) ON DELETE CASCADE,
+  canonical_person_program_key TEXT NOT NULL,
+  person_key TEXT,
+  display_name TEXT,
+  program_name TEXT,
+  role TEXT,
+  old_state_key TEXT,
+  new_state_key TEXT,
+  change_type TEXT NOT NULL,
+  transition_assurance TEXT NOT NULL,
+  expected_by_state_machine INTEGER NOT NULL DEFAULT 0,
+  old_stage TEXT,
+  new_stage TEXT,
+  old_expected_next_stage TEXT,
+  old_expected_next_date TEXT,
+  old_expected_exit_date TEXT,
+  old_expected_transition_type TEXT,
+  old_stale_after_date TEXT,
+  review_action TEXT NOT NULL,
+  notes TEXT,
+  evidence_json TEXT,
+  UNIQUE(old_snapshot_id, new_snapshot_id, canonical_person_program_key)
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,
@@ -327,6 +405,7 @@ ORDER BY
 CREATE VIEW IF NOT EXISTS v_current_training_states AS
 SELECT
   s.state_id,
+  s.state_key,
   s.person_key,
   p.display_name,
   p.role,
