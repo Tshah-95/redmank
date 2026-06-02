@@ -1592,6 +1592,94 @@ CREATE TABLE IF NOT EXISTS official_profile_discovery_workbench (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_profile_reviewer_decision_queue (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  profile_workbench_key TEXT NOT NULL REFERENCES official_profile_discovery_workbench(profile_workbench_key) ON DELETE CASCADE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_key TEXT,
+  candidate_url TEXT NOT NULL,
+  candidate_title TEXT,
+  candidate_domain TEXT,
+  candidate_confidence REAL NOT NULL DEFAULT 0.0,
+  candidate_http_status INTEGER,
+  candidate_features TEXT,
+  source_sha256 TEXT,
+  queue_status TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  profile_fingerprint TEXT NOT NULL,
+  required_confirmation_fields TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  display_safety_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS official_profile_reviewer_decisions (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  profile_workbench_key TEXT NOT NULL,
+  profile_fingerprint TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  person_identity_confirmed INTEGER NOT NULL DEFAULT 0,
+  official_source_confirmed INTEGER NOT NULL DEFAULT 0,
+  profile_context_confirmed INTEGER NOT NULL DEFAULT 0,
+  source_hash_confirmed INTEGER NOT NULL DEFAULT 0,
+  display_safety_confirmed INTEGER NOT NULL DEFAULT 0,
+  decision_notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS official_profile_reviewer_decision_audit (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  profile_workbench_key TEXT NOT NULL REFERENCES official_profile_discovery_workbench(profile_workbench_key) ON DELETE CASCADE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  candidate_url TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  accepted_official_profile_url INTEGER NOT NULL DEFAULT 0,
+  decision_blocker TEXT NOT NULL,
+  profile_fingerprint TEXT NOT NULL,
+  decision_profile_fingerprint TEXT,
+  person_identity_confirmed INTEGER NOT NULL DEFAULT 0,
+  official_source_confirmed INTEGER NOT NULL DEFAULT 0,
+  profile_context_confirmed INTEGER NOT NULL DEFAULT 0,
+  source_hash_confirmed INTEGER NOT NULL DEFAULT 0,
+  display_safety_confirmed INTEGER NOT NULL DEFAULT 0,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS accepted_official_profile_url_facts (
+  accepted_profile_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES official_profile_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,
+  profile_workbench_key TEXT NOT NULL,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  profile_url TEXT NOT NULL,
+  profile_title TEXT,
+  source_domain TEXT,
+  source_sha256 TEXT,
+  profile_fingerprint TEXT NOT NULL,
+  accepted_by TEXT,
+  accepted_at TEXT,
+  display_safety_status TEXT NOT NULL,
+  roster_truth_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  materialized_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS organizations (
   organization_id INTEGER PRIMARY KEY,
   organization_key TEXT NOT NULL UNIQUE,

@@ -1,0 +1,23 @@
+{
+  "acceptance_policy": "Accepted official profile URL facts require an explicit reviewer decision, matching profile fingerprint, and confirmation of identity, official source ownership, profile context, source hash, and display safety. They do not mutate current roster truth.",
+  "accepted_facts_csv": "artifacts/data/accepted_official_profile_url_facts.csv",
+  "accepted_official_profile_url_rows": 0,
+  "audit_csv": "artifacts/data/official_profile_reviewer_decision_audit.csv",
+  "audit_rows": 27,
+  "by_decision_status": {
+    "pending_reviewer_decision": 27
+  },
+  "by_reviewer_decision": {
+    "pending": 27
+  },
+  "by_role": {
+    "fellow": 15,
+    "resident": 12
+  },
+  "generated_at": "2026-06-02T21:06:34.824815+00:00",
+  "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
+  "manual_decision_rows": 0,
+  "pending_reviewer_decision_rows": 27,
+  "queue_csv": "artifacts/data/official_profile_reviewer_decision_queue.csv",
+  "queue_rows": 27
+}

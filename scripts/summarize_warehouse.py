@@ -63,6 +63,10 @@ def main() -> None:
         "official_roster_refresh_workbench",
         "official_roster_refresh_batches",
         "official_profile_discovery_workbench",
+        "official_profile_reviewer_decisions",
+        "official_profile_reviewer_decision_queue",
+        "official_profile_reviewer_decision_audit",
+        "accepted_official_profile_url_facts",
         "trainee_profile_search_queries",
         "trainee_profile_search_observations",
         "trainee_profile_discovery_candidates",
@@ -1164,6 +1168,13 @@ def main() -> None:
         )
     else:
         trainee_profile_discovery_summary = {}
+    official_profile_reviewer_decision_summary_path = ARTIFACTS / "official_profile_reviewer_decision_summary.json"
+    if official_profile_reviewer_decision_summary_path.exists():
+        official_profile_reviewer_decision_summary = json.loads(
+            official_profile_reviewer_decision_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        official_profile_reviewer_decision_summary = {}
     prior_training_discovery_summary_path = ARTIFACTS / "prior_training_discovery_summary.json"
     if prior_training_discovery_summary_path.exists():
         prior_training_discovery_summary = json.loads(
@@ -1518,6 +1529,7 @@ def main() -> None:
         "training_state_transition_plan_summary": training_state_transition_plan_summary,
         "training_temporal_contract_summary": training_temporal_contract_summary,
         "trainee_profile_discovery_summary": trainee_profile_discovery_summary,
+        "official_profile_reviewer_decision_summary": official_profile_reviewer_decision_summary,
         "prior_training_discovery_summary": prior_training_discovery_summary,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "attending_historical_link_discovery_summary": attending_historical_link_summary,
