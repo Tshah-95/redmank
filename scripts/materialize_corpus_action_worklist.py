@@ -999,6 +999,11 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "research_identity_review_batches.csv"
     if batch_path.exists():
         source = "artifacts/data/research_identity_review_batches.csv"
+        audit_by_batch: dict[str, list[dict]] = defaultdict(list)
+        audit_path = ARTIFACTS / "research_identity_reviewer_decision_audit.csv"
+        if audit_path.exists():
+            for audit_row in read_csv(audit_path):
+                audit_by_batch[audit_row.get("review_batch_key") or ""].append(audit_row)
         rows = []
         priority_by_lane = {
             "conflict_reconciliation": 980,
@@ -1010,7 +1015,13 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         }
         for item in read_csv(batch_path):
             lane = item.get("review_lane") or "research_identity_review_batch"
-            impact = max(as_int(item.get("person_count")), 1)
+            audit_rows = audit_by_batch.get(item.get("review_batch_key") or "", [])
+            pending_audit_rows = [
+                audit_row
+                for audit_row in audit_rows
+                if audit_row.get("decision_status") in {"pending_reviewer_decision", "stale_decision_evidence_mismatch"}
+            ]
+            impact = max(len(pending_audit_rows), 1) if audit_rows else max(as_int(item.get("person_count")), 1)
             priority = (
                 priority_by_lane.get(lane, 640)
                 + min(as_int(item.get("max_review_priority")), 120)
@@ -1018,6 +1029,8 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
             )
             if as_int(item.get("conflict_count")) > 0:
                 priority += 100
+            if audit_rows and not pending_audit_rows:
+                priority -= 250
             rows.append(
                 row(
                     action_surface="research_identity_corroboration",
@@ -1038,20 +1051,27 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                     program_name="",
                     priority=priority,
                     impact_count=impact,
-                    readiness_status=item.get("batch_status") or item.get("research_identity_status") or "",
+                    readiness_status=(
+                        "pending_research_identity_reviewer_decisions"
+                        if pending_audit_rows
+                        else item.get("batch_status") or item.get("research_identity_status") or ""
+                    ),
                     blocker_status=(
                         "conflict_blocks_acceptance"
                         if as_int(item.get("conflict_count")) > 0
                         else item.get("recommended_review_route") or ""
                     ),
                     required_next_evidence=item.get("reviewer_prompt") or item.get("review_instructions") or "",
-                    recommended_next_action="work_research_identity_batch_and_record_source_specific_decisions",
+                    recommended_next_action="record_research_identity_reviewer_decisions_with_current_member_fingerprints",
                     source_artifact=source,
                     target_artifact=item.get("target_decision_artifact")
-                    or "artifacts/data/evidence_reconciliation_decisions.csv",
+                    or "artifacts/data/research_identity_reviewer_decisions.csv",
                     downstream_tables=[
                         "research_identity_review_batches",
                         "research_identity_review_batch_members",
+                        "research_identity_reviewer_decision_queue",
+                        "research_identity_reviewer_decisions",
+                        "research_identity_reviewer_decision_audit",
                         "research_identity_corroboration",
                         "evidence_reconciliation_decisions",
                         "person_evidence_reviewer_decisions",
@@ -1070,6 +1090,8 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "scholarly_source_count": item.get("scholarly_source_count"),
                         "secondary_anchor_count": item.get("secondary_anchor_count"),
                         "conflict_count": item.get("conflict_count"),
+                        "reviewer_decision_audit_rows": len(audit_rows),
+                        "pending_reviewer_decision_rows": len(pending_audit_rows),
                         "top_source_keys": item.get("top_source_keys"),
                         "top_claim_types": item.get("top_claim_types"),
                         "top_people_json": item.get("top_people_json"),

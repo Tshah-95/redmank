@@ -21,7 +21,7 @@
   },
   "critical_rows": 121,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-03T07:06:46.922944+00:00",
+  "generated_at": "2026-06-03T07:16:09.866686+00:00",
   "high_rows": 688,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
@@ -61,7 +61,7 @@
       "impact_count": 21,
       "priority": 1320,
       "program_name": "",
-      "recommended_next_action": "work_research_identity_batch_and_record_source_specific_decisions",
+      "recommended_next_action": "record_research_identity_reviewer_decisions_with_current_member_fingerprints",
       "role": "resident"
     },
     {

@@ -1,0 +1,42 @@
+{
+  "acceptance_policy": "Research identity decisions do not mutate accepted person facts. Acceptance requires an explicit reviewer decision, a matching member fingerprint, required confirmations, and downstream source-specific acceptance ledgers.",
+  "accepted_research_identity_review_rows": 0,
+  "audit_csv": "artifacts/data/research_identity_reviewer_decision_audit.csv",
+  "audit_rows": 1523,
+  "by_decision_status": {
+    "pending_reviewer_decision": 1523
+  },
+  "by_queue_status": {
+    "ready_for_conflict_reviewer_decision": 24,
+    "ready_for_research_identity_reviewer_decision": 253,
+    "ready_for_research_relevance_decision": 7,
+    "ready_for_secondary_anchor_collection_decision": 1239
+  },
+  "by_recommended_next_action": {
+    "record_research_identity_accept_reject_or_needs_more_evidence_decision": 1523
+  },
+  "by_research_identity_status": {
+    "conflict_review_required": 24,
+    "multi_source_candidate_review": 7,
+    "research_candidate_only": 1239,
+    "research_plus_secondary_identity_anchor_review": 157,
+    "secondary_anchor_without_research_signal": 7,
+    "single_source_research_review_ready": 72,
+    "strong_multi_source_research_identity_review": 17
+  },
+  "by_review_lane": {
+    "conflict_reconciliation": 24,
+    "multi_source_identity_review": 24,
+    "research_relevance_decision": 7,
+    "secondary_anchor_collection": 1239,
+    "secondary_anchor_review": 157,
+    "single_source_publication_review": 72
+  },
+  "conflict_queue_rows": 24,
+  "generated_at": "2026-06-03T07:16:06.431482+00:00",
+  "manual_decision_csv": "artifacts/data/research_identity_reviewer_decisions.csv",
+  "manual_decision_rows": 0,
+  "pending_reviewer_decision_rows": 1523,
+  "queue_csv": "artifacts/data/research_identity_reviewer_decision_queue.csv",
+  "queue_rows": 1523
+}

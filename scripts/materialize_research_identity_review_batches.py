@@ -366,6 +366,8 @@ def member_evidence(row: dict, lane: str, fingerprint: str) -> str:
             "non_mutating": True,
             "corroboration_is_not_acceptance": True,
             "accepted_facts_flow_through": [
+                "research_identity_reviewer_decisions",
+                "research_identity_reviewer_decision_audit",
                 "evidence_reconciliation_decisions",
                 "person_evidence_reviewer_decisions",
                 "enrichment_acceptance_audit",
@@ -427,7 +429,7 @@ def build_rows(corroboration_rows: list[dict], generated_at: str) -> tuple[list[
                 "reviewer_prompt": reviewer_prompt(lane),
                 "review_instructions": review_instructions(lane),
                 "acceptance_rule": acceptance_rule(),
-                "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv",
+                "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv",
                 "top_people_json": dumps(top_people(chunk)),
                 "evidence_json": dumps(
                     {
@@ -440,6 +442,8 @@ def build_rows(corroboration_rows: list[dict], generated_at: str) -> tuple[list[
                             "non_mutating": True,
                             "member_fingerprint_required": True,
                             "accepted_facts_flow_through": [
+                                "research_identity_reviewer_decisions",
+                                "research_identity_reviewer_decision_audit",
                                 "evidence_reconciliation_decisions",
                                 "person_evidence_reviewer_decisions",
                                 "enrichment_acceptance_audit",

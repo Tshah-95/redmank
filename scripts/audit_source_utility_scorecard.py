@@ -849,9 +849,29 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     )
     research_corroboration_summary = read_json(ARTIFACTS / "research_identity_corroboration_summary.json", {})
     research_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
+    research_reviewer_decision_summary = read_json(ARTIFACTS / "research_identity_reviewer_decision_summary.json", {})
     research_corroboration_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_corroboration")
     research_review_batch_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_review_batches")
     research_review_batch_member_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_review_batch_members")
+    research_reviewer_queue_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decision_queue")
+    research_reviewer_audit_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decision_audit")
+    research_reviewer_decision_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decisions")
+    research_reviewer_pending_rows = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_reviewer_decision_audit
+        WHERE decision_status = 'pending_reviewer_decision'
+        """,
+    )
+    research_reviewer_accepted_rows = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_reviewer_decision_audit
+        WHERE accepted_research_identity_review = 1
+        """,
+    )
     research_review_batch_ready = scalar(
         conn,
         """
@@ -2098,7 +2118,45 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "corroboration_rows": research_corroboration_rows,
                 "batch_rows": research_review_batch_rows,
                 "member_rows": research_review_batch_member_rows,
+                "reviewer_queue_rows": research_reviewer_queue_rows,
+                "reviewer_audit_rows": research_reviewer_audit_rows,
                 "ready_batch_rows": research_review_batch_ready,
+                "conflict_member_rows": research_review_batch_conflict_members,
+            },
+        ),
+        make_row(
+            scorecard_key="research_identity_reviewer_decision_ledger",
+            utility_key="",
+            utility_label="Research identity reviewer decision ledger",
+            source_family="evidence_reconciliation",
+            claim_surface="manual research identity decisions audited against current member fingerprints and required confirmations",
+            input_records=research_review_batch_member_rows,
+            output_records=research_reviewer_audit_rows,
+            candidate_records=research_reviewer_queue_rows,
+            needs_review_records=research_reviewer_pending_rows,
+            review_ready_records=research_reviewer_queue_rows,
+            accepted_records=research_reviewer_accepted_rows,
+            blocked_records=research_review_batch_conflict_members,
+            score=84.0 if research_reviewer_audit_rows else 25.0,
+            strengths=[
+                "Creates an explicit decision input ledger for research identity review batches",
+                "Audits decisions against current member fingerprints and source/non-name-anchor confirmations",
+                "Separates accepted review decisions from downstream accepted person facts",
+            ],
+            limitations=[
+                "Manual decisions are currently pending until reviewers populate the decision input file",
+                "Accepted review decisions still need downstream evidence reconciliation and acceptance ledgers",
+                "Conflict rows remain blocked until conflicting identifiers are resolved or quarantined",
+            ],
+            recommended_next_action="record_research_identity_reviewer_decisions_with_current_member_fingerprints",
+            evidence={
+                "summary": research_reviewer_decision_summary,
+                "batch_member_rows": research_review_batch_member_rows,
+                "queue_rows": research_reviewer_queue_rows,
+                "manual_decision_rows": research_reviewer_decision_rows,
+                "audit_rows": research_reviewer_audit_rows,
+                "pending_reviewer_decision_rows": research_reviewer_pending_rows,
+                "accepted_research_identity_review_rows": research_reviewer_accepted_rows,
                 "conflict_member_rows": research_review_batch_conflict_members,
             },
         ),

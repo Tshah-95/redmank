@@ -35,7 +35,7 @@
   "candidate_only_member_rows": 0,
   "conflict_member_rows": 24,
   "csv": "artifacts/data/research_identity_review_batches.csv",
-  "generated_at": "2026-06-03T07:06:43.250654+00:00",
+  "generated_at": "2026-06-03T07:16:06.177948+00:00",
   "json": "artifacts/data/research_identity_review_batches.json",
   "member_csv": "artifacts/data/research_identity_review_batch_members.csv",
   "member_json": "artifacts/data/research_identity_review_batch_members.json",
@@ -57,7 +57,7 @@
       "review_lane": "conflict_reconciliation",
       "review_ready_record_count": 358,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -70,7 +70,7 @@
       "review_lane": "secondary_anchor_review",
       "review_ready_record_count": 265,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -83,7 +83,7 @@
       "review_lane": "multi_source_identity_review",
       "review_ready_record_count": 244,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -96,7 +96,7 @@
       "review_lane": "secondary_anchor_review",
       "review_ready_record_count": 154,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -109,7 +109,7 @@
       "review_lane": "multi_source_identity_review",
       "review_ready_record_count": 73,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 3,
@@ -122,7 +122,7 @@
       "review_lane": "conflict_reconciliation",
       "review_ready_record_count": 40,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -135,7 +135,7 @@
       "review_lane": "secondary_anchor_review",
       "review_ready_record_count": 126,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -148,7 +148,7 @@
       "review_lane": "secondary_anchor_review",
       "review_ready_record_count": 52,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -161,7 +161,7 @@
       "review_lane": "multi_source_identity_review",
       "review_ready_record_count": 5,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -174,7 +174,7 @@
       "review_lane": "multi_source_identity_review",
       "review_ready_record_count": 3,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -187,7 +187,7 @@
       "review_lane": "single_source_publication_review",
       "review_ready_record_count": 142,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -200,7 +200,7 @@
       "review_lane": "single_source_publication_review",
       "review_ready_record_count": 110,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -213,7 +213,7 @@
       "review_lane": "secondary_anchor_review",
       "review_ready_record_count": 1,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -226,7 +226,7 @@
       "review_lane": "single_source_publication_review",
       "review_ready_record_count": 7,
       "role": "medical_student",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -239,7 +239,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -252,7 +252,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -265,7 +265,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "medical_student",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -278,7 +278,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "medical_student",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -291,7 +291,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -304,7 +304,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -317,7 +317,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -330,7 +330,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "fellow",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -343,7 +343,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -356,7 +356,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     },
     {
       "conflict_count": 0,
@@ -369,7 +369,7 @@
       "review_lane": "secondary_anchor_collection",
       "review_ready_record_count": 0,
       "role": "resident",
-      "target_decision_artifact": "artifacts/data/evidence_reconciliation_decisions.csv"
+      "target_decision_artifact": "artifacts/data/research_identity_reviewer_decisions.csv"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-03T07:06:47.374818+00:00
+Generated: 2026-06-03T07:16:10.327576+00:00
 
 ## What This Pass Did
 
@@ -3283,7 +3283,7 @@ Learning: the transition plan is the executable state-machine contract for futur
 
 ## Source Utility Scorecard
 
-Scorecard rows: 35.
+Scorecard rows: 36.
 
 | utility_label | claim_surface | input_records | output_records | score | quality_band | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -3298,7 +3298,7 @@ Scorecard rows: 35.
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | ORCID-seeded PubMed article reconciliation | ORCID public DOI/PMID works resolved to PubMed XML with author-position and DOI/PMID consistency checks | 354 | 295 | 72.0 | strong_with_known_limits | use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 8541 | 8541 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 134 | 134 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 137 | 137 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | Evidence temporal contracts | refresh, invalidation, display-safety, and currentness contracts for enrichment evidence | 10386 | 10386 | 85.0 | high_utility | use_contract_status_before_display_or_mutation_and_refresh_stale_currentness_bound_sources |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 180 | 498 | 46.0 | discovery_or_review_only | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | ORCID public profile and work reconciliation | persistent ORCID identifier plus DOI/PMID-level public works, external identifiers, keywords, researcher URLs, and affiliations when exposed | 48 | 405 | 68.0 | useful_candidate_layer | use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position |
@@ -3322,6 +3322,7 @@ Scorecard rows: 35.
 | Person enrichment action member execution ledger | fingerprinted per-member execution outcomes and downstream routing audit | 1535 | 1535 | 82.0 | strong_with_known_limits | execute_or_review_ready_members_then_record_routed_outputs_with_matching_fingerprints |
 | Research identity corroboration ledger | person-level cross-source agreement, secondary anchors, conflicts, and review routing for scholarly identity enrichment | 14094 | 1535 | 76.0 | strong_with_known_limits | prioritize_multi_source_research_identity_reviews_and_resolve_conflicts_before_acceptance |
 | Research identity review batch ledger | bounded reviewer sessions and member fingerprints for cross-source scholarly identity work | 1535 | 48 | 82.0 | strong_with_known_limits | work_research_identity_batches_and_record_source_specific_decisions |
+| Research identity reviewer decision ledger | manual research identity decisions audited against current member fingerprints and required confirmations | 1523 | 1523 | 84.0 | strong_with_known_limits | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
 
 Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.
 
@@ -3344,33 +3345,65 @@ Top batches:
 
 | execution_order | research_identity_status | review_lane | role | person_count | review_ready_record_count | conflict_count | target_decision_artifact |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | conflict_review_required | conflict_reconciliation | resident | 21 | 358 | 22 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 2 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 40 | 265 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 3 | strong_multi_source_research_identity_review | multi_source_identity_review | resident | 13 | 244 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 4 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | fellow | 36 | 154 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 5 | strong_multi_source_research_identity_review | multi_source_identity_review | fellow | 4 | 73 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 6 | conflict_review_required | conflict_reconciliation | fellow | 3 | 40 | 3 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 7 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 40 | 126 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 8 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 40 | 52 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 9 | multi_source_candidate_review | multi_source_identity_review | resident | 4 | 5 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 10 | multi_source_candidate_review | multi_source_identity_review | fellow | 3 | 3 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 11 | single_source_research_review_ready | single_source_publication_review | fellow | 36 | 142 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 12 | single_source_research_review_ready | single_source_publication_review | resident | 34 | 110 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 13 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 1 | 1 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 14 | single_source_research_review_ready | single_source_publication_review | medical_student | 2 | 7 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 15 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 16 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 17 | research_candidate_only | secondary_anchor_collection | medical_student | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 18 | research_candidate_only | secondary_anchor_collection | medical_student | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 19 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 20 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 21 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 22 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 23 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 24 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
-| 25 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/evidence_reconciliation_decisions.csv |
+| 1 | conflict_review_required | conflict_reconciliation | resident | 21 | 358 | 22 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 2 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 40 | 265 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 3 | strong_multi_source_research_identity_review | multi_source_identity_review | resident | 13 | 244 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 4 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | fellow | 36 | 154 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 5 | strong_multi_source_research_identity_review | multi_source_identity_review | fellow | 4 | 73 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 6 | conflict_review_required | conflict_reconciliation | fellow | 3 | 40 | 3 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 7 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 40 | 126 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 8 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 40 | 52 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 9 | multi_source_candidate_review | multi_source_identity_review | resident | 4 | 5 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 10 | multi_source_candidate_review | multi_source_identity_review | fellow | 3 | 3 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 11 | single_source_research_review_ready | single_source_publication_review | fellow | 36 | 142 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 12 | single_source_research_review_ready | single_source_publication_review | resident | 34 | 110 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 13 | research_plus_secondary_identity_anchor_review | secondary_anchor_review | resident | 1 | 1 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 14 | single_source_research_review_ready | single_source_publication_review | medical_student | 2 | 7 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 15 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 16 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 17 | research_candidate_only | secondary_anchor_collection | medical_student | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 18 | research_candidate_only | secondary_anchor_collection | medical_student | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 19 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 20 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 21 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 22 | research_candidate_only | secondary_anchor_collection | fellow | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 23 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 24 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
+| 25 | research_candidate_only | secondary_anchor_collection | resident | 40 | 0 | 0 | artifacts/data/research_identity_reviewer_decisions.csv |
 
-Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.
+Reviewer decisions:
+
+Queue rows: 1523. Audit rows: 1523. Pending rows: 1523. Conflict queue rows: 24. Accepted review rows: 0.
+
+| display_name | role | review_lane | research_identity_status | decision_status | conflicting_identifier_count | recommended_next_action |
+| --- | --- | --- | --- | --- | --- | --- |
+| Ashna Aggarwal, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 2 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Robert Eisinger, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Alessandro Brunetti, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Shunsuke Koga, MD, PhD | fellow | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Eric Wagner, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Sabine Schneider, MD PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Noor Shaik, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Zachary Rosenthal, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Gregory Chen, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Pravin Patel, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Jonathan Dickens, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Chenxu Shi, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Lara Boyle, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Nadine Michel, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Aaron M. Williams, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Armaan Singh, MD, MBA | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| John T. Cook, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Phillip Bradshaw, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Keshia Mora, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Anne Wang, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Madeline Perry, MD | fellow | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Alex Chen, MD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Charles Danan, MD, PhD | resident | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Simone Reaves, MD | fellow | conflict_reconciliation | conflict_review_required | pending_reviewer_decision | 1 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+| Alec Gibson, MD, PhD | resident | multi_source_identity_review | strong_multi_source_research_identity_review | pending_reviewer_decision | 0 | record_research_identity_accept_reject_or_needs_more_evidence_decision |
+
+Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints and paired with an auditable reviewer-decision input. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.
 
 ## Search Utility Assurance
 
@@ -3391,7 +3424,7 @@ Worklist rows: 1322. Summed impact count: 15922. Critical rows: 121. High rows: 
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
-| research_identity_corroboration | conflict_review_required:conflict_reconciliation | resident \| conflict_reconciliation \| conflict_review_required \| batch 1 | resident | 1320 | 21 | work_research_identity_batch_and_record_source_specific_decisions |
+| research_identity_corroboration | conflict_review_required:conflict_reconciliation | resident \| conflict_reconciliation \| conflict_review_required \| batch 1 | resident | 1320 | 21 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
 | person_action_member_execution | enrichment_collector_execution:pending_execution_decision | enrichment_collector_execution \| pending_execution_decision \| medium \| batch 19 | medical_student | 1250 | 50 | run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers |
 | person_action_member_execution | enrichment_collector_execution:pending_execution_decision | enrichment_collector_execution \| pending_execution_decision \| medium \| batch 20 | medical_student | 1250 | 50 | run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers |
 | person_action_member_execution | enrichment_collector_execution:pending_execution_decision | enrichment_collector_execution \| pending_execution_decision \| medium \| batch 21 | medical_student | 1250 | 50 | run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers |
@@ -3416,17 +3449,17 @@ Worklist rows: 1322. Summed impact count: 15922. Critical rows: 121. High rows: 
 | person_action_member_execution | person_evidence_review:pending_execution_decision | person_evidence_review \| pending_execution_decision \| medium \| batch 24 | fellow | 1250 | 4 | review_packet_and_record_source_specific_reviewer_decision |
 | person_action_member_execution | official_profile_review:pending_execution_decision | official_profile_review \| pending_execution_decision \| high \| batch 3 | resident | 1250 | 2 | review_profile_candidate_and_record_profile_reviewer_decision |
 | person_action_member_execution | person_evidence_review:pending_execution_decision | person_evidence_review \| pending_execution_decision \| high \| batch 14 | fellow | 1250 | 2 | review_packet_and_record_source_specific_reviewer_decision |
-| research_identity_corroboration | conflict_review_required:conflict_reconciliation | fellow \| conflict_reconciliation \| conflict_review_required \| batch 6 | fellow | 1220 | 3 | work_research_identity_batch_and_record_source_specific_decisions |
-| research_identity_corroboration | strong_multi_source_research_identity_review:multi_source_identity_review | resident \| multi_source_identity_review \| strong_multi_source_research_identity_review \| batch 3 | resident | 1170 | 13 | work_research_identity_batch_and_record_source_specific_decisions |
+| research_identity_corroboration | conflict_review_required:conflict_reconciliation | fellow \| conflict_reconciliation \| conflict_review_required \| batch 6 | fellow | 1220 | 3 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
+| research_identity_corroboration | strong_multi_source_research_identity_review:multi_source_identity_review | resident \| multi_source_identity_review \| strong_multi_source_research_identity_review \| batch 3 | resident | 1170 | 13 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| complex_packet_review \| batch 1 | resident | 1128 | 111 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_identity_final_check | publication_identity_final_check \| resident \| complex_packet_review \| batch 2 | resident | 1115 | 473 | review_batch_and_record_packet_decisions |
-| research_identity_corroboration | research_plus_secondary_identity_anchor_review:secondary_anchor_review | resident \| secondary_anchor_review \| research_plus_secondary_identity_anchor_review \| batch 2 | resident | 1115 | 40 | work_research_identity_batch_and_record_source_specific_decisions |
-| research_identity_corroboration | research_plus_secondary_identity_anchor_review:secondary_anchor_review | fellow \| secondary_anchor_review \| research_plus_secondary_identity_anchor_review \| batch 4 | fellow | 1115 | 36 | work_research_identity_batch_and_record_source_specific_decisions |
+| research_identity_corroboration | research_plus_secondary_identity_anchor_review:secondary_anchor_review | resident \| secondary_anchor_review \| research_plus_secondary_identity_anchor_review \| batch 2 | resident | 1115 | 40 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
+| research_identity_corroboration | research_plus_secondary_identity_anchor_review:secondary_anchor_review | fellow \| secondary_anchor_review \| research_plus_secondary_identity_anchor_review \| batch 4 | fellow | 1115 | 36 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| careful_manual_review \| batch 6 | resident | 1106 | 41 | review_batch_and_record_packet_decisions |
 | person_action_member_execution | enrichment_collector_execution:pending_execution_decision | enrichment_collector_execution \| pending_execution_decision \| low \| batch 25 | fellow | 1105 | 50 | run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers |
 | person_action_member_execution | enrichment_collector_execution:pending_execution_decision | enrichment_collector_execution \| pending_execution_decision \| low \| batch 26 | resident | 1105 | 50 | run_collector_then_route_outputs_to_evidence_contact_or_profile_ledgers |
-| research_identity_corroboration | strong_multi_source_research_identity_review:multi_source_identity_review | fellow \| multi_source_identity_review \| strong_multi_source_research_identity_review \| batch 5 | fellow | 1103 | 4 | work_research_identity_batch_and_record_source_specific_decisions |
-| research_identity_corroboration | research_plus_secondary_identity_anchor_review:secondary_anchor_review | resident \| secondary_anchor_review \| research_plus_secondary_identity_anchor_review \| batch 7 | resident | 1100 | 40 | work_research_identity_batch_and_record_source_specific_decisions |
+| research_identity_corroboration | strong_multi_source_research_identity_review:multi_source_identity_review | fellow \| multi_source_identity_review \| strong_multi_source_research_identity_review \| batch 5 | fellow | 1103 | 4 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
+| research_identity_corroboration | research_plus_secondary_identity_anchor_review:secondary_anchor_review | resident \| secondary_anchor_review \| research_plus_secondary_identity_anchor_review \| batch 7 | resident | 1100 | 40 | record_research_identity_reviewer_decisions_with_current_member_fingerprints |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| fellow \| complex_packet_review \| batch 5 | fellow | 1099 | 54 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| moderate_manual_review \| batch 12 | resident | 1095 | 35 | review_batch_and_record_packet_decisions |
 | person_evidence_review | publication_with_secondary_identity_anchor_review | publication_with_secondary_identity_anchor_review \| resident \| complex_packet_review \| batch 13 | resident | 1094 | 40 | review_batch_and_record_packet_decisions |
@@ -4004,7 +4037,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-03T07:06:03.789906+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-03T07:15:25.914470+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | official_trainee_profile_discovery | 27 | 0 | 0 | 0 | 27 | {"by_claim_type": {"official_profile_url_candidate": 27}, "by_status": {"needs_review": 27}, "claims": 27, "orphan_claims_skipped": 0, "people_with_claims": 27, "person_key_remapped_claims": 0, "raw_claims": 27, "source_rows": 27, "summary": {"by_candidate_status": {"low_signal_search_result": 2616, "official_profile_candidate": 27}, "by_direct_probe_kind_this_run": {"direct_roster_profile_sibling_probe": 2123}, "by_result_domain": {"www3.pennmedicine.org": 2643}, "by_role": {"fellow": 235, "resident": 2408}, "by_search_error": {"search_endpoint_non_200": 28}, "by_search_http_status": {"200": 2, "202": 28}, "candidate_rows": 2643, "claim_rows": 27, "claims_json": "artifacts/data/trainee_profile_discovery_claims.json", "csv": "artifacts/data/trainee_profile_discovery_candidates.csv", "direct_probe_rows": 2123, "direct_probed_this_run": 2123, "direct_provider_slug_probe_rows": 0, "direct_provider_slug_probed_this_run": 0, "direct_roster_profile_sibling_probe_rows": 2123, "direct_roster_profile_sibling_probed_this_run": 2123, "direct_skipped_existing": 520, "generated_at": "2026-06-02T20:51:21.814810+00:00", "official_or_context_candidate_people": 27, "official_profile_candidate_people": 27, "people_considered": 608, "policy": "Discovered profile URLs are candidate evidence only. They do not mutate people.profile_url unless an official roster-linked profile or reviewer-accepted evidence later confirms same-person/current-trainee context.", "query_rows": 1824, "resume_existing": true, "roster_profile_base_program_role_keys": 31, "search_observations": 30, "search_skipped": true, "searched_this_run": 0, "source_rows": 27, "sources_json": "artifacts/data/trainee_profile_discovery_sources.json", "unsearched_query_rows": 1794}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |

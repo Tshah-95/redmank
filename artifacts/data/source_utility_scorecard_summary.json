@@ -3,7 +3,7 @@
   "by_quality_band": {
     "discovery_or_review_only": 4,
     "high_utility": 4,
-    "strong_with_known_limits": 22,
+    "strong_with_known_limits": 23,
     "useful_candidate_layer": 5
   },
   "by_recommended_next_action": {
@@ -17,6 +17,7 @@
     "prioritize_multi_source_research_identity_reviews_and_resolve_conflicts_before_acceptance": 1,
     "prioritize_review_ready_packets_then_collect_secondary_identity_anchors": 1,
     "promote_cross_source_publication_candidates_after_final_duplicate_author_position_check": 1,
+    "record_research_identity_reviewer_decisions_with_current_member_fingerprints": 1,
     "reprobe_or_replace_generic_profile_routes_before_accepting_profile_url_candidates": 1,
     "resolve_gap_reason_and_alias_candidates_before_count_mutation": 1,
     "retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest": 1,
@@ -46,7 +47,7 @@
   "by_source_family": {
     "acgme_public_data": 1,
     "broad_web_search": 1,
-    "evidence_reconciliation": 4,
+    "evidence_reconciliation": 5,
     "licensure_api": 1,
     "normalization": 1,
     "official_institutional_web": 10,
@@ -58,10 +59,10 @@
   },
   "candidate_or_discovery_rows": 9,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-03T07:06:46.770207+00:00",
+  "generated_at": "2026-06-03T07:16:09.736800+00:00",
   "high_utility_rows": 4,
   "json": "artifacts/data/source_utility_scorecard.json",
-  "scorecard_rows": 35,
+  "scorecard_rows": 36,
   "top_rows": [
     {
       "quality_band": "high_utility",
@@ -100,6 +101,13 @@
     },
     {
       "quality_band": "strong_with_known_limits",
+      "recommended_next_action": "record_research_identity_reviewer_decisions_with_current_member_fingerprints",
+      "score": 84.0,
+      "scorecard_key": "research_identity_reviewer_decision_ledger",
+      "utility_label": "Research identity reviewer decision ledger"
+    },
+    {
+      "quality_band": "strong_with_known_limits",
       "recommended_next_action": "use_state_machine_expectations_before_mutating_next_year_roster_diffs",
       "score": 84.0,
       "scorecard_key": "training_state_machine_longitudinal_readiness",
@@ -111,13 +119,6 @@
       "score": 83.0,
       "scorecard_key": "person_enrichment_action_batch_member_ledger",
       "utility_label": "Person enrichment action batch member ledger"
-    },
-    {
-      "quality_band": "strong_with_known_limits",
-      "recommended_next_action": "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers",
-      "score": 83.0,
-      "scorecard_key": "person_enrichment_dossier_ledger",
-      "utility_label": "Person enrichment dossier ledger"
     }
   ]
 }

@@ -367,6 +367,10 @@ def main() -> None:
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
     research_identity_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
+    research_identity_reviewer_decision_summary = read_json(
+        ARTIFACTS / "research_identity_reviewer_decision_summary.json",
+        {},
+    )
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
@@ -390,6 +394,10 @@ def main() -> None:
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
+    top_research_identity_reviewer_decisions = read_csv(
+        ARTIFACTS / "research_identity_reviewer_decision_audit.csv",
+        limit=25,
+    )
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
     program_lifecycle_duration_evidence = read_csv(
         ARTIFACTS / "program_lifecycle_duration_evidence.csv",
@@ -605,6 +613,8 @@ def main() -> None:
         "source_utility_scorecard": source_utility_scorecard,
         "research_identity_review_batch_summary": research_identity_review_batch_summary,
         "top_research_identity_review_batches": top_research_identity_review_batches,
+        "research_identity_reviewer_decision_summary": research_identity_reviewer_decision_summary,
+        "top_research_identity_reviewer_decisions": top_research_identity_reviewer_decisions,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
@@ -1012,7 +1022,24 @@ def main() -> None:
             ],
         ),
         "",
-        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.",
+        "Reviewer decisions:",
+        "",
+        f"Queue rows: {research_identity_reviewer_decision_summary.get('queue_rows', 0)}. Audit rows: {research_identity_reviewer_decision_summary.get('audit_rows', 0)}. Pending rows: {research_identity_reviewer_decision_summary.get('pending_reviewer_decision_rows', 0)}. Conflict queue rows: {research_identity_reviewer_decision_summary.get('conflict_queue_rows', 0)}. Accepted review rows: {research_identity_reviewer_decision_summary.get('accepted_research_identity_review_rows', 0)}.",
+        "",
+        *md_table(
+            top_research_identity_reviewer_decisions,
+            [
+                "display_name",
+                "role",
+                "review_lane",
+                "research_identity_status",
+                "decision_status",
+                "conflicting_identifier_count",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints and paired with an auditable reviewer-decision input. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.",
         "",
         "## Search Utility Assurance",
         "",

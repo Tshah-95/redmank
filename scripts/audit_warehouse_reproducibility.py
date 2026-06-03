@@ -540,6 +540,27 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/research_identity_reviewer_decisions.csv",
+        "research_identity_reviewer_decision_input",
+        "csv",
+        "research_identity_reviewer_decisions",
+        True,
+    ),
+    (
+        "artifacts/data/research_identity_reviewer_decision_queue.csv",
+        "research_identity_reviewer_decision_ledger",
+        "csv",
+        "research_identity_reviewer_decision_queue",
+        True,
+    ),
+    (
+        "artifacts/data/research_identity_reviewer_decision_audit.csv",
+        "research_identity_reviewer_decision_ledger",
+        "csv",
+        "research_identity_reviewer_decision_audit",
+        True,
+    ),
+    (
         "artifacts/data/penn_trainee_profile_claims.csv",
         "trainee_profile_enrichment_ledger",
         "csv",

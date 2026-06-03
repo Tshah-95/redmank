@@ -3506,6 +3506,86 @@ CREATE TABLE IF NOT EXISTS research_identity_review_batch_members (
   UNIQUE(review_batch_key, corroboration_key)
 );
 
+CREATE TABLE IF NOT EXISTS research_identity_reviewer_decision_queue (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  review_batch_member_key TEXT NOT NULL REFERENCES research_identity_review_batch_members(review_batch_member_key) ON DELETE CASCADE,
+  review_batch_key TEXT NOT NULL REFERENCES research_identity_review_batches(review_batch_key) ON DELETE CASCADE,
+  corroboration_key TEXT NOT NULL REFERENCES research_identity_corroboration(corroboration_key) ON DELETE CASCADE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  research_identity_status TEXT NOT NULL,
+  recommended_review_route TEXT NOT NULL,
+  review_lane TEXT NOT NULL,
+  queue_status TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  research_candidate_count INTEGER NOT NULL DEFAULT 0,
+  research_review_ready_count INTEGER NOT NULL DEFAULT 0,
+  scholarly_source_count INTEGER NOT NULL DEFAULT 0,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  secondary_anchor_count INTEGER NOT NULL DEFAULT 0,
+  conflicting_identifier_count INTEGER NOT NULL DEFAULT 0,
+  best_confidence REAL NOT NULL DEFAULT 0.0,
+  top_source_keys TEXT,
+  top_claim_types TEXT,
+  required_confirmation_fields TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS research_identity_reviewer_decisions (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  review_batch_member_key TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  identity_confirmed INTEGER NOT NULL DEFAULT 0,
+  source_context_confirmed INTEGER NOT NULL DEFAULT 0,
+  non_name_anchors_confirmed INTEGER NOT NULL DEFAULT 0,
+  conflict_resolved INTEGER NOT NULL DEFAULT 0,
+  display_safety_confirmed INTEGER NOT NULL DEFAULT 0,
+  decision_notes TEXT
+);
+
+CREATE TABLE IF NOT EXISTS research_identity_reviewer_decision_audit (
+  reviewer_decision_key TEXT PRIMARY KEY,
+  review_batch_member_key TEXT NOT NULL REFERENCES research_identity_review_batch_members(review_batch_member_key) ON DELETE CASCADE,
+  review_batch_key TEXT NOT NULL,
+  corroboration_key TEXT NOT NULL,
+  person_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  research_identity_status TEXT NOT NULL,
+  recommended_review_route TEXT NOT NULL,
+  review_lane TEXT NOT NULL,
+  reviewer_decision TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  accepted_research_identity_review INTEGER NOT NULL DEFAULT 0,
+  decision_blocker TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  decision_member_fingerprint TEXT,
+  identity_confirmed INTEGER NOT NULL DEFAULT 0,
+  source_context_confirmed INTEGER NOT NULL DEFAULT 0,
+  non_name_anchors_confirmed INTEGER NOT NULL DEFAULT 0,
+  conflict_resolved INTEGER NOT NULL DEFAULT 0,
+  display_safety_confirmed INTEGER NOT NULL DEFAULT 0,
+  reviewer_name TEXT,
+  decided_at TEXT,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  research_candidate_count INTEGER NOT NULL DEFAULT 0,
+  research_review_ready_count INTEGER NOT NULL DEFAULT 0,
+  conflicting_identifier_count INTEGER NOT NULL DEFAULT 0,
+  recommended_next_action TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  audited_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,
