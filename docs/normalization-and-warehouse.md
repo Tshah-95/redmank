@@ -118,6 +118,7 @@ Core tables:
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
+- `source_quality_policy_recommendations`: non-mutating policy translation layer that maps scorecard/search evidence to acceptance posture, collector posture, reviewer posture, trend relevance, and required next evidence.
 - `search_utility_execution_batches`: bounded execution sessions for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing while preserving source-quality failures as evidence.
 - `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-contract batches, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
 
@@ -373,6 +374,14 @@ NPI candidates do not mutate roster truth. They are useful secondary identity an
 The scorecard is not an acceptance mutator. It answers which utility is good for which job. Current observations classify official rosters as high-utility current-membership anchors; official denominator coverage as strong but alias-sensitive; ACGME public search as strong for candidate program codes but not trainee truth; broad source discovery as a queue, not truth; official trainee profile discovery as a resumable query/probe lane; PubMed author-query rows as discovery only; PubMed article candidates as reviewable only after non-name anchors; OpenAlex as a useful author-disambiguation candidate lane with rate-limit controls; attending profiles as endpoint/training-history candidates needing historical identity bridges; and the state machine as the freshness layer that decides when stale, missing, unchanged, or advanced rows are expected.
 
 `scripts/materialize_search_utility_assurance.py` adds a narrower audit for broad-search lanes. It compares official HUP gap-source search, trainee-profile search, prior-training background search, and attending historical-link search across query rows, search observations, HTTP status/error behavior, candidate yield, and recommended next action. This prevents skipped or throttled search utilities from being misread as evidence that no public source exists.
+
+`scripts/materialize_source_quality_policy_recommendations.py` turns the source-utility scorecard and search assurance rows into an explicit policy ledger:
+
+- `source_quality_policy_recommendations.csv` / `.json`: one row per scorecard utility plus search-only utility rows, with policy lane, action priority, action readiness, acceptance posture, collector posture, reviewer posture, recent-attending trend relevance, evidence standard, linked artifacts, and downstream tables.
+- `source_quality_policy_recommendation_summary.json`: counts by source row type, quality band, policy lane, action readiness, and trend relevance.
+- SQLite table `source_quality_policy_recommendations`: queryable version of the same ledger.
+
+This layer is deliberately non-mutating. It says how a utility should be used; source-specific reviewer decisions, acceptance ledgers, and temporal contracts still decide whether any fact can be promoted, displayed, retained, or refreshed.
 
 `scripts/materialize_search_utility_execution_batches.py` converts that assurance ledger and its source artifacts into bounded operator sessions. Query-execution batches cover query rows with no observation yet; endpoint-retry batches cover failed or non-200 observations; candidate-probe batches cover search-derived candidates that still need source probing and reconciliation. `scripts/materialize_corpus_action_worklist.py` consumes these batches when present, so broad search work is actionable without turning search candidates into accepted trainee, program, contact, or attending-trend facts.
 

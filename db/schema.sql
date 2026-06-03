@@ -4198,6 +4198,33 @@ CREATE TABLE IF NOT EXISTS source_utility_scorecard (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS source_quality_policy_recommendations (
+  recommendation_key TEXT PRIMARY KEY,
+  source_row_type TEXT NOT NULL,
+  utility_key TEXT NOT NULL,
+  utility_label TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  claim_surface TEXT NOT NULL,
+  score REAL NOT NULL DEFAULT 0.0,
+  quality_band TEXT NOT NULL,
+  policy_lane TEXT NOT NULL,
+  policy_status TEXT NOT NULL,
+  action_priority INTEGER NOT NULL DEFAULT 0,
+  action_readiness TEXT NOT NULL,
+  acceptance_posture TEXT NOT NULL,
+  collector_posture TEXT NOT NULL,
+  reviewer_posture TEXT NOT NULL,
+  trend_relevance TEXT NOT NULL,
+  evidence_standard TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  source_artifacts_json TEXT NOT NULL,
+  downstream_tables_json TEXT NOT NULL,
+  scorecard_evidence_json TEXT NOT NULL,
+  search_assurance_evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS warehouse_reproducibility_audit (
   audit_key TEXT PRIMARY KEY,
   artifact_path TEXT NOT NULL,

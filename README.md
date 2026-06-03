@@ -204,6 +204,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
+- `artifacts/data/source_quality_policy_recommendations.csv`: non-mutating policy translation ledger for source utilities, mapping scorecard/search evidence to acceptance posture, collector posture, reviewer posture, trend relevance, and required next evidence.
+- `artifacts/data/source_quality_policy_recommendation_summary.json`: policy-lane, action-readiness, and recent-attending trend relevance counts for source-quality recommendations.
 - `artifacts/data/search_utility_execution_batches.csv`: bounded execution batches for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing without converting search hits into accepted evidence.
 - `artifacts/data/search_utility_execution_batch_summary.json`: batch counts, unobserved-query burden, endpoint-retry burden, candidate-probe burden, and top search execution batches.
 - `artifacts/data/person_enrichment_action_member_execution_queue.csv`: fingerprinted per-member execution-decision queue.
@@ -383,6 +385,7 @@ python3 scripts/materialize_attending_trend_discovery_batches.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
+python3 scripts/materialize_source_quality_policy_recommendations.py
 python3 scripts/materialize_search_utility_execution_batches.py
 python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_official_profile_discovery_batches.py

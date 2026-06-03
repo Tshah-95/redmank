@@ -31,7 +31,7 @@
     },
     "csv": "artifacts/data/accepted_enrichment_claims.csv",
     "display_safety_status": "accepted_for_enrichment_not_roster_truth",
-    "generated_at": "2026-06-03T09:58:36.641439+00:00",
+    "generated_at": "2026-06-03T10:08:26.770775+00:00",
     "json": "artifacts/data/accepted_enrichment_claims.json",
     "required_final_check": "final_duplicate_author_position_and_same_name_sanity_check"
   },
@@ -171,7 +171,7 @@
     },
     "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-03T09:58:37.307494+00:00",
+    "generated_at": "2026-06-03T10:08:27.499166+00:00",
     "json": "artifacts/data/attending_trend_acceptance_audit.json",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "review_ready_requires_reviewer_acceptance_rows": 2,
@@ -223,7 +223,7 @@
     "current_endpoint_missing_training_groups": 43,
     "dossier_rows": 70,
     "event_group_count": 70,
-    "generated_at": "2026-06-03T09:58:37.466340+00:00",
+    "generated_at": "2026-06-03T10:08:27.659086+00:00",
     "json": "artifacts/data/attending_trend_dossiers.json",
     "policy": "Attending trend dossiers are non-mutating group summaries. They separate current endpoint evidence, Penn training evidence, dated biosketch bridges, review claims, reviewer queues, and accepted trend facts.",
     "review_ready_groups": 2,
@@ -319,7 +319,7 @@
     "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
     "claims_json": "artifacts/data/attending_trend_review_claims.json",
     "display_safety_status": "review_ready_not_accepted_trend_fact",
-    "generated_at": "2026-06-03T09:58:37.158223+00:00",
+    "generated_at": "2026-06-03T10:08:27.350207+00:00",
     "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
     "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
     "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
@@ -372,7 +372,7 @@
     },
     "dossier_csv": "artifacts/data/attending_trend_reviewer_decision_dossiers.csv",
     "dossier_rows": 5,
-    "generated_at": "2026-06-03T09:58:37.398572+00:00",
+    "generated_at": "2026-06-03T10:08:27.591883+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_template_rows": 5,
     "pending_reviewer_decision_rows": 2
@@ -402,7 +402,7 @@
       "2021": 1,
       "2024": 1
     },
-    "generated_at": "2026-06-03T09:58:37.340653+00:00",
+    "generated_at": "2026-06-03T10:08:27.532136+00:00",
     "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
     "manual_decision_rows": 3,
     "pending_reviewer_decision_rows": 2,
@@ -452,7 +452,7 @@
     },
     "csv": "artifacts/data/contact_assurance_audit.csv",
     "display_policy": "display_as_public_candidate_only_until_verified",
-    "generated_at": "2026-06-03T09:58:36.825587+00:00",
+    "generated_at": "2026-06-03T10:08:26.983722+00:00",
     "json": "artifacts/data/contact_assurance_audit.json",
     "review_required_rows": 1,
     "verified_contact_fact_rows": 0
@@ -508,7 +508,7 @@
     "csv": "artifacts/data/contact_verification_contracts.csv",
     "domain_review_required_rows": 1,
     "fresh_official_reobservation_required_rows": 312,
-    "generated_at": "2026-06-03T09:58:36.888391+00:00",
+    "generated_at": "2026-06-03T10:08:27.052085+00:00",
     "json": "artifacts/data/contact_verification_contracts.json",
     "person_count": 279,
     "policy": "Contact contracts are non-mutating. They define how future fresh source observations, absences, domain anomalies, and changed values should be classified before a contact candidate can become a verified contact fact.",
@@ -540,7 +540,7 @@
     },
     "dossier_csv": "artifacts/data/contact_verification_reviewer_decision_dossiers.csv",
     "dossier_rows": 313,
-    "generated_at": "2026-06-03T09:58:37.031387+00:00",
+    "generated_at": "2026-06-03T10:08:27.220903+00:00",
     "manual_decision_csv": "artifacts/data/contact_verification_reviewer_decisions.csv",
     "manual_decision_template_rows": 313,
     "pending_reviewer_decision_rows": 312,
@@ -575,7 +575,7 @@
     },
     "display_policy": "Public contacts are not private contact discovery and do not imply outreach permission.",
     "domain_review_rows": 1,
-    "generated_at": "2026-06-03T09:58:36.923452+00:00",
+    "generated_at": "2026-06-03T10:08:27.093485+00:00",
     "manual_decision_csv": "artifacts/data/contact_verification_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "pending_reviewer_decision_rows": 312,
@@ -596,18 +596,19 @@
       "recent_attending_trend_discovery": 9,
       "research_identity_corroboration": 48,
       "search_utility_assurance": 136,
+      "source_quality_policy": 40,
       "training_temporal_contract": 93
     },
     "by_priority_band": {
-      "critical": 105,
-      "high": 136,
+      "critical": 113,
+      "high": 158,
       "low": 1,
-      "medium": 195
+      "medium": 205
     },
-    "critical_rows": 105,
+    "critical_rows": 113,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-03T09:59:14.423230+00:00",
-    "high_rows": 136,
+    "generated_at": "2026-06-03T10:09:04.812118+00:00",
+    "high_rows": 158,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
     "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -616,7 +617,6 @@
       "contact_verification:fresh_official_reobservation_required:same_value_contact_review_ready": 6,
       "official_profile_discovery:direct_probe_low_signal_review:direct_probe_review_ready": 5,
       "official_profile_discovery:planned_search_not_executed:profile_search_execution_ready": 9,
-      "official_program_coverage:alias_review:alias_scope_review_ready": 4,
       "official_roster_refresh_execution:mixed_refresh_with_manual_review": 5,
       "official_roster_refresh_execution:source_reobservation_required": 6,
       "person_action_member_execution:enrichment_collector_execution:collector_execution_ready": 13,
@@ -626,15 +626,16 @@
       "person_evidence_review:publication_identity_final_check": 4,
       "person_evidence_review:publication_with_secondary_identity_anchor_review": 23,
       "person_evidence_review:secondary_identity_anchor_context_review": 6,
-      "recent_attending_trend_discovery:current_endpoint_training_bridge_search:training_bridge_search_ready": 4,
       "research_identity_corroboration:research_candidate_only:secondary_anchor_collection": 32,
       "research_identity_corroboration:research_plus_secondary_identity_anchor_review:secondary_anchor_review": 5,
       "search_utility_assurance:person_background_discovery:query_execution": 14,
       "search_utility_assurance:person_profile_discovery:candidate_probe": 54,
       "search_utility_assurance:person_profile_discovery:query_execution": 36,
       "search_utility_assurance:recent_attending_trend_discovery:candidate_probe": 7,
-      "search_utility_assurance:recent_attending_trend_discovery:endpoint_retry": 4,
       "search_utility_assurance:recent_attending_trend_discovery:query_execution": 14,
+      "source_quality_policy:candidate_reconciliation_policy:blocked_or_low_signal_until_next_evidence": 4,
+      "source_quality_policy:strong_candidate_governance:blocked_or_low_signal_until_next_evidence": 15,
+      "source_quality_policy:strong_candidate_governance:review_ready_or_review_bound": 7,
       "training_temporal_contract:manual_review_required:temporal_manual_review_ready": 13,
       "training_temporal_contract:source_refresh_required:temporal_source_refresh_ready": 80
     },
@@ -890,8 +891,8 @@
         "role": "fellow"
       }
     ],
-    "total_impact_count": 17747,
-    "worklist_rows": 437
+    "total_impact_count": 17787,
+    "worklist_rows": 477
   },
   "counts": {
     "accepted_attending_trend_facts": 3,
@@ -925,7 +926,7 @@
     "contact_verification_reviewer_decision_dossiers": 313,
     "contact_verification_reviewer_decision_queue": 313,
     "contact_verification_reviewer_decisions": 0,
-    "corpus_action_worklist": 437,
+    "corpus_action_worklist": 477,
     "enrichment_acceptance_audit": 8541,
     "evidence_claims": 10065,
     "evidence_reconciliation_decisions": 8541,
@@ -1027,6 +1028,7 @@
     "search_utility_assurance": 4,
     "search_utility_execution_batches": 136,
     "source_quality_observations": 9,
+    "source_quality_policy_recommendations": 40,
     "source_utilities": 17,
     "source_utility_scorecard": 36,
     "sources": 2350,
@@ -1046,7 +1048,7 @@
     "training_temporal_contract_batches": 93,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 150
+    "warehouse_reproducibility_audit": 151
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2362,7 +2364,7 @@
     "contract_rows": 10386,
     "contracts_csv": "artifacts/data/evidence_temporal_contracts.csv",
     "durable_until_contradicted_rows": 1780,
-    "generated_at": "2026-06-03T09:59:04.846359+00:00",
+    "generated_at": "2026-06-03T10:08:55.175804+00:00",
     "person_count": 1527,
     "policy": "Evidence temporal contracts are non-mutating. They describe when enrichment facts can be retained, refreshed, reviewed, or invalidated before any person truth or display surface is updated.",
     "refresh_bound_rows": 3759,
@@ -2378,7 +2380,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-03T09:59:17.288891+00:00",
+  "generated_at": "2026-06-03T10:09:32.030560+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -2674,7 +2676,7 @@
     "csv": "artifacts/data/official_gap_roster_program_resolution.csv",
     "denominator_mutation_allowed_records": 418,
     "denominator_mutation_allowed_rows": 23,
-    "generated_at": "2026-06-03T09:59:11.214832+00:00",
+    "generated_at": "2026-06-03T10:09:01.532872+00:00",
     "json": "artifacts/data/official_gap_roster_program_resolution.json",
     "loaded_people_reviewed": 482,
     "mutation_policy": "non_mutating_audit; denominator_mutation_allowed marks reviewer-ready candidates but this script does not close coverage gaps",
@@ -2714,7 +2716,7 @@
       "student_fellows_directory_not_gme_roster": 1
     },
     "csv": "artifacts/data/official_gap_roster_reconciliation.csv",
-    "generated_at": "2026-06-03T09:59:11.140515+00:00",
+    "generated_at": "2026-06-03T10:09:01.459500+00:00",
     "json": "artifacts/data/official_gap_roster_reconciliation.json",
     "loaded_membership_count": 551,
     "loaded_person_count": 551,
@@ -2739,7 +2741,7 @@
     },
     "dossier_csv": "artifacts/data/official_profile_reviewer_decision_dossiers.csv",
     "dossier_rows": 27,
-    "generated_at": "2026-06-03T09:59:01.368221+00:00",
+    "generated_at": "2026-06-03T10:08:51.644100+00:00",
     "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
     "manual_decision_template_rows": 27,
     "pending_reviewer_decision_rows": 27,
@@ -2761,7 +2763,7 @@
       "fellow": 15,
       "resident": 12
     },
-    "generated_at": "2026-06-03T09:59:01.297161+00:00",
+    "generated_at": "2026-06-03T10:08:51.572793+00:00",
     "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
     "manual_decision_rows": 0,
     "pending_reviewer_decision_rows": 27,
@@ -2836,7 +2838,7 @@
     },
     "coverage_mutation_allowed_rows": 0,
     "csv": "artifacts/data/official_program_alias_review_packets.csv",
-    "generated_at": "2026-06-03T09:59:11.370264+00:00",
+    "generated_at": "2026-06-03T10:09:01.685358+00:00",
     "json": "artifacts/data/official_program_alias_review_packets.json",
     "mutation_policy": "non_mutating_alias_review_packets; explicit reviewer acceptance is required before denominator coverage mutation",
     "packet_rows": 32,
@@ -2997,7 +2999,7 @@
       "needs_more_evidence": 1,
       "pending": 17
     },
-    "generated_at": "2026-06-03T09:59:11.412733+00:00",
+    "generated_at": "2026-06-03T10:09:01.728437+00:00",
     "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
     "manual_decision_rows": 15,
     "not_ready_rows": 17,
@@ -3056,7 +3058,7 @@
       "residency": 12
     },
     "csv": "artifacts/data/official_program_coverage_action_queue.csv",
-    "generated_at": "2026-06-03T09:59:11.525350+00:00",
+    "generated_at": "2026-06-03T10:09:01.840274+00:00",
     "highest_priority": 1003,
     "json": "artifacts/data/official_program_coverage_action_queue.json",
     "mutation_policy": "non_mutating_action_queue; actions require source-backed parser output or explicit reviewer acceptance before coverage truth changes",
@@ -3270,7 +3272,7 @@
     "covered_people_count": 1248,
     "covered_program_rows": 65,
     "csv": "artifacts/data/official_program_coverage_assurance_audit.csv",
-    "generated_at": "2026-06-03T09:59:11.253625+00:00",
+    "generated_at": "2026-06-03T10:09:01.571356+00:00",
     "json": "artifacts/data/official_program_coverage_assurance_audit.json",
     "level_4_people_count": 821,
     "level_4_program_rows": 49,
@@ -3357,7 +3359,7 @@
     "csv": "artifacts/data/official_program_coverage_dossiers.csv",
     "denominator_closed_or_accepted_alias_rows": 62,
     "dossier_rows": 91,
-    "generated_at": "2026-06-03T09:59:11.600171+00:00",
+    "generated_at": "2026-06-03T10:09:01.914835+00:00",
     "json": "artifacts/data/official_program_coverage_dossiers.json",
     "level_4_rows": 49,
     "official_program_count": 91,
@@ -3762,7 +3764,7 @@
       "medium": 213
     },
     "csv": "artifacts/data/person_enrichment_action_batch_members.csv",
-    "generated_at": "2026-06-03T09:59:04.185481+00:00",
+    "generated_at": "2026-06-03T10:08:54.491042+00:00",
     "json": "artifacts/data/person_enrichment_action_batch_members.json",
     "packet_count": 1535,
     "person_count": 1535,
@@ -4015,7 +4017,7 @@
       "medium": 7
     },
     "csv": "artifacts/data/person_enrichment_action_batches.csv",
-    "generated_at": "2026-06-03T09:59:04.009037+00:00",
+    "generated_at": "2026-06-03T10:08:54.314501+00:00",
     "impact_count_policy": "Summed across batches; each person packet appears in exactly one action batch.",
     "json": "artifacts/data/person_enrichment_action_batches.json",
     "max_batch_size": 50,
@@ -4307,7 +4309,7 @@
       "ready_for_manual_review_execution_decision": 806
     },
     "executed_outputs_routed_rows": 0,
-    "generated_at": "2026-06-03T09:59:04.223369+00:00",
+    "generated_at": "2026-06-03T10:08:54.529243+00:00",
     "invalid_or_stale_decision_rows": 0,
     "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
     "manual_decision_rows": 0,
@@ -4369,7 +4371,7 @@
     "contact_reobservation_ready_rows": 0,
     "critical_packet_rows": 6,
     "csv": "artifacts/data/person_enrichment_action_packets.csv",
-    "generated_at": "2026-06-03T09:59:03.912178+00:00",
+    "generated_at": "2026-06-03T10:08:54.216817+00:00",
     "high_packet_rows": 602,
     "json": "artifacts/data/person_enrichment_action_packets.json",
     "person_count": 1535,
@@ -4615,7 +4617,7 @@
     "contact_contract_people": 279,
     "csv": "artifacts/data/person_enrichment_dossiers.csv",
     "dossier_rows": 1535,
-    "generated_at": "2026-06-03T09:58:42.789387+00:00",
+    "generated_at": "2026-06-03T10:08:33.000344+00:00",
     "json": "artifacts/data/person_enrichment_dossiers.json",
     "person_count": 1535,
     "policy": "Dossiers are non-mutating person summaries. Accepted facts, candidate evidence, review-ready evidence, contact contracts, and missing surfaces are separated so downstream display or scoring can choose its assurance threshold explicitly.",
@@ -4676,7 +4678,7 @@
       "source_residency_background": 1
     },
     "csv": "artifacts/data/person_enrichment_execution_batches.csv",
-    "generated_at": "2026-06-03T09:59:01.070153+00:00",
+    "generated_at": "2026-06-03T10:08:51.346301+00:00",
     "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
     "json": "artifacts/data/person_enrichment_execution_batches.json",
     "manual_review_batch_rows": 7,
@@ -4937,7 +4939,7 @@
     },
     "csv": "artifacts/data/person_evidence_review_batch_packets.csv",
     "evidence_record_count": 5281,
-    "generated_at": "2026-06-03T09:58:40.187346+00:00",
+    "generated_at": "2026-06-03T10:08:30.393113+00:00",
     "json": "artifacts/data/person_evidence_review_batch_packets.json",
     "packet_count": 792,
     "person_count": 792,
@@ -5330,7 +5332,7 @@
     "csv": "artifacts/data/person_training_stage_state.csv",
     "duplicate_contract_rows": 144,
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-03T09:58:42.110748+00:00",
+    "generated_at": "2026-06-03T10:08:32.321052+00:00",
     "json": "artifacts/data/person_training_stage_state.json",
     "person_count": 1535,
     "policy": "Person training stage state is a non-mutating front door over temporal contracts. It describes current stage, staleness, permitted next-refresh classifications, and required evidence before any annual update changes person/program truth.",
@@ -5529,7 +5531,7 @@
     },
     "context_review_count": 3,
     "csv": "artifacts/data/program_lifecycle_duration_review_batches.csv",
-    "generated_at": "2026-06-03T09:58:35.249087+00:00",
+    "generated_at": "2026-06-03T10:08:25.378374+00:00",
     "json": "artifacts/data/program_lifecycle_duration_review_batches.json",
     "not_ready_count": 4,
     "pending_decision_count": 0,
@@ -5612,7 +5614,7 @@
       "reject_duration_context": 1
     },
     "context_review_rows": 3,
-    "generated_at": "2026-06-03T09:58:35.189157+00:00",
+    "generated_at": "2026-06-03T10:08:25.317441+00:00",
     "manual_decision_csv": "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
     "manual_decision_rows": 3,
     "not_ready_rows": 4,
@@ -5706,7 +5708,7 @@
     "conflict_member_count": 24,
     "conflict_packet_rows": 2,
     "csv": "artifacts/data/research_identity_review_batch_packets.csv",
-    "generated_at": "2026-06-03T09:59:11.023633+00:00",
+    "generated_at": "2026-06-03T10:09:01.344970+00:00",
     "json": "artifacts/data/research_identity_review_batch_packets.json",
     "pending_decision_count": 1523,
     "person_count": 1523,
@@ -5974,6 +5976,183 @@
     "medical_student": 225,
     "resident": 925
   },
+  "source_quality_policy_action_readiness_counts": {
+    "blocked_or_low_signal_until_next_evidence": 21,
+    "collector_or_probe_ready": 4,
+    "monitor_or_refresh_ready": 2,
+    "retry_or_provider_swap_needed": 3,
+    "review_ready_or_review_bound": 9,
+    "search_execution_needed": 1
+  },
+  "source_quality_policy_recommendation_counts": {
+    "candidate_reconciliation_policy": 5,
+    "discovery_execution_policy": 4,
+    "search_endpoint_reliability_policy": 3,
+    "search_observation_required": 1,
+    "strong_candidate_governance": 23,
+    "truth_anchor_governance": 4
+  },
+  "source_quality_policy_recommendation_summary": {
+    "by_action_readiness": {
+      "blocked_or_low_signal_until_next_evidence": 21,
+      "collector_or_probe_ready": 4,
+      "monitor_or_refresh_ready": 2,
+      "retry_or_provider_swap_needed": 3,
+      "review_ready_or_review_bound": 9,
+      "search_execution_needed": 1
+    },
+    "by_policy_lane": {
+      "candidate_reconciliation_policy": 5,
+      "discovery_execution_policy": 4,
+      "search_endpoint_reliability_policy": 3,
+      "search_observation_required": 1,
+      "strong_candidate_governance": 23,
+      "truth_anchor_governance": 4
+    },
+    "by_quality_band": {
+      "discovery_or_review_only": 4,
+      "high_utility": 4,
+      "search_quality_observation": 4,
+      "strong_with_known_limits": 23,
+      "useful_candidate_layer": 5
+    },
+    "by_source_row_type": {
+      "search_utility_assurance": 4,
+      "source_utility_scorecard": 36
+    },
+    "by_trend_relevance": {
+      "directly_relevant_to_recent_attending_trend_path": 6,
+      "indirect_trend_or_background_context": 4,
+      "not_primary_trend_surface": 30
+    },
+    "csv": "artifacts/data/source_quality_policy_recommendations.csv",
+    "generated_at": "2026-06-03T10:09:04.623215+00:00",
+    "json": "artifacts/data/source_quality_policy_recommendations.json",
+    "policy": "Source-quality policy recommendations are non-mutating. They translate observed utility performance into acceptance, collector, reviewer, and trend-readiness posture; factual promotion still requires source-specific evidence and reviewer/acceptance ledgers.",
+    "recommendation_rows": 40,
+    "top_policy_rows": [
+      {
+        "action_priority": 1080,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "candidate_reconciliation_policy",
+        "recommended_next_action": "treat_as_queue_then_probe_and_parse_only_source_backed_rosters",
+        "trend_relevance": "directly_relevant_to_recent_attending_trend_path",
+        "utility_label": "Penn-wide source discovery crawler"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "candidate_reconciliation_policy",
+        "recommended_next_action": "use_npi_candidates_as_secondary_identity_anchors_only",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "NPPES NPI Registry candidates"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "candidate_reconciliation_policy",
+        "recommended_next_action": "use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "ORCID public profile and work reconciliation"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "candidate_reconciliation_policy",
+        "recommended_next_action": "prioritize_review_ready_packets_then_collect_secondary_identity_anchors",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "PubMed article-level reconciliation"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "discovery_execution_policy",
+        "recommended_next_action": "reprobe_or_replace_generic_profile_routes_before_accepting_profile_url_candidates",
+        "trend_relevance": "indirect_trend_or_background_context",
+        "utility_label": "Official trainee profile discovery"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "retry_or_provider_swap_needed",
+        "policy_lane": "search_endpoint_reliability_policy",
+        "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
+        "trend_relevance": "directly_relevant_to_recent_attending_trend_path",
+        "utility_label": "Attending historical-link search"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "retry_or_provider_swap_needed",
+        "policy_lane": "search_endpoint_reliability_policy",
+        "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "Official trainee profile search"
+      },
+      {
+        "action_priority": 1000,
+        "action_readiness": "retry_or_provider_swap_needed",
+        "policy_lane": "search_endpoint_reliability_policy",
+        "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "Prior-training background search"
+      },
+      {
+        "action_priority": 980,
+        "action_readiness": "collector_or_probe_ready",
+        "policy_lane": "discovery_execution_policy",
+        "recommended_next_action": "run_as_resumable_optional_lane_with_rate_limit_backoff",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "OpenAlex author search"
+      },
+      {
+        "action_priority": 980,
+        "action_readiness": "collector_or_probe_ready",
+        "policy_lane": "discovery_execution_policy",
+        "recommended_next_action": "use_only_to_seed_article_level_reconciliation",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "PubMed author-query discovery"
+      },
+      {
+        "action_priority": 940,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "strong_candidate_governance",
+        "recommended_next_action": "promote_cross_source_publication_candidates_after_final_duplicate_author_position_check",
+        "trend_relevance": "indirect_trend_or_background_context",
+        "utility_label": "Enrichment acceptance assurance ledger"
+      },
+      {
+        "action_priority": 940,
+        "action_readiness": "review_ready_or_review_bound",
+        "policy_lane": "strong_candidate_governance",
+        "recommended_next_action": "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers",
+        "trend_relevance": "indirect_trend_or_background_context",
+        "utility_label": "Person enrichment dossier ledger"
+      },
+      {
+        "action_priority": 920,
+        "action_readiness": "review_ready_or_review_bound",
+        "policy_lane": "strong_candidate_governance",
+        "recommended_next_action": "execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "Enrichment execution readiness"
+      },
+      {
+        "action_priority": 920,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "strong_candidate_governance",
+        "recommended_next_action": "use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "ORCID-seeded PubMed article reconciliation"
+      },
+      {
+        "action_priority": 920,
+        "action_readiness": "blocked_or_low_signal_until_next_evidence",
+        "policy_lane": "strong_candidate_governance",
+        "recommended_next_action": "review_denominator_resolution_candidates_then_rerun_coverage",
+        "trend_relevance": "not_primary_trend_surface",
+        "utility_label": "Official gap roster queue extraction"
+      }
+    ]
+  },
   "source_utility_scorecard_counts": {
     "discovery_or_review_only": 4,
     "high_utility": 4,
@@ -6041,7 +6220,7 @@
     },
     "candidate_or_discovery_rows": 9,
     "csv": "artifacts/data/source_utility_scorecard.csv",
-    "generated_at": "2026-06-03T09:59:14.156458+00:00",
+    "generated_at": "2026-06-03T10:09:04.507314+00:00",
     "high_utility_rows": 4,
     "json": "artifacts/data/source_utility_scorecard.json",
     "scorecard_rows": 36,
@@ -6434,7 +6613,7 @@
     "corpus_recommended_operator_action": "review_lifecycle_or_source_before_mutation",
     "csv": "artifacts/data/training_state_transition_plan.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-03T09:58:40.907870+00:00",
+    "generated_at": "2026-06-03T10:08:31.110409+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_state_transition_plan.json",
     "person_count": 1535,
@@ -6509,7 +6688,7 @@
     "corpus_stale_information_policy": "do_not_auto_mutate_rows_in_this_scope_until_review_queue_is_resolved",
     "csv": "artifacts/data/training_temporal_contracts.csv",
     "fresh_observation_required_rows": 1669,
-    "generated_at": "2026-06-03T09:58:41.075491+00:00",
+    "generated_at": "2026-06-03T10:08:31.278756+00:00",
     "human_review_required_rows": 131,
     "json": "artifacts/data/training_temporal_contracts.json",
     "person_count": 1535,
@@ -6549,12 +6728,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 150
+    "ok": 151
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 150,
-    "audited_at": "2026-06-03T09:59:15.110511+00:00",
+    "artifact_rows": 151,
+    "audited_at": "2026-06-03T10:09:05.506674+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -6655,6 +6834,7 @@
       "source_observation_ledger": 1,
       "source_quality_execution_batch_ledger": 1,
       "source_quality_ledger": 2,
+      "source_quality_policy_ledger": 1,
       "sqlite_warehouse_binary": 1,
       "state_machine_ledger": 3,
       "trainee_profile_discovery_ledger": 3,
@@ -6662,17 +6842,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 150
+      "ok": 151
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 393207808,
+    "sqlite_byte_size": 393584640,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "75ae50b7053dc59913ec4c44d32ec1a1895bb33e31e916cf4e48bc7f7facf8ae",
+    "sqlite_sha256": "7451c239d7b49ea2951cf05b2358cf1e6ea86e9ca7de040062f96d2b07e26064",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

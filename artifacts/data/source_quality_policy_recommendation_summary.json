@@ -1,0 +1,161 @@
+{
+  "by_action_readiness": {
+    "blocked_or_low_signal_until_next_evidence": 21,
+    "collector_or_probe_ready": 4,
+    "monitor_or_refresh_ready": 2,
+    "retry_or_provider_swap_needed": 3,
+    "review_ready_or_review_bound": 9,
+    "search_execution_needed": 1
+  },
+  "by_policy_lane": {
+    "candidate_reconciliation_policy": 5,
+    "discovery_execution_policy": 4,
+    "search_endpoint_reliability_policy": 3,
+    "search_observation_required": 1,
+    "strong_candidate_governance": 23,
+    "truth_anchor_governance": 4
+  },
+  "by_quality_band": {
+    "discovery_or_review_only": 4,
+    "high_utility": 4,
+    "search_quality_observation": 4,
+    "strong_with_known_limits": 23,
+    "useful_candidate_layer": 5
+  },
+  "by_source_row_type": {
+    "search_utility_assurance": 4,
+    "source_utility_scorecard": 36
+  },
+  "by_trend_relevance": {
+    "directly_relevant_to_recent_attending_trend_path": 6,
+    "indirect_trend_or_background_context": 4,
+    "not_primary_trend_surface": 30
+  },
+  "csv": "artifacts/data/source_quality_policy_recommendations.csv",
+  "generated_at": "2026-06-03T10:09:04.623215+00:00",
+  "json": "artifacts/data/source_quality_policy_recommendations.json",
+  "policy": "Source-quality policy recommendations are non-mutating. They translate observed utility performance into acceptance, collector, reviewer, and trend-readiness posture; factual promotion still requires source-specific evidence and reviewer/acceptance ledgers.",
+  "recommendation_rows": 40,
+  "top_policy_rows": [
+    {
+      "action_priority": 1080,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "candidate_reconciliation_policy",
+      "recommended_next_action": "treat_as_queue_then_probe_and_parse_only_source_backed_rosters",
+      "trend_relevance": "directly_relevant_to_recent_attending_trend_path",
+      "utility_label": "Penn-wide source discovery crawler"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "candidate_reconciliation_policy",
+      "recommended_next_action": "use_npi_candidates_as_secondary_identity_anchors_only",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "NPPES NPI Registry candidates"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "candidate_reconciliation_policy",
+      "recommended_next_action": "use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "ORCID public profile and work reconciliation"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "candidate_reconciliation_policy",
+      "recommended_next_action": "prioritize_review_ready_packets_then_collect_secondary_identity_anchors",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "PubMed article-level reconciliation"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "discovery_execution_policy",
+      "recommended_next_action": "reprobe_or_replace_generic_profile_routes_before_accepting_profile_url_candidates",
+      "trend_relevance": "indirect_trend_or_background_context",
+      "utility_label": "Official trainee profile discovery"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "retry_or_provider_swap_needed",
+      "policy_lane": "search_endpoint_reliability_policy",
+      "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
+      "trend_relevance": "directly_relevant_to_recent_attending_trend_path",
+      "utility_label": "Attending historical-link search"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "retry_or_provider_swap_needed",
+      "policy_lane": "search_endpoint_reliability_policy",
+      "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "Official trainee profile search"
+    },
+    {
+      "action_priority": 1000,
+      "action_readiness": "retry_or_provider_swap_needed",
+      "policy_lane": "search_endpoint_reliability_policy",
+      "recommended_next_action": "retain_candidates_but_treat_search_completeness_as_partial_and_retry_or_crosscheck",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "Prior-training background search"
+    },
+    {
+      "action_priority": 980,
+      "action_readiness": "collector_or_probe_ready",
+      "policy_lane": "discovery_execution_policy",
+      "recommended_next_action": "run_as_resumable_optional_lane_with_rate_limit_backoff",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "OpenAlex author search"
+    },
+    {
+      "action_priority": 980,
+      "action_readiness": "collector_or_probe_ready",
+      "policy_lane": "discovery_execution_policy",
+      "recommended_next_action": "use_only_to_seed_article_level_reconciliation",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "PubMed author-query discovery"
+    },
+    {
+      "action_priority": 940,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "strong_candidate_governance",
+      "recommended_next_action": "promote_cross_source_publication_candidates_after_final_duplicate_author_position_check",
+      "trend_relevance": "indirect_trend_or_background_context",
+      "utility_label": "Enrichment acceptance assurance ledger"
+    },
+    {
+      "action_priority": 940,
+      "action_readiness": "review_ready_or_review_bound",
+      "policy_lane": "strong_candidate_governance",
+      "recommended_next_action": "use_dossiers_for_person_level_review_then_feed_acceptance_decisions_back_to_ledgers",
+      "trend_relevance": "indirect_trend_or_background_context",
+      "utility_label": "Person enrichment dossier ledger"
+    },
+    {
+      "action_priority": 920,
+      "action_readiness": "review_ready_or_review_bound",
+      "policy_lane": "strong_candidate_governance",
+      "recommended_next_action": "execute_queue_driven_research_profile_prior_training_and_roster_lanes_then_reconcile",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "Enrichment execution readiness"
+    },
+    {
+      "action_priority": 920,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "strong_candidate_governance",
+      "recommended_next_action": "use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "ORCID-seeded PubMed article reconciliation"
+    },
+    {
+      "action_priority": 920,
+      "action_readiness": "blocked_or_low_signal_until_next_evidence",
+      "policy_lane": "strong_candidate_governance",
+      "recommended_next_action": "review_denominator_resolution_candidates_then_rerun_coverage",
+      "trend_relevance": "not_primary_trend_surface",
+      "utility_label": "Official gap roster queue extraction"
+    }
+  ]
+}

@@ -383,6 +383,10 @@ def main() -> None:
     )
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
+    source_quality_policy_recommendation_summary = read_json(
+        ARTIFACTS / "source_quality_policy_recommendation_summary.json",
+        {},
+    )
     person_enrichment_action_execution_plan_summary = read_json(
         ARTIFACTS / "person_enrichment_action_execution_plan_summary.json",
         {},
@@ -490,6 +494,10 @@ def main() -> None:
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
+    source_quality_policy_recommendations = read_csv(
+        ARTIFACTS / "source_quality_policy_recommendations.csv",
+        limit=30,
+    )
     top_person_enrichment_action_member_execution_dossiers = read_csv(
         ARTIFACTS / "person_enrichment_action_member_execution_dossiers.csv",
         limit=25,
@@ -764,6 +772,8 @@ def main() -> None:
         "top_npi_candidates": top_npi_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
+        "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,
+        "source_quality_policy_recommendations": source_quality_policy_recommendations,
         "person_enrichment_action_execution_plan_summary": person_enrichment_action_execution_plan_summary,
         "top_person_enrichment_action_execution_plans": top_person_enrichment_action_execution_plans,
         "person_enrichment_action_member_execution_dossier_summary": person_enrichment_action_member_execution_dossier_summary,
@@ -1226,6 +1236,25 @@ def main() -> None:
         ),
         "",
         "Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.",
+        "",
+        "## Source Quality Policy Recommendations",
+        "",
+        f"Recommendation rows: {source_quality_policy_recommendation_summary.get('recommendation_rows', 0)}. Policy lanes: {len(source_quality_policy_recommendation_summary.get('by_policy_lane', {}))}. Direct trend rows: {source_quality_policy_recommendation_summary.get('by_trend_relevance', {}).get('directly_relevant_to_recent_attending_trend_path', 0)}.",
+        "",
+        *md_table(
+            source_quality_policy_recommendations,
+            [
+                "utility_label",
+                "policy_lane",
+                "action_priority",
+                "action_readiness",
+                "acceptance_posture",
+                "trend_relevance",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: utility performance now has an explicit policy translation layer. Search hits remain discovery-only, strong official/profile sources still need surface-specific acceptance gates, and attending-trend utilities are flagged separately so current-attending endpoints do not outrun historical Penn-training bridge evidence.",
         "",
         "## Person Enrichment Action Execution",
         "",

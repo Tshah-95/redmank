@@ -746,6 +746,62 @@ def search_utility_actions(generated_at: str) -> list[dict]:
     return rows
 
 
+def source_quality_policy_actions(generated_at: str) -> list[dict]:
+    rows = []
+    source = "artifacts/data/source_quality_policy_recommendations.csv"
+    for item in read_csv(ARTIFACTS / "source_quality_policy_recommendations.csv"):
+        priority = as_int(item.get("action_priority"))
+        rows.append(
+            row(
+                action_surface="source_quality_policy",
+                action_scope=f"{item.get('policy_lane') or ''}:{item.get('action_readiness') or ''}",
+                entity_type="source_quality_policy_recommendation",
+                entity_key=item.get("recommendation_key") or "",
+                display_label=" | ".join(
+                    part
+                    for part in [
+                        item.get("utility_label"),
+                        item.get("policy_lane"),
+                        item.get("quality_band"),
+                    ]
+                    if part
+                ),
+                role="",
+                program_name="",
+                priority=priority,
+                impact_count=1,
+                readiness_status=item.get("action_readiness") or "",
+                blocker_status=item.get("policy_status") or "",
+                required_next_evidence=item.get("required_next_evidence") or "",
+                recommended_next_action=item.get("recommended_next_action") or "",
+                source_artifact=source,
+                target_artifact="artifacts/data/source_utility_scorecard.csv",
+                downstream_tables=parse_json(item.get("downstream_tables_json"), ["source_quality_policy_recommendations"]),
+                evidence={
+                    "recommendation_key": item.get("recommendation_key"),
+                    "source_row_type": item.get("source_row_type"),
+                    "utility_key": item.get("utility_key"),
+                    "source_family": item.get("source_family"),
+                    "claim_surface": item.get("claim_surface"),
+                    "score": item.get("score"),
+                    "quality_band": item.get("quality_band"),
+                    "policy_lane": item.get("policy_lane"),
+                    "policy_status": item.get("policy_status"),
+                    "action_readiness": item.get("action_readiness"),
+                    "acceptance_posture": item.get("acceptance_posture"),
+                    "collector_posture": item.get("collector_posture"),
+                    "reviewer_posture": item.get("reviewer_posture"),
+                    "trend_relevance": item.get("trend_relevance"),
+                    "evidence_standard": item.get("evidence_standard"),
+                    "source_artifacts": parse_json(item.get("source_artifacts_json"), []),
+                    "search_assurance": parse_json(item.get("search_assurance_evidence_json"), {}),
+                },
+                generated_at=generated_at,
+            )
+        )
+    return rows
+
+
 def temporal_contract_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "training_temporal_contract_batches.csv"
     if batch_path.exists():
@@ -2177,6 +2233,7 @@ def main() -> None:
     rows.extend(person_evidence_actions(generated_at))
     rows.extend(contact_actions(generated_at))
     rows.extend(search_utility_actions(generated_at))
+    rows.extend(source_quality_policy_actions(generated_at))
     rows.extend(temporal_contract_actions(generated_at))
     roster_batch_rows = official_roster_refresh_batch_actions(generated_at)
     rows.extend(roster_batch_rows if roster_batch_rows else official_roster_refresh_actions(generated_at))

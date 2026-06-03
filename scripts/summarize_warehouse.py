@@ -137,6 +137,7 @@ def main() -> None:
         "source_quality_observations",
         "source_utility_scorecard",
         "search_utility_assurance",
+        "source_quality_policy_recommendations",
         "search_utility_execution_batches",
         "corpus_action_worklist",
         "official_program_universe",
@@ -1281,6 +1282,26 @@ def main() -> None:
             """
         )
     }
+    source_quality_policy_recommendation_counts = {
+        row["policy_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT policy_lane, COUNT(*) AS count
+            FROM source_quality_policy_recommendations
+            GROUP BY policy_lane
+            """
+        )
+    }
+    source_quality_policy_action_readiness_counts = {
+        row["action_readiness"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT action_readiness, COUNT(*) AS count
+            FROM source_quality_policy_recommendations
+            GROUP BY action_readiness
+            """
+        )
+    }
     person_enrichment_queue_priority_counts = {
         row["priority_band"]: row["count"]
         for row in conn.execute(
@@ -1682,6 +1703,13 @@ def main() -> None:
         source_utility_scorecard_summary = json.loads(source_utility_scorecard_summary_path.read_text(encoding="utf-8"))
     else:
         source_utility_scorecard_summary = {}
+    source_quality_policy_recommendation_summary_path = ARTIFACTS / "source_quality_policy_recommendation_summary.json"
+    if source_quality_policy_recommendation_summary_path.exists():
+        source_quality_policy_recommendation_summary = json.loads(
+            source_quality_policy_recommendation_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        source_quality_policy_recommendation_summary = {}
     corpus_action_worklist_summary_path = ARTIFACTS / "corpus_action_worklist_summary.json"
     if corpus_action_worklist_summary_path.exists():
         corpus_action_worklist_summary = json.loads(corpus_action_worklist_summary_path.read_text(encoding="utf-8"))
@@ -1916,6 +1944,8 @@ def main() -> None:
         "program_lifecycle_duration_reviewer_queue_counts": program_lifecycle_duration_reviewer_queue_counts,
         "program_lifecycle_duration_review_batch_counts": program_lifecycle_duration_review_batch_counts,
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
+        "source_quality_policy_recommendation_counts": source_quality_policy_recommendation_counts,
+        "source_quality_policy_action_readiness_counts": source_quality_policy_action_readiness_counts,
         "person_enrichment_queue_priority_counts": person_enrichment_queue_priority_counts,
         "person_enrichment_queue_task_counts": person_enrichment_queue_task_counts,
         "person_enrichment_queue_source_counts": person_enrichment_queue_source_counts,
@@ -1971,6 +2001,7 @@ def main() -> None:
         "person_enrichment_action_member_execution_summary": person_enrichment_action_member_execution_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
+        "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
         "medical_student_source_audit_summary": medical_student_source_audit_summary,
