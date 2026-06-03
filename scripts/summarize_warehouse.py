@@ -159,6 +159,7 @@ def main() -> None:
         "official_program_coverage_action_queue",
         "official_program_coverage_dossiers",
         "official_program_coverage_batches",
+        "official_program_coverage_batch_packets",
         "official_program_alias_review_packets",
         "official_program_alias_reviewer_decisions",
         "official_program_alias_reviewer_decision_queue",
@@ -1248,6 +1249,36 @@ def main() -> None:
             """
         )
     }
+    official_program_coverage_batch_packet_status_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM official_program_coverage_batch_packets
+            GROUP BY packet_status
+            """
+        )
+    }
+    official_program_coverage_batch_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM official_program_coverage_batch_packets
+            GROUP BY support_status
+            """
+        )
+    }
+    official_program_coverage_batch_packet_action_lane_counts = {
+        row["action_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT action_lane, COUNT(*) AS count
+            FROM official_program_coverage_batch_packets
+            GROUP BY action_lane
+            """
+        )
+    }
     official_program_alias_review_packet_counts = {
         row["alias_decision_status"]: row["count"]
         for row in conn.execute(
@@ -1986,6 +2017,15 @@ def main() -> None:
         )
     else:
         official_program_coverage_dossier_summary = {}
+    official_program_coverage_batch_packet_summary_path = (
+        ARTIFACTS / "official_program_coverage_batch_packet_summary.json"
+    )
+    if official_program_coverage_batch_packet_summary_path.exists():
+        official_program_coverage_batch_packet_summary = json.loads(
+            official_program_coverage_batch_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        official_program_coverage_batch_packet_summary = {}
     official_program_alias_review_packets_summary_path = ARTIFACTS / "official_program_alias_review_packets_summary.json"
     if official_program_alias_review_packets_summary_path.exists():
         official_program_alias_review_packets_summary = json.loads(
@@ -2116,6 +2156,9 @@ def main() -> None:
         "official_program_coverage_dossier_status_counts": official_program_coverage_dossier_status_counts,
         "official_program_coverage_dossier_safety_counts": official_program_coverage_dossier_safety_counts,
         "official_program_coverage_dossier_level_counts": official_program_coverage_dossier_level_counts,
+        "official_program_coverage_batch_packet_status_counts": official_program_coverage_batch_packet_status_counts,
+        "official_program_coverage_batch_packet_support_counts": official_program_coverage_batch_packet_support_counts,
+        "official_program_coverage_batch_packet_action_lane_counts": official_program_coverage_batch_packet_action_lane_counts,
         "official_program_alias_review_packet_counts": official_program_alias_review_packet_counts,
         "official_program_alias_review_packet_reviewer_ready_counts": official_program_alias_review_packet_reviewer_ready_counts,
         "official_program_alias_reviewer_decision_counts": official_program_alias_reviewer_decision_counts,
@@ -2210,6 +2253,7 @@ def main() -> None:
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
         "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
         "official_program_coverage_dossier_summary": official_program_coverage_dossier_summary,
+        "official_program_coverage_batch_packet_summary": official_program_coverage_batch_packet_summary,
         "official_program_alias_review_packets_summary": official_program_alias_review_packets_summary,
         "official_program_alias_reviewer_decision_summary": official_program_alias_reviewer_decision_summary,
     }

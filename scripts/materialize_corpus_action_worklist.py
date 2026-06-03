@@ -148,8 +148,18 @@ def official_program_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "official_program_coverage_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/official_program_coverage_batches.csv"
+        batch_packet_path = ARTIFACTS / "official_program_coverage_batch_packets.csv"
+        source = (
+            "artifacts/data/official_program_coverage_batch_packets.csv"
+            if batch_packet_path.exists()
+            else "artifacts/data/official_program_coverage_batches.csv"
+        )
+        packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if batch_packet_path.exists():
+            for packet_row in read_csv(batch_packet_path):
+                packets_by_batch[packet_row.get("official_program_coverage_batch_key") or ""].append(packet_row)
         for item in read_csv(batch_path):
+            packet_rows = packets_by_batch.get(item.get("official_program_coverage_batch_key") or "", [])
             priority = as_int(item.get("max_priority")) + min(as_int(item.get("queue_count")) * 2, 40)
             rows.append(
                 row(
@@ -181,6 +191,7 @@ def official_program_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "artifacts/data/official_program_coverage_assurance_audit.csv",
                     downstream_tables=[
                         "official_program_coverage_batches",
+                        "official_program_coverage_batch_packets",
                         "official_program_coverage_action_queue",
                         "official_program_coverage_dossiers",
                         "official_program_coverage_assurance_audit",
@@ -206,6 +217,29 @@ def official_program_actions(generated_at: str) -> list[dict]:
                         "coverage_status_counts": parse_json(item.get("coverage_status_counts_json"), {}),
                         "assurance_status_counts": parse_json(item.get("assurance_status_counts_json"), {}),
                         "department_counts": parse_json(item.get("department_counts_json"), {}),
+                        "coverage_batch_packet_rows": len(packet_rows),
+                        "top_packet_support_statuses": dict(
+                            Counter(packet.get("support_status") or "" for packet in packet_rows).most_common(8)
+                        ),
+                        "top_coverage_batch_packets": [
+                            {
+                                "official_program_name": packet.get("official_program_name"),
+                                "action_lane": packet.get("action_lane"),
+                                "packet_status": packet.get("packet_status"),
+                                "support_status": packet.get("support_status"),
+                                "person_impact_count": packet.get("person_impact_count"),
+                                "candidate_source_count": packet.get("candidate_source_count"),
+                                "candidate_url": packet.get("candidate_url"),
+                                "recommended_packet_action": packet.get("recommended_packet_action"),
+                            }
+                            for packet in sorted(
+                                packet_rows,
+                                key=lambda packet: (
+                                    -as_int(packet.get("priority")),
+                                    as_int(packet.get("batch_packet_order")),
+                                ),
+                            )[:10]
+                        ],
                         "top_queue_rows": parse_json(item.get("top_queue_rows_json"), []),
                         "top_dossiers": parse_json(item.get("top_dossiers_json"), []),
                     },

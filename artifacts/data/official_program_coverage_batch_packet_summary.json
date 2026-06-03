@@ -1,0 +1,320 @@
+{
+  "accepted_alias_monitor_packet_rows": 13,
+  "batch_count": 12,
+  "by_action_lane": {
+    "accepted_alias_denominator_closed_monitor": 13,
+    "accepted_alias_open_gap_policy": 1,
+    "alias_review": 6,
+    "count_conflict_review": 1,
+    "parser_or_roster_source_review": 7,
+    "source_candidate_probe": 14
+  },
+  "by_blocker_status": {
+    "accepted_alias_bridge_exists_but_official_gap_remains_open": 1,
+    "accepted_alias_denominator_closed": 13,
+    "candidate_source_without_people": 7,
+    "covered_by_alias_without_explicit_acceptance": 2,
+    "exact_resolution_count_conflict": 1,
+    "not_covered_but_candidate_sources_exist": 14,
+    "open_gap_with_related_loaded_people": 4
+  },
+  "by_packet_status": {
+    "accepted_alias_denominator_monitor_packet": 13,
+    "ready_for_accepted_alias_gap_policy_packet": 1,
+    "ready_for_alias_scope_review_packet": 6,
+    "ready_for_candidate_source_probe_packet": 14,
+    "ready_for_count_conflict_review_packet": 1,
+    "ready_for_parser_or_context_review_packet": 7
+  },
+  "by_support_status": {
+    "monitor": 13,
+    "ready": 29
+  },
+  "candidate_source_count": 71,
+  "csv": "artifacts/data/official_program_coverage_batch_packets.csv",
+  "dossier_packet_rows": 42,
+  "generated_at": "2026-06-03T11:36:53.194874+00:00",
+  "json": "artifacts/data/official_program_coverage_batch_packets.json",
+  "packet_rows": 42,
+  "person_impact_count": 542,
+  "policy": "Official program coverage batch packets are non-mutating support rows over denominator coverage actions; accepted coverage still requires source-backed extraction, accepted alias mapping, or explicit denominator closure evidence.",
+  "program_count": 42,
+  "queue_count": 42,
+  "top_packets": [
+    {
+      "action_lane": "count_conflict_review",
+      "candidate_source_count": 0,
+      "execution_order": 1,
+      "official_program_name": "Adult Reconstructive Orthopedics",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_count_conflict_review_packet",
+      "person_impact_count": 3,
+      "recommended_packet_action": "review_count_conflict_before_denominator_mutation",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_source_count": 4,
+      "execution_order": 2,
+      "official_program_name": "Radiology - Interventional, Independent",
+      "official_program_type": "residency",
+      "packet_status": "ready_for_alias_scope_review_packet",
+      "person_impact_count": 19,
+      "recommended_packet_action": "resolve_related_loaded_program_before_gap_closure",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_source_count": 17,
+      "execution_order": 2,
+      "official_program_name": "Dermatology",
+      "official_program_type": "residency",
+      "packet_status": "ready_for_alias_scope_review_packet",
+      "person_impact_count": 3,
+      "recommended_packet_action": "resolve_related_loaded_program_before_gap_closure",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_source_count": 5,
+      "execution_order": 3,
+      "official_program_name": "Plastic Surgery",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_alias_scope_review_packet",
+      "person_impact_count": 22,
+      "recommended_packet_action": "resolve_related_loaded_program_before_gap_closure",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_source_count": 3,
+      "execution_order": 3,
+      "official_program_name": "Transplant Hepatology",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_alias_scope_review_packet",
+      "person_impact_count": 2,
+      "recommended_packet_action": "resolve_related_loaded_program_before_gap_closure",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "accepted_alias_open_gap_policy",
+      "candidate_source_count": 15,
+      "execution_order": 4,
+      "official_program_name": "Soft Tissue/Bone (Selective)",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_accepted_alias_gap_policy_packet",
+      "person_impact_count": 69,
+      "recommended_packet_action": "review_accepted_alias_bridge_before_denominator_closure",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_source_count": 0,
+      "execution_order": 5,
+      "official_program_name": "Thoracic Surgery - Integrated",
+      "official_program_type": "residency",
+      "packet_status": "ready_for_alias_scope_review_packet",
+      "person_impact_count": 15,
+      "recommended_packet_action": "accept_or_split_alias_mapping",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "alias_review",
+      "candidate_source_count": 0,
+      "execution_order": 6,
+      "official_program_name": "Abdominal Radiology",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_alias_scope_review_packet",
+      "person_impact_count": 9,
+      "recommended_packet_action": "accept_or_split_alias_mapping",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 2,
+      "execution_order": 7,
+      "official_program_name": "Emergency Medicine",
+      "official_program_type": "residency",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 2,
+      "execution_order": 8,
+      "official_program_name": "Addiction Medicine",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 2,
+      "execution_order": 8,
+      "official_program_name": "Undersea and Hyperbaric Medicine",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 1,
+      "execution_order": 8,
+      "official_program_name": "Adult Cardiothoracic Anesthesiology",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 1,
+      "execution_order": 8,
+      "official_program_name": "Brain Injury Medicine",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 1,
+      "execution_order": 8,
+      "official_program_name": "Critical Care Medicine",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "parser_or_roster_source_review",
+      "candidate_source_count": 1,
+      "execution_order": 8,
+      "official_program_name": "Pain Medicine",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_parser_or_context_review_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "improve_parser_or_mark_context_only",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 4,
+      "execution_order": 9,
+      "official_program_name": "Oral and Maxillofacial Surgery",
+      "official_program_type": "residency",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 9,
+      "official_program_name": "Occupational and Environmental Medicine (Preventative Medicine)",
+      "official_program_type": "residency",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Addiction Psychiatry",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Clinical Neurophysiology",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Complex Family Planning",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Consultation and Liaison Psychiatry",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Dermatopathology",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Epilepsy",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Forensic Psychiatry",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    },
+    {
+      "action_lane": "source_candidate_probe",
+      "candidate_source_count": 1,
+      "execution_order": 10,
+      "official_program_name": "Geriatric Psychiatry",
+      "official_program_type": "fellowship",
+      "packet_status": "ready_for_candidate_source_probe_packet",
+      "person_impact_count": 0,
+      "recommended_packet_action": "probe_candidate_sources_and_extract_supported_rosters",
+      "support_status": "ready"
+    }
+  ]
+}

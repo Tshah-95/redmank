@@ -60,6 +60,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_program_coverage_dossiers.csv`: program-level denominator dossiers that join assurance, source candidates, accepted aliases, action rows, and required next evidence.
 - `artifacts/data/official_program_coverage_batches.csv`: bounded operator sessions over coverage action rows, grouped by lane, blocker, program type, and assurance level so denominator gaps can be reviewed without losing program-level dossiers.
 - `artifacts/data/official_program_coverage_batch_summary.json`: coverage-batch counts, queue/program/person impact, candidate-source burden, and top coverage batches.
+- `artifacts/data/official_program_coverage_batch_packets.csv`: per-action support packets for coverage batches, joining queue rows to program dossiers, source/alias/count evidence, packet status, target routing, and denominator acceptance boundaries.
+- `artifacts/data/official_program_coverage_batch_packet_summary.json`: coverage packet counts by lane, blocker, packet status, support status, program impact, candidate-source burden, and accepted-alias monitor rows.
 - `artifacts/data/official_program_alias_review_packets.csv`: review packets for alias-related coverage actions, joining official program rows, loaded labels, role/scope signals, and reviewer-ready decisions.
 - `artifacts/data/official_program_alias_review_packets_summary.json`: reviewer-ready alias packet counts and top packet recommendations.
 - `artifacts/data/official_program_alias_reviewer_decision_queue.csv`: reviewer-decision queue for alias packets, including packet fingerprints and required confirmation fields.
@@ -242,7 +244,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
 - The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
-- The worklist consumes `official_program_coverage_batches.csv` when available, so denominator coverage actions are grouped by lane, blocker, program type, and assurance level while program dossiers remain downstream evidence detail.
+- The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
 - The worklist consumes `search_utility_execution_batches.csv` when available, so search assurance gaps become executable query, retry, and candidate-probe batches while the four-row utility assurance ledger remains the source-quality rollup.
 - The worklist consumes `person_enrichment_execution_batches.csv` when available, so enrichment execution starts from the resumable collector/manual-review batch manifest instead of regrouping raw queue rows.
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
@@ -327,6 +329,7 @@ python3 scripts/materialize_official_program_denominator_closure_audit.py
 python3 scripts/materialize_official_program_coverage_action_queue.py
 python3 scripts/materialize_official_program_coverage_dossiers.py
 python3 scripts/materialize_official_program_coverage_batches.py
+python3 scripts/materialize_official_program_coverage_batch_packets.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py

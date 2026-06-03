@@ -29,7 +29,7 @@
   "conflict_dossier_rows": 24,
   "csv": "artifacts/data/research_identity_reviewer_decision_dossiers.csv",
   "dossier_rows": 1523,
-  "generated_at": "2026-06-03T11:26:04.882911+00:00",
+  "generated_at": "2026-06-03T11:36:51.763687+00:00",
   "json": "artifacts/data/research_identity_reviewer_decision_dossiers.json",
   "pending_dossier_rows": 1523,
   "policy": "Research identity reviewer decision dossiers are non-mutating templates over the decision queue; accepted person facts still require downstream acceptance ledgers.",

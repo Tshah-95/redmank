@@ -18,7 +18,7 @@
   "contact_count": 313,
   "csv": "artifacts/data/contact_verification_batches.csv",
   "domain_review_count": 1,
-  "generated_at": "2026-06-03T11:25:29.759929+00:00",
+  "generated_at": "2026-06-03T11:36:16.562385+00:00",
   "json": "artifacts/data/contact_verification_batches.json",
   "not_ready_count": 1,
   "pending_decision_count": 312,

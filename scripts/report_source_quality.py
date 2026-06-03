@@ -333,6 +333,10 @@ def main() -> None:
         ARTIFACTS / "official_program_coverage_batch_summary.json",
         {},
     )
+    official_program_coverage_batch_packet_summary = read_json(
+        ARTIFACTS / "official_program_coverage_batch_packet_summary.json",
+        {},
+    )
     official_program_alias_review_packets_summary = read_json(
         ARTIFACTS / "official_program_alias_review_packets_summary.json",
         {},
@@ -476,6 +480,10 @@ def main() -> None:
     )
     top_official_program_coverage_batches = read_csv(
         ARTIFACTS / "official_program_coverage_batches.csv",
+        limit=25,
+    )
+    top_official_program_coverage_batch_packets = read_csv(
+        ARTIFACTS / "official_program_coverage_batch_packets.csv",
         limit=25,
     )
     top_attending_trend_discovery_batches = read_csv(
@@ -885,6 +893,8 @@ def main() -> None:
         "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
         "official_program_coverage_batch_summary": official_program_coverage_batch_summary,
         "top_official_program_coverage_batches": top_official_program_coverage_batches,
+        "official_program_coverage_batch_packet_summary": official_program_coverage_batch_packet_summary,
+        "top_official_program_coverage_batch_packets": top_official_program_coverage_batch_packets,
         "official_program_alias_review_packets_summary": official_program_alias_review_packets_summary,
         "official_program_alias_reviewer_decision_summary": official_program_alias_reviewer_decision_summary,
         "top_official_program_alias_reviewer_decisions": top_alias_reviewer_decisions,
@@ -972,6 +982,25 @@ def main() -> None:
                 "action_impact_count",
                 "candidate_source_count",
                 "recommended_operator_action",
+            ],
+        ),
+        "",
+        "Coverage batch packets:",
+        "",
+        f"Packet rows: {official_program_coverage_batch_packet_summary.get('packet_rows', 0)}. Programs covered: {official_program_coverage_batch_packet_summary.get('program_count', 0)}. Person-impact count: {official_program_coverage_batch_packet_summary.get('person_impact_count', 0)}. Candidate sources: {official_program_coverage_batch_packet_summary.get('candidate_source_count', 0)}. Monitor packets: {official_program_coverage_batch_packet_summary.get('accepted_alias_monitor_packet_rows', 0)}.",
+        "",
+        *md_table(
+            top_official_program_coverage_batch_packets,
+            [
+                "execution_order",
+                "official_program_name",
+                "official_program_type",
+                "action_lane",
+                "packet_status",
+                "support_status",
+                "person_impact_count",
+                "candidate_source_count",
+                "recommended_packet_action",
             ],
         ),
         "",

@@ -23,7 +23,7 @@
   },
   "candidate_count": 2643,
   "csv": "artifacts/data/official_profile_discovery_batch_packets.csv",
-  "generated_at": "2026-06-03T11:25:54.128398+00:00",
+  "generated_at": "2026-06-03T11:36:40.952907+00:00",
   "json": "artifacts/data/official_profile_discovery_batch_packets.json",
   "official_candidate_count": 27,
   "packet_rows": 608,

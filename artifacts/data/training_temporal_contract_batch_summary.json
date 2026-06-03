@@ -29,7 +29,7 @@
   "contract_count": 758,
   "csv": "artifacts/data/training_temporal_contract_batches.csv",
   "fresh_observation_required_count": 758,
-  "generated_at": "2026-06-03T11:25:34.765848+00:00",
+  "generated_at": "2026-06-03T11:36:21.577931+00:00",
   "human_review_required_count": 131,
   "json": "artifacts/data/training_temporal_contract_batches.json",
   "person_count": 755,

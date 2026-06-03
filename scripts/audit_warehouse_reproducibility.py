@@ -119,6 +119,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_program_coverage_batch_packets.csv",
+        "official_program_coverage_batch_packet_ledger",
+        "csv",
+        "official_program_coverage_batch_packets",
+        True,
+    ),
+    (
         "artifacts/data/official_program_alias_review_packets.csv",
         "official_program_alias_review_packets",
         "csv",
