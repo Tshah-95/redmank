@@ -68,6 +68,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_official_profile_discovery_batches.py"],
     ["python3", "scripts/materialize_official_profile_reviewer_decisions.py"],
     ["python3", "scripts/materialize_official_profile_reviewer_decision_dossiers.py"],
+    ["python3", "scripts/materialize_official_profile_discovery_batch_packets.py"],
     ["python3", "scripts/materialize_person_enrichment_action_packets.py"],
     ["python3", "scripts/materialize_person_enrichment_action_batches.py"],
     ["python3", "scripts/materialize_person_enrichment_action_batch_members.py"],

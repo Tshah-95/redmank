@@ -1096,9 +1096,19 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "official_profile_discovery_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/official_profile_discovery_batches.csv"
+        batch_packet_path = ARTIFACTS / "official_profile_discovery_batch_packets.csv"
+        source = (
+            "artifacts/data/official_profile_discovery_batch_packets.csv"
+            if batch_packet_path.exists()
+            else "artifacts/data/official_profile_discovery_batches.csv"
+        )
+        packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if batch_packet_path.exists():
+            for packet_row in read_csv(batch_packet_path):
+                packets_by_batch[packet_row.get("official_profile_discovery_batch_key") or ""].append(packet_row)
         for item in read_csv(batch_path):
             lane = item.get("discovery_lane") or "official_profile_discovery"
+            packet_rows = packets_by_batch.get(item.get("official_profile_discovery_batch_key") or "", [])
             priority = 650 + as_int(item.get("max_discovery_priority")) // 3
             if lane == "review_official_profile_candidate":
                 priority += 80
@@ -1135,6 +1145,7 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "artifacts/data/trainee_profile_discovery_candidates.csv",
                     downstream_tables=[
                         "official_profile_discovery_batches",
+                        "official_profile_discovery_batch_packets",
                         "official_profile_discovery_workbench",
                         "official_profile_reobservation_audit",
                         "official_profile_reviewer_decision_queue",
@@ -1162,6 +1173,22 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
                         "low_signal_candidate_count": item.get("low_signal_candidate_count"),
                         "query_status_counts": parse_json(item.get("query_status_counts_json"), {}),
                         "candidate_status_counts": parse_json(item.get("candidate_status_counts_json"), {}),
+                        "profile_discovery_packet_rows": len(packet_rows),
+                        "top_packet_support_statuses": dict(
+                            Counter(packet.get("support_status") or "" for packet in packet_rows).most_common(8)
+                        ),
+                        "top_profile_discovery_packets": [
+                            {
+                                "display_name": packet.get("display_name"),
+                                "discovery_lane": packet.get("discovery_lane"),
+                                "packet_status": packet.get("packet_status"),
+                                "support_status": packet.get("support_status"),
+                                "best_candidate_url": packet.get("best_candidate_url"),
+                                "reviewer_decision_key": packet.get("reviewer_decision_key"),
+                                "recommended_operator_action": packet.get("recommended_operator_action"),
+                            }
+                            for packet in packet_rows[:10]
+                        ],
                         "top_workbench_rows": parse_json(item.get("top_workbench_rows_json"), []),
                         "execution_instructions": item.get("execution_instructions"),
                     },

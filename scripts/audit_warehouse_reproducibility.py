@@ -344,6 +344,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_profile_discovery_batch_packets.csv",
+        "official_profile_discovery_batch_packet_ledger",
+        "csv",
+        "official_profile_discovery_batch_packets",
+        True,
+    ),
+    (
         "artifacts/data/official_profile_reobservation_audit.csv",
         "official_profile_reobservation_ledger",
         "csv",

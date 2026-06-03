@@ -145,6 +145,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_profile_discovery_workbench_summary.json`: profile-discovery counts by role, lane, query status, candidate status, and top review rows.
 - `artifacts/data/official_profile_discovery_batches.csv`: bounded execution batches over profile-gap workbench rows, grouped by discovery lane, role, source domain, and query/candidate status so profile searches, retries, direct probes, and candidate reviews can be worked in coherent sessions.
 - `artifacts/data/official_profile_discovery_batch_summary.json`: batch counts, workbench/query burden, blocked/unsearched query counts, and top official-profile discovery batches.
+- `artifacts/data/official_profile_discovery_batch_packets.csv`: per-workbench support packets for those batches, preserving query/candidate evidence, reviewer dossier/template links, support status, and target routing.
+- `artifacts/data/official_profile_discovery_batch_packet_summary.json`: packet counts by discovery lane, packet status, support status, query burden, candidate burden, and reviewer-dossier coverage.
 - `artifacts/data/official_profile_reobservation_audit.csv`: current-source reobservation audit for review-ready official-profile candidates, including page hash, canonical URL, title, same-name/program context checks, and route-drift status.
 - `artifacts/data/official_profile_reobservation_summary.json`: profile reobservation counts by current fetch status, role, and route/context outcome.
 - `artifacts/data/official_profile_reviewer_decision_dossiers.csv`: copy-ready reviewer dossiers for official-profile URL candidates, including current decision status, reobservation/route-drift evidence, acceptance boundary, and manual decision templates keyed to the current profile fingerprint.
@@ -244,7 +246,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
 - The worklist consumes the refresh execution audit to down-rank ready roster batches that were already refreshed with no state delta, while keeping parser-support blockers visible.
-- The worklist consumes `official_profile_discovery_batches.csv` when available, so missing-profile work becomes bounded review/search/probe sessions with person-level workbench rows as evidence detail; if batches are absent it falls back to the workbench.
+- The worklist consumes `official_profile_discovery_batch_packets.csv` when available while retaining one row per batch, so missing-profile work stays bounded but exposes person-level query/candidate/reviewer-template packet evidence; if packet support is absent it falls back to batches, then the workbench.
 - `artifacts/data/corpus_action_worklist_summary.json`: one-glance action-surface, priority-band, impact, and top-work-item rollups for the unresolved corpus.
 - `artifacts/data/warehouse_reproducibility_audit.csv`: artifact hash, size, and row-count parity audit for the SQLite warehouse and generated flat files.
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
@@ -402,6 +404,7 @@ python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_official_profile_discovery_batches.py
 python3 scripts/materialize_official_profile_reobservation_audit.py
 python3 scripts/materialize_official_profile_reviewer_decision_dossiers.py
+python3 scripts/materialize_official_profile_discovery_batch_packets.py
 python3 scripts/materialize_training_temporal_contract_batches.py
 python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/materialize_corpus_action_worklist.py
@@ -433,7 +436,7 @@ python3 scripts/discover_trainee_official_profiles.py --resume-existing --max-se
 
 Use `--resume-existing` with `--max-search-queries` for bounded live passes; this preserves the full planned query manifest while adding observations only for unsearched queries. Discovered URLs are candidate evidence only; they do not mutate `people.profile_url` unless a current roster link or reviewer-accepted evidence confirms same-person/current-trainee context.
 
-After any profile-discovery pass, run `python3 scripts/materialize_official_profile_discovery_workbench.py` and `python3 scripts/materialize_official_profile_discovery_batches.py` to convert raw query/candidate evidence into person-level workbench rows and bounded execution batches. The workbench distinguishes planned-but-unexecuted searches, blocked search endpoints, low-signal direct probes, and official-profile candidates ready for same-person review; the batches keep those lanes executable without losing person-level provenance.
+After any profile-discovery pass, run `python3 scripts/materialize_official_profile_discovery_workbench.py`, `python3 scripts/materialize_official_profile_discovery_batches.py`, and `python3 scripts/materialize_official_profile_discovery_batch_packets.py` to convert raw query/candidate evidence into person-level workbench rows, bounded execution batches, and packet-level support rows. The workbench distinguishes planned-but-unexecuted searches, blocked search endpoints, low-signal direct probes, and official-profile candidates ready for same-person review; the batches keep those lanes executable without losing person-level provenance.
 
 The same collector also supports a bounded direct Penn Medicine provider-profile slug probe. Use it as an optional fallback when broad search is throttled, not as a default corpus-wide step. Direct URL guesses remain low-signal unless the page fetches with HTTP 200 evidence:
 

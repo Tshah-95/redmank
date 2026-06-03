@@ -88,6 +88,7 @@ def main() -> None:
         "official_roster_refresh_batches",
         "official_profile_discovery_workbench",
         "official_profile_discovery_batches",
+        "official_profile_discovery_batch_packets",
         "official_profile_reobservation_audit",
         "official_profile_reviewer_decisions",
         "official_profile_reviewer_decision_queue",
@@ -783,6 +784,26 @@ def main() -> None:
             SELECT search_http_status, COUNT(*) AS count
             FROM trainee_profile_search_observations
             GROUP BY search_http_status
+            """
+        )
+    }
+    official_profile_discovery_batch_packet_lane_counts = {
+        row["discovery_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT discovery_lane, COUNT(*) AS count
+            FROM official_profile_discovery_batch_packets
+            GROUP BY discovery_lane
+            """
+        )
+    }
+    official_profile_discovery_batch_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM official_profile_discovery_batch_packets
+            GROUP BY support_status
             """
         )
     }
@@ -1582,6 +1603,15 @@ def main() -> None:
         )
     else:
         trainee_profile_discovery_summary = {}
+    official_profile_discovery_batch_packet_summary_path = (
+        ARTIFACTS / "official_profile_discovery_batch_packet_summary.json"
+    )
+    if official_profile_discovery_batch_packet_summary_path.exists():
+        official_profile_discovery_batch_packet_summary = json.loads(
+            official_profile_discovery_batch_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        official_profile_discovery_batch_packet_summary = {}
     official_profile_reviewer_decision_summary_path = ARTIFACTS / "official_profile_reviewer_decision_summary.json"
     if official_profile_reviewer_decision_summary_path.exists():
         official_profile_reviewer_decision_summary = json.loads(
@@ -2009,6 +2039,8 @@ def main() -> None:
         "evidence_temporal_contract_rollup_scope_counts": evidence_temporal_contract_rollup_scope_counts,
         "trainee_profile_discovery_candidate_counts": trainee_profile_discovery_candidate_counts,
         "trainee_profile_search_status_counts": trainee_profile_search_status_counts,
+        "official_profile_discovery_batch_packet_lane_counts": official_profile_discovery_batch_packet_lane_counts,
+        "official_profile_discovery_batch_packet_support_counts": official_profile_discovery_batch_packet_support_counts,
         "prior_training_discovery_candidate_counts": prior_training_discovery_candidate_counts,
         "prior_training_search_status_counts": prior_training_search_status_counts,
         "person_dossier_status_counts": person_dossier_status_counts,
@@ -2094,6 +2126,7 @@ def main() -> None:
         "person_training_stage_state_summary": person_training_stage_state_summary,
         "evidence_temporal_contract_summary": evidence_temporal_contract_summary,
         "trainee_profile_discovery_summary": trainee_profile_discovery_summary,
+        "official_profile_discovery_batch_packet_summary": official_profile_discovery_batch_packet_summary,
         "official_profile_reviewer_decision_summary": official_profile_reviewer_decision_summary,
         "official_profile_reviewer_decision_dossier_summary": official_profile_reviewer_dossier_summary,
         "prior_training_discovery_summary": prior_training_discovery_summary,

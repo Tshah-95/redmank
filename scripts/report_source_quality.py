@@ -432,6 +432,10 @@ def main() -> None:
         ARTIFACTS / "official_profile_discovery_batch_summary.json",
         {},
     )
+    official_profile_discovery_batch_packet_summary = read_json(
+        ARTIFACTS / "official_profile_discovery_batch_packet_summary.json",
+        {},
+    )
     official_profile_reviewer_dossier_summary = read_json(
         ARTIFACTS / "official_profile_reviewer_decision_dossier_summary.json",
         {},
@@ -512,6 +516,10 @@ def main() -> None:
     )
     top_official_profile_discovery_batches = read_csv(
         ARTIFACTS / "official_profile_discovery_batches.csv",
+        limit=25,
+    )
+    top_official_profile_discovery_batch_packets = read_csv(
+        ARTIFACTS / "official_profile_discovery_batch_packets.csv",
         limit=25,
     )
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
@@ -835,6 +843,8 @@ def main() -> None:
         "top_search_utility_execution_batches": top_search_utility_execution_batches,
         "official_profile_discovery_batch_summary": official_profile_discovery_batch_summary,
         "top_official_profile_discovery_batches": top_official_profile_discovery_batches,
+        "official_profile_discovery_batch_packet_summary": official_profile_discovery_batch_packet_summary,
+        "top_official_profile_discovery_batch_packets": top_official_profile_discovery_batch_packets,
         "official_profile_reviewer_dossier_summary": official_profile_reviewer_dossier_summary,
         "top_official_profile_reviewer_dossiers": top_official_profile_reviewer_dossiers,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
@@ -1518,6 +1528,22 @@ def main() -> None:
                 "batch_status",
                 "workbench_count",
                 "query_count",
+                "recommended_operator_action",
+            ],
+        ),
+        "",
+        f"Batch packet rows: {official_profile_discovery_batch_packet_summary.get('packet_rows', 0)}. Packet people: {official_profile_discovery_batch_packet_summary.get('person_count', 0)}. Reviewer-dossier packets: {official_profile_discovery_batch_packet_summary.get('reviewer_dossier_packet_rows', 0)}. Packet official candidates: {official_profile_discovery_batch_packet_summary.get('official_candidate_count', 0)}.",
+        "",
+        *md_table(
+            top_official_profile_discovery_batch_packets,
+            [
+                "execution_order",
+                "display_name",
+                "role",
+                "discovery_lane",
+                "packet_status",
+                "support_status",
+                "best_candidate_domain",
                 "recommended_operator_action",
             ],
         ),
