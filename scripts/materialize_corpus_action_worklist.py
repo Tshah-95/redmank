@@ -2038,6 +2038,77 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
 
 
 def action_member_execution_actions(generated_at: str) -> list[dict]:
+    packet_path = ARTIFACTS / "person_enrichment_action_member_execution_packets.csv"
+    if packet_path.exists():
+        rows = []
+        for item in read_csv(packet_path):
+            top_dossiers = parse_json(item.get("top_dossiers_json"), [])
+            command_hints = parse_json(item.get("command_hints_json"), [])
+            templates = parse_json(item.get("manual_execution_templates_json"), [])
+            rows.append(
+                row(
+                    action_surface="person_action_member_execution",
+                    action_scope=f"{item.get('primary_action_lane') or ''}:{item.get('execution_status') or ''}",
+                    entity_type="person_enrichment_action_member_execution_packet",
+                    entity_key=item.get("execution_packet_key") or item.get("action_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("primary_action_lane"),
+                            item.get("execution_status"),
+                            item.get("priority_band"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("role") or "",
+                    program_name="",
+                    priority=as_int(item.get("packet_priority")),
+                    impact_count=max(as_int(item.get("member_count")), 1),
+                    readiness_status=item.get("queue_status") or item.get("batch_status") or "",
+                    blocker_status=item.get("blocker_status") or "",
+                    required_next_evidence=item.get("required_output_routing") or "",
+                    recommended_next_action=item.get("recommended_operator_action")
+                    or "record_member_execution_decisions_with_current_fingerprints",
+                    source_artifact="artifacts/data/person_enrichment_action_member_execution_packets.csv",
+                    target_artifact=item.get("target_artifact")
+                    or "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+                    downstream_tables=[
+                        "person_enrichment_action_member_execution_packets",
+                        "person_enrichment_action_member_execution_dossiers",
+                        "person_enrichment_action_execution_plan",
+                        "person_enrichment_action_batches",
+                        "person_enrichment_action_batch_members",
+                        "person_enrichment_action_member_execution_queue",
+                        "person_enrichment_action_member_execution_decisions",
+                        "person_enrichment_action_member_execution_audit",
+                        "person_evidence_reviewer_decision_audit",
+                        "official_profile_reviewer_decision_audit",
+                        "evidence_reconciliation_decisions",
+                        "accepted_enrichment_claims",
+                    ],
+                    evidence={
+                        "execution_packet_key": item.get("execution_packet_key"),
+                        "action_batch_key": item.get("action_batch_key"),
+                        "primary_action_lane": item.get("primary_action_lane"),
+                        "execution_status": item.get("execution_status"),
+                        "queue_status": item.get("queue_status"),
+                        "member_count": item.get("member_count"),
+                        "pending_member_count": item.get("pending_member_count"),
+                        "blocked_member_count": item.get("blocked_member_count"),
+                        "invalid_or_stale_member_count": item.get("invalid_or_stale_member_count"),
+                        "manual_execution_template_count": len(templates) if isinstance(templates, list) else 0,
+                        "command_hint_count": len(command_hints) if isinstance(command_hints, list) else 0,
+                        "top_dossier_count": len(top_dossiers) if isinstance(top_dossiers, list) else 0,
+                        "top_dossiers": top_dossiers[:10] if isinstance(top_dossiers, list) else [],
+                        "expected_downstream_artifacts": parse_json(item.get("expected_downstream_artifacts_json"), []),
+                        "acceptance_boundary": item.get("acceptance_boundary"),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     plan_path = ARTIFACTS / "person_enrichment_action_execution_plan.csv"
     if plan_path.exists():
         rows = []

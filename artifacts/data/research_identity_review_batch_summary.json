@@ -35,7 +35,7 @@
   "candidate_only_member_rows": 0,
   "conflict_member_rows": 24,
   "csv": "artifacts/data/research_identity_review_batches.csv",
-  "generated_at": "2026-06-03T10:34:22.960495+00:00",
+  "generated_at": "2026-06-03T10:46:41.153720+00:00",
   "json": "artifacts/data/research_identity_review_batches.json",
   "member_csv": "artifacts/data/research_identity_review_batch_members.csv",
   "member_json": "artifacts/data/research_identity_review_batch_members.json",

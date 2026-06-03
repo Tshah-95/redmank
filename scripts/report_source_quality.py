@@ -398,6 +398,10 @@ def main() -> None:
         ARTIFACTS / "person_enrichment_action_member_execution_dossier_summary.json",
         {},
     )
+    person_enrichment_action_member_execution_packet_summary = read_json(
+        ARTIFACTS / "person_enrichment_action_member_execution_packet_summary.json",
+        {},
+    )
     research_identity_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
     research_identity_review_batch_packet_summary = read_json(
         ARTIFACTS / "research_identity_review_batch_packet_summary.json",
@@ -515,6 +519,10 @@ def main() -> None:
     )
     top_person_enrichment_action_member_execution_dossiers = read_csv(
         ARTIFACTS / "person_enrichment_action_member_execution_dossiers.csv",
+        limit=25,
+    )
+    top_person_enrichment_action_member_execution_packets = read_csv(
+        ARTIFACTS / "person_enrichment_action_member_execution_packets.csv",
         limit=25,
     )
     top_person_enrichment_action_execution_plans = read_csv(
@@ -798,6 +806,8 @@ def main() -> None:
         "person_enrichment_action_execution_plan_summary": person_enrichment_action_execution_plan_summary,
         "top_person_enrichment_action_execution_plans": top_person_enrichment_action_execution_plans,
         "person_enrichment_action_member_execution_dossier_summary": person_enrichment_action_member_execution_dossier_summary,
+        "person_enrichment_action_member_execution_packet_summary": person_enrichment_action_member_execution_packet_summary,
+        "top_person_enrichment_action_member_execution_packets": top_person_enrichment_action_member_execution_packets,
         "top_person_enrichment_action_member_execution_dossiers": top_person_enrichment_action_member_execution_dossiers,
         "research_identity_review_batch_summary": research_identity_review_batch_summary,
         "top_research_identity_review_batches": top_research_identity_review_batches,
@@ -1293,6 +1303,22 @@ def main() -> None:
                 "batch_status",
                 "pending_member_count",
                 "blocker_status",
+                "recommended_operator_action",
+            ],
+        ),
+        "",
+        f"Execution-packet rows: {person_enrichment_action_member_execution_packet_summary.get('packet_rows', 0)}. Packet members: {person_enrichment_action_member_execution_packet_summary.get('member_count', 0)}. Pending packet members: {person_enrichment_action_member_execution_packet_summary.get('pending_member_count', 0)}. Blocked packet members: {person_enrichment_action_member_execution_packet_summary.get('blocked_member_count', 0)}.",
+        "",
+        *md_table(
+            top_person_enrichment_action_member_execution_packets,
+            [
+                "execution_order",
+                "primary_action_lane",
+                "execution_status",
+                "member_count",
+                "blocker_status",
+                "packet_priority",
+                "target_artifact",
                 "recommended_operator_action",
             ],
         ),

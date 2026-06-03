@@ -1,0 +1,30 @@
+{
+  "blocked_member_count": 9,
+  "by_blocker_status": {
+    "batch_member_not_ready_to_execute": 1,
+    "manual_execution_decision_missing": 42
+  },
+  "by_execution_status": {
+    "blocked_upstream_not_ready": 1,
+    "pending_execution_decision": 42
+  },
+  "by_primary_action_lane": {
+    "enrichment_collector_execution": 13,
+    "official_profile_discovery": 6,
+    "official_profile_review": 3,
+    "person_evidence_review": 20,
+    "profile_search_retry": 1
+  },
+  "collector_execution_member_count": 720,
+  "csv": "artifacts/data/person_enrichment_action_member_execution_packets.csv",
+  "generated_at": "2026-06-03T10:46:35.646343+00:00",
+  "invalid_or_stale_member_count": 0,
+  "json": "artifacts/data/person_enrichment_action_member_execution_packets.json",
+  "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+  "manual_review_member_count": 806,
+  "member_count": 1535,
+  "packet_rows": 43,
+  "pending_member_count": 1526,
+  "policy": "Execution packets are non-mutating groupings over current-fingerprint execution dossiers; downstream reviewer/acceptance ledgers remain the fact gate.",
+  "ready_member_count": 1526
+}

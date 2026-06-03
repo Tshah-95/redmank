@@ -66,6 +66,7 @@ def main() -> None:
         "person_enrichment_action_member_execution_queue",
         "person_enrichment_action_member_execution_audit",
         "person_enrichment_action_member_execution_dossiers",
+        "person_enrichment_action_member_execution_packets",
         "person_enrichment_action_execution_plan",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
@@ -924,6 +925,26 @@ def main() -> None:
             """
         )
     }
+    person_enrichment_action_member_execution_packet_status_counts = {
+        row["execution_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT execution_status, COUNT(*) AS count
+            FROM person_enrichment_action_member_execution_packets
+            GROUP BY execution_status
+            """
+        )
+    }
+    person_enrichment_action_member_execution_packet_lane_counts = {
+        row["primary_action_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT primary_action_lane, COUNT(*) AS count
+            FROM person_enrichment_action_member_execution_packets
+            GROUP BY primary_action_lane
+            """
+        )
+    }
     contact_counts = {
         row["contact_type"]: row["count"]
         for row in conn.execute("SELECT contact_type, COUNT(*) AS count FROM person_contacts GROUP BY contact_type")
@@ -1747,6 +1768,15 @@ def main() -> None:
         )
     else:
         person_enrichment_action_member_execution_summary = {}
+    person_enrichment_action_member_execution_packet_summary_path = (
+        ARTIFACTS / "person_enrichment_action_member_execution_packet_summary.json"
+    )
+    if person_enrichment_action_member_execution_packet_summary_path.exists():
+        person_enrichment_action_member_execution_packet_summary = json.loads(
+            person_enrichment_action_member_execution_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_enrichment_action_member_execution_packet_summary = {}
     warehouse_reproducibility_summary_path = ARTIFACTS / "warehouse_reproducibility_summary.json"
     if warehouse_reproducibility_summary_path.exists():
         warehouse_reproducibility_summary = json.loads(
@@ -1963,6 +1993,8 @@ def main() -> None:
         "person_enrichment_action_member_execution_queue_counts": person_enrichment_action_member_execution_queue_counts,
         "person_enrichment_action_member_execution_status_counts": person_enrichment_action_member_execution_status_counts,
         "person_enrichment_action_member_execution_lane_counts": person_enrichment_action_member_execution_lane_counts,
+        "person_enrichment_action_member_execution_packet_status_counts": person_enrichment_action_member_execution_packet_status_counts,
+        "person_enrichment_action_member_execution_packet_lane_counts": person_enrichment_action_member_execution_packet_lane_counts,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_display_safety_counts": contact_display_safety_counts,
@@ -2061,6 +2093,7 @@ def main() -> None:
         "person_enrichment_action_batch_summary": person_enrichment_action_batch_summary,
         "person_enrichment_action_batch_member_summary": person_enrichment_action_batch_member_summary,
         "person_enrichment_action_member_execution_summary": person_enrichment_action_member_execution_summary,
+        "person_enrichment_action_member_execution_packet_summary": person_enrichment_action_member_execution_packet_summary,
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,

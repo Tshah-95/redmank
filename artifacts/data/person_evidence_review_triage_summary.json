@@ -32,7 +32,7 @@
     "secondary_identity_anchor_context_review": 18
   },
   "csv": "artifacts/data/person_evidence_review_triage.csv",
-  "generated_at": "2026-06-03T10:33:52.469266+00:00",
+  "generated_at": "2026-06-03T10:46:10.602719+00:00",
   "json": "artifacts/data/person_evidence_review_triage.json",
   "person_count": 792,
   "policy": "This artifact is non-mutating decision support. It ranks and classifies person-evidence review packets, but accepted enrichment/trend/contact facts still require the explicit reviewer-decision gate.",

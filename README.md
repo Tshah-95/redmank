@@ -214,6 +214,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_enrichment_action_member_execution_decisions.csv`: manual execution-outcome input file for action-batch members.
 - `artifacts/data/person_enrichment_action_member_execution_audit.csv`: audit of execution decisions, stale fingerprints, blockers, and downstream routing.
 - `artifacts/data/person_enrichment_action_member_execution_dossiers.csv`: compact per-member execution dossiers with command hints, routing checklists, and manual execution templates.
+- `artifacts/data/person_enrichment_action_member_execution_packets.csv`: batch/status execution packets over those dossiers, preserving current-fingerprint templates, routing checklists, top member evidence, and worklist priorities.
 - `artifacts/data/person_enrichment_action_execution_plan.csv`: batch-level execution plan over person-enrichment action members, including pending/blocked/executed counts, command hints, decision templates, output routing, and non-mutating acceptance boundary.
 - `artifacts/data/person_enrichment_action_execution_plan_summary.json`: execution-plan rollups by lane, blocker, batch status, and top operator batches.
 - `artifacts/data/research_identity_corroboration.csv`: person-level corroboration ledger that joins PubMed/OpenAlex/ORCID research candidates with NPI/profile/contact/training-state anchors, flags conflicts, and assigns non-mutating review routes.
@@ -367,6 +368,7 @@ python3 scripts/materialize_person_enrichment_action_batches.py
 python3 scripts/materialize_person_enrichment_action_batch_members.py
 python3 scripts/materialize_person_enrichment_action_member_execution.py
 python3 scripts/materialize_person_enrichment_action_member_execution_dossiers.py
+python3 scripts/materialize_person_enrichment_action_member_execution_packets.py
 python3 scripts/materialize_person_enrichment_action_execution_plan.py
 python3 scripts/materialize_research_identity_corroboration.py
 python3 scripts/materialize_research_identity_review_batches.py

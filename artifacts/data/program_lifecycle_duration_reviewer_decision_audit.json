@@ -2,7 +2,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-g_3e4081866f8b92b5",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "2026-06-02T22:13:32+00:00",
     "decision_blocker": "reject_duration_context",
     "decision_evidence_fingerprint": "60caa80ad5c7cbd8f81ba2b137c7bbf98d530878bcbf110980e833b0320144e0",
@@ -32,7 +32,7 @@
   {
     "accepted_duration_mapping": 1,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-m_672c34825c84cc17",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "2026-06-02T22:13:32+00:00",
     "decision_blocker": "none",
     "decision_evidence_fingerprint": "9c6b1405c12579fb3ab2c7f281b8d17cc725975706725381e73e2e87b67091a9",
@@ -62,7 +62,7 @@
   {
     "accepted_duration_mapping": 1,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-n_000fcbdda6697fcd",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "2026-06-02T22:13:32+00:00",
     "decision_blocker": "none",
     "decision_evidence_fingerprint": "b73afba4c7bc6d6ed6659d9fe11094b83538f865aa78a5dcd457dcb15ec31cb6",
@@ -92,7 +92,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-t_e671ba4810306574",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "context_review_required_before_decision",
     "decision_evidence_fingerprint": "",
@@ -122,7 +122,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-u_16f51e6359bbcfdc",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "context_review_required_before_decision",
     "decision_evidence_fingerprint": "",
@@ -152,7 +152,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-h_328ab0ba50a0ce91",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "context_review_required_before_decision",
     "decision_evidence_fingerprint": "",
@@ -182,7 +182,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-a_1d6c738ac24ffd44",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "not_ready_for_reviewer_decision",
     "decision_evidence_fingerprint": "",
@@ -212,7 +212,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-c_9bcbcda830493d31",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "not_ready_for_reviewer_decision",
     "decision_evidence_fingerprint": "",
@@ -242,7 +242,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-fellowship-m_316cfbc1bd40fd23",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "not_ready_for_reviewer_decision",
     "decision_evidence_fingerprint": "",
@@ -272,7 +272,7 @@
   {
     "accepted_duration_mapping": 0,
     "audit_key": "program_lifecycle_consistency_official-program-identifier-hup-gme-residency-pa_383bf4403e9edc24",
-    "audited_at": "2026-06-03T10:33:47.828432+00:00",
+    "audited_at": "2026-06-03T10:46:05.975299+00:00",
     "decided_at": "",
     "decision_blocker": "not_ready_for_reviewer_decision",
     "decision_evidence_fingerprint": "",

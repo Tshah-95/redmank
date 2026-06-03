@@ -547,6 +547,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/person_enrichment_action_member_execution_packets.csv",
+        "person_enrichment_action_member_execution_packet_ledger",
+        "csv",
+        "person_enrichment_action_member_execution_packets",
+        True,
+    ),
+    (
         "artifacts/data/person_enrichment_action_execution_plan.csv",
         "person_enrichment_action_execution_plan_ledger",
         "csv",
