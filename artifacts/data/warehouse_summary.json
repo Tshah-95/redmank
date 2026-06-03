@@ -1209,7 +1209,7 @@
     },
     "critical_rows": 113,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-03T12:36:24.366612+00:00",
+    "generated_at": "2026-06-03T12:47:15.279620+00:00",
     "high_rows": 158,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
@@ -1617,6 +1617,7 @@
     "program_identifier_source_observations": 1,
     "program_lifecycle_consistency_audit": 69,
     "program_lifecycle_duration_evidence": 10,
+    "program_lifecycle_duration_review_batch_packets": 7,
     "program_lifecycle_duration_review_batches": 4,
     "program_lifecycle_duration_reviewer_decision_audit": 10,
     "program_lifecycle_duration_reviewer_decision_queue": 10,
@@ -1662,7 +1663,7 @@
     "training_temporal_contract_batches": 93,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 163
+    "warehouse_reproducibility_audit": 164
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2994,7 +2995,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-03T12:36:28.535348+00:00",
+  "generated_at": "2026-06-03T12:47:19.378479+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -7148,6 +7149,122 @@
     "duration_context_review_ready": 2,
     "duration_evidence_collection_required": 2
   },
+  "program_lifecycle_duration_review_batch_packet_counts": {
+    "needs_stronger_duration_source_evidence": 4,
+    "ready_for_duration_context_review": 3
+  },
+  "program_lifecycle_duration_review_batch_packet_summary": {
+    "batch_rows": 4,
+    "by_batch_status": {
+      "duration_context_review_ready": 3,
+      "duration_evidence_collection_required": 4
+    },
+    "by_duration_evidence_status": {
+      "conflicting_duration_evidence_review": 2,
+      "duration_source_program_mismatch_review": 1,
+      "no_explicit_duration_evidence_found": 4
+    },
+    "by_packet_status": {
+      "duration_context_review_packet": 3,
+      "duration_evidence_collection_packet": 4
+    },
+    "by_queue_status": {
+      "context_review_required_before_decision": 3,
+      "not_ready_for_reviewer_decision": 4
+    },
+    "by_support_status": {
+      "needs_stronger_duration_source_evidence": 4,
+      "ready_for_duration_context_review": 3
+    },
+    "csv": "artifacts/data/program_lifecycle_duration_review_batch_packets.csv",
+    "distinct_duration_evidence": 7,
+    "distinct_official_programs": 7,
+    "distinct_reviewer_decisions": 7,
+    "generated_at": "2026-06-03T12:47:15.237971+00:00",
+    "json": "artifacts/data/program_lifecycle_duration_review_batch_packets.json",
+    "packet_rows": 7,
+    "policy": "Lifecycle-duration batch packets are row-level evidence envelopes. They do not mutate program lifecycle rules; they only support reviewer decisions and later accepted-mapping evidence.",
+    "review_row_count": 7,
+    "top_packets": [
+      {
+        "execution_order": "1",
+        "matched_program_name": "Trauma and Surgical Critical Care Fellowship",
+        "official_program_name": "Trauma and Surgical Critical Care",
+        "packet_order": 1,
+        "queue_status": "context_review_required_before_decision",
+        "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_195c5fbcb8872c71c399",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship",
+        "support_status": "ready_for_duration_context_review"
+      },
+      {
+        "execution_order": "1",
+        "matched_program_name": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+        "official_program_name": "Urogynecology and Reconstructive Pelvic Surgery",
+        "packet_order": 2,
+        "queue_status": "context_review_required_before_decision",
+        "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_c34af332335f13f21e35",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/urogynecology",
+        "support_status": "ready_for_duration_context_review"
+      },
+      {
+        "execution_order": "2",
+        "matched_program_name": "Hematopathology Fellowship",
+        "official_program_name": "Hematopathology",
+        "packet_order": 1,
+        "queue_status": "context_review_required_before_decision",
+        "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_deca86097b7573b15aef",
+        "source_url": "https://pathology.med.upenn.edu/education/fellowships/programs/clinical-chemistry-fellowship",
+        "support_status": "ready_for_duration_context_review"
+      },
+      {
+        "execution_order": "3",
+        "matched_program_name": "Adult Reconstructive Orthopedics Fellowship",
+        "official_program_name": "Adult Reconstructive Orthopedics",
+        "packet_order": 1,
+        "queue_status": "not_ready_for_reviewer_decision",
+        "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_055349ed51d1abbd2540",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/adult-reconstruction",
+        "support_status": "needs_stronger_duration_source_evidence"
+      },
+      {
+        "execution_order": "3",
+        "matched_program_name": "Cytopathology Fellowship",
+        "official_program_name": "Cytopathology",
+        "packet_order": 2,
+        "queue_status": "not_ready_for_reviewer_decision",
+        "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_844a0e76e6345204d040",
+        "source_url": "https://pathology.med.upenn.edu/education/fellowships/programs/cytopathology",
+        "support_status": "needs_stronger_duration_source_evidence"
+      },
+      {
+        "execution_order": "3",
+        "matched_program_name": "Maternal Fetal Medicine Fellowship",
+        "official_program_name": "Maternal Fetal Medicine",
+        "packet_order": 3,
+        "queue_status": "not_ready_for_reviewer_decision",
+        "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_bfe08b55be4fc105c004",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/maternal-fetal-medicine",
+        "support_status": "needs_stronger_duration_source_evidence"
+      },
+      {
+        "execution_order": "4",
+        "matched_program_name": "Pathology - Anatomic and Clinical Residency",
+        "official_program_name": "Pathology - Anatomic and Clinical",
+        "packet_order": 1,
+        "queue_status": "not_ready_for_reviewer_decision",
+        "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+        "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_119c63075f9b83d58d55",
+        "source_url": "https://pathology.med.upenn.edu/education/residency/overview",
+        "support_status": "needs_stronger_duration_source_evidence"
+      }
+    ]
+  },
   "program_lifecycle_duration_review_batch_summary": {
     "batch_rows": 4,
     "by_batch_status": {
@@ -9820,12 +9937,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 163
+    "ok": 164
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 163,
-    "audited_at": "2026-06-03T12:36:25.813727+00:00",
+    "artifact_rows": 164,
+    "audited_at": "2026-06-03T12:47:16.709120+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -9919,6 +10036,7 @@
       "program_lifecycle_duration_accepted_mapping_ledger": 1,
       "program_lifecycle_duration_ledger": 2,
       "program_lifecycle_duration_review_batch_ledger": 1,
+      "program_lifecycle_duration_review_batch_packet_ledger": 1,
       "program_lifecycle_duration_reviewer_decision_input": 1,
       "program_lifecycle_duration_reviewer_decision_ledger": 2,
       "program_lifecycle_ledger": 1,
@@ -9946,17 +10064,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 163
+      "ok": 164
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 486793216,
+    "sqlite_byte_size": 486858752,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "f1f63108a0f1c7319e2d8e5c98fbf42040aaef6ee2e6bd475d0bd862dc081760",
+    "sqlite_sha256": "34623e0cb152ee174634628540e57282187b94cb08c405060c8e479f6f2b162b",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

@@ -2359,6 +2359,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "program_lifecycle_duration_source_observations",
         "program_lifecycle_duration_evidence",
         "program_lifecycle_duration_review_batches",
+        "program_lifecycle_duration_review_batch_packets",
     ]:
         counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
     resolver_counts = {

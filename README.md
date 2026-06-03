@@ -41,6 +41,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/program_lifecycle_duration_reviewer_decision_audit.csv`: audit of manual lifecycle-duration decisions against the current evidence fingerprint and confirmation requirements.
 - `artifacts/data/program_lifecycle_duration_review_batches.csv`: bounded reviewer/source-evidence sessions over unresolved lifecycle-duration decision rows.
 - `artifacts/data/program_lifecycle_duration_review_batch_summary.json`: lifecycle-duration batch counts by status, queue state, evidence status, and top unresolved program groups.
+- `artifacts/data/program_lifecycle_duration_review_batch_packets.csv`: row-level packets under lifecycle-duration review batches, preserving each reviewer-decision queue row, source evidence, manual decision template, and non-mutating acceptance boundary.
+- `artifacts/data/program_lifecycle_duration_review_batch_packet_summary.json`: packet counts by support status, queue status, duration evidence status, batch status, and top unresolved lifecycle-duration packets.
 - `artifacts/data/accepted_program_lifecycle_duration_mappings.csv`: accepted public-source-backed duration mappings; still non-mutating for `config/training_lifecycle_rules.json`.
 - `artifacts/data/program_lifecycle_duration_reviewer_decision_summary.json`: duration-decision queue, pending, rejected/deferred, and accepted-mapping counts.
 - `artifacts/data/person_enrichment_queue.csv`: source-aware recursive enrichment work queue for residents, fellows, and medical students, including state-machine urgency, priority band, query, source targets, acceptance rule, recency policy, provenance policy, and blocking risk.
@@ -253,7 +255,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batch_packets.csv` when available while retaining one row per roster-refresh execution batch, so collector/parser/domain batches stay bounded but expose exact source/program refresh contracts; if packet support is absent it falls back to roster-refresh batches.
 - The worklist consumes `training_temporal_contract_batch_packets.csv` when available while retaining one visible row per `training_temporal_contract_batches.csv` batch, so source-refresh and manual-review temporal-state work stays compact but exposes row-level contract evidence.
-- The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
+- The worklist consumes `program_lifecycle_duration_review_batch_packets.csv` when available while retaining one visible row per `program_lifecycle_duration_review_batches.csv` batch, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
 - The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
 - The worklist consumes `search_utility_execution_batch_packets.csv` when available while retaining one row per search execution batch, so search assurance gaps stay bounded but expose exact query, retry, and candidate-probe packet support; if packet support is absent it falls back to execution batches, then the four-row utility assurance ledger.
 - The worklist consumes `person_enrichment_execution_batch_packets.csv` when available while retaining one row per execution batch, so enrichment execution starts from resumable collector/manual-review batches but exposes per-person readiness packet support; if packet support is absent it falls back to execution batches, then grouped queue rows.
@@ -362,6 +364,7 @@ python3 scripts/audit_program_lifecycle_consistency.py
 python3 scripts/audit_program_lifecycle_duration_evidence.py
 python3 scripts/materialize_program_lifecycle_duration_reviewer_decisions.py
 python3 scripts/materialize_program_lifecycle_duration_review_batches.py
+python3 scripts/materialize_program_lifecycle_duration_review_batch_packets.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py

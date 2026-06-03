@@ -1488,8 +1488,21 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "program_lifecycle_duration_review_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/program_lifecycle_duration_review_batches.csv"
+        packet_path = ARTIFACTS / "program_lifecycle_duration_review_batch_packets.csv"
+        packet_rows = read_csv(packet_path) if packet_path.exists() else []
+        packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        for packet in packet_rows:
+            packets_by_batch[packet.get("duration_review_batch_key") or ""].append(packet)
+        source = (
+            "artifacts/data/program_lifecycle_duration_review_batch_packets.csv"
+            if packet_rows
+            else "artifacts/data/program_lifecycle_duration_review_batches.csv"
+        )
         for item in read_csv(batch_path):
+            batch_packets = sorted(
+                packets_by_batch.get(item.get("duration_review_batch_key") or "", []),
+                key=lambda packet: (as_int(packet.get("packet_order")), packet.get("duration_review_packet_key") or ""),
+            )
             status = item.get("batch_status") or ""
             queue_status = item.get("queue_status") or ""
             if status == "duration_manual_decision_ready":
@@ -1518,7 +1531,7 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
                     role=item.get("official_program_type") or "",
                     program_name="",
                     priority=priority + min(as_int(item.get("review_row_count")), 25),
-                    impact_count=max(as_int(item.get("review_row_count")), 1),
+                    impact_count=max(len(batch_packets) if packet_rows else as_int(item.get("review_row_count")), 1),
                     readiness_status=status,
                     blocker_status=item.get("decision_blocker_signature")
                     or item.get("decision_status_signature")
@@ -1530,6 +1543,7 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
                     downstream_tables=[
                         "program_lifecycle_duration_review_batches",
+                        "program_lifecycle_duration_review_batch_packets",
                         "program_lifecycle_duration_reviewer_decision_queue",
                         "program_lifecycle_duration_reviewer_decision_audit",
                         "program_lifecycle_duration_reviewer_decisions",
@@ -1551,11 +1565,25 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
                         "context_review_count": item.get("context_review_count"),
                         "not_ready_count": item.get("not_ready_count"),
                         "pending_decision_count": item.get("pending_decision_count"),
+                        "duration_review_batch_packet_rows": len(batch_packets),
                         "queue_status_counts": parse_json(item.get("queue_status_counts_json"), {}),
                         "decision_status_counts": parse_json(item.get("decision_status_counts_json"), {}),
                         "duration_evidence_status_counts": parse_json(
                             item.get("duration_evidence_status_counts_json"), {}
                         ),
+                        "top_duration_review_batch_packets": [
+                            {
+                                "packet_order": packet.get("packet_order"),
+                                "reviewer_decision_key": packet.get("reviewer_decision_key"),
+                                "duration_evidence_key": packet.get("duration_evidence_key"),
+                                "official_program_name": packet.get("official_program_name"),
+                                "matched_program_name": packet.get("matched_program_name"),
+                                "queue_status": packet.get("queue_status"),
+                                "support_status": packet.get("support_status"),
+                                "source_url": packet.get("source_url"),
+                            }
+                            for packet in batch_packets[:12]
+                        ],
                         "top_review_rows": parse_json(item.get("top_review_rows_json"), []),
                         "manual_decision_templates": parse_json(item.get("manual_decision_templates_json"), []),
                     },

@@ -1,0 +1,112 @@
+{
+  "batch_rows": 4,
+  "by_batch_status": {
+    "duration_context_review_ready": 3,
+    "duration_evidence_collection_required": 4
+  },
+  "by_duration_evidence_status": {
+    "conflicting_duration_evidence_review": 2,
+    "duration_source_program_mismatch_review": 1,
+    "no_explicit_duration_evidence_found": 4
+  },
+  "by_packet_status": {
+    "duration_context_review_packet": 3,
+    "duration_evidence_collection_packet": 4
+  },
+  "by_queue_status": {
+    "context_review_required_before_decision": 3,
+    "not_ready_for_reviewer_decision": 4
+  },
+  "by_support_status": {
+    "needs_stronger_duration_source_evidence": 4,
+    "ready_for_duration_context_review": 3
+  },
+  "csv": "artifacts/data/program_lifecycle_duration_review_batch_packets.csv",
+  "distinct_duration_evidence": 7,
+  "distinct_official_programs": 7,
+  "distinct_reviewer_decisions": 7,
+  "generated_at": "2026-06-03T12:47:15.237971+00:00",
+  "json": "artifacts/data/program_lifecycle_duration_review_batch_packets.json",
+  "packet_rows": 7,
+  "policy": "Lifecycle-duration batch packets are row-level evidence envelopes. They do not mutate program lifecycle rules; they only support reviewer decisions and later accepted-mapping evidence.",
+  "review_row_count": 7,
+  "top_packets": [
+    {
+      "execution_order": "1",
+      "matched_program_name": "Trauma and Surgical Critical Care Fellowship",
+      "official_program_name": "Trauma and Surgical Critical Care",
+      "packet_order": 1,
+      "queue_status": "context_review_required_before_decision",
+      "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_195c5fbcb8872c71c399",
+      "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/fellowships/trauma-and-surgical-critical-care-fellowship",
+      "support_status": "ready_for_duration_context_review"
+    },
+    {
+      "execution_order": "1",
+      "matched_program_name": "Urogynecology and Reconstructive Pelvic Surgery Fellowship",
+      "official_program_name": "Urogynecology and Reconstructive Pelvic Surgery",
+      "packet_order": 2,
+      "queue_status": "context_review_required_before_decision",
+      "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_c34af332335f13f21e35",
+      "source_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/urogynecology",
+      "support_status": "ready_for_duration_context_review"
+    },
+    {
+      "execution_order": "2",
+      "matched_program_name": "Hematopathology Fellowship",
+      "official_program_name": "Hematopathology",
+      "packet_order": 1,
+      "queue_status": "context_review_required_before_decision",
+      "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_deca86097b7573b15aef",
+      "source_url": "https://pathology.med.upenn.edu/education/fellowships/programs/clinical-chemistry-fellowship",
+      "support_status": "ready_for_duration_context_review"
+    },
+    {
+      "execution_order": "3",
+      "matched_program_name": "Adult Reconstructive Orthopedics Fellowship",
+      "official_program_name": "Adult Reconstructive Orthopedics",
+      "packet_order": 1,
+      "queue_status": "not_ready_for_reviewer_decision",
+      "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_055349ed51d1abbd2540",
+      "source_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/fellowships/adult-reconstruction",
+      "support_status": "needs_stronger_duration_source_evidence"
+    },
+    {
+      "execution_order": "3",
+      "matched_program_name": "Cytopathology Fellowship",
+      "official_program_name": "Cytopathology",
+      "packet_order": 2,
+      "queue_status": "not_ready_for_reviewer_decision",
+      "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_844a0e76e6345204d040",
+      "source_url": "https://pathology.med.upenn.edu/education/fellowships/programs/cytopathology",
+      "support_status": "needs_stronger_duration_source_evidence"
+    },
+    {
+      "execution_order": "3",
+      "matched_program_name": "Maternal Fetal Medicine Fellowship",
+      "official_program_name": "Maternal Fetal Medicine",
+      "packet_order": 3,
+      "queue_status": "not_ready_for_reviewer_decision",
+      "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_bfe08b55be4fc105c004",
+      "source_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/maternal-fetal-medicine",
+      "support_status": "needs_stronger_duration_source_evidence"
+    },
+    {
+      "execution_order": "4",
+      "matched_program_name": "Pathology - Anatomic and Clinical Residency",
+      "official_program_name": "Pathology - Anatomic and Clinical",
+      "packet_order": 1,
+      "queue_status": "not_ready_for_reviewer_decision",
+      "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+      "reviewer_decision_key": "program_lifecycle_duration_reviewer_decision_119c63075f9b83d58d55",
+      "source_url": "https://pathology.med.upenn.edu/education/residency/overview",
+      "support_status": "needs_stronger_duration_source_evidence"
+    }
+  ]
+}

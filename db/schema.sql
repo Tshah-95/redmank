@@ -843,6 +843,41 @@ CREATE TABLE IF NOT EXISTS program_lifecycle_duration_review_batches (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_review_batch_packets (
+  duration_review_packet_key TEXT PRIMARY KEY,
+  duration_review_batch_key TEXT NOT NULL REFERENCES program_lifecycle_duration_review_batches(duration_review_batch_key) ON DELETE CASCADE,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  packet_order INTEGER NOT NULL DEFAULT 0,
+  reviewer_decision_key TEXT NOT NULL,
+  duration_evidence_key TEXT NOT NULL,
+  evidence_fingerprint TEXT NOT NULL,
+  official_program_key TEXT,
+  official_program_type TEXT NOT NULL,
+  official_program_name TEXT NOT NULL,
+  matched_program_key TEXT,
+  matched_program_name TEXT,
+  source_url TEXT,
+  page_title TEXT,
+  explicit_duration_years INTEGER NOT NULL DEFAULT 0,
+  duration_confidence REAL NOT NULL DEFAULT 0.0,
+  queue_status TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  decision_blocker TEXT NOT NULL,
+  duration_evidence_status TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  support_status TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  review_question TEXT,
+  manual_decision_template_json TEXT NOT NULL,
+  review_row_evidence_json TEXT NOT NULL,
+  batch_evidence_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS accepted_program_lifecycle_duration_mappings (
   accepted_duration_key TEXT PRIMARY KEY,
   reviewer_decision_key TEXT NOT NULL REFERENCES program_lifecycle_duration_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,

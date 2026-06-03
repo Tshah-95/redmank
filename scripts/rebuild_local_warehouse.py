@@ -20,6 +20,7 @@ PIPELINE = [
     ["python3", "scripts/replay_committed_warehouse_artifacts.py"],
     ["python3", "scripts/materialize_program_lifecycle_duration_reviewer_decisions.py"],
     ["python3", "scripts/materialize_program_lifecycle_duration_review_batches.py"],
+    ["python3", "scripts/materialize_program_lifecycle_duration_review_batch_packets.py"],
     ["python3", "scripts/audit_hup_gap_reasons.py"],
     ["python3", "scripts/audit_reconciliation_decisions.py", "--as-of-year", "2026"],
     ["python3", "scripts/audit_person_evidence_review_packets.py"],
