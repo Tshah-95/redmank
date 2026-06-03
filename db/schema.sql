@@ -391,6 +391,38 @@ CREATE TABLE IF NOT EXISTS official_program_coverage_dossiers (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_program_coverage_batches (
+  official_program_coverage_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  action_lane TEXT NOT NULL,
+  blocker_status TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  assurance_level_signature TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  ready_to_review INTEGER NOT NULL DEFAULT 0,
+  queue_count INTEGER NOT NULL DEFAULT 0,
+  program_count INTEGER NOT NULL DEFAULT 0,
+  person_impact_count INTEGER NOT NULL DEFAULT 0,
+  candidate_source_count INTEGER NOT NULL DEFAULT 0,
+  action_impact_count INTEGER NOT NULL DEFAULT 0,
+  max_priority INTEGER NOT NULL DEFAULT 0,
+  min_priority INTEGER NOT NULL DEFAULT 0,
+  assurance_level_counts_json TEXT NOT NULL,
+  coverage_status_counts_json TEXT NOT NULL,
+  assurance_status_counts_json TEXT NOT NULL,
+  department_counts_json TEXT NOT NULL,
+  top_programs TEXT,
+  top_candidate_urls TEXT,
+  recommended_operator_action TEXT NOT NULL,
+  review_instructions TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  top_queue_rows_json TEXT NOT NULL,
+  top_dossiers_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS official_program_alias_review_packets (
   packet_key TEXT PRIMARY KEY,
   queue_key TEXT,

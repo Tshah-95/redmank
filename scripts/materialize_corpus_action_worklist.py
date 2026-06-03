@@ -146,6 +146,74 @@ def row(
 
 def official_program_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "official_program_coverage_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/official_program_coverage_batches.csv"
+        for item in read_csv(batch_path):
+            priority = as_int(item.get("max_priority")) + min(as_int(item.get("queue_count")) * 2, 40)
+            rows.append(
+                row(
+                    action_surface="official_program_coverage",
+                    action_scope=f"{item.get('action_lane') or ''}:{item.get('batch_status') or ''}",
+                    entity_type="official_program_coverage_batch",
+                    entity_key=item.get("official_program_coverage_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("official_program_type"),
+                            item.get("action_lane"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("official_program_type") or "",
+                    program_name="",
+                    priority=priority,
+                    impact_count=max(
+                        as_int(item.get("action_impact_count")),
+                        1,
+                    ),
+                    readiness_status=item.get("batch_status") or "",
+                    blocker_status=item.get("blocker_status") or "",
+                    required_next_evidence=item.get("required_next_evidence") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "artifacts/data/official_program_coverage_assurance_audit.csv",
+                    downstream_tables=[
+                        "official_program_coverage_batches",
+                        "official_program_coverage_action_queue",
+                        "official_program_coverage_dossiers",
+                        "official_program_coverage_assurance_audit",
+                        "official_program_alias_review_packets",
+                        "official_program_alias_reviewer_decision_queue",
+                        "official_program_denominator_closure_audit",
+                        "person_program_memberships",
+                        "person_training_states",
+                    ],
+                    evidence={
+                        "official_program_coverage_batch_key": item.get("official_program_coverage_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "action_lane": item.get("action_lane"),
+                        "blocker_status": item.get("blocker_status"),
+                        "official_program_type": item.get("official_program_type"),
+                        "assurance_level_signature": item.get("assurance_level_signature"),
+                        "queue_count": item.get("queue_count"),
+                        "program_count": item.get("program_count"),
+                        "person_impact_count": item.get("person_impact_count"),
+                        "candidate_source_count": item.get("candidate_source_count"),
+                        "action_impact_count": item.get("action_impact_count"),
+                        "assurance_level_counts": parse_json(item.get("assurance_level_counts_json"), {}),
+                        "coverage_status_counts": parse_json(item.get("coverage_status_counts_json"), {}),
+                        "assurance_status_counts": parse_json(item.get("assurance_status_counts_json"), {}),
+                        "department_counts": parse_json(item.get("department_counts_json"), {}),
+                        "top_queue_rows": parse_json(item.get("top_queue_rows_json"), []),
+                        "top_dossiers": parse_json(item.get("top_dossiers_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source = "artifacts/data/official_program_coverage_action_queue.csv"
     for item in read_csv(ARTIFACTS / "official_program_coverage_action_queue.csv"):
         priority = as_int(item.get("priority"))

@@ -21,7 +21,7 @@
   "csv": "artifacts/data/person_enrichment_action_execution_plan.csv",
   "executed_member_count": 0,
   "execution_plan_rows": 43,
-  "generated_at": "2026-06-03T09:08:16.914680+00:00",
+  "generated_at": "2026-06-03T09:18:15.556466+00:00",
   "invalid_or_stale_member_count": 0,
   "json": "artifacts/data/person_enrichment_action_execution_plan.json",
   "pending_member_count": 1526,

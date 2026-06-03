@@ -29,7 +29,7 @@
   "csv": "artifacts/data/person_enrichment_action_member_execution_dossiers.csv",
   "decision_repair_dossier_rows": 0,
   "dossier_rows": 1535,
-  "generated_at": "2026-06-03T09:08:16.625261+00:00",
+  "generated_at": "2026-06-03T09:18:15.270260+00:00",
   "json": "artifacts/data/person_enrichment_action_member_execution_dossiers.json",
   "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
   "manual_review_dossier_rows": 806,

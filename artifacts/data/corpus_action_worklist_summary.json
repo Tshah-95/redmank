@@ -2,7 +2,7 @@
   "by_action_surface": {
     "contact_verification": 12,
     "official_profile_discovery": 19,
-    "official_program_coverage": 42,
+    "official_program_coverage": 12,
     "official_roster_refresh_execution": 14,
     "person_action_member_execution": 43,
     "person_enrichment_execution": 45,
@@ -15,14 +15,14 @@
   },
   "by_priority_band": {
     "critical": 102,
-    "high": 78,
-    "low": 19,
-    "medium": 172
+    "high": 59,
+    "low": 10,
+    "medium": 170
   },
   "critical_rows": 102,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-03T09:08:26.305408+00:00",
-  "high_rows": 78,
+  "generated_at": "2026-06-03T09:18:25.043573+00:00",
+  "high_rows": 59,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -31,14 +31,12 @@
     "contact_verification:fresh_official_reobservation_required:same_value_contact_review_ready": 6,
     "official_profile_discovery:direct_probe_low_signal_review:direct_probe_review_ready": 5,
     "official_profile_discovery:planned_search_not_executed:profile_search_execution_ready": 9,
-    "official_program_coverage:accepted_alias_denominator_closed_monitor": 13,
-    "official_program_coverage:alias_review": 6,
-    "official_program_coverage:parser_or_roster_source_review": 7,
-    "official_program_coverage:source_candidate_probe": 14,
+    "official_program_coverage:alias_review:alias_scope_review_ready": 4,
     "official_roster_refresh_execution:mixed_refresh_with_manual_review": 5,
     "official_roster_refresh_execution:source_reobservation_required": 6,
     "person_action_member_execution:enrichment_collector_execution:collector_execution_ready": 13,
     "person_action_member_execution:official_profile_discovery:profile_discovery_execution_ready": 6,
+    "person_action_member_execution:official_profile_review:profile_reviewer_decision_ready": 3,
     "person_action_member_execution:person_evidence_review:manual_packet_review_ready": 20,
     "person_enrichment_execution:contact:public_contact_verification": 15,
     "person_enrichment_execution:normalization:organization_alias_review": 7,
@@ -48,6 +46,8 @@
     "person_evidence_review:publication_identity_final_check": 4,
     "person_evidence_review:publication_with_secondary_identity_anchor_review": 23,
     "person_evidence_review:secondary_identity_anchor_context_review": 6,
+    "program_lifecycle_duration_review:not_ready_for_reviewer_decision": 4,
+    "recent_attending_trend_discovery:current_endpoint_training_bridge_search:training_bridge_search_ready": 4,
     "research_identity_corroboration:research_candidate_only:secondary_anchor_collection": 32,
     "research_identity_corroboration:research_plus_secondary_identity_anchor_review:secondary_anchor_review": 5,
     "training_temporal_contract:manual_review_required": 12,
@@ -306,5 +306,5 @@
     }
   ],
   "total_impact_count": 15922,
-  "worklist_rows": 371
+  "worklist_rows": 341
 }

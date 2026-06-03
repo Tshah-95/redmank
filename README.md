@@ -53,6 +53,9 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_program_coverage_assurance_summary.json`: level counts, covered-people counts, and denominator-evidence status rollups for coverage trust.
 - `artifacts/data/official_program_coverage_action_queue.csv`: prioritized non-mutating worklist for official HUP programs that are not level-4 denominator truth, with separate lanes for unresolved alias review versus accepted-alias denominator-closure policy.
 - `artifacts/data/official_program_coverage_action_queue_summary.json`: action-lane counts and top next actions for parser, alias, count-conflict, and discovery work.
+- `artifacts/data/official_program_coverage_dossiers.csv`: program-level denominator dossiers that join assurance, source candidates, accepted aliases, action rows, and required next evidence.
+- `artifacts/data/official_program_coverage_batches.csv`: bounded operator sessions over coverage action rows, grouped by lane, blocker, program type, and assurance level so denominator gaps can be reviewed without losing program-level dossiers.
+- `artifacts/data/official_program_coverage_batch_summary.json`: coverage-batch counts, queue/program/person impact, candidate-source burden, and top coverage batches.
 - `artifacts/data/official_program_alias_review_packets.csv`: review packets for alias-related coverage actions, joining official program rows, loaded labels, role/scope signals, and reviewer-ready decisions.
 - `artifacts/data/official_program_alias_review_packets_summary.json`: reviewer-ready alias packet counts and top packet recommendations.
 - `artifacts/data/official_program_alias_reviewer_decision_queue.csv`: reviewer-decision queue for alias packets, including packet fingerprints and required confirmation fields.
@@ -216,6 +219,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `research_identity_review_batches.csv` when available, so research identity corroboration becomes bounded reviewer sessions with member fingerprints; if batches are absent it falls back to grouped corroboration rows.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
+- The worklist consumes `official_program_coverage_batches.csv` when available, so denominator coverage actions are grouped by lane, blocker, program type, and assurance level while program dossiers remain downstream evidence detail.
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
 - The worklist consumes the refresh execution audit to down-rank ready roster batches that were already refreshed with no state delta, while keeping parser-support blockers visible.
@@ -296,6 +300,8 @@ python3 scripts/materialize_official_program_alias_review_packets.py
 python3 scripts/materialize_official_program_alias_reviewer_decisions.py
 python3 scripts/materialize_official_program_denominator_closure_audit.py
 python3 scripts/materialize_official_program_coverage_action_queue.py
+python3 scripts/materialize_official_program_coverage_dossiers.py
+python3 scripts/materialize_official_program_coverage_batches.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py

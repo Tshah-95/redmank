@@ -33,7 +33,7 @@
     "single_source_publication_review": 72
   },
   "conflict_queue_rows": 24,
-  "generated_at": "2026-06-03T09:08:22.508838+00:00",
+  "generated_at": "2026-06-03T09:18:21.189967+00:00",
   "manual_decision_csv": "artifacts/data/research_identity_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "pending_reviewer_decision_rows": 1523,

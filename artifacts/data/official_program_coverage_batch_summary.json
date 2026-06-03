@@ -1,0 +1,187 @@
+{
+  "action_impact_count": 584,
+  "batch_rows": 12,
+  "by_action_lane": {
+    "accepted_alias_denominator_closed_monitor": 2,
+    "accepted_alias_open_gap_policy": 1,
+    "alias_review": 4,
+    "count_conflict_review": 1,
+    "parser_or_roster_source_review": 2,
+    "source_candidate_probe": 2
+  },
+  "by_batch_status": {
+    "accepted_alias_gap_policy_review_ready": 1,
+    "accepted_alias_monitor_ready": 2,
+    "alias_scope_review_ready": 4,
+    "candidate_source_probe_ready": 2,
+    "count_conflict_review_ready": 1,
+    "parser_or_context_review_ready": 2
+  },
+  "by_blocker_status": {
+    "accepted_alias_bridge_exists_but_official_gap_remains_open": 1,
+    "accepted_alias_denominator_closed": 2,
+    "candidate_source_without_people": 2,
+    "covered_by_alias_without_explicit_acceptance": 2,
+    "exact_resolution_count_conflict": 1,
+    "not_covered_but_candidate_sources_exist": 2,
+    "open_gap_with_related_loaded_people": 2
+  },
+  "by_program_type": {
+    "fellowship": 7,
+    "residency": 5
+  },
+  "candidate_source_count": 71,
+  "csv": "artifacts/data/official_program_coverage_batches.csv",
+  "generated_at": "2026-06-03T09:18:22.417306+00:00",
+  "json": "artifacts/data/official_program_coverage_batches.json",
+  "person_impact_count": 542,
+  "policy": "Official program coverage batches are non-mutating operator sessions over denominator coverage gaps; coverage truth changes still require source-backed extraction, accepted alias mapping, or explicit denominator closure evidence.",
+  "program_count": 42,
+  "queue_count": 42,
+  "top_batches": [
+    {
+      "action_impact_count": 3,
+      "action_lane": "count_conflict_review",
+      "batch_status": "count_conflict_review_ready",
+      "blocker_status": "exact_resolution_count_conflict",
+      "candidate_source_count": 0,
+      "execution_order": 1,
+      "official_program_type": "fellowship",
+      "person_impact_count": 3,
+      "queue_count": 1,
+      "recommended_operator_action": "review_count_conflict_batch_before_denominator_mutation"
+    },
+    {
+      "action_impact_count": 36,
+      "action_lane": "alias_review",
+      "batch_status": "alias_scope_review_ready",
+      "blocker_status": "open_gap_with_related_loaded_people",
+      "candidate_source_count": 21,
+      "execution_order": 2,
+      "official_program_type": "residency",
+      "person_impact_count": 22,
+      "queue_count": 2,
+      "recommended_operator_action": "review_alias_scope_batch_and_record_decisions"
+    },
+    {
+      "action_impact_count": 25,
+      "action_lane": "alias_review",
+      "batch_status": "alias_scope_review_ready",
+      "blocker_status": "open_gap_with_related_loaded_people",
+      "candidate_source_count": 8,
+      "execution_order": 3,
+      "official_program_type": "fellowship",
+      "person_impact_count": 24,
+      "queue_count": 2,
+      "recommended_operator_action": "review_alias_scope_batch_and_record_decisions"
+    },
+    {
+      "action_impact_count": 69,
+      "action_lane": "accepted_alias_open_gap_policy",
+      "batch_status": "accepted_alias_gap_policy_review_ready",
+      "blocker_status": "accepted_alias_bridge_exists_but_official_gap_remains_open",
+      "candidate_source_count": 15,
+      "execution_order": 4,
+      "official_program_type": "fellowship",
+      "person_impact_count": 69,
+      "queue_count": 1,
+      "recommended_operator_action": "review_accepted_alias_gap_policy_batch"
+    },
+    {
+      "action_impact_count": 15,
+      "action_lane": "alias_review",
+      "batch_status": "alias_scope_review_ready",
+      "blocker_status": "covered_by_alias_without_explicit_acceptance",
+      "candidate_source_count": 0,
+      "execution_order": 5,
+      "official_program_type": "residency",
+      "person_impact_count": 15,
+      "queue_count": 1,
+      "recommended_operator_action": "review_alias_scope_batch_and_record_decisions"
+    },
+    {
+      "action_impact_count": 9,
+      "action_lane": "alias_review",
+      "batch_status": "alias_scope_review_ready",
+      "blocker_status": "covered_by_alias_without_explicit_acceptance",
+      "candidate_source_count": 0,
+      "execution_order": 6,
+      "official_program_type": "fellowship",
+      "person_impact_count": 9,
+      "queue_count": 1,
+      "recommended_operator_action": "review_alias_scope_batch_and_record_decisions"
+    },
+    {
+      "action_impact_count": 2,
+      "action_lane": "parser_or_roster_source_review",
+      "batch_status": "parser_or_context_review_ready",
+      "blocker_status": "candidate_source_without_people",
+      "candidate_source_count": 2,
+      "execution_order": 7,
+      "official_program_type": "residency",
+      "person_impact_count": 0,
+      "queue_count": 1,
+      "recommended_operator_action": "review_candidate_sources_for_parser_or_context_only_batch"
+    },
+    {
+      "action_impact_count": 8,
+      "action_lane": "parser_or_roster_source_review",
+      "batch_status": "parser_or_context_review_ready",
+      "blocker_status": "candidate_source_without_people",
+      "candidate_source_count": 8,
+      "execution_order": 8,
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "queue_count": 6,
+      "recommended_operator_action": "review_candidate_sources_for_parser_or_context_only_batch"
+    },
+    {
+      "action_impact_count": 5,
+      "action_lane": "source_candidate_probe",
+      "batch_status": "candidate_source_probe_ready",
+      "blocker_status": "not_covered_but_candidate_sources_exist",
+      "candidate_source_count": 5,
+      "execution_order": 9,
+      "official_program_type": "residency",
+      "person_impact_count": 0,
+      "queue_count": 2,
+      "recommended_operator_action": "probe_candidate_sources_and_classify_roster_support_batch"
+    },
+    {
+      "action_impact_count": 12,
+      "action_lane": "source_candidate_probe",
+      "batch_status": "candidate_source_probe_ready",
+      "blocker_status": "not_covered_but_candidate_sources_exist",
+      "candidate_source_count": 12,
+      "execution_order": 10,
+      "official_program_type": "fellowship",
+      "person_impact_count": 0,
+      "queue_count": 12,
+      "recommended_operator_action": "probe_candidate_sources_and_classify_roster_support_batch"
+    },
+    {
+      "action_impact_count": 298,
+      "action_lane": "accepted_alias_denominator_closed_monitor",
+      "batch_status": "accepted_alias_monitor_ready",
+      "blocker_status": "accepted_alias_denominator_closed",
+      "candidate_source_count": 0,
+      "execution_order": 11,
+      "official_program_type": "residency",
+      "person_impact_count": 298,
+      "queue_count": 6,
+      "recommended_operator_action": "monitor_accepted_alias_denominator_closure_batch"
+    },
+    {
+      "action_impact_count": 102,
+      "action_lane": "accepted_alias_denominator_closed_monitor",
+      "batch_status": "accepted_alias_monitor_ready",
+      "blocker_status": "accepted_alias_denominator_closed",
+      "candidate_source_count": 0,
+      "execution_order": 12,
+      "official_program_type": "fellowship",
+      "person_impact_count": 102,
+      "queue_count": 7,
+      "recommended_operator_action": "monitor_accepted_alias_denominator_closure_batch"
+    }
+  ]
+}

@@ -2323,6 +2323,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "official_gap_roster_program_resolution",
         "official_program_coverage_assurance_audit",
         "official_program_coverage_action_queue",
+        "official_program_coverage_dossiers",
+        "official_program_coverage_batches",
         "official_program_alias_review_packets",
         "official_program_alias_reviewer_decisions",
         "official_program_alias_reviewer_decision_queue",

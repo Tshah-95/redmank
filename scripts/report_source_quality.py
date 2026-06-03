@@ -326,6 +326,10 @@ def main() -> None:
         ARTIFACTS / "official_program_coverage_action_queue_summary.json",
         {},
     )
+    official_program_coverage_batch_summary = read_json(
+        ARTIFACTS / "official_program_coverage_batch_summary.json",
+        {},
+    )
     official_program_alias_review_packets_summary = read_json(
         ARTIFACTS / "official_program_alias_review_packets_summary.json",
         {},
@@ -428,6 +432,10 @@ def main() -> None:
     )
     top_attending_trend_reviewer_decision_dossiers = read_csv(
         ARTIFACTS / "attending_trend_reviewer_decision_dossiers.csv",
+        limit=25,
+    )
+    top_official_program_coverage_batches = read_csv(
+        ARTIFACTS / "official_program_coverage_batches.csv",
         limit=25,
     )
     top_attending_trend_discovery_batches = read_csv(
@@ -763,6 +771,8 @@ def main() -> None:
         "official_gap_roster_program_resolution_summary": official_gap_roster_program_resolution_summary,
         "official_program_coverage_assurance_summary": official_program_coverage_assurance_summary,
         "official_program_coverage_action_queue_summary": official_program_coverage_action_queue_summary,
+        "official_program_coverage_batch_summary": official_program_coverage_batch_summary,
+        "top_official_program_coverage_batches": top_official_program_coverage_batches,
         "official_program_alias_review_packets_summary": official_program_alias_review_packets_summary,
         "official_program_alias_reviewer_decision_summary": official_program_alias_reviewer_decision_summary,
         "top_official_program_alias_reviewer_decisions": top_alias_reviewer_decisions,
@@ -832,6 +842,25 @@ def main() -> None:
         *md_table(
             official_program_coverage_action_queue_summary.get("top_actions") or [],
             ["official_program_name", "official_program_type", "action_lane", "priority", "person_impact_count", "recommended_next_action"],
+        ),
+        "",
+        "Coverage batches:",
+        "",
+        f"Batch rows: {official_program_coverage_batch_summary.get('batch_rows', 0)}. Queue rows covered: {official_program_coverage_batch_summary.get('queue_count', 0)}. Programs covered: {official_program_coverage_batch_summary.get('program_count', 0)}. Person-impact count: {official_program_coverage_batch_summary.get('person_impact_count', 0)}. Action-impact count: {official_program_coverage_batch_summary.get('action_impact_count', 0)}. Candidate sources: {official_program_coverage_batch_summary.get('candidate_source_count', 0)}.",
+        "",
+        *md_table(
+            top_official_program_coverage_batches,
+            [
+                "execution_order",
+                "action_lane",
+                "official_program_type",
+                "batch_status",
+                "queue_count",
+                "person_impact_count",
+                "action_impact_count",
+                "candidate_source_count",
+                "recommended_operator_action",
+            ],
         ),
         "",
         "Alias review packets:",
