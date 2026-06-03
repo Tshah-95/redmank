@@ -4023,6 +4023,40 @@ CREATE TABLE IF NOT EXISTS research_identity_reviewer_decision_dossiers (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS research_identity_conflict_resolution_packets (
+  conflict_packet_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES research_identity_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  review_batch_member_key TEXT NOT NULL REFERENCES research_identity_review_batch_members(review_batch_member_key) ON DELETE CASCADE,
+  review_batch_key TEXT NOT NULL,
+  corroboration_key TEXT NOT NULL,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  current_training_states TEXT,
+  queue_status TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  identity_risk_level TEXT NOT NULL,
+  conflicting_identifier_count INTEGER NOT NULL DEFAULT 0,
+  competing_identifier_count INTEGER NOT NULL DEFAULT 0,
+  high_confidence_identifier_count INTEGER NOT NULL DEFAULT 0,
+  publication_support_count INTEGER NOT NULL DEFAULT 0,
+  secondary_anchor_count INTEGER NOT NULL DEFAULT 0,
+  conflict_resolution_lane TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  recommended_reviewer_action TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  competing_identifiers_json TEXT NOT NULL,
+  support_summary_json TEXT NOT NULL,
+  risk_flags_json TEXT NOT NULL,
+  manual_decision_template_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS research_identity_review_batch_packets (
   batch_packet_key TEXT PRIMARY KEY,
   review_batch_key TEXT NOT NULL REFERENCES research_identity_review_batches(review_batch_key) ON DELETE CASCADE,

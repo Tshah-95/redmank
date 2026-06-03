@@ -603,6 +603,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/research_identity_conflict_resolution_packets.csv",
+        "research_identity_conflict_resolution_packet_ledger",
+        "csv",
+        "research_identity_conflict_resolution_packets",
+        True,
+    ),
+    (
         "artifacts/data/research_identity_review_batch_packets.csv",
         "research_identity_review_batch_packet_ledger",
         "csv",

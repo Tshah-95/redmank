@@ -1,0 +1,186 @@
+{
+  "by_conflict_resolution_lane": {
+    "collect_secondary_anchor_before_research_acceptance": 3,
+    "mixed_identifier_consistency_review": 7,
+    "openalex_author_collision_review": 13,
+    "orcid_collision_review": 1
+  },
+  "by_packet_status": {
+    "ready_for_identifier_conflict_review": 24
+  },
+  "by_role": {
+    "fellow": 3,
+    "resident": 21
+  },
+  "competing_identifier_count": 95,
+  "csv": "artifacts/data/research_identity_conflict_resolution_packets.csv",
+  "generated_at": "2026-06-03T10:23:11.550843+00:00",
+  "json": "artifacts/data/research_identity_conflict_resolution_packets.json",
+  "packet_rows": 24,
+  "person_count": 24,
+  "policy": "Research identity conflict-resolution packets are non-mutating. They expose competing identifiers and support evidence; reviewer decisions still require current member fingerprints and downstream acceptance ledgers.",
+  "publication_support_count": 151,
+  "ready_packet_rows": 24,
+  "top_packets": [
+    {
+      "competing_identifier_count": 9,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Alex Chen, MD",
+      "publication_support_count": 0,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 9,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Anne Wang, MD",
+      "publication_support_count": 0,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 7,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Madeline Perry, MD",
+      "publication_support_count": 0,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "fellow"
+    },
+    {
+      "competing_identifier_count": 6,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Aaron M. Williams, MD, PhD",
+      "publication_support_count": 6,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 6,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Armaan Singh, MD, MBA",
+      "publication_support_count": 6,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 6,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "John T. Cook, MD",
+      "publication_support_count": 6,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 5,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Charles Danan, MD, PhD",
+      "publication_support_count": 0,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 5,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Keshia Mora, MD, PhD",
+      "publication_support_count": 1,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 5,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Nadine Michel, MD, PhD",
+      "publication_support_count": 7,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 5,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Phillip Bradshaw, MD",
+      "publication_support_count": 2,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 5,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Simone Reaves, MD",
+      "publication_support_count": 0,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "fellow"
+    },
+    {
+      "competing_identifier_count": 4,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Chenxu Shi, MD, PhD",
+      "publication_support_count": 8,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 4,
+      "conflict_resolution_lane": "openalex_author_collision_review",
+      "display_name": "Lara Boyle, MD, PhD",
+      "publication_support_count": 8,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_openalex_author_before_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 4,
+      "conflict_resolution_lane": "orcid_collision_review",
+      "display_name": "Ashna Aggarwal, MD",
+      "publication_support_count": 7,
+      "recommended_reviewer_action": "choose_or_quarantine_conflicting_orcid_before_research_identity_acceptance",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 2,
+      "conflict_resolution_lane": "mixed_identifier_consistency_review",
+      "display_name": "Alessandro Brunetti, MD",
+      "publication_support_count": 10,
+      "recommended_reviewer_action": "confirm_identifier_consistency_or_reject_collision",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 2,
+      "conflict_resolution_lane": "mixed_identifier_consistency_review",
+      "display_name": "Eric Wagner, MD",
+      "publication_support_count": 10,
+      "recommended_reviewer_action": "confirm_identifier_consistency_or_reject_collision",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 2,
+      "conflict_resolution_lane": "mixed_identifier_consistency_review",
+      "display_name": "Gregory Chen, MD, PhD",
+      "publication_support_count": 8,
+      "recommended_reviewer_action": "confirm_identifier_consistency_or_reject_collision",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 2,
+      "conflict_resolution_lane": "mixed_identifier_consistency_review",
+      "display_name": "Jonathan Dickens, MD, PhD",
+      "publication_support_count": 10,
+      "recommended_reviewer_action": "confirm_identifier_consistency_or_reject_collision",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 2,
+      "conflict_resolution_lane": "mixed_identifier_consistency_review",
+      "display_name": "Pravin Patel, MD, PhD",
+      "publication_support_count": 8,
+      "recommended_reviewer_action": "confirm_identifier_consistency_or_reject_collision",
+      "role": "resident"
+    },
+    {
+      "competing_identifier_count": 2,
+      "conflict_resolution_lane": "mixed_identifier_consistency_review",
+      "display_name": "Shunsuke Koga, MD, PhD",
+      "publication_support_count": 10,
+      "recommended_reviewer_action": "confirm_identifier_consistency_or_reject_collision",
+      "role": "fellow"
+    }
+  ]
+}

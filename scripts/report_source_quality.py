@@ -400,6 +400,10 @@ def main() -> None:
         ARTIFACTS / "research_identity_review_batch_packet_summary.json",
         {},
     )
+    research_identity_conflict_packet_summary = read_json(
+        ARTIFACTS / "research_identity_conflict_resolution_packet_summary.json",
+        {},
+    )
     research_identity_reviewer_decision_summary = read_json(
         ARTIFACTS / "research_identity_reviewer_decision_summary.json",
         {},
@@ -509,6 +513,10 @@ def main() -> None:
     top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
     top_research_identity_review_batch_packets = read_csv(
         ARTIFACTS / "research_identity_review_batch_packets.csv",
+        limit=25,
+    )
+    top_research_identity_conflict_packets = read_csv(
+        ARTIFACTS / "research_identity_conflict_resolution_packets.csv",
         limit=25,
     )
     top_research_identity_reviewer_decisions = read_csv(
@@ -782,6 +790,8 @@ def main() -> None:
         "top_research_identity_review_batches": top_research_identity_review_batches,
         "research_identity_review_batch_packet_summary": research_identity_review_batch_packet_summary,
         "top_research_identity_review_batch_packets": top_research_identity_review_batch_packets,
+        "research_identity_conflict_packet_summary": research_identity_conflict_packet_summary,
+        "top_research_identity_conflict_packets": top_research_identity_conflict_packets,
         "research_identity_reviewer_decision_summary": research_identity_reviewer_decision_summary,
         "top_research_identity_reviewer_decisions": top_research_identity_reviewer_decisions,
         "research_identity_reviewer_dossier_summary": research_identity_reviewer_dossier_summary,
@@ -1335,6 +1345,23 @@ def main() -> None:
                 "person_count",
                 "pending_decision_count",
                 "conflict_member_count",
+                "packet_status",
+                "recommended_reviewer_action",
+            ],
+        ),
+        "",
+        "Conflict-resolution packets:",
+        "",
+        f"Conflict packet rows: {research_identity_conflict_packet_summary.get('packet_rows', 0)}. Ready packets: {research_identity_conflict_packet_summary.get('ready_packet_rows', 0)}. Competing identifiers: {research_identity_conflict_packet_summary.get('competing_identifier_count', 0)}. Publication support identifiers: {research_identity_conflict_packet_summary.get('publication_support_count', 0)}.",
+        "",
+        *md_table(
+            top_research_identity_conflict_packets,
+            [
+                "display_name",
+                "role",
+                "conflict_resolution_lane",
+                "competing_identifier_count",
+                "publication_support_count",
                 "packet_status",
                 "recommended_reviewer_action",
             ],

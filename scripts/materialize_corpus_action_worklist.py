@@ -1765,6 +1765,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
     if batch_path.exists():
         packet_path = ARTIFACTS / "research_identity_review_batch_packets.csv"
         dossier_path = ARTIFACTS / "research_identity_reviewer_decision_dossiers.csv"
+        conflict_packet_path = ARTIFACTS / "research_identity_conflict_resolution_packets.csv"
         source = (
             "artifacts/data/research_identity_review_batch_packets.csv"
             if packet_path.exists()
@@ -1785,6 +1786,10 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         if dossier_path.exists():
             for dossier_row in read_csv(dossier_path):
                 dossiers_by_batch[dossier_row.get("review_batch_key") or ""].append(dossier_row)
+        conflict_packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if conflict_packet_path.exists():
+            for conflict_packet in read_csv(conflict_packet_path):
+                conflict_packets_by_batch[conflict_packet.get("review_batch_key") or ""].append(conflict_packet)
         rows = []
         priority_by_lane = {
             "conflict_reconciliation": 980,
@@ -1799,6 +1804,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
             packet = packets_by_batch.get(item.get("review_batch_key") or "", {})
             audit_rows = audit_by_batch.get(item.get("review_batch_key") or "", [])
             dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
+            conflict_packet_rows = conflict_packets_by_batch.get(item.get("review_batch_key") or "", [])
             pending_audit_rows = [
                 audit_row
                 for audit_row in audit_rows
@@ -1851,13 +1857,18 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                     ),
                     required_next_evidence=item.get("reviewer_prompt") or item.get("review_instructions") or "",
                     recommended_next_action="record_research_identity_reviewer_decisions_with_current_member_fingerprints",
-                    source_artifact=source,
+                    source_artifact=(
+                        "artifacts/data/research_identity_conflict_resolution_packets.csv"
+                        if conflict_packet_rows
+                        else source
+                    ),
                     target_artifact=item.get("target_decision_artifact")
                     or "artifacts/data/research_identity_reviewer_decisions.csv",
                     downstream_tables=[
                         "research_identity_review_batches",
                         "research_identity_review_batch_members",
                         "research_identity_review_batch_packets",
+                        "research_identity_conflict_resolution_packets",
                         "research_identity_reviewer_decision_queue",
                         "research_identity_reviewer_decisions",
                         "research_identity_reviewer_decision_audit",
@@ -1884,6 +1895,17 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "pending_reviewer_decision_rows": len(pending_audit_rows),
                         "reviewer_decision_dossier_rows": len(dossier_rows),
                         "pending_reviewer_decision_dossier_rows": len(pending_dossier_rows),
+                        "conflict_resolution_packet_rows": len(conflict_packet_rows),
+                        "top_conflict_resolution_packets": [
+                            {
+                                "display_name": packet_row.get("display_name"),
+                                "conflict_resolution_lane": packet_row.get("conflict_resolution_lane"),
+                                "competing_identifier_count": packet_row.get("competing_identifier_count"),
+                                "publication_support_count": packet_row.get("publication_support_count"),
+                                "recommended_reviewer_action": packet_row.get("recommended_reviewer_action"),
+                            }
+                            for packet_row in conflict_packet_rows[:10]
+                        ],
                         "batch_packet_key": packet.get("batch_packet_key") or "",
                         "batch_packet_status": packet.get("packet_status") or "",
                         "batch_packet_support_status": packet.get("support_status") or "",
