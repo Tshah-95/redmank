@@ -121,6 +121,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/attending_trend_review_claims_summary.json`: review-ready trend claim, person, end-year, and rollup counts.
 - `artifacts/data/attending_trend_discovery_workbench.csv`: group-level trend discovery state combining dossiers, historical-link query coverage, candidate URLs, reviewer queues, and accepted facts.
 - `artifacts/data/attending_trend_discovery_workbench_summary.json`: accepted, review-ready, endpoint-search, historical-candidate, and context-only trend work counts.
+- `artifacts/data/attending_trend_discovery_batches.csv`: bounded operator batches over trend discovery workbench rows, preserving lane, ten-year window, query/candidate burden, and acceptance boundary.
+- `artifacts/data/attending_trend_discovery_batch_summary.json`: trend discovery batch counts by lane/window plus current endpoint, Penn-training claim, review-claim, accepted-fact, query, and candidate totals.
 - `artifacts/data/npi_candidate_claims.csv`: candidate NPPES/NPI identity, taxonomy, and PA practice-location anchors for current residents/fellows.
 - `artifacts/data/npi_candidate_summary.json`: NPI query, status, role, and taxonomy counts.
 - `artifacts/data/person_enrichment_coverage.csv`: per-person coverage audit across profile, program, training, contact, research, career-event, reconciliation, and state-machine layers.
@@ -356,6 +358,7 @@ python3 scripts/audit_attending_trend_acceptance.py
 python3 scripts/materialize_attending_trend_reviewer_decisions.py
 python3 scripts/materialize_attending_trend_reviewer_decision_dossiers.py
 python3 scripts/materialize_attending_trend_discovery_workbench.py
+python3 scripts/materialize_attending_trend_discovery_batches.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py

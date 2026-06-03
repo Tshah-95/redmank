@@ -408,6 +408,10 @@ def main() -> None:
         ARTIFACTS / "attending_trend_reviewer_decision_dossier_summary.json",
         {},
     )
+    attending_trend_discovery_batch_summary = read_json(
+        ARTIFACTS / "attending_trend_discovery_batch_summary.json",
+        {},
+    )
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
@@ -424,6 +428,10 @@ def main() -> None:
     )
     top_attending_trend_reviewer_decision_dossiers = read_csv(
         ARTIFACTS / "attending_trend_reviewer_decision_dossiers.csv",
+        limit=25,
+    )
+    top_attending_trend_discovery_batches = read_csv(
+        ARTIFACTS / "attending_trend_discovery_batches.csv",
         limit=25,
     )
     top_person_evidence_reviewer_decisions = read_csv(
@@ -704,6 +712,8 @@ def main() -> None:
         "top_attending_trend_reviewer_decisions": top_attending_trend_reviewer_decisions,
         "attending_trend_reviewer_decision_dossier_summary": attending_trend_reviewer_decision_dossier_summary,
         "top_attending_trend_reviewer_decision_dossiers": top_attending_trend_reviewer_decision_dossiers,
+        "attending_trend_discovery_batch_summary": attending_trend_discovery_batch_summary,
+        "top_attending_trend_discovery_batches": top_attending_trend_discovery_batches,
         "top_attending_trend_review_rollups": top_attending_trend_review_rollups,
         "npi_candidate_summary": npi_candidate_summary,
         "top_npi_candidates": top_npi_candidates,
@@ -1589,6 +1599,24 @@ def main() -> None:
                 "source_scope",
                 "reviewer_decision_key",
                 "recommended_next_action",
+            ],
+        ),
+        "",
+        "Trend discovery batches:",
+        "",
+        f"Batch rows: {attending_trend_discovery_batch_summary.get('batch_rows', 0)}. Workbench rows covered: {attending_trend_discovery_batch_summary.get('workbench_count', 0)}. Current endpoints: {attending_trend_discovery_batch_summary.get('current_endpoint_count', 0)}. Penn-training claims: {attending_trend_discovery_batch_summary.get('penn_training_claim_count', 0)}. Review claims: {attending_trend_discovery_batch_summary.get('review_claim_count', 0)}. Accepted trend facts: {attending_trend_discovery_batch_summary.get('accepted_trend_fact_count', 0)}. Historical queries: {attending_trend_discovery_batch_summary.get('historical_query_count', 0)}. Historical candidates: {attending_trend_discovery_batch_summary.get('historical_candidate_count', 0)}.",
+        "",
+        *md_table(
+            top_attending_trend_discovery_batches,
+            [
+                "execution_order",
+                "discovery_lane",
+                "ten_year_trend_window",
+                "batch_status",
+                "workbench_count",
+                "historical_query_count",
+                "historical_candidate_count",
+                "recommended_operator_action",
             ],
         ),
         "",

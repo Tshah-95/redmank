@@ -726,6 +726,7 @@ ARTIFACT_SPECS = [
     ),
     ("artifacts/data/attending_historical_link_candidates.csv", "attending_trend_historical_discovery_ledger", "csv", "attending_historical_link_candidates", True),
     ("artifacts/data/attending_trend_discovery_workbench.csv", "attending_trend_discovery_workbench_ledger", "csv", "attending_trend_discovery_workbench", True),
+    ("artifacts/data/attending_trend_discovery_batches.csv", "attending_trend_discovery_batch_ledger", "csv", "attending_trend_discovery_batches", True),
     ("artifacts/data/program_identifier_candidates.csv", "program_identifier_ledger", "csv", "program_identifier_candidates", True),
     ("artifacts/data/program_identifier_reconciliation.csv", "program_identifier_ledger", "csv", "program_identifier_reconciliation", True),
     ("artifacts/data/official_program_identifiers.csv", "program_identifier_ledger", "csv", "official_program_identifiers", True),

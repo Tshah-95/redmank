@@ -1195,6 +1195,71 @@ def attending_trend_actions(generated_at: str) -> list[dict]:
 
 def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "attending_trend_discovery_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/attending_trend_discovery_batches.csv"
+        for item in read_csv(batch_path):
+            priority = as_int(item.get("max_discovery_priority"))
+            status = item.get("batch_status") or item.get("discovery_lane") or "attending_trend_discovery"
+            rows.append(
+                row(
+                    action_surface="recent_attending_trend_discovery",
+                    action_scope=f"{item.get('discovery_lane') or ''}:{status}",
+                    entity_type="attending_trend_discovery_batch",
+                    entity_key=item.get("attending_trend_discovery_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("discovery_lane"),
+                            item.get("ten_year_trend_window"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role="current_penn_attending_candidate" if as_int(item.get("current_endpoint_count")) else "",
+                    program_name="",
+                    priority=priority + min(as_int(item.get("workbench_count")) * 2, 40),
+                    impact_count=max(as_int(item.get("workbench_count")), as_int(item.get("person_count")), 1),
+                    readiness_status=item.get("ten_year_trend_window") or "unknown",
+                    blocker_status=status,
+                    required_next_evidence=item.get("required_next_evidence") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "artifacts/data/attending_historical_link_candidates.csv",
+                    downstream_tables=[
+                        "attending_trend_discovery_batches",
+                        "attending_trend_discovery_workbench",
+                        "attending_trend_dossiers",
+                        "attending_trend_reviewer_decision_dossiers",
+                        "attending_historical_link_search_queries",
+                        "attending_historical_link_search_observations",
+                        "attending_historical_link_candidates",
+                        "attending_trend_reviewer_decision_queue",
+                        "accepted_attending_trend_facts",
+                    ],
+                    evidence={
+                        "attending_trend_discovery_batch_key": item.get("attending_trend_discovery_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "discovery_lane": item.get("discovery_lane"),
+                        "trend_status": item.get("trend_status"),
+                        "ten_year_trend_window": item.get("ten_year_trend_window"),
+                        "batch_status": item.get("batch_status"),
+                        "workbench_count": item.get("workbench_count"),
+                        "current_endpoint_count": item.get("current_endpoint_count"),
+                        "penn_training_claim_count": item.get("penn_training_claim_count"),
+                        "review_claim_count": item.get("review_claim_count"),
+                        "accepted_trend_fact_count": item.get("accepted_trend_fact_count"),
+                        "historical_query_count": item.get("historical_query_count"),
+                        "historical_candidate_count": item.get("historical_candidate_count"),
+                        "query_status_counts": parse_json(item.get("query_status_counts_json"), {}),
+                        "candidate_status_counts": parse_json(item.get("candidate_status_counts_json"), {}),
+                        "top_workbench_rows": parse_json(item.get("top_workbench_rows_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source_path = ARTIFACTS / "attending_trend_discovery_workbench.csv"
     if not source_path.exists():
         return rows

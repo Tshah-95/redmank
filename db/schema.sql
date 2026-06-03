@@ -2458,6 +2458,44 @@ CREATE TABLE IF NOT EXISTS attending_trend_discovery_workbench (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS attending_trend_discovery_batches (
+  attending_trend_discovery_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  discovery_lane TEXT NOT NULL,
+  trend_status TEXT NOT NULL,
+  ten_year_trend_window TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  candidate_status_signature TEXT NOT NULL,
+  workbench_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  current_endpoint_count INTEGER NOT NULL DEFAULT 0,
+  penn_training_claim_count INTEGER NOT NULL DEFAULT 0,
+  recent_dated_bridge_count INTEGER NOT NULL DEFAULT 0,
+  accepted_trend_fact_count INTEGER NOT NULL DEFAULT 0,
+  review_claim_count INTEGER NOT NULL DEFAULT 0,
+  reviewer_queue_count INTEGER NOT NULL DEFAULT 0,
+  historical_query_count INTEGER NOT NULL DEFAULT 0,
+  historical_search_observation_count INTEGER NOT NULL DEFAULT 0,
+  historical_blocked_search_count INTEGER NOT NULL DEFAULT 0,
+  historical_candidate_count INTEGER NOT NULL DEFAULT 0,
+  actionable_historical_candidate_count INTEGER NOT NULL DEFAULT 0,
+  current_profile_context_candidate_count INTEGER NOT NULL DEFAULT 0,
+  max_discovery_priority INTEGER NOT NULL DEFAULT 0,
+  min_discovery_priority INTEGER NOT NULL DEFAULT 0,
+  top_display_names TEXT,
+  top_candidate_domains TEXT,
+  query_status_counts_json TEXT NOT NULL,
+  candidate_status_counts_json TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  execution_instructions TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  top_workbench_rows_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS attending_trend_review_rollups (
   trend_rollup_key TEXT PRIMARY KEY,
   rollup_scope TEXT NOT NULL,

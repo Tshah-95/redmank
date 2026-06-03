@@ -114,6 +114,7 @@ def main() -> None:
         "attending_historical_link_search_observations",
         "attending_historical_link_candidates",
         "attending_trend_discovery_workbench",
+        "attending_trend_discovery_batches",
         "npi_candidate_claims",
         "npi_source_observations",
         "person_contacts",

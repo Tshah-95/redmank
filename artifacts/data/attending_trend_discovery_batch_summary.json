@@ -1,0 +1,136 @@
+{
+  "accepted_trend_fact_count": 3,
+  "actionable_historical_candidate_count": 5,
+  "batch_rows": 9,
+  "by_batch_status": {
+    "accepted_trend_monitor_ready": 2,
+    "context_monitor_ready": 1,
+    "historical_link_review_ready": 1,
+    "training_bridge_search_ready": 4,
+    "trend_reviewer_decision_ready": 1
+  },
+  "by_discovery_lane": {
+    "accepted_trend_fact_monitor": 2,
+    "context_only_monitor": 1,
+    "current_endpoint_training_bridge_search": 4,
+    "historical_link_candidate_review": 1,
+    "reviewer_decision_pending": 1
+  },
+  "by_ten_year_trend_window": {
+    "no": 1,
+    "unknown": 4,
+    "yes": 4
+  },
+  "csv": "artifacts/data/attending_trend_discovery_batches.csv",
+  "current_endpoint_count": 49,
+  "generated_at": "2026-06-03T09:07:49.767116+00:00",
+  "historical_candidate_count": 15,
+  "historical_query_count": 722,
+  "json": "artifacts/data/attending_trend_discovery_batches.json",
+  "penn_training_claim_count": 4,
+  "person_count": 70,
+  "policy": "Trend discovery batches are non-mutating operator sessions. Accepted recent-attending trend facts still require explicit reviewer decisions and acceptance audit pass.",
+  "review_claim_count": 5,
+  "top_batches": [
+    {
+      "batch_status": "trend_reviewer_decision_ready",
+      "discovery_lane": "reviewer_decision_pending",
+      "execution_order": 1,
+      "historical_candidate_count": 0,
+      "historical_query_count": 28,
+      "recommended_operator_action": "record_attending_trend_reviewer_decision_batch",
+      "ten_year_trend_window": "yes",
+      "trend_status": "review_ready_official_biosketch_bridge",
+      "workbench_count": 2
+    },
+    {
+      "batch_status": "historical_link_review_ready",
+      "discovery_lane": "historical_link_candidate_review",
+      "execution_order": 2,
+      "historical_candidate_count": 9,
+      "historical_query_count": 23,
+      "recommended_operator_action": "review_historical_link_candidate_batch",
+      "ten_year_trend_window": "unknown",
+      "trend_status": "historical_link_candidate_review",
+      "workbench_count": 1
+    },
+    {
+      "batch_status": "training_bridge_search_ready",
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "execution_order": 3,
+      "historical_candidate_count": 0,
+      "historical_query_count": 56,
+      "recommended_operator_action": "collect_dated_training_bridge_batch",
+      "ten_year_trend_window": "yes",
+      "trend_status": "current_endpoint_needs_training_claim",
+      "workbench_count": 4
+    },
+    {
+      "batch_status": "training_bridge_search_ready",
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "execution_order": 4,
+      "historical_candidate_count": 0,
+      "historical_query_count": 168,
+      "recommended_operator_action": "collect_dated_training_bridge_batch",
+      "ten_year_trend_window": "unknown",
+      "trend_status": "current_endpoint_needs_training_claim",
+      "workbench_count": 12
+    },
+    {
+      "batch_status": "training_bridge_search_ready",
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "execution_order": 5,
+      "historical_candidate_count": 0,
+      "historical_query_count": 28,
+      "recommended_operator_action": "collect_dated_training_bridge_batch",
+      "ten_year_trend_window": "no",
+      "trend_status": "current_endpoint_needs_training_claim",
+      "workbench_count": 2
+    },
+    {
+      "batch_status": "training_bridge_search_ready",
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "execution_order": 6,
+      "historical_candidate_count": 0,
+      "historical_query_count": 350,
+      "recommended_operator_action": "collect_dated_training_bridge_batch",
+      "ten_year_trend_window": "unknown",
+      "trend_status": "current_endpoint_needs_training_claim",
+      "workbench_count": 25
+    },
+    {
+      "batch_status": "accepted_trend_monitor_ready",
+      "discovery_lane": "accepted_trend_fact_monitor",
+      "execution_order": 7,
+      "historical_candidate_count": 4,
+      "historical_query_count": 46,
+      "recommended_operator_action": "monitor_accepted_trend_fact_batch",
+      "ten_year_trend_window": "yes",
+      "trend_status": "review_ready_official_biosketch_bridge",
+      "workbench_count": 2
+    },
+    {
+      "batch_status": "accepted_trend_monitor_ready",
+      "discovery_lane": "accepted_trend_fact_monitor",
+      "execution_order": 8,
+      "historical_candidate_count": 2,
+      "historical_query_count": 23,
+      "recommended_operator_action": "monitor_accepted_trend_fact_batch",
+      "ten_year_trend_window": "yes",
+      "trend_status": "review_ready_official_biosketch_bridge",
+      "workbench_count": 1
+    },
+    {
+      "batch_status": "context_monitor_ready",
+      "discovery_lane": "context_only_monitor",
+      "execution_order": 9,
+      "historical_candidate_count": 0,
+      "historical_query_count": 0,
+      "recommended_operator_action": "monitor_context_only_attending_groups",
+      "ten_year_trend_window": "unknown",
+      "trend_status": "context_only_not_trend_ready",
+      "workbench_count": 21
+    }
+  ],
+  "workbench_count": 70
+}

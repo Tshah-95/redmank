@@ -29,7 +29,7 @@
     "medium": 7
   },
   "csv": "artifacts/data/person_enrichment_action_batches.csv",
-  "generated_at": "2026-06-03T08:59:25.380966+00:00",
+  "generated_at": "2026-06-03T09:08:16.137548+00:00",
   "impact_count_policy": "Summed across batches; each person packet appears in exactly one action batch.",
   "json": "artifacts/data/person_enrichment_action_batches.json",
   "max_batch_size": 50,

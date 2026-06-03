@@ -19,7 +19,7 @@
   "claims_csv": "artifacts/data/attending_trend_review_claims.csv",
   "claims_json": "artifacts/data/attending_trend_review_claims.json",
   "display_safety_status": "review_ready_not_accepted_trend_fact",
-  "generated_at": "2026-06-03T08:58:58.626288+00:00",
+  "generated_at": "2026-06-03T09:07:49.307760+00:00",
   "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
   "rollups_csv": "artifacts/data/attending_trend_review_rollups.csv",
   "rollups_json": "artifacts/data/attending_trend_review_rollups.json",
