@@ -222,6 +222,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
 - `artifacts/data/source_quality_policy_recommendations.csv`: non-mutating policy translation ledger for source utilities, mapping scorecard/search evidence to acceptance posture, collector posture, reviewer posture, trend relevance, and required next evidence.
 - `artifacts/data/source_quality_policy_recommendation_summary.json`: policy-lane, action-readiness, and recent-attending trend relevance counts for source-quality recommendations.
+- `artifacts/data/source_quality_policy_action_packets.csv`: one packet per source-quality policy recommendation, preserving source artifacts, downstream tables, support status, trend relevance, and the acceptance boundary for collector/reviewer work.
+- `artifacts/data/source_quality_policy_action_packet_summary.json`: packet counts by policy lane, action readiness, support status, and recent-attending trend relevance.
 - `artifacts/data/search_utility_execution_batches.csv`: bounded execution batches for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing without converting search hits into accepted evidence.
 - `artifacts/data/search_utility_execution_batch_summary.json`: batch counts, unobserved-query burden, endpoint-retry burden, candidate-probe burden, and top search execution batches.
 - `artifacts/data/search_utility_execution_batch_packets.csv`: per-query, per-retry, and per-candidate packet support for search execution batches, joining each hidden unit back to its query, observation, candidate, entity, target artifact, and non-mutating reconciliation boundary.
@@ -256,6 +258,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_batch_packets.csv` when available while retaining one row per roster-refresh execution batch, so collector/parser/domain batches stay bounded but expose exact source/program refresh contracts; if packet support is absent it falls back to roster-refresh batches.
 - The worklist consumes `training_temporal_contract_batch_packets.csv` when available while retaining one visible row per `training_temporal_contract_batches.csv` batch, so source-refresh and manual-review temporal-state work stays compact but exposes row-level contract evidence.
 - The worklist consumes `program_lifecycle_duration_review_batch_packets.csv` when available while retaining one visible row per `program_lifecycle_duration_review_batches.csv` batch, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
+- The worklist consumes `source_quality_policy_action_packets.csv` when available, so source-quality policy actions expose exact source artifacts, trend relevance, support status, and acceptance boundaries instead of routing through bare recommendation rows.
 - The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
 - The worklist consumes `search_utility_execution_batch_packets.csv` when available while retaining one row per search execution batch, so search assurance gaps stay bounded but expose exact query, retry, and candidate-probe packet support; if packet support is absent it falls back to execution batches, then the four-row utility assurance ledger.
 - The worklist consumes `person_enrichment_execution_batch_packets.csv` when available while retaining one row per execution batch, so enrichment execution starts from resumable collector/manual-review batches but exposes per-person readiness packet support; if packet support is absent it falls back to execution batches, then grouped queue rows.
@@ -427,6 +430,7 @@ python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
 python3 scripts/materialize_source_quality_policy_recommendations.py
+python3 scripts/materialize_source_quality_policy_action_packets.py
 python3 scripts/materialize_search_utility_execution_batches.py
 python3 scripts/materialize_search_utility_execution_batch_packets.py
 python3 scripts/materialize_official_profile_discovery_workbench.py

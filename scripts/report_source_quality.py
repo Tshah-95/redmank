@@ -410,6 +410,10 @@ def main() -> None:
         ARTIFACTS / "source_quality_policy_recommendation_summary.json",
         {},
     )
+    source_quality_policy_action_packet_summary = read_json(
+        ARTIFACTS / "source_quality_policy_action_packet_summary.json",
+        {},
+    )
     person_enrichment_execution_batch_summary = read_json(
         ARTIFACTS / "person_enrichment_execution_batch_summary.json",
         {},
@@ -575,6 +579,10 @@ def main() -> None:
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
     source_quality_policy_recommendations = read_csv(
         ARTIFACTS / "source_quality_policy_recommendations.csv",
+        limit=30,
+    )
+    source_quality_policy_action_packets = read_csv(
+        ARTIFACTS / "source_quality_policy_action_packets.csv",
         limit=30,
     )
     top_person_enrichment_execution_batches = read_csv(
@@ -917,6 +925,8 @@ def main() -> None:
         "source_utility_scorecard": source_utility_scorecard,
         "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,
         "source_quality_policy_recommendations": source_quality_policy_recommendations,
+        "source_quality_policy_action_packet_summary": source_quality_policy_action_packet_summary,
+        "source_quality_policy_action_packets": source_quality_policy_action_packets,
         "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,
         "top_person_enrichment_execution_batches": top_person_enrichment_execution_batches,
         "person_enrichment_execution_batch_packet_summary": person_enrichment_execution_batch_packet_summary,
@@ -1496,6 +1506,21 @@ def main() -> None:
                 "action_priority",
                 "action_readiness",
                 "acceptance_posture",
+                "trend_relevance",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        f"Policy action packets: {source_quality_policy_action_packet_summary.get('packet_rows', 0)}. Direct trend packets: {source_quality_policy_action_packet_summary.get('recent_attending_trend_packet_rows', 0)}. Support classes: {len(source_quality_policy_action_packet_summary.get('by_support_status', {}))}.",
+        "",
+        *md_table(
+            source_quality_policy_action_packets,
+            [
+                "packet_order",
+                "utility_label",
+                "policy_lane",
+                "action_readiness",
+                "support_status",
                 "trend_relevance",
                 "recommended_next_action",
             ],

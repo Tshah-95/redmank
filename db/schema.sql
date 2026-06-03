@@ -4831,6 +4831,39 @@ CREATE TABLE IF NOT EXISTS source_quality_policy_recommendations (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS source_quality_policy_action_packets (
+  source_quality_policy_packet_key TEXT PRIMARY KEY,
+  packet_order INTEGER NOT NULL DEFAULT 0,
+  recommendation_key TEXT NOT NULL REFERENCES source_quality_policy_recommendations(recommendation_key) ON DELETE CASCADE,
+  source_row_type TEXT NOT NULL,
+  utility_key TEXT NOT NULL,
+  utility_label TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  claim_surface TEXT NOT NULL,
+  score REAL NOT NULL DEFAULT 0.0,
+  quality_band TEXT NOT NULL,
+  policy_lane TEXT NOT NULL,
+  policy_status TEXT NOT NULL,
+  action_priority INTEGER NOT NULL DEFAULT 0,
+  action_readiness TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  support_status TEXT NOT NULL,
+  trend_relevance TEXT NOT NULL,
+  acceptance_posture TEXT NOT NULL,
+  collector_posture TEXT NOT NULL,
+  reviewer_posture TEXT NOT NULL,
+  evidence_standard TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  source_artifacts_json TEXT NOT NULL,
+  downstream_tables_json TEXT NOT NULL,
+  scorecard_evidence_json TEXT NOT NULL,
+  search_assurance_evidence_json TEXT NOT NULL,
+  acceptance_boundary_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS warehouse_reproducibility_audit (
   audit_key TEXT PRIMARY KEY,
   artifact_path TEXT NOT NULL,

@@ -396,6 +396,7 @@ def write_sqlite(rows: list[dict]) -> None:
     conn = sqlite3.connect(DB)
     with conn:
         conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+        conn.execute("DELETE FROM source_quality_policy_action_packets")
         conn.execute("DELETE FROM source_quality_policy_recommendations")
         placeholders = ", ".join(f":{field}" for field in FIELDS)
         fields = ", ".join(FIELDS)

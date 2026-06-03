@@ -871,15 +871,21 @@ def search_utility_actions(generated_at: str) -> list[dict]:
 
 def source_quality_policy_actions(generated_at: str) -> list[dict]:
     rows = []
-    source = "artifacts/data/source_quality_policy_recommendations.csv"
-    for item in read_csv(ARTIFACTS / "source_quality_policy_recommendations.csv"):
+    packet_path = ARTIFACTS / "source_quality_policy_action_packets.csv"
+    if packet_path.exists():
+        source = "artifacts/data/source_quality_policy_action_packets.csv"
+        items = read_csv(packet_path)
+    else:
+        source = "artifacts/data/source_quality_policy_recommendations.csv"
+        items = read_csv(ARTIFACTS / "source_quality_policy_recommendations.csv")
+    for item in items:
         priority = as_int(item.get("action_priority"))
         rows.append(
             row(
                 action_surface="source_quality_policy",
                 action_scope=f"{item.get('policy_lane') or ''}:{item.get('action_readiness') or ''}",
-                entity_type="source_quality_policy_recommendation",
-                entity_key=item.get("recommendation_key") or "",
+                entity_type="source_quality_policy_action_packet" if packet_path.exists() else "source_quality_policy_recommendation",
+                entity_key=item.get("source_quality_policy_packet_key") or item.get("recommendation_key") or "",
                 display_label=" | ".join(
                     part
                     for part in [
@@ -899,8 +905,13 @@ def source_quality_policy_actions(generated_at: str) -> list[dict]:
                 recommended_next_action=item.get("recommended_next_action") or "",
                 source_artifact=source,
                 target_artifact="artifacts/data/source_utility_scorecard.csv",
-                downstream_tables=parse_json(item.get("downstream_tables_json"), ["source_quality_policy_recommendations"]),
+                downstream_tables=parse_json(
+                    item.get("downstream_tables_json"),
+                    ["source_quality_policy_recommendations", "source_quality_policy_action_packets"],
+                ),
                 evidence={
+                    "source_quality_policy_packet_key": item.get("source_quality_policy_packet_key"),
+                    "packet_order": item.get("packet_order"),
                     "recommendation_key": item.get("recommendation_key"),
                     "source_row_type": item.get("source_row_type"),
                     "utility_key": item.get("utility_key"),
@@ -911,6 +922,8 @@ def source_quality_policy_actions(generated_at: str) -> list[dict]:
                     "policy_lane": item.get("policy_lane"),
                     "policy_status": item.get("policy_status"),
                     "action_readiness": item.get("action_readiness"),
+                    "packet_status": item.get("packet_status"),
+                    "support_status": item.get("support_status"),
                     "acceptance_posture": item.get("acceptance_posture"),
                     "collector_posture": item.get("collector_posture"),
                     "reviewer_posture": item.get("reviewer_posture"),
@@ -918,6 +931,7 @@ def source_quality_policy_actions(generated_at: str) -> list[dict]:
                     "evidence_standard": item.get("evidence_standard"),
                     "source_artifacts": parse_json(item.get("source_artifacts_json"), []),
                     "search_assurance": parse_json(item.get("search_assurance_evidence_json"), {}),
+                    "acceptance_boundary": parse_json(item.get("acceptance_boundary_json"), {}),
                 },
                 generated_at=generated_at,
             )

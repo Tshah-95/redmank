@@ -131,6 +131,7 @@ Core tables:
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
 - `source_quality_policy_recommendations`: non-mutating policy translation layer that maps scorecard/search evidence to acceptance posture, collector posture, reviewer posture, trend relevance, and required next evidence.
+- `source_quality_policy_action_packets`: packet envelope for each source-quality policy recommendation, preserving source-artifact evidence, downstream tables, support status, recent-attending trend relevance, and acceptance boundaries.
 - `search_utility_execution_batches`: bounded execution sessions for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing while preserving source-quality failures as evidence.
 - `search_utility_execution_batch_packets`: per-query, per-retry, and per-candidate packet support for those search execution batches, preserving the exact source row, entity, target artifact, support status, and reconciliation boundary behind each batch.
 - `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-contract batches, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
@@ -399,7 +400,8 @@ The scorecard is not an acceptance mutator. It answers which utility is good for
 
 - `source_quality_policy_recommendations.csv` / `.json`: one row per scorecard utility plus search-only utility rows, with policy lane, action priority, action readiness, acceptance posture, collector posture, reviewer posture, recent-attending trend relevance, evidence standard, linked artifacts, and downstream tables.
 - `source_quality_policy_recommendation_summary.json`: counts by source row type, quality band, policy lane, action readiness, and trend relevance.
-- SQLite table `source_quality_policy_recommendations`: queryable version of the same ledger.
+- `source_quality_policy_action_packets.csv` / `.json`: one packet per recommendation with source artifacts, downstream tables, support status, trend relevance, and a non-mutating acceptance boundary for collector/reviewer work.
+- SQLite tables `source_quality_policy_recommendations` and `source_quality_policy_action_packets`: queryable versions of the same ledger and packet layer.
 
 This layer is deliberately non-mutating. It says how a utility should be used; source-specific reviewer decisions, acceptance ledgers, and temporal contracts still decide whether any fact can be promoted, displayed, retained, or refreshed.
 

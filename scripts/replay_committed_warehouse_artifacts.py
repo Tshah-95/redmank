@@ -138,6 +138,7 @@ CSV_TABLES = [
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("search_utility_assurance.csv", "search_utility_assurance"),
     ("source_quality_policy_recommendations.csv", "source_quality_policy_recommendations"),
+    ("source_quality_policy_action_packets.csv", "source_quality_policy_action_packets"),
     ("search_utility_execution_batches.csv", "search_utility_execution_batches"),
     ("search_utility_execution_batch_packets.csv", "search_utility_execution_batch_packets"),
     ("corpus_action_worklist.csv", "corpus_action_worklist"),

@@ -882,6 +882,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/source_quality_policy_action_packets.csv",
+        "source_quality_policy_action_packet_ledger",
+        "csv",
+        "source_quality_policy_action_packets",
+        True,
+    ),
+    (
         "artifacts/data/search_utility_execution_batches.csv",
         "source_quality_execution_batch_ledger",
         "csv",
