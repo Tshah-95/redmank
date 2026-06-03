@@ -1,0 +1,27 @@
+{
+  "acceptance_policy": "Dossiers are non-mutating. A verified contact fact still requires an explicit reviewer decision with the current contact_fingerprint, current official reobservation URL/date, and all confirmation fields.",
+  "accepted_contacts_csv": "artifacts/data/accepted_verified_contact_facts.csv",
+  "by_decision_status": {
+    "not_ready_for_reviewer_decision": 1,
+    "pending_reviewer_decision": 312
+  },
+  "by_queue_status": {
+    "domain_review_required_before_decision": 1,
+    "ready_for_reviewer_verification": 312
+  },
+  "by_reobservation_status": {
+    "fresh_official_same_value_reobserved": 205,
+    "fresh_official_value_absent": 108
+  },
+  "by_verification_lane": {
+    "domain_review_before_contact_use": 1,
+    "fresh_official_reobservation_required": 312
+  },
+  "dossier_csv": "artifacts/data/contact_verification_reviewer_decision_dossiers.csv",
+  "dossier_rows": 313,
+  "generated_at": "2026-06-03T07:55:22.717543+00:00",
+  "manual_decision_csv": "artifacts/data/contact_verification_reviewer_decisions.csv",
+  "manual_decision_template_rows": 313,
+  "pending_reviewer_decision_rows": 312,
+  "ready_for_reviewer_verification_rows": 312
+}

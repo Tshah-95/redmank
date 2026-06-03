@@ -663,6 +663,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/contact_verification_reviewer_decision_dossiers.csv",
+        "contact_verification_reviewer_decision_dossier_ledger",
+        "csv",
+        "contact_verification_reviewer_decision_dossiers",
+        True,
+    ),
+    (
         "artifacts/data/accepted_verified_contact_facts.csv",
         "accepted_verified_contact_ledger",
         "csv",

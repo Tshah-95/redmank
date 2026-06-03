@@ -406,6 +406,14 @@ def main() -> None:
         ARTIFACTS / "person_evidence_review_dossiers.csv",
         limit=25,
     )
+    contact_reviewer_dossier_summary = read_json(
+        ARTIFACTS / "contact_verification_reviewer_decision_dossier_summary.json",
+        {},
+    )
+    top_contact_reviewer_dossiers = read_csv(
+        ARTIFACTS / "contact_verification_reviewer_decision_dossiers.csv",
+        limit=25,
+    )
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
@@ -657,6 +665,8 @@ def main() -> None:
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
+        "contact_reviewer_dossier_summary": contact_reviewer_dossier_summary,
+        "top_contact_reviewer_dossiers": top_contact_reviewer_dossiers,
         "accepted_contact_counts": accepted_contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
@@ -1607,6 +1617,24 @@ def main() -> None:
         *md_table(contact_assurance_counts, ["assurance_status", "display_safety_status", "required_next_check", "count", "avg_confidence"]),
         "",
         *md_table(contact_reviewer_decision_counts, ["decision_status", "reviewer_decision", "count"]),
+        "",
+        "Reviewer decision dossiers:",
+        "",
+        f"Dossier rows: {contact_reviewer_dossier_summary.get('dossier_rows', 0)}. Pending decisions: {contact_reviewer_dossier_summary.get('pending_reviewer_decision_rows', 0)}. Review-ready rows: {contact_reviewer_dossier_summary.get('ready_for_reviewer_verification_rows', 0)}.",
+        "",
+        *md_table(
+            top_contact_reviewer_dossiers,
+            [
+                "display_name",
+                "role",
+                "contact_type",
+                "domain_status",
+                "queue_status",
+                "decision_status",
+                "decision_blocker",
+                "recommended_next_action",
+            ],
+        ),
         "",
         *md_table(accepted_contact_counts, ["contact_type", "display_safety_status", "operational_use_status", "count"]),
         "",

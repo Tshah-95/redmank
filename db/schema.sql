@@ -2620,6 +2620,45 @@ CREATE TABLE IF NOT EXISTS contact_verification_reviewer_decision_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS contact_verification_reviewer_decision_dossiers (
+  dossier_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES contact_verification_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  contact_contract_key TEXT NOT NULL REFERENCES contact_verification_contracts(contact_contract_key) ON DELETE CASCADE,
+  contact_assurance_key TEXT REFERENCES contact_assurance_audit(contact_assurance_key) ON DELETE CASCADE,
+  contact_key TEXT REFERENCES person_contacts(contact_key) ON DELETE CASCADE,
+  person_key TEXT REFERENCES people(person_key) ON DELETE SET NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  contact_type TEXT NOT NULL,
+  normalized_contact_value TEXT NOT NULL,
+  contact_domain TEXT,
+  canonical_contact_domain TEXT,
+  domain_status TEXT NOT NULL,
+  source_key TEXT,
+  source_url TEXT,
+  source_type TEXT,
+  source_assurance_class TEXT NOT NULL,
+  verification_lane TEXT NOT NULL,
+  queue_status TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  decision_blocker TEXT NOT NULL,
+  verification_confidence REAL NOT NULL DEFAULT 0.0,
+  operational_use_status TEXT NOT NULL,
+  reobservation_status TEXT NOT NULL,
+  reobserved_same_value INTEGER NOT NULL DEFAULT 0,
+  reobserved_at TEXT,
+  reobservation_evidence_strength INTEGER NOT NULL DEFAULT 0,
+  review_question TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  required_confirmation_fields TEXT NOT NULL,
+  manual_decision_template_json TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS accepted_verified_contact_facts (
   accepted_contact_key TEXT PRIMARY KEY,
   reviewer_decision_key TEXT NOT NULL REFERENCES contact_verification_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,

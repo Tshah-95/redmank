@@ -358,9 +358,18 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
 
 def contact_actions(generated_at: str) -> list[dict]:
     rows = []
+    dossier_path = ARTIFACTS / "contact_verification_reviewer_decision_dossiers.csv"
     decision_queue_path = ARTIFACTS / "contact_verification_reviewer_decision_queue.csv"
     contract_path = ARTIFACTS / "contact_verification_contracts.csv"
-    source_path = decision_queue_path if decision_queue_path.exists() else contract_path if contract_path.exists() else ARTIFACTS / "contact_assurance_audit.csv"
+    source_path = (
+        dossier_path
+        if dossier_path.exists()
+        else decision_queue_path
+        if decision_queue_path.exists()
+        else contract_path
+        if contract_path.exists()
+        else ARTIFACTS / "contact_assurance_audit.csv"
+    )
     source = str(source_path.relative_to(ROOT))
     for item in read_csv(source_path):
         status = item.get("queue_status") or item.get("verification_lane") or item.get("assurance_status") or ""
@@ -386,18 +395,25 @@ def contact_actions(generated_at: str) -> list[dict]:
                 priority=base_priority + as_int(item.get("assurance_level")) * 10,
                 impact_count=1,
                 readiness_status=item.get("operational_use_status") or item.get("display_safety_status") or "",
-                blocker_status=item.get("queue_status") or item.get("required_reviewer_action") or item.get("required_next_check") or "",
-                required_next_evidence=item.get("evidence_required_to_verify") or "Verify current official source, person identity, contact domain, and intended contact scope before treating as a verified contact fact.",
+                blocker_status=item.get("decision_blocker")
+                or item.get("queue_status")
+                or item.get("required_reviewer_action")
+                or item.get("required_next_check")
+                or "",
+                required_next_evidence=item.get("evidence_required_to_verify")
+                or item.get("acceptance_boundary")
+                or "Verify current official source, person identity, contact domain, and intended contact scope before treating as a verified contact fact.",
                 recommended_next_action=item.get("recommended_next_action") or item.get("required_reviewer_action") or "",
                 source_artifact=source,
                 target_artifact=(
                     "artifacts/data/contact_verification_reviewer_decisions.csv"
-                    if source_path == decision_queue_path
+                    if source_path in {decision_queue_path, dossier_path}
                     else "artifacts/data/contact_verification_contracts.csv"
                 ),
                 downstream_tables=[
                     "contact_verification_reviewer_decision_queue",
                     "contact_verification_reviewer_decision_audit",
+                    "contact_verification_reviewer_decision_dossiers",
                     "accepted_verified_contact_facts",
                     "contact_verification_contracts",
                     "contact_assurance_audit",
@@ -417,10 +433,14 @@ def contact_actions(generated_at: str) -> list[dict]:
                     "if_reobserved_same_value_change_type": item.get("if_reobserved_same_value_change_type"),
                     "if_missing_on_refresh_change_type": item.get("if_missing_on_refresh_change_type"),
                     "review_question": item.get("review_question"),
+                    "decision_status": item.get("decision_status"),
+                    "decision_blocker": item.get("decision_blocker"),
+                    "manual_decision_template_json": item.get("manual_decision_template_json"),
                     "reobservation_status": reobservation.get("reobservation_status"),
                     "reobserved_same_value": reobservation.get("reobserved_same_value"),
-                    "reobserved_at": reobservation.get("reobserved_at"),
-                    "reobservation_evidence_strength": reobservation.get("evidence_strength"),
+                    "reobserved_at": item.get("reobserved_at") or reobservation.get("reobserved_at"),
+                    "reobservation_evidence_strength": item.get("reobservation_evidence_strength")
+                    or reobservation.get("evidence_strength"),
                 },
                 generated_at=generated_at,
             )
