@@ -459,6 +459,9 @@ def write_csv(path: Path, rows: list[dict], fields: list[str]) -> None:
 
 def write_db_table(conn: sqlite3.Connection, table: str, rows: list[dict], fields: list[str]) -> None:
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    if table == "person_enrichment_execution_readiness":
+        conn.execute("DELETE FROM person_enrichment_execution_batch_packets")
+        conn.execute("DELETE FROM person_enrichment_execution_batches")
     conn.execute(f"DELETE FROM {table}")
     if not rows:
         return

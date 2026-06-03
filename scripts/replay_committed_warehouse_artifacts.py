@@ -103,6 +103,7 @@ CSV_TABLES = [
     ("person_enrichment_execution_readiness.csv", "person_enrichment_execution_readiness"),
     ("person_enrichment_execution_readiness_rollups.csv", "person_enrichment_execution_readiness_rollups"),
     ("person_enrichment_execution_batches.csv", "person_enrichment_execution_batches"),
+    ("person_enrichment_execution_batch_packets.csv", "person_enrichment_execution_batch_packets"),
     ("person_enrichment_dossiers.csv", "person_enrichment_dossiers"),
     ("person_enrichment_action_packets.csv", "person_enrichment_action_packets"),
     ("person_enrichment_action_batches.csv", "person_enrichment_action_batches"),

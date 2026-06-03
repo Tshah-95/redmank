@@ -39,7 +39,7 @@
     "source_residency_background": 1
   },
   "csv": "artifacts/data/person_enrichment_execution_batches.csv",
-  "generated_at": "2026-06-03T11:45:52.928249+00:00",
+  "generated_at": "2026-06-03T12:00:50.273684+00:00",
   "impact_count_policy": "Summed across batches, not deduplicated unique people; a person can correctly appear in multiple enrichment batches.",
   "json": "artifacts/data/person_enrichment_execution_batches.json",
   "manual_review_batch_rows": 7,

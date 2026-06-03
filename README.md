@@ -50,6 +50,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_enrichment_execution_readiness_summary.json`: one-glance counts for runnable collector lanes, manual-review burden, script-extension gaps, and new-parser gaps.
 - `artifacts/data/person_enrichment_execution_batches.csv`: resumable execution batches over enrichment-readiness rows, preserving command hints, evidence requirements, provenance policy, and top people per batch.
 - `artifacts/data/person_enrichment_execution_batch_summary.json`: execution-batch counts by task type, source family, priority band, execution lane, and batch status.
+- `artifacts/data/person_enrichment_execution_batch_packets.csv`: per-readiness support packets for person-enrichment execution batches, preserving person/task keys, collector requirements, target ledgers, and packet-level next actions without duplicating the full readiness evidence blob.
+- `artifacts/data/person_enrichment_execution_batch_packet_summary.json`: packet counts by task type, source family, execution lane, packet status, and support status.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
 - `artifacts/data/penn_gme_program_universe.json`: official HUP GME program denominator parsed from the public Penn Medicine program list.
 - `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
@@ -248,7 +250,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
 - The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
 - The worklist consumes `search_utility_execution_batch_packets.csv` when available while retaining one row per search execution batch, so search assurance gaps stay bounded but expose exact query, retry, and candidate-probe packet support; if packet support is absent it falls back to execution batches, then the four-row utility assurance ledger.
-- The worklist consumes `person_enrichment_execution_batches.csv` when available, so enrichment execution starts from the resumable collector/manual-review batch manifest instead of regrouping raw queue rows.
+- The worklist consumes `person_enrichment_execution_batch_packets.csv` when available while retaining one row per execution batch, so enrichment execution starts from resumable collector/manual-review batches but exposes per-person readiness packet support; if packet support is absent it falls back to execution batches, then grouped queue rows.
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
 - The worklist consumes the refresh execution audit to down-rank ready roster batches that were already refreshed with no state delta, while keeping parser-support blockers visible.
@@ -299,6 +301,8 @@ python3 scripts/build_sqlite.py
 python3 scripts/audit_penn_med_student_sources.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
+python3 scripts/materialize_person_enrichment_execution_batches.py
+python3 scripts/materialize_person_enrichment_execution_batch_packets.py
 python3 scripts/discover_organization_identifier_candidates.py --limit 80 --min-mentions 4 --candidates-per-org 3 --sleep 0.05
 ```
 
@@ -335,6 +339,8 @@ python3 scripts/materialize_official_program_coverage_batch_packets.py
 python3 scripts/audit_official_program_alias_reconciliation.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
+python3 scripts/materialize_person_enrichment_execution_batches.py
+python3 scripts/materialize_person_enrichment_execution_batch_packets.py
 python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only pubmed --skip-existing-source pubmed_eutilities --sleep 0.34
 python3 scripts/collect_research_candidates.py --from-queue --roles resident,fellow,medical_student --only openalex --skip-existing-source pubmed_eutilities --sleep 0.05 --request-timeout 5 --request-attempts 2 --progress-every 25
 python3 scripts/collect_pubmed_article_candidates.py --sleep 0.34 --batch-size 100
@@ -362,6 +368,8 @@ python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py
+python3 scripts/materialize_person_enrichment_execution_batches.py
+python3 scripts/materialize_person_enrichment_execution_batch_packets.py
 python3 scripts/collect_npi_candidates.py --sleep 0.03
 python3 scripts/audit_reconciliation_decisions.py --as-of-year 2026
 python3 scripts/audit_attending_trend_linkage.py --as-of-year 2026

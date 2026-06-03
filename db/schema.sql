@@ -3646,6 +3646,46 @@ CREATE TABLE IF NOT EXISTS person_enrichment_execution_batches (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS person_enrichment_execution_batch_packets (
+  person_enrichment_execution_batch_packet_key TEXT PRIMARY KEY,
+  batch_key TEXT NOT NULL REFERENCES person_enrichment_execution_batches(batch_key),
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  batch_packet_order INTEGER NOT NULL DEFAULT 0,
+  readiness_key TEXT NOT NULL REFERENCES person_enrichment_execution_readiness(readiness_key),
+  task_key TEXT NOT NULL,
+  person_key TEXT NOT NULL,
+  display_name TEXT,
+  role TEXT,
+  program_name TEXT,
+  task_type TEXT NOT NULL,
+  source_family TEXT NOT NULL,
+  priority INTEGER NOT NULL DEFAULT 0,
+  priority_band TEXT NOT NULL,
+  execution_lane TEXT NOT NULL,
+  automation_status TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  support_status TEXT NOT NULL,
+  requires_network INTEGER NOT NULL DEFAULT 0,
+  requires_manual_review INTEGER NOT NULL DEFAULT 0,
+  requires_script_extension INTEGER NOT NULL DEFAULT 0,
+  requires_new_parser INTEGER NOT NULL DEFAULT 0,
+  existing_collector TEXT,
+  command_hint TEXT,
+  input_artifacts_json TEXT NOT NULL,
+  output_artifacts_json TEXT NOT NULL,
+  expected_claim_types_json TEXT NOT NULL,
+  evidence_requirement TEXT NOT NULL,
+  next_system_action TEXT NOT NULL,
+  readiness_reason TEXT,
+  target_artifact TEXT NOT NULL,
+  recommended_packet_action TEXT NOT NULL,
+  source_row_json TEXT NOT NULL,
+  batch_evidence_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_enrichment_action_packets (
   action_packet_key TEXT PRIMARY KEY,
   person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,

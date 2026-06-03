@@ -1,0 +1,272 @@
+{
+  "batch_count": 8,
+  "by_execution_lane": {
+    "collector_then_manual_normalization": 617,
+    "collector_with_reconciliation_required": 1522,
+    "dependent_on_roster_or_profile_refresh": 1256,
+    "queue_driven_collector_available": 2072,
+    "reviewer_decision_required": 875
+  },
+  "by_packet_status": {
+    "manual_review_packet": 875,
+    "network_collection_packet": 2004,
+    "network_collection_then_manual_review_packet": 3463
+  },
+  "by_source_family": {
+    "contact": 1256,
+    "normalization": 617,
+    "official_profile": 608,
+    "official_roster": 1522,
+    "prior_training": 321,
+    "research": 1143,
+    "review_queue": 875
+  },
+  "by_support_status": {
+    "ready_for_collection": 2004,
+    "ready_for_collection_then_reviewer_decision": 3463,
+    "ready_for_reviewer_decision": 875
+  },
+  "by_task_type": {
+    "current_roster_state_reconciliation": 1522,
+    "evidence_reconciliation_review": 875,
+    "official_profile_search": 608,
+    "organization_alias_review": 617,
+    "public_contact_verification": 1256,
+    "research_identity_search": 1143,
+    "source_medical_school_background": 231,
+    "source_residency_background": 90
+  },
+  "csv": "artifacts/data/person_enrichment_execution_batch_packets.csv",
+  "generated_at": "2026-06-03T12:00:50.307665+00:00",
+  "json": "artifacts/data/person_enrichment_execution_batch_packets.json",
+  "packet_rows": 6342,
+  "person_count": 1535,
+  "policy": "Person enrichment execution batch packets expose per-readiness execution work without accepting collector or reviewer outputs as facts.",
+  "top_packets": [
+    {
+      "batch_packet_order": 1,
+      "display_name": "Aardra Rajendran, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 2,
+      "display_name": "Aaron Cheng, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 3,
+      "display_name": "Abdalnasir Limay, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 4,
+      "display_name": "Abhishek Gami, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 5,
+      "display_name": "Adam S. Vesole, M.D.",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 6,
+      "display_name": "Adam Tuchinsky, DO",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 7,
+      "display_name": "Adrian Alonzo, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 8,
+      "display_name": "Ahmed Alsayed, MBBS",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 9,
+      "display_name": "Ahmed Beydoun, M.D.",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 10,
+      "display_name": "Ahmed Beydoun, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 11,
+      "display_name": "Ahmed Moawad, MBBCh",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 12,
+      "display_name": "Aili Klein, MD, PhD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 13,
+      "display_name": "Alan Tang, MD, PhD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_then_route_output_to_reviewer_ledger",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection_then_reviewer_decision",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 14,
+      "display_name": "Alejandro Suarez-Pierre, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 15,
+      "display_name": "Alex Qin, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 16,
+      "display_name": "Alexa L. Carreras, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 17,
+      "display_name": "Alexa Tabackman, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 18,
+      "display_name": "Alexander Mazal, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 19,
+      "display_name": "Alexander Ortiz, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 20,
+      "display_name": "Alexandra Leto, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 21,
+      "display_name": "Alexandria N. Young, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 22,
+      "display_name": "Ali Nabavizadeh, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 23,
+      "display_name": "Allan Huang, MD",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 24,
+      "display_name": "Allan Stolarski, MD, MS",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    },
+    {
+      "batch_packet_order": 25,
+      "display_name": "Allison Reeder, M.D.",
+      "execution_order": 1,
+      "recommended_packet_action": "run_collector_and_record_source_observation",
+      "source_family": "official_roster",
+      "support_status": "ready_for_collection",
+      "task_type": "current_roster_state_reconciliation"
+    }
+  ]
+}

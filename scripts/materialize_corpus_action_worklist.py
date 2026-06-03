@@ -1538,7 +1538,16 @@ def enrichment_queue_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "person_enrichment_execution_batches.csv"
     if batch_path.exists():
         rows = []
-        source = "artifacts/data/person_enrichment_execution_batches.csv"
+        batch_packet_path = ARTIFACTS / "person_enrichment_execution_batch_packets.csv"
+        source = (
+            "artifacts/data/person_enrichment_execution_batch_packets.csv"
+            if batch_packet_path.exists()
+            else "artifacts/data/person_enrichment_execution_batches.csv"
+        )
+        packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if batch_packet_path.exists():
+            for packet in read_csv(batch_packet_path):
+                packets_by_batch[packet.get("batch_key") or ""].append(packet)
         roster_workbench_exists = (ARTIFACTS / "official_roster_refresh_workbench.csv").exists()
         evidence_triage_exists = (ARTIFACTS / "person_evidence_review_triage.csv").exists()
         profile_workbench_exists = (ARTIFACTS / "official_profile_discovery_workbench.csv").exists()
@@ -1550,6 +1559,7 @@ def enrichment_queue_actions(generated_at: str) -> list[dict]:
                 continue
             if profile_workbench_exists and task_type == "official_profile_search":
                 continue
+            batch_packets = packets_by_batch.get(item.get("batch_key") or "", [])
             priority = as_int(item.get("max_priority")) * 10 + min(as_int(item.get("person_count")), 250)
             rows.append(
                 row(
@@ -1579,6 +1589,7 @@ def enrichment_queue_actions(generated_at: str) -> list[dict]:
                     target_artifact="artifacts/data/person_enrichment_execution_readiness.csv",
                     downstream_tables=[
                         "person_enrichment_execution_batches",
+                        "person_enrichment_execution_batch_packets",
                         "person_enrichment_execution_readiness",
                         "person_enrichment_work_queue",
                         "person_enrichment_dossiers",
@@ -1614,6 +1625,31 @@ def enrichment_queue_actions(generated_at: str) -> list[dict]:
                         "recency_policy": item.get("recency_policy"),
                         "provenance_policy": item.get("provenance_policy"),
                         "top_people": parse_json(item.get("top_people_json"), []),
+                        "person_enrichment_execution_batch_packet_rows": len(batch_packets),
+                        "top_packet_support_statuses": sorted(
+                            {
+                                packet.get("support_status")
+                                for packet in batch_packets
+                                if packet.get("support_status")
+                            }
+                        )[:12],
+                        "top_person_enrichment_execution_batch_packets": [
+                            {
+                                "person_enrichment_execution_batch_packet_key": packet.get(
+                                    "person_enrichment_execution_batch_packet_key"
+                                ),
+                                "batch_packet_order": packet.get("batch_packet_order"),
+                                "readiness_key": packet.get("readiness_key"),
+                                "task_key": packet.get("task_key"),
+                                "person_key": packet.get("person_key"),
+                                "display_name": packet.get("display_name"),
+                                "task_type": packet.get("task_type"),
+                                "support_status": packet.get("support_status"),
+                                "target_artifact": packet.get("target_artifact"),
+                                "recommended_packet_action": packet.get("recommended_packet_action"),
+                            }
+                            for packet in batch_packets[:10]
+                        ],
                     },
                     generated_at=generated_at,
                 )

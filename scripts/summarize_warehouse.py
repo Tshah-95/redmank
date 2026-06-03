@@ -61,6 +61,7 @@ def main() -> None:
         "person_enrichment_execution_readiness",
         "person_enrichment_execution_readiness_rollups",
         "person_enrichment_execution_batches",
+        "person_enrichment_execution_batch_packets",
         "person_enrichment_action_packets",
         "person_enrichment_action_batches",
         "person_enrichment_action_batch_members",
@@ -1594,6 +1595,36 @@ def main() -> None:
             """
         )
     }
+    person_enrichment_execution_batch_packet_status_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM person_enrichment_execution_batch_packets
+            GROUP BY packet_status
+            """
+        )
+    }
+    person_enrichment_execution_batch_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM person_enrichment_execution_batch_packets
+            GROUP BY support_status
+            """
+        )
+    }
+    person_enrichment_execution_batch_packet_task_counts = {
+        row["task_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT task_type, COUNT(*) AS count
+            FROM person_enrichment_execution_batch_packets
+            GROUP BY task_type
+            """
+        )
+    }
     category_counts = {
         row["category"]: row["count"]
         for row in conn.execute("SELECT category, COUNT(*) AS count FROM organizations GROUP BY category")
@@ -1892,6 +1923,15 @@ def main() -> None:
         )
     else:
         person_enrichment_execution_batch_summary = {}
+    person_enrichment_execution_batch_packet_summary_path = (
+        ARTIFACTS / "person_enrichment_execution_batch_packet_summary.json"
+    )
+    if person_enrichment_execution_batch_packet_summary_path.exists():
+        person_enrichment_execution_batch_packet_summary = json.loads(
+            person_enrichment_execution_batch_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        person_enrichment_execution_batch_packet_summary = {}
     person_enrichment_action_packet_summary_path = ARTIFACTS / "person_enrichment_action_packet_summary.json"
     if person_enrichment_action_packet_summary_path.exists():
         person_enrichment_action_packet_summary = json.loads(
@@ -2230,6 +2270,9 @@ def main() -> None:
         "person_enrichment_execution_batch_status_counts": person_enrichment_execution_batch_status_counts,
         "person_enrichment_execution_batch_task_counts": person_enrichment_execution_batch_task_counts,
         "person_enrichment_execution_batch_lane_counts": person_enrichment_execution_batch_lane_counts,
+        "person_enrichment_execution_batch_packet_status_counts": person_enrichment_execution_batch_packet_status_counts,
+        "person_enrichment_execution_batch_packet_support_counts": person_enrichment_execution_batch_packet_support_counts,
+        "person_enrichment_execution_batch_packet_task_counts": person_enrichment_execution_batch_packet_task_counts,
         "organization_identifier_candidate_counts": organization_identifier_candidate_counts,
         "medical_student_source_audit_counts": medical_student_source_audit_counts,
         "organization_category_counts": category_counts,
@@ -2274,6 +2317,7 @@ def main() -> None:
         "person_enrichment_dossier_summary": person_enrichment_dossier_summary,
         "person_enrichment_execution_readiness_summary": person_enrichment_execution_readiness_summary,
         "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,
+        "person_enrichment_execution_batch_packet_summary": person_enrichment_execution_batch_packet_summary,
         "person_enrichment_action_packet_summary": person_enrichment_action_packet_summary,
         "person_enrichment_action_batch_summary": person_enrichment_action_batch_summary,
         "person_enrichment_action_batch_member_summary": person_enrichment_action_batch_member_summary,

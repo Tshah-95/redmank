@@ -64,6 +64,7 @@ PIPELINE = [
     ["python3", "scripts/generate_enrichment_queue.py"],
     ["python3", "scripts/materialize_person_enrichment_execution_readiness.py"],
     ["python3", "scripts/materialize_person_enrichment_execution_batches.py"],
+    ["python3", "scripts/materialize_person_enrichment_execution_batch_packets.py"],
     ["python3", "scripts/materialize_official_profile_discovery_workbench.py"],
     ["python3", "scripts/materialize_official_profile_discovery_batches.py"],
     ["python3", "scripts/materialize_official_profile_reviewer_decisions.py"],

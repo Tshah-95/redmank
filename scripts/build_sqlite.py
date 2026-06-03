@@ -2237,6 +2237,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "person_enrichment_work_queue",
         "person_enrichment_execution_readiness",
         "person_enrichment_execution_readiness_rollups",
+        "person_enrichment_execution_batches",
+        "person_enrichment_execution_batch_packets",
         "person_enrichment_action_packets",
         "person_enrichment_action_batches",
         "person_enrichment_action_batch_members",

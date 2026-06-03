@@ -394,6 +394,14 @@ def main() -> None:
         ARTIFACTS / "source_quality_policy_recommendation_summary.json",
         {},
     )
+    person_enrichment_execution_batch_summary = read_json(
+        ARTIFACTS / "person_enrichment_execution_batch_summary.json",
+        {},
+    )
+    person_enrichment_execution_batch_packet_summary = read_json(
+        ARTIFACTS / "person_enrichment_execution_batch_packet_summary.json",
+        {},
+    )
     person_enrichment_action_execution_plan_summary = read_json(
         ARTIFACTS / "person_enrichment_action_execution_plan_summary.json",
         {},
@@ -544,6 +552,14 @@ def main() -> None:
     source_quality_policy_recommendations = read_csv(
         ARTIFACTS / "source_quality_policy_recommendations.csv",
         limit=30,
+    )
+    top_person_enrichment_execution_batches = read_csv(
+        ARTIFACTS / "person_enrichment_execution_batches.csv",
+        limit=25,
+    )
+    top_person_enrichment_execution_batch_packets = read_csv(
+        ARTIFACTS / "person_enrichment_execution_batch_packets.csv",
+        limit=25,
     )
     top_person_enrichment_action_member_execution_dossiers = read_csv(
         ARTIFACTS / "person_enrichment_action_member_execution_dossiers.csv",
@@ -843,6 +859,10 @@ def main() -> None:
         "source_utility_scorecard": source_utility_scorecard,
         "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,
         "source_quality_policy_recommendations": source_quality_policy_recommendations,
+        "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,
+        "top_person_enrichment_execution_batches": top_person_enrichment_execution_batches,
+        "person_enrichment_execution_batch_packet_summary": person_enrichment_execution_batch_packet_summary,
+        "top_person_enrichment_execution_batch_packets": top_person_enrichment_execution_batch_packets,
         "person_enrichment_action_execution_plan_summary": person_enrichment_action_execution_plan_summary,
         "top_person_enrichment_action_execution_plans": top_person_enrichment_action_execution_plans,
         "person_enrichment_action_member_execution_dossier_summary": person_enrichment_action_member_execution_dossier_summary,
@@ -1357,6 +1377,38 @@ def main() -> None:
         ),
         "",
         "Learning: utility performance now has an explicit policy translation layer. Search hits remain discovery-only, strong official/profile sources still need surface-specific acceptance gates, and attending-trend utilities are flagged separately so current-attending endpoints do not outrun historical Penn-training bridge evidence.",
+        "",
+        "## Person Enrichment Execution Batches",
+        "",
+        f"Batch rows: {person_enrichment_execution_batch_summary.get('batch_rows', 0)}. Task rows: {person_enrichment_execution_batch_summary.get('task_rows', 0)}. Ready batches: {person_enrichment_execution_batch_summary.get('ready_batch_rows', 0)}. Packet rows: {person_enrichment_execution_batch_packet_summary.get('packet_rows', 0)}.",
+        "",
+        *md_table(
+            top_person_enrichment_execution_batches,
+            [
+                "execution_order",
+                "task_type",
+                "source_family",
+                "priority_band",
+                "batch_status",
+                "task_count",
+                "person_count",
+                "next_system_action",
+            ],
+        ),
+        "",
+        *md_table(
+            top_person_enrichment_execution_batch_packets,
+            [
+                "execution_order",
+                "batch_packet_order",
+                "task_type",
+                "source_family",
+                "display_name",
+                "support_status",
+                "target_artifact",
+                "recommended_packet_action",
+            ],
+        ),
         "",
         "## Person Enrichment Action Execution",
         "",
