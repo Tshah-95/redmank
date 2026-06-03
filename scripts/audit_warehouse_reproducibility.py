@@ -691,6 +691,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/contact_verification_batches.csv",
+        "contact_verification_batch_ledger",
+        "csv",
+        "contact_verification_batches",
+        True,
+    ),
+    (
         "artifacts/data/accepted_verified_contact_facts.csv",
         "accepted_verified_contact_ledger",
         "csv",

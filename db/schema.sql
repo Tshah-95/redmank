@@ -2779,6 +2779,41 @@ CREATE TABLE IF NOT EXISTS contact_verification_reviewer_decision_dossiers (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS contact_verification_batches (
+  contact_verification_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  queue_status TEXT NOT NULL,
+  verification_lane TEXT NOT NULL,
+  reobservation_status TEXT NOT NULL,
+  role TEXT,
+  canonical_contact_domain TEXT,
+  source_assurance_class TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  ready_to_review INTEGER NOT NULL DEFAULT 0,
+  contact_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  same_value_reobserved_count INTEGER NOT NULL DEFAULT 0,
+  value_absent_count INTEGER NOT NULL DEFAULT 0,
+  pending_decision_count INTEGER NOT NULL DEFAULT 0,
+  not_ready_count INTEGER NOT NULL DEFAULT 0,
+  domain_review_count INTEGER NOT NULL DEFAULT 0,
+  min_verification_confidence REAL NOT NULL DEFAULT 0.0,
+  max_verification_confidence REAL NOT NULL DEFAULT 0.0,
+  contact_type_counts_json TEXT NOT NULL,
+  source_key_counts_json TEXT NOT NULL,
+  domain_status_counts_json TEXT NOT NULL,
+  top_display_names TEXT,
+  top_source_urls TEXT,
+  required_confirmation_fields TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  review_instructions TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  top_dossiers_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS accepted_verified_contact_facts (
   accepted_contact_key TEXT PRIMARY KEY,
   reviewer_decision_key TEXT NOT NULL REFERENCES contact_verification_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,

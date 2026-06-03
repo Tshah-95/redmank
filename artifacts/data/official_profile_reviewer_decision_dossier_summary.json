@@ -13,7 +13,7 @@
   },
   "dossier_csv": "artifacts/data/official_profile_reviewer_decision_dossiers.csv",
   "dossier_rows": 27,
-  "generated_at": "2026-06-03T08:49:22.911823+00:00",
+  "generated_at": "2026-06-03T08:59:22.688620+00:00",
   "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
   "manual_decision_template_rows": 27,
   "pending_reviewer_decision_rows": 27,

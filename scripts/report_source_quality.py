@@ -442,8 +442,16 @@ def main() -> None:
         ARTIFACTS / "contact_verification_reviewer_decision_dossier_summary.json",
         {},
     )
+    contact_verification_batch_summary = read_json(
+        ARTIFACTS / "contact_verification_batch_summary.json",
+        {},
+    )
     top_contact_reviewer_dossiers = read_csv(
         ARTIFACTS / "contact_verification_reviewer_decision_dossiers.csv",
+        limit=25,
+    )
+    top_contact_verification_batches = read_csv(
+        ARTIFACTS / "contact_verification_batches.csv",
         limit=25,
     )
     top_official_profile_reviewer_dossiers = read_csv(
@@ -732,7 +740,9 @@ def main() -> None:
         "contact_assurance_counts": contact_assurance_counts,
         "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
         "contact_reviewer_dossier_summary": contact_reviewer_dossier_summary,
+        "contact_verification_batch_summary": contact_verification_batch_summary,
         "top_contact_reviewer_dossiers": top_contact_reviewer_dossiers,
+        "top_contact_verification_batches": top_contact_verification_batches,
         "accepted_contact_counts": accepted_contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
@@ -1790,6 +1800,23 @@ def main() -> None:
         *md_table(contact_assurance_counts, ["assurance_status", "display_safety_status", "required_next_check", "count", "avg_confidence"]),
         "",
         *md_table(contact_reviewer_decision_counts, ["decision_status", "reviewer_decision", "count"]),
+        "",
+        "Contact verification batches:",
+        "",
+        f"Batch rows: {contact_verification_batch_summary.get('batch_rows', 0)}. Contacts covered: {contact_verification_batch_summary.get('contact_count', 0)}. Same-value reobserved: {contact_verification_batch_summary.get('same_value_reobserved_count', 0)}. Value absent: {contact_verification_batch_summary.get('value_absent_count', 0)}. Pending decisions: {contact_verification_batch_summary.get('pending_decision_count', 0)}. Not-ready contacts: {contact_verification_batch_summary.get('not_ready_count', 0)}.",
+        "",
+        *md_table(
+            top_contact_verification_batches,
+            [
+                "execution_order",
+                "batch_status",
+                "role",
+                "canonical_contact_domain",
+                "source_assurance_class",
+                "contact_count",
+                "recommended_operator_action",
+            ],
+        ),
         "",
         "Reviewer decision dossiers:",
         "",

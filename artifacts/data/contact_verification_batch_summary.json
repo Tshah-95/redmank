@@ -1,0 +1,163 @@
+{
+  "batch_rows": 12,
+  "by_batch_status": {
+    "blocked_before_contact_review": 1,
+    "missing_value_contact_review_ready": 5,
+    "same_value_contact_review_ready": 6
+  },
+  "by_reobservation_status": {
+    "fresh_official_same_value_reobserved": 6,
+    "fresh_official_value_absent": 6
+  },
+  "by_role": {
+    "current_penn_attending_candidate": 2,
+    "fellow": 3,
+    "medical_student": 6,
+    "resident": 1
+  },
+  "contact_count": 313,
+  "csv": "artifacts/data/contact_verification_batches.csv",
+  "domain_review_count": 1,
+  "generated_at": "2026-06-03T08:58:58.577006+00:00",
+  "json": "artifacts/data/contact_verification_batches.json",
+  "not_ready_count": 1,
+  "pending_decision_count": 312,
+  "person_count": 313,
+  "policy": "Contact batches are non-mutating reviewer sessions. Accepted contact facts still require explicit reviewer decisions with current fingerprints and confirmations.",
+  "same_value_reobserved_count": 205,
+  "top_batches": [
+    {
+      "batch_status": "blocked_before_contact_review",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 1,
+      "execution_order": 1,
+      "recommended_operator_action": "resolve_contact_domain_or_scope_blocker_before_review",
+      "role": "current_penn_attending_candidate",
+      "same_value_reobserved_count": 0,
+      "source_assurance_class": "official_profile_contact_candidate",
+      "value_absent_count": 1
+    },
+    {
+      "batch_status": "same_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 50,
+      "execution_order": 2,
+      "recommended_operator_action": "review_same_value_contact_batch_and_record_decisions",
+      "role": "medical_student",
+      "same_value_reobserved_count": 50,
+      "source_assurance_class": "official_public_student_directory_contact",
+      "value_absent_count": 0
+    },
+    {
+      "batch_status": "same_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 50,
+      "execution_order": 3,
+      "recommended_operator_action": "review_same_value_contact_batch_and_record_decisions",
+      "role": "medical_student",
+      "same_value_reobserved_count": 50,
+      "source_assurance_class": "official_public_student_directory_contact",
+      "value_absent_count": 0
+    },
+    {
+      "batch_status": "same_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 50,
+      "execution_order": 4,
+      "recommended_operator_action": "review_same_value_contact_batch_and_record_decisions",
+      "role": "medical_student",
+      "same_value_reobserved_count": 50,
+      "source_assurance_class": "official_public_student_directory_contact",
+      "value_absent_count": 0
+    },
+    {
+      "batch_status": "same_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 50,
+      "execution_order": 5,
+      "recommended_operator_action": "review_same_value_contact_batch_and_record_decisions",
+      "role": "medical_student",
+      "same_value_reobserved_count": 50,
+      "source_assurance_class": "official_public_student_directory_contact",
+      "value_absent_count": 0
+    },
+    {
+      "batch_status": "same_value_contact_review_ready",
+      "canonical_contact_domain": "upenn.edu",
+      "contact_count": 4,
+      "execution_order": 6,
+      "recommended_operator_action": "review_same_value_contact_batch_and_record_decisions",
+      "role": "medical_student",
+      "same_value_reobserved_count": 4,
+      "source_assurance_class": "official_public_student_directory_contact",
+      "value_absent_count": 0
+    },
+    {
+      "batch_status": "same_value_contact_review_ready",
+      "canonical_contact_domain": "wharton.upenn.edu",
+      "contact_count": 1,
+      "execution_order": 7,
+      "recommended_operator_action": "review_same_value_contact_batch_and_record_decisions",
+      "role": "medical_student",
+      "same_value_reobserved_count": 1,
+      "source_assurance_class": "official_public_student_directory_contact",
+      "value_absent_count": 0
+    },
+    {
+      "batch_status": "missing_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 33,
+      "execution_order": 8,
+      "recommended_operator_action": "review_missing_contact_batch_and_reject_or_defer",
+      "role": "current_penn_attending_candidate",
+      "same_value_reobserved_count": 0,
+      "source_assurance_class": "official_profile_contact_candidate",
+      "value_absent_count": 33
+    },
+    {
+      "batch_status": "missing_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 50,
+      "execution_order": 9,
+      "recommended_operator_action": "review_missing_contact_batch_and_reject_or_defer",
+      "role": "fellow",
+      "same_value_reobserved_count": 0,
+      "source_assurance_class": "official_current_or_gap_roster_contact",
+      "value_absent_count": 50
+    },
+    {
+      "batch_status": "missing_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 2,
+      "execution_order": 10,
+      "recommended_operator_action": "review_missing_contact_batch_and_reject_or_defer",
+      "role": "fellow",
+      "same_value_reobserved_count": 0,
+      "source_assurance_class": "official_current_or_gap_roster_contact",
+      "value_absent_count": 2
+    },
+    {
+      "batch_status": "missing_value_contact_review_ready",
+      "canonical_contact_domain": "upenn.edu",
+      "contact_count": 1,
+      "execution_order": 11,
+      "recommended_operator_action": "review_missing_contact_batch_and_reject_or_defer",
+      "role": "fellow",
+      "same_value_reobserved_count": 0,
+      "source_assurance_class": "official_current_or_gap_roster_contact",
+      "value_absent_count": 1
+    },
+    {
+      "batch_status": "missing_value_contact_review_ready",
+      "canonical_contact_domain": "pennmedicine.upenn.edu",
+      "contact_count": 21,
+      "execution_order": 12,
+      "recommended_operator_action": "review_missing_contact_batch_and_reject_or_defer",
+      "role": "resident",
+      "same_value_reobserved_count": 0,
+      "source_assurance_class": "official_current_or_gap_roster_contact",
+      "value_absent_count": 21
+    }
+  ],
+  "value_absent_count": 108
+}

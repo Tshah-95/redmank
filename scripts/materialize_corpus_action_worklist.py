@@ -388,6 +388,82 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
 
 def contact_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "contact_verification_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/contact_verification_batches.csv"
+        for item in read_csv(batch_path):
+            status = item.get("batch_status") or item.get("queue_status") or ""
+            if status == "blocked_before_contact_review":
+                base_priority = 720
+            elif status == "same_value_contact_review_ready":
+                base_priority = 350
+            elif status == "missing_value_contact_review_ready":
+                base_priority = 330
+            else:
+                base_priority = 320
+            rows.append(
+                row(
+                    action_surface="contact_verification",
+                    action_scope=f"{item.get('verification_lane') or ''}:{status}",
+                    entity_type="contact_verification_batch",
+                    entity_key=item.get("contact_verification_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("role"),
+                            item.get("canonical_contact_domain"),
+                            item.get("reobservation_status"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("role") or "",
+                    program_name="",
+                    priority=base_priority + min(as_int(item.get("contact_count")) * 2, 80),
+                    impact_count=max(as_int(item.get("contact_count")), as_int(item.get("person_count")), 1),
+                    readiness_status=status,
+                    blocker_status=item.get("reobservation_status") or item.get("queue_status") or "",
+                    required_next_evidence=item.get("acceptance_boundary") or item.get("review_instructions") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "artifacts/data/contact_verification_reviewer_decisions.csv",
+                    downstream_tables=[
+                        "contact_verification_batches",
+                        "contact_verification_reviewer_decision_dossiers",
+                        "contact_verification_reviewer_decision_queue",
+                        "contact_verification_reviewer_decision_audit",
+                        "accepted_verified_contact_facts",
+                        "contact_verification_contracts",
+                        "contact_reobservation_audit",
+                        "contact_assurance_audit",
+                        "person_contacts",
+                    ],
+                    evidence={
+                        "contact_verification_batch_key": item.get("contact_verification_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "queue_status": item.get("queue_status"),
+                        "verification_lane": item.get("verification_lane"),
+                        "reobservation_status": item.get("reobservation_status"),
+                        "canonical_contact_domain": item.get("canonical_contact_domain"),
+                        "source_assurance_class": item.get("source_assurance_class"),
+                        "contact_count": item.get("contact_count"),
+                        "person_count": item.get("person_count"),
+                        "same_value_reobserved_count": item.get("same_value_reobserved_count"),
+                        "value_absent_count": item.get("value_absent_count"),
+                        "pending_decision_count": item.get("pending_decision_count"),
+                        "not_ready_count": item.get("not_ready_count"),
+                        "domain_review_count": item.get("domain_review_count"),
+                        "contact_type_counts": parse_json(item.get("contact_type_counts_json"), {}),
+                        "source_key_counts": parse_json(item.get("source_key_counts_json"), {}),
+                        "domain_status_counts": parse_json(item.get("domain_status_counts_json"), {}),
+                        "top_display_names": item.get("top_display_names"),
+                        "top_dossiers": parse_json(item.get("top_dossiers_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     dossier_path = ARTIFACTS / "contact_verification_reviewer_decision_dossiers.csv"
     decision_queue_path = ARTIFACTS / "contact_verification_reviewer_decision_queue.csv"
     contract_path = ARTIFACTS / "contact_verification_contracts.csv"

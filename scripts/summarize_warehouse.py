@@ -124,6 +124,7 @@ def main() -> None:
         "contact_verification_reviewer_decision_queue",
         "contact_verification_reviewer_decision_audit",
         "contact_verification_reviewer_decision_dossiers",
+        "contact_verification_batches",
         "accepted_verified_contact_facts",
         "evidence_claims",
         "evidence_reconciliation_decisions",
