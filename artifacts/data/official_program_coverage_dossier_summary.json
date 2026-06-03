@@ -49,7 +49,7 @@
   "csv": "artifacts/data/official_program_coverage_dossiers.csv",
   "denominator_closed_or_accepted_alias_rows": 62,
   "dossier_rows": 91,
-  "generated_at": "2026-06-03T07:24:24.778351+00:00",
+  "generated_at": "2026-06-03T07:38:03.068340+00:00",
   "json": "artifacts/data/official_program_coverage_dossiers.json",
   "level_4_rows": 49,
   "official_program_count": 91,

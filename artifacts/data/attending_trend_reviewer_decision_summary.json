@@ -23,7 +23,7 @@
     "2021": 1,
     "2024": 1
   },
-  "generated_at": "2026-06-03T07:23:50.818485+00:00",
+  "generated_at": "2026-06-03T07:37:27.531848+00:00",
   "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
   "manual_decision_rows": 3,
   "pending_reviewer_decision_rows": 2,

@@ -1,0 +1,39 @@
+{
+  "blocked_dossier_rows": 9,
+  "by_decision_complexity": {
+    "blocked_upstream": 9,
+    "collector_execution": 453,
+    "multi_evidence_review": 618,
+    "official_profile_manual_review": 14,
+    "profile_discovery_execution": 267,
+    "single_packet_review": 174
+  },
+  "by_dossier_status": {
+    "blocked_upstream_not_ready": 9,
+    "pending_collector_execution": 720,
+    "pending_manual_review_execution": 806
+  },
+  "by_execution_risk_level": {
+    "high": 806,
+    "low": 720,
+    "medium": 9
+  },
+  "by_primary_action_lane": {
+    "enrichment_collector_execution": 453,
+    "official_profile_discovery": 267,
+    "official_profile_review": 14,
+    "person_evidence_review": 792,
+    "profile_search_retry": 9
+  },
+  "collector_execution_dossier_rows": 720,
+  "csv": "artifacts/data/person_enrichment_action_member_execution_dossiers.csv",
+  "decision_repair_dossier_rows": 0,
+  "dossier_rows": 1535,
+  "generated_at": "2026-06-03T07:37:55.768498+00:00",
+  "json": "artifacts/data/person_enrichment_action_member_execution_dossiers.json",
+  "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
+  "manual_review_dossier_rows": 806,
+  "pending_dossier_rows": 1526,
+  "policy": "Execution dossiers are operator templates over the fingerprinted execution ledger. They do not accept facts; they require routed downstream ledgers for factual enrichment.",
+  "ready_dossier_rows": 1526
+}

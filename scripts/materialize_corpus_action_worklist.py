@@ -1218,6 +1218,21 @@ def action_member_execution_actions(generated_at: str) -> list[dict]:
     audit_path = ARTIFACTS / "person_enrichment_action_member_execution_audit.csv"
     if not audit_path.exists():
         return []
+    dossier_path = ARTIFACTS / "person_enrichment_action_member_execution_dossiers.csv"
+    source = (
+        "artifacts/data/person_enrichment_action_member_execution_dossiers.csv"
+        if dossier_path.exists()
+        else "artifacts/data/person_enrichment_action_member_execution_audit.csv"
+    )
+    dossiers_by_group: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
+    if dossier_path.exists():
+        for dossier_row in read_csv(dossier_path):
+            key = (
+                dossier_row.get("action_batch_key") or "",
+                dossier_row.get("primary_action_lane") or "",
+                dossier_row.get("execution_status") or "",
+            )
+            dossiers_by_group[key].append(dossier_row)
     grouped: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
     for item in read_csv(audit_path):
         status = item.get("execution_status") or ""
@@ -1228,6 +1243,7 @@ def action_member_execution_actions(generated_at: str) -> list[dict]:
 
     rows = []
     for (batch_key, lane, status), group in grouped.items():
+        dossier_rows = dossiers_by_group.get((batch_key, lane, status), [])
         max_priority = max(as_int(item.get("packet_priority")) for item in group)
         priority = 760 + min(max_priority, 400)
         if status == "pending_execution_decision":
@@ -1261,11 +1277,12 @@ def action_member_execution_actions(generated_at: str) -> list[dict]:
                 blocker_status=status,
                 required_next_evidence="A matching member_fingerprint execution decision plus routed downstream source-specific artifacts when outputs are produced.",
                 recommended_next_action=sample.get("recommended_next_action") or "record_execution_decision_with_matching_member_fingerprint",
-                source_artifact="artifacts/data/person_enrichment_action_member_execution_audit.csv",
+                source_artifact=source,
                 target_artifact="artifacts/data/person_enrichment_action_member_execution_decisions.csv",
                 downstream_tables=[
                     "person_enrichment_action_member_execution_decisions",
                     "person_enrichment_action_member_execution_audit",
+                    "person_enrichment_action_member_execution_dossiers",
                     "person_evidence_reviewer_decision_audit",
                     "official_profile_reviewer_decision_audit",
                     "evidence_reconciliation_decisions",
@@ -1276,6 +1293,10 @@ def action_member_execution_actions(generated_at: str) -> list[dict]:
                     "primary_action_lane": lane,
                     "execution_status": status,
                     "member_count": len(group),
+                    "execution_dossier_rows": len(dossier_rows),
+                    "top_dossier_statuses": dict(
+                        Counter(dossier_row.get("dossier_status") or "" for dossier_row in dossier_rows).most_common(8)
+                    ),
                     "top_members": [
                         {
                             "action_batch_member_key": item.get("action_batch_member_key"),

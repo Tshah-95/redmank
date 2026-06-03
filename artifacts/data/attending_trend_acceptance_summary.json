@@ -29,7 +29,7 @@
   },
   "csv": "artifacts/data/attending_trend_acceptance_audit.csv",
   "display_safety_status": "review_ready_not_accepted_trend_fact",
-  "generated_at": "2026-06-03T07:23:50.784418+00:00",
+  "generated_at": "2026-06-03T07:37:27.495965+00:00",
   "json": "artifacts/data/attending_trend_acceptance_audit.json",
   "required_reviewer_action": "Confirm same-person identity, current Penn endpoint, training line, program type, and dates before promoting to an accepted trend fact.",
   "review_ready_requires_reviewer_acceptance_rows": 2,

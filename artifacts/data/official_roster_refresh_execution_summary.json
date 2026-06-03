@@ -31,7 +31,7 @@
   "collector_rows": 3,
   "csv": "artifacts/data/official_roster_refresh_execution_audit.csv",
   "current_snapshot_id": "training_states_2026-06-03_5fd7cb8789cd",
-  "generated_at": "2026-06-03T07:24:27.714491+00:00",
+  "generated_at": "2026-06-03T07:38:06.167791+00:00",
   "json": "artifacts/data/official_roster_refresh_execution_audit.json",
   "policy": "This ledger records collector execution and state-diff outcome; it does not mutate roster truth.",
   "previous_snapshot_id": "training_states_2026-06-02_5d6a884ed01a",

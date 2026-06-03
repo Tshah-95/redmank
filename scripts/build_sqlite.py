@@ -2243,6 +2243,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "person_enrichment_action_member_execution_decisions",
         "person_enrichment_action_member_execution_queue",
         "person_enrichment_action_member_execution_audit",
+        "person_enrichment_action_member_execution_dossiers",
         "training_state_machine_audit",
         "person_training_state_machine_audit",
         "program_training_state_machine_audit",

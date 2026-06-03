@@ -822,7 +822,15 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         ARTIFACTS / "person_enrichment_action_member_execution_summary.json",
         {},
     )
+    action_member_execution_dossier_summary = read_json(
+        ARTIFACTS / "person_enrichment_action_member_execution_dossier_summary.json",
+        {},
+    )
     action_member_execution_queue_rows = scalar(conn, "SELECT COUNT(*) FROM person_enrichment_action_member_execution_queue")
+    action_member_execution_dossier_rows = scalar(
+        conn,
+        "SELECT COUNT(*) FROM person_enrichment_action_member_execution_dossiers",
+    )
     action_member_execution_pending = scalar(
         conn,
         """
@@ -2052,6 +2060,8 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
                 "blocked_execution_rows": action_member_execution_blocked,
                 "executed_outputs_routed_rows": action_member_execution_routed,
                 "execution_summary": action_member_execution_summary,
+                "execution_dossier_rows": action_member_execution_dossier_rows,
+                "execution_dossier_summary": action_member_execution_dossier_summary,
             },
         ),
         make_row(

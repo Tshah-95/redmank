@@ -183,6 +183,10 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
+- `artifacts/data/person_enrichment_action_member_execution_queue.csv`: fingerprinted per-member execution-decision queue.
+- `artifacts/data/person_enrichment_action_member_execution_decisions.csv`: manual execution-outcome input file for action-batch members.
+- `artifacts/data/person_enrichment_action_member_execution_audit.csv`: audit of execution decisions, stale fingerprints, blockers, and downstream routing.
+- `artifacts/data/person_enrichment_action_member_execution_dossiers.csv`: compact per-member execution dossiers with command hints, routing checklists, and manual execution templates.
 - `artifacts/data/person_enrichment_action_execution_plan.csv`: batch-level execution plan over person-enrichment action members, including pending/blocked/executed counts, command hints, decision templates, output routing, and non-mutating acceptance boundary.
 - `artifacts/data/person_enrichment_action_execution_plan_summary.json`: execution-plan rollups by lane, blocker, batch status, and top operator batches.
 - `artifacts/data/research_identity_corroboration.csv`: person-level corroboration ledger that joins PubMed/OpenAlex/ORCID research candidates with NPI/profile/contact/training-state anchors, flags conflicts, and assigns non-mutating review routes.
@@ -317,6 +321,12 @@ python3 scripts/materialize_person_evidence_reviewer_decisions.py
 python3 scripts/materialize_person_evidence_review_triage.py
 python3 scripts/materialize_person_evidence_review_dossiers.py
 python3 scripts/materialize_person_evidence_review_batches.py
+python3 scripts/materialize_person_enrichment_action_packets.py
+python3 scripts/materialize_person_enrichment_action_batches.py
+python3 scripts/materialize_person_enrichment_action_batch_members.py
+python3 scripts/materialize_person_enrichment_action_member_execution.py
+python3 scripts/materialize_person_enrichment_action_member_execution_dossiers.py
+python3 scripts/materialize_person_enrichment_action_execution_plan.py
 python3 scripts/materialize_research_identity_corroboration.py
 python3 scripts/materialize_research_identity_review_batches.py
 python3 scripts/materialize_research_identity_reviewer_decisions.py

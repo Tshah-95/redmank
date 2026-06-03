@@ -366,6 +366,10 @@ def main() -> None:
     )
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
+    person_enrichment_action_member_execution_dossier_summary = read_json(
+        ARTIFACTS / "person_enrichment_action_member_execution_dossier_summary.json",
+        {},
+    )
     research_identity_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
     research_identity_reviewer_decision_summary = read_json(
         ARTIFACTS / "research_identity_reviewer_decision_summary.json",
@@ -397,6 +401,10 @@ def main() -> None:
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
+    top_person_enrichment_action_member_execution_dossiers = read_csv(
+        ARTIFACTS / "person_enrichment_action_member_execution_dossiers.csv",
+        limit=25,
+    )
     top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
     top_research_identity_reviewer_decisions = read_csv(
         ARTIFACTS / "research_identity_reviewer_decision_audit.csv",
@@ -619,6 +627,8 @@ def main() -> None:
         "top_npi_candidates": top_npi_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
+        "person_enrichment_action_member_execution_dossier_summary": person_enrichment_action_member_execution_dossier_summary,
+        "top_person_enrichment_action_member_execution_dossiers": top_person_enrichment_action_member_execution_dossiers,
         "research_identity_review_batch_summary": research_identity_review_batch_summary,
         "top_research_identity_review_batches": top_research_identity_review_batches,
         "research_identity_reviewer_decision_summary": research_identity_reviewer_decision_summary,
@@ -1001,6 +1011,26 @@ def main() -> None:
         ),
         "",
         "Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.",
+        "",
+        "## Person Enrichment Action Execution",
+        "",
+        f"Dossier rows: {person_enrichment_action_member_execution_dossier_summary.get('dossier_rows', 0)}. Ready dossiers: {person_enrichment_action_member_execution_dossier_summary.get('ready_dossier_rows', 0)}. Pending dossiers: {person_enrichment_action_member_execution_dossier_summary.get('pending_dossier_rows', 0)}. Manual-review dossiers: {person_enrichment_action_member_execution_dossier_summary.get('manual_review_dossier_rows', 0)}. Collector-execution dossiers: {person_enrichment_action_member_execution_dossier_summary.get('collector_execution_dossier_rows', 0)}.",
+        "",
+        *md_table(
+            top_person_enrichment_action_member_execution_dossiers,
+            [
+                "display_name",
+                "role",
+                "primary_action_lane",
+                "decision_complexity",
+                "dossier_status",
+                "execution_risk_level",
+                "missing_execution_summary",
+                "recommended_operator_action",
+            ],
+        ),
+        "",
+        "Learning: batch execution needs the same fingerprint and routing discipline as reviewer decisions. A worked action member is not an accepted fact; it is only complete when the current member fingerprint is recorded and outputs are routed to source-specific profile, evidence, contact, or acceptance ledgers.",
         "",
         "## Research Identity Review Batches",
         "",
