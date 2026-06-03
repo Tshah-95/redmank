@@ -43,7 +43,7 @@
   "csv": "artifacts/data/person_training_stage_state.csv",
   "duplicate_contract_rows": 144,
   "fresh_observation_required_rows": 1669,
-  "generated_at": "2026-06-03T10:46:12.961344+00:00",
+  "generated_at": "2026-06-03T10:56:15.467426+00:00",
   "json": "artifacts/data/person_training_stage_state.json",
   "person_count": 1535,
   "policy": "Person training stage state is a non-mutating front door over temporal contracts. It describes current stage, staleness, permitted next-refresh classifications, and required evidence before any annual update changes person/program truth.",

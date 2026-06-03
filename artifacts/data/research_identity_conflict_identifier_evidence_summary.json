@@ -1,0 +1,283 @@
+{
+  "by_conflict_resolution_lane": {
+    "collect_secondary_anchor_before_research_acceptance": 3,
+    "mixed_identifier_consistency_review": 14,
+    "openalex_author_collision_review": 76,
+    "orcid_collision_review": 4
+  },
+  "by_identifier_review_posture": {
+    "high_confidence_competing_identifier": 7,
+    "leading_identifier_candidate_needs_collision_review": 21,
+    "low_or_partial_support_competing_identifier": 66,
+    "missing_secondary_anchor_evidence": 2,
+    "single_identifier_context_check": 1
+  },
+  "by_identifier_type": {
+    "missing_secondary_anchor": 2,
+    "npi": 15,
+    "openalex_author": 58,
+    "orcid": 22
+  },
+  "conflict_packet_count": 24,
+  "csv": "artifacts/data/research_identity_conflict_identifier_evidence.csv",
+  "generated_at": "2026-06-03T10:55:37.704077+00:00",
+  "high_confidence_identifier_rows": 29,
+  "identifier_rows": 97,
+  "json": "artifacts/data/research_identity_conflict_identifier_evidence.json",
+  "leading_identifier_rows": 24,
+  "person_count": 24,
+  "policy": "Conflict identifier evidence rows are non-mutating exploded support records. They help reviewers compare competing ORCID/OpenAlex/NPI identifiers, but only current-fingerprint reviewer decisions can accept or quarantine research identity.",
+  "publication_supported_identifier_rows": 0,
+  "top_identifier_rows": [
+    {
+      "display_name": "Aaron M. Williams, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5072830760",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Alessandro Brunetti, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5027212608",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Alessandro Brunetti, MD",
+      "identifier_rank": 2,
+      "identifier_review_posture": "high_confidence_competing_identifier",
+      "identifier_type": "orcid",
+      "identifier_value": "0000-0001-6651-4117",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "compare_orcid_source_context_against_leading_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Alex Chen, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5114123744",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Anne Wang, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5102994998",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Armaan Singh, MD, MBA",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5088973235",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Ashna Aggarwal, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5038984290",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Ashna Aggarwal, MD",
+      "identifier_rank": 2,
+      "identifier_review_posture": "high_confidence_competing_identifier",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5072610485",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "compare_openalex_author_source_context_against_leading_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Charles Danan, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5082072838",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Chenxu Shi, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5050765927",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Eric Wagner, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5003802587",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Eric Wagner, MD",
+      "identifier_rank": 2,
+      "identifier_review_posture": "high_confidence_competing_identifier",
+      "identifier_type": "orcid",
+      "identifier_value": "0000-0001-9222-085X",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "compare_orcid_source_context_against_leading_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Gregory Chen, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5002585432",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "John T. Cook, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5078937102",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Jonathan Dickens, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5068527152",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Keshia Mora, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5075598639",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Lara Boyle, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5017799494",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Madeline Perry, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5102879389",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Madeline Perry, MD",
+      "identifier_rank": 2,
+      "identifier_review_posture": "high_confidence_competing_identifier",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5137316952",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "compare_openalex_author_source_context_against_leading_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Nadine Michel, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5019445026",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Noor Shaik, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "single_identifier_context_check",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5063996667",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "confirm_single_openalex_author_identifier_context",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Phillip Bradshaw, MD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5021067909",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Pravin Patel, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5003927418",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Shunsuke Koga, MD, PhD",
+      "identifier_rank": 1,
+      "identifier_review_posture": "leading_identifier_candidate_needs_collision_review",
+      "identifier_type": "openalex_author",
+      "identifier_value": "A5009821300",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "review_and_choose_or_quarantine_leading_openalex_author_identifier",
+      "support_claim_count": 1
+    },
+    {
+      "display_name": "Shunsuke Koga, MD, PhD",
+      "identifier_rank": 2,
+      "identifier_review_posture": "high_confidence_competing_identifier",
+      "identifier_type": "orcid",
+      "identifier_value": "0000-0001-8868-9700",
+      "max_confidence": 0.9,
+      "recommended_identifier_action": "compare_orcid_source_context_against_leading_identifier",
+      "support_claim_count": 1
+    }
+  ]
+}

@@ -411,6 +411,10 @@ def main() -> None:
         ARTIFACTS / "research_identity_conflict_resolution_packet_summary.json",
         {},
     )
+    research_identity_conflict_identifier_evidence_summary = read_json(
+        ARTIFACTS / "research_identity_conflict_identifier_evidence_summary.json",
+        {},
+    )
     research_identity_reviewer_decision_summary = read_json(
         ARTIFACTS / "research_identity_reviewer_decision_summary.json",
         {},
@@ -536,6 +540,10 @@ def main() -> None:
     )
     top_research_identity_conflict_packets = read_csv(
         ARTIFACTS / "research_identity_conflict_resolution_packets.csv",
+        limit=25,
+    )
+    top_research_identity_conflict_identifier_evidence = read_csv(
+        ARTIFACTS / "research_identity_conflict_identifier_evidence.csv",
         limit=25,
     )
     top_research_identity_reviewer_decisions = read_csv(
@@ -815,6 +823,8 @@ def main() -> None:
         "top_research_identity_review_batch_packets": top_research_identity_review_batch_packets,
         "research_identity_conflict_packet_summary": research_identity_conflict_packet_summary,
         "top_research_identity_conflict_packets": top_research_identity_conflict_packets,
+        "research_identity_conflict_identifier_evidence_summary": research_identity_conflict_identifier_evidence_summary,
+        "top_research_identity_conflict_identifier_evidence": top_research_identity_conflict_identifier_evidence,
         "research_identity_reviewer_decision_summary": research_identity_reviewer_decision_summary,
         "top_research_identity_reviewer_decisions": top_research_identity_reviewer_decisions,
         "research_identity_reviewer_dossier_summary": research_identity_reviewer_dossier_summary,
@@ -1403,6 +1413,22 @@ def main() -> None:
                 "publication_support_count",
                 "packet_status",
                 "recommended_reviewer_action",
+            ],
+        ),
+        "",
+        f"Conflict identifier evidence rows: {research_identity_conflict_identifier_evidence_summary.get('identifier_rows', 0)}. Identifier types: {research_identity_conflict_identifier_evidence_summary.get('by_identifier_type', {})}. Leading identifier rows: {research_identity_conflict_identifier_evidence_summary.get('leading_identifier_rows', 0)}. High-confidence identifier rows: {research_identity_conflict_identifier_evidence_summary.get('high_confidence_identifier_rows', 0)}.",
+        "",
+        *md_table(
+            top_research_identity_conflict_identifier_evidence,
+            [
+                "display_name",
+                "identifier_type",
+                "identifier_value",
+                "identifier_rank",
+                "support_claim_count",
+                "max_confidence",
+                "identifier_review_posture",
+                "recommended_identifier_action",
             ],
         ),
         "",

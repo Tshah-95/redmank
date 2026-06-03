@@ -32,7 +32,7 @@
     "not_primary_trend_surface": 30
   },
   "csv": "artifacts/data/source_quality_policy_recommendations.csv",
-  "generated_at": "2026-06-03T10:46:45.346592+00:00",
+  "generated_at": "2026-06-03T10:56:48.044372+00:00",
   "json": "artifacts/data/source_quality_policy_recommendations.json",
   "policy": "Source-quality policy recommendations are non-mutating. They translate observed utility performance into acceptance, collector, reviewer, and trend-readiness posture; factual promotion still requires source-specific evidence and reviewer/acceptance ledgers.",
   "recommendation_rows": 40,

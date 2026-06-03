@@ -23,7 +23,7 @@
   },
   "csv": "artifacts/data/attending_trend_discovery_batches.csv",
   "current_endpoint_count": 49,
-  "generated_at": "2026-06-03T10:46:08.410797+00:00",
+  "generated_at": "2026-06-03T10:56:10.921982+00:00",
   "historical_candidate_count": 15,
   "historical_query_count": 722,
   "json": "artifacts/data/attending_trend_discovery_batches.json",

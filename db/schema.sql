@@ -4152,6 +4152,46 @@ CREATE TABLE IF NOT EXISTS research_identity_conflict_resolution_packets (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS research_identity_conflict_identifier_evidence (
+  conflict_identifier_key TEXT PRIMARY KEY,
+  conflict_packet_key TEXT NOT NULL REFERENCES research_identity_conflict_resolution_packets(conflict_packet_key) ON DELETE CASCADE,
+  reviewer_decision_key TEXT NOT NULL REFERENCES research_identity_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  review_batch_key TEXT NOT NULL,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  conflict_resolution_lane TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  identifier_key TEXT NOT NULL,
+  identifier_type TEXT NOT NULL,
+  identifier_value TEXT NOT NULL,
+  identifier_rank INTEGER NOT NULL DEFAULT 0,
+  packet_identifier_count INTEGER NOT NULL DEFAULT 0,
+  support_claim_count INTEGER NOT NULL DEFAULT 0,
+  needs_review_claim_count INTEGER NOT NULL DEFAULT 0,
+  candidate_claim_count INTEGER NOT NULL DEFAULT 0,
+  max_confidence REAL NOT NULL DEFAULT 0.0,
+  source_family_count INTEGER NOT NULL DEFAULT 0,
+  source_domain_count INTEGER NOT NULL DEFAULT 0,
+  supporting_pmid_count INTEGER NOT NULL DEFAULT 0,
+  supporting_doi_count INTEGER NOT NULL DEFAULT 0,
+  identifier_review_posture TEXT NOT NULL,
+  recommended_identifier_action TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  source_families_json TEXT NOT NULL,
+  source_domains_json TEXT NOT NULL,
+  match_features_json TEXT NOT NULL,
+  supporting_pmids TEXT,
+  supporting_dois TEXT,
+  supporting_claims_json TEXT NOT NULL,
+  competing_identifier_context_json TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS research_identity_review_batch_packets (
   batch_packet_key TEXT PRIMARY KEY,
   review_batch_key TEXT NOT NULL REFERENCES research_identity_review_batches(review_batch_key) ON DELETE CASCADE,

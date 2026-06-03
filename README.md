@@ -228,6 +228,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/research_identity_reviewer_decision_dossiers.csv`: compact per-decision dossiers with top claims, source-family counts, identifier summaries, missing evidence, and manual decision templates.
 - `artifacts/data/research_identity_conflict_resolution_packets.csv`: conflict-only reviewer packets that expand competing ORCID/OpenAlex/NPI identifiers, publication support, collision risk flags, and current-fingerprint decision templates.
 - `artifacts/data/research_identity_conflict_resolution_packet_summary.json`: conflict packet counts by resolution lane, packet status, role, competing identifiers, and publication-support burden.
+- `artifacts/data/research_identity_conflict_identifier_evidence.csv`: exploded per-identifier evidence matrix for conflict packets, ranking competing ORCID/OpenAlex/NPI identifiers with support counts, source families/domains, PMID/DOI evidence, and reviewer actions.
+- `artifacts/data/research_identity_conflict_identifier_evidence_summary.json`: identifier-evidence counts by identifier type, review posture, conflict lane, leading identifiers, high-confidence rows, and publication-supported rows.
 - `artifacts/data/research_identity_review_batch_packets.csv`: batch-level packets over research identity reviewer sessions, rolling pending member decisions, conflicts, top dossiers, source-family counts, and member decision templates into one review surface per batch.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_batches.csv` when available, with `person_evidence_review_batch_packets.csv` as packet-level evidence support, so person-evidence actions are bounded review sessions; if batches are absent it falls back to `person_evidence_review_triage.csv`, then the raw reviewer queue.
@@ -375,6 +377,7 @@ python3 scripts/materialize_research_identity_review_batches.py
 python3 scripts/materialize_research_identity_reviewer_decisions.py
 python3 scripts/materialize_research_identity_reviewer_decision_dossiers.py
 python3 scripts/materialize_research_identity_conflict_resolution_packets.py
+python3 scripts/materialize_research_identity_conflict_identifier_evidence.py
 python3 scripts/materialize_research_identity_review_batch_packets.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py

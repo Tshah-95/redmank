@@ -23,7 +23,7 @@
   },
   "context_monitor_packet_rows": 21,
   "csv": "artifacts/data/attending_trend_discovery_packets.csv",
-  "generated_at": "2026-06-03T10:46:08.454945+00:00",
+  "generated_at": "2026-06-03T10:56:10.966144+00:00",
   "historical_candidate_count": 15,
   "historical_candidate_packet_rows": 1,
   "historical_query_count": 722,

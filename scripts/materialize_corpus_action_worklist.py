@@ -1788,6 +1788,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         packet_path = ARTIFACTS / "research_identity_review_batch_packets.csv"
         dossier_path = ARTIFACTS / "research_identity_reviewer_decision_dossiers.csv"
         conflict_packet_path = ARTIFACTS / "research_identity_conflict_resolution_packets.csv"
+        conflict_identifier_path = ARTIFACTS / "research_identity_conflict_identifier_evidence.csv"
         source = (
             "artifacts/data/research_identity_review_batch_packets.csv"
             if packet_path.exists()
@@ -1812,6 +1813,10 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         if conflict_packet_path.exists():
             for conflict_packet in read_csv(conflict_packet_path):
                 conflict_packets_by_batch[conflict_packet.get("review_batch_key") or ""].append(conflict_packet)
+        conflict_identifiers_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if conflict_identifier_path.exists():
+            for identifier_row in read_csv(conflict_identifier_path):
+                conflict_identifiers_by_batch[identifier_row.get("review_batch_key") or ""].append(identifier_row)
         rows = []
         priority_by_lane = {
             "conflict_reconciliation": 980,
@@ -1827,6 +1832,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
             audit_rows = audit_by_batch.get(item.get("review_batch_key") or "", [])
             dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
             conflict_packet_rows = conflict_packets_by_batch.get(item.get("review_batch_key") or "", [])
+            conflict_identifier_rows = conflict_identifiers_by_batch.get(item.get("review_batch_key") or "", [])
             pending_audit_rows = [
                 audit_row
                 for audit_row in audit_rows
@@ -1891,6 +1897,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "research_identity_review_batch_members",
                         "research_identity_review_batch_packets",
                         "research_identity_conflict_resolution_packets",
+                        "research_identity_conflict_identifier_evidence",
                         "research_identity_reviewer_decision_queue",
                         "research_identity_reviewer_decisions",
                         "research_identity_reviewer_decision_audit",
@@ -1918,6 +1925,13 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "reviewer_decision_dossier_rows": len(dossier_rows),
                         "pending_reviewer_decision_dossier_rows": len(pending_dossier_rows),
                         "conflict_resolution_packet_rows": len(conflict_packet_rows),
+                        "conflict_identifier_evidence_rows": len(conflict_identifier_rows),
+                        "top_conflict_identifier_postures": dict(
+                            Counter(
+                                identifier_row.get("identifier_review_posture") or ""
+                                for identifier_row in conflict_identifier_rows
+                            ).most_common(8)
+                        ),
                         "top_conflict_resolution_packets": [
                             {
                                 "display_name": packet_row.get("display_name"),
