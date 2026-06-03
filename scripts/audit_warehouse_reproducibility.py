@@ -246,6 +246,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/training_temporal_contract_batches.csv",
+        "longitudinal_temporal_contract_batch_ledger",
+        "csv",
+        "training_temporal_contract_batches",
+        True,
+    ),
+    (
         "artifacts/data/person_training_stage_state.csv",
         "longitudinal_stage_state_ledger",
         "csv",

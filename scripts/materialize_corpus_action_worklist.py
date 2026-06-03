@@ -747,6 +747,75 @@ def search_utility_actions(generated_at: str) -> list[dict]:
 
 
 def temporal_contract_actions(generated_at: str) -> list[dict]:
+    batch_path = ARTIFACTS / "training_temporal_contract_batches.csv"
+    if batch_path.exists():
+        rows = []
+        source = "artifacts/data/training_temporal_contract_batches.csv"
+        for item in read_csv(batch_path):
+            lane = item.get("policy_lane") or ""
+            priority = (720 if lane == "manual_review_required" else 640) + min(as_int(item.get("contract_count")), 220)
+            rows.append(
+                row(
+                    action_surface="training_temporal_contract",
+                    action_scope=f"{lane}:{item.get('batch_status') or ''}",
+                    entity_type="training_temporal_contract_batch",
+                    entity_key=item.get("temporal_contract_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("program_name"),
+                            item.get("role"),
+                            item.get("lifecycle_code"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("role") or "",
+                    program_name=item.get("program_name") or "",
+                    priority=priority,
+                    impact_count=max(as_int(item.get("contract_count")), 1),
+                    readiness_status=item.get("batch_status") or "",
+                    blocker_status=item.get("temporal_state_signature") or item.get("diff_readiness_status_signature") or "",
+                    required_next_evidence=item.get("required_next_evidence") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "artifacts/data/training_state_transition_plan.csv",
+                    downstream_tables=[
+                        "training_temporal_contract_batches",
+                        "training_temporal_contracts",
+                        "training_temporal_contract_rollups",
+                        "training_state_transition_plan",
+                        "training_state_transition_events",
+                        "person_training_stage_state",
+                        "person_training_states",
+                        "official_roster_refresh_batches",
+                    ],
+                    evidence={
+                        "temporal_contract_batch_key": item.get("temporal_contract_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "policy_lane": lane,
+                        "role": item.get("role"),
+                        "trainee_category": item.get("trainee_category"),
+                        "program_name": item.get("program_name"),
+                        "lifecycle_code": item.get("lifecycle_code"),
+                        "next_refresh_contract": item.get("next_refresh_contract"),
+                        "contract_count": item.get("contract_count"),
+                        "person_count": item.get("person_count"),
+                        "stale_by_refresh_count": item.get("stale_by_refresh_count"),
+                        "fresh_observation_required_count": item.get("fresh_observation_required_count"),
+                        "source_refresh_required_count": item.get("source_refresh_required_count"),
+                        "human_review_required_count": item.get("human_review_required_count"),
+                        "diff_readiness_counts": parse_json(item.get("diff_readiness_counts_json"), {}),
+                        "temporal_state_counts": parse_json(item.get("temporal_state_counts_json"), {}),
+                        "stage_code_counts": parse_json(item.get("stage_code_counts_json"), {}),
+                        "review_triggers": parse_json(item.get("review_triggers_json"), []),
+                        "top_contracts": parse_json(item.get("top_contracts_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     grouped: dict[tuple[str, str, str, str, str], dict] = defaultdict(lambda: {"count": 0, "sample": None})
     for item in read_csv(ARTIFACTS / "training_temporal_contracts.csv"):
         lane = item.get("policy_lane") or ""

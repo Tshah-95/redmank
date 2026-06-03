@@ -1,0 +1,316 @@
+{
+  "auto_classifiable_transition_count": 0,
+  "batch_rows": 93,
+  "by_batch_status": {
+    "temporal_manual_review_ready": 13,
+    "temporal_source_refresh_ready": 80
+  },
+  "by_lifecycle_code": {
+    "US_GME_FELLOWSHIP_1Y": 32,
+    "US_GME_FELLOWSHIP_2Y": 8,
+    "US_GME_FELLOWSHIP_3Y": 5,
+    "US_GME_FELLOWSHIP_DURATION_UNKNOWN": 22,
+    "US_GME_RESIDENCY_3Y": 2,
+    "US_GME_RESIDENCY_4Y": 3,
+    "US_GME_RESIDENCY_5Y": 9,
+    "US_GME_RESIDENCY_6Y": 3,
+    "US_GME_RESIDENCY_DURATION_UNKNOWN": 4,
+    "US_MD_PHD_MSTP_VARIABLE": 5
+  },
+  "by_policy_lane": {
+    "manual_review_required": 13,
+    "source_refresh_required": 80
+  },
+  "by_role": {
+    "fellow": 67,
+    "medical_student": 5,
+    "resident": 21
+  },
+  "contract_count": 758,
+  "csv": "artifacts/data/training_temporal_contract_batches.csv",
+  "fresh_observation_required_count": 758,
+  "generated_at": "2026-06-03T09:48:33.382759+00:00",
+  "human_review_required_count": 131,
+  "json": "artifacts/data/training_temporal_contract_batches.json",
+  "person_count": 755,
+  "policy": "Temporal contract batches are non-mutating operator sessions. They batch stale/source-refresh and manual-review contracts before any state diff can retain, advance, complete, or remove a trainee state.",
+  "source_refresh_required_count": 627,
+  "stale_by_refresh_count": 758,
+  "top_batches": [
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 50,
+      "execution_order": 1,
+      "lifecycle_code": "US_GME_RESIDENCY_DURATION_UNKNOWN",
+      "person_count": 50,
+      "policy_lane": "manual_review_required",
+      "program_name": "Psychiatry Residency",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 44,
+      "execution_order": 2,
+      "lifecycle_code": "US_GME_RESIDENCY_DURATION_UNKNOWN",
+      "person_count": 44,
+      "policy_lane": "manual_review_required",
+      "program_name": "Pathology - Anatomic and Clinical Residency",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 8,
+      "execution_order": 3,
+      "lifecycle_code": "US_GME_FELLOWSHIP_DURATION_UNKNOWN",
+      "person_count": 8,
+      "policy_lane": "manual_review_required",
+      "program_name": "Maternal Fetal Medicine Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 8,
+      "execution_order": 4,
+      "lifecycle_code": "US_GME_RESIDENCY_3Y",
+      "person_count": 8,
+      "policy_lane": "manual_review_required",
+      "program_name": "Internal Medicine Residency - Global Health Equities Track",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 6,
+      "execution_order": 5,
+      "lifecycle_code": "US_GME_FELLOWSHIP_3Y",
+      "person_count": 6,
+      "policy_lane": "manual_review_required",
+      "program_name": "Pulmonary and Critical Care Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 4,
+      "execution_order": 6,
+      "lifecycle_code": "US_GME_FELLOWSHIP_DURATION_UNKNOWN",
+      "person_count": 2,
+      "policy_lane": "manual_review_required",
+      "program_name": "Internal Medicine Residency - Global Health Equities Track",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 2,
+      "execution_order": 7,
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "person_count": 2,
+      "policy_lane": "manual_review_required",
+      "program_name": "Infectious Diseases Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 2,
+      "execution_order": 8,
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "person_count": 2,
+      "policy_lane": "manual_review_required",
+      "program_name": "Reproductive Endocrinology and Infertility Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 2,
+      "execution_order": 9,
+      "lifecycle_code": "US_GME_RESIDENCY_3Y",
+      "person_count": 1,
+      "policy_lane": "manual_review_required",
+      "program_name": "Internal Medicine Residency - Medical Education Leadership Track",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 2,
+      "execution_order": 10,
+      "lifecycle_code": "US_GME_RESIDENCY_DURATION_UNKNOWN",
+      "person_count": 2,
+      "policy_lane": "manual_review_required",
+      "program_name": "Psychiatry Residency",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 1,
+      "execution_order": 11,
+      "lifecycle_code": "US_GME_FELLOWSHIP_3Y",
+      "person_count": 1,
+      "policy_lane": "manual_review_required",
+      "program_name": "Cardiovascular Disease Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 1,
+      "execution_order": 12,
+      "lifecycle_code": "US_GME_FELLOWSHIP_1Y",
+      "person_count": 1,
+      "policy_lane": "manual_review_required",
+      "program_name": "Geriatric Medicine Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_manual_review_ready",
+      "contract_count": 1,
+      "execution_order": 13,
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "person_count": 1,
+      "policy_lane": "manual_review_required",
+      "program_name": "Rheumatology Fellowship",
+      "recommended_operator_action": "review_lifecycle_or_source_label_contract_batch_before_mutation",
+      "role": "fellow"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 50,
+      "execution_order": 14,
+      "lifecycle_code": "US_MD_PHD_MSTP_VARIABLE",
+      "person_count": 50,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Medical Scientist Training Program",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "medical_student"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 50,
+      "execution_order": 15,
+      "lifecycle_code": "US_MD_PHD_MSTP_VARIABLE",
+      "person_count": 50,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Medical Scientist Training Program",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "medical_student"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 50,
+      "execution_order": 16,
+      "lifecycle_code": "US_MD_PHD_MSTP_VARIABLE",
+      "person_count": 50,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Medical Scientist Training Program",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "medical_student"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 50,
+      "execution_order": 17,
+      "lifecycle_code": "US_MD_PHD_MSTP_VARIABLE",
+      "person_count": 50,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Medical Scientist Training Program",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "medical_student"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 50,
+      "execution_order": 18,
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "person_count": 50,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Diagnostic Radiology Residency",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 50,
+      "execution_order": 19,
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "person_count": 50,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Neurology Residency",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 26,
+      "execution_order": 20,
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "person_count": 26,
+      "policy_lane": "source_refresh_required",
+      "program_name": "General Surgery Residency",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 25,
+      "execution_order": 21,
+      "lifecycle_code": "US_MD_PHD_MSTP_VARIABLE",
+      "person_count": 25,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Medical Scientist Training Program",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "medical_student"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 19,
+      "execution_order": 22,
+      "lifecycle_code": "US_GME_RESIDENCY_6Y",
+      "person_count": 19,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Interventional Radiology Integrated Residency",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 17,
+      "execution_order": 23,
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "person_count": 17,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Radiation Oncology Residency",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 15,
+      "execution_order": 24,
+      "lifecycle_code": "US_GME_RESIDENCY_5Y",
+      "person_count": 15,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Ophthalmology Residency",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "resident"
+    },
+    {
+      "batch_status": "temporal_source_refresh_ready",
+      "contract_count": 12,
+      "execution_order": 25,
+      "lifecycle_code": "US_GME_FELLOWSHIP_2Y",
+      "person_count": 12,
+      "policy_lane": "source_refresh_required",
+      "program_name": "Clinical Cardiac Electrophysiology Fellowship",
+      "recommended_operator_action": "refresh_source_observations_for_temporal_contract_batch",
+      "role": "fellow"
+    }
+  ]
+}

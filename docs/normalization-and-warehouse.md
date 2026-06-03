@@ -74,6 +74,7 @@ Core tables:
 - `training_state_transition_events`: expected-vs-review transition ledger between materialized snapshots.
 - `training_state_machine_audit`, `person_training_state_machine_audit`, `program_training_state_machine_audit`: queryable state-machine health ledgers for state-, person-, and program-level refresh decisions.
 - `training_temporal_contracts`, `training_temporal_contract_rollups`: explicit next-run stale/transition contracts that define allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete training-state observations.
+- `training_temporal_contract_batches`: bounded non-mutating operator batches over source-refresh and manual-review temporal contracts, preserving contract keys, review triggers, and required next evidence before any state mutation.
 - `official_roster_refresh_workbench`: source/program-level refresh contracts for official roster URLs, combining temporal-contract burden, source provenance, parser/collector hint, expected transitions, and review/source-bound lanes.
 - `official_roster_refresh_batches`: bounded execution packets for official roster refresh, grouped by collector, parser support, source domain, and state-machine burden so public-source refresh work can be run and audited without mutating state directly.
 - `official_roster_refresh_execution_audit`: post-run collector audit that ties refreshed public roster source summaries to the resulting training-state snapshot diff, making "fresh observation with no state delta" explicit.
@@ -117,7 +118,7 @@ Core tables:
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
 - `search_utility_execution_batches`: bounded execution sessions for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing while preserving source-quality failures as evidence.
-- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
+- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-contract batches, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
 
 Useful views:
 
@@ -452,6 +453,8 @@ That gives yearly runs a stable decision surface. A PGY-2 row in a three-year re
 - `training_temporal_contracts.csv`: one row per current state observation with a canonical person/program key, current temporal state code, temporal validity status, next-refresh contract, allowed automatic diff outcomes, review triggers, stale policy, and evidence required to retain, advance, or complete the row.
 - `training_temporal_contract_rollups.csv`: rollups by corpus, institution, country, role, trainee category, program, program-role, institution-role, lifecycle code, current temporal state, next-refresh contract, and diff-readiness status.
 - `training_temporal_contract_summary.json`: machine-readable counts for guardrail status, next-refresh contract type, stale-by-refresh burden, source-refresh burden, and review-bound burden.
+
+`scripts/materialize_training_temporal_contract_batches.py` is the operator layer above that row ledger. It batches only `source_refresh_required` and `manual_review_required` contracts into bounded non-mutating sessions by policy lane, role, category, program, lifecycle code, and next-refresh contract. `scripts/materialize_corpus_action_worklist.py` consumes these batches when present, so temporal-state work starts from a compact batch key while preserving top row-level contract keys, review triggers, and required evidence as downstream detail.
 
 This is the answer to the “when is it stale?” problem. A row can be stale without being false, and an expected transition can be known without being accepted. The contract says which future evidence permits a mutation and which future evidence must be routed to review. That lets later refreshes produce diff views at individual, program, institution, category, and eventually national scopes without losing the provenance of the original observation.
 

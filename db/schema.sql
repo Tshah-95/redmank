@@ -1587,6 +1587,47 @@ CREATE TABLE IF NOT EXISTS training_temporal_contract_rollups (
   evidence_json TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS training_temporal_contract_batches (
+  temporal_contract_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  policy_lane TEXT NOT NULL,
+  batch_status TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  role TEXT NOT NULL,
+  trainee_category TEXT NOT NULL,
+  program_name TEXT NOT NULL,
+  lifecycle_code TEXT NOT NULL,
+  next_refresh_contract TEXT NOT NULL,
+  diff_readiness_status_signature TEXT NOT NULL,
+  temporal_state_signature TEXT NOT NULL,
+  contract_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  program_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  stale_by_refresh_count INTEGER NOT NULL DEFAULT 0,
+  fresh_observation_required_count INTEGER NOT NULL DEFAULT 0,
+  source_refresh_required_count INTEGER NOT NULL DEFAULT 0,
+  human_review_required_count INTEGER NOT NULL DEFAULT 0,
+  auto_classifiable_transition_count INTEGER NOT NULL DEFAULT 0,
+  expected_advancement_count INTEGER NOT NULL DEFAULT 0,
+  expected_completion_count INTEGER NOT NULL DEFAULT 0,
+  max_confidence REAL NOT NULL DEFAULT 0.0,
+  min_confidence REAL NOT NULL DEFAULT 0.0,
+  top_people TEXT,
+  top_sources TEXT,
+  diff_readiness_counts_json TEXT NOT NULL,
+  temporal_state_counts_json TEXT NOT NULL,
+  stage_code_counts_json TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  execution_instructions TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  top_contracts_json TEXT NOT NULL,
+  review_triggers_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS person_training_stage_state (
   stage_state_key TEXT PRIMARY KEY,
   contract_key TEXT NOT NULL REFERENCES training_temporal_contracts(contract_key) ON DELETE CASCADE,

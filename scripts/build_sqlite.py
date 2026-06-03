@@ -2253,6 +2253,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "category_refresh_expectations",
         "training_temporal_contracts",
         "training_temporal_contract_rollups",
+        "training_temporal_contract_batches",
         "trainee_profile_search_queries",
         "trainee_profile_search_observations",
         "trainee_profile_discovery_candidates",

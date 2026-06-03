@@ -361,6 +361,7 @@ def main() -> None:
     )
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
+    temporal_contract_batch_summary = read_json(ARTIFACTS / "training_temporal_contract_batch_summary.json", {})
     program_lifecycle_duration_summary = read_json(ARTIFACTS / "program_lifecycle_duration_evidence_summary.json", {})
     program_lifecycle_duration_reviewer_decision_summary = read_json(
         ARTIFACTS / "program_lifecycle_duration_reviewer_decision_summary.json",
@@ -519,6 +520,10 @@ def main() -> None:
         ARTIFACTS / "program_lifecycle_duration_reviewer_decision_audit.csv",
         limit=25,
     )
+    top_temporal_contract_batches = read_csv(
+        ARTIFACTS / "training_temporal_contract_batches.csv",
+        limit=25,
+    )
     corpus_action_worklist = read_csv(ARTIFACTS / "corpus_action_worklist.csv", limit=40)
     top_alias_reviewer_decisions = read_csv(ARTIFACTS / "official_program_alias_reviewer_decision_audit.csv", limit=25)
     top_reconciliation_decisions = [
@@ -560,6 +565,14 @@ def main() -> None:
     transition_diff_readiness_counts = [
         {"diff_readiness_status": status, "count": count}
         for status, count in sorted((transition_plan_summary.get("by_diff_readiness_status") or {}).items())
+    ]
+    temporal_contract_batch_lane_counts = [
+        {"policy_lane": lane, "count": count}
+        for lane, count in sorted((temporal_contract_batch_summary.get("by_policy_lane") or {}).items())
+    ]
+    temporal_contract_batch_status_counts = [
+        {"batch_status": status, "count": count}
+        for status, count in sorted((temporal_contract_batch_summary.get("by_batch_status") or {}).items())
     ]
     program_lifecycle_duration_status_counts = [
         {"duration_evidence_status": status, "count": count}
@@ -701,6 +714,8 @@ def main() -> None:
         "training_state_machine_summary": state_machine_summary,
         "longitudinal_change_readiness_summary": longitudinal_readiness_summary,
         "training_state_transition_plan_summary": transition_plan_summary,
+        "training_temporal_contract_batch_summary": temporal_contract_batch_summary,
+        "top_training_temporal_contract_batches": top_temporal_contract_batches,
         "program_lifecycle_duration_evidence_summary": program_lifecycle_duration_summary,
         "program_lifecycle_duration_reviewer_decision_summary": program_lifecycle_duration_reviewer_decision_summary,
         "program_lifecycle_duration_evidence": program_lifecycle_duration_evidence,
@@ -1133,6 +1148,30 @@ def main() -> None:
         f"Corpus action: {transition_plan_summary.get('corpus_recommended_operator_action', 'not generated')}. Policy: {transition_plan_summary.get('policy', '')}",
         "",
         "Learning: the transition plan is the executable state-machine contract for future refreshes. It keeps expected advancement/completion, source-bound retention, and manual-review lanes separate, so a next-year run can produce individual, program, institution, category, and country diff views without silently carrying stale trainee states forward.",
+        "",
+        "### Temporal Contract Batches",
+        "",
+        f"Batch rows: {temporal_contract_batch_summary.get('batch_rows', 0)}. Contract rows batched: {temporal_contract_batch_summary.get('contract_count', 0)}. Source-refresh-required contracts: {temporal_contract_batch_summary.get('source_refresh_required_count', 0)}. Human-review contracts: {temporal_contract_batch_summary.get('human_review_required_count', 0)}.",
+        "",
+        *md_table(temporal_contract_batch_lane_counts, ["policy_lane", "count"]),
+        "",
+        *md_table(temporal_contract_batch_status_counts, ["batch_status", "count"]),
+        "",
+        *md_table(
+            top_temporal_contract_batches,
+            [
+                "execution_order",
+                "policy_lane",
+                "batch_status",
+                "role",
+                "program_name",
+                "lifecycle_code",
+                "contract_count",
+                "recommended_operator_action",
+            ],
+        ),
+        "",
+        "Learning: temporal contracts are row-level guardrails, but operator work should start from bounded batches. The batch layer keeps source-refresh and manual-review contracts non-mutating while preserving top contract keys, review triggers, and required next evidence for the downstream state-transition ledgers.",
         "",
         "## Evidence Counts",
         "",

@@ -78,6 +78,7 @@ def main() -> None:
         "training_state_transition_plan_rollups",
         "training_temporal_contracts",
         "training_temporal_contract_rollups",
+        "training_temporal_contract_batches",
         "person_training_stage_state",
         "training_stage_state_rollups",
         "official_roster_refresh_workbench",

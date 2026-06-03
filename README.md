@@ -168,6 +168,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_temporal_contracts.csv`: explicit per-state stale/transition contract for next runs, including the current temporal state code, allowed automatic diff outcomes, review triggers, and evidence required to retain, advance, or complete the row.
 - `artifacts/data/training_temporal_contract_rollups.csv`: temporal-contract rollups by corpus, institution, country, role, category, program, program-role, lifecycle code, temporal state, next-refresh contract, and diff-readiness status.
 - `artifacts/data/training_temporal_contract_summary.json`: one-glance stale-policy, guardrail, and next-refresh contract counts.
+- `artifacts/data/training_temporal_contract_batches.csv`: bounded non-mutating operator batches over source-refresh and manual-review temporal contracts, preserving top contract keys, review triggers, and required next evidence before any state mutation.
+- `artifacts/data/training_temporal_contract_batch_summary.json`: batch counts by policy lane, status, role, lifecycle code, contract burden, and top temporal-contract batches.
 - `artifacts/data/official_roster_refresh_workbench.csv`: source/program-level refresh contracts for official trainee rosters, derived from temporal contracts and source provenance.
 - `artifacts/data/official_roster_refresh_workbench_summary.json`: roster-refresh counts by lane, difficulty, role, source, program, and top source URLs for next collector runs.
 - `artifacts/data/official_roster_refresh_batches.csv`: bounded collector/parser/domain execution batches over roster-refresh contracts, preserving source URLs and expected state-machine outcomes before any mutation.
@@ -223,6 +225,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `research_identity_review_batches.csv` when available, so research identity corroboration becomes bounded reviewer sessions with member fingerprints; if batches are absent it falls back to grouped corroboration rows.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
+- The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
 - The worklist consumes `official_program_coverage_batches.csv` when available, so denominator coverage actions are grouped by lane, blocker, program type, and assurance level while program dossiers remain downstream evidence detail.
 - The worklist consumes `search_utility_execution_batches.csv` when available, so search assurance gaps become executable query, retry, and candidate-probe batches while the four-row utility assurance ledger remains the source-quality rollup.
 - The worklist consumes `person_enrichment_execution_batches.csv` when available, so enrichment execution starts from the resumable collector/manual-review batch manifest instead of regrouping raw queue rows.
@@ -331,6 +334,8 @@ python3 scripts/audit_training_state_machine.py
 python3 scripts/audit_longitudinal_change_readiness.py --refresh-date 2027-08-15
 python3 scripts/materialize_training_lifecycle_assurance.py
 python3 scripts/materialize_training_state_transition_plan.py
+python3 scripts/materialize_training_temporal_contracts.py
+python3 scripts/materialize_training_temporal_contract_batches.py
 python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/generate_enrichment_queue.py
@@ -379,6 +384,7 @@ python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_official_profile_discovery_batches.py
 python3 scripts/materialize_official_profile_reobservation_audit.py
 python3 scripts/materialize_official_profile_reviewer_decision_dossiers.py
+python3 scripts/materialize_training_temporal_contract_batches.py
 python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/materialize_corpus_action_worklist.py
 python3 scripts/report_source_quality.py
@@ -481,9 +487,10 @@ Materialize explicit temporal contracts:
 
 ```bash
 python3 scripts/materialize_training_temporal_contracts.py
+python3 scripts/materialize_training_temporal_contract_batches.py
 ```
 
-The temporal-contract materializer writes row-level and rollup artifacts that make the future state machine queryable without reading several ledgers at once. Each row says what stage is currently valid, when it becomes stale, what evidence is needed to retain/advance/complete it, which diff outcomes are auto-classifiable, and which observations must enter review.
+The temporal-contract materializer writes row-level and rollup artifacts that make the future state machine queryable without reading several ledgers at once. Each row says what stage is currently valid, when it becomes stale, what evidence is needed to retain/advance/complete it, which diff outcomes are auto-classifiable, and which observations must enter review. The batch materializer groups source-refresh and manual-review contracts into bounded non-mutating operator sessions; the worklist consumes those batches when present and keeps the row-level contracts as evidence detail.
 
 ## Data Policy
 

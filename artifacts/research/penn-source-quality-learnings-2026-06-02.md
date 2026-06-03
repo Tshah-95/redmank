@@ -1,6 +1,6 @@
 # Penn Source Quality Learnings
 
-Generated: 2026-06-03T09:36:30.089544+00:00
+Generated: 2026-06-03T09:49:06.599600+00:00
 
 ## What This Pass Did
 
@@ -606,6 +606,50 @@ Diff readiness:
 Corpus action: review_lifecycle_or_source_before_mutation. Policy: This ledger is non-mutating. Expected transitions are classifiable only with fresh source evidence or explicit terminal absence after stale-after; review/source-bound states are not carried forward silently.
 
 Learning: the transition plan is the executable state-machine contract for future refreshes. It keeps expected advancement/completion, source-bound retention, and manual-review lanes separate, so a next-year run can produce individual, program, institution, category, and country diff views without silently carrying stale trainee states forward.
+
+### Temporal Contract Batches
+
+Batch rows: 93. Contract rows batched: 758. Source-refresh-required contracts: 627. Human-review contracts: 131.
+
+| policy_lane | count |
+| --- | --- |
+| manual_review_required | 13 |
+| source_refresh_required | 80 |
+
+| batch_status | count |
+| --- | --- |
+| temporal_manual_review_ready | 13 |
+| temporal_source_refresh_ready | 80 |
+
+| execution_order | policy_lane | batch_status | role | program_name | lifecycle_code | contract_count | recommended_operator_action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | manual_review_required | temporal_manual_review_ready | resident | Psychiatry Residency | US_GME_RESIDENCY_DURATION_UNKNOWN | 50 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 2 | manual_review_required | temporal_manual_review_ready | resident | Pathology - Anatomic and Clinical Residency | US_GME_RESIDENCY_DURATION_UNKNOWN | 44 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 3 | manual_review_required | temporal_manual_review_ready | fellow | Maternal Fetal Medicine Fellowship | US_GME_FELLOWSHIP_DURATION_UNKNOWN | 8 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 4 | manual_review_required | temporal_manual_review_ready | resident | Internal Medicine Residency - Global Health Equities Track | US_GME_RESIDENCY_3Y | 8 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 5 | manual_review_required | temporal_manual_review_ready | fellow | Pulmonary and Critical Care Fellowship | US_GME_FELLOWSHIP_3Y | 6 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 6 | manual_review_required | temporal_manual_review_ready | fellow | Internal Medicine Residency - Global Health Equities Track | US_GME_FELLOWSHIP_DURATION_UNKNOWN | 4 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 7 | manual_review_required | temporal_manual_review_ready | fellow | Infectious Diseases Fellowship | US_GME_FELLOWSHIP_2Y | 2 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 8 | manual_review_required | temporal_manual_review_ready | fellow | Reproductive Endocrinology and Infertility Fellowship | US_GME_FELLOWSHIP_2Y | 2 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 9 | manual_review_required | temporal_manual_review_ready | resident | Internal Medicine Residency - Medical Education Leadership Track | US_GME_RESIDENCY_3Y | 2 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 10 | manual_review_required | temporal_manual_review_ready | resident | Psychiatry Residency | US_GME_RESIDENCY_DURATION_UNKNOWN | 2 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 11 | manual_review_required | temporal_manual_review_ready | fellow | Cardiovascular Disease Fellowship | US_GME_FELLOWSHIP_3Y | 1 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 12 | manual_review_required | temporal_manual_review_ready | fellow | Geriatric Medicine Fellowship | US_GME_FELLOWSHIP_1Y | 1 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 13 | manual_review_required | temporal_manual_review_ready | fellow | Rheumatology Fellowship | US_GME_FELLOWSHIP_2Y | 1 | review_lifecycle_or_source_label_contract_batch_before_mutation |
+| 14 | source_refresh_required | temporal_source_refresh_ready | medical_student | Medical Scientist Training Program | US_MD_PHD_MSTP_VARIABLE | 50 | refresh_source_observations_for_temporal_contract_batch |
+| 15 | source_refresh_required | temporal_source_refresh_ready | medical_student | Medical Scientist Training Program | US_MD_PHD_MSTP_VARIABLE | 50 | refresh_source_observations_for_temporal_contract_batch |
+| 16 | source_refresh_required | temporal_source_refresh_ready | medical_student | Medical Scientist Training Program | US_MD_PHD_MSTP_VARIABLE | 50 | refresh_source_observations_for_temporal_contract_batch |
+| 17 | source_refresh_required | temporal_source_refresh_ready | medical_student | Medical Scientist Training Program | US_MD_PHD_MSTP_VARIABLE | 50 | refresh_source_observations_for_temporal_contract_batch |
+| 18 | source_refresh_required | temporal_source_refresh_ready | resident | Diagnostic Radiology Residency | US_GME_RESIDENCY_5Y | 50 | refresh_source_observations_for_temporal_contract_batch |
+| 19 | source_refresh_required | temporal_source_refresh_ready | resident | Neurology Residency | US_GME_RESIDENCY_5Y | 50 | refresh_source_observations_for_temporal_contract_batch |
+| 20 | source_refresh_required | temporal_source_refresh_ready | resident | General Surgery Residency | US_GME_RESIDENCY_5Y | 26 | refresh_source_observations_for_temporal_contract_batch |
+| 21 | source_refresh_required | temporal_source_refresh_ready | medical_student | Medical Scientist Training Program | US_MD_PHD_MSTP_VARIABLE | 25 | refresh_source_observations_for_temporal_contract_batch |
+| 22 | source_refresh_required | temporal_source_refresh_ready | resident | Interventional Radiology Integrated Residency | US_GME_RESIDENCY_6Y | 19 | refresh_source_observations_for_temporal_contract_batch |
+| 23 | source_refresh_required | temporal_source_refresh_ready | resident | Radiation Oncology Residency | US_GME_RESIDENCY_5Y | 17 | refresh_source_observations_for_temporal_contract_batch |
+| 24 | source_refresh_required | temporal_source_refresh_ready | resident | Ophthalmology Residency | US_GME_RESIDENCY_5Y | 15 | refresh_source_observations_for_temporal_contract_batch |
+| 25 | source_refresh_required | temporal_source_refresh_ready | fellow | Clinical Cardiac Electrophysiology Fellowship | US_GME_FELLOWSHIP_2Y | 12 | refresh_source_observations_for_temporal_contract_batch |
+
+Learning: temporal contracts are row-level guardrails, but operator work should start from bounded batches. The batch layer keeps source-refresh and manual-review contracts non-mutating while preserving top contract keys, review triggers, and required next evidence for the downstream state-transition ledgers.
 
 ## Evidence Counts
 
@@ -3317,7 +3361,7 @@ Scorecard rows: 36.
 | PubMed article-level reconciliation | PMID-level publication candidates with author, affiliation, topic, and recency anchors | 2262 | 2262 | 69.0 | useful_candidate_layer | prioritize_review_ready_packets_then_collect_secondary_identity_anchors |
 | ORCID-seeded PubMed article reconciliation | ORCID public DOI/PMID works resolved to PubMed XML with author-position and DOI/PMID consistency checks | 354 | 295 | 72.0 | strong_with_known_limits | use_review_ready_orcid_seeded_articles_as_high_priority_publication_review_packets_not_machine_acceptance |
 | Enrichment acceptance assurance ledger | non-mutating acceptance tiers for publications, NPI anchors, and profile/trend evidence | 8541 | 8541 | 77.0 | strong_with_known_limits | promote_cross_source_publication_candidates_after_final_duplicate_author_position_check |
-| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 148 | 148 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
+| Warehouse reproducibility provenance audit | artifact existence, row-count parity, content hashes, and repository-size pressure | 149 | 149 | 88.0 | high_utility | retain_sqlite_as_generated_untracked_artifact_and_refresh_manifest |
 | Evidence temporal contracts | refresh, invalidation, display-safety, and currentness contracts for enrichment evidence | 10386 | 10386 | 85.0 | high_utility | use_contract_status_before_display_or_mutation_and_refresh_stale_currentness_bound_sources |
 | OpenAlex author search | author-disambiguation, works, affiliations, ORCID, and citation features | 180 | 498 | 46.0 | discovery_or_review_only | run_as_resumable_optional_lane_with_rate_limit_backoff |
 | ORCID public profile and work reconciliation | persistent ORCID identifier plus DOI/PMID-level public works, external identifiers, keywords, researcher URLs, and affiliations when exposed | 48 | 405 | 68.0 | useful_candidate_layer | use_orcid_work_ids_to_fetch_pubmed_openalex_crossref_metadata_then_reconcile_author_position |
@@ -3659,7 +3703,7 @@ Learning: official profile URLs are strong identity/context anchors only after t
 
 ## Corpus Action Worklist
 
-Worklist rows: 433. Summed impact count: 17747. Critical rows: 105. High rows: 124.
+Worklist rows: 440. Summed impact count: 17747. Critical rows: 105. High rows: 134.
 
 | action_surface | action_scope | display_label | role | priority | impact_count | recommended_next_action |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -4373,7 +4417,7 @@ Learning: coverage needs to be audited separately from evidence acceptance. This
 
 | utility_key | sample_size | candidate_claims | accepted_claims | rejected_claims | ambiguous_claims | metrics_json |
 | --- | --- | --- | --- | --- | --- | --- |
-| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-03T09:35:44.903369+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
+| official_trainee_profile | 927 | 2489 | 927 | 0 | 0 | {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "orphan_claims_skipped": 0, "people_with_claims": 927, "raw_claims": 3416, "source_rows": 927, "summary": {"by_claim_type": {"career_interest_candidate": 15, "education_history_candidate": 1248, "official_profile_url": 927, "personal_profile_candidate": 783, "prior_training_history_candidate": 108, "research_interest_candidate": 335}, "by_role": {"fellow": 517, "medical_student": 946, "resident": 1953}, "by_status": {"accepted": 927, "candidate": 2489}, "claims": 3416, "csv": "artifacts/data/penn_trainee_profile_claims.csv", "display_safety_counts": {"personal_context_not_default_display": 749, "safe_for_default_display": 2633, "sensitive_personal_context_restricted": 34}, "field_counts": {"academic_interests": 197, "alternate_career_interest": 110, "career_interests": 15, "graduate_group": 220, "graduate_school": 22, "hobbies": 166, "hobbies_interests": 187, "home_state": 35, "hometown": 121, "kids": 34, "medical_school": 689, "philadelphia_interest": 120, "residency_program": 111, "thesis_advisor": 138, "undergraduate": 319, "why_penn": 10}, "generated_at": "2026-06-03T09:48:21.236860+00:00", "inputs": {"artifacts/data/penn_affiliated_people.json": 306, "artifacts/data/penn_gme_gap_roster_people.json": 576, "artifacts/data/penn_mstp_students.json": 225, "artifacts/data/penn_training_people_unique.json": 453}, "json": "artifacts/data/penn_trainee_profile_claims.json", "people_with_claims": 927, "policy": "Profile URL links from official rosters are accepted as profile-location facts. Structured profile fields are candidate enrichment with display-safety metadata and do not mutate accepted roster/background truth.", "profile_fetch_status_counts": {"": 733, "200": 194}, "profiles_with_text": 914, "profiles_with_url": 927, "skipped": {"missing_profile_text_excerpt": 13, "no_known_profile_fields": 14}, "sources": 927, "sources_json": "artifacts/data/penn_trainee_profile_sources.json"}} |
 | official_trainee_profile_discovery | 27 | 0 | 0 | 0 | 27 | {"by_claim_type": {"official_profile_url_candidate": 27}, "by_status": {"needs_review": 27}, "claims": 27, "orphan_claims_skipped": 0, "people_with_claims": 27, "person_key_remapped_claims": 0, "raw_claims": 27, "source_rows": 27, "summary": {"by_candidate_status": {"low_signal_search_result": 2616, "official_profile_candidate": 27}, "by_direct_probe_kind_this_run": {"direct_roster_profile_sibling_probe": 2123}, "by_result_domain": {"www3.pennmedicine.org": 2643}, "by_role": {"fellow": 235, "resident": 2408}, "by_search_error": {"search_endpoint_non_200": 28}, "by_search_http_status": {"200": 2, "202": 28}, "candidate_rows": 2643, "claim_rows": 27, "claims_json": "artifacts/data/trainee_profile_discovery_claims.json", "csv": "artifacts/data/trainee_profile_discovery_candidates.csv", "direct_probe_rows": 2123, "direct_probed_this_run": 2123, "direct_provider_slug_probe_rows": 0, "direct_provider_slug_probed_this_run": 0, "direct_roster_profile_sibling_probe_rows": 2123, "direct_roster_profile_sibling_probed_this_run": 2123, "direct_skipped_existing": 520, "generated_at": "2026-06-02T20:51:21.814810+00:00", "official_or_context_candidate_people": 27, "official_profile_candidate_people": 27, "people_considered": 608, "policy": "Discovered profile URLs are candidate evidence only. They do not mutate people.profile_url unless an official roster-linked profile or reviewer-accepted evidence later confirms same-person/current-trainee context.", "query_rows": 1824, "resume_existing": true, "roster_profile_base_program_role_keys": 31, "search_observations": 30, "search_skipped": true, "searched_this_run": 0, "source_rows": 27, "sources_json": "artifacts/data/trainee_profile_discovery_sources.json", "unsearched_query_rows": 1794}} |
 | openalex_author_search | 0 | 0 | 0 | 0 | 0 | {"collector_resume_supported": true, "current_claims": 0, "rate_limit_observed": true} |
 | openalex_author_search | 180 | 498 | 0 | 0 | 51 | {"claims": 549, "mean_confidence": 0.4667, "orphan_claims_skipped": 0, "orphan_people_skipped": 0, "raw_claims": 549} |

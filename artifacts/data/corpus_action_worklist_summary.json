@@ -11,18 +11,18 @@
     "recent_attending_trend_discovery": 9,
     "research_identity_corroboration": 48,
     "search_utility_assurance": 136,
-    "training_temporal_contract": 86
+    "training_temporal_contract": 93
   },
   "by_priority_band": {
     "critical": 105,
-    "high": 124,
+    "high": 134,
     "low": 1,
-    "medium": 203
+    "medium": 200
   },
   "critical_rows": 105,
   "csv": "artifacts/data/corpus_action_worklist.csv",
-  "generated_at": "2026-06-03T09:36:29.450129+00:00",
-  "high_rows": 124,
+  "generated_at": "2026-06-03T09:49:05.970027+00:00",
+  "high_rows": 134,
   "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
   "json": "artifacts/data/corpus_action_worklist.json",
   "policy": "This worklist is non-mutating. It ranks unresolved evidence, coverage, state-machine, search, contact, and trend surfaces so operators can collect or review the next evidence without silently accepting facts.",
@@ -50,8 +50,8 @@
     "search_utility_assurance:recent_attending_trend_discovery:candidate_probe": 7,
     "search_utility_assurance:recent_attending_trend_discovery:endpoint_retry": 4,
     "search_utility_assurance:recent_attending_trend_discovery:query_execution": 14,
-    "training_temporal_contract:manual_review_required": 12,
-    "training_temporal_contract:source_refresh_required": 74
+    "training_temporal_contract:manual_review_required:temporal_manual_review_ready": 13,
+    "training_temporal_contract:source_refresh_required:temporal_source_refresh_ready": 80
   },
   "top_work_items": [
     {
@@ -306,5 +306,5 @@
     }
   ],
   "total_impact_count": 17747,
-  "worklist_rows": 433
+  "worklist_rows": 440
 }
