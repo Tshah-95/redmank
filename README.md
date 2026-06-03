@@ -214,6 +214,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_quality_policy_recommendation_summary.json`: policy-lane, action-readiness, and recent-attending trend relevance counts for source-quality recommendations.
 - `artifacts/data/search_utility_execution_batches.csv`: bounded execution batches for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing without converting search hits into accepted evidence.
 - `artifacts/data/search_utility_execution_batch_summary.json`: batch counts, unobserved-query burden, endpoint-retry burden, candidate-probe burden, and top search execution batches.
+- `artifacts/data/search_utility_execution_batch_packets.csv`: per-query, per-retry, and per-candidate packet support for search execution batches, joining each hidden unit back to its query, observation, candidate, entity, target artifact, and non-mutating reconciliation boundary.
+- `artifacts/data/search_utility_execution_batch_packet_summary.json`: packet counts by search lane, work-item type, support status, utility family, and top packet evidence.
 - `artifacts/data/person_enrichment_action_member_execution_queue.csv`: fingerprinted per-member execution-decision queue.
 - `artifacts/data/person_enrichment_action_member_execution_decisions.csv`: manual execution-outcome input file for action-batch members.
 - `artifacts/data/person_enrichment_action_member_execution_audit.csv`: audit of execution decisions, stale fingerprints, blockers, and downstream routing.
@@ -245,7 +247,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
 - The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
 - The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
-- The worklist consumes `search_utility_execution_batches.csv` when available, so search assurance gaps become executable query, retry, and candidate-probe batches while the four-row utility assurance ledger remains the source-quality rollup.
+- The worklist consumes `search_utility_execution_batch_packets.csv` when available while retaining one row per search execution batch, so search assurance gaps stay bounded but expose exact query, retry, and candidate-probe packet support; if packet support is absent it falls back to execution batches, then the four-row utility assurance ledger.
 - The worklist consumes `person_enrichment_execution_batches.csv` when available, so enrichment execution starts from the resumable collector/manual-review batch manifest instead of regrouping raw queue rows.
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
@@ -406,6 +408,7 @@ python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
 python3 scripts/materialize_source_quality_policy_recommendations.py
 python3 scripts/materialize_search_utility_execution_batches.py
+python3 scripts/materialize_search_utility_execution_batch_packets.py
 python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_official_profile_discovery_batches.py
 python3 scripts/materialize_official_profile_reobservation_audit.py

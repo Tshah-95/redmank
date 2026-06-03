@@ -127,6 +127,7 @@ Core tables:
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
 - `source_quality_policy_recommendations`: non-mutating policy translation layer that maps scorecard/search evidence to acceptance posture, collector posture, reviewer posture, trend relevance, and required next evidence.
 - `search_utility_execution_batches`: bounded execution sessions for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing while preserving source-quality failures as evidence.
+- `search_utility_execution_batch_packets`: per-query, per-retry, and per-candidate packet support for those search execution batches, preserving the exact source row, entity, target artifact, support status, and reconciliation boundary behind each batch.
 - `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-contract batches, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
 
 Useful views:
@@ -397,7 +398,7 @@ The scorecard is not an acceptance mutator. It answers which utility is good for
 
 This layer is deliberately non-mutating. It says how a utility should be used; source-specific reviewer decisions, acceptance ledgers, and temporal contracts still decide whether any fact can be promoted, displayed, retained, or refreshed.
 
-`scripts/materialize_search_utility_execution_batches.py` converts that assurance ledger and its source artifacts into bounded operator sessions. Query-execution batches cover query rows with no observation yet; endpoint-retry batches cover failed or non-200 observations; candidate-probe batches cover search-derived candidates that still need source probing and reconciliation. `scripts/materialize_corpus_action_worklist.py` consumes these batches when present, so broad search work is actionable without turning search candidates into accepted trainee, program, contact, or attending-trend facts.
+`scripts/materialize_search_utility_execution_batches.py` converts that assurance ledger and its source artifacts into bounded operator sessions. Query-execution batches cover query rows with no observation yet; endpoint-retry batches cover failed or non-200 observations; candidate-probe batches cover search-derived candidates that still need source probing and reconciliation. `scripts/materialize_search_utility_execution_batch_packets.py` then explodes each batch into exact query, retry, or candidate packets, joining every hidden work unit back to the original artifact row and target evidence ledger. `scripts/materialize_corpus_action_worklist.py` consumes packet support when present while retaining one row per batch, so broad search work is actionable without turning search candidates into accepted trainee, program, contact, or attending-trend facts.
 
 ## Public Contact Evidence
 

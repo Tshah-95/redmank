@@ -683,9 +683,19 @@ def search_utility_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "search_utility_execution_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/search_utility_execution_batches.csv"
+        batch_packet_path = ARTIFACTS / "search_utility_execution_batch_packets.csv"
+        source = (
+            "artifacts/data/search_utility_execution_batch_packets.csv"
+            if batch_packet_path.exists()
+            else "artifacts/data/search_utility_execution_batches.csv"
+        )
+        packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if batch_packet_path.exists():
+            for packet in read_csv(batch_packet_path):
+                packets_by_batch[packet.get("search_utility_execution_batch_key") or ""].append(packet)
         for item in read_csv(batch_path):
             lane = item.get("batch_lane") or ""
+            batch_packets = packets_by_batch.get(item.get("search_utility_execution_batch_key") or "", [])
             priority = {
                 "query_execution": 760,
                 "endpoint_retry": 740,
@@ -718,6 +728,7 @@ def search_utility_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "",
                     downstream_tables=[
                         "search_utility_execution_batches",
+                        "search_utility_execution_batch_packets",
                         "search_utility_assurance",
                         "official_program_source_search_observations",
                         "official_program_source_candidates",
@@ -747,6 +758,31 @@ def search_utility_actions(generated_at: str) -> list[dict]:
                         "sample_queries": parse_json(item.get("sample_queries_json"), []),
                         "sample_observations": parse_json(item.get("sample_observations_json"), []),
                         "sample_candidates": parse_json(item.get("sample_candidates_json"), []),
+                        "search_utility_execution_batch_packet_rows": len(batch_packets),
+                        "top_packet_support_statuses": sorted(
+                            {
+                                packet.get("support_status")
+                                for packet in batch_packets
+                                if packet.get("support_status")
+                            }
+                        )[:12],
+                        "top_search_utility_execution_batch_packets": [
+                            {
+                                "search_utility_execution_batch_packet_key": packet.get(
+                                    "search_utility_execution_batch_packet_key"
+                                ),
+                                "batch_packet_order": packet.get("batch_packet_order"),
+                                "work_item_type": packet.get("work_item_type"),
+                                "support_status": packet.get("support_status"),
+                                "display_label": packet.get("display_label"),
+                                "query_kind": packet.get("query_kind"),
+                                "query_key": packet.get("query_key"),
+                                "candidate_key": packet.get("candidate_key"),
+                                "candidate_url": packet.get("candidate_url"),
+                                "recommended_packet_action": packet.get("recommended_packet_action"),
+                            }
+                            for packet in batch_packets[:10]
+                        ],
                     },
                     generated_at=generated_at,
                 )

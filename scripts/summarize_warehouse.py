@@ -145,6 +145,7 @@ def main() -> None:
         "search_utility_assurance",
         "source_quality_policy_recommendations",
         "search_utility_execution_batches",
+        "search_utility_execution_batch_packets",
         "corpus_action_worklist",
         "official_program_universe",
         "official_program_coverage_audit",
@@ -1459,6 +1460,36 @@ def main() -> None:
             """
         )
     }
+    search_utility_execution_batch_packet_lane_counts = {
+        row["batch_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT batch_lane, COUNT(*) AS count
+            FROM search_utility_execution_batch_packets
+            GROUP BY batch_lane
+            """
+        )
+    }
+    search_utility_execution_batch_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM search_utility_execution_batch_packets
+            GROUP BY support_status
+            """
+        )
+    }
+    search_utility_execution_batch_packet_type_counts = {
+        row["work_item_type"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT work_item_type, COUNT(*) AS count
+            FROM search_utility_execution_batch_packets
+            GROUP BY work_item_type
+            """
+        )
+    }
     person_enrichment_queue_priority_counts = {
         row["priority_band"]: row["count"]
         for row in conn.execute(
@@ -1917,6 +1948,15 @@ def main() -> None:
         )
     else:
         source_quality_policy_recommendation_summary = {}
+    search_utility_execution_batch_packet_summary_path = (
+        ARTIFACTS / "search_utility_execution_batch_packet_summary.json"
+    )
+    if search_utility_execution_batch_packet_summary_path.exists():
+        search_utility_execution_batch_packet_summary = json.loads(
+            search_utility_execution_batch_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        search_utility_execution_batch_packet_summary = {}
     corpus_action_worklist_summary_path = ARTIFACTS / "corpus_action_worklist_summary.json"
     if corpus_action_worklist_summary_path.exists():
         corpus_action_worklist_summary = json.loads(corpus_action_worklist_summary_path.read_text(encoding="utf-8"))
@@ -2177,6 +2217,9 @@ def main() -> None:
         "source_utility_scorecard_counts": source_utility_scorecard_counts,
         "source_quality_policy_recommendation_counts": source_quality_policy_recommendation_counts,
         "source_quality_policy_action_readiness_counts": source_quality_policy_action_readiness_counts,
+        "search_utility_execution_batch_packet_lane_counts": search_utility_execution_batch_packet_lane_counts,
+        "search_utility_execution_batch_packet_support_counts": search_utility_execution_batch_packet_support_counts,
+        "search_utility_execution_batch_packet_type_counts": search_utility_execution_batch_packet_type_counts,
         "person_enrichment_queue_priority_counts": person_enrichment_queue_priority_counts,
         "person_enrichment_queue_task_counts": person_enrichment_queue_task_counts,
         "person_enrichment_queue_source_counts": person_enrichment_queue_source_counts,
@@ -2239,6 +2282,7 @@ def main() -> None:
         "warehouse_reproducibility_summary": warehouse_reproducibility_summary,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,
+        "search_utility_execution_batch_packet_summary": search_utility_execution_batch_packet_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,
         "medical_student_source_audit_summary": medical_student_source_audit_summary,

@@ -1,0 +1,310 @@
+{
+  "batch_count": 136,
+  "by_batch_lane": {
+    "candidate_probe": 2650,
+    "endpoint_retry": 100,
+    "query_execution": 3124
+  },
+  "by_support_status": {
+    "needs_candidate_source_reconciliation": 2646,
+    "needs_candidate_source_reprobe_or_access_review": 4,
+    "needs_retry_after_endpoint_error": 100,
+    "needs_search_observation": 3124
+  },
+  "by_utility_family": {
+    "official_program_gap_discovery": 42,
+    "person_background_discovery": 640,
+    "person_profile_discovery": 4465,
+    "recent_attending_trend_discovery": 727
+  },
+  "by_work_item_type": {
+    "search_candidate_probe": 2650,
+    "search_observation_retry": 100,
+    "search_query": 3124
+  },
+  "candidate_probe_packet_count": 2650,
+  "csv": "artifacts/data/search_utility_execution_batch_packets.csv",
+  "endpoint_retry_packet_count": 100,
+  "generated_at": "2026-06-03T11:50:45.872112+00:00",
+  "json": "artifacts/data/search_utility_execution_batch_packets.json",
+  "packet_rows": 5874,
+  "policy": "Search utility execution batch packets make every hidden query, retry, and candidate-probe unit addressable without accepting search output as fact.",
+  "query_packet_count": 3124,
+  "top_packets": [
+    {
+      "batch_lane": "candidate_probe",
+      "batch_packet_order": 1,
+      "candidate_url": "https://www.linkedin.com/in/emily-gordon-md-msed-406675247",
+      "display_label": "Emily Gordon, MD, MSEd",
+      "execution_order": "1",
+      "query_kind": "historical_penn_training",
+      "support_status": "needs_candidate_source_reprobe_or_access_review",
+      "utility_family": "recent_attending_trend_discovery",
+      "work_item_type": "search_candidate_probe"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 1,
+      "candidate_url": "",
+      "display_label": "Addiction Psychiatry",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 2,
+      "candidate_url": "",
+      "display_label": "Clinical Neurophysiology",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 3,
+      "candidate_url": "",
+      "display_label": "Complex Family Planning",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 4,
+      "candidate_url": "",
+      "display_label": "Consultation and Liaison Psychiatry",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 5,
+      "candidate_url": "",
+      "display_label": "Dermatopathology",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 6,
+      "candidate_url": "",
+      "display_label": "Epilepsy",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 7,
+      "candidate_url": "",
+      "display_label": "Forensic Psychiatry",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 8,
+      "candidate_url": "",
+      "display_label": "Geriatric Psychiatry",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 9,
+      "candidate_url": "",
+      "display_label": "Micrographic Surgery and Dermatologic Oncology",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 10,
+      "candidate_url": "",
+      "display_label": "Neurocritical Care",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 11,
+      "candidate_url": "",
+      "display_label": "Neuromuscular Medicine",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 12,
+      "candidate_url": "",
+      "display_label": "Occupational and Environmental Medicine (Preventative Medicine)",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 13,
+      "candidate_url": "",
+      "display_label": "Oral and Maxillofacial Surgery",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 14,
+      "candidate_url": "",
+      "display_label": "Vascular Neurology",
+      "execution_order": "2",
+      "query_kind": "official_program_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 1,
+      "candidate_url": "",
+      "display_label": "Addiction Psychiatry",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 2,
+      "candidate_url": "",
+      "display_label": "Clinical Neurophysiology",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 3,
+      "candidate_url": "",
+      "display_label": "Complex Family Planning",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 4,
+      "candidate_url": "",
+      "display_label": "Consultation and Liaison Psychiatry",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 5,
+      "candidate_url": "",
+      "display_label": "Dermatopathology",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 6,
+      "candidate_url": "",
+      "display_label": "Epilepsy",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 7,
+      "candidate_url": "",
+      "display_label": "Forensic Psychiatry",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 8,
+      "candidate_url": "",
+      "display_label": "Geriatric Psychiatry",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 9,
+      "candidate_url": "",
+      "display_label": "Micrographic Surgery and Dermatologic Oncology",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    },
+    {
+      "batch_lane": "query_execution",
+      "batch_packet_order": 10,
+      "candidate_url": "",
+      "display_label": "Neurocritical Care",
+      "execution_order": "3",
+      "query_kind": "upenn_current_roster_search",
+      "support_status": "needs_search_observation",
+      "utility_family": "official_program_gap_discovery",
+      "work_item_type": "search_query"
+    }
+  ]
+}

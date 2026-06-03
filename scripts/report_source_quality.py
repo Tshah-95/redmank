@@ -436,6 +436,10 @@ def main() -> None:
         ARTIFACTS / "search_utility_execution_batch_summary.json",
         {},
     )
+    search_utility_execution_batch_packet_summary = read_json(
+        ARTIFACTS / "search_utility_execution_batch_packet_summary.json",
+        {},
+    )
     official_profile_discovery_batch_summary = read_json(
         ARTIFACTS / "official_profile_discovery_batch_summary.json",
         {},
@@ -581,6 +585,10 @@ def main() -> None:
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
     top_search_utility_execution_batches = read_csv(
         ARTIFACTS / "search_utility_execution_batches.csv",
+        limit=25,
+    )
+    top_search_utility_execution_batch_packets = read_csv(
+        ARTIFACTS / "search_utility_execution_batch_packets.csv",
         limit=25,
     )
     program_lifecycle_duration_evidence = read_csv(
@@ -859,6 +867,8 @@ def main() -> None:
         "search_utility_assurance": search_utility_assurance,
         "search_utility_execution_batch_summary": search_utility_execution_batch_summary,
         "top_search_utility_execution_batches": top_search_utility_execution_batches,
+        "search_utility_execution_batch_packet_summary": search_utility_execution_batch_packet_summary,
+        "top_search_utility_execution_batch_packets": top_search_utility_execution_batch_packets,
         "official_profile_discovery_batch_summary": official_profile_discovery_batch_summary,
         "top_official_profile_discovery_batches": top_official_profile_discovery_batches,
         "official_profile_discovery_batch_packet_summary": official_profile_discovery_batch_packet_summary,
@@ -1569,6 +1579,23 @@ def main() -> None:
                 "batch_row_count",
                 "action_impact_count",
                 "recommended_operator_action",
+            ],
+        ),
+        "",
+        f"Execution batch packets: {search_utility_execution_batch_packet_summary.get('packet_rows', 0)}. Query packets: {search_utility_execution_batch_packet_summary.get('query_packet_count', 0)}. Endpoint retry packets: {search_utility_execution_batch_packet_summary.get('endpoint_retry_packet_count', 0)}. Candidate-probe packets: {search_utility_execution_batch_packet_summary.get('candidate_probe_packet_count', 0)}.",
+        "",
+        *md_table(
+            top_search_utility_execution_batch_packets,
+            [
+                "execution_order",
+                "batch_packet_order",
+                "utility_family",
+                "batch_lane",
+                "work_item_type",
+                "support_status",
+                "display_label",
+                "query_kind",
+                "candidate_url",
             ],
         ),
         "",

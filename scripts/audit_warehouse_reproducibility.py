@@ -853,6 +853,13 @@ ARTIFACT_SPECS = [
         "search_utility_execution_batches",
         True,
     ),
+    (
+        "artifacts/data/search_utility_execution_batch_packets.csv",
+        "source_quality_execution_batch_packet_ledger",
+        "csv",
+        "search_utility_execution_batch_packets",
+        True,
+    ),
     ("artifacts/data/corpus_action_worklist.csv", "operator_worklist", "csv", "corpus_action_worklist", True),
 ]
 

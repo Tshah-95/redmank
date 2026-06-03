@@ -33,7 +33,7 @@
   "candidate_source_count": 71,
   "csv": "artifacts/data/official_program_coverage_batch_packets.csv",
   "dossier_packet_rows": 42,
-  "generated_at": "2026-06-03T11:36:53.194874+00:00",
+  "generated_at": "2026-06-03T11:46:05.521135+00:00",
   "json": "artifacts/data/official_program_coverage_batch_packets.json",
   "packet_rows": 42,
   "person_impact_count": 542,
