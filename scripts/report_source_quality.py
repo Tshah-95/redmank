@@ -396,6 +396,10 @@ def main() -> None:
         {},
     )
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
+    official_profile_discovery_batch_summary = read_json(
+        ARTIFACTS / "official_profile_discovery_batch_summary.json",
+        {},
+    )
     official_profile_reviewer_dossier_summary = read_json(
         ARTIFACTS / "official_profile_reviewer_decision_dossier_summary.json",
         {},
@@ -444,6 +448,10 @@ def main() -> None:
     )
     top_official_profile_reviewer_dossiers = read_csv(
         ARTIFACTS / "official_profile_reviewer_decision_dossiers.csv",
+        limit=25,
+    )
+    top_official_profile_discovery_batches = read_csv(
+        ARTIFACTS / "official_profile_discovery_batches.csv",
         limit=25,
     )
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
@@ -707,6 +715,8 @@ def main() -> None:
         "top_research_identity_reviewer_dossiers": top_research_identity_reviewer_dossiers,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
+        "official_profile_discovery_batch_summary": official_profile_discovery_batch_summary,
+        "top_official_profile_discovery_batches": top_official_profile_discovery_batches,
         "official_profile_reviewer_dossier_summary": official_profile_reviewer_dossier_summary,
         "top_official_profile_reviewer_dossiers": top_official_profile_reviewer_dossiers,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
@@ -1227,6 +1237,23 @@ def main() -> None:
         ),
         "",
         "Learning: query manifests, endpoint observations, and discovered candidates are separate evidence classes. A skipped or blocked search lane cannot be interpreted as evidence that no public page exists; it only tells us which discovery utility still needs execution, retry, or replacement.",
+        "",
+        "## Official Profile Discovery Batches",
+        "",
+        f"Batch rows: {official_profile_discovery_batch_summary.get('batch_rows', 0)}. Workbench rows covered: {official_profile_discovery_batch_summary.get('workbench_count', 0)}. Queries: {official_profile_discovery_batch_summary.get('query_count', 0)}. Unsearched queries: {official_profile_discovery_batch_summary.get('unsearched_query_count', 0)}. Blocked queries: {official_profile_discovery_batch_summary.get('blocked_query_count', 0)}. Official candidates: {official_profile_discovery_batch_summary.get('official_candidate_count', 0)}.",
+        "",
+        *md_table(
+            top_official_profile_discovery_batches,
+            [
+                "execution_order",
+                "discovery_lane",
+                "role",
+                "batch_status",
+                "workbench_count",
+                "query_count",
+                "recommended_operator_action",
+            ],
+        ),
         "",
         "## Official Profile Reviewer Dossiers",
         "",

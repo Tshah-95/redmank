@@ -1805,6 +1805,42 @@ CREATE TABLE IF NOT EXISTS official_profile_discovery_workbench (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_profile_discovery_batches (
+  official_profile_discovery_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  discovery_lane TEXT NOT NULL,
+  role TEXT,
+  batch_status TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  source_domain TEXT NOT NULL,
+  query_status_signature TEXT NOT NULL,
+  candidate_status_signature TEXT NOT NULL,
+  workbench_count INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  query_count INTEGER NOT NULL DEFAULT 0,
+  observed_query_count INTEGER NOT NULL DEFAULT 0,
+  unsearched_query_count INTEGER NOT NULL DEFAULT 0,
+  blocked_query_count INTEGER NOT NULL DEFAULT 0,
+  successful_query_count INTEGER NOT NULL DEFAULT 0,
+  direct_probe_count INTEGER NOT NULL DEFAULT 0,
+  candidate_count INTEGER NOT NULL DEFAULT 0,
+  official_candidate_count INTEGER NOT NULL DEFAULT 0,
+  low_signal_candidate_count INTEGER NOT NULL DEFAULT 0,
+  max_discovery_priority INTEGER NOT NULL DEFAULT 0,
+  min_discovery_priority INTEGER NOT NULL DEFAULT 0,
+  top_programs TEXT,
+  top_source_domains TEXT,
+  query_status_counts_json TEXT NOT NULL,
+  candidate_status_counts_json TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  execution_instructions TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  top_workbench_rows_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS official_profile_reviewer_decision_queue (
   reviewer_decision_key TEXT PRIMARY KEY,
   profile_workbench_key TEXT NOT NULL REFERENCES official_profile_discovery_workbench(profile_workbench_key) ON DELETE CASCADE,

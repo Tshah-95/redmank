@@ -753,6 +753,82 @@ def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
 
 def official_profile_discovery_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "official_profile_discovery_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/official_profile_discovery_batches.csv"
+        for item in read_csv(batch_path):
+            lane = item.get("discovery_lane") or "official_profile_discovery"
+            priority = 650 + as_int(item.get("max_discovery_priority")) // 3
+            if lane == "review_official_profile_candidate":
+                priority += 80
+            elif lane == "search_endpoint_blocked_retry":
+                priority += 35
+            elif lane == "planned_search_not_executed":
+                priority += 20
+            priority += min(as_int(item.get("workbench_count")) * 2, 80)
+            rows.append(
+                row(
+                    action_surface="official_profile_discovery",
+                    action_scope=f"{lane}:{item.get('batch_status') or ''}",
+                    entity_type="official_profile_discovery_batch",
+                    entity_key=item.get("official_profile_discovery_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            lane,
+                            item.get("role"),
+                            item.get("source_domain"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("role") or "",
+                    program_name="",
+                    priority=priority,
+                    impact_count=max(as_int(item.get("workbench_count")), as_int(item.get("person_count")), 1),
+                    readiness_status=item.get("batch_status") or "",
+                    blocker_status=item.get("query_status_signature") or item.get("candidate_status_signature") or "",
+                    required_next_evidence=item.get("required_next_evidence") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "artifacts/data/trainee_profile_discovery_candidates.csv",
+                    downstream_tables=[
+                        "official_profile_discovery_batches",
+                        "official_profile_discovery_workbench",
+                        "official_profile_reobservation_audit",
+                        "official_profile_reviewer_decision_queue",
+                        "official_profile_reviewer_decision_audit",
+                        "official_profile_reviewer_decision_dossiers",
+                        "trainee_profile_search_queries",
+                        "trainee_profile_search_observations",
+                        "trainee_profile_discovery_candidates",
+                        "evidence_claims",
+                    ],
+                    evidence={
+                        "official_profile_discovery_batch_key": item.get("official_profile_discovery_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "discovery_lane": lane,
+                        "batch_status": item.get("batch_status"),
+                        "source_domain": item.get("source_domain"),
+                        "workbench_count": item.get("workbench_count"),
+                        "person_count": item.get("person_count"),
+                        "query_count": item.get("query_count"),
+                        "observed_query_count": item.get("observed_query_count"),
+                        "unsearched_query_count": item.get("unsearched_query_count"),
+                        "blocked_query_count": item.get("blocked_query_count"),
+                        "candidate_count": item.get("candidate_count"),
+                        "official_candidate_count": item.get("official_candidate_count"),
+                        "low_signal_candidate_count": item.get("low_signal_candidate_count"),
+                        "query_status_counts": parse_json(item.get("query_status_counts_json"), {}),
+                        "candidate_status_counts": parse_json(item.get("candidate_status_counts_json"), {}),
+                        "top_workbench_rows": parse_json(item.get("top_workbench_rows_json"), []),
+                        "execution_instructions": item.get("execution_instructions"),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source_path = ARTIFACTS / "official_profile_discovery_workbench.csv"
     if not source_path.exists():
         return rows
