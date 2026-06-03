@@ -407,6 +407,10 @@ def main() -> None:
         ARTIFACTS / "research_identity_review_batch_packet_summary.json",
         {},
     )
+    research_identity_review_batch_member_packet_summary = read_json(
+        ARTIFACTS / "research_identity_review_batch_member_packet_summary.json",
+        {},
+    )
     research_identity_conflict_packet_summary = read_json(
         ARTIFACTS / "research_identity_conflict_resolution_packet_summary.json",
         {},
@@ -544,6 +548,10 @@ def main() -> None:
     top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
     top_research_identity_review_batch_packets = read_csv(
         ARTIFACTS / "research_identity_review_batch_packets.csv",
+        limit=25,
+    )
+    top_research_identity_review_batch_member_packets = read_csv(
+        ARTIFACTS / "research_identity_review_batch_member_packets.csv",
         limit=25,
     )
     top_research_identity_conflict_packets = read_csv(
@@ -829,6 +837,8 @@ def main() -> None:
         "top_research_identity_review_batches": top_research_identity_review_batches,
         "research_identity_review_batch_packet_summary": research_identity_review_batch_packet_summary,
         "top_research_identity_review_batch_packets": top_research_identity_review_batch_packets,
+        "research_identity_review_batch_member_packet_summary": research_identity_review_batch_member_packet_summary,
+        "top_research_identity_review_batch_member_packets": top_research_identity_review_batch_member_packets,
         "research_identity_conflict_packet_summary": research_identity_conflict_packet_summary,
         "top_research_identity_conflict_packets": top_research_identity_conflict_packets,
         "research_identity_conflict_identifier_evidence_summary": research_identity_conflict_identifier_evidence_summary,
@@ -1405,6 +1415,26 @@ def main() -> None:
                 "pending_decision_count",
                 "conflict_member_count",
                 "packet_status",
+                "recommended_reviewer_action",
+            ],
+        ),
+        "",
+        "Batch member packets:",
+        "",
+        f"Member packet rows: {research_identity_review_batch_member_packet_summary.get('member_packet_rows', 0)}. Packet people: {research_identity_review_batch_member_packet_summary.get('person_count', 0)}. Reviewer-dossier members: {research_identity_review_batch_member_packet_summary.get('reviewer_dossier_member_rows', 0)}. Manual templates: {research_identity_review_batch_member_packet_summary.get('manual_decision_template_rows', 0)}. Conflict members: {research_identity_review_batch_member_packet_summary.get('conflict_member_count', 0)}.",
+        "",
+        *md_table(
+            top_research_identity_review_batch_member_packets,
+            [
+                "execution_order",
+                "member_order",
+                "display_name",
+                "role",
+                "review_lane",
+                "packet_status",
+                "support_status",
+                "research_review_ready_count",
+                "conflicting_identifier_count",
                 "recommended_reviewer_action",
             ],
         ),

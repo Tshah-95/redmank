@@ -30,7 +30,7 @@
   "contract_rows": 10386,
   "contracts_csv": "artifacts/data/evidence_temporal_contracts.csv",
   "durable_until_contradicted_rows": 1780,
-  "generated_at": "2026-06-03T11:07:30.863394+00:00",
+  "generated_at": "2026-06-03T11:20:54.397558+00:00",
   "person_count": 1527,
   "policy": "Evidence temporal contracts are non-mutating. They describe when enrichment facts can be retained, refreshed, reviewed, or invalidated before any person truth or display surface is updated.",
   "refresh_bound_rows": 3759,

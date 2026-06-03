@@ -2315,6 +2315,8 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "research_identity_reviewer_decision_dossiers",
         "research_identity_conflict_resolution_packets",
         "research_identity_conflict_identifier_evidence",
+        "research_identity_review_batch_packets",
+        "research_identity_review_batch_member_packets",
         "source_utility_scorecard",
         "search_utility_assurance",
         "source_quality_policy_recommendations",

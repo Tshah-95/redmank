@@ -638,6 +638,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/research_identity_review_batch_member_packets.csv",
+        "research_identity_review_batch_member_packet_ledger",
+        "csv",
+        "research_identity_review_batch_member_packets",
+        True,
+    ),
+    (
         "artifacts/data/penn_trainee_profile_claims.csv",
         "trainee_profile_enrichment_ledger",
         "csv",

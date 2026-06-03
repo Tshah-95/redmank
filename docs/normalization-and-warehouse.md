@@ -117,6 +117,7 @@ Core tables:
 - `research_identity_conflict_resolution_packets`: conflict-only operator packets over research identity dossiers, expanding competing ORCID/OpenAlex/NPI identifiers, publication support, risk flags, and current-fingerprint decision templates.
 - `research_identity_conflict_identifier_evidence`: per-identifier support matrix exploded from conflict packets, ranking competing ORCID/OpenAlex/NPI identifiers and exposing source-family/domain, PMID/DOI, posture, and reviewer-action evidence.
 - `research_identity_review_batch_packets`: batch-level review packets over research identity sessions, joining per-member dossiers into one packet per batch with pending-decision counts, conflict burden, source-family rollups, and member decision-template indexes.
+- `research_identity_review_batch_member_packets`: per-member packet support over those batches, keeping current fingerprints, reviewer dossier/template links, source-family and identifier evidence, packet status, and target routing queryable without opening nested packet JSON.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
@@ -359,6 +360,8 @@ The current readiness ledger now treats profile, research, and prior-training di
 `scripts/materialize_research_identity_conflict_identifier_evidence.py` explodes those conflict packets into one row per competing identifier. The matrix ranks identifiers within each packet, preserves source-family/domain and PMID/DOI support, classifies each identifier's review posture, and keeps recommended reviewer actions queryable without accepting or quarantining any identifier automatically.
 
 `scripts/materialize_research_identity_review_batch_packets.py` adds the batch-facing view over those per-member dossiers. It rolls each bounded research identity review session into one packet with top member dossiers, conflict and pending-decision counts, source-family and identifier summaries, and a member decision index so conflict reconciliation and secondary-anchor review can be worked without opening every nested evidence blob.
+
+`scripts/materialize_research_identity_review_batch_member_packets.py` expands those bounded batches back to one packet per member. It preserves the current member fingerprint, reviewer decision key, dossier/template JSON, top claims, identifier summaries, packet status, support status, and acceptance boundary so the top-level worklist can stay batch-sized while exposing every person-level reviewer action without nested packet parsing.
 
 ## First Research Utility Learnings
 

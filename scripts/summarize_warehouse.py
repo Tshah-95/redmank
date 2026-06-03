@@ -48,6 +48,7 @@ def main() -> None:
         "research_identity_conflict_resolution_packets",
         "research_identity_conflict_identifier_evidence",
         "research_identity_review_batch_packets",
+        "research_identity_review_batch_member_packets",
         "official_roster_refresh_execution_audit",
         "training_state_snapshots",
         "training_state_snapshot_rows",
@@ -494,6 +495,26 @@ def main() -> None:
             SELECT review_lane, COUNT(*) AS count
             FROM research_identity_review_batch_packets
             GROUP BY review_lane
+            """
+        )
+    }
+    research_identity_review_batch_member_packet_status_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM research_identity_review_batch_member_packets
+            GROUP BY packet_status
+            """
+        )
+    }
+    research_identity_review_batch_member_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM research_identity_review_batch_member_packets
+            GROUP BY support_status
             """
         )
     }
@@ -1720,6 +1741,15 @@ def main() -> None:
         )
     else:
         research_identity_review_batch_packet_summary = {}
+    research_identity_review_batch_member_packet_summary_path = (
+        ARTIFACTS / "research_identity_review_batch_member_packet_summary.json"
+    )
+    if research_identity_review_batch_member_packet_summary_path.exists():
+        research_identity_review_batch_member_packet_summary = json.loads(
+            research_identity_review_batch_member_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        research_identity_review_batch_member_packet_summary = {}
     research_identity_conflict_packet_summary_path = ARTIFACTS / "research_identity_conflict_resolution_packet_summary.json"
     if research_identity_conflict_packet_summary_path.exists():
         research_identity_conflict_packet_summary = json.loads(
@@ -2010,6 +2040,8 @@ def main() -> None:
         "person_evidence_review_batch_packet_lane_counts": person_evidence_review_batch_packet_lane_counts,
         "research_identity_review_batch_packet_status_counts": research_identity_review_batch_packet_status_counts,
         "research_identity_review_batch_packet_lane_counts": research_identity_review_batch_packet_lane_counts,
+        "research_identity_review_batch_member_packet_status_counts": research_identity_review_batch_member_packet_status_counts,
+        "research_identity_review_batch_member_packet_support_counts": research_identity_review_batch_member_packet_support_counts,
         "research_identity_conflict_packet_counts": research_identity_conflict_packet_counts,
         "research_identity_conflict_packet_status_counts": research_identity_conflict_packet_status_counts,
         "research_identity_conflict_identifier_type_counts": research_identity_conflict_identifier_type_counts,
@@ -2144,6 +2176,7 @@ def main() -> None:
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "person_evidence_review_batch_packet_summary": person_evidence_batch_packet_summary,
         "research_identity_review_batch_packet_summary": research_identity_review_batch_packet_summary,
+        "research_identity_review_batch_member_packet_summary": research_identity_review_batch_member_packet_summary,
         "research_identity_conflict_resolution_packet_summary": research_identity_conflict_packet_summary,
         "research_identity_conflict_identifier_evidence_summary": research_identity_conflict_identifier_evidence_summary,
         "enrichment_acceptance_summary": enrichment_acceptance_summary,

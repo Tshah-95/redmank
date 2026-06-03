@@ -233,9 +233,11 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/research_identity_conflict_identifier_evidence.csv`: exploded per-identifier evidence matrix for conflict packets, ranking competing ORCID/OpenAlex/NPI identifiers with support counts, source families/domains, PMID/DOI evidence, and reviewer actions.
 - `artifacts/data/research_identity_conflict_identifier_evidence_summary.json`: identifier-evidence counts by identifier type, review posture, conflict lane, leading identifiers, high-confidence rows, and publication-supported rows.
 - `artifacts/data/research_identity_review_batch_packets.csv`: batch-level packets over research identity reviewer sessions, rolling pending member decisions, conflicts, top dossiers, source-family counts, and member decision templates into one review surface per batch.
+- `artifacts/data/research_identity_review_batch_member_packets.csv`: per-member support packets for those research identity batches, preserving current fingerprints, reviewer dossier/template links, source-family and identifier evidence, packet status, and target routing.
+- `artifacts/data/research_identity_review_batch_member_packet_summary.json`: member-packet counts by review lane, packet status, support status, decision status, reviewer-dossier coverage, and conflict burden.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_batches.csv` when available, with `person_evidence_review_batch_packets.csv` as packet-level evidence support, so person-evidence actions are bounded review sessions; if batches are absent it falls back to `person_evidence_review_triage.csv`, then the raw reviewer queue.
-- The worklist consumes `research_identity_review_batches.csv` when available, so research identity corroboration becomes bounded reviewer sessions with member fingerprints; if batches are absent it falls back to grouped corroboration rows.
+- The worklist consumes `research_identity_review_batch_member_packets.csv` when available while retaining one row per batch, so research identity corroboration stays bounded but exposes per-member current-fingerprint dossier/template packet evidence; if member packets are absent it falls back to batch packets, reviewer dossiers, then grouped corroboration rows.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
@@ -381,6 +383,7 @@ python3 scripts/materialize_research_identity_reviewer_decision_dossiers.py
 python3 scripts/materialize_research_identity_conflict_resolution_packets.py
 python3 scripts/materialize_research_identity_conflict_identifier_evidence.py
 python3 scripts/materialize_research_identity_review_batch_packets.py
+python3 scripts/materialize_research_identity_review_batch_member_packets.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py

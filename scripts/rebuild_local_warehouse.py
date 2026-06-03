@@ -84,6 +84,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_research_identity_conflict_resolution_packets.py"],
     ["python3", "scripts/materialize_research_identity_conflict_identifier_evidence.py"],
     ["python3", "scripts/materialize_research_identity_review_batch_packets.py"],
+    ["python3", "scripts/materialize_research_identity_review_batch_member_packets.py"],
     ["python3", "scripts/audit_official_gap_roster_reconciliation.py"],
     ["python3", "scripts/audit_official_gap_roster_program_resolution.py"],
     ["python3", "scripts/audit_official_program_coverage_assurance.py"],

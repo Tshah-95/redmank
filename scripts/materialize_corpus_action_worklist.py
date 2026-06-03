@@ -1813,11 +1813,14 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "research_identity_review_batches.csv"
     if batch_path.exists():
         packet_path = ARTIFACTS / "research_identity_review_batch_packets.csv"
+        member_packet_path = ARTIFACTS / "research_identity_review_batch_member_packets.csv"
         dossier_path = ARTIFACTS / "research_identity_reviewer_decision_dossiers.csv"
         conflict_packet_path = ARTIFACTS / "research_identity_conflict_resolution_packets.csv"
         conflict_identifier_path = ARTIFACTS / "research_identity_conflict_identifier_evidence.csv"
         source = (
-            "artifacts/data/research_identity_review_batch_packets.csv"
+            "artifacts/data/research_identity_review_batch_member_packets.csv"
+            if member_packet_path.exists()
+            else "artifacts/data/research_identity_review_batch_packets.csv"
             if packet_path.exists()
             else "artifacts/data/research_identity_reviewer_decision_dossiers.csv"
             if dossier_path.exists()
@@ -1827,6 +1830,10 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         if packet_path.exists():
             for packet_row in read_csv(packet_path):
                 packets_by_batch[packet_row.get("review_batch_key") or ""] = packet_row
+        member_packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if member_packet_path.exists():
+            for member_packet_row in read_csv(member_packet_path):
+                member_packets_by_batch[member_packet_row.get("review_batch_key") or ""].append(member_packet_row)
         audit_by_batch: dict[str, list[dict]] = defaultdict(list)
         audit_path = ARTIFACTS / "research_identity_reviewer_decision_audit.csv"
         if audit_path.exists():
@@ -1856,6 +1863,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         for item in read_csv(batch_path):
             lane = item.get("review_lane") or "research_identity_review_batch"
             packet = packets_by_batch.get(item.get("review_batch_key") or "", {})
+            member_packet_rows = member_packets_by_batch.get(item.get("review_batch_key") or "", [])
             audit_rows = audit_by_batch.get(item.get("review_batch_key") or "", [])
             dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
             conflict_packet_rows = conflict_packets_by_batch.get(item.get("review_batch_key") or "", [])
@@ -1923,6 +1931,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "research_identity_review_batches",
                         "research_identity_review_batch_members",
                         "research_identity_review_batch_packets",
+                        "research_identity_review_batch_member_packets",
                         "research_identity_conflict_resolution_packets",
                         "research_identity_conflict_identifier_evidence",
                         "research_identity_reviewer_decision_queue",
@@ -1972,6 +1981,26 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "batch_packet_key": packet.get("batch_packet_key") or "",
                         "batch_packet_status": packet.get("packet_status") or "",
                         "batch_packet_support_status": packet.get("support_status") or "",
+                        "member_packet_rows": len(member_packet_rows),
+                        "top_member_packet_support_statuses": dict(
+                            Counter(
+                                member_packet.get("support_status") or "" for member_packet in member_packet_rows
+                            ).most_common(8)
+                        ),
+                        "top_research_identity_member_packets": [
+                            {
+                                "display_name": member_packet.get("display_name"),
+                                "review_lane": member_packet.get("review_lane"),
+                                "packet_status": member_packet.get("packet_status"),
+                                "support_status": member_packet.get("support_status"),
+                                "reviewer_decision_key": member_packet.get("reviewer_decision_key"),
+                                "dossier_key": member_packet.get("dossier_key"),
+                                "research_review_ready_count": member_packet.get("research_review_ready_count"),
+                                "conflicting_identifier_count": member_packet.get("conflicting_identifier_count"),
+                                "recommended_reviewer_action": member_packet.get("recommended_reviewer_action"),
+                            }
+                            for member_packet in member_packet_rows[:10]
+                        ],
                         "top_dossier_statuses": dict(
                             Counter(dossier_row.get("dossier_status") or "" for dossier_row in dossier_rows).most_common(8)
                         ),
