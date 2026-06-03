@@ -44,6 +44,7 @@ def main() -> None:
         "research_identity_reviewer_decisions",
         "research_identity_reviewer_decision_queue",
         "research_identity_reviewer_decision_audit",
+        "research_identity_reviewer_decision_dossiers",
         "official_roster_refresh_execution_audit",
         "training_state_snapshots",
         "training_state_snapshot_rows",

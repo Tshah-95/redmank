@@ -850,11 +850,16 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
     research_corroboration_summary = read_json(ARTIFACTS / "research_identity_corroboration_summary.json", {})
     research_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
     research_reviewer_decision_summary = read_json(ARTIFACTS / "research_identity_reviewer_decision_summary.json", {})
+    research_reviewer_dossier_summary = read_json(
+        ARTIFACTS / "research_identity_reviewer_decision_dossier_summary.json",
+        {},
+    )
     research_corroboration_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_corroboration")
     research_review_batch_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_review_batches")
     research_review_batch_member_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_review_batch_members")
     research_reviewer_queue_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decision_queue")
     research_reviewer_audit_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decision_audit")
+    research_reviewer_dossier_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decision_dossiers")
     research_reviewer_decision_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_reviewer_decisions")
     research_reviewer_pending_rows = scalar(
         conn,
@@ -2151,10 +2156,12 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             recommended_next_action="record_research_identity_reviewer_decisions_with_current_member_fingerprints",
             evidence={
                 "summary": research_reviewer_decision_summary,
+                "dossier_summary": research_reviewer_dossier_summary,
                 "batch_member_rows": research_review_batch_member_rows,
                 "queue_rows": research_reviewer_queue_rows,
                 "manual_decision_rows": research_reviewer_decision_rows,
                 "audit_rows": research_reviewer_audit_rows,
+                "dossier_rows": research_reviewer_dossier_rows,
                 "pending_reviewer_decision_rows": research_reviewer_pending_rows,
                 "accepted_research_identity_review_rows": research_reviewer_accepted_rows,
                 "conflict_member_rows": research_review_batch_conflict_members,

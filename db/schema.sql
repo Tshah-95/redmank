@@ -3586,6 +3586,48 @@ CREATE TABLE IF NOT EXISTS research_identity_reviewer_decision_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS research_identity_reviewer_decision_dossiers (
+  dossier_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES research_identity_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  review_batch_member_key TEXT NOT NULL REFERENCES research_identity_review_batch_members(review_batch_member_key) ON DELETE CASCADE,
+  review_batch_key TEXT NOT NULL,
+  corroboration_key TEXT NOT NULL,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  programs TEXT,
+  current_training_states TEXT,
+  review_lane TEXT NOT NULL,
+  research_identity_status TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  queue_status TEXT NOT NULL,
+  review_priority INTEGER NOT NULL DEFAULT 0,
+  decision_complexity TEXT NOT NULL,
+  dossier_status TEXT NOT NULL,
+  identity_risk_level TEXT NOT NULL,
+  research_candidate_count INTEGER NOT NULL DEFAULT 0,
+  research_review_ready_count INTEGER NOT NULL DEFAULT 0,
+  scholarly_source_count INTEGER NOT NULL DEFAULT 0,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  secondary_anchor_count INTEGER NOT NULL DEFAULT 0,
+  conflicting_identifier_count INTEGER NOT NULL DEFAULT 0,
+  best_confidence REAL NOT NULL DEFAULT 0.0,
+  top_source_keys TEXT,
+  top_claim_types TEXT,
+  required_confirmation_fields TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  manual_decision_template_json TEXT NOT NULL,
+  top_claims_json TEXT NOT NULL,
+  source_family_counts_json TEXT NOT NULL,
+  identifier_summary_json TEXT NOT NULL,
+  missing_evidence_summary TEXT NOT NULL,
+  recommended_reviewer_action TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  member_fingerprint TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

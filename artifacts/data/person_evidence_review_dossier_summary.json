@@ -18,7 +18,7 @@
   "csv": "artifacts/data/person_evidence_review_dossiers.csv",
   "dossier_rows": 792,
   "evidence_record_count": 5281,
-  "generated_at": "2026-06-03T07:15:36.161916+00:00",
+  "generated_at": "2026-06-03T07:23:53.296612+00:00",
   "json": "artifacts/data/person_evidence_review_dossiers.json",
   "person_count": 792,
   "policy": "Dossiers are non-mutating review support. Accepted facts still require explicit reviewer decisions and downstream acceptance ledgers.",

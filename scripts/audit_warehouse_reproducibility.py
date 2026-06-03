@@ -561,6 +561,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/research_identity_reviewer_decision_dossiers.csv",
+        "research_identity_reviewer_decision_dossier_ledger",
+        "csv",
+        "research_identity_reviewer_decision_dossiers",
+        True,
+    ),
+    (
         "artifacts/data/penn_trainee_profile_claims.csv",
         "trainee_profile_enrichment_ledger",
         "csv",

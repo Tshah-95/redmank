@@ -193,6 +193,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/research_identity_reviewer_decision_queue.csv`: fingerprinted reviewer-decision queue for research identity batch members, including conflict resolution and confirmation requirements.
 - `artifacts/data/research_identity_reviewer_decisions.csv`: manual reviewer decision input file for accepting, rejecting, quarantining, or deferring research identity evidence.
 - `artifacts/data/research_identity_reviewer_decision_audit.csv`: audit of research identity reviewer decisions against current member fingerprints and required confirmations.
+- `artifacts/data/research_identity_reviewer_decision_dossiers.csv`: compact per-decision dossiers with top claims, source-family counts, identifier summaries, missing evidence, and manual decision templates.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_batches.csv` when available, so person-evidence actions are bounded review sessions; if batches are absent it falls back to `person_evidence_review_triage.csv`, then the raw reviewer queue.
 - The worklist consumes `research_identity_review_batches.csv` when available, so research identity corroboration becomes bounded reviewer sessions with member fingerprints; if batches are absent it falls back to grouped corroboration rows.
@@ -319,6 +320,7 @@ python3 scripts/materialize_person_evidence_review_batches.py
 python3 scripts/materialize_research_identity_corroboration.py
 python3 scripts/materialize_research_identity_review_batches.py
 python3 scripts/materialize_research_identity_reviewer_decisions.py
+python3 scripts/materialize_research_identity_reviewer_decision_dossiers.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py

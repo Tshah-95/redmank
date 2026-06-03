@@ -998,12 +998,21 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
 def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "research_identity_review_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/research_identity_review_batches.csv"
+        dossier_path = ARTIFACTS / "research_identity_reviewer_decision_dossiers.csv"
+        source = (
+            "artifacts/data/research_identity_reviewer_decision_dossiers.csv"
+            if dossier_path.exists()
+            else "artifacts/data/research_identity_review_batches.csv"
+        )
         audit_by_batch: dict[str, list[dict]] = defaultdict(list)
         audit_path = ARTIFACTS / "research_identity_reviewer_decision_audit.csv"
         if audit_path.exists():
             for audit_row in read_csv(audit_path):
                 audit_by_batch[audit_row.get("review_batch_key") or ""].append(audit_row)
+        dossiers_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if dossier_path.exists():
+            for dossier_row in read_csv(dossier_path):
+                dossiers_by_batch[dossier_row.get("review_batch_key") or ""].append(dossier_row)
         rows = []
         priority_by_lane = {
             "conflict_reconciliation": 980,
@@ -1016,10 +1025,14 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         for item in read_csv(batch_path):
             lane = item.get("review_lane") or "research_identity_review_batch"
             audit_rows = audit_by_batch.get(item.get("review_batch_key") or "", [])
+            dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
             pending_audit_rows = [
                 audit_row
                 for audit_row in audit_rows
                 if audit_row.get("decision_status") in {"pending_reviewer_decision", "stale_decision_evidence_mismatch"}
+            ]
+            pending_dossier_rows = [
+                dossier_row for dossier_row in dossier_rows if str(dossier_row.get("dossier_status") or "").startswith("pending")
             ]
             impact = max(len(pending_audit_rows), 1) if audit_rows else max(as_int(item.get("person_count")), 1)
             priority = (
@@ -1072,6 +1085,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "research_identity_reviewer_decision_queue",
                         "research_identity_reviewer_decisions",
                         "research_identity_reviewer_decision_audit",
+                        "research_identity_reviewer_decision_dossiers",
                         "research_identity_corroboration",
                         "evidence_reconciliation_decisions",
                         "person_evidence_reviewer_decisions",
@@ -1092,6 +1106,11 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "conflict_count": item.get("conflict_count"),
                         "reviewer_decision_audit_rows": len(audit_rows),
                         "pending_reviewer_decision_rows": len(pending_audit_rows),
+                        "reviewer_decision_dossier_rows": len(dossier_rows),
+                        "pending_reviewer_decision_dossier_rows": len(pending_dossier_rows),
+                        "top_dossier_statuses": dict(
+                            Counter(dossier_row.get("dossier_status") or "" for dossier_row in dossier_rows).most_common(8)
+                        ),
                         "top_source_keys": item.get("top_source_keys"),
                         "top_claim_types": item.get("top_claim_types"),
                         "top_people_json": item.get("top_people_json"),

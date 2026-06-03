@@ -371,6 +371,10 @@ def main() -> None:
         ARTIFACTS / "research_identity_reviewer_decision_summary.json",
         {},
     )
+    research_identity_reviewer_dossier_summary = read_json(
+        ARTIFACTS / "research_identity_reviewer_decision_dossier_summary.json",
+        {},
+    )
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
@@ -396,6 +400,10 @@ def main() -> None:
     top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
     top_research_identity_reviewer_decisions = read_csv(
         ARTIFACTS / "research_identity_reviewer_decision_audit.csv",
+        limit=25,
+    )
+    top_research_identity_reviewer_dossiers = read_csv(
+        ARTIFACTS / "research_identity_reviewer_decision_dossiers.csv",
         limit=25,
     )
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
@@ -615,6 +623,8 @@ def main() -> None:
         "top_research_identity_review_batches": top_research_identity_review_batches,
         "research_identity_reviewer_decision_summary": research_identity_reviewer_decision_summary,
         "top_research_identity_reviewer_decisions": top_research_identity_reviewer_decisions,
+        "research_identity_reviewer_dossier_summary": research_identity_reviewer_dossier_summary,
+        "top_research_identity_reviewer_dossiers": top_research_identity_reviewer_dossiers,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
@@ -1039,7 +1049,25 @@ def main() -> None:
             ],
         ),
         "",
-        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints and paired with an auditable reviewer-decision input. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.",
+        "Decision dossiers:",
+        "",
+        f"Dossier rows: {research_identity_reviewer_dossier_summary.get('dossier_rows', 0)}. Pending dossiers: {research_identity_reviewer_dossier_summary.get('pending_dossier_rows', 0)}. Conflict dossiers: {research_identity_reviewer_dossier_summary.get('conflict_dossier_rows', 0)}. Dossier review-ready records: {research_identity_reviewer_dossier_summary.get('review_ready_record_count', 0)}.",
+        "",
+        *md_table(
+            top_research_identity_reviewer_dossiers,
+            [
+                "display_name",
+                "role",
+                "review_lane",
+                "decision_complexity",
+                "dossier_status",
+                "identity_risk_level",
+                "missing_evidence_summary",
+                "recommended_reviewer_action",
+            ],
+        ),
+        "",
+        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints, paired with an auditable reviewer-decision input, and reduced into compact dossiers. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.",
         "",
         "## Search Utility Assurance",
         "",

@@ -93,6 +93,7 @@ Core tables:
 - `person_evidence_review_batches`: bounded reviewer-execution batches over triage rows, preserving packet detail while grouping review by lane, difficulty, risk, and role.
 - `research_identity_review_batches`, `research_identity_review_batch_members`: bounded research-identity reviewer sessions and per-person member fingerprints derived from the corroboration ledger.
 - `research_identity_reviewer_decision_queue`, `research_identity_reviewer_decisions`, `research_identity_reviewer_decision_audit`: explicit reviewer-decision loop for research identity batch members, including conflict resolution and stale-fingerprint checks.
+- `research_identity_reviewer_decision_dossiers`: compact operator dossiers over research identity decisions, with top claims, source-family counts, identifier summaries, missing evidence, and manual decision templates.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
@@ -222,6 +223,7 @@ The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor`
 - `scripts/materialize_person_evidence_review_batches.py` turns the triage rows into bounded reviewer sessions; these batches are non-mutating and write accepted facts only through the existing reviewer-decision/audit/acceptance ledgers.
 - `scripts/materialize_research_identity_review_batches.py` turns research identity corroboration rows into bounded reviewer sessions plus per-member fingerprints. These batches are also non-mutating: they route reviewer work to source-specific decision and acceptance ledgers instead of accepting scholarly identity facts directly.
 - `scripts/materialize_research_identity_reviewer_decisions.py` turns those batch members into a fingerprinted reviewer-decision queue, keeps a manual decision input CSV, and audits accept/reject/quarantine/defer decisions against identity, source-context, non-name-anchor, conflict-resolution, and display-safety confirmations.
+- `scripts/materialize_research_identity_reviewer_decision_dossiers.py` turns the reviewer-decision queue into compact decision dossiers so conflict and publication-identity reviewers can inspect top claims and copy a current-fingerprint decision template without opening nested evidence JSON.
 
 Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge. Once a later acceptance ledger materializes a publication or attending-trend fact, packet generation reclassifies the matching person/name packet into an accepted/monitor state instead of continuing to ask for the same reviewer decision.
 
@@ -315,6 +317,8 @@ The current readiness ledger now treats profile, research, and prior-training di
 `scripts/materialize_research_identity_review_batches.py` adds the execution layer above that corroboration ledger. It groups conflict reconciliation, multi-source identity review, secondary-anchor review, single-source publication review, secondary-anchor collection, and research-relevance decisions into bounded batches, then emits member rows with stable fingerprints so later decisions can prove which evidence was reviewed.
 
 `scripts/materialize_research_identity_reviewer_decisions.py` adds the explicit decision loop above those batches. Accepted review decisions still do not mutate person facts directly; they prove that a reviewer worked the current member fingerprint and then route downstream acceptance through source-specific reconciliation ledgers.
+
+`scripts/materialize_research_identity_reviewer_decision_dossiers.py` adds the reviewer-facing view over that decision loop. It extracts top PubMed/OpenAlex/ORCID/NPI/profile claims, source-family and identifier counts, missing-evidence summaries, and a ready manual-decision template from each current member fingerprint.
 
 ## First Research Utility Learnings
 

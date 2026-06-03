@@ -110,6 +110,7 @@ CSV_TABLES = [
     ("research_identity_reviewer_decisions.csv", "research_identity_reviewer_decisions"),
     ("research_identity_reviewer_decision_queue.csv", "research_identity_reviewer_decision_queue"),
     ("research_identity_reviewer_decision_audit.csv", "research_identity_reviewer_decision_audit"),
+    ("research_identity_reviewer_decision_dossiers.csv", "research_identity_reviewer_decision_dossiers"),
     ("person_evidence_reviewer_decisions.csv", "person_evidence_reviewer_decisions"),
     ("person_evidence_reviewer_decision_queue.csv", "person_evidence_reviewer_decision_queue"),
     ("person_evidence_reviewer_decision_audit.csv", "person_evidence_reviewer_decision_audit"),

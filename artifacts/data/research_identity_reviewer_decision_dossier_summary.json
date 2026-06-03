@@ -1,0 +1,289 @@
+{
+  "by_decision_complexity": {
+    "conflict_high": 24,
+    "high_volume_review": 20,
+    "low_signal_collection": 352,
+    "review_ready": 233,
+    "secondary_anchor_collection": 894
+  },
+  "by_dossier_status": {
+    "pending_conflict_reconciliation": 24,
+    "pending_evidence_collection_decision": 1239,
+    "pending_research_relevance_decision": 7,
+    "pending_review_ready_identity_decision": 253
+  },
+  "by_identity_risk_level": {
+    "identifier_conflict": 24,
+    "multi_source_with_non_name_anchors": 24,
+    "name_only_or_low_anchor": 1080,
+    "partial_anchor": 395
+  },
+  "by_review_lane": {
+    "conflict_reconciliation": 24,
+    "multi_source_identity_review": 24,
+    "research_relevance_decision": 7,
+    "secondary_anchor_collection": 1239,
+    "secondary_anchor_review": 157,
+    "single_source_publication_review": 72
+  },
+  "conflict_dossier_rows": 24,
+  "csv": "artifacts/data/research_identity_reviewer_decision_dossiers.csv",
+  "dossier_rows": 1523,
+  "generated_at": "2026-06-03T07:24:23.894552+00:00",
+  "json": "artifacts/data/research_identity_reviewer_decision_dossiers.json",
+  "pending_dossier_rows": 1523,
+  "policy": "Research identity reviewer decision dossiers are non-mutating templates over the decision queue; accepted person facts still require downstream acceptance ledgers.",
+  "review_ready_record_count": 1580,
+  "top_dossiers": [
+    {
+      "conflicting_identifier_count": 2,
+      "decision_complexity": "conflict_high",
+      "display_name": "Ashna Aggarwal, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_eb576b55a014b71f5dd6",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 12,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Robert Eisinger, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_22610eb4006d0abadde6",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 41,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Alessandro Brunetti, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_be0cbb88163600a8d355",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 37,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Shunsuke Koga, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_c78aaf50c5ecbc07432b",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 37,
+      "review_lane": "conflict_reconciliation",
+      "role": "fellow"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Eric Wagner, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_7c82b8eb109e324f4a87",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 35,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Sabine Schneider, MD PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_6c2a3aa653e0a9d89614",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 34,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Noor Shaik, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_028ebf46a939e7c6eef8",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 32,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Zachary Rosenthal, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_0a4fc75d041c8ca4d5e3",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 29,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Gregory Chen, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_44dee6a83ae4fb8afb43",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 28,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Pravin Patel, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_4997c57bbd3f800e6868",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 24,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Jonathan Dickens, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_aebc93c5902ec898d1e0",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 17,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Chenxu Shi, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_1360616d8c0618b336cd",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 15,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Lara Boyle, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_0cc2871f6505f8ee9efd",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 10,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Nadine Michel, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_5701a4c0521615c8db03",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 9,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Aaron M. Williams, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_1c6df417b6d6e55680be",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 8,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Armaan Singh, MD, MBA",
+      "dossier_key": "research_identity_reviewer_decision_dossier_205439bf553ba0c05232",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 8,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "John T. Cook, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_104518c099b98cdd2d76",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 8,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Phillip Bradshaw, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_014f7f00585e3be4b0ed",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 4,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Keshia Mora, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_9f30bc8afffedeef6cd5",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 3,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Anne Wang, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_74f3d777c2e941e74c0f",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 2,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Madeline Perry, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_e512106a8588e42ed00c",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 2,
+      "review_lane": "conflict_reconciliation",
+      "role": "fellow"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Alex Chen, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_0f78ebdb1a42f38d0786",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 1,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Charles Danan, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_bc917bb137edd78073b6",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 1,
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflicting_identifier_count": 1,
+      "decision_complexity": "conflict_high",
+      "display_name": "Simone Reaves, MD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_6d9ebcfa1282d8745500",
+      "recommended_reviewer_action": "resolve_or_quarantine_conflicting_identifier_before_acceptance",
+      "research_review_ready_count": 1,
+      "review_lane": "conflict_reconciliation",
+      "role": "fellow"
+    },
+    {
+      "conflicting_identifier_count": 0,
+      "decision_complexity": "high_volume_review",
+      "display_name": "Alec Gibson, MD, PhD",
+      "dossier_key": "research_identity_reviewer_decision_dossier_9ba9420290289e56e77d",
+      "recommended_reviewer_action": "confirm_same_person_research_identity_or_reject_collision",
+      "research_review_ready_count": 40,
+      "review_lane": "multi_source_identity_review",
+      "role": "resident"
+    }
+  ]
+}
