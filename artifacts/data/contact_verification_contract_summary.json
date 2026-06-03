@@ -26,7 +26,7 @@
   "csv": "artifacts/data/contact_verification_contracts.csv",
   "domain_review_required_rows": 1,
   "fresh_official_reobservation_required_rows": 312,
-  "generated_at": "2026-06-03T08:15:15.668295+00:00",
+  "generated_at": "2026-06-03T08:24:26.631998+00:00",
   "json": "artifacts/data/contact_verification_contracts.json",
   "person_count": 279,
   "policy": "Contact contracts are non-mutating. They define how future fresh source observations, absences, domain anomalies, and changed values should be classified before a contact candidate can become a verified contact fact.",

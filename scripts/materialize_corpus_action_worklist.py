@@ -1088,12 +1088,19 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
 def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "research_identity_review_batches.csv"
     if batch_path.exists():
+        packet_path = ARTIFACTS / "research_identity_review_batch_packets.csv"
         dossier_path = ARTIFACTS / "research_identity_reviewer_decision_dossiers.csv"
         source = (
-            "artifacts/data/research_identity_reviewer_decision_dossiers.csv"
+            "artifacts/data/research_identity_review_batch_packets.csv"
+            if packet_path.exists()
+            else "artifacts/data/research_identity_reviewer_decision_dossiers.csv"
             if dossier_path.exists()
             else "artifacts/data/research_identity_review_batches.csv"
         )
+        packets_by_batch: dict[str, dict] = {}
+        if packet_path.exists():
+            for packet_row in read_csv(packet_path):
+                packets_by_batch[packet_row.get("review_batch_key") or ""] = packet_row
         audit_by_batch: dict[str, list[dict]] = defaultdict(list)
         audit_path = ARTIFACTS / "research_identity_reviewer_decision_audit.csv"
         if audit_path.exists():
@@ -1114,6 +1121,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
         }
         for item in read_csv(batch_path):
             lane = item.get("review_lane") or "research_identity_review_batch"
+            packet = packets_by_batch.get(item.get("review_batch_key") or "", {})
             audit_rows = audit_by_batch.get(item.get("review_batch_key") or "", [])
             dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
             pending_audit_rows = [
@@ -1157,6 +1165,8 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                     readiness_status=(
                         "pending_research_identity_reviewer_decisions"
                         if pending_audit_rows
+                        else packet.get("packet_status")
+                        if packet
                         else item.get("batch_status") or item.get("research_identity_status") or ""
                     ),
                     blocker_status=(
@@ -1172,6 +1182,7 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                     downstream_tables=[
                         "research_identity_review_batches",
                         "research_identity_review_batch_members",
+                        "research_identity_review_batch_packets",
                         "research_identity_reviewer_decision_queue",
                         "research_identity_reviewer_decisions",
                         "research_identity_reviewer_decision_audit",
@@ -1198,6 +1209,9 @@ def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
                         "pending_reviewer_decision_rows": len(pending_audit_rows),
                         "reviewer_decision_dossier_rows": len(dossier_rows),
                         "pending_reviewer_decision_dossier_rows": len(pending_dossier_rows),
+                        "batch_packet_key": packet.get("batch_packet_key") or "",
+                        "batch_packet_status": packet.get("packet_status") or "",
+                        "batch_packet_support_status": packet.get("support_status") or "",
                         "top_dossier_statuses": dict(
                             Counter(dossier_row.get("dossier_status") or "" for dossier_row in dossier_rows).most_common(8)
                         ),

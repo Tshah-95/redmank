@@ -3804,6 +3804,47 @@ CREATE TABLE IF NOT EXISTS research_identity_reviewer_decision_dossiers (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS research_identity_review_batch_packets (
+  batch_packet_key TEXT PRIMARY KEY,
+  review_batch_key TEXT NOT NULL REFERENCES research_identity_review_batches(review_batch_key) ON DELETE CASCADE,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  review_lane TEXT NOT NULL,
+  research_identity_status TEXT NOT NULL,
+  role TEXT,
+  batch_status TEXT NOT NULL,
+  packet_status TEXT NOT NULL,
+  ready_to_review INTEGER NOT NULL DEFAULT 0,
+  person_count INTEGER NOT NULL DEFAULT 0,
+  pending_decision_count INTEGER NOT NULL DEFAULT 0,
+  stale_decision_count INTEGER NOT NULL DEFAULT 0,
+  accepted_review_count INTEGER NOT NULL DEFAULT 0,
+  conflict_member_count INTEGER NOT NULL DEFAULT 0,
+  research_candidate_count INTEGER NOT NULL DEFAULT 0,
+  review_ready_record_count INTEGER NOT NULL DEFAULT 0,
+  scholarly_source_count INTEGER NOT NULL DEFAULT 0,
+  non_name_anchor_count INTEGER NOT NULL DEFAULT 0,
+  secondary_anchor_count INTEGER NOT NULL DEFAULT 0,
+  conflict_count INTEGER NOT NULL DEFAULT 0,
+  max_review_priority INTEGER NOT NULL DEFAULT 0,
+  min_review_priority INTEGER NOT NULL DEFAULT 0,
+  top_source_keys TEXT,
+  top_claim_types TEXT,
+  source_family_counts_json TEXT NOT NULL,
+  identifier_summary_json TEXT NOT NULL,
+  decision_status_counts_json TEXT NOT NULL,
+  dossier_status_counts_json TEXT NOT NULL,
+  top_member_dossiers_json TEXT NOT NULL,
+  member_decision_index_json TEXT NOT NULL,
+  reviewer_prompt TEXT NOT NULL,
+  review_instructions TEXT NOT NULL,
+  acceptance_rule TEXT NOT NULL,
+  target_decision_artifact TEXT NOT NULL,
+  recommended_reviewer_action TEXT NOT NULL,
+  support_status TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS source_quality_observations (
   observation_id INTEGER PRIMARY KEY,
   utility_key TEXT REFERENCES source_utilities(utility_key) ON DELETE SET NULL,

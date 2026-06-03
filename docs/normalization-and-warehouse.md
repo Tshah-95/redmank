@@ -99,6 +99,7 @@ Core tables:
 - `research_identity_review_batches`, `research_identity_review_batch_members`: bounded research-identity reviewer sessions and per-person member fingerprints derived from the corroboration ledger.
 - `research_identity_reviewer_decision_queue`, `research_identity_reviewer_decisions`, `research_identity_reviewer_decision_audit`: explicit reviewer-decision loop for research identity batch members, including conflict resolution and stale-fingerprint checks.
 - `research_identity_reviewer_decision_dossiers`: compact operator dossiers over research identity decisions, with top claims, source-family counts, identifier summaries, missing evidence, and manual decision templates.
+- `research_identity_review_batch_packets`: batch-level review packets over research identity sessions, joining per-member dossiers into one packet per batch with pending-decision counts, conflict burden, source-family rollups, and member decision-template indexes.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
@@ -329,6 +330,8 @@ The current readiness ledger now treats profile, research, and prior-training di
 `scripts/materialize_research_identity_reviewer_decisions.py` adds the explicit decision loop above those batches. Accepted review decisions still do not mutate person facts directly; they prove that a reviewer worked the current member fingerprint and then route downstream acceptance through source-specific reconciliation ledgers.
 
 `scripts/materialize_research_identity_reviewer_decision_dossiers.py` adds the reviewer-facing view over that decision loop. It extracts top PubMed/OpenAlex/ORCID/NPI/profile claims, source-family and identifier counts, missing-evidence summaries, and a ready manual-decision template from each current member fingerprint.
+
+`scripts/materialize_research_identity_review_batch_packets.py` adds the batch-facing view over those per-member dossiers. It rolls each bounded research identity review session into one packet with top member dossiers, conflict and pending-decision counts, source-family and identifier summaries, and a member decision index so conflict reconciliation and secondary-anchor review can be worked without opening every nested evidence blob.
 
 ## First Research Utility Learnings
 

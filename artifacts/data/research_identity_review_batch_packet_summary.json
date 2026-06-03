@@ -1,0 +1,280 @@
+{
+  "batch_count": 48,
+  "batch_packet_rows": 48,
+  "by_packet_status": {
+    "ready_for_conflict_packet_review": 2,
+    "ready_for_research_identity_packet_review": 46
+  },
+  "by_review_lane": {
+    "conflict_reconciliation": 2,
+    "multi_source_identity_review": 4,
+    "research_relevance_decision": 2,
+    "secondary_anchor_collection": 32,
+    "secondary_anchor_review": 5,
+    "single_source_publication_review": 3
+  },
+  "by_support_status": {
+    "ready": 48
+  },
+  "conflict_member_count": 24,
+  "conflict_packet_rows": 2,
+  "csv": "artifacts/data/research_identity_review_batch_packets.csv",
+  "generated_at": "2026-06-03T08:25:01.869783+00:00",
+  "json": "artifacts/data/research_identity_review_batch_packets.json",
+  "pending_decision_count": 1523,
+  "person_count": 1523,
+  "policy": "Research identity batch packets are non-mutating reviewer aids over batches and per-member dossiers; accepted person facts still require explicit member decisions and downstream source-specific acceptance ledgers.",
+  "review_ready_record_count": 1580,
+  "top_batch_packets": [
+    {
+      "conflict_member_count": 21,
+      "execution_order": 1,
+      "packet_status": "ready_for_conflict_packet_review",
+      "pending_decision_count": 21,
+      "person_count": 21,
+      "recommended_reviewer_action": "resolve_conflicting_identifiers_or_quarantine_members_before_acceptance",
+      "review_lane": "conflict_reconciliation",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 2,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "secondary_anchor_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 3,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 13,
+      "person_count": 13,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "multi_source_identity_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 4,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 36,
+      "person_count": 36,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "secondary_anchor_review",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 5,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 4,
+      "person_count": 4,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "multi_source_identity_review",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 3,
+      "execution_order": 6,
+      "packet_status": "ready_for_conflict_packet_review",
+      "pending_decision_count": 3,
+      "person_count": 3,
+      "recommended_reviewer_action": "resolve_conflicting_identifiers_or_quarantine_members_before_acceptance",
+      "review_lane": "conflict_reconciliation",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 7,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "secondary_anchor_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 8,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "secondary_anchor_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 9,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 4,
+      "person_count": 4,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "multi_source_identity_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 10,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 3,
+      "person_count": 3,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "multi_source_identity_review",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 11,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 36,
+      "person_count": 36,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "single_source_publication_review",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 12,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 34,
+      "person_count": 34,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "single_source_publication_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 13,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 1,
+      "person_count": 1,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "secondary_anchor_review",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 14,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 2,
+      "person_count": 2,
+      "recommended_reviewer_action": "record_research_identity_reviewer_decisions_for_packet_members",
+      "review_lane": "single_source_publication_review",
+      "role": "medical_student"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 15,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 16,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 17,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "medical_student"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 18,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "medical_student"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 19,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 20,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 21,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 22,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "fellow"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 23,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 24,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "resident"
+    },
+    {
+      "conflict_member_count": 0,
+      "execution_order": 25,
+      "packet_status": "ready_for_research_identity_packet_review",
+      "pending_decision_count": 40,
+      "person_count": 40,
+      "recommended_reviewer_action": "collect_secondary_identity_anchors_or_record_needs_more_evidence",
+      "review_lane": "secondary_anchor_collection",
+      "role": "resident"
+    }
+  ]
+}

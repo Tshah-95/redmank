@@ -375,6 +375,10 @@ def main() -> None:
         {},
     )
     research_identity_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
+    research_identity_review_batch_packet_summary = read_json(
+        ARTIFACTS / "research_identity_review_batch_packet_summary.json",
+        {},
+    )
     research_identity_reviewer_decision_summary = read_json(
         ARTIFACTS / "research_identity_reviewer_decision_summary.json",
         {},
@@ -438,6 +442,10 @@ def main() -> None:
         limit=25,
     )
     top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
+    top_research_identity_review_batch_packets = read_csv(
+        ARTIFACTS / "research_identity_review_batch_packets.csv",
+        limit=25,
+    )
     top_research_identity_reviewer_decisions = read_csv(
         ARTIFACTS / "research_identity_reviewer_decision_audit.csv",
         limit=25,
@@ -672,6 +680,8 @@ def main() -> None:
         "top_person_enrichment_action_member_execution_dossiers": top_person_enrichment_action_member_execution_dossiers,
         "research_identity_review_batch_summary": research_identity_review_batch_summary,
         "top_research_identity_review_batches": top_research_identity_review_batches,
+        "research_identity_review_batch_packet_summary": research_identity_review_batch_packet_summary,
+        "top_research_identity_review_batch_packets": top_research_identity_review_batch_packets,
         "research_identity_reviewer_decision_summary": research_identity_reviewer_decision_summary,
         "top_research_identity_reviewer_decisions": top_research_identity_reviewer_decisions,
         "research_identity_reviewer_dossier_summary": research_identity_reviewer_dossier_summary,
@@ -1108,6 +1118,24 @@ def main() -> None:
             ],
         ),
         "",
+        "Batch packets:",
+        "",
+        f"Packet rows: {research_identity_review_batch_packet_summary.get('batch_packet_rows', 0)}. Pending member decisions: {research_identity_review_batch_packet_summary.get('pending_decision_count', 0)}. Conflict packets: {research_identity_review_batch_packet_summary.get('conflict_packet_rows', 0)}. Conflict members: {research_identity_review_batch_packet_summary.get('conflict_member_count', 0)}.",
+        "",
+        *md_table(
+            top_research_identity_review_batch_packets,
+            [
+                "execution_order",
+                "review_lane",
+                "role",
+                "person_count",
+                "pending_decision_count",
+                "conflict_member_count",
+                "packet_status",
+                "recommended_reviewer_action",
+            ],
+        ),
+        "",
         "Reviewer decisions:",
         "",
         f"Queue rows: {research_identity_reviewer_decision_summary.get('queue_rows', 0)}. Audit rows: {research_identity_reviewer_decision_summary.get('audit_rows', 0)}. Pending rows: {research_identity_reviewer_decision_summary.get('pending_reviewer_decision_rows', 0)}. Conflict queue rows: {research_identity_reviewer_decision_summary.get('conflict_queue_rows', 0)}. Accepted review rows: {research_identity_reviewer_decision_summary.get('accepted_research_identity_review_rows', 0)}.",
@@ -1143,7 +1171,7 @@ def main() -> None:
             ],
         ),
         "",
-        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints, paired with an auditable reviewer-decision input, and reduced into compact dossiers. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.",
+        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints, paired with an auditable reviewer-decision input, reduced into compact dossiers, and rolled into batch packets. The packets preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable without opening every nested evidence JSON file.",
         "",
         "## Search Utility Assurance",
         "",

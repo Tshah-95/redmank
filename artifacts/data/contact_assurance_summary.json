@@ -32,7 +32,7 @@
   },
   "csv": "artifacts/data/contact_assurance_audit.csv",
   "display_policy": "display_as_public_candidate_only_until_verified",
-  "generated_at": "2026-06-03T08:15:15.603723+00:00",
+  "generated_at": "2026-06-03T08:24:26.563832+00:00",
   "json": "artifacts/data/contact_assurance_audit.json",
   "review_required_rows": 1,
   "verified_contact_fact_rows": 0
