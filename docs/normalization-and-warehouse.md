@@ -96,6 +96,7 @@ Core tables:
 - `person_enrichment_action_member_execution_queue`, `person_enrichment_action_member_execution_decisions`, `person_enrichment_action_member_execution_audit`: fingerprinted execution ledger for action-batch members, separating operator execution outcomes from fact acceptance.
 - `person_enrichment_action_member_execution_dossiers`: compact execution dossiers over action-batch members, including command hints, routing checklists, and current-fingerprint manual execution templates.
 - `person_enrichment_action_execution_plan`: batch-level execution plan that summarizes pending, blocked, invalid/stale, and routed action-member execution rows.
+- `corpus_action_worklist` routes action-member execution through `person_enrichment_action_execution_plan` when available, keeping batch plans as the operator entry point and per-member dossiers as the evidence detail.
 - `research_identity_review_batches`, `research_identity_review_batch_members`: bounded research-identity reviewer sessions and per-person member fingerprints derived from the corroboration ledger.
 - `research_identity_reviewer_decision_queue`, `research_identity_reviewer_decisions`, `research_identity_reviewer_decision_audit`: explicit reviewer-decision loop for research identity batch members, including conflict resolution and stale-fingerprint checks.
 - `research_identity_reviewer_decision_dossiers`: compact operator dossiers over research identity decisions, with top claims, source-family counts, identifier summaries, missing evidence, and manual decision templates.
