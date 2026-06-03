@@ -132,6 +132,7 @@ Core tables:
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
 - `source_quality_policy_recommendations`: non-mutating policy translation layer that maps scorecard/search evidence to acceptance posture, collector posture, reviewer posture, trend relevance, and required next evidence.
 - `source_quality_policy_action_packets`: packet envelope for each source-quality policy recommendation, preserving source-artifact evidence, downstream tables, support status, recent-attending trend relevance, and acceptance boundaries.
+- `corpus_quality_lane_review`: per-person quality lane ledger that rolls roster identity, training-state contracts, official-profile coverage, organization normalization, enrichment, identity reconciliation, research identity, and contact verification into explicit quality bands and next actions.
 - `search_utility_execution_batches`: bounded execution sessions for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing while preserving source-quality failures as evidence.
 - `search_utility_execution_batch_packets`: per-query, per-retry, and per-candidate packet support for those search execution batches, preserving the exact source row, entity, target artifact, support status, and reconciliation boundary behind each batch.
 - `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-contract batches, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
@@ -401,7 +402,9 @@ The scorecard is not an acceptance mutator. It answers which utility is good for
 - `source_quality_policy_recommendations.csv` / `.json`: one row per scorecard utility plus search-only utility rows, with policy lane, action priority, action readiness, acceptance posture, collector posture, reviewer posture, recent-attending trend relevance, evidence standard, linked artifacts, and downstream tables.
 - `source_quality_policy_recommendation_summary.json`: counts by source row type, quality band, policy lane, action readiness, and trend relevance.
 - `source_quality_policy_action_packets.csv` / `.json`: one packet per recommendation with source artifacts, downstream tables, support status, trend relevance, and a non-mutating acceptance boundary for collector/reviewer work.
-- SQLite tables `source_quality_policy_recommendations` and `source_quality_policy_action_packets`: queryable versions of the same ledger and packet layer.
+- `corpus_quality_lane_review.csv` / `.json`: one row per person/lane, with quality band, status, accepted/candidate/review counts, blockers, gaps, and reviewer-gated auto-fix suggestions such as near-match organization normalizations.
+- SQLite tables `source_quality_policy_recommendations`, `source_quality_policy_action_packets`, and `corpus_quality_lane_review`: queryable versions of the policy, packet, and corpus-quality review layers.
+- `artifacts/research/corpus-quality-and-hopkins-expansion-2026-06-03.md`: operating brief for the first corpus-wide lane review, Krishna Patel/Penn State normalization lesson, and the Johns Hopkins expansion seed.
 
 This layer is deliberately non-mutating. It says how a utility should be used; source-specific reviewer decisions, acceptance ledgers, and temporal contracts still decide whether any fact can be promoted, displayed, retained, or refreshed.
 
@@ -504,7 +507,7 @@ The readiness layer is the bridge between current-state audit and future two-sna
 
 After Penn, good next targets are:
 
-- Johns Hopkins: strong peer benchmark with rich cardiology/internal medicine context.
+- Johns Hopkins: strong peer benchmark with an official GME program entry point, residency/fellowship finders, and multiple public current-roster pages. The first Hopkins lane should build denominator coverage, then scrape Osler Internal Medicine, General Surgery, Neurosurgery, and one fellowship surface before broadening.
 - UCSF: different web stack and strong research-profile enrichment surface.
 - Mass General Brigham / Harvard programs: intentionally hard normalization case because school, hospital, health-system, and program identity diverge.
 

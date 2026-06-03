@@ -107,6 +107,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_search_utility_assurance.py"],
     ["python3", "scripts/materialize_source_quality_policy_recommendations.py"],
     ["python3", "scripts/materialize_source_quality_policy_action_packets.py"],
+    ["python3", "scripts/materialize_corpus_quality_lane_review.py"],
     ["python3", "scripts/materialize_search_utility_execution_batches.py"],
     ["python3", "scripts/materialize_search_utility_execution_batch_packets.py"],
     ["python3", "scripts/materialize_corpus_action_worklist.py"],

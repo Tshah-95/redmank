@@ -1,0 +1,586 @@
+{
+  "auto_fixable_rows": 10,
+  "blocker_rows": 3080,
+  "by_lane": {
+    "contact_verification": 1535,
+    "identity_reconciliation": 1535,
+    "official_profile": 1535,
+    "organization_normalization": 1535,
+    "person_enrichment": 1535,
+    "research_identity": 1535,
+    "roster_identity": 1535,
+    "training_temporal_state": 1535
+  },
+  "by_lane_status": {
+    "contact_verification:contact_contracts_present": 279,
+    "contact_verification:no_contact_evidence": 1256,
+    "identity_reconciliation:accepted_enrichment_fact_packet": 3,
+    "identity_reconciliation:discovery_only_packet": 477,
+    "identity_reconciliation:low_signal_candidate_packet": 92,
+    "identity_reconciliation:needs_secondary_identity_anchor_packet": 90,
+    "identity_reconciliation:no_review_packet": 7,
+    "identity_reconciliation:npi_secondary_identity_anchor_packet": 7,
+    "identity_reconciliation:partial_anchor_candidate_packet": 67,
+    "identity_reconciliation:review_ready_mixed_identity_anchor_packet": 752,
+    "identity_reconciliation:review_ready_mixed_packet": 17,
+    "identity_reconciliation:review_ready_publication_packet": 23,
+    "official_profile:accepted_profile_url": 927,
+    "official_profile:ready_for_direct_probe_review": 174,
+    "official_profile:ready_for_discovery_strategy_review": 1,
+    "official_profile:ready_for_profile_candidate_reviewer_decision": 27,
+    "official_profile:ready_for_profile_search_execution": 398,
+    "official_profile:retry_search_endpoint_before_absence_inference": 8,
+    "organization_normalization:auto_suggested_alias_review": 10,
+    "organization_normalization:cleaned_label_review_recommended": 607,
+    "organization_normalization:no_obvious_normalization_gap": 918,
+    "person_enrichment:accepted_enrichment_with_review_queue": 3,
+    "person_enrichment:baseline_roster_only": 85,
+    "person_enrichment:candidate_evidence_present": 632,
+    "person_enrichment:review_ready_evidence_present": 712,
+    "person_enrichment:thin_profile_needs_collection": 103,
+    "research_identity:conflict_review_required": 24,
+    "research_identity:multi_source_candidate_review": 7,
+    "research_identity:no_public_research_identity_signal": 12,
+    "research_identity:research_candidate_only": 1239,
+    "research_identity:research_plus_secondary_identity_anchor_review": 157,
+    "research_identity:secondary_anchor_without_research_signal": 7,
+    "research_identity:single_source_research_review_ready": 72,
+    "research_identity:strong_multi_source_research_identity_review": 17,
+    "roster_identity:current_roster_identity": 1521,
+    "roster_identity:identity_gap": 14,
+    "training_temporal_state:carry_forward_until_fresh_source_contradiction": 13,
+    "training_temporal_state:expected_to_advance_if_fresh_next_stage_observed": 566,
+    "training_temporal_state:expected_to_complete_if_absent_or_alumni_after_refresh": 207,
+    "training_temporal_state:manual_review_required_before_any_stage_mutation": 122,
+    "training_temporal_state:must_refresh_source_before_retention_or_change": 627
+  },
+  "by_quality_band": {
+    "blocked_or_conflicted": 3080,
+    "insufficient_or_candidate_only": 1904,
+    "review_ready": 3017,
+    "strong_verified": 3543,
+    "usable_with_review_gaps": 736
+  },
+  "csv": "artifacts/data/corpus_quality_lane_review.csv",
+  "gap_rows": 5255,
+  "generated_at": "2026-06-03T15:11:53.254615+00:00",
+  "json": "artifacts/data/corpus_quality_lane_review.json",
+  "lane_count": 8,
+  "person_count": 1535,
+  "policy": "Corpus quality lane review is non-mutating. Auto-fixable rows are suggested reviewer-gated normalizations, not applied truth changes.",
+  "review_rows": 12280,
+  "top_auto_fixable": [
+    {
+      "display_name": "Bassel Ghaddar MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Rutgers Rober Wood Johnson Medical School",
+          "event_type": "medical_school",
+          "raw_value": "Rutgers Rober Wood Johnson Medical School",
+          "similarity": 0.988,
+          "suggested_canonical_name": "Rutgers Robert Wood Johnson Medical School"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "Breanne McCarthy, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "John Hopkins University School of Medicine",
+          "event_type": "medical_school",
+          "raw_value": "John Hopkins University School of Medicine",
+          "similarity": 0.987,
+          "suggested_canonical_name": "Johns Hopkins University School of Medicine"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Krishna Patel MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Pern State College of Medicine",
+          "event_type": "medical_school",
+          "raw_value": "Pern State College of Medicine",
+          "similarity": 0.963,
+          "suggested_canonical_name": "Penn State College of Medicine"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "Monica Tung, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "University of California, San Francisco CA.",
+          "event_type": "residency_program",
+          "raw_value": "University of California, San Francisco CA.",
+          "similarity": 0.959,
+          "suggested_canonical_name": "University of California San Francisco"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Conor Drakeley, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Sidney Kimmel Medicine College at Thomas Jefferson University",
+          "event_type": "medical_school",
+          "raw_value": "Sidney Kimmel Medicine College at Thomas Jefferson University",
+          "similarity": 0.957,
+          "suggested_canonical_name": "Sidney Kimmel Medical College at Thomas Jefferson University"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "Daniel Hu, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Northwestern Univ. The Feinberg SOM",
+          "event_type": "medical_school",
+          "raw_value": "Northwestern Univ. The Feinberg SOM",
+          "similarity": 0.933,
+          "suggested_canonical_name": "Northwestern University Feinberg School of Medicine"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "Haley Leopold, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Ichan School of Medicine at Mount Sinai",
+          "event_type": "medical_school",
+          "raw_value": "Ichan School of Medicine at Mount Sinai",
+          "similarity": 0.97,
+          "suggested_canonical_name": "Icahn School of Medicine at Mount Sinai"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "Jennifer E. Chung, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Washington University School of Medicine, St. Louis",
+          "event_type": "medical_school",
+          "raw_value": "Washington University School of Medicine, St. Louis",
+          "similarity": 0.968,
+          "suggested_canonical_name": "Washington University School of Medicine in St Louis"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "William R. Johnston, MD",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Washington University, St. Louis",
+          "event_type": "medical_school",
+          "raw_value": "Washington University, St. Louis",
+          "similarity": 0.952,
+          "suggested_canonical_name": "Washington University in St. Louis"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    },
+    {
+      "display_name": "Tanzim Bhuiya MD, MPH",
+      "lane": "organization_normalization",
+      "lane_status": "auto_suggested_alias_review",
+      "proposed_fix": [
+        {
+          "current_canonical_name": "Donald and Barbara Zucker School of Medicine at Hofstra/Norhwell",
+          "event_type": "medical_school",
+          "raw_value": "Donald and Barbara Zucker School of Medicine at Hofstra/Norhwell",
+          "similarity": 0.991,
+          "suggested_canonical_name": "Donald and Barbara Zucker School of Medicine at Hofstra/Northwell"
+        }
+      ],
+      "recommended_next_action": "review_and_accept_or_reject_suggested_organization_aliases",
+      "role": "resident"
+    }
+  ],
+  "top_blockers": [
+    {
+      "display_name": "Aardra Rajendran, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Aardra Rajendran, MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Aaron Cheng, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "discovery_only_packet",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Aaron Cheng, MD",
+      "lane": "person_enrichment",
+      "lane_status": "baseline_roster_only",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Abhishek Gami, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "discovery_only_packet",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Abhishek Gami, MD",
+      "lane": "person_enrichment",
+      "lane_status": "baseline_roster_only",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Abigail Black MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Abigail Black MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Abigail Taye MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Abigail Taye MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Adam Barsouk, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Adam Barsouk, MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Adam Tuchinsky, DO",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Adam Tuchinsky, DO",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Adrian Alonzo, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "discovery_only_packet",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Adrian Alonzo, MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Ahmed Gawash DO",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Ahmed Gawash DO",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Aili Klein, MD, PhD",
+      "lane": "identity_reconciliation",
+      "lane_status": "discovery_only_packet",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Aili Klein, MD, PhD",
+      "lane": "person_enrichment",
+      "lane_status": "baseline_roster_only",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Akshatha Kiran MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Akshatha Kiran MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Akshayaa Chittibabu MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Akshayaa Chittibabu MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alan Tang, MD, PhD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alan Tang, MD, PhD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alec Gayner MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alec Gayner MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alec Kacew MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "discovery_only_packet",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alec Kacew MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alexa Larsen, MD, MSc",
+      "lane": "identity_reconciliation",
+      "lane_status": "discovery_only_packet",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alexa Larsen, MD, MSc",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "use_only_as_discovery_seed",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alexa Tabackman, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "needs_secondary_identity_anchor_packet",
+      "recommended_next_action": "seek_profile_or_identifier_or_coauthor_anchor",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexa Tabackman, MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "seek_profile_or_identifier_or_coauthor_anchor",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexander Ortiz, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexander Ortiz, MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexandra Leto, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexandra Leto, MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Alexandria Nicole Tartt MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alexandria Nicole Tartt MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alison Leslie MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alison Leslie MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alison Ranum MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Alison Ranum MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Amanda Perez, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Amanda Perez, MD",
+      "lane": "person_enrichment",
+      "lane_status": "candidate_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "resident"
+    },
+    {
+      "display_name": "Amber Meservey, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_mixed_identity_anchor_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Amber Meservey, MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Amir Heravi, MD",
+      "lane": "identity_reconciliation",
+      "lane_status": "review_ready_publication_packet",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    },
+    {
+      "display_name": "Amir Heravi, MD",
+      "lane": "person_enrichment",
+      "lane_status": "review_ready_evidence_present",
+      "recommended_next_action": "manual_review_for_candidate_acceptance",
+      "role": "fellow"
+    }
+  ]
+}

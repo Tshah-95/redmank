@@ -4864,6 +4864,28 @@ CREATE TABLE IF NOT EXISTS source_quality_policy_action_packets (
   generated_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS corpus_quality_lane_review (
+  quality_review_key TEXT PRIMARY KEY,
+  person_key TEXT NOT NULL,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  lane TEXT NOT NULL,
+  lane_status TEXT NOT NULL,
+  quality_band TEXT NOT NULL,
+  confidence_score REAL NOT NULL DEFAULT 0.0,
+  accepted_fact_count INTEGER NOT NULL DEFAULT 0,
+  candidate_count INTEGER NOT NULL DEFAULT 0,
+  review_ready_count INTEGER NOT NULL DEFAULT 0,
+  blocker_count INTEGER NOT NULL DEFAULT 0,
+  gap_count INTEGER NOT NULL DEFAULT 0,
+  best_source_url TEXT,
+  recommended_next_action TEXT NOT NULL,
+  auto_fixable INTEGER NOT NULL DEFAULT 0,
+  proposed_fix_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS warehouse_reproducibility_audit (
   audit_key TEXT PRIMARY KEY,
   artifact_path TEXT NOT NULL,

@@ -149,6 +149,7 @@ def main() -> None:
         "search_utility_assurance",
         "source_quality_policy_recommendations",
         "source_quality_policy_action_packets",
+        "corpus_quality_lane_review",
         "search_utility_execution_batches",
         "search_utility_execution_batch_packets",
         "corpus_action_worklist",
@@ -1576,6 +1577,16 @@ def main() -> None:
             """
         )
     }
+    corpus_quality_lane_counts = {
+        row["quality_band"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT quality_band, COUNT(*) AS count
+            FROM corpus_quality_lane_review
+            GROUP BY quality_band
+            """
+        )
+    }
     search_utility_execution_batch_packet_lane_counts = {
         row["batch_lane"]: row["count"]
         for row in conn.execute(
@@ -2129,6 +2140,13 @@ def main() -> None:
         )
     else:
         source_quality_policy_action_packet_summary = {}
+    corpus_quality_lane_review_summary_path = ARTIFACTS / "corpus_quality_lane_review_summary.json"
+    if corpus_quality_lane_review_summary_path.exists():
+        corpus_quality_lane_review_summary = json.loads(
+            corpus_quality_lane_review_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        corpus_quality_lane_review_summary = {}
     search_utility_execution_batch_packet_summary_path = (
         ARTIFACTS / "search_utility_execution_batch_packet_summary.json"
     )
@@ -2418,6 +2436,7 @@ def main() -> None:
         "source_quality_policy_recommendation_counts": source_quality_policy_recommendation_counts,
         "source_quality_policy_action_readiness_counts": source_quality_policy_action_readiness_counts,
         "source_quality_policy_action_packet_counts": source_quality_policy_action_packet_counts,
+        "corpus_quality_lane_counts": corpus_quality_lane_counts,
         "search_utility_execution_batch_packet_lane_counts": search_utility_execution_batch_packet_lane_counts,
         "search_utility_execution_batch_packet_support_counts": search_utility_execution_batch_packet_support_counts,
         "search_utility_execution_batch_packet_type_counts": search_utility_execution_batch_packet_type_counts,
@@ -2491,6 +2510,7 @@ def main() -> None:
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_quality_policy_recommendation_summary": source_quality_policy_recommendation_summary,
         "source_quality_policy_action_packet_summary": source_quality_policy_action_packet_summary,
+        "corpus_quality_lane_review_summary": corpus_quality_lane_review_summary,
         "search_utility_execution_batch_packet_summary": search_utility_execution_batch_packet_summary,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
         "organization_identifier_candidate_summary": organization_identifier_candidate_summary,

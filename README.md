@@ -224,6 +224,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_quality_policy_recommendation_summary.json`: policy-lane, action-readiness, and recent-attending trend relevance counts for source-quality recommendations.
 - `artifacts/data/source_quality_policy_action_packets.csv`: one packet per source-quality policy recommendation, preserving source artifacts, downstream tables, support status, trend relevance, and the acceptance boundary for collector/reviewer work.
 - `artifacts/data/source_quality_policy_action_packet_summary.json`: packet counts by policy lane, action readiness, support status, and recent-attending trend relevance.
+- `artifacts/data/corpus_quality_lane_review.csv`: corpus-wide person/lane quality review ledger covering roster identity, training temporal state, official profile, organization normalization, enrichment, identity reconciliation, research identity, and contact verification.
+- `artifacts/data/corpus_quality_lane_review_summary.json`: lane-quality rollups, auto-fixable normalization suggestions, blocker counts, gap counts, and top review rows for the current corpus.
 - `artifacts/data/search_utility_execution_batches.csv`: bounded execution batches for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing without converting search hits into accepted evidence.
 - `artifacts/data/search_utility_execution_batch_summary.json`: batch counts, unobserved-query burden, endpoint-retry burden, candidate-probe burden, and top search execution batches.
 - `artifacts/data/search_utility_execution_batch_packets.csv`: per-query, per-retry, and per-candidate packet support for search execution batches, joining each hidden unit back to its query, observation, candidate, entity, target artifact, and non-mutating reconciliation boundary.
@@ -271,6 +273,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/warehouse_reproducibility_summary.json`: reproducibility rollup, including required missing artifacts, row-count mismatches, and generated SQLite storage policy.
 - `artifacts/research/penn-source-quality-learnings-2026-06-02.md`: first source-quality learning report.
 - `artifacts/research/training-state-machine-methodology-2026-06-02.md`: lifecycle/state-machine methodology, mutation guardrails, temporal-contract counts, and diff semantics.
+- `artifacts/research/corpus-quality-and-hopkins-expansion-2026-06-03.md`: first corpus-wide person/lane quality review, Krishna Patel/Penn State normalization lesson, and Johns Hopkins expansion seed.
 - `artifacts/research/`: methodology and tradeoff briefs.
 
 As of the latest local generation, the warehouse has 1,535 people: 925 residents, 385 fellows, and 225 public MSTP student-directory records. It also has 1,775 accepted roster/training event rows, 1,111 PubMed author-query research candidates, 3,416 official trainee profile claims, 313 public contact candidates, and 105 career/outcome candidate events. The Department of Medicine subset remains the highest-confidence starting corpus; the broader Penn-affiliated and HUP gap-queue scrapes add conservative non-Medicine resident/fellow rosters from official Penn pages and mark them for review.
@@ -431,6 +434,7 @@ python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
 python3 scripts/materialize_source_quality_policy_recommendations.py
 python3 scripts/materialize_source_quality_policy_action_packets.py
+python3 scripts/materialize_corpus_quality_lane_review.py
 python3 scripts/materialize_search_utility_execution_batches.py
 python3 scripts/materialize_search_utility_execution_batch_packets.py
 python3 scripts/materialize_official_profile_discovery_workbench.py

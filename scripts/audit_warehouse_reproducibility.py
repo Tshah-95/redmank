@@ -889,6 +889,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/corpus_quality_lane_review.csv",
+        "corpus_quality_lane_review_ledger",
+        "csv",
+        "corpus_quality_lane_review",
+        True,
+    ),
+    (
         "artifacts/data/search_utility_execution_batches.csv",
         "source_quality_execution_batch_ledger",
         "csv",

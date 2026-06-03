@@ -414,6 +414,10 @@ def main() -> None:
         ARTIFACTS / "source_quality_policy_action_packet_summary.json",
         {},
     )
+    corpus_quality_lane_review_summary = read_json(
+        ARTIFACTS / "corpus_quality_lane_review_summary.json",
+        {},
+    )
     person_enrichment_execution_batch_summary = read_json(
         ARTIFACTS / "person_enrichment_execution_batch_summary.json",
         {},
@@ -584,6 +588,10 @@ def main() -> None:
     source_quality_policy_action_packets = read_csv(
         ARTIFACTS / "source_quality_policy_action_packets.csv",
         limit=30,
+    )
+    corpus_quality_lane_review = read_csv(
+        ARTIFACTS / "corpus_quality_lane_review.csv",
+        limit=50,
     )
     top_person_enrichment_execution_batches = read_csv(
         ARTIFACTS / "person_enrichment_execution_batches.csv",
@@ -927,6 +935,8 @@ def main() -> None:
         "source_quality_policy_recommendations": source_quality_policy_recommendations,
         "source_quality_policy_action_packet_summary": source_quality_policy_action_packet_summary,
         "source_quality_policy_action_packets": source_quality_policy_action_packets,
+        "corpus_quality_lane_review_summary": corpus_quality_lane_review_summary,
+        "corpus_quality_lane_review": corpus_quality_lane_review,
         "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,
         "top_person_enrichment_execution_batches": top_person_enrichment_execution_batches,
         "person_enrichment_execution_batch_packet_summary": person_enrichment_execution_batch_packet_summary,
@@ -1527,6 +1537,23 @@ def main() -> None:
         ),
         "",
         "Learning: utility performance now has an explicit policy translation layer. Search hits remain discovery-only, strong official/profile sources still need surface-specific acceptance gates, and attending-trend utilities are flagged separately so current-attending endpoints do not outrun historical Penn-training bridge evidence.",
+        "",
+        "## Corpus Quality Lane Review",
+        "",
+        f"Review rows: {corpus_quality_lane_review_summary.get('review_rows', 0)} across {corpus_quality_lane_review_summary.get('person_count', 0)} people and {corpus_quality_lane_review_summary.get('lane_count', 0)} lanes. Auto-fixable normalization rows: {corpus_quality_lane_review_summary.get('auto_fixable_rows', 0)}. Blocker rows: {corpus_quality_lane_review_summary.get('blocker_rows', 0)}. Gap rows: {corpus_quality_lane_review_summary.get('gap_rows', 0)}.",
+        "",
+        *md_table(
+            corpus_quality_lane_review,
+            [
+                "display_name",
+                "role",
+                "lane",
+                "lane_status",
+                "quality_band",
+                "confidence_score",
+                "recommended_next_action",
+            ],
+        ),
         "",
         "## Person Enrichment Execution Batches",
         "",
