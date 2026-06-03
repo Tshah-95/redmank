@@ -23,7 +23,7 @@
     "ready_for_manual_review_execution_decision": 806
   },
   "executed_outputs_routed_rows": 0,
-  "generated_at": "2026-06-03T08:32:40.096383+00:00",
+  "generated_at": "2026-06-03T08:39:35.050291+00:00",
   "invalid_or_stale_decision_rows": 0,
   "manual_decision_csv": "artifacts/data/person_enrichment_action_member_execution_decisions.csv",
   "manual_decision_rows": 0,

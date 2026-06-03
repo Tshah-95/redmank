@@ -92,6 +92,7 @@ Core tables:
 - `person_evidence_reviewer_decision_queue`, `person_evidence_reviewer_decisions`, `person_evidence_reviewer_decision_audit`: explicit reviewer-decision loop for review-ready person evidence packets.
 - `person_evidence_review_triage`: non-mutating review workbench over the reviewer queue. It ranks review-ready packets by lane, risk, decision difficulty, evidence density, and source family without accepting candidate facts.
 - `person_evidence_review_batches`: bounded reviewer-execution batches over triage rows, preserving packet detail while grouping review by lane, difficulty, risk, and role.
+- `person_evidence_review_batch_packets`: packet-level support rows for those batches, tying current packet fingerprints, top review records, support status, and recommended reviewer actions back to the batch execution order.
 - `person_enrichment_action_batches`, `person_enrichment_action_batch_members`: bounded action batches and exact per-person membership rows for executing enrichment work in resumable, auditable chunks.
 - `person_enrichment_action_member_execution_queue`, `person_enrichment_action_member_execution_decisions`, `person_enrichment_action_member_execution_audit`: fingerprinted execution ledger for action-batch members, separating operator execution outcomes from fact acceptance.
 - `person_enrichment_action_member_execution_dossiers`: compact execution dossiers over action-batch members, including command hints, routing checklists, and current-fingerprint manual execution templates.
@@ -107,7 +108,7 @@ Core tables:
 - `source_quality_observations`: empirical notes from enrichment runs.
 - `source_utility_scorecard`: empirical utility scorecard tying each claim surface to observed input/output counts, review burden, blocker counts, quality band, and next action.
 - `search_utility_assurance`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, endpoint observations, endpoint failures, result counts, and candidate yield before any search hit can influence coverage or enrichment truth.
-- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, triage-aware person evidence review, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
+- `corpus_action_worklist`: ranked non-mutating operator ledger that merges program coverage gaps, search reliability gaps, batch-aware person evidence review with packet support, roster-refresh execution batches, person-level profile discovery, contact verification, temporal-state refresh, enrichment collector groups, and recent-attending trend bridges into one evidence-first next-action queue.
 
 Useful views:
 
@@ -228,6 +229,7 @@ The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor`
 - `scripts/materialize_person_evidence_review_triage.py` ranks that queue by lane, identity risk, decision difficulty, and evidence density.
 - `scripts/materialize_person_evidence_review_dossiers.py` turns each ready packet into a person-level dossier with current program context, top evidence records, source domains, decision counts, current audit status, a current-fingerprint manual decision template, missing-evidence summary, review route, and acceptance boundary.
 - `scripts/materialize_person_evidence_review_batches.py` turns the triage rows into bounded reviewer sessions; these batches are non-mutating and write accepted facts only through the existing reviewer-decision/audit/acceptance ledgers.
+- `scripts/materialize_person_evidence_review_batch_packets.py` expands those sessions into packet-level support rows so the worklist can stay batch-level while reviewers still have current packet fingerprints, top records, and recommended actions for each member packet.
 - `scripts/materialize_person_enrichment_action_batch_members.py` expands each action batch into exact membership rows with per-member command hints, downstream artifacts, source URLs, blockers, and packet context.
 - `scripts/materialize_person_enrichment_action_member_execution.py` adds a fingerprinted execution-decision loop over those batch members, including stale-decision and downstream-routing audits. Execution rows are still non-mutating: they prove work happened and outputs were routed, but source-specific ledgers decide acceptance.
 - `scripts/materialize_person_enrichment_action_member_execution_dossiers.py` turns those execution queue/audit rows into compact operator dossiers with current-fingerprint manual execution templates, command hints, expected downstream artifacts, and routing checklists.

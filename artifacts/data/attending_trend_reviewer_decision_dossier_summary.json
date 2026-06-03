@@ -19,7 +19,7 @@
   },
   "dossier_csv": "artifacts/data/attending_trend_reviewer_decision_dossiers.csv",
   "dossier_rows": 5,
-  "generated_at": "2026-06-03T08:32:12.984649+00:00",
+  "generated_at": "2026-06-03T08:39:06.835370+00:00",
   "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
   "manual_decision_template_rows": 5,
   "pending_reviewer_decision_rows": 2

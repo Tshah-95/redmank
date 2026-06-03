@@ -191,15 +191,15 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "person_evidence_review_batches.csv"
     if batch_path.exists():
         dossier_path = ARTIFACTS / "person_evidence_review_dossiers.csv"
-        source = (
-            "artifacts/data/person_evidence_review_dossiers.csv"
-            if dossier_path.exists()
-            else "artifacts/data/person_evidence_review_batches.csv"
-        )
+        source = "artifacts/data/person_evidence_review_batches.csv"
         batch_key_by_decision: dict[str, str] = {}
+        batch_packets_by_batch: dict[str, list[dict]] = defaultdict(list)
         batch_packet_path = ARTIFACTS / "person_evidence_review_batch_packets.csv"
         if batch_packet_path.exists():
             for batch_packet in read_csv(batch_packet_path):
+                batch_key = batch_packet.get("review_batch_key") or ""
+                if batch_key:
+                    batch_packets_by_batch[batch_key].append(batch_packet)
                 decision_key = batch_packet.get("reviewer_decision_key") or ""
                 if decision_key:
                     batch_key_by_decision[decision_key] = batch_packet.get("review_batch_key") or ""
@@ -211,6 +211,7 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                     dossiers_by_batch[batch_key].append(dossier)
         for item in read_csv(batch_path):
             dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
+            batch_packet_rows = batch_packets_by_batch.get(item.get("review_batch_key") or "", [])
             priority = 880 + as_int(item.get("max_triage_priority")) + min(as_int(item.get("packet_count")) * 2, 70)
             rows.append(
                 row(
@@ -240,6 +241,7 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_decision_artifact") or "artifacts/data/person_evidence_reviewer_decisions.csv",
                     downstream_tables=[
                         "person_evidence_review_batches",
+                        "person_evidence_review_batch_packets",
                         "person_evidence_review_dossiers",
                         "person_evidence_review_triage",
                         "person_evidence_reviewer_decision_queue",
@@ -248,6 +250,7 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                         "accepted_enrichment_claims",
                     ],
                     evidence={
+                        "review_batch_key": item.get("review_batch_key"),
                         "packet_count": item.get("packet_count"),
                         "review_ready_record_count": item.get("review_ready_record_count"),
                         "evidence_record_count": item.get("evidence_record_count"),
@@ -255,6 +258,33 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                         "top_source_domains": item.get("top_source_domains"),
                         "top_best_decisions_json": item.get("top_best_decisions_json"),
                         "acceptance_rule": item.get("acceptance_rule"),
+                        "batch_packet_support_rows": len(batch_packet_rows),
+                        "ready_batch_packet_support_rows": sum(
+                            1
+                            for packet in batch_packet_rows
+                            if packet.get("support_status") == "ready_for_packet_review"
+                        ),
+                        "blocked_batch_packet_support_rows": sum(
+                            1
+                            for packet in batch_packet_rows
+                            if packet.get("support_status") != "ready_for_packet_review"
+                        ),
+                        "top_batch_packet_reviewer_actions": dict(
+                            Counter(
+                                packet.get("recommended_reviewer_action") or ""
+                                for packet in batch_packet_rows
+                            ).most_common(8)
+                        ),
+                        "top_batch_packet_names": [
+                            packet.get("display_name") or ""
+                            for packet in sorted(
+                                batch_packet_rows,
+                                key=lambda packet: (
+                                    -as_int(packet.get("triage_priority")),
+                                    as_int(packet.get("batch_packet_order")),
+                                ),
+                            )[:8]
+                        ],
                         "reviewer_decision_dossier_rows": len(dossier_rows),
                         "pending_reviewer_decision_dossier_rows": sum(
                             1 for dossier in dossier_rows if dossier.get("decision_status") == "pending_reviewer_decision"

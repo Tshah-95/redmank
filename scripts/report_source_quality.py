@@ -351,6 +351,10 @@ def main() -> None:
         ARTIFACTS / "person_evidence_review_dossier_summary.json",
         {},
     )
+    person_evidence_review_batch_packet_summary = read_json(
+        ARTIFACTS / "person_evidence_review_batch_packet_summary.json",
+        {},
+    )
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
     program_lifecycle_duration_summary = read_json(ARTIFACTS / "program_lifecycle_duration_evidence_summary.json", {})
@@ -424,6 +428,10 @@ def main() -> None:
     )
     top_person_evidence_review_dossiers = read_csv(
         ARTIFACTS / "person_evidence_review_dossiers.csv",
+        limit=25,
+    )
+    top_person_evidence_review_batch_packets = read_csv(
+        ARTIFACTS / "person_evidence_review_batch_packets.csv",
         limit=25,
     )
     contact_reviewer_dossier_summary = read_json(
@@ -662,6 +670,7 @@ def main() -> None:
         "reconciliation_decision_summary": reconciliation_decision_summary,
         "person_evidence_reviewer_decision_summary": person_evidence_reviewer_decision_summary,
         "person_evidence_review_dossier_summary": person_evidence_review_dossier_summary,
+        "person_evidence_review_batch_packet_summary": person_evidence_review_batch_packet_summary,
         "top_reconciliation_decisions": top_reconciliation_decisions,
         "attending_trend_linkage_summary": attending_trend_linkage_summary,
         "top_attending_trend_linkage_groups": top_attending_linkage_groups,
@@ -708,6 +717,7 @@ def main() -> None:
         "top_reconciliation_queue": top_reconciliation_queue,
         "top_person_evidence_reviewer_decisions": top_person_evidence_reviewer_decisions,
         "top_person_evidence_review_dossiers": top_person_evidence_review_dossiers,
+        "top_person_evidence_review_batch_packets": top_person_evidence_review_batch_packets,
         "contact_counts": contact_counts,
         "contact_assurance_counts": contact_assurance_counts,
         "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
@@ -1328,6 +1338,23 @@ def main() -> None:
                 "review_priority",
                 "best_decision",
                 "best_source_url",
+            ],
+        ),
+        "",
+        "Batch packet support:",
+        "",
+        f"Batch packet rows: {person_evidence_review_batch_packet_summary.get('batch_packet_rows', 0)}. Batches covered: {person_evidence_review_batch_packet_summary.get('batch_count', 0)}. Review-ready records: {person_evidence_review_batch_packet_summary.get('review_ready_record_count', 0)}. Evidence records: {person_evidence_review_batch_packet_summary.get('evidence_record_count', 0)}.",
+        "",
+        *md_table(
+            top_person_evidence_review_batch_packets,
+            [
+                "execution_order",
+                "batch_packet_order",
+                "display_name",
+                "role",
+                "triage_lane",
+                "support_status",
+                "recommended_reviewer_action",
             ],
         ),
         "",
