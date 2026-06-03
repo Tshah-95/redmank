@@ -46,6 +46,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_enrichment_execution_readiness.csv`: per-task execution-readiness ledger mapping queued enrichment work to existing collectors, command hints, network/review/script-extension/parser requirements, and next system action.
 - `artifacts/data/person_enrichment_execution_readiness_rollups.csv`: rollups by task type, source family, execution lane, automation status, priority band, and task-type/execution-lane pair.
 - `artifacts/data/person_enrichment_execution_readiness_summary.json`: one-glance counts for runnable collector lanes, manual-review burden, script-extension gaps, and new-parser gaps.
+- `artifacts/data/person_enrichment_execution_batches.csv`: resumable execution batches over enrichment-readiness rows, preserving command hints, evidence requirements, provenance policy, and top people per batch.
+- `artifacts/data/person_enrichment_execution_batch_summary.json`: execution-batch counts by task type, source family, priority band, execution lane, and batch status.
 - `artifacts/data/penn_affiliated_source_discovery.json`: Penn-wide source discovery for trainee, alumni/outcome, and attending/faculty candidates.
 - `artifacts/data/penn_gme_program_universe.json`: official HUP GME program denominator parsed from the public Penn Medicine program list.
 - `artifacts/data/penn_gme_program_coverage.csv`: coverage audit mapping official HUP programs to current captured rosters, discovered pages without roster capture, and undiscovered gaps.
@@ -223,6 +225,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `official_program_coverage_batches.csv` when available, so denominator coverage actions are grouped by lane, blocker, program type, and assurance level while program dossiers remain downstream evidence detail.
 - The worklist consumes `search_utility_execution_batches.csv` when available, so search assurance gaps become executable query, retry, and candidate-probe batches while the four-row utility assurance ledger remains the source-quality rollup.
+- The worklist consumes `person_enrichment_execution_batches.csv` when available, so enrichment execution starts from the resumable collector/manual-review batch manifest instead of regrouping raw queue rows.
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
 - The worklist consumes the refresh execution audit to down-rank ready roster batches that were already refreshed with no state delta, while keeping parser-support blockers visible.

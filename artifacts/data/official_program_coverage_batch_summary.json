@@ -32,7 +32,7 @@
   },
   "candidate_source_count": 71,
   "csv": "artifacts/data/official_program_coverage_batches.csv",
-  "generated_at": "2026-06-03T09:29:38.056307+00:00",
+  "generated_at": "2026-06-03T09:36:26.620520+00:00",
   "json": "artifacts/data/official_program_coverage_batches.json",
   "person_impact_count": 542,
   "policy": "Official program coverage batches are non-mutating operator sessions over denominator coverage gaps; coverage truth changes still require source-backed extraction, accepted alias mapping, or explicit denominator closure evidence.",

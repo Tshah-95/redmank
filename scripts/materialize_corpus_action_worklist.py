@@ -1212,6 +1212,91 @@ def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
 
 
 def enrichment_queue_actions(generated_at: str) -> list[dict]:
+    batch_path = ARTIFACTS / "person_enrichment_execution_batches.csv"
+    if batch_path.exists():
+        rows = []
+        source = "artifacts/data/person_enrichment_execution_batches.csv"
+        roster_workbench_exists = (ARTIFACTS / "official_roster_refresh_workbench.csv").exists()
+        evidence_triage_exists = (ARTIFACTS / "person_evidence_review_triage.csv").exists()
+        profile_workbench_exists = (ARTIFACTS / "official_profile_discovery_workbench.csv").exists()
+        for item in read_csv(batch_path):
+            task_type = item.get("task_type") or ""
+            if roster_workbench_exists and task_type == "current_roster_state_reconciliation":
+                continue
+            if evidence_triage_exists and task_type == "evidence_reconciliation_review":
+                continue
+            if profile_workbench_exists and task_type == "official_profile_search":
+                continue
+            priority = as_int(item.get("max_priority")) * 10 + min(as_int(item.get("person_count")), 250)
+            rows.append(
+                row(
+                    action_surface="person_enrichment_execution",
+                    action_scope=f"{item.get('source_family') or ''}:{task_type}:{item.get('batch_status') or ''}",
+                    entity_type="person_enrichment_execution_batch",
+                    entity_key=item.get("batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("source_family"),
+                            task_type,
+                            item.get("priority_band"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role="",
+                    program_name="",
+                    priority=priority,
+                    impact_count=max(as_int(item.get("person_count")), as_int(item.get("task_count")), 1),
+                    readiness_status=item.get("batch_status") or "",
+                    blocker_status=item.get("blocked_reason") or "",
+                    required_next_evidence=item.get("evidence_requirement") or "",
+                    recommended_next_action=item.get("next_system_action") or "",
+                    source_artifact=source,
+                    target_artifact="artifacts/data/person_enrichment_execution_readiness.csv",
+                    downstream_tables=[
+                        "person_enrichment_execution_batches",
+                        "person_enrichment_execution_readiness",
+                        "person_enrichment_work_queue",
+                        "person_enrichment_dossiers",
+                        "person_evidence_review_batches",
+                        "research_identity_review_batches",
+                        "contact_verification_batches",
+                        "official_profile_discovery_batches",
+                        "official_roster_refresh_batches",
+                        "evidence_reconciliation_decisions",
+                        "accepted_enrichment_claims",
+                    ],
+                    evidence={
+                        "batch_key": item.get("batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "task_type": task_type,
+                        "source_family": item.get("source_family"),
+                        "priority_band": item.get("priority_band"),
+                        "execution_lane": item.get("execution_lane"),
+                        "automation_status": item.get("automation_status"),
+                        "task_count": item.get("task_count"),
+                        "person_count": item.get("person_count"),
+                        "role_counts": parse_json(item.get("role_counts_json"), {}),
+                        "program_count": item.get("program_count"),
+                        "top_programs": item.get("top_programs"),
+                        "network_required_count": item.get("network_required_count"),
+                        "manual_review_required_count": item.get("manual_review_required_count"),
+                        "existing_collector": item.get("existing_collector"),
+                        "command_hint": item.get("command_hint"),
+                        "input_artifacts": parse_json(item.get("input_artifacts_json"), []),
+                        "output_artifacts": parse_json(item.get("output_artifacts_json"), []),
+                        "expected_claim_types": parse_json(item.get("expected_claim_types_json"), []),
+                        "acceptance_rule": item.get("acceptance_rule"),
+                        "recency_policy": item.get("recency_policy"),
+                        "provenance_policy": item.get("provenance_policy"),
+                        "top_people": parse_json(item.get("top_people_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     grouped: dict[tuple[str, str, str, str, str, str], dict] = defaultdict(lambda: {"count": 0, "fresh": 0, "sample": None})
     roster_workbench_exists = (ARTIFACTS / "official_roster_refresh_workbench.csv").exists()
     evidence_triage_exists = (ARTIFACTS / "person_evidence_review_triage.csv").exists()
