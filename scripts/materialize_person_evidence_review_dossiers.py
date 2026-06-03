@@ -38,6 +38,8 @@ FIELDS = [
     "current_programs",
     "review_kind",
     "packet_status",
+    "decision_status",
+    "decision_blocker",
     "triage_lane",
     "triage_priority",
     "decision_difficulty",
@@ -58,6 +60,9 @@ FIELDS = [
     "top_match_features",
     "decision_counts_json",
     "top_evidence_records_json",
+    "allowed_decisions",
+    "required_confirmation_fields",
+    "manual_decision_template_json",
     "missing_evidence_summary",
     "recommended_reviewer_action",
     "acceptance_boundary",
@@ -192,6 +197,8 @@ def load_review_rows(conn: sqlite3.Connection) -> list[dict]:
         conn,
         """
         SELECT q.*,
+               a.decision_status,
+               a.decision_blocker,
                t.triage_key,
                t.triage_lane,
                t.triage_priority,
@@ -206,6 +213,8 @@ def load_review_rows(conn: sqlite3.Connection) -> list[dict]:
         FROM person_evidence_reviewer_decision_queue q
         JOIN person_evidence_review_packets p
           ON p.packet_key = q.packet_key
+        LEFT JOIN person_evidence_reviewer_decision_audit a
+          ON a.reviewer_decision_key = q.reviewer_decision_key
         LEFT JOIN person_evidence_review_triage t
           ON t.reviewer_decision_key = q.reviewer_decision_key
         WHERE q.queue_status = 'ready_for_reviewer_decision'
@@ -278,6 +287,8 @@ def packet_summary(row: dict, records: list[dict]) -> str:
 
 
 def recommended_action(row: dict, route: str, missing: str) -> str:
+    if row.get("decision_status") == "pending_reviewer_decision":
+        return row.get("recommended_next_action") or "record_accept_reject_or_needs_more_evidence_decision"
     if route == "orcid_pubmed_publication_review":
         return "confirm_orcid_pubmed_author_identity_then_record_publication_decision"
     if route == "secondary_identity_anchor_then_publication_review":
@@ -289,6 +300,22 @@ def recommended_action(row: dict, route: str, missing: str) -> str:
     if "secondary_identity_or_official_profile_anchor" in missing:
         return "collect_or_confirm_independent_identity_anchor_before_acceptance"
     return row.get("likely_next_action") or "record_accept_reject_or_needs_more_evidence_decision"
+
+
+def manual_decision_template(row: dict) -> dict:
+    return {
+        "reviewer_decision_key": row.get("reviewer_decision_key") or "",
+        "packet_key": row.get("packet_key") or "",
+        "packet_fingerprint": row.get("packet_fingerprint") or "",
+        "reviewer_decision": "",
+        "reviewer_name": "",
+        "decided_at": "",
+        "identity_confirmed": 0,
+        "source_context_confirmed": 0,
+        "non_name_anchors_confirmed": 0,
+        "display_safety_confirmed": 0,
+        "decision_notes": "",
+    }
 
 
 def build_rows(conn: sqlite3.Connection, generated_at: str) -> list[dict]:
@@ -367,6 +394,8 @@ def build_rows(conn: sqlite3.Connection, generated_at: str) -> list[dict]:
             "current_programs": programs.get(row.get("person_key") or "", ""),
             "review_kind": row["review_kind"],
             "packet_status": row["packet_status"],
+            "decision_status": row.get("decision_status") or "pending_reviewer_decision",
+            "decision_blocker": row.get("decision_blocker") or "manual_reviewer_decision_missing",
             "triage_lane": row.get("triage_lane") or "",
             "triage_priority": as_int(row.get("triage_priority")),
             "decision_difficulty": row.get("decision_difficulty") or "",
@@ -392,6 +421,9 @@ def build_rows(conn: sqlite3.Connection, generated_at: str) -> list[dict]:
             "top_match_features": row.get("top_match_features") or "",
             "decision_counts_json": dumps(dict(sorted(decisions.items()))),
             "top_evidence_records_json": dumps(top_records),
+            "allowed_decisions": row.get("allowed_decisions") or "",
+            "required_confirmation_fields": "identity_confirmed; source_context_confirmed; non_name_anchors_confirmed; display_safety_confirmed",
+            "manual_decision_template_json": dumps(manual_decision_template(row)),
             "missing_evidence_summary": missing,
             "recommended_reviewer_action": recommended_action(row, route, missing),
             "acceptance_boundary": (
@@ -417,6 +449,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 
 def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    ensure_sqlite_columns(conn)
     conn.execute("DELETE FROM person_evidence_review_dossiers")
     if not rows:
         return
@@ -425,11 +458,26 @@ def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
     conn.executemany(f"INSERT OR REPLACE INTO person_evidence_review_dossiers ({field_sql}) VALUES ({placeholders})", rows)
 
 
+def ensure_sqlite_columns(conn: sqlite3.Connection) -> None:
+    existing = {row[1] for row in conn.execute("PRAGMA table_info(person_evidence_review_dossiers)")}
+    required = {
+        "decision_status": "TEXT NOT NULL DEFAULT ''",
+        "decision_blocker": "TEXT NOT NULL DEFAULT ''",
+        "allowed_decisions": "TEXT NOT NULL DEFAULT ''",
+        "required_confirmation_fields": "TEXT NOT NULL DEFAULT ''",
+        "manual_decision_template_json": "TEXT NOT NULL DEFAULT '{}'",
+    }
+    for column, definition in required.items():
+        if column not in existing:
+            conn.execute(f"ALTER TABLE person_evidence_review_dossiers ADD COLUMN {column} {definition}")
+
+
 def write_summary(rows: list[dict], generated_at: str) -> None:
     by_route = Counter(row["review_route"] for row in rows)
     by_risk = Counter(row["risk_level"] for row in rows)
     by_role = Counter(row["role"] or "unknown_role" for row in rows)
     by_missing = Counter(row["missing_evidence_summary"] for row in rows)
+    by_decision_status = Counter(row["decision_status"] for row in rows)
     payload = {
         "generated_at": generated_at,
         "dossier_rows": len(rows),
@@ -437,7 +485,9 @@ def write_summary(rows: list[dict], generated_at: str) -> None:
         "review_ready_record_count": sum(as_int(row["review_ready_record_count"]) for row in rows),
         "evidence_record_count": sum(as_int(row["evidence_record_count"]) for row in rows),
         "publication_candidate_count": sum(as_int(row["publication_candidate_count"]) for row in rows),
+        "pending_reviewer_decision_rows": by_decision_status.get("pending_reviewer_decision", 0),
         "by_review_route": dict(sorted(by_route.items())),
+        "by_decision_status": dict(sorted(by_decision_status.items())),
         "by_risk_level": dict(sorted(by_risk.items())),
         "by_role": dict(sorted(by_role.items())),
         "top_missing_evidence": dict(by_missing.most_common(12)),

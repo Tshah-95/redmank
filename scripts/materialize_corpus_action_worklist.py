@@ -190,8 +190,27 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "person_evidence_review_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/person_evidence_review_batches.csv"
+        dossier_path = ARTIFACTS / "person_evidence_review_dossiers.csv"
+        source = (
+            "artifacts/data/person_evidence_review_dossiers.csv"
+            if dossier_path.exists()
+            else "artifacts/data/person_evidence_review_batches.csv"
+        )
+        batch_key_by_decision: dict[str, str] = {}
+        batch_packet_path = ARTIFACTS / "person_evidence_review_batch_packets.csv"
+        if batch_packet_path.exists():
+            for batch_packet in read_csv(batch_packet_path):
+                decision_key = batch_packet.get("reviewer_decision_key") or ""
+                if decision_key:
+                    batch_key_by_decision[decision_key] = batch_packet.get("review_batch_key") or ""
+        dossiers_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if dossier_path.exists():
+            for dossier in read_csv(dossier_path):
+                batch_key = batch_key_by_decision.get(dossier.get("reviewer_decision_key") or "")
+                if batch_key:
+                    dossiers_by_batch[batch_key].append(dossier)
         for item in read_csv(batch_path):
+            dossier_rows = dossiers_by_batch.get(item.get("review_batch_key") or "", [])
             priority = 880 + as_int(item.get("max_triage_priority")) + min(as_int(item.get("packet_count")) * 2, 70)
             rows.append(
                 row(
@@ -221,6 +240,7 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_decision_artifact") or "artifacts/data/person_evidence_reviewer_decisions.csv",
                     downstream_tables=[
                         "person_evidence_review_batches",
+                        "person_evidence_review_dossiers",
                         "person_evidence_review_triage",
                         "person_evidence_reviewer_decision_queue",
                         "person_evidence_reviewer_decision_audit",
@@ -235,6 +255,13 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                         "top_source_domains": item.get("top_source_domains"),
                         "top_best_decisions_json": item.get("top_best_decisions_json"),
                         "acceptance_rule": item.get("acceptance_rule"),
+                        "reviewer_decision_dossier_rows": len(dossier_rows),
+                        "pending_reviewer_decision_dossier_rows": sum(
+                            1 for dossier in dossier_rows if dossier.get("decision_status") == "pending_reviewer_decision"
+                        ),
+                        "top_dossier_review_routes": dict(
+                            Counter(dossier.get("review_route") or "" for dossier in dossier_rows).most_common(8)
+                        ),
                     },
                     generated_at=generated_at,
                 )

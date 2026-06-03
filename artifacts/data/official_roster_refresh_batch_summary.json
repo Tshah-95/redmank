@@ -21,7 +21,7 @@
   "csv": "artifacts/data/official_roster_refresh_batches.csv",
   "expected_advancement_count": 659,
   "expected_completion_count": 252,
-  "generated_at": "2026-06-03T07:37:32.513922+00:00",
+  "generated_at": "2026-06-03T07:44:52.626021+00:00",
   "json": "artifacts/data/official_roster_refresh_batches.json",
   "manual_review_required_count": 131,
   "person_count_policy": "Summed source/program person counts, not deduplicated unique people.",
