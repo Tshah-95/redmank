@@ -1,0 +1,26 @@
+{
+  "acceptance_policy": "Dossiers are non-mutating. Accepted recent-attending trend facts require an explicit reviewer decision with the current claim_fingerprint and all identity, endpoint, training-line, and date-window confirmations set to 1.",
+  "accepted_facts_csv": "artifacts/data/accepted_attending_trend_facts.csv",
+  "accepted_reviewer_decision_rows": 3,
+  "accepted_trend_fact_rows": 3,
+  "by_decision_status": {
+    "accepted_reviewer_decision": 3,
+    "pending_reviewer_decision": 2
+  },
+  "by_queue_status": {
+    "accepted_fact_already_materialized": 3,
+    "ready_for_reviewer_decision": 2
+  },
+  "by_source_scope": {
+    "official_penn_faculty_biosketch": 5
+  },
+  "by_ten_year_trend_window": {
+    "yes": 5
+  },
+  "dossier_csv": "artifacts/data/attending_trend_reviewer_decision_dossiers.csv",
+  "dossier_rows": 5,
+  "generated_at": "2026-06-03T08:15:16.140446+00:00",
+  "manual_decision_csv": "artifacts/data/attending_trend_reviewer_decisions.csv",
+  "manual_decision_template_rows": 5,
+  "pending_reviewer_decision_rows": 2
+}

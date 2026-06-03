@@ -1016,9 +1016,25 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
     source_path = ARTIFACTS / "attending_trend_discovery_workbench.csv"
     if not source_path.exists():
         return rows
-    source = "artifacts/data/attending_trend_discovery_workbench.csv"
+    discovery_source = "artifacts/data/attending_trend_discovery_workbench.csv"
+    dossier_source = "artifacts/data/attending_trend_reviewer_decision_dossiers.csv"
+    dossier_path = ARTIFACTS / "attending_trend_reviewer_decision_dossiers.csv"
+    dossiers_by_trend: dict[str, list[dict]] = defaultdict(list)
+    if dossier_path.exists():
+        for dossier_row in read_csv(dossier_path):
+            dossiers_by_trend[dossier_row.get("trend_key") or ""].append(dossier_row)
     for item in read_csv(source_path):
         priority = as_int(item.get("discovery_priority"))
+        dossier_rows = dossiers_by_trend.get(item.get("trend_key") or "", [])
+        pending_dossier_rows = [
+            dossier_row for dossier_row in dossier_rows if dossier_row.get("decision_status") == "pending_reviewer_decision"
+        ]
+        action_source = dossier_source if dossier_rows else discovery_source
+        target_artifact = (
+            "artifacts/data/attending_trend_reviewer_decisions.csv"
+            if dossier_rows
+            else "artifacts/data/attending_historical_link_candidates.csv"
+        )
         rows.append(
             row(
                 action_surface="recent_attending_trend_discovery",
@@ -1034,11 +1050,12 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
                 blocker_status=item.get("discovery_lane") or item.get("trend_status") or "",
                 required_next_evidence=item.get("evidence_required") or "",
                 recommended_next_action=item.get("recommended_next_action") or "",
-                source_artifact=source,
-                target_artifact="artifacts/data/attending_historical_link_candidates.csv",
+                source_artifact=action_source,
+                target_artifact=target_artifact,
                 downstream_tables=[
                     "attending_trend_discovery_workbench",
                     "attending_trend_dossiers",
+                    "attending_trend_reviewer_decision_dossiers",
                     "attending_historical_link_search_queries",
                     "attending_historical_link_search_observations",
                     "attending_historical_link_candidates",
@@ -1058,6 +1075,9 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
                     "historical_candidate_count": item.get("historical_candidate_count"),
                     "best_candidate_status": item.get("best_candidate_status"),
                     "best_candidate_url": item.get("best_candidate_url"),
+                    "reviewer_decision_key": (dossier_rows[0].get("reviewer_decision_key") if dossier_rows else ""),
+                    "reviewer_decision_status": (dossier_rows[0].get("decision_status") if dossier_rows else ""),
+                    "pending_reviewer_decision_count": len(pending_dossier_rows),
                 },
                 generated_at=generated_at,
             )

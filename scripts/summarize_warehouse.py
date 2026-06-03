@@ -104,6 +104,7 @@ def main() -> None:
         "attending_trend_reviewer_decisions",
         "attending_trend_reviewer_decision_queue",
         "attending_trend_reviewer_decision_audit",
+        "attending_trend_reviewer_decision_dossiers",
         "accepted_attending_trend_facts",
         "attending_trend_dossiers",
         "attending_trend_review_rollups",
@@ -284,6 +285,16 @@ def main() -> None:
             """
             SELECT decision_status, COUNT(*) AS count
             FROM attending_trend_reviewer_decision_audit
+            GROUP BY decision_status
+            """
+        )
+    }
+    attending_trend_reviewer_decision_dossier_counts = {
+        row["decision_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT decision_status, COUNT(*) AS count
+            FROM attending_trend_reviewer_decision_dossiers
             GROUP BY decision_status
             """
         )
@@ -1496,6 +1507,15 @@ def main() -> None:
         )
     else:
         attending_trend_reviewer_decision_summary = {}
+    attending_trend_reviewer_decision_dossier_summary_path = (
+        ARTIFACTS / "attending_trend_reviewer_decision_dossier_summary.json"
+    )
+    if attending_trend_reviewer_decision_dossier_summary_path.exists():
+        attending_trend_reviewer_decision_dossier_summary = json.loads(
+            attending_trend_reviewer_decision_dossier_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        attending_trend_reviewer_decision_dossier_summary = {}
     attending_trend_dossier_summary_path = ARTIFACTS / "attending_trend_dossier_summary.json"
     if attending_trend_dossier_summary_path.exists():
         attending_trend_dossier_summary = json.loads(
@@ -1743,6 +1763,7 @@ def main() -> None:
         "attending_trend_acceptance_counts": attending_trend_acceptance_counts,
         "attending_trend_acceptance_fact_counts": attending_trend_acceptance_fact_counts,
         "attending_trend_reviewer_decision_counts": attending_trend_reviewer_decision_counts,
+        "attending_trend_reviewer_decision_dossier_counts": attending_trend_reviewer_decision_dossier_counts,
         "accepted_attending_trend_fact_counts": accepted_attending_trend_fact_counts,
         "attending_trend_dossier_status_counts": attending_trend_dossier_status_counts,
         "attending_trend_dossier_safety_counts": attending_trend_dossier_safety_counts,
@@ -1872,6 +1893,7 @@ def main() -> None:
         "attending_trend_review_claims_summary": attending_trend_review_claims_summary,
         "attending_trend_acceptance_summary": attending_trend_acceptance_summary,
         "attending_trend_reviewer_decision_summary": attending_trend_reviewer_decision_summary,
+        "attending_trend_reviewer_decision_dossier_summary": attending_trend_reviewer_decision_dossier_summary,
         "attending_trend_dossier_summary": attending_trend_dossier_summary,
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,

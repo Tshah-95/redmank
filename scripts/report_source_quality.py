@@ -388,6 +388,10 @@ def main() -> None:
         ARTIFACTS / "official_profile_reviewer_decision_dossier_summary.json",
         {},
     )
+    attending_trend_reviewer_decision_dossier_summary = read_json(
+        ARTIFACTS / "attending_trend_reviewer_decision_dossier_summary.json",
+        {},
+    )
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
@@ -400,6 +404,10 @@ def main() -> None:
     top_attending_trend_acceptance = read_csv(ARTIFACTS / "attending_trend_acceptance_audit.csv", limit=25)
     top_attending_trend_reviewer_decisions = read_csv(
         ARTIFACTS / "attending_trend_reviewer_decision_audit.csv",
+        limit=25,
+    )
+    top_attending_trend_reviewer_decision_dossiers = read_csv(
+        ARTIFACTS / "attending_trend_reviewer_decision_dossiers.csv",
         limit=25,
     )
     top_person_evidence_reviewer_decisions = read_csv(
@@ -555,6 +563,12 @@ def main() -> None:
             (attending_trend_reviewer_decision_summary.get("by_decision_status") or {}).items()
         )
     ]
+    attending_trend_reviewer_decision_dossier_counts = [
+        {"decision_status": status, "count": count}
+        for status, count in sorted(
+            (attending_trend_reviewer_decision_dossier_summary.get("by_decision_status") or {}).items()
+        )
+    ]
     npi_candidate_status_counts = [
         {"candidate_status": status, "count": count}
         for status, count in sorted((npi_candidate_summary.get("by_candidate_status") or {}).items())
@@ -647,6 +661,8 @@ def main() -> None:
         "top_attending_trend_acceptance": top_attending_trend_acceptance,
         "attending_trend_reviewer_decision_summary": attending_trend_reviewer_decision_summary,
         "top_attending_trend_reviewer_decisions": top_attending_trend_reviewer_decisions,
+        "attending_trend_reviewer_decision_dossier_summary": attending_trend_reviewer_decision_dossier_summary,
+        "top_attending_trend_reviewer_decision_dossiers": top_attending_trend_reviewer_decision_dossiers,
         "top_attending_trend_review_rollups": top_attending_trend_review_rollups,
         "npi_candidate_summary": npi_candidate_summary,
         "top_npi_candidates": top_npi_candidates,
@@ -1434,6 +1450,26 @@ def main() -> None:
                 "decision_status",
                 "accepted_trend_fact",
                 "decision_blocker",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Reviewer decision dossiers:",
+        "",
+        f"Dossier rows: {attending_trend_reviewer_decision_dossier_summary.get('dossier_rows', 0)}. Pending reviewer decisions: {attending_trend_reviewer_decision_dossier_summary.get('pending_reviewer_decision_rows', 0)}. Accepted trend facts: {attending_trend_reviewer_decision_dossier_summary.get('accepted_trend_fact_rows', 0)}. Manual decision templates: {attending_trend_reviewer_decision_dossier_summary.get('manual_decision_template_rows', 0)}.",
+        "",
+        *md_table(attending_trend_reviewer_decision_dossier_counts, ["decision_status", "count"]),
+        "",
+        *md_table(
+            top_attending_trend_reviewer_decision_dossiers,
+            [
+                "display_name",
+                "decision_status",
+                "queue_status",
+                "ten_year_trend_window",
+                "training_end_year",
+                "source_scope",
+                "reviewer_decision_key",
                 "recommended_next_action",
             ],
         ),

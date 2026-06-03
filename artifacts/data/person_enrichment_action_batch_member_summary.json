@@ -30,7 +30,7 @@
     "medium": 213
   },
   "csv": "artifacts/data/person_enrichment_action_batch_members.csv",
-  "generated_at": "2026-06-03T08:05:35.894568+00:00",
+  "generated_at": "2026-06-03T08:15:44.979909+00:00",
   "json": "artifacts/data/person_enrichment_action_batch_members.json",
   "packet_count": 1535,
   "person_count": 1535,

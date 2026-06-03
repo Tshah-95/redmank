@@ -690,6 +690,7 @@ ARTIFACT_SPECS = [
     ("artifacts/data/attending_trend_reviewer_decisions.csv", "attending_trend_reviewer_decision_input", "csv", "attending_trend_reviewer_decisions", True),
     ("artifacts/data/attending_trend_reviewer_decision_queue.csv", "attending_trend_reviewer_decision_ledger", "csv", "attending_trend_reviewer_decision_queue", True),
     ("artifacts/data/attending_trend_reviewer_decision_audit.csv", "attending_trend_reviewer_decision_ledger", "csv", "attending_trend_reviewer_decision_audit", True),
+    ("artifacts/data/attending_trend_reviewer_decision_dossiers.csv", "attending_trend_reviewer_decision_dossier_ledger", "csv", "attending_trend_reviewer_decision_dossiers", True),
     ("artifacts/data/accepted_attending_trend_facts.csv", "attending_trend_accepted_fact_ledger", "csv", "accepted_attending_trend_facts", True),
     ("artifacts/data/attending_trend_dossiers.csv", "attending_trend_dossier_ledger", "csv", "attending_trend_dossiers", True),
     ("artifacts/data/attending_trend_review_rollups.csv", "attending_trend_ledger", "csv", "attending_trend_review_rollups", True),
