@@ -59,7 +59,7 @@
   },
   "candidate_or_discovery_rows": 9,
   "csv": "artifacts/data/source_utility_scorecard.csv",
-  "generated_at": "2026-06-03T09:49:05.702250+00:00",
+  "generated_at": "2026-06-03T09:59:14.156458+00:00",
   "high_utility_rows": 4,
   "json": "artifacts/data/source_utility_scorecard.json",
   "scorecard_rows": 36,

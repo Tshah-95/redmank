@@ -367,6 +367,10 @@ def main() -> None:
         ARTIFACTS / "program_lifecycle_duration_reviewer_decision_summary.json",
         {},
     )
+    program_lifecycle_duration_review_batch_summary = read_json(
+        ARTIFACTS / "program_lifecycle_duration_review_batch_summary.json",
+        {},
+    )
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
@@ -520,6 +524,10 @@ def main() -> None:
         ARTIFACTS / "program_lifecycle_duration_reviewer_decision_audit.csv",
         limit=25,
     )
+    top_program_lifecycle_duration_review_batches = read_csv(
+        ARTIFACTS / "program_lifecycle_duration_review_batches.csv",
+        limit=25,
+    )
     top_temporal_contract_batches = read_csv(
         ARTIFACTS / "training_temporal_contract_batches.csv",
         limit=25,
@@ -587,6 +595,10 @@ def main() -> None:
         for status, count in sorted(
             (program_lifecycle_duration_reviewer_decision_summary.get("by_decision_status") or {}).items()
         )
+    ]
+    program_lifecycle_duration_review_batch_counts = [
+        {"batch_status": status, "count": count}
+        for status, count in sorted((program_lifecycle_duration_review_batch_summary.get("by_batch_status") or {}).items())
     ]
     enrichment_coverage_bands = [
         {"coverage_band": band, "count": count}
@@ -718,8 +730,10 @@ def main() -> None:
         "top_training_temporal_contract_batches": top_temporal_contract_batches,
         "program_lifecycle_duration_evidence_summary": program_lifecycle_duration_summary,
         "program_lifecycle_duration_reviewer_decision_summary": program_lifecycle_duration_reviewer_decision_summary,
+        "program_lifecycle_duration_review_batch_summary": program_lifecycle_duration_review_batch_summary,
         "program_lifecycle_duration_evidence": program_lifecycle_duration_evidence,
         "top_program_lifecycle_duration_reviewer_decisions": top_program_lifecycle_duration_reviewer_decisions,
+        "top_program_lifecycle_duration_review_batches": top_program_lifecycle_duration_review_batches,
         "enrichment_coverage_summary": enrichment_coverage_summary,
         "weakest_program_enrichment_coverage": weakest_program_coverage,
         "reconciliation_decision_summary": reconciliation_decision_summary,
@@ -1087,6 +1101,23 @@ def main() -> None:
         f"Reviewer queue rows: {program_lifecycle_duration_reviewer_decision_summary.get('queue_rows', 0)}. Ready rows: {program_lifecycle_duration_reviewer_decision_summary.get('ready_queue_rows', 0)}. Context-review rows: {program_lifecycle_duration_reviewer_decision_summary.get('context_review_rows', 0)}. Manual decision rows: {program_lifecycle_duration_reviewer_decision_summary.get('manual_decision_rows', 0)}. Accepted duration mappings: {program_lifecycle_duration_reviewer_decision_summary.get('accepted_duration_mapping_rows', 0)}.",
         "",
         *md_table(program_lifecycle_duration_reviewer_decision_counts, ["decision_status", "count"]),
+        "",
+        f"Review batch rows: {program_lifecycle_duration_review_batch_summary.get('batch_rows', 0)}. Unresolved review rows batched: {program_lifecycle_duration_review_batch_summary.get('review_row_count', 0)}. Context-review rows batched: {program_lifecycle_duration_review_batch_summary.get('context_review_count', 0)}. Not-ready/source-evidence rows batched: {program_lifecycle_duration_review_batch_summary.get('not_ready_count', 0)}.",
+        "",
+        *md_table(program_lifecycle_duration_review_batch_counts, ["batch_status", "count"]),
+        "",
+        *md_table(
+            top_program_lifecycle_duration_review_batches,
+            [
+                "execution_order",
+                "batch_status",
+                "official_program_type",
+                "duration_evidence_status",
+                "review_row_count",
+                "top_programs",
+                "recommended_operator_action",
+            ],
+        ),
         "",
         *md_table(
             top_program_lifecycle_duration_reviewer_decisions,

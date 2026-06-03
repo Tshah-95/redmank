@@ -1214,6 +1214,84 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
 
 def lifecycle_duration_review_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "program_lifecycle_duration_review_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/program_lifecycle_duration_review_batches.csv"
+        for item in read_csv(batch_path):
+            status = item.get("batch_status") or ""
+            queue_status = item.get("queue_status") or ""
+            if status == "duration_manual_decision_ready":
+                priority = 830
+            elif status == "duration_context_review_ready":
+                priority = 700
+            elif status == "duration_evidence_collection_required":
+                priority = 445
+            else:
+                priority = 520
+            rows.append(
+                row(
+                    action_surface="program_lifecycle_duration_review",
+                    action_scope=f"{queue_status}:{status}",
+                    entity_type="program_lifecycle_duration_review_batch",
+                    entity_key=item.get("duration_review_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("official_program_type"),
+                            item.get("duration_evidence_status"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("official_program_type") or "",
+                    program_name="",
+                    priority=priority + min(as_int(item.get("review_row_count")), 25),
+                    impact_count=max(as_int(item.get("review_row_count")), 1),
+                    readiness_status=status,
+                    blocker_status=item.get("decision_blocker_signature")
+                    or item.get("decision_status_signature")
+                    or item.get("duration_evidence_status")
+                    or "",
+                    required_next_evidence=item.get("required_next_evidence") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
+                    downstream_tables=[
+                        "program_lifecycle_duration_review_batches",
+                        "program_lifecycle_duration_reviewer_decision_queue",
+                        "program_lifecycle_duration_reviewer_decision_audit",
+                        "program_lifecycle_duration_reviewer_decisions",
+                        "accepted_program_lifecycle_duration_mappings",
+                        "program_lifecycle_rules",
+                        "training_temporal_contracts",
+                    ],
+                    evidence={
+                        "duration_review_batch_key": item.get("duration_review_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "batch_status": status,
+                        "queue_status": queue_status,
+                        "decision_status_signature": item.get("decision_status_signature"),
+                        "decision_blocker_signature": item.get("decision_blocker_signature"),
+                        "duration_evidence_status": item.get("duration_evidence_status"),
+                        "review_row_count": item.get("review_row_count"),
+                        "program_count": item.get("program_count"),
+                        "ready_queue_count": item.get("ready_queue_count"),
+                        "context_review_count": item.get("context_review_count"),
+                        "not_ready_count": item.get("not_ready_count"),
+                        "pending_decision_count": item.get("pending_decision_count"),
+                        "queue_status_counts": parse_json(item.get("queue_status_counts_json"), {}),
+                        "decision_status_counts": parse_json(item.get("decision_status_counts_json"), {}),
+                        "duration_evidence_status_counts": parse_json(
+                            item.get("duration_evidence_status_counts_json"), {}
+                        ),
+                        "top_review_rows": parse_json(item.get("top_review_rows_json"), []),
+                        "manual_decision_templates": parse_json(item.get("manual_decision_templates_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source = "artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv"
     audit_by_key = {
         item.get("reviewer_decision_key"): item

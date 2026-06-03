@@ -25,7 +25,7 @@
     "reject_duration_context": 1
   },
   "context_review_rows": 3,
-  "generated_at": "2026-06-03T09:48:26.490274+00:00",
+  "generated_at": "2026-06-03T09:58:35.189157+00:00",
   "manual_decision_csv": "artifacts/data/program_lifecycle_duration_reviewer_decisions.csv",
   "manual_decision_rows": 3,
   "not_ready_rows": 4,

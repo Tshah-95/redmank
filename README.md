@@ -39,6 +39,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/program_lifecycle_duration_reviewer_decision_queue.csv`: reviewer-decision queue for duration evidence, including evidence fingerprints and required confirmation fields.
 - `artifacts/data/program_lifecycle_duration_reviewer_decisions.csv`: manual reviewer decision input file for accepting/rejecting lifecycle-duration mappings.
 - `artifacts/data/program_lifecycle_duration_reviewer_decision_audit.csv`: audit of manual lifecycle-duration decisions against the current evidence fingerprint and confirmation requirements.
+- `artifacts/data/program_lifecycle_duration_review_batches.csv`: bounded reviewer/source-evidence sessions over unresolved lifecycle-duration decision rows.
+- `artifacts/data/program_lifecycle_duration_review_batch_summary.json`: lifecycle-duration batch counts by status, queue state, evidence status, and top unresolved program groups.
 - `artifacts/data/accepted_program_lifecycle_duration_mappings.csv`: accepted public-source-backed duration mappings; still non-mutating for `config/training_lifecycle_rules.json`.
 - `artifacts/data/program_lifecycle_duration_reviewer_decision_summary.json`: duration-decision queue, pending, rejected/deferred, and accepted-mapping counts.
 - `artifacts/data/person_enrichment_queue.csv`: source-aware recursive enrichment work queue for residents, fellows, and medical students, including state-machine urgency, priority band, query, source targets, acceptance rule, recency policy, provenance policy, and blocking risk.
@@ -226,6 +228,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
+- The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
 - The worklist consumes `official_program_coverage_batches.csv` when available, so denominator coverage actions are grouped by lane, blocker, program type, and assurance level while program dossiers remain downstream evidence detail.
 - The worklist consumes `search_utility_execution_batches.csv` when available, so search assurance gaps become executable query, retry, and candidate-probe batches while the four-row utility assurance ledger remains the source-quality rollup.
 - The worklist consumes `person_enrichment_execution_batches.csv` when available, so enrichment execution starts from the resumable collector/manual-review batch manifest instead of regrouping raw queue rows.
@@ -328,6 +331,7 @@ python3 scripts/audit_program_identifier_reconciliation.py
 python3 scripts/audit_program_lifecycle_consistency.py
 python3 scripts/audit_program_lifecycle_duration_evidence.py
 python3 scripts/materialize_program_lifecycle_duration_reviewer_decisions.py
+python3 scripts/materialize_program_lifecycle_duration_review_batches.py
 python3 scripts/export_warehouse_views.py
 python3 scripts/materialize_training_state_snapshot.py --compare-date 2026-06-02
 python3 scripts/audit_training_state_machine.py

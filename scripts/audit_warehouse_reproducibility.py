@@ -781,6 +781,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/program_lifecycle_duration_review_batches.csv",
+        "program_lifecycle_duration_review_batch_ledger",
+        "csv",
+        "program_lifecycle_duration_review_batches",
+        True,
+    ),
+    (
         "artifacts/data/accepted_program_lifecycle_duration_mappings.csv",
         "program_lifecycle_duration_accepted_mapping_ledger",
         "csv",

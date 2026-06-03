@@ -1,0 +1,72 @@
+{
+  "batch_rows": 4,
+  "by_batch_status": {
+    "duration_context_review_ready": 2,
+    "duration_evidence_collection_required": 2
+  },
+  "by_duration_evidence_status": {
+    "conflicting_duration_evidence_review": 1,
+    "duration_source_program_mismatch_review": 1,
+    "no_explicit_duration_evidence_found": 2
+  },
+  "by_official_program_type": {
+    "fellowship": 3,
+    "residency": 1
+  },
+  "by_queue_status": {
+    "context_review_required_before_decision": 2,
+    "not_ready_for_reviewer_decision": 2
+  },
+  "context_review_count": 3,
+  "csv": "artifacts/data/program_lifecycle_duration_review_batches.csv",
+  "generated_at": "2026-06-03T09:58:35.249087+00:00",
+  "json": "artifacts/data/program_lifecycle_duration_review_batches.json",
+  "not_ready_count": 4,
+  "pending_decision_count": 0,
+  "policy": "Lifecycle-duration review batches are non-mutating operator sessions. Accepted duration mappings still require explicit reviewer decisions, current evidence fingerprints, and later lifecycle-rule config changes before state-machine behavior changes.",
+  "program_count": 7,
+  "ready_queue_count": 0,
+  "review_row_count": 7,
+  "top_batches": [
+    {
+      "batch_status": "duration_context_review_ready",
+      "duration_evidence_status": "conflicting_duration_evidence_review",
+      "execution_order": 1,
+      "official_program_type": "fellowship",
+      "queue_status": "context_review_required_before_decision",
+      "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+      "review_row_count": 2,
+      "top_programs": "Trauma and Surgical Critical Care; Urogynecology and Reconstructive Pelvic Surgery"
+    },
+    {
+      "batch_status": "duration_context_review_ready",
+      "duration_evidence_status": "duration_source_program_mismatch_review",
+      "execution_order": 2,
+      "official_program_type": "fellowship",
+      "queue_status": "context_review_required_before_decision",
+      "recommended_operator_action": "resolve_duration_context_or_page_scope_for_batch",
+      "review_row_count": 1,
+      "top_programs": "Hematopathology"
+    },
+    {
+      "batch_status": "duration_evidence_collection_required",
+      "duration_evidence_status": "no_explicit_duration_evidence_found",
+      "execution_order": 3,
+      "official_program_type": "fellowship",
+      "queue_status": "not_ready_for_reviewer_decision",
+      "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+      "review_row_count": 3,
+      "top_programs": "Adult Reconstructive Orthopedics; Cytopathology; Maternal Fetal Medicine"
+    },
+    {
+      "batch_status": "duration_evidence_collection_required",
+      "duration_evidence_status": "no_explicit_duration_evidence_found",
+      "execution_order": 4,
+      "official_program_type": "residency",
+      "queue_status": "not_ready_for_reviewer_decision",
+      "recommended_operator_action": "collect_stronger_official_duration_evidence_for_batch",
+      "review_row_count": 1,
+      "top_programs": "Pathology - Anatomic and Clinical"
+    }
+  ]
+}

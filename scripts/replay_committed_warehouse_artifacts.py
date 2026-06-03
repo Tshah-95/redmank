@@ -41,6 +41,7 @@ CSV_TABLES = [
     ("program_lifecycle_duration_reviewer_decisions.csv", "program_lifecycle_duration_reviewer_decisions"),
     ("program_lifecycle_duration_reviewer_decision_queue.csv", "program_lifecycle_duration_reviewer_decision_queue"),
     ("program_lifecycle_duration_reviewer_decision_audit.csv", "program_lifecycle_duration_reviewer_decision_audit"),
+    ("program_lifecycle_duration_review_batches.csv", "program_lifecycle_duration_review_batches"),
     ("accepted_program_lifecycle_duration_mappings.csv", "accepted_program_lifecycle_duration_mappings"),
     ("hup_gap_reason_audit.csv", "official_program_gap_reason_audit"),
     ("official_gap_roster_reconciliation.csv", "official_gap_roster_reconciliation"),

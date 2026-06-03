@@ -759,6 +759,43 @@ CREATE TABLE IF NOT EXISTS program_lifecycle_duration_reviewer_decision_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS program_lifecycle_duration_review_batches (
+  duration_review_batch_key TEXT PRIMARY KEY,
+  execution_order INTEGER NOT NULL DEFAULT 0,
+  batch_status TEXT NOT NULL,
+  ready_to_execute INTEGER NOT NULL DEFAULT 0,
+  queue_status TEXT NOT NULL,
+  decision_status_signature TEXT NOT NULL,
+  decision_blocker_signature TEXT NOT NULL,
+  official_program_type TEXT NOT NULL,
+  duration_evidence_status TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  review_row_count INTEGER NOT NULL DEFAULT 0,
+  program_count INTEGER NOT NULL DEFAULT 0,
+  source_count INTEGER NOT NULL DEFAULT 0,
+  ready_queue_count INTEGER NOT NULL DEFAULT 0,
+  context_review_count INTEGER NOT NULL DEFAULT 0,
+  not_ready_count INTEGER NOT NULL DEFAULT 0,
+  pending_decision_count INTEGER NOT NULL DEFAULT 0,
+  explicit_duration_years_signature TEXT NOT NULL,
+  max_duration_confidence REAL NOT NULL DEFAULT 0.0,
+  min_duration_confidence REAL NOT NULL DEFAULT 0.0,
+  top_programs TEXT,
+  top_sources TEXT,
+  queue_status_counts_json TEXT NOT NULL,
+  decision_status_counts_json TEXT NOT NULL,
+  duration_evidence_status_counts_json TEXT NOT NULL,
+  explicit_duration_year_counts_json TEXT NOT NULL,
+  recommended_operator_action TEXT NOT NULL,
+  execution_instructions TEXT NOT NULL,
+  required_next_evidence TEXT NOT NULL,
+  target_artifact TEXT NOT NULL,
+  top_review_rows_json TEXT NOT NULL,
+  manual_decision_templates_json TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS accepted_program_lifecycle_duration_mappings (
   accepted_duration_key TEXT PRIMARY KEY,
   reviewer_decision_key TEXT NOT NULL REFERENCES program_lifecycle_duration_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,
