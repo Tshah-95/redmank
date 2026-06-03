@@ -180,6 +180,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/training_temporal_contract_summary.json`: one-glance stale-policy, guardrail, and next-refresh contract counts.
 - `artifacts/data/training_temporal_contract_batches.csv`: bounded non-mutating operator batches over source-refresh and manual-review temporal contracts, preserving top contract keys, review triggers, and required next evidence before any state mutation.
 - `artifacts/data/training_temporal_contract_batch_summary.json`: batch counts by policy lane, status, role, lifecycle code, contract burden, and top temporal-contract batches.
+- `artifacts/data/training_temporal_contract_batch_packets.csv`: row-level packets for every temporal contract inside those batches, preserving contract keys, person/program/source context, diff policy, required evidence, and packet support status before any state mutation.
+- `artifacts/data/training_temporal_contract_batch_packet_summary.json`: packet counts by policy lane, packet status, support status, role, contract burden, source burden, and top temporal-contract packets.
 - `artifacts/data/official_roster_refresh_workbench.csv`: source/program-level refresh contracts for official trainee rosters, derived from temporal contracts and source provenance.
 - `artifacts/data/official_roster_refresh_workbench_summary.json`: roster-refresh counts by lane, difficulty, role, source, program, and top source URLs for next collector runs.
 - `artifacts/data/official_roster_refresh_batches.csv`: bounded collector/parser/domain execution batches over roster-refresh contracts, preserving source URLs and expected state-machine outcomes before any mutation.
@@ -248,7 +250,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `research_identity_review_batch_member_packets.csv` when available while retaining one row per batch, so research identity corroboration stays bounded but exposes per-member current-fingerprint dossier/template packet evidence; if member packets are absent it falls back to batch packets, reviewer dossiers, then grouped corroboration rows.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batch_packets.csv` when available while retaining one row per roster-refresh execution batch, so collector/parser/domain batches stay bounded but expose exact source/program refresh contracts; if packet support is absent it falls back to roster-refresh batches.
-- The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
+- The worklist consumes `training_temporal_contract_batch_packets.csv` when available while retaining one visible row per `training_temporal_contract_batches.csv` batch, so source-refresh and manual-review temporal-state work stays compact but exposes row-level contract evidence.
 - The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
 - The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
 - The worklist consumes `search_utility_execution_batch_packets.csv` when available while retaining one row per search execution batch, so search assurance gaps stay bounded but expose exact query, retry, and candidate-probe packet support; if packet support is absent it falls back to execution batches, then the four-row utility assurance ledger.
@@ -366,6 +368,7 @@ python3 scripts/materialize_training_lifecycle_assurance.py
 python3 scripts/materialize_training_state_transition_plan.py
 python3 scripts/materialize_training_temporal_contracts.py
 python3 scripts/materialize_training_temporal_contract_batches.py
+python3 scripts/materialize_training_temporal_contract_batch_packets.py
 python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/materialize_official_roster_refresh_batch_packets.py
 python3 scripts/audit_enrichment_coverage.py
@@ -426,6 +429,7 @@ python3 scripts/materialize_official_profile_reobservation_audit.py
 python3 scripts/materialize_official_profile_reviewer_decision_dossiers.py
 python3 scripts/materialize_official_profile_discovery_batch_packets.py
 python3 scripts/materialize_training_temporal_contract_batches.py
+python3 scripts/materialize_training_temporal_contract_batch_packets.py
 python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/materialize_corpus_action_worklist.py
 python3 scripts/report_source_quality.py
@@ -529,9 +533,10 @@ Materialize explicit temporal contracts:
 ```bash
 python3 scripts/materialize_training_temporal_contracts.py
 python3 scripts/materialize_training_temporal_contract_batches.py
+python3 scripts/materialize_training_temporal_contract_batch_packets.py
 ```
 
-The temporal-contract materializer writes row-level and rollup artifacts that make the future state machine queryable without reading several ledgers at once. Each row says what stage is currently valid, when it becomes stale, what evidence is needed to retain/advance/complete it, which diff outcomes are auto-classifiable, and which observations must enter review. The batch materializer groups source-refresh and manual-review contracts into bounded non-mutating operator sessions; the worklist consumes those batches when present and keeps the row-level contracts as evidence detail.
+The temporal-contract materializer writes row-level and rollup artifacts that make the future state machine queryable without reading several ledgers at once. Each row says what stage is currently valid, when it becomes stale, what evidence is needed to retain/advance/complete it, which diff outcomes are auto-classifiable, and which observations must enter review. The batch materializer groups source-refresh and manual-review contracts into bounded non-mutating operator sessions; the packet materializer expands those batches back to every contract row so the worklist can stay batch-shaped while carrying exact row-level evidence.
 
 ## Data Policy
 

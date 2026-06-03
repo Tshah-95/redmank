@@ -492,6 +492,8 @@ def write_json(path: Path, rows: list[dict]) -> None:
 
 def write_db(conn: sqlite3.Connection, table: str, rows: list[dict], fields: list[str]) -> None:
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    if table == "training_temporal_contracts":
+        conn.execute("DELETE FROM training_temporal_contract_batch_packets")
     conn.execute(f"DELETE FROM {table}")
     if not rows:
         return

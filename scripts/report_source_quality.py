@@ -369,6 +369,10 @@ def main() -> None:
     longitudinal_readiness_summary = read_json(ARTIFACTS / "longitudinal_change_readiness_summary.json", {})
     transition_plan_summary = read_json(ARTIFACTS / "training_state_transition_plan_summary.json", {})
     temporal_contract_batch_summary = read_json(ARTIFACTS / "training_temporal_contract_batch_summary.json", {})
+    temporal_contract_batch_packet_summary = read_json(
+        ARTIFACTS / "training_temporal_contract_batch_packet_summary.json",
+        {},
+    )
     program_lifecycle_duration_summary = read_json(ARTIFACTS / "program_lifecycle_duration_evidence_summary.json", {})
     program_lifecycle_duration_reviewer_decision_summary = read_json(
         ARTIFACTS / "program_lifecycle_duration_reviewer_decision_summary.json",
@@ -631,6 +635,10 @@ def main() -> None:
         ARTIFACTS / "training_temporal_contract_batches.csv",
         limit=25,
     )
+    top_temporal_contract_batch_packets = read_csv(
+        ARTIFACTS / "training_temporal_contract_batch_packets.csv",
+        limit=25,
+    )
     top_official_roster_refresh_batches = read_csv(
         ARTIFACTS / "official_roster_refresh_batches.csv",
         limit=25,
@@ -688,6 +696,10 @@ def main() -> None:
     temporal_contract_batch_status_counts = [
         {"batch_status": status, "count": count}
         for status, count in sorted((temporal_contract_batch_summary.get("by_batch_status") or {}).items())
+    ]
+    temporal_contract_batch_packet_support_counts = [
+        {"support_status": status, "count": count}
+        for status, count in sorted((temporal_contract_batch_packet_summary.get("by_support_status") or {}).items())
     ]
     program_lifecycle_duration_status_counts = [
         {"duration_evidence_status": status, "count": count}
@@ -835,6 +847,8 @@ def main() -> None:
         "training_state_transition_plan_summary": transition_plan_summary,
         "training_temporal_contract_batch_summary": temporal_contract_batch_summary,
         "top_training_temporal_contract_batches": top_temporal_contract_batches,
+        "training_temporal_contract_batch_packet_summary": temporal_contract_batch_packet_summary,
+        "top_training_temporal_contract_batch_packets": top_temporal_contract_batch_packets,
         "official_roster_refresh_batch_summary": official_roster_refresh_batch_summary,
         "top_official_roster_refresh_batches": top_official_roster_refresh_batches,
         "official_roster_refresh_batch_packet_summary": official_roster_refresh_batch_packet_summary,
@@ -1335,10 +1349,13 @@ def main() -> None:
         "### Temporal Contract Batches",
         "",
         f"Batch rows: {temporal_contract_batch_summary.get('batch_rows', 0)}. Contract rows batched: {temporal_contract_batch_summary.get('contract_count', 0)}. Source-refresh-required contracts: {temporal_contract_batch_summary.get('source_refresh_required_count', 0)}. Human-review contracts: {temporal_contract_batch_summary.get('human_review_required_count', 0)}.",
+        f"Packet rows: {temporal_contract_batch_packet_summary.get('packet_rows', 0)} across {temporal_contract_batch_packet_summary.get('batch_rows', 0)} batches. Packet person count: {temporal_contract_batch_packet_summary.get('person_count', 0)}. Packet source count: {temporal_contract_batch_packet_summary.get('source_count', 0)}.",
         "",
         *md_table(temporal_contract_batch_lane_counts, ["policy_lane", "count"]),
         "",
         *md_table(temporal_contract_batch_status_counts, ["batch_status", "count"]),
+        "",
+        *md_table(temporal_contract_batch_packet_support_counts, ["support_status", "count"]),
         "",
         *md_table(
             top_temporal_contract_batches,
@@ -1351,6 +1368,20 @@ def main() -> None:
                 "lifecycle_code",
                 "contract_count",
                 "recommended_operator_action",
+            ],
+        ),
+        "",
+        *md_table(
+            top_temporal_contract_batch_packets,
+            [
+                "execution_order",
+                "packet_order",
+                "policy_lane",
+                "support_status",
+                "display_name",
+                "program_name",
+                "current_stage_code",
+                "required_next_evidence",
             ],
         ),
         "",

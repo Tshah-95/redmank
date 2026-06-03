@@ -909,7 +909,7 @@
     },
     "critical_rows": 113,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-03T12:15:51.034082+00:00",
+    "generated_at": "2026-06-03T12:26:06.839078+00:00",
     "high_rows": 158,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
@@ -1357,10 +1357,11 @@
     "training_state_transition_plan": 1682,
     "training_state_transition_plan_rollups": 226,
     "training_state_transition_rollups": 1785,
+    "training_temporal_contract_batch_packets": 758,
     "training_temporal_contract_batches": 93,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 161
+    "warehouse_reproducibility_audit": 162
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2692,7 +2693,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-03T12:15:55.020824+00:00",
+  "generated_at": "2026-06-03T12:26:10.861536+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -8799,6 +8800,18 @@
     "source_refresh_required": 627,
     "terminal_year_active": 252
   },
+  "temporal_contract_batch_packet_policy_counts": {
+    "manual_review_required": 131,
+    "source_refresh_required": 627
+  },
+  "temporal_contract_batch_packet_status_counts": {
+    "manual_temporal_contract_review_packet": 131,
+    "source_refresh_temporal_contract_packet": 627
+  },
+  "temporal_contract_batch_packet_support_counts": {
+    "ready_for_fresh_source_reobservation": 627,
+    "ready_for_lifecycle_or_source_label_review": 131
+  },
   "temporal_contract_counts": {
     "advance_only_if_fresh_expected_stage_observed": 659,
     "complete_or_alumni_only_if_absent_after_stale_or_endpoint_observed": 252,
@@ -9133,6 +9146,290 @@
     "role": 6,
     "trainee_category": 6
   },
+  "training_temporal_contract_batch_packet_summary": {
+    "batch_rows": 93,
+    "by_packet_status": {
+      "manual_temporal_contract_review_packet": 131,
+      "source_refresh_temporal_contract_packet": 627
+    },
+    "by_policy_lane": {
+      "manual_review_required": 131,
+      "source_refresh_required": 627
+    },
+    "by_role": {
+      "fellow": 217,
+      "medical_student": 225,
+      "resident": 316
+    },
+    "by_support_status": {
+      "ready_for_fresh_source_reobservation": 627,
+      "ready_for_lifecycle_or_source_label_review": 131
+    },
+    "contract_rows": 758,
+    "csv": "artifacts/data/training_temporal_contract_batch_packets.csv",
+    "fresh_observation_required_count": 758,
+    "generated_at": "2026-06-03T12:26:06.679044+00:00",
+    "human_review_required_count": 131,
+    "json": "artifacts/data/training_temporal_contract_batch_packets.json",
+    "packet_rows": 758,
+    "person_count": 753,
+    "policy": "Temporal contract batch packets are non-mutating row-level evidence. They expose every source-refresh and manual-review contract that belongs to each bounded operator batch before any training-state mutation.",
+    "source_count": 59,
+    "source_refresh_required_count": 627,
+    "stale_by_refresh_count": 758,
+    "top_packets": [
+      {
+        "contract_key": "training_temporal_contract_c8cb0b8ecdcb049e6702",
+        "display_name": "Adaora Ekwonu, MD",
+        "execution_order": "1",
+        "packet_order": 1,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_ede80be6b3cf9dfbfdf4",
+        "display_name": "Alise Peckjian, MD",
+        "execution_order": "1",
+        "packet_order": 2,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_f4c3951f57304e32c7e3",
+        "display_name": "Andrew Siliciano, MD, PhD",
+        "execution_order": "1",
+        "packet_order": 3,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_1670c70fe4866ed604f8",
+        "display_name": "Armaan Singh, MD, MBA",
+        "execution_order": "1",
+        "packet_order": 4,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_78c5c08c2d34b78fb97f",
+        "display_name": "Brendan Ho, MD",
+        "execution_order": "1",
+        "packet_order": 5,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_e711381b5801524e3aed",
+        "display_name": "Carina Guerra, MD",
+        "execution_order": "1",
+        "packet_order": 6,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_5f32b773f294509cad6d",
+        "display_name": "Catherine Yang, MD",
+        "execution_order": "1",
+        "packet_order": 7,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_cd1e2bd48f1511baed83",
+        "display_name": "Chance Dunbar, MD",
+        "execution_order": "1",
+        "packet_order": 8,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_d1c41e83605d44534f21",
+        "display_name": "Chase Stevens, MD",
+        "execution_order": "1",
+        "packet_order": 9,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_7cef98cff6a5db64b24e",
+        "display_name": "Chevonne Parker, MD, MPH",
+        "execution_order": "1",
+        "packet_order": 10,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_743588e561e161dff441",
+        "display_name": "Chidinma Wilson, MD",
+        "execution_order": "1",
+        "packet_order": 11,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_90e2742cb2ad759efcfe",
+        "display_name": "Christopher Lea, MD",
+        "execution_order": "1",
+        "packet_order": 12,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_f4e193c6ca11b3f03b8e",
+        "display_name": "Corey Horien, MD, PhD",
+        "execution_order": "1",
+        "packet_order": 13,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_a4e3638ca13561f5e455",
+        "display_name": "Demetrius Woodard, MD",
+        "execution_order": "1",
+        "packet_order": 14,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_bd0cf84aa5a48381cfe9",
+        "display_name": "Desmond Green, MD, MPH",
+        "execution_order": "1",
+        "packet_order": 15,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_f0371d88adefb9ebfd97",
+        "display_name": "Elizabeth Duthinh, MD, MPH",
+        "execution_order": "1",
+        "packet_order": 16,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_5750fbaa7cff246141b2",
+        "display_name": "Emily Beydler, MD",
+        "execution_order": "1",
+        "packet_order": 17,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_e06ac2582d309fad25ee",
+        "display_name": "Emma Chaloux-Pinette, MD, PhD",
+        "execution_order": "1",
+        "packet_order": 18,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_62abf68a4d58a5fe4167",
+        "display_name": "Eric Wagner, MD",
+        "execution_order": "1",
+        "packet_order": 19,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_64d6f632c3994de9e31b",
+        "display_name": "Eugenia Saiegh, MD",
+        "execution_order": "1",
+        "packet_order": 20,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_c1d0c825fbed5cb88356",
+        "display_name": "Evan Calvo, MD",
+        "execution_order": "1",
+        "packet_order": 21,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_9ae02447b1a111ded42b",
+        "display_name": "Farid Aboharb, MD, PhD",
+        "execution_order": "1",
+        "packet_order": 22,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_4858a2a1d15daa10eda4",
+        "display_name": "Finola Goudy, MD",
+        "execution_order": "1",
+        "packet_order": 23,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_5fad92d41d7ae7ca03a0",
+        "display_name": "Gabriel Herbst, MD",
+        "execution_order": "1",
+        "packet_order": 24,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      },
+      {
+        "contract_key": "training_temporal_contract_2ad620ac238a4717799b",
+        "display_name": "Hae-Min Jung, MD",
+        "execution_order": "1",
+        "packet_order": 25,
+        "policy_lane": "manual_review_required",
+        "program_name": "Psychiatry Residency",
+        "role": "resident",
+        "support_status": "ready_for_lifecycle_or_source_label_review"
+      }
+    ]
+  },
   "training_temporal_contract_summary": {
     "auto_classifiable_transition_rows": 911,
     "by_current_temporal_state_code": {
@@ -9222,12 +9519,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 161
+    "ok": 162
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 161,
-    "audited_at": "2026-06-03T12:15:52.389521+00:00",
+    "artifact_rows": 162,
+    "audited_at": "2026-06-03T12:26:08.234482+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -9262,6 +9559,7 @@
       "longitudinal_snapshot_ledger": 4,
       "longitudinal_stage_state_ledger": 2,
       "longitudinal_temporal_contract_batch_ledger": 1,
+      "longitudinal_temporal_contract_batch_packet_ledger": 1,
       "longitudinal_temporal_contract_ledger": 2,
       "longitudinal_transition_plan_ledger": 2,
       "official_profile_discovery_batch_ledger": 1,
@@ -9346,17 +9644,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 161
+      "ok": 162
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 476434432,
+    "sqlite_byte_size": 480636928,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "fdb6b4b1279a63d690981c877a37aa2bf2961dcedce5dcb2c7030ede90197954",
+    "sqlite_sha256": "b0dc31885070dc50599f0356a66d91766a1c339db3be5e21a93359a22611c62b",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

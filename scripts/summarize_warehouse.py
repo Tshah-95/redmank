@@ -84,6 +84,7 @@ def main() -> None:
         "training_temporal_contracts",
         "training_temporal_contract_rollups",
         "training_temporal_contract_batches",
+        "training_temporal_contract_batch_packets",
         "person_training_stage_state",
         "training_stage_state_rollups",
         "official_roster_refresh_workbench",
@@ -719,6 +720,36 @@ def main() -> None:
             SELECT rollup_scope, COUNT(*) AS count
             FROM training_temporal_contract_rollups
             GROUP BY rollup_scope
+            """
+        )
+    }
+    temporal_contract_batch_packet_policy_counts = {
+        row["policy_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT policy_lane, COUNT(*) AS count
+            FROM training_temporal_contract_batch_packets
+            GROUP BY policy_lane
+            """
+        )
+    }
+    temporal_contract_batch_packet_status_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM training_temporal_contract_batch_packets
+            GROUP BY packet_status
+            """
+        )
+    }
+    temporal_contract_batch_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM training_temporal_contract_batch_packets
+            GROUP BY support_status
             """
         )
     }
@@ -1741,6 +1772,13 @@ def main() -> None:
         )
     else:
         evidence_temporal_contract_summary = {}
+    temporal_contract_batch_packet_summary_path = ARTIFACTS / "training_temporal_contract_batch_packet_summary.json"
+    if temporal_contract_batch_packet_summary_path.exists():
+        temporal_contract_batch_packet_summary = json.loads(
+            temporal_contract_batch_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        temporal_contract_batch_packet_summary = {}
     trainee_profile_discovery_summary_path = ARTIFACTS / "trainee_profile_discovery_summary.json"
     if trainee_profile_discovery_summary_path.exists():
         trainee_profile_discovery_summary = json.loads(
@@ -2220,6 +2258,9 @@ def main() -> None:
         "temporal_contract_state_counts": temporal_contract_state_counts,
         "temporal_contract_guardrail_counts": temporal_contract_guardrail_counts,
         "temporal_contract_rollup_scope_counts": temporal_contract_rollup_scope_counts,
+        "temporal_contract_batch_packet_policy_counts": temporal_contract_batch_packet_policy_counts,
+        "temporal_contract_batch_packet_status_counts": temporal_contract_batch_packet_status_counts,
+        "temporal_contract_batch_packet_support_counts": temporal_contract_batch_packet_support_counts,
         "person_training_stage_state_status_counts": person_training_stage_state_status_counts,
         "person_training_stage_state_staleness_counts": person_training_stage_state_staleness_counts,
         "stage_state_rollup_scope_counts": stage_state_rollup_scope_counts,
@@ -2325,6 +2366,7 @@ def main() -> None:
         "training_lifecycle_assurance_summary": training_lifecycle_assurance_summary,
         "training_state_transition_plan_summary": training_state_transition_plan_summary,
         "training_temporal_contract_summary": training_temporal_contract_summary,
+        "training_temporal_contract_batch_packet_summary": temporal_contract_batch_packet_summary,
         "person_training_stage_state_summary": person_training_stage_state_summary,
         "evidence_temporal_contract_summary": evidence_temporal_contract_summary,
         "trainee_profile_discovery_summary": trainee_profile_discovery_summary,

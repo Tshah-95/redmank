@@ -899,8 +899,19 @@ def temporal_contract_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "training_temporal_contract_batches.csv"
     if batch_path.exists():
         rows = []
-        source = "artifacts/data/training_temporal_contract_batches.csv"
+        packet_path = ARTIFACTS / "training_temporal_contract_batch_packets.csv"
+        packet_rows_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if packet_path.exists():
+            for packet in read_csv(packet_path):
+                packet_rows_by_batch[packet.get("temporal_contract_batch_key") or ""].append(packet)
+            source = "artifacts/data/training_temporal_contract_batch_packets.csv"
+        else:
+            source = "artifacts/data/training_temporal_contract_batches.csv"
         for item in read_csv(batch_path):
+            batch_packets = sorted(
+                packet_rows_by_batch.get(item.get("temporal_contract_batch_key") or "", []),
+                key=lambda row: as_int(row.get("packet_order")),
+            )
             lane = item.get("policy_lane") or ""
             priority = (720 if lane == "manual_review_required" else 640) + min(as_int(item.get("contract_count")), 220)
             rows.append(
@@ -931,6 +942,7 @@ def temporal_contract_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "artifacts/data/training_state_transition_plan.csv",
                     downstream_tables=[
                         "training_temporal_contract_batches",
+                        "training_temporal_contract_batch_packets",
                         "training_temporal_contracts",
                         "training_temporal_contract_rollups",
                         "training_state_transition_plan",
@@ -958,6 +970,23 @@ def temporal_contract_actions(generated_at: str) -> list[dict]:
                         "temporal_state_counts": parse_json(item.get("temporal_state_counts_json"), {}),
                         "stage_code_counts": parse_json(item.get("stage_code_counts_json"), {}),
                         "review_triggers": parse_json(item.get("review_triggers_json"), []),
+                        "training_temporal_contract_batch_packet_rows": len(batch_packets),
+                        "top_batch_packet_support_statuses": dict(
+                            Counter(packet.get("support_status") or "" for packet in batch_packets).most_common(5)
+                        ),
+                        "top_training_temporal_contract_batch_packets": [
+                            {
+                                "packet_key": packet.get("training_temporal_contract_batch_packet_key"),
+                                "packet_order": packet.get("packet_order"),
+                                "contract_key": packet.get("contract_key"),
+                                "display_name": packet.get("display_name"),
+                                "source_key": packet.get("source_key"),
+                                "current_stage_code": packet.get("current_stage_code"),
+                                "support_status": packet.get("support_status"),
+                                "required_next_evidence": packet.get("required_next_evidence"),
+                            }
+                            for packet in batch_packets[:12]
+                        ],
                         "top_contracts": parse_json(item.get("top_contracts_json"), []),
                     },
                     generated_at=generated_at,

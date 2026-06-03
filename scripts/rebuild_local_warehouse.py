@@ -54,6 +54,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_training_state_transition_plan.py"],
     ["python3", "scripts/materialize_training_temporal_contracts.py"],
     ["python3", "scripts/materialize_training_temporal_contract_batches.py"],
+    ["python3", "scripts/materialize_training_temporal_contract_batch_packets.py"],
     ["python3", "scripts/materialize_person_training_stage_state.py"],
     ["python3", "scripts/materialize_official_roster_refresh_workbench.py"],
     ["python3", "scripts/materialize_official_roster_refresh_batches.py"],

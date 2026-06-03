@@ -341,6 +341,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 
 
 def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
+    conn.execute("DROP TABLE IF EXISTS training_temporal_contract_batch_packets")
     conn.execute("DROP TABLE IF EXISTS training_temporal_contract_batches")
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
     if not rows:
