@@ -351,6 +351,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_profile_reviewer_decision_dossiers.csv",
+        "official_profile_reviewer_decision_dossier_ledger",
+        "csv",
+        "official_profile_reviewer_decision_dossiers",
+        True,
+    ),
+    (
         "artifacts/data/accepted_official_profile_url_facts.csv",
         "accepted_official_profile_url_ledger",
         "csv",

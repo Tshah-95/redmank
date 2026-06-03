@@ -384,6 +384,10 @@ def main() -> None:
         {},
     )
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
+    official_profile_reviewer_dossier_summary = read_json(
+        ARTIFACTS / "official_profile_reviewer_decision_dossier_summary.json",
+        {},
+    )
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
@@ -412,6 +416,10 @@ def main() -> None:
     )
     top_contact_reviewer_dossiers = read_csv(
         ARTIFACTS / "contact_verification_reviewer_decision_dossiers.csv",
+        limit=25,
+    )
+    top_official_profile_reviewer_dossiers = read_csv(
+        ARTIFACTS / "official_profile_reviewer_decision_dossiers.csv",
         limit=25,
     )
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
@@ -654,6 +662,8 @@ def main() -> None:
         "top_research_identity_reviewer_dossiers": top_research_identity_reviewer_dossiers,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
+        "official_profile_reviewer_dossier_summary": official_profile_reviewer_dossier_summary,
+        "top_official_profile_reviewer_dossiers": top_official_profile_reviewer_dossiers,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
         "top_corpus_action_worklist": corpus_action_worklist,
         "medical_student_source_audit_summary": med_student_source_audit_summary,
@@ -1137,6 +1147,25 @@ def main() -> None:
         ),
         "",
         "Learning: query manifests, endpoint observations, and discovered candidates are separate evidence classes. A skipped or blocked search lane cannot be interpreted as evidence that no public page exists; it only tells us which discovery utility still needs execution, retry, or replacement.",
+        "",
+        "## Official Profile Reviewer Dossiers",
+        "",
+        f"Dossier rows: {official_profile_reviewer_dossier_summary.get('dossier_rows', 0)}. Pending decisions: {official_profile_reviewer_dossier_summary.get('pending_reviewer_decision_rows', 0)}. Manual templates: {official_profile_reviewer_dossier_summary.get('manual_decision_template_rows', 0)}.",
+        "",
+        *md_table(
+            top_official_profile_reviewer_dossiers,
+            [
+                "display_name",
+                "role",
+                "program_name",
+                "decision_status",
+                "reobservation_status",
+                "decision_blocker",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        "Learning: official profile URLs are strong identity/context anchors only after the current profile fingerprint and source hash survive explicit reviewer confirmation. Stale route drift, including generic academic-department redirects, stays as review work rather than accepted profile truth.",
         "",
         "## Corpus Action Worklist",
         "",

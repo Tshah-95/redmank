@@ -132,6 +132,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_profile_discovery_workbench_summary.json`: profile-discovery counts by role, lane, query status, candidate status, and top review rows.
 - `artifacts/data/official_profile_reobservation_audit.csv`: current-source reobservation audit for review-ready official-profile candidates, including page hash, canonical URL, title, same-name/program context checks, and route-drift status.
 - `artifacts/data/official_profile_reobservation_summary.json`: profile reobservation counts by current fetch status, role, and route/context outcome.
+- `artifacts/data/official_profile_reviewer_decision_dossiers.csv`: copy-ready reviewer dossiers for official-profile URL candidates, including current decision status, reobservation/route-drift evidence, acceptance boundary, and manual decision templates keyed to the current profile fingerprint.
+- `artifacts/data/official_profile_reviewer_decision_dossier_summary.json`: official-profile reviewer dossier counts by decision status, reobservation status, and role.
 - `artifacts/data/prior_training_search_queries.csv`: queue-driven search manifest for medical-school and prior-residency background enrichment gaps.
 - `artifacts/data/prior_training_search_observations.csv`: search execution observations for prior-training background discovery.
 - `artifacts/data/prior_training_discovery_candidates.csv`: candidate pages that may support medical-school or prior-residency background claims.
@@ -348,6 +350,7 @@ python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
 python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_official_profile_reobservation_audit.py
+python3 scripts/materialize_official_profile_reviewer_decision_dossiers.py
 python3 scripts/materialize_official_roster_refresh_batches.py
 python3 scripts/materialize_corpus_action_worklist.py
 python3 scripts/report_source_quality.py

@@ -1,0 +1,21 @@
+{
+  "acceptance_policy": "Dossiers are non-mutating. Accepted official profile URL facts still require explicit reviewer acceptance against the current profile_fingerprint and all required confirmation fields.",
+  "accepted_facts_csv": "artifacts/data/accepted_official_profile_url_facts.csv",
+  "by_decision_status": {
+    "pending_reviewer_decision": 27
+  },
+  "by_reobservation_status": {
+    "fresh_source_resolved_to_generic_academic_departments_page": 27
+  },
+  "by_role": {
+    "fellow": 15,
+    "resident": 12
+  },
+  "dossier_csv": "artifacts/data/official_profile_reviewer_decision_dossiers.csv",
+  "dossier_rows": 27,
+  "generated_at": "2026-06-03T08:05:32.998268+00:00",
+  "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
+  "manual_decision_template_rows": 27,
+  "pending_reviewer_decision_rows": 27,
+  "roster_truth_policy": "Accepted profile URLs do not mutate current roster truth."
+}

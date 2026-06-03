@@ -726,7 +726,13 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
     source_path = ARTIFACTS / "official_profile_discovery_workbench.csv"
     if not source_path.exists():
         return rows
-    source = "artifacts/data/official_profile_discovery_workbench.csv"
+    workbench_source = "artifacts/data/official_profile_discovery_workbench.csv"
+    dossier_source = "artifacts/data/official_profile_reviewer_decision_dossiers.csv"
+    profile_dossiers_by_workbench = {
+        item.get("profile_workbench_key"): item
+        for item in read_csv(ARTIFACTS / "official_profile_reviewer_decision_dossiers.csv")
+        if item.get("profile_workbench_key")
+    }
     profile_audit_by_workbench = {
         item.get("profile_workbench_key"): item
         for item in read_csv(ARTIFACTS / "official_profile_reviewer_decision_audit.csv")
@@ -738,8 +744,10 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
         if item.get("profile_workbench_key")
     }
     for item in read_csv(source_path):
+        dossier = profile_dossiers_by_workbench.get(item.get("profile_workbench_key") or "", {})
         audit = profile_audit_by_workbench.get(item.get("profile_workbench_key") or "", {})
         reobservation = profile_reobs_by_workbench.get(item.get("profile_workbench_key") or "", {})
+        source = dossier_source if dossier else workbench_source
         priority = 650 + as_int(item.get("discovery_priority")) // 3
         if item.get("discovery_lane") == "review_official_profile_candidate":
             priority += 80
@@ -752,23 +760,36 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
                 action_surface="official_profile_discovery",
                 action_scope=item.get("discovery_lane") or "official_profile_discovery",
                 entity_type="person_profile_gap",
-                entity_key=item.get("profile_workbench_key") or stable_key(item.get("person_key"), item.get("task_key")),
+                entity_key=dossier.get("reviewer_decision_key")
+                or item.get("profile_workbench_key")
+                or stable_key(item.get("person_key"), item.get("task_key")),
                 display_label=item.get("display_name") or "",
                 role=item.get("role") or "",
                 program_name=item.get("program_name") or "",
                 priority=priority,
                 impact_count=1,
                 readiness_status=item.get("profile_gap_status") or "",
-                blocker_status=item.get("best_candidate_status") or item.get("discovery_lane") or "",
-                required_next_evidence=item.get("evidence_required") or "",
-                recommended_next_action=audit.get("recommended_next_action") or item.get("recommended_next_action") or "",
+                blocker_status=dossier.get("decision_blocker")
+                or item.get("best_candidate_status")
+                or item.get("discovery_lane")
+                or "",
+                required_next_evidence=dossier.get("acceptance_boundary") or item.get("evidence_required") or "",
+                recommended_next_action=dossier.get("recommended_next_action")
+                or audit.get("recommended_next_action")
+                or item.get("recommended_next_action")
+                or "",
                 source_artifact=source,
-                target_artifact="artifacts/data/trainee_profile_discovery_candidates.csv",
+                target_artifact=(
+                    "artifacts/data/official_profile_reviewer_decisions.csv"
+                    if dossier
+                    else "artifacts/data/trainee_profile_discovery_candidates.csv"
+                ),
                 downstream_tables=[
                     "official_profile_discovery_workbench",
                     "official_profile_reobservation_audit",
                     "official_profile_reviewer_decision_queue",
                     "official_profile_reviewer_decision_audit",
+                    "official_profile_reviewer_decision_dossiers",
                     "trainee_profile_search_queries",
                     "trainee_profile_search_observations",
                     "trainee_profile_discovery_candidates",
@@ -789,8 +810,10 @@ def official_profile_discovery_actions(generated_at: str) -> list[dict]:
                     "profile_reobserved_at": reobservation.get("reobserved_at"),
                     "profile_reobservation_title": reobservation.get("title"),
                     "profile_reobservation_canonical_url": reobservation.get("canonical_url"),
-                    "profile_decision_status": audit.get("decision_status"),
-                    "profile_decision_blocker": audit.get("decision_blocker"),
+                    "profile_decision_status": dossier.get("decision_status") or audit.get("decision_status"),
+                    "profile_decision_blocker": dossier.get("decision_blocker") or audit.get("decision_blocker"),
+                    "profile_fingerprint": dossier.get("profile_fingerprint"),
+                    "manual_decision_template_json": dossier.get("manual_decision_template_json"),
                 },
                 generated_at=generated_at,
             )

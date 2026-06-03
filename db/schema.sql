@@ -1898,6 +1898,47 @@ CREATE TABLE IF NOT EXISTS official_profile_reviewer_decision_audit (
   audited_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS official_profile_reviewer_decision_dossiers (
+  dossier_key TEXT PRIMARY KEY,
+  reviewer_decision_key TEXT NOT NULL REFERENCES official_profile_reviewer_decision_queue(reviewer_decision_key) ON DELETE CASCADE,
+  profile_workbench_key TEXT NOT NULL REFERENCES official_profile_discovery_workbench(profile_workbench_key) ON DELETE CASCADE,
+  person_key TEXT NOT NULL REFERENCES people(person_key) ON DELETE CASCADE,
+  display_name TEXT NOT NULL,
+  role TEXT,
+  program_name TEXT,
+  task_key TEXT,
+  candidate_url TEXT NOT NULL,
+  candidate_title TEXT,
+  candidate_domain TEXT,
+  candidate_confidence REAL NOT NULL DEFAULT 0.0,
+  candidate_http_status INTEGER,
+  candidate_features TEXT,
+  source_sha256 TEXT,
+  queue_status TEXT NOT NULL,
+  decision_status TEXT NOT NULL,
+  decision_blocker TEXT NOT NULL,
+  reobservation_status TEXT NOT NULL,
+  reobservation_evidence_strength INTEGER NOT NULL DEFAULT 0,
+  reobserved_at TEXT,
+  reobserved_title TEXT,
+  canonical_url TEXT,
+  name_present INTEGER NOT NULL DEFAULT 0,
+  program_context_present INTEGER NOT NULL DEFAULT 0,
+  role_or_training_context_present INTEGER NOT NULL DEFAULT 0,
+  official_domain_confirmed INTEGER NOT NULL DEFAULT 0,
+  profile_path_confirmed INTEGER NOT NULL DEFAULT 0,
+  display_safety_status TEXT NOT NULL,
+  allowed_decisions TEXT NOT NULL,
+  required_confirmation_fields TEXT NOT NULL,
+  manual_decision_template_json TEXT NOT NULL,
+  required_reviewer_action TEXT NOT NULL,
+  recommended_next_action TEXT NOT NULL,
+  acceptance_boundary TEXT NOT NULL,
+  profile_fingerprint TEXT NOT NULL,
+  evidence_json TEXT NOT NULL,
+  generated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS accepted_official_profile_url_facts (
   accepted_profile_key TEXT PRIMARY KEY,
   reviewer_decision_key TEXT NOT NULL REFERENCES official_profile_reviewer_decision_audit(reviewer_decision_key) ON DELETE CASCADE,
