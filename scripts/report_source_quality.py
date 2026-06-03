@@ -366,6 +366,7 @@ def main() -> None:
     )
     npi_candidate_summary = read_json(ARTIFACTS / "npi_candidate_summary.json", {})
     source_utility_scorecard_summary = read_json(ARTIFACTS / "source_utility_scorecard_summary.json", {})
+    research_identity_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
@@ -388,6 +389,7 @@ def main() -> None:
     top_attending_trend_review_rollups = read_csv(ARTIFACTS / "attending_trend_review_rollups.csv", limit=25)
     top_npi_candidates = read_csv(ARTIFACTS / "npi_candidate_claims.csv", limit=30)
     source_utility_scorecard = read_csv(ARTIFACTS / "source_utility_scorecard.csv")
+    top_research_identity_review_batches = read_csv(ARTIFACTS / "research_identity_review_batches.csv", limit=25)
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
     program_lifecycle_duration_evidence = read_csv(
         ARTIFACTS / "program_lifecycle_duration_evidence.csv",
@@ -601,6 +603,8 @@ def main() -> None:
         "top_npi_candidates": top_npi_candidates,
         "source_utility_scorecard_summary": source_utility_scorecard_summary,
         "source_utility_scorecard": source_utility_scorecard,
+        "research_identity_review_batch_summary": research_identity_review_batch_summary,
+        "top_research_identity_review_batches": top_research_identity_review_batches,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
         "corpus_action_worklist_summary": corpus_action_worklist_summary,
@@ -977,6 +981,38 @@ def main() -> None:
         ),
         "",
         "Learning: a source utility should be judged by the claim surface it supports, not by whether it exists. Official rosters are current-membership truth anchors; PubMed author-query rows are discovery only; PubMed article rows become review-ready only with non-name anchors; current attending profiles are endpoint and training-history candidates until a historical identity bridge exists; and broad search/crawler outputs should feed probe and parser queues before becoming person evidence.",
+        "",
+        "## Research Identity Review Batches",
+        "",
+        f"Batch rows: {research_identity_review_batch_summary.get('batch_rows', 0)}. Member rows: {research_identity_review_batch_summary.get('member_rows', 0)}. Ready batches: {research_identity_review_batch_summary.get('ready_batch_rows', 0)}. Conflict-member rows: {research_identity_review_batch_summary.get('conflict_member_rows', 0)}.",
+        "",
+        "Review lanes:",
+        "",
+        *md_table(
+            [
+                {"review_lane": lane, "count": count}
+                for lane, count in sorted((research_identity_review_batch_summary.get("by_review_lane") or {}).items())
+            ],
+            ["review_lane", "count"],
+        ),
+        "",
+        "Top batches:",
+        "",
+        *md_table(
+            top_research_identity_review_batches,
+            [
+                "execution_order",
+                "research_identity_status",
+                "review_lane",
+                "role",
+                "person_count",
+                "review_ready_record_count",
+                "conflict_count",
+                "target_decision_artifact",
+            ],
+        ),
+        "",
+        "Learning: research identity corroboration becomes operational only when it is bounded into review sessions with member fingerprints. The batches preserve the non-mutating acceptance boundary while making conflict reconciliation, multi-source scholarly identity review, secondary-anchor collection, and research-relevance decisions executable.",
         "",
         "## Search Utility Assurance",
         "",

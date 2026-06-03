@@ -105,6 +105,8 @@ CSV_TABLES = [
     ("person_enrichment_action_member_execution_audit.csv", "person_enrichment_action_member_execution_audit"),
     ("person_enrichment_action_execution_plan.csv", "person_enrichment_action_execution_plan"),
     ("research_identity_corroboration.csv", "research_identity_corroboration"),
+    ("research_identity_review_batches.csv", "research_identity_review_batches"),
+    ("research_identity_review_batch_members.csv", "research_identity_review_batch_members"),
     ("person_evidence_reviewer_decisions.csv", "person_evidence_reviewer_decisions"),
     ("person_evidence_reviewer_decision_queue.csv", "person_evidence_reviewer_decision_queue"),
     ("person_evidence_reviewer_decision_audit.csv", "person_evidence_reviewer_decision_audit"),

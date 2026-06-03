@@ -91,6 +91,7 @@ Core tables:
 - `person_evidence_reviewer_decision_queue`, `person_evidence_reviewer_decisions`, `person_evidence_reviewer_decision_audit`: explicit reviewer-decision loop for review-ready person evidence packets.
 - `person_evidence_review_triage`: non-mutating review workbench over the reviewer queue. It ranks review-ready packets by lane, risk, decision difficulty, evidence density, and source family without accepting candidate facts.
 - `person_evidence_review_batches`: bounded reviewer-execution batches over triage rows, preserving packet detail while grouping review by lane, difficulty, risk, and role.
+- `research_identity_review_batches`, `research_identity_review_batch_members`: bounded research-identity reviewer sessions and per-person member fingerprints derived from the corroboration ledger.
 - `enrichment_acceptance_audit`: non-mutating acceptance assurance ledger that separates machine-acceptance candidates, review-ready evidence, secondary-anchor evidence, and low-signal discovery rows.
 - `warehouse_reproducibility_audit`: artifact hash, size, Git-storage policy, and row-count parity ledger for proving that key flat files and SQLite tables agree.
 - `source_utilities`: source taxonomy, default trust, claim types, limitations, and acceptance rules.
@@ -218,6 +219,7 @@ The ledger is deliberately not an acceptance mutator. `review_ready_high_anchor`
 - `scripts/materialize_person_evidence_review_triage.py` ranks that queue by lane, identity risk, decision difficulty, and evidence density.
 - `scripts/materialize_person_evidence_review_dossiers.py` turns each ready packet into a person-level dossier with current program context, top evidence records, source domains, decision counts, missing-evidence summary, review route, and acceptance boundary.
 - `scripts/materialize_person_evidence_review_batches.py` turns the triage rows into bounded reviewer sessions; these batches are non-mutating and write accepted facts only through the existing reviewer-decision/audit/acceptance ledgers.
+- `scripts/materialize_research_identity_review_batches.py` turns research identity corroboration rows into bounded reviewer sessions plus per-member fingerprints. These batches are also non-mutating: they route reviewer work to source-specific decision and acceptance ledgers instead of accepting scholarly identity facts directly.
 
 Packets are also non-mutating. They are the workbench between candidate evidence and accepted enrichment: a review-ready publication packet still needs author identity confirmation; an attending-trend packet still needs a historical roster, alumni page, CV, or independent profile bridge. Once a later acceptance ledger materializes a publication or attending-trend fact, packet generation reclassifies the matching person/name packet into an accepted/monitor state instead of continuing to ask for the same reviewer decision.
 
@@ -307,6 +309,8 @@ The current readiness ledger now treats profile, research, and prior-training di
 `scripts/materialize_person_enrichment_action_execution_plan.py` is the batch-level operator layer above action packets and member fingerprints. It groups ready/manual-review/collector batches by lane, records pending, blocked, executed, and stale-decision counts, preserves command hints and expected downstream artifacts, and emits member-level decision templates with current fingerprints. Like the member execution audit, it is non-mutating: execution notes show work performed, while factual changes still require source-specific artifacts plus reviewer and acceptance ledgers.
 
 `scripts/materialize_research_identity_corroboration.py` adds the cross-source research identity review layer. It rolls PubMed, OpenAlex, ORCID, NPI, trainee profile discovery, contact candidates, and current training-state context into one person-level ledger. The output ranks review routes such as multi-source research identity review, research plus secondary identity anchor review, single-source publication review, or conflict reconciliation. This is intentionally not an acceptance engine: corroboration can prioritize and explain review, but accepted person facts still require source-specific reviewer and acceptance ledgers.
+
+`scripts/materialize_research_identity_review_batches.py` adds the execution layer above that corroboration ledger. It groups conflict reconciliation, multi-source identity review, secondary-anchor review, single-source publication review, secondary-anchor collection, and research-relevance decisions into bounded batches, then emits member rows with stable fingerprints so later decisions can prove which evidence was reviewed.
 
 ## First Research Utility Learnings
 

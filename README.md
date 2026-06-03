@@ -187,8 +187,12 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/person_enrichment_action_execution_plan_summary.json`: execution-plan rollups by lane, blocker, batch status, and top operator batches.
 - `artifacts/data/research_identity_corroboration.csv`: person-level corroboration ledger that joins PubMed/OpenAlex/ORCID research candidates with NPI/profile/contact/training-state anchors, flags conflicts, and assigns non-mutating review routes.
 - `artifacts/data/research_identity_corroboration_summary.json`: rollup counts for people with research signal, review-ready research, multi-source evidence, secondary anchors, and top review-priority rows.
+- `artifacts/data/research_identity_review_batches.csv`: bounded reviewer sessions over research identity corroboration rows, grouped by status, route, lane, and role with non-mutating acceptance rules.
+- `artifacts/data/research_identity_review_batch_members.csv`: per-person batch membership ledger with current corroboration member fingerprints for source-specific research identity decisions.
+- `artifacts/data/research_identity_review_batch_summary.json`: batch/member counts, review-lane mix, conflict-member burden, and top executable research identity batches.
 - `artifacts/data/corpus_action_worklist.csv`: ranked non-mutating operator worklist that unifies program gaps, search execution, person evidence review, contact verification, temporal-state refresh, enrichment collectors, and recent-attending trend bridges.
 - The worklist consumes `person_evidence_review_batches.csv` when available, so person-evidence actions are bounded review sessions; if batches are absent it falls back to `person_evidence_review_triage.csv`, then the raw reviewer queue.
+- The worklist consumes `research_identity_review_batches.csv` when available, so research identity corroboration becomes bounded reviewer sessions with member fingerprints; if batches are absent it falls back to grouped corroboration rows.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
@@ -309,6 +313,8 @@ python3 scripts/materialize_person_evidence_reviewer_decisions.py
 python3 scripts/materialize_person_evidence_review_triage.py
 python3 scripts/materialize_person_evidence_review_dossiers.py
 python3 scripts/materialize_person_evidence_review_batches.py
+python3 scripts/materialize_research_identity_corroboration.py
+python3 scripts/materialize_research_identity_review_batches.py
 python3 scripts/audit_enrichment_acceptance.py
 python3 scripts/materialize_accepted_enrichment.py
 python3 scripts/audit_contact_assurance.py

@@ -1,33 +1,34 @@
 {
   "by_change_type": {
-    "unchanged": 1610
+    "same_stage_updated_evidence": 155,
+    "unchanged": 1455
   },
   "by_rollup_scope": {
-    "corpus": 1,
-    "country": 1,
-    "institution": 3,
-    "institution_role": 4,
-    "lifecycle_code": 13,
+    "corpus": 2,
+    "country": 2,
+    "institution": 5,
+    "institution_role": 7,
+    "lifecycle_code": 17,
     "person": 1535,
-    "program": 95,
-    "program_role": 96,
-    "role": 3,
-    "trainee_category": 3
+    "program": 102,
+    "program_role": 103,
+    "role": 6,
+    "trainee_category": 6
   },
   "canonical_key_count": 1610,
   "compare_date": "2026-06-02",
-  "days_between_snapshots": 0,
+  "days_between_snapshots": 1,
   "duplicate_canonical_key_count": 72,
-  "new_snapshot_as_of_date": "2026-06-02",
+  "new_snapshot_as_of_date": "2026-06-03",
   "old_snapshot_as_of_date": "2026-06-02",
-  "previous_snapshot_id": "training_states_2026-06-02_39aac55b1be8",
+  "previous_snapshot_id": "training_states_2026-06-02_5d6a884ed01a",
   "row_count": 1682,
-  "snapshot_comparison_kind": "same_day_corpus_revision",
-  "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-02_5d6a884ed01a.csv",
-  "snapshot_id": "training_states_2026-06-02_5d6a884ed01a",
-  "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-02_5d6a884ed01a.json",
+  "snapshot_comparison_kind": "cross_date_corpus_refresh",
+  "snapshot_csv": "artifacts/data/training_state_snapshots/training_states_2026-06-03_5fd7cb8789cd.csv",
+  "snapshot_id": "training_states_2026-06-03_5fd7cb8789cd",
+  "snapshot_manifest": "artifacts/data/training_state_snapshots/training_states_2026-06-03_5fd7cb8789cd.json",
   "transition_event_rows": 1610,
   "transition_events_csv": "artifacts/data/training_state_transition_events.csv",
-  "transition_rollup_rows": 1754,
+  "transition_rollup_rows": 1785,
   "transition_rollups_csv": "artifacts/data/training_state_transition_rollups.csv"
 }

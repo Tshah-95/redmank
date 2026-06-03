@@ -996,6 +996,90 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
 
 
 def research_identity_corroboration_actions(generated_at: str) -> list[dict]:
+    batch_path = ARTIFACTS / "research_identity_review_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/research_identity_review_batches.csv"
+        rows = []
+        priority_by_lane = {
+            "conflict_reconciliation": 980,
+            "multi_source_identity_review": 930,
+            "secondary_anchor_review": 875,
+            "single_source_publication_review": 825,
+            "secondary_anchor_collection": 635,
+            "research_relevance_decision": 470,
+        }
+        for item in read_csv(batch_path):
+            lane = item.get("review_lane") or "research_identity_review_batch"
+            impact = max(as_int(item.get("person_count")), 1)
+            priority = (
+                priority_by_lane.get(lane, 640)
+                + min(as_int(item.get("max_review_priority")), 120)
+                + min(as_int(item.get("review_ready_record_count")), 140)
+            )
+            if as_int(item.get("conflict_count")) > 0:
+                priority += 100
+            rows.append(
+                row(
+                    action_surface="research_identity_corroboration",
+                    action_scope=f"{item.get('research_identity_status') or ''}:{lane}",
+                    entity_type="research_identity_review_batch",
+                    entity_key=item.get("review_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("role") or "all roles",
+                            lane,
+                            item.get("research_identity_status"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role=item.get("role") or "",
+                    program_name="",
+                    priority=priority,
+                    impact_count=impact,
+                    readiness_status=item.get("batch_status") or item.get("research_identity_status") or "",
+                    blocker_status=(
+                        "conflict_blocks_acceptance"
+                        if as_int(item.get("conflict_count")) > 0
+                        else item.get("recommended_review_route") or ""
+                    ),
+                    required_next_evidence=item.get("reviewer_prompt") or item.get("review_instructions") or "",
+                    recommended_next_action="work_research_identity_batch_and_record_source_specific_decisions",
+                    source_artifact=source,
+                    target_artifact=item.get("target_decision_artifact")
+                    or "artifacts/data/evidence_reconciliation_decisions.csv",
+                    downstream_tables=[
+                        "research_identity_review_batches",
+                        "research_identity_review_batch_members",
+                        "research_identity_corroboration",
+                        "evidence_reconciliation_decisions",
+                        "person_evidence_reviewer_decisions",
+                        "enrichment_acceptance_audit",
+                        "accepted_enrichment_claims",
+                        "evidence_temporal_contracts",
+                    ],
+                    evidence={
+                        "review_batch_key": item.get("review_batch_key"),
+                        "review_lane": lane,
+                        "research_identity_status": item.get("research_identity_status"),
+                        "recommended_review_route": item.get("recommended_review_route"),
+                        "person_count": item.get("person_count"),
+                        "research_candidate_count": item.get("research_candidate_count"),
+                        "review_ready_record_count": item.get("review_ready_record_count"),
+                        "scholarly_source_count": item.get("scholarly_source_count"),
+                        "secondary_anchor_count": item.get("secondary_anchor_count"),
+                        "conflict_count": item.get("conflict_count"),
+                        "top_source_keys": item.get("top_source_keys"),
+                        "top_claim_types": item.get("top_claim_types"),
+                        "top_people_json": item.get("top_people_json"),
+                        "acceptance_rule": item.get("acceptance_rule"),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source_path = ARTIFACTS / "research_identity_corroboration.csv"
     if not source_path.exists():
         return []

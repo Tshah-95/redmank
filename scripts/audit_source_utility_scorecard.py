@@ -848,7 +848,26 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
         """,
     )
     research_corroboration_summary = read_json(ARTIFACTS / "research_identity_corroboration_summary.json", {})
+    research_review_batch_summary = read_json(ARTIFACTS / "research_identity_review_batch_summary.json", {})
     research_corroboration_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_corroboration")
+    research_review_batch_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_review_batches")
+    research_review_batch_member_rows = scalar(conn, "SELECT COUNT(*) FROM research_identity_review_batch_members")
+    research_review_batch_ready = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_review_batches
+        WHERE ready_to_review = 1
+        """,
+    )
+    research_review_batch_conflict_members = scalar(
+        conn,
+        """
+        SELECT COUNT(*)
+        FROM research_identity_review_batch_members
+        WHERE conflicting_identifier_count > 0
+        """,
+    )
     research_signal_people = scalar(
         conn,
         """
@@ -2040,12 +2059,47 @@ def score_rows(conn: sqlite3.Connection) -> list[dict]:
             evidence={
                 "summary": research_corroboration_summary,
                 "corroboration_rows": research_corroboration_rows,
+                "review_batch_rows": research_review_batch_rows,
+                "review_batch_member_rows": research_review_batch_member_rows,
                 "people_with_research_signal": research_signal_people,
                 "people_with_review_ready_research": research_review_ready_people,
                 "people_with_multi_source_research": research_multi_source_people,
                 "people_with_secondary_anchor": research_secondary_anchor_people,
                 "conflict_people": research_conflict_people,
                 "research_review_ready_records": research_review_ready_records,
+            },
+        ),
+        make_row(
+            scorecard_key="research_identity_review_batch_ledger",
+            utility_key="",
+            utility_label="Research identity review batch ledger",
+            source_family="evidence_reconciliation",
+            claim_surface="bounded reviewer sessions and member fingerprints for cross-source scholarly identity work",
+            input_records=research_corroboration_rows,
+            output_records=research_review_batch_rows,
+            candidate_records=research_review_batch_member_rows,
+            needs_review_records=research_review_batch_member_rows,
+            review_ready_records=research_review_batch_ready,
+            blocked_records=research_review_batch_conflict_members,
+            score=82.0 if research_review_batch_rows else 25.0,
+            strengths=[
+                "Turns person-level research corroboration into bounded reviewer sessions",
+                "Adds stable member fingerprints so decisions can be checked against the evidence actually reviewed",
+                "Keeps acceptance non-mutating and routed through source-specific reviewer and acceptance ledgers",
+            ],
+            limitations=[
+                "Batching does not resolve conflicts or accept research identity facts by itself",
+                "Manual decisions must still be recorded against the current member fingerprint",
+                "Collector freshness depends on upstream PubMed, OpenAlex, ORCID, profile, contact, and NPI artifacts",
+            ],
+            recommended_next_action="work_research_identity_batches_and_record_source_specific_decisions",
+            evidence={
+                "summary": research_review_batch_summary,
+                "corroboration_rows": research_corroboration_rows,
+                "batch_rows": research_review_batch_rows,
+                "member_rows": research_review_batch_member_rows,
+                "ready_batch_rows": research_review_batch_ready,
+                "conflict_member_rows": research_review_batch_conflict_members,
             },
         ),
     ]

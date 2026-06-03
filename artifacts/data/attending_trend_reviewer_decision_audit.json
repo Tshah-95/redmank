@@ -1,7 +1,7 @@
 [
   {
     "accepted_trend_fact": 1,
-    "audited_at": "2026-06-02T23:28:53.372210+00:00",
+    "audited_at": "2026-06-03T07:06:12.080821+00:00",
     "bridge_candidate_key": "attending_biosketch_bridge_33d0084f976a2612",
     "claim_fingerprint": "d21605c3feefeafd2ab036476f03ef682954206aba00f2a6f79cbdf09ab971cf",
     "date_window_confirmed": 1,
@@ -32,7 +32,7 @@
   },
   {
     "accepted_trend_fact": 0,
-    "audited_at": "2026-06-02T23:28:53.372210+00:00",
+    "audited_at": "2026-06-03T07:06:12.080821+00:00",
     "bridge_candidate_key": "attending_biosketch_bridge_b657cbe224bc5634",
     "claim_fingerprint": "3095e8967031bb66c547aec588d55c1170d50ec5722a77b1a5d0f695f3fb6e21",
     "date_window_confirmed": 0,
@@ -63,7 +63,7 @@
   },
   {
     "accepted_trend_fact": 1,
-    "audited_at": "2026-06-02T23:28:53.372210+00:00",
+    "audited_at": "2026-06-03T07:06:12.080821+00:00",
     "bridge_candidate_key": "attending_biosketch_bridge_a2b92cdcd96caa2a",
     "claim_fingerprint": "c81c362cf9a9ebbf2a8299ff17c21565374bba835a26d09d39242e8e73bb0118",
     "date_window_confirmed": 1,
@@ -94,7 +94,7 @@
   },
   {
     "accepted_trend_fact": 1,
-    "audited_at": "2026-06-02T23:28:53.372210+00:00",
+    "audited_at": "2026-06-03T07:06:12.080821+00:00",
     "bridge_candidate_key": "attending_biosketch_bridge_a003ac46e05a6ee7",
     "claim_fingerprint": "4019de6b74face9ec545cdc3ee67a7cb941fd0c93254139176d95a7f8bd723df",
     "date_window_confirmed": 1,
@@ -125,7 +125,7 @@
   },
   {
     "accepted_trend_fact": 0,
-    "audited_at": "2026-06-02T23:28:53.372210+00:00",
+    "audited_at": "2026-06-03T07:06:12.080821+00:00",
     "bridge_candidate_key": "attending_biosketch_bridge_e01888eb4dc69ac2",
     "claim_fingerprint": "ce05e1dfca3b0fc9268fe0b07b592ae3ba42cf9c51b1f2eb92b36c8d9771fb94",
     "date_window_confirmed": 0,

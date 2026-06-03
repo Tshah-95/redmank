@@ -14,7 +14,7 @@
     "fellow": 15,
     "resident": 12
   },
-  "generated_at": "2026-06-02T23:29:20.405477+00:00",
+  "generated_at": "2026-06-03T07:06:39.055280+00:00",
   "manual_decision_csv": "artifacts/data/official_profile_reviewer_decisions.csv",
   "manual_decision_rows": 0,
   "pending_reviewer_decision_rows": 27,

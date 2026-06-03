@@ -18,7 +18,7 @@
   },
   "csv": "artifacts/data/person_evidence_review_batches.csv",
   "evidence_record_count": 5281,
-  "generated_at": "2026-06-02T23:28:56.443043+00:00",
+  "generated_at": "2026-06-03T07:06:15.080181+00:00",
   "json": "artifacts/data/person_evidence_review_batches.json",
   "packet_count": 792,
   "person_count_policy": "Summed batch person counts are not deduplicated across lanes.",

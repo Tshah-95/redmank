@@ -30,13 +30,13 @@
   "changed_state_count": 0,
   "collector_rows": 3,
   "csv": "artifacts/data/official_roster_refresh_execution_audit.csv",
-  "current_snapshot_id": "training_states_2026-06-02_5d6a884ed01a",
-  "generated_at": "2026-06-02T23:29:27.094277+00:00",
+  "current_snapshot_id": "training_states_2026-06-03_5fd7cb8789cd",
+  "generated_at": "2026-06-03T07:06:47.166175+00:00",
   "json": "artifacts/data/official_roster_refresh_execution_audit.json",
   "policy": "This ledger records collector execution and state-diff outcome; it does not mutate roster truth.",
-  "previous_snapshot_id": "training_states_2026-06-02_39aac55b1be8",
+  "previous_snapshot_id": "training_states_2026-06-02_5d6a884ed01a",
   "removed_state_count": 0,
-  "snapshot_comparison_kind": "same_day_corpus_revision",
+  "snapshot_comparison_kind": "cross_date_corpus_refresh",
   "state_delta_status": "fresh_refresh_no_state_delta",
   "unchanged_state_count": 1610
 }

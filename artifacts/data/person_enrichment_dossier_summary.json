@@ -27,7 +27,7 @@
   "contact_contract_people": 279,
   "csv": "artifacts/data/person_enrichment_dossiers.csv",
   "dossier_rows": 1535,
-  "generated_at": "2026-06-02T23:28:59.460185+00:00",
+  "generated_at": "2026-06-03T07:06:18.028694+00:00",
   "json": "artifacts/data/person_enrichment_dossiers.json",
   "person_count": 1535,
   "policy": "Dossiers are non-mutating person summaries. Accepted facts, candidate evidence, review-ready evidence, contact contracts, and missing surfaces are separated so downstream display or scoring can choose its assurance threshold explicitly.",
