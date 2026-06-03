@@ -1122,9 +1122,19 @@ def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
     source_path = ARTIFACTS / "official_roster_refresh_batches.csv"
     if not source_path.exists():
         return rows
-    source = "artifacts/data/official_roster_refresh_batches.csv"
+    batch_packet_path = ARTIFACTS / "official_roster_refresh_batch_packets.csv"
+    source = (
+        "artifacts/data/official_roster_refresh_batch_packets.csv"
+        if batch_packet_path.exists()
+        else "artifacts/data/official_roster_refresh_batches.csv"
+    )
+    packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+    if batch_packet_path.exists():
+        for packet in read_csv(batch_packet_path):
+            packets_by_batch[packet.get("roster_batch_key") or ""].append(packet)
     audit_by_collector = roster_execution_audit_by_collector()
     for item in read_csv(source_path):
+        packet_rows = packets_by_batch.get(item.get("roster_batch_key") or "", [])
         priority = 860 + as_int(item.get("max_refresh_priority")) // 4 + min(as_int(item.get("contract_count")), 100)
         if item.get("batch_status") == "blocked_needs_parser_support_review":
             priority -= 120
@@ -1156,6 +1166,7 @@ def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
                 target_artifact="artifacts/data/training_state_transition_events.csv",
                 downstream_tables=[
                     "official_roster_refresh_batches",
+                    "official_roster_refresh_batch_packets",
                     "official_roster_refresh_execution_audit",
                     "official_roster_refresh_workbench",
                     "training_temporal_contracts",
@@ -1178,6 +1189,32 @@ def official_roster_refresh_batch_actions(generated_at: str) -> list[dict]:
                     "command_hint": item.get("command_hint"),
                     "source_urls_json": item.get("source_urls_json"),
                     "execution_audit": execution_evidence,
+                    "official_roster_refresh_batch_packet_rows": len(packet_rows),
+                    "top_packet_support_statuses": sorted(
+                        {
+                            packet.get("support_status")
+                            for packet in packet_rows
+                            if packet.get("support_status")
+                        }
+                    )[:12],
+                    "top_official_roster_refresh_batch_packets": [
+                        {
+                            "official_roster_refresh_batch_packet_key": packet.get(
+                                "official_roster_refresh_batch_packet_key"
+                            ),
+                            "batch_packet_order": packet.get("batch_packet_order"),
+                            "refresh_key": packet.get("refresh_key"),
+                            "source_key": packet.get("source_key"),
+                            "source_url": packet.get("source_url"),
+                            "program_name": packet.get("program_name"),
+                            "role": packet.get("role"),
+                            "refresh_lane": packet.get("refresh_lane"),
+                            "person_count": packet.get("person_count"),
+                            "support_status": packet.get("support_status"),
+                            "recommended_packet_action": packet.get("recommended_packet_action"),
+                        }
+                        for packet in packet_rows[:10]
+                    ],
                 },
                 generated_at=generated_at,
             )

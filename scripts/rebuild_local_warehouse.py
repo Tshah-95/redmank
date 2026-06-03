@@ -57,6 +57,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_person_training_stage_state.py"],
     ["python3", "scripts/materialize_official_roster_refresh_workbench.py"],
     ["python3", "scripts/materialize_official_roster_refresh_batches.py"],
+    ["python3", "scripts/materialize_official_roster_refresh_batch_packets.py"],
     ["python3", "scripts/materialize_person_enrichment_dossiers.py"],
     ["python3", "scripts/materialize_training_state_snapshot.py", "--compare-date", "2026-06-02"],
     ["python3", "scripts/diff_training_states.py", "--new", "artifacts/data/training_states_current.csv", "--compare-date", "2026-06-02"],

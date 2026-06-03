@@ -288,6 +288,13 @@ ARTIFACT_SPECS = [
         True,
     ),
     (
+        "artifacts/data/official_roster_refresh_batch_packets.csv",
+        "official_roster_refresh_batch_packet_ledger",
+        "csv",
+        "official_roster_refresh_batch_packets",
+        True,
+    ),
+    (
         "artifacts/data/official_roster_refresh_execution_audit.csv",
         "official_roster_refresh_execution_ledger",
         "csv",

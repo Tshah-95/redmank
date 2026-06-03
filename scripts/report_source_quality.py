@@ -378,6 +378,14 @@ def main() -> None:
         ARTIFACTS / "program_lifecycle_duration_review_batch_summary.json",
         {},
     )
+    official_roster_refresh_batch_summary = read_json(
+        ARTIFACTS / "official_roster_refresh_batch_summary.json",
+        {},
+    )
+    official_roster_refresh_batch_packet_summary = read_json(
+        ARTIFACTS / "official_roster_refresh_batch_packet_summary.json",
+        {},
+    )
     attending_trend_linkage_summary = read_json(ARTIFACTS / "attending_trend_linkage_summary.json", {})
     attending_historical_link_summary = read_json(ARTIFACTS / "attending_historical_link_discovery_summary.json", {})
     attending_biosketch_bridge_summary = read_json(ARTIFACTS / "attending_biosketch_bridge_summary.json", {})
@@ -623,6 +631,14 @@ def main() -> None:
         ARTIFACTS / "training_temporal_contract_batches.csv",
         limit=25,
     )
+    top_official_roster_refresh_batches = read_csv(
+        ARTIFACTS / "official_roster_refresh_batches.csv",
+        limit=25,
+    )
+    top_official_roster_refresh_batch_packets = read_csv(
+        ARTIFACTS / "official_roster_refresh_batch_packets.csv",
+        limit=25,
+    )
     corpus_action_worklist = read_csv(ARTIFACTS / "corpus_action_worklist.csv", limit=40)
     top_alias_reviewer_decisions = read_csv(ARTIFACTS / "official_program_alias_reviewer_decision_audit.csv", limit=25)
     top_reconciliation_decisions = [
@@ -819,6 +835,10 @@ def main() -> None:
         "training_state_transition_plan_summary": transition_plan_summary,
         "training_temporal_contract_batch_summary": temporal_contract_batch_summary,
         "top_training_temporal_contract_batches": top_temporal_contract_batches,
+        "official_roster_refresh_batch_summary": official_roster_refresh_batch_summary,
+        "top_official_roster_refresh_batches": top_official_roster_refresh_batches,
+        "official_roster_refresh_batch_packet_summary": official_roster_refresh_batch_packet_summary,
+        "top_official_roster_refresh_batch_packets": top_official_roster_refresh_batch_packets,
         "program_lifecycle_duration_evidence_summary": program_lifecycle_duration_summary,
         "program_lifecycle_duration_reviewer_decision_summary": program_lifecycle_duration_reviewer_decision_summary,
         "program_lifecycle_duration_review_batch_summary": program_lifecycle_duration_review_batch_summary,
@@ -1335,6 +1355,37 @@ def main() -> None:
         ),
         "",
         "Learning: temporal contracts are row-level guardrails, but operator work should start from bounded batches. The batch layer keeps source-refresh and manual-review contracts non-mutating while preserving top contract keys, review triggers, and required next evidence for the downstream state-transition ledgers.",
+        "",
+        "### Official Roster Refresh Batches",
+        "",
+        f"Batch rows: {official_roster_refresh_batch_summary.get('batch_rows', 0)}. Packet rows: {official_roster_refresh_batch_packet_summary.get('packet_rows', 0)}. Packet contracts: {official_roster_refresh_batch_packet_summary.get('contract_count', 0)}. Packet person impact: {official_roster_refresh_batch_packet_summary.get('person_impact_count', 0)}.",
+        "",
+        *md_table(
+            top_official_roster_refresh_batches,
+            [
+                "execution_order",
+                "collector_hint",
+                "parser_status",
+                "batch_status",
+                "source_program_count",
+                "contract_count",
+                "recommended_next_action",
+            ],
+        ),
+        "",
+        *md_table(
+            top_official_roster_refresh_batch_packets,
+            [
+                "execution_order",
+                "batch_packet_order",
+                "program_name",
+                "role",
+                "refresh_lane",
+                "person_count",
+                "support_status",
+                "source_url",
+            ],
+        ),
         "",
         "## Evidence Counts",
         "",

@@ -77,6 +77,7 @@ CSV_TABLES = [
     ("training_stage_state_rollups.csv", "training_stage_state_rollups"),
     ("official_roster_refresh_workbench.csv", "official_roster_refresh_workbench"),
     ("official_roster_refresh_batches.csv", "official_roster_refresh_batches"),
+    ("official_roster_refresh_batch_packets.csv", "official_roster_refresh_batch_packets"),
     ("official_roster_refresh_execution_audit.csv", "official_roster_refresh_execution_audit"),
     ("trainee_profile_search_queries.csv", "trainee_profile_search_queries"),
     ("trainee_profile_search_observations.csv", "trainee_profile_search_observations"),

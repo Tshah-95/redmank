@@ -183,6 +183,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/official_roster_refresh_workbench.csv`: source/program-level refresh contracts for official trainee rosters, derived from temporal contracts and source provenance.
 - `artifacts/data/official_roster_refresh_workbench_summary.json`: roster-refresh counts by lane, difficulty, role, source, program, and top source URLs for next collector runs.
 - `artifacts/data/official_roster_refresh_batches.csv`: bounded collector/parser/domain execution batches over roster-refresh contracts, preserving source URLs and expected state-machine outcomes before any mutation.
+- `artifacts/data/official_roster_refresh_batch_packets.csv`: per-source/program refresh packets under roster-refresh batches, preserving refresh keys, source URLs, parser support, state-machine burden, and packet-level next actions.
+- `artifacts/data/official_roster_refresh_batch_packet_summary.json`: packet counts by refresh lane, parser status, support status, source/program coverage, contract burden, and person impact.
 - `artifacts/data/official_roster_refresh_batch_summary.json`: batch counts by collector, lane, status, source-program burden, and top execution packets.
 - `artifacts/data/training_state_snapshots/`: durable snapshot CSV/manifest files for longitudinal reruns.
 - `artifacts/data/training_state_transition_events.csv`: SQLite-backed transition ledger for the latest materialized snapshot comparison.
@@ -245,7 +247,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `person_evidence_review_batch_packets.csv` when available while retaining one row per batch, so person-evidence actions stay bounded but expose current packet fingerprints, reviewer-decision keys, support status, and recommended packet actions; if packet support is absent it falls back to batches, then triage, then the raw reviewer queue.
 - The worklist consumes `research_identity_review_batch_member_packets.csv` when available while retaining one row per batch, so research identity corroboration stays bounded but exposes per-member current-fingerprint dossier/template packet evidence; if member packets are absent it falls back to batch packets, reviewer dossiers, then grouped corroboration rows.
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
-- The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
+- The worklist consumes `official_roster_refresh_batch_packets.csv` when available while retaining one row per roster-refresh execution batch, so collector/parser/domain batches stay bounded but expose exact source/program refresh contracts; if packet support is absent it falls back to roster-refresh batches.
 - The worklist consumes `training_temporal_contract_batches.csv` when available, so source-refresh and manual-review temporal-state work is grouped into bounded non-mutating batches instead of raw program/role/lifecycle buckets.
 - The worklist consumes `program_lifecycle_duration_review_batches.csv` when available, so unresolved lifecycle-duration evidence is routed through bounded context-review or source-evidence sessions before any duration mapping or lifecycle-rule change.
 - The worklist consumes `official_program_coverage_batch_packets.csv` when available while retaining one row per coverage batch, so denominator coverage work stays bounded but exposes per-program queue/dossier packet evidence; if packet support is absent it falls back to batches, then action queue rows.
@@ -365,6 +367,7 @@ python3 scripts/materialize_training_state_transition_plan.py
 python3 scripts/materialize_training_temporal_contracts.py
 python3 scripts/materialize_training_temporal_contract_batches.py
 python3 scripts/materialize_official_roster_refresh_batches.py
+python3 scripts/materialize_official_roster_refresh_batch_packets.py
 python3 scripts/audit_enrichment_coverage.py
 python3 scripts/generate_enrichment_queue.py
 python3 scripts/materialize_person_enrichment_execution_readiness.py

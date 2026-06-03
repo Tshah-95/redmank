@@ -909,7 +909,7 @@
     },
     "critical_rows": 113,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-03T12:01:07.495906+00:00",
+    "generated_at": "2026-06-03T12:15:51.034082+00:00",
     "high_rows": 158,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
@@ -1267,6 +1267,7 @@
     "official_program_source_search_observations": 0,
     "official_program_source_search_queries": 42,
     "official_program_universe": 91,
+    "official_roster_refresh_batch_packets": 114,
     "official_roster_refresh_batches": 14,
     "official_roster_refresh_execution_audit": 4,
     "official_roster_refresh_workbench": 114,
@@ -1359,7 +1360,7 @@
     "training_temporal_contract_batches": 93,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 160
+    "warehouse_reproducibility_audit": 161
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2691,7 +2692,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-03T12:01:11.503863+00:00",
+  "generated_at": "2026-06-03T12:15:55.020824+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -4345,6 +4346,308 @@
     "low_value_candidate": 5,
     "program_context_candidate": 52,
     "roster_source_candidate": 14
+  },
+  "official_roster_refresh_batch_packet_lane_counts": {
+    "expected_transition_reconciliation": 25,
+    "manual_lifecycle_or_source_label_review": 8,
+    "mixed_expected_transition_and_manual_review": 8,
+    "mixed_expected_transition_and_source_refresh": 11,
+    "source_reobservation_required": 62
+  },
+  "official_roster_refresh_batch_packet_parser_counts": {
+    "core_roster_parser_available": 83,
+    "gap_roster_parser_available_or_review_queued": 26,
+    "mstp_directory_parser_available": 1,
+    "parser_support_review_required": 4
+  },
+  "official_roster_refresh_batch_packet_summary": {
+    "batch_count": 14,
+    "by_packet_status": {
+      "fresh_roster_observation_packet": 98,
+      "fresh_roster_observation_then_manual_review_packet": 16
+    },
+    "by_parser_status": {
+      "core_roster_parser_available": 83,
+      "gap_roster_parser_available_or_review_queued": 26,
+      "mstp_directory_parser_available": 1,
+      "parser_support_review_required": 4
+    },
+    "by_refresh_lane": {
+      "expected_transition_reconciliation": 25,
+      "manual_lifecycle_or_source_label_review": 8,
+      "mixed_expected_transition_and_manual_review": 8,
+      "mixed_expected_transition_and_source_refresh": 11,
+      "source_reobservation_required": 62
+    },
+    "by_support_status": {
+      "ready_for_fresh_roster_refresh": 98,
+      "ready_for_refresh_then_lifecycle_review": 16
+    },
+    "contract_count": 1669,
+    "csv": "artifacts/data/official_roster_refresh_batch_packets.csv",
+    "generated_at": "2026-06-03T12:15:50.978125+00:00",
+    "json": "artifacts/data/official_roster_refresh_batch_packets.json",
+    "packet_rows": 114,
+    "person_impact_count": 1597,
+    "policy": "Official roster refresh packets expose source/program refresh contracts without mutating training state.",
+    "program_count": 95,
+    "source_count": 74,
+    "top_packets": [
+      {
+        "batch_packet_order": 1,
+        "execution_order": 1,
+        "person_count": 225,
+        "program_name": "Medical Scientist Training Program",
+        "refresh_lane": "source_reobservation_required",
+        "role": "medical_student",
+        "source_url": "https://www.med.upenn.edu/mstp/student-directory/",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 1,
+        "execution_order": 2,
+        "person_count": 171,
+        "program_name": "Internal Medicine Residency",
+        "refresh_lane": "expected_transition_reconciliation",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/categorical/categorical-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 2,
+        "execution_order": 2,
+        "person_count": 34,
+        "program_name": "Pulmonary and Critical Care Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/pulmonology-allergy-and-critical-care/education-and-training/fellowship-offerings/fellows",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 3,
+        "execution_order": 2,
+        "person_count": 97,
+        "program_name": "Anesthesiology Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/anesthesiology-and-critical-care/education-and-training/residency-program/residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 4,
+        "execution_order": 2,
+        "person_count": 15,
+        "program_name": "Infectious Diseases Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/infectious-diseases/education-and-training/fellowship-program/current-fellows",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 5,
+        "execution_order": 2,
+        "person_count": 15,
+        "program_name": "Rheumatology Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/rheumatology/education-and-training/fellowship-programs/current-fellows",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 6,
+        "execution_order": 2,
+        "person_count": 75,
+        "program_name": "General Surgery Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/general-surgery-residency/fy26-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 7,
+        "execution_order": 2,
+        "person_count": 33,
+        "program_name": "Cardiovascular Disease Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/division-of-cardiovascular-medicine/education-and-training/fellowship-programs/cardiovascular-disease-fellowship/current-fellows",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 8,
+        "execution_order": 2,
+        "person_count": 8,
+        "program_name": "Internal Medicine Residency - Global Health Equities Track",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/education-and-training/internal-medicine-residency/our-program/global-health/global-health-equities-residents",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 9,
+        "execution_order": 2,
+        "person_count": 6,
+        "program_name": "Reproductive Endocrinology and Infertility Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/obstetrics-and-gynecology/education-and-training/fellowship-programs/reproductive-endocrinology",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 10,
+        "execution_order": 2,
+        "person_count": 40,
+        "program_name": "Orthopedic Surgery Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/orthopaedic-surgery/education-and-training/residency/residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 11,
+        "execution_order": 2,
+        "person_count": 32,
+        "program_name": "Hematology/Oncology Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/hematology-and-oncology/education-and-training/hematology-oncology-fellowship/fellows",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 12,
+        "execution_order": 2,
+        "person_count": 3,
+        "program_name": "Geriatric Medicine Fellowship",
+        "refresh_lane": "manual_lifecycle_or_source_label_review",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/geriatrics/education-and-training/fellowship-program/our-fellows",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 1,
+        "execution_order": 3,
+        "person_count": 5,
+        "program_name": "Internal Medicine Residency - Global Health Equities Track",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "resident",
+        "source_url": "https://www.chop.edu/med-peds-residency/current-residents",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 2,
+        "execution_order": 3,
+        "person_count": 3,
+        "program_name": "Internal Medicine Residency - Medical Education Leadership Track",
+        "refresh_lane": "mixed_expected_transition_and_manual_review",
+        "role": "resident",
+        "source_url": "https://www.chop.edu/med-peds-residency/current-residents",
+        "support_status": "ready_for_refresh_then_lifecycle_review"
+      },
+      {
+        "batch_packet_order": 3,
+        "execution_order": 3,
+        "person_count": 23,
+        "program_name": "Penn-CHOP Internal Medicine-Pediatrics Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www.chop.edu/med-peds-residency/current-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 4,
+        "execution_order": 3,
+        "person_count": 3,
+        "program_name": "Internal Medicine Residency - Healthcare Leadership in Quality Track",
+        "refresh_lane": "expected_transition_reconciliation",
+        "role": "resident",
+        "source_url": "https://www.chop.edu/med-peds-residency/current-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 1,
+        "execution_order": 4,
+        "person_count": 22,
+        "program_name": "Nephrology Fellowship",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "fellow",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-medicine/divisions/renal-electrolyte-and-hypertension-division/education-and-training/fellowship-programs/nephrology-fellows",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 2,
+        "execution_order": 4,
+        "person_count": 22,
+        "program_name": "Physical Medicine and Rehabilitation Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/physical-medicine-and-rehabilitation/education-and-training/residency-program/current-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 3,
+        "execution_order": 4,
+        "person_count": 22,
+        "program_name": "Plastic Surgery Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/plastic-surgery/residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 4,
+        "execution_order": 4,
+        "person_count": 22,
+        "program_name": "Urology Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/urology-residency/residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 5,
+        "execution_order": 4,
+        "person_count": 20,
+        "program_name": "Ophthalmology Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/ophthalmology/education-and-training/current-residents-and-fellows",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 6,
+        "execution_order": 4,
+        "person_count": 15,
+        "program_name": "Cardiothoracic Surgery Residency",
+        "refresh_lane": "mixed_expected_transition_and_source_refresh",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-surgery/education-and-training/residencies/cardiothoracic-residency/residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 7,
+        "execution_order": 4,
+        "person_count": 54,
+        "program_name": "Diagnostic Radiology Residency",
+        "refresh_lane": "source_reobservation_required",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/department-of-radiology/education-and-training/residency-programs/current-residents/diagnostic-radiology-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      },
+      {
+        "batch_packet_order": 8,
+        "execution_order": 4,
+        "person_count": 35,
+        "program_name": "Family Medicine Residency",
+        "refresh_lane": "expected_transition_reconciliation",
+        "role": "resident",
+        "source_url": "https://www3.pennmedicine.org/departments-and-centers/family-medicine-and-community-health/education-and-training/residency/current-residents",
+        "support_status": "ready_for_fresh_roster_refresh"
+      }
+    ]
+  },
+  "official_roster_refresh_batch_packet_support_counts": {
+    "ready_for_fresh_roster_refresh": 98,
+    "ready_for_refresh_then_lifecycle_review": 16
   },
   "organization_category_counts": {
     "clinical_training_site": 173,
@@ -8919,12 +9222,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 160
+    "ok": 161
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 160,
-    "audited_at": "2026-06-03T12:01:08.869293+00:00",
+    "artifact_rows": 161,
+    "audited_at": "2026-06-03T12:15:52.389521+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -8987,6 +9290,7 @@
       "official_program_gap_source_ledger": 1,
       "official_program_gap_source_search_ledger": 2,
       "official_roster_refresh_batch_ledger": 1,
+      "official_roster_refresh_batch_packet_ledger": 1,
       "official_roster_refresh_execution_ledger": 1,
       "official_roster_refresh_workbench_ledger": 1,
       "operator_worklist": 1,
@@ -9042,17 +9346,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 160
+      "ok": 161
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 475693056,
+    "sqlite_byte_size": 476434432,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "ac004aab7aef669714cc0d11a2d72bda24ffe4b6849e571784956bcb943940a5",
+    "sqlite_sha256": "fdb6b4b1279a63d690981c877a37aa2bf2961dcedce5dcb2c7030ede90197954",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }
