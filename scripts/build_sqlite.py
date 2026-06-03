@@ -2284,6 +2284,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "attending_historical_link_candidates",
         "attending_trend_discovery_workbench",
         "attending_trend_discovery_batches",
+        "attending_trend_discovery_packets",
         "npi_candidate_claims",
         "npi_source_observations",
         "person_contacts",

@@ -24,7 +24,7 @@
     "needs_more_evidence": 1,
     "pending": 17
   },
-  "generated_at": "2026-06-03T10:24:01.054368+00:00",
+  "generated_at": "2026-06-03T10:34:24.298067+00:00",
   "manual_decision_csv": "artifacts/data/official_program_alias_reviewer_decisions.csv",
   "manual_decision_rows": 15,
   "not_ready_rows": 17,

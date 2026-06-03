@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import sqlite3
 import csv
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -14,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts" / "data"
 REPORTS = ROOT / "artifacts" / "research"
 DB = ARTIFACTS / "redmank.sqlite"
+
+csv.field_size_limit(sys.maxsize)
 
 
 def rows(conn: sqlite3.Connection, query: str):
@@ -433,6 +436,10 @@ def main() -> None:
         ARTIFACTS / "attending_trend_discovery_batch_summary.json",
         {},
     )
+    attending_trend_discovery_packet_summary = read_json(
+        ARTIFACTS / "attending_trend_discovery_packet_summary.json",
+        {},
+    )
     corpus_action_worklist_summary = read_json(ARTIFACTS / "corpus_action_worklist_summary.json", {})
     med_student_source_audit_summary = read_json(ARTIFACTS / "penn_med_student_source_audit_summary.json", {})
     med_student_source_audit = read_csv(ARTIFACTS / "penn_med_student_source_audit.csv")
@@ -457,6 +464,10 @@ def main() -> None:
     )
     top_attending_trend_discovery_batches = read_csv(
         ARTIFACTS / "attending_trend_discovery_batches.csv",
+        limit=25,
+    )
+    top_attending_trend_discovery_packets = read_csv(
+        ARTIFACTS / "attending_trend_discovery_packets.csv",
         limit=25,
     )
     top_person_evidence_reviewer_decisions = read_csv(
@@ -775,6 +786,8 @@ def main() -> None:
         "top_attending_trend_reviewer_decision_dossiers": top_attending_trend_reviewer_decision_dossiers,
         "attending_trend_discovery_batch_summary": attending_trend_discovery_batch_summary,
         "top_attending_trend_discovery_batches": top_attending_trend_discovery_batches,
+        "attending_trend_discovery_packet_summary": attending_trend_discovery_packet_summary,
+        "top_attending_trend_discovery_packets": top_attending_trend_discovery_packets,
         "top_attending_trend_review_rollups": top_attending_trend_review_rollups,
         "npi_candidate_summary": npi_candidate_summary,
         "top_npi_candidates": top_npi_candidates,
@@ -1798,6 +1811,24 @@ def main() -> None:
                 "workbench_count",
                 "historical_query_count",
                 "historical_candidate_count",
+                "recommended_operator_action",
+            ],
+        ),
+        "",
+        "Trend discovery packets:",
+        "",
+        f"Packet rows: {attending_trend_discovery_packet_summary.get('packet_rows', 0)}. Reviewer-decision packets: {attending_trend_discovery_packet_summary.get('reviewer_decision_packet_rows', 0)}. Historical-candidate packets: {attending_trend_discovery_packet_summary.get('historical_candidate_packet_rows', 0)}. Training-bridge search packets: {attending_trend_discovery_packet_summary.get('training_bridge_search_packet_rows', 0)}. Historical candidates: {attending_trend_discovery_packet_summary.get('historical_candidate_count', 0)}.",
+        "",
+        *md_table(
+            top_attending_trend_discovery_packets,
+            [
+                "display_name",
+                "discovery_lane",
+                "packet_status",
+                "ten_year_trend_window",
+                "packet_priority",
+                "historical_candidate_count",
+                "target_artifact",
                 "recommended_operator_action",
             ],
         ),

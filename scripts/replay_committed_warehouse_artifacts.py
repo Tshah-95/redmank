@@ -156,6 +156,7 @@ CSV_TABLES = [
     ("attending_historical_link_candidates.csv", "attending_historical_link_candidates"),
     ("attending_trend_discovery_workbench.csv", "attending_trend_discovery_workbench"),
     ("attending_trend_discovery_batches.csv", "attending_trend_discovery_batches"),
+    ("attending_trend_discovery_packets.csv", "attending_trend_discovery_packets"),
 ]
 
 JSON_TABLES = [

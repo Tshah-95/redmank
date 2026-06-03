@@ -1625,8 +1625,18 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "attending_trend_discovery_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/attending_trend_discovery_batches.csv"
+        packet_path = ARTIFACTS / "attending_trend_discovery_packets.csv"
+        source = (
+            "artifacts/data/attending_trend_discovery_packets.csv"
+            if packet_path.exists()
+            else "artifacts/data/attending_trend_discovery_batches.csv"
+        )
+        packets_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if packet_path.exists():
+            for packet_row in read_csv(packet_path):
+                packets_by_batch[packet_row.get("attending_trend_discovery_batch_key") or ""].append(packet_row)
         for item in read_csv(batch_path):
+            packet_rows = packets_by_batch.get(item.get("attending_trend_discovery_batch_key") or "", [])
             priority = as_int(item.get("max_discovery_priority"))
             status = item.get("batch_status") or item.get("discovery_lane") or "attending_trend_discovery"
             rows.append(
@@ -1656,6 +1666,7 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "artifacts/data/attending_historical_link_candidates.csv",
                     downstream_tables=[
                         "attending_trend_discovery_batches",
+                        "attending_trend_discovery_packets",
                         "attending_trend_discovery_workbench",
                         "attending_trend_dossiers",
                         "attending_trend_reviewer_decision_dossiers",
@@ -1679,6 +1690,17 @@ def attending_trend_discovery_actions(generated_at: str) -> list[dict]:
                         "accepted_trend_fact_count": item.get("accepted_trend_fact_count"),
                         "historical_query_count": item.get("historical_query_count"),
                         "historical_candidate_count": item.get("historical_candidate_count"),
+                        "trend_discovery_packet_rows": len(packet_rows),
+                        "top_trend_discovery_packets": [
+                            {
+                                "display_name": packet_row.get("display_name"),
+                                "packet_status": packet_row.get("packet_status"),
+                                "packet_priority": packet_row.get("packet_priority"),
+                                "target_artifact": packet_row.get("target_artifact"),
+                                "recommended_operator_action": packet_row.get("recommended_operator_action"),
+                            }
+                            for packet_row in packet_rows[:10]
+                        ],
                         "query_status_counts": parse_json(item.get("query_status_counts_json"), {}),
                         "candidate_status_counts": parse_json(item.get("candidate_status_counts_json"), {}),
                         "top_workbench_rows": parse_json(item.get("top_workbench_rows_json"), []),

@@ -117,6 +117,7 @@ def main() -> None:
         "attending_historical_link_candidates",
         "attending_trend_discovery_workbench",
         "attending_trend_discovery_batches",
+        "attending_trend_discovery_packets",
         "npi_candidate_claims",
         "npi_source_observations",
         "person_contacts",
@@ -356,6 +357,26 @@ def main() -> None:
             SELECT rollup_scope, COUNT(*) AS count
             FROM attending_trend_review_rollups
             GROUP BY rollup_scope
+            """
+        )
+    }
+    attending_trend_discovery_packet_status_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM attending_trend_discovery_packets
+            GROUP BY packet_status
+            """
+        )
+    }
+    attending_trend_discovery_packet_lane_counts = {
+        row["discovery_lane"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT discovery_lane, COUNT(*) AS count
+            FROM attending_trend_discovery_packets
+            GROUP BY discovery_lane
             """
         )
     }
@@ -1603,6 +1624,13 @@ def main() -> None:
         )
     else:
         attending_trend_dossier_summary = {}
+    attending_trend_discovery_packet_summary_path = ARTIFACTS / "attending_trend_discovery_packet_summary.json"
+    if attending_trend_discovery_packet_summary_path.exists():
+        attending_trend_discovery_packet_summary = json.loads(
+            attending_trend_discovery_packet_summary_path.read_text(encoding="utf-8")
+        )
+    else:
+        attending_trend_discovery_packet_summary = {}
     npi_candidate_summary_path = ARTIFACTS / "npi_candidate_summary.json"
     if npi_candidate_summary_path.exists():
         npi_candidate_summary = json.loads(npi_candidate_summary_path.read_text(encoding="utf-8"))
@@ -1879,6 +1907,8 @@ def main() -> None:
         "attending_trend_dossier_safety_counts": attending_trend_dossier_safety_counts,
         "attending_trend_review_end_year_counts": attending_trend_review_end_year_counts,
         "attending_trend_review_rollup_scope_counts": attending_trend_review_rollup_scope_counts,
+        "attending_trend_discovery_packet_status_counts": attending_trend_discovery_packet_status_counts,
+        "attending_trend_discovery_packet_lane_counts": attending_trend_discovery_packet_lane_counts,
         "npi_candidate_counts": npi_candidate_counts,
         "npi_primary_taxonomy_counts": npi_primary_taxonomy_counts,
         "evidence_reconciliation_queue_counts": evidence_reconciliation_queue_counts,
@@ -2012,6 +2042,7 @@ def main() -> None:
         "attending_trend_reviewer_decision_summary": attending_trend_reviewer_decision_summary,
         "attending_trend_reviewer_decision_dossier_summary": attending_trend_reviewer_decision_dossier_summary,
         "attending_trend_dossier_summary": attending_trend_dossier_summary,
+        "attending_trend_discovery_packet_summary": attending_trend_discovery_packet_summary,
         "npi_candidate_summary": npi_candidate_summary,
         "person_evidence_review_packet_summary": person_evidence_packet_summary,
         "person_evidence_review_batch_packet_summary": person_evidence_batch_packet_summary,

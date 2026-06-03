@@ -9,7 +9,7 @@
   },
   "claims_generated": 354,
   "durable_claim_rows": 354,
-  "generated_at": "2026-06-03T10:23:20.642130+00:00",
+  "generated_at": "2026-06-03T10:33:44.687401+00:00",
   "json": "artifacts/data/orcid_work_candidate_claims.json",
   "people_with_durable_claims": 36,
   "policy": "ORCID work candidates require DOI/PMID/PMC evidence and remain review-only until reconciled with article metadata, author position, and same-person source context.",

@@ -1,0 +1,288 @@
+{
+  "accepted_monitor_packet_rows": 3,
+  "actionable_historical_candidate_count": 5,
+  "batch_count": 9,
+  "by_discovery_lane": {
+    "accepted_trend_fact_monitor": 3,
+    "context_only_monitor": 21,
+    "current_endpoint_training_bridge_search": 43,
+    "historical_link_candidate_review": 1,
+    "reviewer_decision_pending": 2
+  },
+  "by_packet_status": {
+    "accepted_trend_fact_monitor": 3,
+    "context_only_monitor": 21,
+    "ready_for_historical_candidate_review": 1,
+    "ready_for_training_bridge_search": 43,
+    "ready_for_trend_reviewer_decision": 2
+  },
+  "by_ten_year_trend_window": {
+    "no": 2,
+    "unknown": 59,
+    "yes": 9
+  },
+  "context_monitor_packet_rows": 21,
+  "csv": "artifacts/data/attending_trend_discovery_packets.csv",
+  "generated_at": "2026-06-03T10:33:50.305450+00:00",
+  "historical_candidate_count": 15,
+  "historical_candidate_packet_rows": 1,
+  "historical_query_count": 722,
+  "json": "artifacts/data/attending_trend_discovery_packets.json",
+  "packet_rows": 70,
+  "person_count": 70,
+  "policy": "Attending trend discovery packets are non-mutating per-group work surfaces. They expose reviewer, search, and candidate evidence; accepted trend facts still require reviewer decision and acceptance audit ledgers.",
+  "reviewer_decision_packet_rows": 2,
+  "top_packets": [
+    {
+      "discovery_lane": "reviewer_decision_pending",
+      "display_name": "Denis Hadjiliadis, MD, PhD",
+      "historical_candidate_count": 0,
+      "packet_priority": 1020,
+      "packet_status": "ready_for_trend_reviewer_decision",
+      "recommended_operator_action": "record_attending_trend_reviewer_decision_with_current_claim_fingerprint",
+      "target_artifact": "artifacts/data/attending_trend_reviewer_decisions.csv",
+      "ten_year_trend_window": "yes"
+    },
+    {
+      "discovery_lane": "reviewer_decision_pending",
+      "display_name": "Katherine Courtright, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 1020,
+      "packet_status": "ready_for_trend_reviewer_decision",
+      "recommended_operator_action": "record_attending_trend_reviewer_decision_with_current_claim_fingerprint",
+      "target_artifact": "artifacts/data/attending_trend_reviewer_decisions.csv",
+      "ten_year_trend_window": "yes"
+    },
+    {
+      "discovery_lane": "historical_link_candidate_review",
+      "display_name": "Emily Gordon, MD, MSEd",
+      "historical_candidate_count": 9,
+      "packet_priority": 945,
+      "packet_status": "ready_for_historical_candidate_review",
+      "recommended_operator_action": "review_historical_link_candidate_for_same_person_training_and_dates",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Anar A. Dossumbekova, MD, PhD",
+      "historical_candidate_count": 0,
+      "packet_priority": 810,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "yes"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Jesse Kiefer MD MSEd",
+      "historical_candidate_count": 0,
+      "packet_priority": 810,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "yes"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Pavle S. Milutinovic, MD, PhD",
+      "historical_candidate_count": 0,
+      "packet_priority": 810,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "yes"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Scott Feldman, MD, PhD",
+      "historical_candidate_count": 0,
+      "packet_priority": 810,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "yes"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Pallavi Kumar, MD, MPH",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Peter S. Klein, MD, PhD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Priya P. Gor, MD, MSCE",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Rachael Lutgen",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Rebecca L. Hirsh, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Roger B. Cohen, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Roshni T. Guerry, MD, FACP",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Sara Ann Van Calcar, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Stanley Savinese, DO",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Tracy S. d\u2019Entremont, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Vincent J. Vanston, MD, FAAHPM",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Yehoda M. Martei, MD, MSCE",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Geeta Ravi Patel, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "no"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Olajumoke O. Fadugba, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "no"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Alana Sagin, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Alison Wakoff Loren, MD, MSCE",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Andrea J. Apter, MD, MA, MSc",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    },
+    {
+      "discovery_lane": "current_endpoint_training_bridge_search",
+      "display_name": "Ann Soliman, MD",
+      "historical_candidate_count": 0,
+      "packet_priority": 750,
+      "packet_status": "ready_for_training_bridge_search",
+      "recommended_operator_action": "collect_dated_training_bridge_for_current_endpoint",
+      "target_artifact": "artifacts/data/attending_historical_link_candidates.csv",
+      "ten_year_trend_window": "unknown"
+    }
+  ],
+  "training_bridge_search_packet_rows": 43
+}
