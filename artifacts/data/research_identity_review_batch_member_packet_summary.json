@@ -20,7 +20,7 @@
   },
   "conflict_member_count": 24,
   "csv": "artifacts/data/research_identity_review_batch_member_packets.csv",
-  "generated_at": "2026-06-03T11:21:02.064224+00:00",
+  "generated_at": "2026-06-03T11:26:05.492111+00:00",
   "json": "artifacts/data/research_identity_review_batch_member_packets.json",
   "manual_decision_template_rows": 1523,
   "member_packet_rows": 1523,

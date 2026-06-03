@@ -20,7 +20,7 @@
   "candidate_count": 2650,
   "csv": "artifacts/data/search_utility_execution_batches.csv",
   "failed_observation_count": 100,
-  "generated_at": "2026-06-03T11:21:05.590564+00:00",
+  "generated_at": "2026-06-03T11:26:09.044902+00:00",
   "json": "artifacts/data/search_utility_execution_batches.json",
   "policy": "Search utility execution batches make unobserved queries, endpoint retries, and candidate probes executable without turning search results into accepted evidence.",
   "query_count": 5874,

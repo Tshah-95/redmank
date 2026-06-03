@@ -259,10 +259,14 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
     batch_path = ARTIFACTS / "person_evidence_review_batches.csv"
     if batch_path.exists():
         dossier_path = ARTIFACTS / "person_evidence_review_dossiers.csv"
-        source = "artifacts/data/person_evidence_review_batches.csv"
+        batch_packet_path = ARTIFACTS / "person_evidence_review_batch_packets.csv"
+        source = (
+            "artifacts/data/person_evidence_review_batch_packets.csv"
+            if batch_packet_path.exists()
+            else "artifacts/data/person_evidence_review_batches.csv"
+        )
         batch_key_by_decision: dict[str, str] = {}
         batch_packets_by_batch: dict[str, list[dict]] = defaultdict(list)
-        batch_packet_path = ARTIFACTS / "person_evidence_review_batch_packets.csv"
         if batch_packet_path.exists():
             for batch_packet in read_csv(batch_packet_path):
                 batch_key = batch_packet.get("review_batch_key") or ""
@@ -352,6 +356,25 @@ def person_evidence_actions(generated_at: str) -> list[dict]:
                                     as_int(packet.get("batch_packet_order")),
                                 ),
                             )[:8]
+                        ],
+                        "top_person_evidence_batch_packets": [
+                            {
+                                "display_name": packet.get("display_name"),
+                                "triage_lane": packet.get("triage_lane"),
+                                "packet_status": packet.get("packet_status"),
+                                "support_status": packet.get("support_status"),
+                                "reviewer_decision_key": packet.get("reviewer_decision_key"),
+                                "packet_fingerprint": packet.get("packet_fingerprint"),
+                                "review_ready_record_count": packet.get("review_ready_record_count"),
+                                "recommended_reviewer_action": packet.get("recommended_reviewer_action"),
+                            }
+                            for packet in sorted(
+                                batch_packet_rows,
+                                key=lambda packet: (
+                                    -as_int(packet.get("triage_priority")),
+                                    as_int(packet.get("batch_packet_order")),
+                                ),
+                            )[:10]
                         ],
                         "reviewer_decision_dossier_rows": len(dossier_rows),
                         "pending_reviewer_decision_dossier_rows": sum(
