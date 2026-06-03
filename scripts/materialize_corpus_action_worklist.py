@@ -515,8 +515,19 @@ def contact_actions(generated_at: str) -> list[dict]:
     rows = []
     batch_path = ARTIFACTS / "contact_verification_batches.csv"
     if batch_path.exists():
-        source = "artifacts/data/contact_verification_batches.csv"
+        packet_path = ARTIFACTS / "contact_verification_batch_packets.csv"
+        packet_rows_by_batch: dict[str, list[dict]] = defaultdict(list)
+        if packet_path.exists():
+            for packet in read_csv(packet_path):
+                packet_rows_by_batch[packet.get("contact_verification_batch_key") or ""].append(packet)
+            source = "artifacts/data/contact_verification_batch_packets.csv"
+        else:
+            source = "artifacts/data/contact_verification_batches.csv"
         for item in read_csv(batch_path):
+            batch_packets = sorted(
+                packet_rows_by_batch.get(item.get("contact_verification_batch_key") or "", []),
+                key=lambda row: as_int(row.get("packet_order")),
+            )
             status = item.get("batch_status") or item.get("queue_status") or ""
             if status == "blocked_before_contact_review":
                 base_priority = 720
@@ -554,6 +565,7 @@ def contact_actions(generated_at: str) -> list[dict]:
                     target_artifact=item.get("target_artifact") or "artifacts/data/contact_verification_reviewer_decisions.csv",
                     downstream_tables=[
                         "contact_verification_batches",
+                        "contact_verification_batch_packets",
                         "contact_verification_reviewer_decision_dossiers",
                         "contact_verification_reviewer_decision_queue",
                         "contact_verification_reviewer_decision_audit",
@@ -581,6 +593,24 @@ def contact_actions(generated_at: str) -> list[dict]:
                         "contact_type_counts": parse_json(item.get("contact_type_counts_json"), {}),
                         "source_key_counts": parse_json(item.get("source_key_counts_json"), {}),
                         "domain_status_counts": parse_json(item.get("domain_status_counts_json"), {}),
+                        "contact_verification_batch_packet_rows": len(batch_packets),
+                        "top_batch_packet_support_statuses": dict(
+                            Counter(packet.get("support_status") or "" for packet in batch_packets).most_common(5)
+                        ),
+                        "top_contact_verification_batch_packets": [
+                            {
+                                "packet_key": packet.get("contact_verification_batch_packet_key"),
+                                "packet_order": packet.get("packet_order"),
+                                "dossier_key": packet.get("dossier_key"),
+                                "reviewer_decision_key": packet.get("reviewer_decision_key"),
+                                "display_name": packet.get("display_name"),
+                                "contact_type": packet.get("contact_type"),
+                                "canonical_contact_domain": packet.get("canonical_contact_domain"),
+                                "support_status": packet.get("support_status"),
+                                "recommended_next_action": packet.get("recommended_next_action"),
+                            }
+                            for packet in batch_packets[:12]
+                        ],
                         "top_display_names": item.get("top_display_names"),
                         "top_dossiers": parse_json(item.get("top_dossiers_json"), []),
                     },

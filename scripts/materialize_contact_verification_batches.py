@@ -322,6 +322,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 
 def write_db(conn: sqlite3.Connection, rows: list[dict]) -> None:
     conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+    conn.execute("DELETE FROM contact_verification_batch_packets")
     conn.execute("DELETE FROM contact_verification_batches")
     if not rows:
         return

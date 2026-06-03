@@ -782,6 +782,306 @@
     "domain_review_required_before_decision": 1,
     "ready_for_reviewer_verification": 312
   },
+  "contact_verification_batch_packet_reobservation_counts": {
+    "fresh_official_same_value_reobserved": 205,
+    "fresh_official_value_absent": 108
+  },
+  "contact_verification_batch_packet_status_counts": {
+    "blocked_contact_verification_packet": 1,
+    "missing_value_contact_verification_packet": 107,
+    "same_value_contact_verification_packet": 205
+  },
+  "contact_verification_batch_packet_summary": {
+    "batch_rows": 12,
+    "blocked_packet_count": 1,
+    "by_packet_status": {
+      "blocked_contact_verification_packet": 1,
+      "missing_value_contact_verification_packet": 107,
+      "same_value_contact_verification_packet": 205
+    },
+    "by_reobservation_status": {
+      "fresh_official_same_value_reobserved": 205,
+      "fresh_official_value_absent": 108
+    },
+    "by_role": {
+      "current_penn_attending_candidate": 34,
+      "fellow": 53,
+      "medical_student": 205,
+      "resident": 21
+    },
+    "by_support_status": {
+      "blocked_before_contact_review": 1,
+      "ready_for_missing_value_contact_review": 107,
+      "ready_for_same_value_contact_review": 205
+    },
+    "contact_count": 313,
+    "csv": "artifacts/data/contact_verification_batch_packets.csv",
+    "generated_at": "2026-06-03T12:36:24.200155+00:00",
+    "json": "artifacts/data/contact_verification_batch_packets.json",
+    "packet_rows": 313,
+    "pending_decision_count": 312,
+    "person_count": 313,
+    "policy": "Contact verification batch packets are non-mutating row-level evidence. Accepted contact facts still require explicit reviewer decisions with current fingerprints and confirmation fields.",
+    "same_value_reobserved_count": 205,
+    "top_packets": [
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Erin O. Aakhus, MD",
+        "execution_order": "1",
+        "packet_order": 1,
+        "recommended_next_action": "resolve_domain_anomaly_before_contact_acceptance",
+        "role": "current_penn_attending_candidate",
+        "support_status": "blocked_before_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Aidan Crowley",
+        "execution_order": "2",
+        "packet_order": 1,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Akshay Govindan",
+        "execution_order": "2",
+        "packet_order": 2,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Aleksia Barka",
+        "execution_order": "2",
+        "packet_order": 3,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Alexandria Adigun",
+        "execution_order": "2",
+        "packet_order": 4,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Alfredo Lucas",
+        "execution_order": "2",
+        "packet_order": 5,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Amelia Li",
+        "execution_order": "2",
+        "packet_order": 6,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Amelia Taylor",
+        "execution_order": "2",
+        "packet_order": 7,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Andres Fernandez del Castillo",
+        "execution_order": "2",
+        "packet_order": 8,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Andrew Nelson",
+        "execution_order": "2",
+        "packet_order": 9,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Angela Gong",
+        "execution_order": "2",
+        "packet_order": 10,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Ankita Reddy",
+        "execution_order": "2",
+        "packet_order": 11,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Annie Liang",
+        "execution_order": "2",
+        "packet_order": 12,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Ashwin Kammula",
+        "execution_order": "2",
+        "packet_order": 13,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Audrey Luo",
+        "execution_order": "2",
+        "packet_order": 14,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Aya Abu-Alfa",
+        "execution_order": "2",
+        "packet_order": 15,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Barbara Xiong",
+        "execution_order": "2",
+        "packet_order": 16,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Ben Kahn",
+        "execution_order": "2",
+        "packet_order": 17,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Benjamin Creekmore",
+        "execution_order": "2",
+        "packet_order": 18,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Blake Jardin",
+        "execution_order": "2",
+        "packet_order": 19,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Brian Franklin",
+        "execution_order": "2",
+        "packet_order": 20,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Brian Goldspiel",
+        "execution_order": "2",
+        "packet_order": 21,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Briana Macedo",
+        "execution_order": "2",
+        "packet_order": 22,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Carl Bannerman",
+        "execution_order": "2",
+        "packet_order": 23,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      },
+      {
+        "canonical_contact_domain": "pennmedicine.upenn.edu",
+        "contact_type": "email",
+        "display_name": "Carlos Rodriguez",
+        "execution_order": "2",
+        "packet_order": 24,
+        "recommended_next_action": "record_accept_reject_or_needs_more_evidence_decision_using_fresh_reobservation",
+        "role": "medical_student",
+        "support_status": "ready_for_same_value_contact_review"
+      }
+    ],
+    "value_absent_count": 108
+  },
+  "contact_verification_batch_packet_support_counts": {
+    "blocked_before_contact_review": 1,
+    "ready_for_missing_value_contact_review": 107,
+    "ready_for_same_value_contact_review": 205
+  },
   "contact_verification_contract_summary": {
     "acceptance_rule": "A contact becomes verified only after a fresh official source reobserves the same value, domain, person identity, and intended contact scope, or after an explicit reviewer decision records that evidence.",
     "as_of_date": "2026-06-02",
@@ -909,7 +1209,7 @@
     },
     "critical_rows": 113,
     "csv": "artifacts/data/corpus_action_worklist.csv",
-    "generated_at": "2026-06-03T12:26:06.839078+00:00",
+    "generated_at": "2026-06-03T12:36:24.366612+00:00",
     "high_rows": 158,
     "impact_count_policy": "Summed action-item impact, not deduplicated unique people; the same person or program can correctly appear in multiple evidence, review, contact, state, or source-refresh surfaces.",
     "json": "artifacts/data/corpus_action_worklist.json",
@@ -1223,6 +1523,7 @@
     "category_refresh_expectations": 3,
     "contact_assurance_audit": 313,
     "contact_reobservation_audit": 313,
+    "contact_verification_batch_packets": 313,
     "contact_verification_batches": 12,
     "contact_verification_contracts": 313,
     "contact_verification_reviewer_decision_audit": 313,
@@ -1361,7 +1662,7 @@
     "training_temporal_contract_batches": 93,
     "training_temporal_contract_rollups": 231,
     "training_temporal_contracts": 1682,
-    "warehouse_reproducibility_audit": 162
+    "warehouse_reproducibility_audit": 163
   },
   "database_path": "artifacts/data/redmank.sqlite",
   "enrichment_acceptance_counts": {
@@ -2693,7 +2994,7 @@
     "source_refresh_required": 748,
     "stage_outside_nominal_duration_review": 23
   },
-  "generated_at": "2026-06-03T12:26:10.861536+00:00",
+  "generated_at": "2026-06-03T12:36:28.535348+00:00",
   "generic_program_label_count": 0,
   "lifecycle_assurance_counts": {
     "deterministic_clock_supported": 36,
@@ -9519,12 +9820,12 @@
     "trainee_category": 3
   },
   "warehouse_reproducibility_counts": {
-    "ok": 162
+    "ok": 163
   },
   "warehouse_reproducibility_summary": {
     "acceptance_rule": "A warehouse is reproducible only when required artifacts exist and row counts match their SQLite tables; binary size warnings do not invalidate data, but they require repository storage action.",
-    "artifact_rows": 162,
-    "audited_at": "2026-06-03T12:26:08.234482+00:00",
+    "artifact_rows": 163,
+    "audited_at": "2026-06-03T12:36:25.813727+00:00",
     "binary_size_warning_rows": 0,
     "by_artifact_role": {
       "acceptance_ledger": 1,
@@ -9547,6 +9848,7 @@
       "contact_ledger": 1,
       "contact_reobservation_ledger": 1,
       "contact_verification_batch_ledger": 1,
+      "contact_verification_batch_packet_ledger": 1,
       "contact_verification_contract_ledger": 1,
       "contact_verification_reviewer_decision_dossier_ledger": 1,
       "contact_verification_reviewer_decision_input": 1,
@@ -9644,17 +9946,17 @@
       "warehouse_export": 4
     },
     "by_row_count_status": {
-      "ok": 162
+      "ok": 163
     },
     "csv": "artifacts/data/warehouse_reproducibility_audit.csv",
     "github_recommended_file_limit_bytes": 52428800,
     "json": "artifacts/data/warehouse_reproducibility_audit.json",
     "required_missing_artifacts": 0,
     "row_count_mismatch_rows": 0,
-    "sqlite_byte_size": 480636928,
+    "sqlite_byte_size": 486793216,
     "sqlite_git_tracked": false,
     "sqlite_manifest": "artifacts/data/redmank_sqlite_manifest.json",
-    "sqlite_sha256": "b0dc31885070dc50599f0356a66d91766a1c339db3be5e21a93359a22611c62b",
+    "sqlite_sha256": "f1f63108a0f1c7319e2d8e5c98fbf42040aaef6ee2e6bd475d0bd862dc081760",
     "sqlite_storage_policy": "generated_untracked_sqlite_warehouse"
   }
 }

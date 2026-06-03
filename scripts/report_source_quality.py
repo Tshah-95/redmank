@@ -538,12 +538,20 @@ def main() -> None:
         ARTIFACTS / "contact_verification_batch_summary.json",
         {},
     )
+    contact_verification_batch_packet_summary = read_json(
+        ARTIFACTS / "contact_verification_batch_packet_summary.json",
+        {},
+    )
     top_contact_reviewer_dossiers = read_csv(
         ARTIFACTS / "contact_verification_reviewer_decision_dossiers.csv",
         limit=25,
     )
     top_contact_verification_batches = read_csv(
         ARTIFACTS / "contact_verification_batches.csv",
+        limit=25,
+    )
+    top_contact_verification_batch_packets = read_csv(
+        ARTIFACTS / "contact_verification_batch_packets.csv",
         limit=25,
     )
     top_official_profile_reviewer_dossiers = read_csv(
@@ -943,8 +951,10 @@ def main() -> None:
         "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
         "contact_reviewer_dossier_summary": contact_reviewer_dossier_summary,
         "contact_verification_batch_summary": contact_verification_batch_summary,
+        "contact_verification_batch_packet_summary": contact_verification_batch_packet_summary,
         "top_contact_reviewer_dossiers": top_contact_reviewer_dossiers,
         "top_contact_verification_batches": top_contact_verification_batches,
+        "top_contact_verification_batch_packets": top_contact_verification_batch_packets,
         "accepted_contact_counts": accepted_contact_counts,
         "hup_gme_program_coverage_summary": hup_coverage_summary,
         "hup_gme_program_coverage_gaps_sample": hup_not_covered,
@@ -2343,6 +2353,7 @@ def main() -> None:
         "Contact verification batches:",
         "",
         f"Batch rows: {contact_verification_batch_summary.get('batch_rows', 0)}. Contacts covered: {contact_verification_batch_summary.get('contact_count', 0)}. Same-value reobserved: {contact_verification_batch_summary.get('same_value_reobserved_count', 0)}. Value absent: {contact_verification_batch_summary.get('value_absent_count', 0)}. Pending decisions: {contact_verification_batch_summary.get('pending_decision_count', 0)}. Not-ready contacts: {contact_verification_batch_summary.get('not_ready_count', 0)}.",
+        f"Packet rows: {contact_verification_batch_packet_summary.get('packet_rows', 0)} across {contact_verification_batch_packet_summary.get('batch_rows', 0)} batches. Same-value packet rows: {contact_verification_batch_packet_summary.get('same_value_reobserved_count', 0)}. Value-absent packet rows: {contact_verification_batch_packet_summary.get('value_absent_count', 0)}. Blocked packet rows: {contact_verification_batch_packet_summary.get('blocked_packet_count', 0)}.",
         "",
         *md_table(
             top_contact_verification_batches,
@@ -2354,6 +2365,20 @@ def main() -> None:
                 "source_assurance_class",
                 "contact_count",
                 "recommended_operator_action",
+            ],
+        ),
+        "",
+        *md_table(
+            top_contact_verification_batch_packets,
+            [
+                "execution_order",
+                "packet_order",
+                "display_name",
+                "role",
+                "contact_type",
+                "canonical_contact_domain",
+                "support_status",
+                "recommended_next_action",
             ],
         ),
         "",

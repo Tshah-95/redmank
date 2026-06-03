@@ -30,6 +30,7 @@ PIPELINE = [
     ["python3", "scripts/materialize_contact_verification_reviewer_decisions.py"],
     ["python3", "scripts/materialize_contact_verification_reviewer_decision_dossiers.py"],
     ["python3", "scripts/materialize_contact_verification_batches.py"],
+    ["python3", "scripts/materialize_contact_verification_batch_packets.py"],
     ["python3", "scripts/materialize_attending_trend_review_claims.py"],
     ["python3", "scripts/audit_attending_trend_acceptance.py"],
     ["python3", "scripts/materialize_attending_trend_reviewer_decisions.py"],

@@ -136,6 +136,7 @@ def main() -> None:
         "contact_verification_reviewer_decision_audit",
         "contact_verification_reviewer_decision_dossiers",
         "contact_verification_batches",
+        "contact_verification_batch_packets",
         "accepted_verified_contact_facts",
         "evidence_claims",
         "evidence_reconciliation_decisions",
@@ -1147,6 +1148,36 @@ def main() -> None:
             """
         )
     }
+    contact_verification_batch_packet_status_counts = {
+        row["packet_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT packet_status, COUNT(*) AS count
+            FROM contact_verification_batch_packets
+            GROUP BY packet_status
+            """
+        )
+    }
+    contact_verification_batch_packet_support_counts = {
+        row["support_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT support_status, COUNT(*) AS count
+            FROM contact_verification_batch_packets
+            GROUP BY support_status
+            """
+        )
+    }
+    contact_verification_batch_packet_reobservation_counts = {
+        row["reobservation_status"]: row["count"]
+        for row in conn.execute(
+            """
+            SELECT reobservation_status, COUNT(*) AS count
+            FROM contact_verification_batch_packets
+            GROUP BY reobservation_status
+            """
+        )
+    }
     accepted_contact_counts = {
         row["contact_type"]: row["count"]
         for row in conn.execute(
@@ -1978,6 +2009,11 @@ def main() -> None:
         )
     else:
         contact_reviewer_dossier_summary = {}
+    contact_batch_packet_summary_path = ARTIFACTS / "contact_verification_batch_packet_summary.json"
+    if contact_batch_packet_summary_path.exists():
+        contact_batch_packet_summary = json.loads(contact_batch_packet_summary_path.read_text(encoding="utf-8"))
+    else:
+        contact_batch_packet_summary = {}
     person_enrichment_dossier_summary_path = ARTIFACTS / "person_enrichment_dossier_summary.json"
     if person_enrichment_dossier_summary_path.exists():
         person_enrichment_dossier_summary = json.loads(
@@ -2301,6 +2337,9 @@ def main() -> None:
         "contact_reviewer_decision_counts": contact_reviewer_decision_counts,
         "contact_reviewer_queue_counts": contact_reviewer_queue_counts,
         "contact_reviewer_dossier_counts": contact_reviewer_dossier_counts,
+        "contact_verification_batch_packet_status_counts": contact_verification_batch_packet_status_counts,
+        "contact_verification_batch_packet_support_counts": contact_verification_batch_packet_support_counts,
+        "contact_verification_batch_packet_reobservation_counts": contact_verification_batch_packet_reobservation_counts,
         "accepted_verified_contact_counts": accepted_contact_counts,
         "official_program_coverage_counts": official_program_coverage_counts,
         "official_program_source_candidate_counts": official_program_source_candidate_counts,
@@ -2398,6 +2437,7 @@ def main() -> None:
         "contact_verification_contract_summary": contact_verification_contract_summary,
         "contact_verification_reviewer_decision_summary": contact_reviewer_decision_summary,
         "contact_verification_reviewer_decision_dossier_summary": contact_reviewer_dossier_summary,
+        "contact_verification_batch_packet_summary": contact_batch_packet_summary,
         "person_enrichment_dossier_summary": person_enrichment_dossier_summary,
         "person_enrichment_execution_readiness_summary": person_enrichment_execution_readiness_summary,
         "person_enrichment_execution_batch_summary": person_enrichment_execution_batch_summary,

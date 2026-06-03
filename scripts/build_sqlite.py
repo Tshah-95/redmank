@@ -2305,6 +2305,7 @@ def write_summary(conn: sqlite3.Connection, db_path: Path) -> None:
         "contact_verification_reviewer_decision_audit",
         "contact_verification_reviewer_decision_dossiers",
         "contact_verification_batches",
+        "contact_verification_batch_packets",
         "accepted_verified_contact_facts",
         "evidence_claims",
         "evidence_reconciliation_decisions",

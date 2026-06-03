@@ -150,6 +150,7 @@ CSV_TABLES = [
     ("contact_verification_reviewer_decision_audit.csv", "contact_verification_reviewer_decision_audit"),
     ("contact_verification_reviewer_decision_dossiers.csv", "contact_verification_reviewer_decision_dossiers"),
     ("contact_verification_batches.csv", "contact_verification_batches"),
+    ("contact_verification_batch_packets.csv", "contact_verification_batch_packets"),
     ("accepted_verified_contact_facts.csv", "accepted_verified_contact_facts"),
     ("attending_trend_review_claims.csv", "attending_trend_review_claims"),
     ("attending_trend_acceptance_audit.csv", "attending_trend_acceptance_audit"),

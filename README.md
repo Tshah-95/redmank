@@ -207,6 +207,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/contact_verification_reviewer_decision_dossiers.csv`: copy-ready contact reviewer dossiers with current decision status, reobservation evidence, acceptance boundary, and manual decision templates keyed to the current contact fingerprint.
 - `artifacts/data/contact_verification_batches.csv`: bounded reviewer batches over contact dossiers, grouped by queue status, verification lane, reobservation result, role, domain, and source class while keeping exact contact values in per-contact dossiers.
 - `artifacts/data/contact_verification_batch_summary.json`: batch counts, same-value/missing-value reobservation burden, pending decision counts, and top contact verification batches.
+- `artifacts/data/contact_verification_batch_packets.csv`: per-contact packets under contact verification batches, preserving dossier, reviewer-decision, contract, source, reobservation, and confirmation-boundary evidence for each contact.
+- `artifacts/data/contact_verification_batch_packet_summary.json`: packet counts by packet status, support status, reobservation status, role, blocked rows, same-value rows, and value-absent rows.
 - `artifacts/data/accepted_verified_contact_facts.csv`: accepted public-source-backed verified contact facts; currently empty until explicit reviewer acceptance records current official reobservation.
 - `artifacts/data/contact_verification_reviewer_decision_summary.json`: contact-decision queue, pending, rejected/deferred, and accepted-contact counts.
 - `artifacts/data/contact_verification_reviewer_decision_dossier_summary.json`: contact reviewer dossier counts by current decision status, queue status, verification lane, and reobservation status.
@@ -410,6 +412,7 @@ python3 scripts/materialize_contact_verification_contracts.py --as-of-date 2026-
 python3 scripts/materialize_contact_verification_reviewer_decisions.py
 python3 scripts/materialize_contact_verification_reviewer_decision_dossiers.py
 python3 scripts/materialize_contact_verification_batches.py
+python3 scripts/materialize_contact_verification_batch_packets.py
 python3 scripts/materialize_attending_trend_review_claims.py
 python3 scripts/audit_attending_trend_acceptance.py
 python3 scripts/materialize_attending_trend_reviewer_decisions.py
