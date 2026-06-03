@@ -125,6 +125,7 @@ CSV_TABLES = [
     ("person_evidence_review_batch_packets.csv", "person_evidence_review_batch_packets"),
     ("source_utility_scorecard.csv", "source_utility_scorecard"),
     ("search_utility_assurance.csv", "search_utility_assurance"),
+    ("search_utility_execution_batches.csv", "search_utility_execution_batches"),
     ("corpus_action_worklist.csv", "corpus_action_worklist"),
     ("warehouse_reproducibility_audit.csv", "warehouse_reproducibility_audit"),
     ("accepted_enrichment_claims.csv", "accepted_enrichment_claims"),

@@ -136,6 +136,7 @@ def main() -> None:
         "source_quality_observations",
         "source_utility_scorecard",
         "search_utility_assurance",
+        "search_utility_execution_batches",
         "corpus_action_worklist",
         "official_program_universe",
         "official_program_coverage_audit",

@@ -400,6 +400,10 @@ def main() -> None:
         {},
     )
     search_utility_assurance_summary = read_json(ARTIFACTS / "search_utility_assurance_summary.json", {})
+    search_utility_execution_batch_summary = read_json(
+        ARTIFACTS / "search_utility_execution_batch_summary.json",
+        {},
+    )
     official_profile_discovery_batch_summary = read_json(
         ARTIFACTS / "official_profile_discovery_batch_summary.json",
         {},
@@ -503,6 +507,10 @@ def main() -> None:
         limit=25,
     )
     search_utility_assurance = read_csv(ARTIFACTS / "search_utility_assurance.csv")
+    top_search_utility_execution_batches = read_csv(
+        ARTIFACTS / "search_utility_execution_batches.csv",
+        limit=25,
+    )
     program_lifecycle_duration_evidence = read_csv(
         ARTIFACTS / "program_lifecycle_duration_evidence.csv",
         limit=25,
@@ -741,6 +749,8 @@ def main() -> None:
         "top_research_identity_reviewer_dossiers": top_research_identity_reviewer_dossiers,
         "search_utility_assurance_summary": search_utility_assurance_summary,
         "search_utility_assurance": search_utility_assurance,
+        "search_utility_execution_batch_summary": search_utility_execution_batch_summary,
+        "top_search_utility_execution_batches": top_search_utility_execution_batches,
         "official_profile_discovery_batch_summary": official_profile_discovery_batch_summary,
         "top_official_profile_discovery_batches": top_official_profile_discovery_batches,
         "official_profile_reviewer_dossier_summary": official_profile_reviewer_dossier_summary,
@@ -1282,6 +1292,23 @@ def main() -> None:
                 "result_rows",
                 "search_execution_status",
                 "recommended_next_action",
+            ],
+        ),
+        "",
+        "Execution batches:",
+        "",
+        f"Batch rows: {search_utility_execution_batch_summary.get('batch_rows', 0)}. Unobserved queries: {search_utility_execution_batch_summary.get('unobserved_query_count', 0)}. Failed observations: {search_utility_execution_batch_summary.get('failed_observation_count', 0)}. Search candidates: {search_utility_execution_batch_summary.get('search_candidate_count', 0)}. Action-impact count: {search_utility_execution_batch_summary.get('action_impact_count', 0)}.",
+        "",
+        *md_table(
+            top_search_utility_execution_batches,
+            [
+                "execution_order",
+                "utility_family",
+                "batch_lane",
+                "batch_status",
+                "batch_row_count",
+                "action_impact_count",
+                "recommended_operator_action",
             ],
         ),
         "",

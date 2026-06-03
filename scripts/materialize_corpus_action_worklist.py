@@ -624,6 +624,78 @@ def contact_actions(generated_at: str) -> list[dict]:
 
 def search_utility_actions(generated_at: str) -> list[dict]:
     rows = []
+    batch_path = ARTIFACTS / "search_utility_execution_batches.csv"
+    if batch_path.exists():
+        source = "artifacts/data/search_utility_execution_batches.csv"
+        for item in read_csv(batch_path):
+            lane = item.get("batch_lane") or ""
+            priority = {
+                "query_execution": 760,
+                "endpoint_retry": 740,
+                "candidate_probe": 620,
+            }.get(lane, 360) + min(as_int(item.get("action_impact_count")), 220)
+            rows.append(
+                row(
+                    action_surface="search_utility_assurance",
+                    action_scope=f"{item.get('utility_family') or ''}:{item.get('batch_lane') or ''}",
+                    entity_type="search_utility_execution_batch",
+                    entity_key=item.get("search_utility_execution_batch_key") or "",
+                    display_label=" | ".join(
+                        part
+                        for part in [
+                            item.get("utility_name"),
+                            item.get("batch_lane"),
+                            f"batch {item.get('execution_order')}",
+                        ]
+                        if part
+                    ),
+                    role="",
+                    program_name="",
+                    priority=priority,
+                    impact_count=max(as_int(item.get("action_impact_count")), 1),
+                    readiness_status=item.get("batch_status") or "",
+                    blocker_status=item.get("error_signature") or item.get("http_status_signature") or item.get("candidate_status_signature") or "",
+                    required_next_evidence=item.get("required_next_evidence") or "",
+                    recommended_next_action=item.get("recommended_operator_action") or "",
+                    source_artifact=source,
+                    target_artifact=item.get("target_artifact") or "",
+                    downstream_tables=[
+                        "search_utility_execution_batches",
+                        "search_utility_assurance",
+                        "official_program_source_search_observations",
+                        "official_program_source_candidates",
+                        "trainee_profile_discovery_candidates",
+                        "prior_training_discovery_candidates",
+                        "attending_historical_link_candidates",
+                    ],
+                    evidence={
+                        "search_utility_execution_batch_key": item.get("search_utility_execution_batch_key"),
+                        "execution_order": item.get("execution_order"),
+                        "utility_key": item.get("utility_key"),
+                        "utility_family": item.get("utility_family"),
+                        "batch_lane": item.get("batch_lane"),
+                        "query_artifact": item.get("query_artifact"),
+                        "observation_artifact": item.get("observation_artifact"),
+                        "candidate_artifact": item.get("candidate_artifact"),
+                        "query_count": item.get("query_count"),
+                        "unobserved_query_count": item.get("unobserved_query_count"),
+                        "failed_observation_count": item.get("failed_observation_count"),
+                        "candidate_count": item.get("candidate_count"),
+                        "search_candidate_count": item.get("search_candidate_count"),
+                        "action_impact_count": item.get("action_impact_count"),
+                        "query_kind_counts": parse_json(item.get("query_kind_counts_json"), {}),
+                        "http_status_counts": parse_json(item.get("http_status_counts_json"), {}),
+                        "error_counts": parse_json(item.get("error_counts_json"), {}),
+                        "candidate_status_counts": parse_json(item.get("candidate_status_counts_json"), {}),
+                        "sample_queries": parse_json(item.get("sample_queries_json"), []),
+                        "sample_observations": parse_json(item.get("sample_observations_json"), []),
+                        "sample_candidates": parse_json(item.get("sample_candidates_json"), []),
+                    },
+                    generated_at=generated_at,
+                )
+            )
+        return rows
+
     source = "artifacts/data/search_utility_assurance.csv"
     for item in read_csv(ARTIFACTS / "search_utility_assurance.csv"):
         status = item.get("search_execution_status") or ""

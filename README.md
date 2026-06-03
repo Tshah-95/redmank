@@ -198,6 +198,8 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - `artifacts/data/source_utility_scorecard_summary.json`: quality-band and next-action rollup for source utilities.
 - `artifacts/data/search_utility_assurance.csv`: cross-lane assurance ledger for search-backed discovery utilities, separating query manifests, search observations, endpoint failures, and candidate yields.
 - `artifacts/data/search_utility_assurance_summary.json`: rollup counts for planned, executed, blocked, and candidate-yielding search utilities.
+- `artifacts/data/search_utility_execution_batches.csv`: bounded execution batches for search-backed discovery utilities, splitting unobserved query execution, endpoint retries, and candidate probing without converting search hits into accepted evidence.
+- `artifacts/data/search_utility_execution_batch_summary.json`: batch counts, unobserved-query burden, endpoint-retry burden, candidate-probe burden, and top search execution batches.
 - `artifacts/data/person_enrichment_action_member_execution_queue.csv`: fingerprinted per-member execution-decision queue.
 - `artifacts/data/person_enrichment_action_member_execution_decisions.csv`: manual execution-outcome input file for action-batch members.
 - `artifacts/data/person_enrichment_action_member_execution_audit.csv`: audit of execution decisions, stale fingerprints, blockers, and downstream routing.
@@ -220,6 +222,7 @@ The first case study focuses on Penn Department of Medicine residents and fellow
 - The worklist consumes `official_roster_refresh_workbench.csv` when available, so roster refresh work is grouped by public source URL, program, role, and expected transition lane instead of broad role-level tasks.
 - The worklist consumes `official_roster_refresh_batches.csv` when available, so roster refresh execution is grouped into bounded collector/parser/domain batches while source/program contracts remain the downstream evidence detail.
 - The worklist consumes `official_program_coverage_batches.csv` when available, so denominator coverage actions are grouped by lane, blocker, program type, and assurance level while program dossiers remain downstream evidence detail.
+- The worklist consumes `search_utility_execution_batches.csv` when available, so search assurance gaps become executable query, retry, and candidate-probe batches while the four-row utility assurance ledger remains the source-quality rollup.
 - The worklist consumes `person_enrichment_action_execution_plan.csv` when available, so action-member execution is routed through bounded batch plans with member-fingerprint decision templates instead of raw per-member dossier scans.
 - `artifacts/data/official_roster_refresh_execution_audit.csv`: post-run collector audit tying refreshed public roster source summaries to the resulting training-state snapshot diff.
 - The worklist consumes the refresh execution audit to down-rank ready roster batches that were already refreshed with no state delta, while keeping parser-support blockers visible.
@@ -368,6 +371,7 @@ python3 scripts/materialize_attending_trend_discovery_batches.py
 python3 scripts/audit_warehouse_reproducibility.py
 python3 scripts/audit_source_utility_scorecard.py
 python3 scripts/materialize_search_utility_assurance.py
+python3 scripts/materialize_search_utility_execution_batches.py
 python3 scripts/materialize_official_profile_discovery_workbench.py
 python3 scripts/materialize_official_profile_discovery_batches.py
 python3 scripts/materialize_official_profile_reobservation_audit.py

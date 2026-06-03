@@ -1,0 +1,256 @@
+{
+  "action_impact_count": 5874,
+  "batch_rows": 136,
+  "by_batch_lane": {
+    "candidate_probe": 61,
+    "endpoint_retry": 8,
+    "query_execution": 67
+  },
+  "by_batch_status": {
+    "search_candidate_probe_ready": 61,
+    "search_endpoint_retry_ready": 8,
+    "search_query_execution_ready": 67
+  },
+  "by_utility_family": {
+    "official_program_gap_discovery": 3,
+    "person_background_discovery": 16,
+    "person_profile_discovery": 92,
+    "recent_attending_trend_discovery": 25
+  },
+  "candidate_count": 2650,
+  "csv": "artifacts/data/search_utility_execution_batches.csv",
+  "failed_observation_count": 100,
+  "generated_at": "2026-06-03T09:32:14.251342+00:00",
+  "json": "artifacts/data/search_utility_execution_batches.json",
+  "policy": "Search utility execution batches make unobserved queries, endpoint retries, and candidate probes executable without turning search results into accepted evidence.",
+  "query_count": 5874,
+  "search_candidate_count": 2650,
+  "top_batches": [
+    {
+      "action_impact_count": 1,
+      "batch_lane": "candidate_probe",
+      "batch_row_count": 1,
+      "batch_status": "search_candidate_probe_ready",
+      "execution_order": 1,
+      "recommended_operator_action": "probe_search_candidate_batch_and_route_claims_through_reconciliation",
+      "utility_family": "recent_attending_trend_discovery"
+    },
+    {
+      "action_impact_count": 14,
+      "batch_lane": "query_execution",
+      "batch_row_count": 14,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 2,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "official_program_gap_discovery"
+    },
+    {
+      "action_impact_count": 14,
+      "batch_lane": "query_execution",
+      "batch_row_count": 14,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 3,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "official_program_gap_discovery"
+    },
+    {
+      "action_impact_count": 27,
+      "batch_lane": "candidate_probe",
+      "batch_row_count": 27,
+      "batch_status": "search_candidate_probe_ready",
+      "execution_order": 4,
+      "recommended_operator_action": "probe_search_candidate_batch_and_route_claims_through_reconciliation",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 14,
+      "batch_lane": "query_execution",
+      "batch_row_count": 14,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 5,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "official_program_gap_discovery"
+    },
+    {
+      "action_impact_count": 1,
+      "batch_lane": "candidate_probe",
+      "batch_row_count": 1,
+      "batch_status": "search_candidate_probe_ready",
+      "execution_order": 6,
+      "recommended_operator_action": "probe_search_candidate_batch_and_route_claims_through_reconciliation",
+      "utility_family": "recent_attending_trend_discovery"
+    },
+    {
+      "action_impact_count": 1,
+      "batch_lane": "candidate_probe",
+      "batch_row_count": 1,
+      "batch_status": "search_candidate_probe_ready",
+      "execution_order": 7,
+      "recommended_operator_action": "probe_search_candidate_batch_and_route_claims_through_reconciliation",
+      "utility_family": "recent_attending_trend_discovery"
+    },
+    {
+      "action_impact_count": 1,
+      "batch_lane": "candidate_probe",
+      "batch_row_count": 1,
+      "batch_status": "search_candidate_probe_ready",
+      "execution_order": 8,
+      "recommended_operator_action": "probe_search_candidate_batch_and_route_claims_through_reconciliation",
+      "utility_family": "recent_attending_trend_discovery"
+    },
+    {
+      "action_impact_count": 1,
+      "batch_lane": "candidate_probe",
+      "batch_row_count": 1,
+      "batch_status": "search_candidate_probe_ready",
+      "execution_order": 9,
+      "recommended_operator_action": "probe_search_candidate_batch_and_route_claims_through_reconciliation",
+      "utility_family": "recent_attending_trend_discovery"
+    },
+    {
+      "action_impact_count": 19,
+      "batch_lane": "endpoint_retry",
+      "batch_row_count": 19,
+      "batch_status": "search_endpoint_retry_ready",
+      "execution_order": 10,
+      "recommended_operator_action": "retry_failed_search_observation_batch_with_backoff_or_alternate_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 9,
+      "batch_lane": "endpoint_retry",
+      "batch_row_count": 9,
+      "batch_status": "search_endpoint_retry_ready",
+      "execution_order": 11,
+      "recommended_operator_action": "retry_failed_search_observation_batch_with_backoff_or_alternate_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 12,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 13,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 14,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 15,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 16,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 17,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 18,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 19,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 20,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 21,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 22,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_profile_discovery"
+    },
+    {
+      "action_impact_count": 19,
+      "batch_lane": "endpoint_retry",
+      "batch_row_count": 19,
+      "batch_status": "search_endpoint_retry_ready",
+      "execution_order": 23,
+      "recommended_operator_action": "retry_failed_search_observation_batch_with_backoff_or_alternate_provider",
+      "utility_family": "person_background_discovery"
+    },
+    {
+      "action_impact_count": 19,
+      "batch_lane": "endpoint_retry",
+      "batch_row_count": 19,
+      "batch_status": "search_endpoint_retry_ready",
+      "execution_order": 24,
+      "recommended_operator_action": "retry_failed_search_observation_batch_with_backoff_or_alternate_provider",
+      "utility_family": "person_background_discovery"
+    },
+    {
+      "action_impact_count": 50,
+      "batch_lane": "query_execution",
+      "batch_row_count": 50,
+      "batch_status": "search_query_execution_ready",
+      "execution_order": 25,
+      "recommended_operator_action": "execute_search_query_batch_or_replace_with_reliable_provider",
+      "utility_family": "person_background_discovery"
+    }
+  ],
+  "unobserved_query_count": 3124
+}

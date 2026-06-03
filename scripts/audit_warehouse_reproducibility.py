@@ -782,6 +782,13 @@ ARTIFACT_SPECS = [
     ),
     ("artifacts/data/source_utility_scorecard.csv", "source_quality_ledger", "csv", "source_utility_scorecard", True),
     ("artifacts/data/search_utility_assurance.csv", "source_quality_ledger", "csv", "search_utility_assurance", True),
+    (
+        "artifacts/data/search_utility_execution_batches.csv",
+        "source_quality_execution_batch_ledger",
+        "csv",
+        "search_utility_execution_batches",
+        True,
+    ),
     ("artifacts/data/corpus_action_worklist.csv", "operator_worklist", "csv", "corpus_action_worklist", True),
 ]
 
