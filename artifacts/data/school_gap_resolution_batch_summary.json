@@ -29,7 +29,7 @@
   "gap_rows_by_school": {
     "VANDERBILT UNIVERSITY SCH OF MEDICINE": 113
   },
-  "generated_at": "2026-06-08T02:40:36.969220+00:00",
+  "generated_at": "2026-06-09T07:14:00.835424+00:00",
   "json": "artifacts/data/school_gap_resolution_batches.json",
   "mutation_allowed": false,
   "policy": "Non-mutating bounded operator batches over school_gap_resolution_manifest rows. These batches do not approve people, denominator closure, school verification, URL rewrites, training-state mutation, or identity collapse.",

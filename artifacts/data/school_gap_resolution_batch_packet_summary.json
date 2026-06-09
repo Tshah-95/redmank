@@ -17,7 +17,7 @@
     "needs_source_discovery_or_closure_evidence": 50
   },
   "csv": "artifacts/data/school_gap_resolution_batch_packets.csv",
-  "generated_at": "2026-06-08T02:40:36.999863+00:00",
+  "generated_at": "2026-06-09T07:14:00.863606+00:00",
   "json": "artifacts/data/school_gap_resolution_batch_packets.json",
   "mutation_allowed": false,
   "policy": "Row-level packets for non-mutating school gap-resolution batches. They carry exact gap evidence and mutation prohibitions forward to operator work.",

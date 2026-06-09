@@ -32,6 +32,7 @@ EXPECTED_VANDERBILT_SCAFFOLD_ROWSET = "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30
 EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET = "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d"
 EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET = "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3"
 EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4"
+EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -179,6 +180,20 @@ def gitignore_patterns_present() -> dict[str, bool]:
     return {pattern: pattern in text for pattern in PRIVATE_PATH_PATTERNS}
 
 
+def private_marker_hits_in_paths(paths: list[Path]) -> list[dict[str, str]]:
+    hits: list[dict[str, str]] = []
+    for path in paths:
+        if not path.exists():
+            hits.append({"path": str(path.relative_to(ROOT)), "kind": "missing"})
+            continue
+        text = path.read_text(encoding="utf-8")
+        for pattern in PRIVATE_PATH_PATTERNS:
+            marker = pattern.rstrip("*")
+            if marker and marker in text:
+                hits.append({"path": str(path.relative_to(ROOT)), "kind": "private_marker", "marker": pattern})
+    return hits
+
+
 def write_markdown(rows: list[dict[str, object]], summary: dict[str, object]) -> None:
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
     lines = [
@@ -238,6 +253,13 @@ def main() -> None:
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
     gap_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_manifest.csv")
+    gap_batch_summary = read_json(ARTIFACTS / "school_gap_resolution_batch_summary.json")
+    gap_batch_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_batches.csv")
+    gap_packet_summary = read_json(ARTIFACTS / "school_gap_resolution_batch_packet_summary.json")
+    gap_packet_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_batch_packets.csv")
+    gap_slice_summary = read_json(ARTIFACTS / "school_gap_resolution_batch_slice_index_summary.json")
+    gap_slice_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_batch_slice_index.csv")
+    gap_slice_json = read_json(ARTIFACTS / "school_gap_resolution_batch_slice_index.json")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
@@ -251,6 +273,9 @@ def main() -> None:
     reviewer_workbook_slicer_text = (
         ROOT / "scripts" / "slice_vanderbilt_reviewer_decision_patch_workbook.py"
     ).read_text(encoding="utf-8")
+    gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
+        encoding="utf-8"
+    )
 
     if not all(
         isinstance(item, dict)
@@ -266,6 +291,9 @@ def main() -> None:
             audit_summary,
             scaffold_summary,
             gap_summary,
+            gap_batch_summary,
+            gap_packet_summary,
+            gap_slice_summary,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
@@ -275,6 +303,7 @@ def main() -> None:
         or not isinstance(patch_template_json, list)
         or not isinstance(patch_workbook_json, list)
         or not isinstance(slice_index_json, list)
+        or not isinstance(gap_slice_json, list)
     ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
@@ -635,6 +664,59 @@ def main() -> None:
         },
         {"summary": "artifacts/data/school_gap_resolution_manifest_summary.json"},
     )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_gap_batch_slice_index_boundary",
+        gap_batch_summary.get("rows") == 21
+        and gap_batch_summary.get("gap_rows") == 113
+        and gap_batch_summary.get("mutation_allowed") is False
+        and len(gap_batch_csv) == 21
+        and gap_packet_summary.get("rows") == 113
+        and gap_packet_summary.get("batch_rows") == 21
+        and gap_packet_summary.get("mutation_allowed") is False
+        and len(gap_packet_csv) == 113
+        and gap_slice_summary.get("rowset_sha256") == EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET
+        and gap_slice_summary.get("slice_index_rows") == 21
+        and gap_slice_summary.get("gap_rows_represented") == 113
+        and gap_slice_summary.get("slice_outputs_default_tmp_only") is True
+        and gap_slice_summary.get("private_artifact_paths_committed") is False
+        and gap_slice_summary.get("mutation_allowed") is False
+        and len(gap_slice_csv) == 21
+        and len(gap_slice_json) == 21,
+        {
+            "batch_rows": 21,
+            "gap_rows": 113,
+            "packet_rows": 113,
+            "rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
+            "slice_index_rows": 21,
+            "gap_rows_represented": 113,
+            "slice_outputs_default_tmp_only": True,
+            "private_artifact_paths_committed": False,
+            "mutation_allowed": False,
+            "csv_rows": 21,
+            "json_rows": 21,
+        },
+        {
+            "batch_rows": gap_batch_summary.get("rows"),
+            "batch_gap_rows": gap_batch_summary.get("gap_rows"),
+            "batch_mutation_allowed": gap_batch_summary.get("mutation_allowed"),
+            "batch_csv_rows": len(gap_batch_csv),
+            "packet_rows": gap_packet_summary.get("rows"),
+            "packet_batch_rows": gap_packet_summary.get("batch_rows"),
+            "packet_mutation_allowed": gap_packet_summary.get("mutation_allowed"),
+            "packet_csv_rows": len(gap_packet_csv),
+            "rowset_sha256": gap_slice_summary.get("rowset_sha256"),
+            "slice_index_rows": gap_slice_summary.get("slice_index_rows"),
+            "gap_rows_represented": gap_slice_summary.get("gap_rows_represented"),
+            "slice_outputs_default_tmp_only": gap_slice_summary.get("slice_outputs_default_tmp_only"),
+            "private_artifact_paths_committed": gap_slice_summary.get("private_artifact_paths_committed"),
+            "mutation_allowed": gap_slice_summary.get("mutation_allowed"),
+            "csv_rows": len(gap_slice_csv),
+            "json_rows": len(gap_slice_json),
+        },
+        {"summary": "artifacts/data/school_gap_resolution_batch_slice_index_summary.json"},
+    )
     leak_hits = batch_packet_leak_hits(
         [
             ARTIFACTS / "vanderbilt_candidate_review_batch_packets.csv",
@@ -667,6 +749,23 @@ def main() -> None:
         [],
         leak_hits,
         {"scanned_outputs": 20, "scan": "url_like_text_or_reviewer_note_text_field"},
+    )
+    gap_private_hits = private_marker_hits_in_paths(
+        [
+            ARTIFACTS / "school_gap_resolution_batch_slice_index.csv",
+            ARTIFACTS / "school_gap_resolution_batch_slice_index.json",
+            ARTIFACTS / "school_gap_resolution_batch_slice_index_summary.json",
+            RESEARCH / "school-gap-resolution-batch-slice-index-2026-06-09.md",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_gap_slice_index_private_marker_scan",
+        not gap_private_hits,
+        [],
+        gap_private_hits,
+        {"scanned_outputs": 4, "scan": "private_artifact_path_markers"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -777,6 +876,30 @@ def main() -> None:
         },
         {"script": "scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py", "readme": "README.md"},
     )
+    gap_slicer_guard_present = all(
+        token in gap_batch_slicer_text
+        for token in [
+            "add_mutually_exclusive_group(required=True)",
+            "school_gap_resolution_batch_key",
+            "execution_order",
+            "/tmp/school_gap_resolution_batch_order_",
+            "PRIVATE_PATH_MARKERS",
+            "reviewer_note",
+            "mutation_allowed",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_gap_batch_slicer_guard_present",
+        gap_slicer_guard_present and "slice_school_gap_resolution_batch_packets.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": gap_slicer_guard_present,
+            "readme_documented": "slice_school_gap_resolution_batch_packets.py" in readme_text,
+        },
+        {"script": "scripts/slice_school_gap_resolution_batch_packets.py", "readme": "README.md"},
+    )
     add_check(
         checks,
         generated_at,
@@ -814,6 +937,7 @@ def main() -> None:
         "vanderbilt_patch_template_rowset_sha256": EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET,
         "vanderbilt_patch_workbook_rowset_sha256": EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET,
         "vanderbilt_workbook_slice_index_rowset_sha256": EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET,
+        "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,

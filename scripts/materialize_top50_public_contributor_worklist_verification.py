@@ -26,8 +26,8 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist_verification.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_verification_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-verification-2026-06-09.md"
 
-EXPECTED_WORKLIST_ROWSET = "9331d29f9930c9bd48d6ac896a7f6d53ffe9a4086167ac0fac79f660032188dc"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "cf1f18abd58299260914f93d697c1a5b14b348b31b5c77d985b43547b53ca76f"
+EXPECTED_WORKLIST_ROWSET = "8a0bb27a33e9344e25cca74e08b5ebfcb63057fc7db4100e94cbadcf2f5adf31"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "b706d7715ca275c8a5026f4f725c698a445a1b37417b1b6a95e3313fafdf2d1c"
 EXPECTED_BATCH_PACKET_ROWSET = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 EXPECTED_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
@@ -225,9 +225,9 @@ def main() -> None:
         "worklist_summary_boundary",
         summary.get("rowset_sha256") == EXPECTED_WORKLIST_ROWSET
         and summary.get("worklist_rows") == 4
-        and summary.get("total_impact_count") == 451
+        and summary.get("total_impact_count") == 454
         and summary.get("mutation_allowed") is False,
-        {"rowset_sha256": EXPECTED_WORKLIST_ROWSET, "worklist_rows": 4, "total_impact_count": 451, "mutation_allowed": False},
+        {"rowset_sha256": EXPECTED_WORKLIST_ROWSET, "worklist_rows": 4, "total_impact_count": 454, "mutation_allowed": False},
         {
             "rowset_sha256": summary.get("rowset_sha256"),
             "worklist_rows": summary.get("worklist_rows"),
