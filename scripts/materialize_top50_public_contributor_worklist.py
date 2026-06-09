@@ -39,6 +39,8 @@ BLANK_EXECUTION_VERIFICATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_blank_ex
 SLICE_PRIORITIZATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json"
 PRIORITY_INSTRUCTION_SUMMARY = ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet_summary.json"
 PATCH_HELPER_FIXTURE_SUMMARY = ARTIFACTS / "vanderbilt_patch_helper_fixture_verification_summary.json"
+PRIORITY_HANDOFF_SUMMARY = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json"
+PRIORITY_HANDOFF_CSV = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.csv"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -47,7 +49,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "7ab4b93271d8744d70d8b434957bd0d383ba2a90dd73143fe0f5606977de91b2"
+VERIFICATION_ROWSET_SHA256 = "6044abd14a3e5f1d54b8ff88492c00c5510564776da72eff80c1fd024423d230"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -66,6 +68,7 @@ BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256 = "8214eb3162fd6c56206c6c937b78fcd0ee
 SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256 = "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c"
 PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256 = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
 PATCH_HELPER_FIXTURE_ROWSET_SHA256 = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
+PRIORITY_HANDOFF_PACKET_ROWSET_SHA256 = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -261,6 +264,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     slice_prioritization_summary = read_json(SLICE_PRIORITIZATION_SUMMARY)
     priority_instruction_summary = read_json(PRIORITY_INSTRUCTION_SUMMARY)
     patch_helper_fixture_summary = read_json(PATCH_HELPER_FIXTURE_SUMMARY)
+    priority_handoff_summary = read_json(PRIORITY_HANDOFF_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -286,6 +290,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             slice_prioritization_summary,
             priority_instruction_summary,
             patch_helper_fixture_summary,
+            priority_handoff_summary,
             gap_summary,
         ]
     ):
@@ -449,6 +454,23 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and patch_helper_fixture_summary.get("apply_executed") is False
         and patch_helper_fixture_summary.get("mutation_allowed") is False
         and patch_helper_fixture_summary.get("person_ingestion_allowed") is False,
+        "priority_handoff_packet_rowset": priority_handoff_summary.get("rowset_sha256")
+        == PRIORITY_HANDOFF_PACKET_ROWSET_SHA256,
+        "priority_handoff_packet_coverage": priority_handoff_summary.get("handoff_rows") == 1
+        and priority_handoff_summary.get("priority_rank") == "1"
+        and priority_handoff_summary.get("execution_order") == "4"
+        and priority_handoff_summary.get("program_name") == "General Surgery"
+        and priority_handoff_summary.get("instruction_rows_represented") == 2
+        and priority_handoff_summary.get("pending_blank_instruction_rows") == 2
+        and priority_handoff_summary.get("fixture_pass_rows") == 16
+        and priority_handoff_summary.get("fixture_fail_rows") == 0
+        and priority_handoff_summary.get("decision_audit_valid_non_mutating_rows") == 0
+        and priority_handoff_summary.get("decision_audit_invalid_rows") == 0
+        and priority_handoff_summary.get("apply_command_allowed") is False
+        and priority_handoff_summary.get("accepted_person_rows") == 0
+        and priority_handoff_summary.get("apply_executed") is False
+        and priority_handoff_summary.get("mutation_allowed") is False
+        and priority_handoff_summary.get("person_ingestion_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -475,6 +497,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         slice_prioritization_summary,
         priority_instruction_summary,
         patch_helper_fixture_summary,
+        priority_handoff_summary,
         gap_summary,
     )
 
@@ -547,10 +570,12 @@ def main() -> None:
         slice_prioritization_summary,
         priority_instruction_summary,
         patch_helper_fixture_summary,
+        priority_handoff_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
     operator_rows = read_csv_rows(OPERATOR_CSV)
+    priority_handoff_rows = read_csv_rows(PRIORITY_HANDOFF_CSV)
     gap_rows = read_csv_rows(GAP_CSV)
     generated_at = datetime.now(timezone.utc).isoformat()
     by_batch_status = Counter(row.get("packet_status", "") for row in batch_rows)
@@ -572,7 +597,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="35 verification rows pass and fail_rows remains 0.",
+            success_condition="43 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -603,8 +628,8 @@ def main() -> None:
                 "Use artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index.csv to choose one "
                 "operator packet, slice it with scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py, fill only "
                 "non-mutating decisions, extract strict patch rows with scripts/extract_vanderbilt_reviewer_decision_patch.py, "
-                "dry-run scripts/apply_vanderbilt_reviewer_decision_patch.py, then apply and rerun the decision audit, "
-                "batch-packet materializer, operator-packet materializer, workbook materializer, and slice-index materializer."
+                "dry-run scripts/apply_vanderbilt_reviewer_decision_patch.py, then stop. Do not run --apply or commit "
+                "filled decisions until a future exact approval packet exists."
             ),
             verification_command=(
                 "python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && "
@@ -656,42 +681,44 @@ def main() -> None:
         row(
             execution_order=3,
             action_lane="vanderbilt_active_gap_manifest_triage",
-            action_status="ready_for_fixture_verified_priority_instruction_review",
+            action_status="ready_for_local_reviewer_handoff_execution",
             priority=760,
-            entity_type="vanderbilt_priority_reviewer_instruction_packet",
-            entity_key="vanderbilt_priority_reviewer_instruction_packet",
-            display_label="Vanderbilt General Surgery priority reviewer instruction packet",
-            impact_count=int(priority_instruction_summary.get("instruction_rows", 0)),
-            source_artifact="artifacts/data/vanderbilt_patch_helper_fixture_verification.csv",
-            target_artifact="artifacts/data/vanderbilt_priority_reviewer_instruction_packet.csv",
+            entity_type="vanderbilt_priority_reviewer_handoff_packet",
+            entity_key="vanderbilt_priority_reviewer_handoff_packet",
+            display_label="Vanderbilt General Surgery priority reviewer handoff packet",
+            impact_count=int(priority_handoff_summary.get("instruction_rows_represented", 0)),
+            source_artifact="artifacts/data/vanderbilt_priority_reviewer_handoff_packet.csv",
+            target_artifact="artifacts/data/vanderbilt_candidate_reviewer_decisions.csv",
             required_next_evidence=(
-                "The priority instruction packet materializes the first General Surgery reviewer slice as exactly two "
-                "blank, hash-only instruction rows with allowed actions and required confirmations. The synthetic "
-                "fixture harness verifies valid, invalid, stale, duplicate, blank, and include-blank helper behavior "
-                "without real Vanderbilt rows. Filled reviewer decisions still require strict extraction and dry-run "
-                "verification before any explicit apply."
+                "The handoff packet bundles the first General Surgery reviewer slice, the two blank hash-only "
+                "instruction rows, the synthetic fixture status, and the slice/extract/dry-run commands under an "
+                "explicit no-apply boundary. Filled reviewer decisions still require strict extraction and dry-run "
+                "verification, and any apply or repo commit of filled decisions needs future exact approval."
             ),
             recommended_next_action=(
-                "Use artifacts/data/vanderbilt_priority_reviewer_instruction_packet.csv as the reviewer-facing scaffold "
-                "for priority_rank=1. Fill only the blank action/confirmation fields in a local slice workbook, extract "
-                "a strict patch, dry-run apply, and do not run --apply until that slice is reviewed."
+                "Use artifacts/data/vanderbilt_priority_reviewer_handoff_packet.csv as the reviewer-facing runbook. "
+                "Run its slice command locally, fill only the blank action/confirmation fields in the local workbook, "
+                "extract a strict patch, dry-run apply, and do not run --apply until a future exact approval packet exists."
             ),
             verification_command=(
                 "python3 scripts/materialize_vanderbilt_patch_helper_fixture_verification.py && "
                 "python3 scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py && "
+                "python3 scripts/materialize_vanderbilt_priority_reviewer_handoff_packet.py && "
                 "python3 scripts/materialize_top50_public_clone_verification.py && "
                 "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
-            success_condition="Fixture harness passes 16/16 synthetic checks; priority instruction packet has two pending blank General Surgery rows, no raw labels or URLs, accepted_person_rows=0, and apply_executed=false.",
+            success_condition="Handoff packet represents two pending blank General Surgery rows, fixture harness passes 16/16 synthetic checks, no raw labels or URLs are committed, accepted_person_rows=0, apply_command_allowed=false, and apply_executed=false.",
             approval_required_for=[
+                "filled_reviewer_decision_commit",
+                "patch_apply",
                 "denominator_closure",
                 "vanderbilt_school_verification",
                 "person_ingestion",
                 "url_rewrite",
                 "identity_collapse",
             ],
-            source_rowset_sha256=PATCH_HELPER_FIXTURE_ROWSET_SHA256,
-            target_rowset_sha256=PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256,
+            source_rowset_sha256=PRIORITY_HANDOFF_PACKET_ROWSET_SHA256,
+            target_rowset_sha256=DECISION_AUDIT_ROWSET_SHA256,
             evidence={
                 "gap_manifest_rows": gap_summary.get("rows"),
                 "gap_manifest_csv_rows": len(gap_rows),
@@ -782,6 +809,12 @@ def main() -> None:
                 "patch_helper_fixture_rows": patch_helper_fixture_summary.get("fixture_check_rows"),
                 "patch_helper_fixture_pass_rows": patch_helper_fixture_summary.get("pass_rows"),
                 "patch_helper_fixture_rowset_sha256": patch_helper_fixture_summary.get("rowset_sha256"),
+                "priority_handoff_rows": priority_handoff_summary.get("handoff_rows"),
+                "priority_handoff_status": priority_handoff_summary.get("handoff_status"),
+                "priority_handoff_instruction_rows": priority_handoff_summary.get("instruction_rows_represented"),
+                "priority_handoff_apply_command_allowed": priority_handoff_summary.get("apply_command_allowed"),
+                "priority_handoff_rowset_sha256": priority_handoff_summary.get("rowset_sha256"),
+                "priority_handoff_csv_rows": len(priority_handoff_rows),
             },
             generated_at=generated_at,
         ),
@@ -859,6 +892,7 @@ def main() -> None:
         "source_vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256,
         "source_vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256,
         "source_vanderbilt_patch_helper_fixture_verification_rowset_sha256": PATCH_HELPER_FIXTURE_ROWSET_SHA256,
+        "source_vanderbilt_priority_reviewer_handoff_packet_rowset_sha256": PRIORITY_HANDOFF_PACKET_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

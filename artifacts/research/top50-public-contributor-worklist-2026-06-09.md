@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Contributor Worklist
-created_at: 2026-06-09T09:21:21.310121+00:00
+created_at: 2026-06-09T09:34:23.205227+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -24,7 +24,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "by_action_status": {
     "blocked_until_valid_non_mutating_decisions": 1,
     "ready_and_passing": 1,
-    "ready_for_fixture_verified_priority_instruction_review": 1,
+    "ready_for_local_reviewer_handoff_execution": 1,
     "ready_for_non_mutating_reviewer_input": 1
   },
   "critical_rows": 2,
@@ -32,7 +32,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE top50_public_contributor_worklist_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
-  "generated_at": "2026-06-09T09:21:21.310121+00:00",
+  "generated_at": "2026-06-09T09:34:23.205227+00:00",
   "high_rows": 1,
   "json": "artifacts/data/top50_public_contributor_worklist.json",
   "low_rows": 0,
@@ -41,7 +41,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "mutation_allowed": false,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ranks bounded public-safe operator actions from committed verification, snapshot, Vanderbilt batch-packet, decision-audit, and gap manifest artifacts. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
-  "rowset_sha256": "67d196aebccd24e5a2f2e66f7a664b6b490852f6ab26d9290fa1f98a0c86b05e",
+  "rowset_sha256": "a19307633b0d9358f2a52e75b6ff52f78afd66c669b40b02cc88d28220dd0188",
   "school_verification_allowed": false,
   "source_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "source_vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
@@ -56,12 +56,13 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "source_vanderbilt_patch_slice_index_rowset_sha256": "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4",
   "source_vanderbilt_patch_template_rowset_sha256": "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d",
   "source_vanderbilt_patch_workbook_rowset_sha256": "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3",
+  "source_vanderbilt_priority_reviewer_handoff_packet_rowset_sha256": "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0",
   "source_vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65",
   "source_vanderbilt_reviewer_blank_execution_verification_rowset_sha256": "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e",
   "source_vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa",
   "source_vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c",
-  "source_verification_rowset_sha256": "7ab4b93271d8744d70d8b434957bd0d383ba2a90dd73143fe0f5606977de91b2",
-  "total_impact_count": 361,
+  "source_verification_rowset_sha256": "6044abd14a3e5f1d54b8ff88492c00c5510564776da72eff80c1fd024423d230",
+  "total_impact_count": 363,
   "worklist_rows": 4
 }
 ```
@@ -70,7 +71,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
 
 | order | lane | status | priority | impact | source | target | next action |
 | ---: | --- | --- | ---: | ---: | --- | --- | --- |
-| 1 | verify_public_clone_substrate | ready_and_passing | 980 | 41 | artifacts/data/top50_public_clone_verification_summary.json | artifacts/data/top50_public_clone_verification_summary.json | Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change. |
-| 2 | vanderbilt_bounded_manual_review_packets | ready_for_non_mutating_reviewer_input | 940 | 159 | artifacts/data/vanderbilt_public_reviewer_operator_packets.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Use artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index.csv to choose one operator packet, slice it with scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py, fill only non-mutating decisions, extract strict patch rows with scripts/extract_vanderbilt_reviewer_decision_patch.py, dry-run scripts/apply_vanderbilt_reviewer_decision_patch.py, then apply and rerun the decision audit, batch-packet materializer, operator-packet materializer, workbook materializer, and slice-index materializer. |
-| 3 | vanderbilt_active_gap_manifest_triage | ready_for_fixture_verified_priority_instruction_review | 760 | 2 | artifacts/data/vanderbilt_patch_helper_fixture_verification.csv | artifacts/data/vanderbilt_priority_reviewer_instruction_packet.csv | Use artifacts/data/vanderbilt_priority_reviewer_instruction_packet.csv as the reviewer-facing scaffold for priority_rank=1. Fill only the blank action/confirmation fields in a local slice workbook, extract a strict patch, dry-run apply, and do not run --apply until that slice is reviewed. |
+| 1 | verify_public_clone_substrate | ready_and_passing | 980 | 43 | artifacts/data/top50_public_clone_verification_summary.json | artifacts/data/top50_public_clone_verification_summary.json | Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change. |
+| 2 | vanderbilt_bounded_manual_review_packets | ready_for_non_mutating_reviewer_input | 940 | 159 | artifacts/data/vanderbilt_public_reviewer_operator_packets.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Use artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index.csv to choose one operator packet, slice it with scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py, fill only non-mutating decisions, extract strict patch rows with scripts/extract_vanderbilt_reviewer_decision_patch.py, dry-run scripts/apply_vanderbilt_reviewer_decision_patch.py, then stop. Do not run --apply or commit filled decisions until a future exact approval packet exists. |
+| 3 | vanderbilt_active_gap_manifest_triage | ready_for_local_reviewer_handoff_execution | 760 | 2 | artifacts/data/vanderbilt_priority_reviewer_handoff_packet.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Use artifacts/data/vanderbilt_priority_reviewer_handoff_packet.csv as the reviewer-facing runbook. Run its slice command locally, fill only the blank action/confirmation fields in the local workbook, extract a strict patch, dry-run apply, and do not run --apply until a future exact approval packet exists. |
 | 4 | future_exact_approval_packet_after_valid_decisions | blocked_until_valid_non_mutating_decisions | 640 | 159 | artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json | artifacts/data/vanderbilt_candidate_acceptance_or_closure_approval_packet.csv | Do not build person-ingestion, denominator-closure, parser-acceptance, scope-closure, or identity-collapse packets until reviewer decisions are present and the decision audit passes. |

@@ -37,6 +37,7 @@ EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET = "8214eb3162fd6c56206c6
 EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET = "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c"
 EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
 EXPECTED_VANDERBILT_PATCH_HELPER_FIXTURE_ROWSET = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
+EXPECTED_VANDERBILT_PRIORITY_HANDOFF_ROWSET = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
@@ -274,6 +275,9 @@ def main() -> None:
     patch_fixture_summary = read_json(ARTIFACTS / "vanderbilt_patch_helper_fixture_verification_summary.json")
     patch_fixture_csv = read_csv_rows(ARTIFACTS / "vanderbilt_patch_helper_fixture_verification.csv")
     patch_fixture_json = read_json(ARTIFACTS / "vanderbilt_patch_helper_fixture_verification.json")
+    priority_handoff_summary = read_json(ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json")
+    priority_handoff_csv = read_csv_rows(ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.csv")
+    priority_handoff_json = read_json(ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -336,6 +340,9 @@ def main() -> None:
     patch_fixture_text = (ROOT / "scripts" / "materialize_vanderbilt_patch_helper_fixture_verification.py").read_text(
         encoding="utf-8"
     )
+    priority_handoff_text = (
+        ROOT / "scripts" / "materialize_vanderbilt_priority_reviewer_handoff_packet.py"
+    ).read_text(encoding="utf-8")
     gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
         encoding="utf-8"
     )
@@ -356,6 +363,7 @@ def main() -> None:
             slice_prioritization_summary,
             priority_instruction_summary,
             patch_fixture_summary,
+            priority_handoff_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
@@ -383,6 +391,7 @@ def main() -> None:
         or not isinstance(slice_prioritization_json, list)
         or not isinstance(priority_instruction_json, list)
         or not isinstance(patch_fixture_json, list)
+        or not isinstance(priority_handoff_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
@@ -1029,6 +1038,120 @@ def main() -> None:
     add_check(
         checks,
         generated_at,
+        "vanderbilt_priority_reviewer_handoff_packet_boundary",
+        priority_handoff_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_PRIORITY_HANDOFF_ROWSET
+        and priority_handoff_summary.get("handoff_rows") == 1
+        and priority_handoff_summary.get("priority_rank") == "1"
+        and priority_handoff_summary.get("execution_order") == "4"
+        and priority_handoff_summary.get("program_name") == "General Surgery"
+        and priority_handoff_summary.get("instruction_rows_represented") == 2
+        and priority_handoff_summary.get("pending_blank_instruction_rows") == 2
+        and priority_handoff_summary.get("fixture_check_rows") == 16
+        and priority_handoff_summary.get("fixture_pass_rows") == 16
+        and priority_handoff_summary.get("fixture_fail_rows") == 0
+        and priority_handoff_summary.get("blank_extract_fail_closed_rows") == 20
+        and priority_handoff_summary.get("decision_audit_valid_non_mutating_rows") == 0
+        and priority_handoff_summary.get("decision_audit_invalid_rows") == 0
+        and priority_handoff_summary.get("slice_command_present") is True
+        and priority_handoff_summary.get("extract_command_present") is True
+        and priority_handoff_summary.get("patch_dry_run_command_present") is True
+        and priority_handoff_summary.get("apply_command_allowed") is False
+        and priority_handoff_summary.get("accepted_person_rows") == 0
+        and priority_handoff_summary.get("apply_executed") is False
+        and priority_handoff_summary.get("raw_candidate_names_committed") is False
+        and priority_handoff_summary.get("raw_person_urls_committed") is False
+        and priority_handoff_summary.get("free_text_note_column_committed") is False
+        and priority_handoff_summary.get("mutation_allowed") is False
+        and priority_handoff_summary.get("person_ingestion_allowed") is False
+        and priority_handoff_summary.get("denominator_closure_allowed") is False
+        and priority_handoff_summary.get("source_priority_instruction_rowset_sha256")
+        == EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET
+        and priority_handoff_summary.get("source_patch_helper_fixture_rowset_sha256")
+        == EXPECTED_VANDERBILT_PATCH_HELPER_FIXTURE_ROWSET
+        and priority_handoff_summary.get("source_slice_prioritization_rowset_sha256")
+        == EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET
+        and priority_handoff_summary.get("source_blank_execution_verification_rowset_sha256")
+        == EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET
+        and priority_handoff_summary.get("source_decision_audit_rowset_sha256")
+        == EXPECTED_VANDERBILT_DECISION_AUDIT_ROWSET
+        and len(priority_handoff_csv) == 1
+        and len(priority_handoff_json) == 1,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_HANDOFF_ROWSET,
+            "handoff_rows": 1,
+            "priority_rank": "1",
+            "execution_order": "4",
+            "program_name": "General Surgery",
+            "instruction_rows_represented": 2,
+            "pending_blank_instruction_rows": 2,
+            "fixture_check_rows": 16,
+            "fixture_pass_rows": 16,
+            "fixture_fail_rows": 0,
+            "blank_extract_fail_closed_rows": 20,
+            "decision_audit_valid_non_mutating_rows": 0,
+            "decision_audit_invalid_rows": 0,
+            "commands_present": True,
+            "apply_command_allowed": False,
+            "accepted_person_rows": 0,
+            "apply_executed": False,
+            "raw_candidate_names_committed": False,
+            "raw_person_urls_committed": False,
+            "free_text_note_column_committed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "csv_rows": 1,
+            "json_rows": 1,
+        },
+        {
+            "rowset_sha256": priority_handoff_summary.get("rowset_sha256"),
+            "handoff_rows": priority_handoff_summary.get("handoff_rows"),
+            "priority_rank": priority_handoff_summary.get("priority_rank"),
+            "execution_order": priority_handoff_summary.get("execution_order"),
+            "program_name": priority_handoff_summary.get("program_name"),
+            "instruction_rows_represented": priority_handoff_summary.get("instruction_rows_represented"),
+            "pending_blank_instruction_rows": priority_handoff_summary.get("pending_blank_instruction_rows"),
+            "fixture_check_rows": priority_handoff_summary.get("fixture_check_rows"),
+            "fixture_pass_rows": priority_handoff_summary.get("fixture_pass_rows"),
+            "fixture_fail_rows": priority_handoff_summary.get("fixture_fail_rows"),
+            "blank_extract_fail_closed_rows": priority_handoff_summary.get("blank_extract_fail_closed_rows"),
+            "decision_audit_valid_non_mutating_rows": priority_handoff_summary.get(
+                "decision_audit_valid_non_mutating_rows"
+            ),
+            "decision_audit_invalid_rows": priority_handoff_summary.get("decision_audit_invalid_rows"),
+            "slice_command_present": priority_handoff_summary.get("slice_command_present"),
+            "extract_command_present": priority_handoff_summary.get("extract_command_present"),
+            "patch_dry_run_command_present": priority_handoff_summary.get("patch_dry_run_command_present"),
+            "apply_command_allowed": priority_handoff_summary.get("apply_command_allowed"),
+            "accepted_person_rows": priority_handoff_summary.get("accepted_person_rows"),
+            "apply_executed": priority_handoff_summary.get("apply_executed"),
+            "raw_candidate_names_committed": priority_handoff_summary.get("raw_candidate_names_committed"),
+            "raw_person_urls_committed": priority_handoff_summary.get("raw_person_urls_committed"),
+            "free_text_note_column_committed": priority_handoff_summary.get("free_text_note_column_committed"),
+            "mutation_allowed": priority_handoff_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": priority_handoff_summary.get("person_ingestion_allowed"),
+            "denominator_closure_allowed": priority_handoff_summary.get("denominator_closure_allowed"),
+            "source_priority_instruction_rowset_sha256": priority_handoff_summary.get(
+                "source_priority_instruction_rowset_sha256"
+            ),
+            "source_patch_helper_fixture_rowset_sha256": priority_handoff_summary.get(
+                "source_patch_helper_fixture_rowset_sha256"
+            ),
+            "source_slice_prioritization_rowset_sha256": priority_handoff_summary.get(
+                "source_slice_prioritization_rowset_sha256"
+            ),
+            "source_blank_execution_verification_rowset_sha256": priority_handoff_summary.get(
+                "source_blank_execution_verification_rowset_sha256"
+            ),
+            "source_decision_audit_rowset_sha256": priority_handoff_summary.get("source_decision_audit_rowset_sha256"),
+            "csv_rows": len(priority_handoff_csv),
+            "json_rows": len(priority_handoff_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_priority_reviewer_handoff_packet_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
         "vanderbilt_gap_manifest_committed_rows",
         gap_summary.get("rows") == 113
         and gap_summary.get("open_gap_rows") == 113
@@ -1437,6 +1560,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_patch_helper_fixture_verification.json",
             ARTIFACTS / "vanderbilt_patch_helper_fixture_verification_summary.json",
             RESEARCH / "vanderbilt-patch-helper-fixture-verification-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.csv",
+            ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.json",
+            ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json",
+            RESEARCH / "vanderbilt-priority-reviewer-handoff-packet-2026-06-09.md",
         ]
     )
     add_check(
@@ -1446,7 +1573,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 40, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 44, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1741,6 +1868,37 @@ def main() -> None:
             "readme": "README.md",
         },
     )
+    priority_handoff_guard_present = all(
+        token in priority_handoff_text
+        for token in [
+            "PRIORITY_INSTRUCTION_ROWSET",
+            "PATCH_HELPER_FIXTURE_ROWSET",
+            "BLANK_EXECUTION_VERIFICATION_ROWSET",
+            "DECISION_AUDIT_ROWSET",
+            "apply_command_allowed",
+            "ready_for_local_reviewer_handoff_execution",
+            "does not fill reviewer decisions",
+            "raw_candidate_names_committed",
+            "person_ingestion_allowed",
+            "denominator_closure_allowed",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_priority_reviewer_handoff_packet_guard_present",
+        priority_handoff_guard_present
+        and "materialize_vanderbilt_priority_reviewer_handoff_packet.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": priority_handoff_guard_present,
+            "readme_documented": "materialize_vanderbilt_priority_reviewer_handoff_packet.py" in readme_text,
+        },
+        {
+            "script": "scripts/materialize_vanderbilt_priority_reviewer_handoff_packet.py",
+            "readme": "README.md",
+        },
+    )
     gap_slicer_guard_present = all(
         token in gap_batch_slicer_text
         for token in [
@@ -1868,6 +2026,7 @@ def main() -> None:
         "vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET,
         "vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET,
         "vanderbilt_patch_helper_fixture_verification_rowset_sha256": EXPECTED_VANDERBILT_PATCH_HELPER_FIXTURE_ROWSET,
+        "vanderbilt_priority_reviewer_handoff_packet_rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_HANDOFF_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
