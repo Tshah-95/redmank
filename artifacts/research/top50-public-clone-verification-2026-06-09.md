@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Clone Verification
-created_at: 2026-06-09T08:11:00.626831+00:00
+created_at: 2026-06-09T08:25:57.110219+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -20,30 +20,31 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
   "fail_rows": 0,
   "gbrain_approval_line": "APPROVE top50_public_clone_verification_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_clone_verification_lane",
-  "generated_at": "2026-06-09T08:11:00.626831+00:00",
+  "generated_at": "2026-06-09T08:25:57.110219+00:00",
   "json": "artifacts/data/top50_public_clone_verification.json",
   "markdown": "artifacts/research/top50-public-clone-verification-2026-06-09.md",
   "mutation_allowed": false,
-  "pass_rows": 30,
+  "pass_rows": 31,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
   "raw_browser_dumps_committed": false,
   "raw_debug_databases_committed": false,
   "raw_gbrain_responses_committed": false,
-  "rowset_sha256": "32adab04245d5427946e2530d69f0055766ffe27eb061e2a00ab3ae65a8d319a",
+  "rowset_sha256": "e74a02b606763c79d578fec022fa5e0becbd68e2f83318f88da2b3ab7b5149fc",
   "top50_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
   "vanderbilt_gap_batch_slice_index_rowset_sha256": "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75",
   "vanderbilt_gap_candidate_output_bridge_rowset_sha256": "dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843",
   "vanderbilt_gap_manifest_rows": 113,
   "vanderbilt_gap_parser_scope_bridge_rowset_sha256": "942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912",
+  "vanderbilt_gap_review_queue_bridge_rowset_sha256": "46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d",
   "vanderbilt_gap_review_template_rowset_sha256": "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782",
   "vanderbilt_gap_targeted_review_packet_rowset_sha256": "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607",
   "vanderbilt_operator_packet_rowset_sha256": "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173",
   "vanderbilt_patch_template_rowset_sha256": "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d",
   "vanderbilt_patch_workbook_rowset_sha256": "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3",
   "vanderbilt_workbook_slice_index_rowset_sha256": "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4",
-  "verification_rows": 30
+  "verification_rows": 31
 }
 ```
 
@@ -70,6 +71,7 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
 | vanderbilt_gap_targeted_review_packet_validation_boundary | pass | `{"invalid_rows":0,"mutation_allowed":false,"pending_rows":94,"rowset_sha256":"d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607","template_rows":113,"valid_non_mutating_rows":19}` |
 | vanderbilt_gap_parser_scope_bridge_boundary | pass | `{"bridge_rows":19,"csv_rows":19,"decision_packet_rows_represented":20,"json_rows":19,"mutation_allowed":false,"parser_acceptance_allowed":false,"parser_scope_review_rows_represented":20,"person_ingestion_allowed":false,"route_packet_rows_represented":20,"rowset_sha256":"942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912","targeted_review_rows_represented":19}` |
 | vanderbilt_gap_candidate_output_bridge_boundary | pass | `{"bridge_rows":19,"candidate_fingerprint_rows_represented":155,"candidate_output_rows_represented":159,"csv_rows":19,"implementation_approval_rows_represented":20,"json_rows":19,"mutation_allowed":false,"parser_acceptance_allowed":false,"person_ingestion_allowed":false,"rowset_sha256":"dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843"}` |
+| vanderbilt_gap_review_queue_bridge_boundary | pass | `{"bridge_rows":19,"candidate_output_rows_represented":159,"csv_rows":19,"decision_scaffold_rows_represented":159,"invalid_decision_rows_represented":0,"json_rows":19,"manual_decision_audit_rows_represented":159,"mutation_allowed":false,"pending_decision_rows_represented":159,"person_ingestion_allowed":false,"queue_approval_rows_represented":159,"review_queue_rows_represented":159,"rowset_sha256":"46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d","valid_non_mutating_decision_rows_represented":0}` |
 | vanderbilt_review_packet_public_leak_scan | pass | `[]` |
 | vanderbilt_gap_slice_index_private_marker_scan | pass | `[]` |
 | private_artifact_paths_not_committed | pass | `[]` |
@@ -79,5 +81,5 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
 | vanderbilt_reviewer_patch_extractor_guard_present | pass | `{"readme_documented":true,"script_guard":true}` |
 | vanderbilt_reviewer_workbook_slicer_guard_present | pass | `{"readme_documented":true,"script_guard":true}` |
 | vanderbilt_gap_batch_slicer_guard_present | pass | `{"readme_documented":true,"script_guard":true}` |
-| vanderbilt_gap_review_template_guard_present | pass | `{"bridge_readme_documented":true,"candidate_output_bridge_readme_documented":true,"materializer_guard":true,"materializer_readme_documented":true,"targeted_packet_readme_documented":true,"validator_guard":true,"validator_readme_documented":true}` |
+| vanderbilt_gap_review_template_guard_present | pass | `{"bridge_readme_documented":true,"candidate_output_bridge_readme_documented":true,"materializer_guard":true,"materializer_readme_documented":true,"review_queue_bridge_readme_documented":true,"targeted_packet_readme_documented":true,"validator_guard":true,"validator_readme_documented":true}` |
 | gbrain_public_clone_verification_lane_approved | pass | `"APPROVE top50_public_clone_verification_lane_approved"` |

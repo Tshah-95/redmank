@@ -3,18 +3,18 @@
     "check_name": "worklist_summary_boundary",
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/top50_public_contributor_worklist_summary.json\"}",
-    "expected_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"950b0730604b50e1946628a8d677c58ff5d88e20ec78676da96c870a1bc56821\",\"total_impact_count\":461,\"worklist_rows\":4}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "expected_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"3b3e570a38a9a7e2611697d9e9825206cd9d1f1deed4e7714eb5c29eac70e707\",\"total_impact_count\":462,\"worklist_rows\":4}",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
-    "observed_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"950b0730604b50e1946628a8d677c58ff5d88e20ec78676da96c870a1bc56821\",\"total_impact_count\":461,\"worklist_rows\":4}",
-    "verification_key": "top50_public_contributor_worklist_verification_f3d6c991b7d92d0e2330"
+    "observed_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"3b3e570a38a9a7e2611697d9e9825206cd9d1f1deed4e7714eb5c29eac70e707\",\"total_impact_count\":462,\"worklist_rows\":4}",
+    "verification_key": "top50_public_contributor_worklist_verification_88b19884191d7cb754bf"
   },
   {
     "check_name": "worklist_csv_json_counts_match",
     "check_status": "pass",
     "evidence_json": "{}",
     "expected_value": "{\"csv_rows\":4,\"json_rows\":4,\"summary_rows\":4}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"csv_rows\":4,\"json_rows\":4,\"summary_rows\":4}",
     "verification_key": "top50_public_contributor_worklist_verification_e0a0e559576d263dd034"
@@ -24,7 +24,7 @@
     "check_status": "pass",
     "evidence_json": "{}",
     "expected_value": "[\"verify_public_clone_substrate\",\"vanderbilt_bounded_manual_review_packets\",\"vanderbilt_active_gap_manifest_triage\",\"future_exact_approval_packet_after_valid_decisions\"]",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
     "observed_value": "[\"verify_public_clone_substrate\",\"vanderbilt_bounded_manual_review_packets\",\"vanderbilt_active_gap_manifest_triage\",\"future_exact_approval_packet_after_valid_decisions\"]",
     "verification_key": "top50_public_contributor_worklist_verification_aaa53b6bfa882c7d483f"
@@ -33,38 +33,38 @@
     "check_name": "worklist_status_distribution",
     "check_status": "pass",
     "evidence_json": "{}",
-    "expected_value": "{\"blocked_until_valid_non_mutating_decisions\":1,\"ready_and_passing\":1,\"ready_for_non_mutating_candidate_output_bridge\":1,\"ready_for_non_mutating_reviewer_input\":1}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "expected_value": "{\"blocked_until_valid_non_mutating_decisions\":1,\"ready_and_passing\":1,\"ready_for_non_mutating_review_queue_bridge\":1,\"ready_for_non_mutating_reviewer_input\":1}",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
-    "observed_value": "{\"blocked_until_valid_non_mutating_decisions\":1,\"ready_and_passing\":1,\"ready_for_non_mutating_candidate_output_bridge\":1,\"ready_for_non_mutating_reviewer_input\":1}",
-    "verification_key": "top50_public_contributor_worklist_verification_47e2b8d5285aa53bcdb9"
+    "observed_value": "{\"blocked_until_valid_non_mutating_decisions\":1,\"ready_and_passing\":1,\"ready_for_non_mutating_review_queue_bridge\":1,\"ready_for_non_mutating_reviewer_input\":1}",
+    "verification_key": "top50_public_contributor_worklist_verification_58ffa515d9581cbd0d63"
   },
   {
     "check_name": "worklist_artifact_paths_resolve",
     "check_status": "pass",
     "evidence_json": "{}",
     "expected_value": "{\"all_sources_exist\":true,\"targets_exist_or_future_allowed\":true}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
-    "observed_value": "{\"sources\":{\"artifacts/data/school_gap_resolution_batch_packets.csv\":true,\"artifacts/data/top50_public_clone_verification_summary.json\":true,\"artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json\":true,\"artifacts/data/vanderbilt_public_reviewer_operator_packets.csv\":true},\"targets\":{\"artifacts/data/school_gap_resolution_candidate_output_bridge.csv\":\"exists\",\"artifacts/data/top50_public_clone_verification_summary.json\":\"exists\",\"artifacts/data/vanderbilt_candidate_acceptance_or_closure_approval_packet.csv\":\"future_allowed\",\"artifacts/data/vanderbilt_candidate_reviewer_decisions.csv\":\"exists\"}}",
-    "verification_key": "top50_public_contributor_worklist_verification_f5693b15d319a9002ace"
+    "observed_value": "{\"sources\":{\"artifacts/data/school_gap_resolution_candidate_output_bridge.csv\":true,\"artifacts/data/top50_public_clone_verification_summary.json\":true,\"artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json\":true,\"artifacts/data/vanderbilt_public_reviewer_operator_packets.csv\":true},\"targets\":{\"artifacts/data/school_gap_resolution_review_queue_bridge.csv\":\"exists\",\"artifacts/data/top50_public_clone_verification_summary.json\":\"exists\",\"artifacts/data/vanderbilt_candidate_acceptance_or_closure_approval_packet.csv\":\"future_allowed\",\"artifacts/data/vanderbilt_candidate_reviewer_decisions.csv\":\"exists\"}}",
+    "verification_key": "top50_public_contributor_worklist_verification_ef1fde6b315207e4b13a"
   },
   {
     "check_name": "worklist_verification_commands_allowed",
     "check_status": "pass",
     "evidence_json": "{}",
-    "expected_value": "[\"python3 scripts/materialize_school_gap_resolution_review_template.py && python3 scripts/materialize_school_gap_resolution_targeted_review_packet.py && python3 scripts/materialize_school_gap_resolution_parser_scope_bridge.py && python3 scripts/materialize_school_gap_resolution_candidate_output_bridge.py && python3 scripts/validate_school_gap_resolution_review_template.py --input artifacts/data/school_gap_resolution_targeted_review_packet.csv --summary artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json && python3 scripts/validate_school_gap_resolution_review_template.py && python3 scripts/materialize_top50_public_clone_verification.py && python3 scripts/assert_gap_manifest_fails_closed.py\",\"python3 scripts/materialize_top50_public_clone_verification.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && python3 scripts/materialize_vanderbilt_candidate_review_batch_packets.py && python3 scripts/materialize_vanderbilt_public_reviewer_operator_packets.py && python3 scripts/materialize_top50_public_clone_verification.py\"]",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "expected_value": "[\"python3 scripts/materialize_school_gap_resolution_review_template.py && python3 scripts/materialize_school_gap_resolution_targeted_review_packet.py && python3 scripts/materialize_school_gap_resolution_parser_scope_bridge.py && python3 scripts/materialize_school_gap_resolution_candidate_output_bridge.py && python3 scripts/materialize_school_gap_resolution_review_queue_bridge.py && python3 scripts/validate_school_gap_resolution_review_template.py --input artifacts/data/school_gap_resolution_targeted_review_packet.csv --summary artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json && python3 scripts/validate_school_gap_resolution_review_template.py && python3 scripts/materialize_top50_public_clone_verification.py && python3 scripts/assert_gap_manifest_fails_closed.py\",\"python3 scripts/materialize_top50_public_clone_verification.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && python3 scripts/materialize_vanderbilt_candidate_review_batch_packets.py && python3 scripts/materialize_vanderbilt_public_reviewer_operator_packets.py && python3 scripts/materialize_top50_public_clone_verification.py\"]",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
-    "observed_value": "[\"python3 scripts/materialize_school_gap_resolution_review_template.py && python3 scripts/materialize_school_gap_resolution_targeted_review_packet.py && python3 scripts/materialize_school_gap_resolution_parser_scope_bridge.py && python3 scripts/materialize_school_gap_resolution_candidate_output_bridge.py && python3 scripts/validate_school_gap_resolution_review_template.py --input artifacts/data/school_gap_resolution_targeted_review_packet.csv --summary artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json && python3 scripts/validate_school_gap_resolution_review_template.py && python3 scripts/materialize_top50_public_clone_verification.py && python3 scripts/assert_gap_manifest_fails_closed.py\",\"python3 scripts/materialize_top50_public_clone_verification.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && python3 scripts/materialize_vanderbilt_candidate_review_batch_packets.py && python3 scripts/materialize_vanderbilt_public_reviewer_operator_packets.py && python3 scripts/materialize_top50_public_clone_verification.py\"]",
-    "verification_key": "top50_public_contributor_worklist_verification_06d4ee7c9c2bc804dfb6"
+    "observed_value": "[\"python3 scripts/materialize_school_gap_resolution_review_template.py && python3 scripts/materialize_school_gap_resolution_targeted_review_packet.py && python3 scripts/materialize_school_gap_resolution_parser_scope_bridge.py && python3 scripts/materialize_school_gap_resolution_candidate_output_bridge.py && python3 scripts/materialize_school_gap_resolution_review_queue_bridge.py && python3 scripts/validate_school_gap_resolution_review_template.py --input artifacts/data/school_gap_resolution_targeted_review_packet.csv --summary artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json && python3 scripts/validate_school_gap_resolution_review_template.py && python3 scripts/materialize_top50_public_clone_verification.py && python3 scripts/assert_gap_manifest_fails_closed.py\",\"python3 scripts/materialize_top50_public_clone_verification.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py\",\"python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && python3 scripts/materialize_vanderbilt_candidate_review_batch_packets.py && python3 scripts/materialize_vanderbilt_public_reviewer_operator_packets.py && python3 scripts/materialize_top50_public_clone_verification.py\"]",
+    "verification_key": "top50_public_contributor_worklist_verification_34d8a603356d1d45df4a"
   },
   {
     "check_name": "worklist_prohibition_gates_present",
     "check_status": "pass",
     "evidence_json": "{}",
     "expected_value": "{}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
     "observed_value": "{}",
     "verification_key": "top50_public_contributor_worklist_verification_b1bb096380f6d4aca152"
@@ -74,7 +74,7 @@
     "check_status": "pass",
     "evidence_json": "{}",
     "expected_value": "{\"approval_required_for_non_verification_rows\":\"present\"}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"person_ingestion; denominator_closure; parser_acceptance; scope_closure; identity_collapse\",\"vanderbilt_active_gap_manifest_triage\":\"denominator_closure; vanderbilt_school_verification; person_ingestion; url_rewrite; identity_collapse\",\"vanderbilt_bounded_manual_review_packets\":\"accepted_person_rows; person_ingestion; denominator_closure; identity_reconciliation; parser_acceptance; scope_closure\"}",
     "verification_key": "top50_public_contributor_worklist_verification_b312cf6522837dd1425b"
@@ -83,28 +83,28 @@
     "check_name": "worklist_source_rowsets_match",
     "check_status": "pass",
     "evidence_json": "{}",
-    "expected_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"vanderbilt_active_gap_manifest_triage\":\"942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912\",\"vanderbilt_bounded_manual_review_packets\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"verify_public_clone_substrate\":\"32adab04245d5427946e2530d69f0055766ffe27eb061e2a00ab3ae65a8d319a\"}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "expected_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"vanderbilt_active_gap_manifest_triage\":\"dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843\",\"vanderbilt_bounded_manual_review_packets\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"verify_public_clone_substrate\":\"e74a02b606763c79d578fec022fa5e0becbd68e2f83318f88da2b3ab7b5149fc\"}",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
-    "observed_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"vanderbilt_active_gap_manifest_triage\":\"942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912\",\"vanderbilt_bounded_manual_review_packets\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"verify_public_clone_substrate\":\"32adab04245d5427946e2530d69f0055766ffe27eb061e2a00ab3ae65a8d319a\"}",
-    "verification_key": "top50_public_contributor_worklist_verification_2a86ac2a166e5bcca918"
+    "observed_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"vanderbilt_active_gap_manifest_triage\":\"dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843\",\"vanderbilt_bounded_manual_review_packets\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"verify_public_clone_substrate\":\"e74a02b606763c79d578fec022fa5e0becbd68e2f83318f88da2b3ab7b5149fc\"}",
+    "verification_key": "top50_public_contributor_worklist_verification_0b1608e06dfb30154e42"
   },
   {
     "check_name": "worklist_target_rowsets_match",
     "check_status": "pass",
     "evidence_json": "{}",
-    "expected_value": "{\"vanderbilt_active_gap_manifest_triage\":\"dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843\",\"vanderbilt_bounded_manual_review_packets\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"verify_public_clone_substrate\":\"32adab04245d5427946e2530d69f0055766ffe27eb061e2a00ab3ae65a8d319a\"}",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "expected_value": "{\"vanderbilt_active_gap_manifest_triage\":\"46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d\",\"vanderbilt_bounded_manual_review_packets\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"verify_public_clone_substrate\":\"e74a02b606763c79d578fec022fa5e0becbd68e2f83318f88da2b3ab7b5149fc\"}",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
-    "observed_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"\",\"vanderbilt_active_gap_manifest_triage\":\"dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843\",\"vanderbilt_bounded_manual_review_packets\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"verify_public_clone_substrate\":\"32adab04245d5427946e2530d69f0055766ffe27eb061e2a00ab3ae65a8d319a\"}",
-    "verification_key": "top50_public_contributor_worklist_verification_eb61a9af709bd6a2887e"
+    "observed_value": "{\"future_exact_approval_packet_after_valid_decisions\":\"\",\"vanderbilt_active_gap_manifest_triage\":\"46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d\",\"vanderbilt_bounded_manual_review_packets\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\",\"verify_public_clone_substrate\":\"e74a02b606763c79d578fec022fa5e0becbd68e2f83318f88da2b3ab7b5149fc\"}",
+    "verification_key": "top50_public_contributor_worklist_verification_796ec42688805267affe"
   },
   {
     "check_name": "worklist_public_leak_scan",
     "check_status": "pass",
     "evidence_json": "{\"scan\":\"url_like_text_or_reviewer_note_text_field\"}",
     "expected_value": "[]",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
     "observed_value": "[]",
     "verification_key": "top50_public_contributor_worklist_verification_c6b717728ae8d5ddad08"
@@ -114,7 +114,7 @@
     "check_status": "pass",
     "evidence_json": "{\"approval_boundary\":\"non-mutating contributor-worklist verification\"}",
     "expected_value": "\"APPROVE top50_public_contributor_worklist_verification_lane_approved\"",
-    "generated_at": "2026-06-09T08:11:00.708083+00:00",
+    "generated_at": "2026-06-09T08:25:57.192097+00:00",
     "mutation_policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
     "observed_value": "\"APPROVE top50_public_contributor_worklist_verification_lane_approved\"",
     "verification_key": "top50_public_contributor_worklist_verification_7ac5596c3483a5944ded"
