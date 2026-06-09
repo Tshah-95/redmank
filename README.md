@@ -25,9 +25,11 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench_summary.json`: targeted Vanderbilt source-discovery summary for 19 open gaps, with the exact rowset hash and mutation boundary.
 - `artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench.csv`: candidate official-source workbench rows. These are evidence for parser/scope review only.
 - `artifacts/data/vanderbilt_targeted_parser_scope_review_packet_summary.json`: non-mutating parser/scope review packet derived from the targeted Vanderbilt workbench.
+- `artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench_summary.json`: non-mutating execution queue for the 20 Vanderbilt parser/scope rows, routing them to linked-route fetch, rendered review, parser-test design, scope disposition, or recourse packets without accepting people or closing denominators.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_school_verification_registry.py`: reproducible materializer for the school-level verification registry.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
+- `scripts/materialize_vanderbilt_targeted_parser_scope_execution_workbench.py`: reproducible materializer for the Vanderbilt parser/scope execution workbench.
 
 ## Current Penn Outputs
 

@@ -10,17 +10,17 @@
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "generated_at": "2026-06-09T04:15:43.808892+00:00",
+  "generated_at": "2026-06-09T04:24:30.852553+00:00",
   "json": "artifacts/data/top50_engine_operating_snapshot.json",
   "markdown": "artifacts/research/top50-engine-operating-snapshot-2026-06-09.md",
   "mutation_allowed": false,
   "next_lanes": [
     {
-      "lane": "vanderbilt_targeted_parser_scope_review",
-      "recommended_next_action": "Run parser/scope review rows into exact parser acceptance, rendered review, or source-discovery recourse packets. Do not ingest people or close denominators without exact GBrain approval.",
-      "rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
-      "source_artifact": "artifacts/data/vanderbilt_targeted_parser_scope_review_packet.csv",
-      "status": "ready_non_mutating_parser_scope_execution"
+      "lane": "vanderbilt_targeted_parser_scope_execution_workbench",
+      "recommended_next_action": "Fetch/render the queued official routes, preserve route observations, and emit exact parser acceptance, scope-disposition, or recourse packets. Do not ingest people or close denominators without exact GBrain approval.",
+      "rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
+      "source_artifact": "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench.csv",
+      "status": "ready_non_mutating_route_fetch_and_rendered_review"
     },
     {
       "lane": "vanderbilt_active_gap_resolution_manifest",
@@ -41,7 +41,7 @@
     "unique_person_identity_collapse"
   ],
   "public_safety_policy": "This snapshot is an operating index over committed public artifacts. It does not include raw GBrain HTTP responses, browser dumps, debug databases, or raw BRIMR workbooks.",
-  "rowset_sha256": "8cb6f5ca85f84ead769e5e4d72e8bcbaa4ebe0e9b1479009b7004828c2afabcf",
+  "rowset_sha256": "104a9cca233eebe4e33935d2020e63f7f39163593767b79779c5b37d7a58b967",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -155,11 +155,29 @@
         "rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785"
       },
       "summary_json": "artifacts/data/vanderbilt_targeted_parser_scope_review_packet_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "vanderbilt_parser_scope_execution_workbench",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
+        "unique_fetch_urls": 16,
+        "workbench_rows": 20
+      },
+      "summary_json": "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench_summary.json"
     }
   ],
   "target_registry": {
     "basis": "BRIMR 2024 NIH funding - Schools of Medicine",
     "rowset_sha256": "fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8",
     "target_count": 50
+  },
+  "vanderbilt_targeted_parser_scope": {
+    "execution_workbench_rows": 20,
+    "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
+    "execution_workbench_unique_fetch_urls": 16,
+    "review_packet_rows": 20,
+    "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785"
   }
 }

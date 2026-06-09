@@ -27,6 +27,8 @@ SUMMARY_FILES = {
     "source_discovery_playbook": ARTIFACTS / "top50_scraper_source_discovery_playbook_summary.json",
     "vanderbilt_targeted_source_discovery": ARTIFACTS / "vanderbilt_targeted_gap_source_discovery_workbench_summary.json",
     "vanderbilt_parser_scope_review": ARTIFACTS / "vanderbilt_targeted_parser_scope_review_packet_summary.json",
+    "vanderbilt_parser_scope_execution_workbench": ARTIFACTS
+    / "vanderbilt_targeted_parser_scope_execution_workbench_summary.json",
 }
 
 
@@ -56,6 +58,7 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "open_gap_rows",
         "workbench_rows",
         "review_rows",
+        "unique_fetch_urls",
         "mutation_allowed",
         "gbrain_approval_verified",
         "gbrain_registration_status",
@@ -77,16 +80,20 @@ def main() -> None:
     gap_summary = summaries["school_gap_resolution_manifest"]
     playbook_summary = summaries["source_discovery_playbook"]
     vanderbilt_parser_summary = summaries["vanderbilt_parser_scope_review"]
+    vanderbilt_execution_summary = summaries["vanderbilt_parser_scope_execution_workbench"]
 
     next_lanes = [
         {
-            "lane": "vanderbilt_targeted_parser_scope_review",
-            "status": "ready_non_mutating_parser_scope_execution",
-            "source_artifact": vanderbilt_parser_summary.get("csv", "artifacts/data/vanderbilt_targeted_parser_scope_review_packet.csv"),
-            "rowset_sha256": vanderbilt_parser_summary.get("rowset_sha256", ""),
+            "lane": "vanderbilt_targeted_parser_scope_execution_workbench",
+            "status": "ready_non_mutating_route_fetch_and_rendered_review",
+            "source_artifact": vanderbilt_execution_summary.get(
+                "csv", "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench.csv"
+            ),
+            "rowset_sha256": vanderbilt_execution_summary.get("rowset_sha256", ""),
             "recommended_next_action": (
-                "Run parser/scope review rows into exact parser acceptance, rendered review, or source-discovery "
-                "recourse packets. Do not ingest people or close denominators without exact GBrain approval."
+                "Fetch/render the queued official routes, preserve route observations, and emit exact parser "
+                "acceptance, scope-disposition, or recourse packets. Do not ingest people or close denominators "
+                "without exact GBrain approval."
             ),
         },
         {
@@ -128,6 +135,13 @@ def main() -> None:
             "gbrain_approval_verified": playbook_summary.get("gbrain_approval_verified", False),
         },
         "next_lanes": next_lanes,
+        "vanderbilt_targeted_parser_scope": {
+            "review_packet_rows": vanderbilt_parser_summary.get("review_rows", 0),
+            "review_packet_rowset_sha256": vanderbilt_parser_summary.get("rowset_sha256", ""),
+            "execution_workbench_rows": vanderbilt_execution_summary.get("workbench_rows", 0),
+            "execution_workbench_unique_fetch_urls": vanderbilt_execution_summary.get("unique_fetch_urls", 0),
+            "execution_workbench_rowset_sha256": vanderbilt_execution_summary.get("rowset_sha256", ""),
+        },
         "mutation_allowed": False,
         "not_approved": [
             "person_ingestion",
@@ -151,6 +165,7 @@ def main() -> None:
             "school_verification": snapshot["school_verification"],
             "active_gap_resolution": snapshot["active_gap_resolution"],
             "source_discovery_playbook": snapshot["source_discovery_playbook"],
+            "vanderbilt_targeted_parser_scope": snapshot["vanderbilt_targeted_parser_scope"],
             "next_lanes": snapshot["next_lanes"],
             "mutation_allowed": snapshot["mutation_allowed"],
         }
@@ -185,6 +200,7 @@ def main() -> None:
                 "school_verification": snapshot["school_verification"],
                 "active_gap_resolution": snapshot["active_gap_resolution"],
                 "source_discovery_playbook": snapshot["source_discovery_playbook"],
+                "vanderbilt_targeted_parser_scope": snapshot["vanderbilt_targeted_parser_scope"],
                 "rowset_sha256": snapshot["rowset_sha256"],
             },
             ensure_ascii=True,
