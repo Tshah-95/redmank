@@ -35,6 +35,7 @@ EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82
 EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET = "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa"
 EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET = "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e"
 EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET = "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c"
+EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
@@ -266,6 +267,9 @@ def main() -> None:
     slice_prioritization_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json")
     slice_prioritization_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.csv")
     slice_prioritization_json = read_json(ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.json")
+    priority_instruction_summary = read_json(ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet_summary.json")
+    priority_instruction_csv = read_csv_rows(ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet.csv")
+    priority_instruction_json = read_json(ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -322,6 +326,9 @@ def main() -> None:
     reviewer_slice_prioritization_text = (
         ROOT / "scripts" / "materialize_vanderbilt_reviewer_slice_prioritization_plan.py"
     ).read_text(encoding="utf-8")
+    priority_instruction_text = (
+        ROOT / "scripts" / "materialize_vanderbilt_priority_reviewer_instruction_packet.py"
+    ).read_text(encoding="utf-8")
     gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
         encoding="utf-8"
     )
@@ -340,6 +347,7 @@ def main() -> None:
             execution_readiness_summary,
             blank_execution_summary,
             slice_prioritization_summary,
+            priority_instruction_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
@@ -365,6 +373,7 @@ def main() -> None:
         or not isinstance(execution_readiness_json, list)
         or not isinstance(blank_execution_json, list)
         or not isinstance(slice_prioritization_json, list)
+        or not isinstance(priority_instruction_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
@@ -910,6 +919,61 @@ def main() -> None:
     add_check(
         checks,
         generated_at,
+        "vanderbilt_priority_reviewer_instruction_packet_boundary",
+        priority_instruction_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET
+        and priority_instruction_summary.get("instruction_rows") == 2
+        and priority_instruction_summary.get("priority_rank") == "1"
+        and priority_instruction_summary.get("execution_order") == "4"
+        and priority_instruction_summary.get("program_name") == "General Surgery"
+        and priority_instruction_summary.get("pending_blank_instruction_rows") == 2
+        and priority_instruction_summary.get("free_text_note_column_committed") is False
+        and priority_instruction_summary.get("raw_candidate_names_committed") is False
+        and priority_instruction_summary.get("raw_person_urls_committed") is False
+        and priority_instruction_summary.get("accepted_person_rows") == 0
+        and priority_instruction_summary.get("apply_executed") is False
+        and priority_instruction_summary.get("mutation_allowed") is False
+        and priority_instruction_summary.get("person_ingestion_allowed") is False
+        and len(priority_instruction_csv) == 2
+        and len(priority_instruction_json) == 2,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET,
+            "instruction_rows": 2,
+            "priority_rank": "1",
+            "execution_order": "4",
+            "program_name": "General Surgery",
+            "pending_blank_instruction_rows": 2,
+            "free_text_note_column_committed": False,
+            "raw_candidate_names_committed": False,
+            "raw_person_urls_committed": False,
+            "accepted_person_rows": 0,
+            "apply_executed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "csv_rows": 2,
+            "json_rows": 2,
+        },
+        {
+            "rowset_sha256": priority_instruction_summary.get("rowset_sha256"),
+            "instruction_rows": priority_instruction_summary.get("instruction_rows"),
+            "priority_rank": priority_instruction_summary.get("priority_rank"),
+            "execution_order": priority_instruction_summary.get("execution_order"),
+            "program_name": priority_instruction_summary.get("program_name"),
+            "pending_blank_instruction_rows": priority_instruction_summary.get("pending_blank_instruction_rows"),
+            "free_text_note_column_committed": priority_instruction_summary.get("free_text_note_column_committed"),
+            "raw_candidate_names_committed": priority_instruction_summary.get("raw_candidate_names_committed"),
+            "raw_person_urls_committed": priority_instruction_summary.get("raw_person_urls_committed"),
+            "accepted_person_rows": priority_instruction_summary.get("accepted_person_rows"),
+            "apply_executed": priority_instruction_summary.get("apply_executed"),
+            "mutation_allowed": priority_instruction_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": priority_instruction_summary.get("person_ingestion_allowed"),
+            "csv_rows": len(priority_instruction_csv),
+            "json_rows": len(priority_instruction_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_priority_reviewer_instruction_packet_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
         "vanderbilt_gap_manifest_committed_rows",
         gap_summary.get("rows") == 113
         and gap_summary.get("open_gap_rows") == 113
@@ -1310,6 +1374,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.json",
             ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json",
             RESEARCH / "vanderbilt-reviewer-slice-prioritization-plan-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet.csv",
+            ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet.json",
+            ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet_summary.json",
+            RESEARCH / "vanderbilt-priority-reviewer-instruction-packet-2026-06-09.md",
         ]
     )
     add_check(
@@ -1319,7 +1387,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 32, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 36, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1554,6 +1622,37 @@ def main() -> None:
             "readme": "README.md",
         },
     )
+    priority_instruction_guard_present = all(
+        token in priority_instruction_text
+        for token in [
+            "PRIORITIZATION_ROWSET",
+            "WORKBOOK_ROWSET",
+            "DECISION_AUDIT_ROWSET",
+            "priority_rank",
+            "General Surgery",
+            "does not fill reviewer decisions",
+            "raw_candidate_names_committed",
+            "person_ingestion_allowed",
+            "denominator_closure_allowed",
+            "apply_executed",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_priority_reviewer_instruction_packet_guard_present",
+        priority_instruction_guard_present
+        and "materialize_vanderbilt_priority_reviewer_instruction_packet.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": priority_instruction_guard_present,
+            "readme_documented": "materialize_vanderbilt_priority_reviewer_instruction_packet.py" in readme_text,
+        },
+        {
+            "script": "scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py",
+            "readme": "README.md",
+        },
+    )
     gap_slicer_guard_present = all(
         token in gap_batch_slicer_text
         for token in [
@@ -1679,6 +1778,7 @@ def main() -> None:
         "vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET,
         "vanderbilt_reviewer_blank_execution_verification_rowset_sha256": EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET,
         "vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET,
+        "vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
