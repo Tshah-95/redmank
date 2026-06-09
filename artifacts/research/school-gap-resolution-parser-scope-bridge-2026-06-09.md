@@ -1,0 +1,78 @@
+---
+type: research-checkpoint
+title: School Gap Resolution Parser Scope Bridge
+created_at: 2026-06-09T07:53:40.208662+00:00
+project: top-50-medical-school-roster-engine
+school: Vanderbilt University School of Medicine
+---
+
+# School Gap Resolution Parser Scope Bridge
+
+## Boundary
+
+Non-mutating bridge from the public targeted Vanderbilt gap review packet to existing parser/scope packets. It records coverage, expansion, and remaining approval gates only. It does not regenerate parser/scope approval packets, accept parsers, ingest people, close denominators, verify Vanderbilt, rewrite URLs, accept enrichment facts, or collapse identities.
+
+## Summary
+
+```json
+{
+  "bridge_rows": 19,
+  "by_bridge_status": {
+    "covered_exact": 19
+  },
+  "by_coverage_status": {
+    "covered_by_existing_parser_scope_chain": 19
+  },
+  "by_next_required_approval": {
+    "exact_general_surgery_parser_build_or_candidate_extraction_approval_required": 1,
+    "exact_parser_implementation_or_candidate_extraction_approval_required": 15,
+    "exact_route_replacement_or_unresolved_gap_closure_approval_required; exact_scope_disposition_acceptance_or_parser_build_approval_required": 1,
+    "exact_scope_disposition_acceptance_or_parser_build_approval_required": 2
+  },
+  "csv": "artifacts/data/school_gap_resolution_parser_scope_bridge.csv",
+  "decision_packet_rows_represented": 20,
+  "denominator_closure_allowed": false,
+  "generated_at": "2026-06-09T07:53:40.208662+00:00",
+  "identity_collapse_allowed": false,
+  "json": "artifacts/data/school_gap_resolution_parser_scope_bridge.json",
+  "markdown": "artifacts/research/school-gap-resolution-parser-scope-bridge-2026-06-09.md",
+  "mutation_allowed": false,
+  "parser_acceptance_allowed": false,
+  "parser_scope_review_rows_represented": 20,
+  "person_ingestion_allowed": false,
+  "policy": "Non-mutating bridge from the public targeted Vanderbilt gap review packet to existing parser/scope packets. It records coverage, expansion, and remaining approval gates only. It does not regenerate parser/scope approval packets, accept parsers, ingest people, close denominators, verify Vanderbilt, rewrite URLs, accept enrichment facts, or collapse identities.",
+  "route_packet_rows_represented": 20,
+  "rowset_sha256": "942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912",
+  "school_verification_allowed": false,
+  "source_decision_packet_rowset_sha256": "aa94351eae7a7309d2b760a891f69538d8a8998058fc1ceb24af3d2b918644b8",
+  "source_parser_scope_review_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
+  "source_route_packet_rowset_sha256": "9037a83b5ca96458e9a88f99dec1a13ee46e3ba8a4426bc5fd7a8c13e62e4fc3",
+  "source_targeted_review_rowset_sha256": "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607",
+  "targeted_review_rows_represented": 19,
+  "url_rewrite_allowed": false
+}
+```
+
+## Bridge Rows
+
+| program | bridge status | parser rows | route rows | decision rows | next approval |
+| --- | --- | ---: | ---: | ---: | --- |
+| Academic General Pediatrics | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Advanced Endoscopy | covered_exact | 1 | 1 | 1 | exact_scope_disposition_acceptance_or_parser_build_approval_required |
+| Advanced Inflammatory Bowel Disease | covered_exact | 1 | 1 | 1 | exact_scope_disposition_acceptance_or_parser_build_approval_required |
+| Developmental-Behavioral Pediatrics | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Gastroenterology | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| General Surgery | covered_exact | 1 | 1 | 1 | exact_general_surgery_parser_build_or_candidate_extraction_approval_required |
+| Neonatal-Perinatal Medicine | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Orthopaedic Surgery | covered_exact | 2 | 2 | 2 | exact_route_replacement_or_unresolved_gap_closure_approval_required; exact_scope_disposition_acceptance_or_parser_build_approval_required |
+| Pediatric Critical Care | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatric Emergency Medicine | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatric Endocrinology | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatric Gastroenterology | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatric Hospital Medicine | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatric Infectious Diseases | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatric Rheumatology | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Pediatrics | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Psychiatry | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Rheumatology | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |
+| Transplant Hepatology | covered_exact | 1 | 1 | 1 | exact_parser_implementation_or_candidate_extraction_approval_required |

@@ -35,6 +35,7 @@ EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
+EXPECTED_GAP_PARSER_SCOPE_BRIDGE_ROWSET = "942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -274,6 +275,9 @@ def main() -> None:
     )
     gap_targeted_review_packet_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_targeted_review_packet.csv")
     gap_targeted_review_packet_json = read_json(ARTIFACTS / "school_gap_resolution_targeted_review_packet.json")
+    gap_parser_scope_bridge_summary = read_json(ARTIFACTS / "school_gap_resolution_parser_scope_bridge_summary.json")
+    gap_parser_scope_bridge_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_parser_scope_bridge.csv")
+    gap_parser_scope_bridge_json = read_json(ARTIFACTS / "school_gap_resolution_parser_scope_bridge.json")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
@@ -312,6 +316,7 @@ def main() -> None:
             gap_review_template_validation,
             gap_targeted_review_packet_summary,
             gap_targeted_review_packet_validation,
+            gap_parser_scope_bridge_summary,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
@@ -324,6 +329,7 @@ def main() -> None:
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
+        or not isinstance(gap_parser_scope_bridge_json, list)
     ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
@@ -875,6 +881,55 @@ def main() -> None:
         },
         {"summary": "artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json"},
     )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_gap_parser_scope_bridge_boundary",
+        gap_parser_scope_bridge_summary.get("rowset_sha256") == EXPECTED_GAP_PARSER_SCOPE_BRIDGE_ROWSET
+        and gap_parser_scope_bridge_summary.get("bridge_rows") == 19
+        and gap_parser_scope_bridge_summary.get("targeted_review_rows_represented") == 19
+        and gap_parser_scope_bridge_summary.get("parser_scope_review_rows_represented") == 20
+        and gap_parser_scope_bridge_summary.get("route_packet_rows_represented") == 20
+        and gap_parser_scope_bridge_summary.get("decision_packet_rows_represented") == 20
+        and gap_parser_scope_bridge_summary.get("mutation_allowed") is False
+        and gap_parser_scope_bridge_summary.get("parser_acceptance_allowed") is False
+        and gap_parser_scope_bridge_summary.get("person_ingestion_allowed") is False
+        and len(gap_parser_scope_bridge_csv) == 19
+        and len(gap_parser_scope_bridge_json) == 19,
+        {
+            "rowset_sha256": EXPECTED_GAP_PARSER_SCOPE_BRIDGE_ROWSET,
+            "bridge_rows": 19,
+            "targeted_review_rows_represented": 19,
+            "parser_scope_review_rows_represented": 20,
+            "route_packet_rows_represented": 20,
+            "decision_packet_rows_represented": 20,
+            "mutation_allowed": False,
+            "parser_acceptance_allowed": False,
+            "person_ingestion_allowed": False,
+            "csv_rows": 19,
+            "json_rows": 19,
+        },
+        {
+            "rowset_sha256": gap_parser_scope_bridge_summary.get("rowset_sha256"),
+            "bridge_rows": gap_parser_scope_bridge_summary.get("bridge_rows"),
+            "targeted_review_rows_represented": gap_parser_scope_bridge_summary.get(
+                "targeted_review_rows_represented"
+            ),
+            "parser_scope_review_rows_represented": gap_parser_scope_bridge_summary.get(
+                "parser_scope_review_rows_represented"
+            ),
+            "route_packet_rows_represented": gap_parser_scope_bridge_summary.get("route_packet_rows_represented"),
+            "decision_packet_rows_represented": gap_parser_scope_bridge_summary.get(
+                "decision_packet_rows_represented"
+            ),
+            "mutation_allowed": gap_parser_scope_bridge_summary.get("mutation_allowed"),
+            "parser_acceptance_allowed": gap_parser_scope_bridge_summary.get("parser_acceptance_allowed"),
+            "person_ingestion_allowed": gap_parser_scope_bridge_summary.get("person_ingestion_allowed"),
+            "csv_rows": len(gap_parser_scope_bridge_csv),
+            "json_rows": len(gap_parser_scope_bridge_json),
+        },
+        {"summary": "artifacts/data/school_gap_resolution_parser_scope_bridge_summary.json"},
+    )
     leak_hits = batch_packet_leak_hits(
         [
             ARTIFACTS / "vanderbilt_candidate_review_batch_packets.csv",
@@ -924,6 +979,10 @@ def main() -> None:
             ARTIFACTS / "school_gap_resolution_targeted_review_packet_summary.json",
             ARTIFACTS / "school_gap_resolution_targeted_review_packet_validation_summary.json",
             RESEARCH / "school-gap-resolution-targeted-review-packet-2026-06-09.md",
+            ARTIFACTS / "school_gap_resolution_parser_scope_bridge.csv",
+            ARTIFACTS / "school_gap_resolution_parser_scope_bridge.json",
+            ARTIFACTS / "school_gap_resolution_parser_scope_bridge_summary.json",
+            RESEARCH / "school-gap-resolution-parser-scope-bridge-2026-06-09.md",
         ]
     )
     add_check(
@@ -933,7 +992,7 @@ def main() -> None:
         not gap_private_hits,
         [],
         gap_private_hits,
-        {"scanned_outputs": 14, "scan": "private_artifact_path_markers"},
+        {"scanned_outputs": 18, "scan": "private_artifact_path_markers"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -1097,14 +1156,21 @@ def main() -> None:
         gap_review_template_guard_present
         and gap_review_template_validator_guard_present
         and "materialize_school_gap_resolution_targeted_review_packet.py" in readme_text
+        and "materialize_school_gap_resolution_parser_scope_bridge.py" in readme_text
         and "materialize_school_gap_resolution_review_template.py" in readme_text
         and "validate_school_gap_resolution_review_template.py" in readme_text,
-        {"materializer_guard": True, "validator_guard": True, "targeted_packet_readme_documented": True},
+        {
+            "materializer_guard": True,
+            "validator_guard": True,
+            "targeted_packet_readme_documented": True,
+            "bridge_readme_documented": True,
+        },
         {
             "materializer_guard": gap_review_template_guard_present,
             "validator_guard": gap_review_template_validator_guard_present,
             "targeted_packet_readme_documented": "materialize_school_gap_resolution_targeted_review_packet.py"
             in readme_text,
+            "bridge_readme_documented": "materialize_school_gap_resolution_parser_scope_bridge.py" in readme_text,
             "materializer_readme_documented": "materialize_school_gap_resolution_review_template.py" in readme_text,
             "validator_readme_documented": "validate_school_gap_resolution_review_template.py" in readme_text,
         },
@@ -1154,6 +1220,7 @@ def main() -> None:
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
+        "vanderbilt_gap_parser_scope_bridge_rowset_sha256": EXPECTED_GAP_PARSER_SCOPE_BRIDGE_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,
