@@ -36,6 +36,7 @@ GAP_CANDIDATE_OUTPUT_BRIDGE_SUMMARY = ARTIFACTS / "school_gap_resolution_candida
 GAP_REVIEW_QUEUE_BRIDGE_SUMMARY = ARTIFACTS / "school_gap_resolution_review_queue_bridge_summary.json"
 EXECUTION_READINESS_BRIDGE_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge_summary.json"
 BLANK_EXECUTION_VERIFICATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json"
+SLICE_PRIORITIZATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -44,7 +45,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "20732de8041c1ba95e14613c8ff2dc965f99cc2b03d4c5c373e2c5b051a7d356"
+VERIFICATION_ROWSET_SHA256 = "84ae362168b6aaf892152ee5fefc1fd38dc60c7fb26a1b029518c2ae52efde26"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -60,6 +61,7 @@ GAP_CANDIDATE_OUTPUT_BRIDGE_ROWSET_SHA256 = "dfb141c1883d85fd6a8c7c0e015b9394147
 GAP_REVIEW_QUEUE_BRIDGE_ROWSET_SHA256 = "46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d"
 EXECUTION_READINESS_BRIDGE_ROWSET_SHA256 = "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa"
 BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256 = "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e"
+SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256 = "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -252,6 +254,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     gap_review_queue_bridge_summary = read_json(GAP_REVIEW_QUEUE_BRIDGE_SUMMARY)
     execution_readiness_bridge_summary = read_json(EXECUTION_READINESS_BRIDGE_SUMMARY)
     blank_execution_verification_summary = read_json(BLANK_EXECUTION_VERIFICATION_SUMMARY)
+    slice_prioritization_summary = read_json(SLICE_PRIORITIZATION_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -274,6 +277,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             gap_review_queue_bridge_summary,
             execution_readiness_bridge_summary,
             blank_execution_verification_summary,
+            slice_prioritization_summary,
             gap_summary,
         ]
     ):
@@ -399,6 +403,19 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and blank_execution_verification_summary.get("mutation_allowed") is False
         and blank_execution_verification_summary.get("person_ingestion_allowed") is False
         and blank_execution_verification_summary.get("apply_executed") is False,
+        "slice_prioritization_plan_rowset": slice_prioritization_summary.get("rowset_sha256")
+        == SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256,
+        "slice_prioritization_plan_coverage": slice_prioritization_summary.get("prioritization_rows") == 20
+        and slice_prioritization_summary.get("slice_rows_represented") == 159
+        and slice_prioritization_summary.get("ready_for_bounded_human_reviewer_input_rows") == 20
+        and slice_prioritization_summary.get("blank_execution_pass_rows_represented") == 20
+        and slice_prioritization_summary.get("dry_run_patch_rows_represented") == 0
+        and slice_prioritization_summary.get("accepted_person_rows") == 0
+        and slice_prioritization_summary.get("apply_executed") is False
+        and slice_prioritization_summary.get("first_priority_execution_order") == "4"
+        and slice_prioritization_summary.get("first_priority_program_name") == "General Surgery"
+        and slice_prioritization_summary.get("mutation_allowed") is False
+        and slice_prioritization_summary.get("person_ingestion_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -422,6 +439,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         gap_review_queue_bridge_summary,
         execution_readiness_bridge_summary,
         blank_execution_verification_summary,
+        slice_prioritization_summary,
         gap_summary,
     )
 
@@ -491,6 +509,7 @@ def main() -> None:
         gap_review_queue_bridge_summary,
         execution_readiness_bridge_summary,
         blank_execution_verification_summary,
+        slice_prioritization_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -600,40 +619,31 @@ def main() -> None:
         row(
             execution_order=3,
             action_lane="vanderbilt_active_gap_manifest_triage",
-            action_status="ready_for_fail_closed_verified_reviewer_input",
+            action_status="ready_for_prioritized_reviewer_slice_input",
             priority=760,
-            entity_type="vanderbilt_reviewer_blank_execution_verification",
-            entity_key="vanderbilt_reviewer_blank_execution_verification",
-            display_label="Vanderbilt blank reviewer execution fail-closed verification",
-            impact_count=int(blank_execution_verification_summary.get("slice_rows_represented", 0)),
-            source_artifact="artifacts/data/vanderbilt_reviewer_execution_readiness_bridge.csv",
-            target_artifact="artifacts/data/vanderbilt_reviewer_blank_execution_verification.csv",
+            entity_type="vanderbilt_reviewer_slice_prioritization_plan",
+            entity_key="vanderbilt_reviewer_slice_prioritization_plan",
+            display_label="Vanderbilt prioritized reviewer slice plan",
+            impact_count=int(slice_prioritization_summary.get("slice_rows_represented", 0)),
+            source_artifact="artifacts/data/vanderbilt_reviewer_blank_execution_verification.csv",
+            target_artifact="artifacts/data/vanderbilt_reviewer_slice_prioritization_plan.csv",
             required_next_evidence=(
-                "The blank execution verifier proves all 20 reviewer slices write only to /tmp, blank extraction "
-                "fails closed, explicit allow-empty extraction produces zero patch rows, dry-run apply validates zero "
-                "rows, and temporary outputs are removed. Filled reviewer decisions still require bounded human input."
+                "The prioritization plan ranks the 20 fail-closed reviewer slices with only public-safe lane, "
+                "row-count, command-surface, and blank-execution metrics. The first bounded human review slice is "
+                "General Surgery with two workbook rows; filled reviewer decisions still require strict extraction "
+                "and dry-run verification before any explicit apply."
             ),
             recommended_next_action=(
-                "Use artifacts/data/vanderbilt_reviewer_blank_execution_verification.csv plus the slice index to "
-                "choose one bounded reviewer slice. Fill only allowed non-mutating reviewer decisions, extract a "
-                "strict patch, dry-run apply, and do not run --apply until that slice is reviewed."
+                "Use artifacts/data/vanderbilt_reviewer_slice_prioritization_plan.csv and start with priority_rank=1. "
+                "Slice execution_order=4 to /tmp, fill only allowed non-mutating reviewer decisions, extract a strict "
+                "patch, dry-run apply, and do not run --apply until that slice is reviewed."
             ),
             verification_command=(
-                "python3 scripts/materialize_school_gap_resolution_review_template.py && "
-                "python3 scripts/materialize_school_gap_resolution_targeted_review_packet.py && "
-                "python3 scripts/materialize_school_gap_resolution_parser_scope_bridge.py && "
-                "python3 scripts/materialize_school_gap_resolution_candidate_output_bridge.py && "
-                "python3 scripts/materialize_school_gap_resolution_review_queue_bridge.py && "
-                "python3 scripts/materialize_vanderbilt_reviewer_execution_readiness_bridge.py && "
-                "python3 scripts/materialize_vanderbilt_reviewer_blank_execution_verification.py && "
-                "python3 scripts/validate_school_gap_resolution_review_template.py "
-                "--input artifacts/data/school_gap_resolution_targeted_review_packet.csv "
-                "--summary artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json && "
-                "python3 scripts/validate_school_gap_resolution_review_template.py && "
+                "python3 scripts/materialize_vanderbilt_reviewer_slice_prioritization_plan.py && "
                 "python3 scripts/materialize_top50_public_clone_verification.py && "
                 "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
-            success_condition="Blank execution verifier has 20 passing rows, 159 represented slice rows, zero dry-run patch rows, and apply_executed=false.",
+            success_condition="Prioritization plan has 20 rows, 159 represented slice rows, General Surgery as priority_rank=1, zero dry-run patch rows, and apply_executed=false.",
             approval_required_for=[
                 "denominator_closure",
                 "vanderbilt_school_verification",
@@ -641,8 +651,8 @@ def main() -> None:
                 "url_rewrite",
                 "identity_collapse",
             ],
-            source_rowset_sha256=EXECUTION_READINESS_BRIDGE_ROWSET_SHA256,
-            target_rowset_sha256=BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
+            source_rowset_sha256=BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
+            target_rowset_sha256=SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256,
             evidence={
                 "gap_manifest_rows": gap_summary.get("rows"),
                 "gap_manifest_csv_rows": len(gap_rows),
@@ -711,6 +721,18 @@ def main() -> None:
                     "dry_run_patch_rows_represented"
                 ),
                 "blank_execution_rowset_sha256": blank_execution_verification_summary.get("rowset_sha256"),
+                "slice_prioritization_rows": slice_prioritization_summary.get("prioritization_rows"),
+                "slice_prioritization_slice_rows": slice_prioritization_summary.get("slice_rows_represented"),
+                "slice_prioritization_first_priority_execution_order": slice_prioritization_summary.get(
+                    "first_priority_execution_order"
+                ),
+                "slice_prioritization_first_priority_program_name": slice_prioritization_summary.get(
+                    "first_priority_program_name"
+                ),
+                "slice_prioritization_first_priority_workbook_row_count": slice_prioritization_summary.get(
+                    "first_priority_workbook_row_count"
+                ),
+                "slice_prioritization_rowset_sha256": slice_prioritization_summary.get("rowset_sha256"),
             },
             generated_at=generated_at,
         ),
@@ -785,6 +807,7 @@ def main() -> None:
         "source_vanderbilt_gap_review_queue_bridge_rowset_sha256": GAP_REVIEW_QUEUE_BRIDGE_ROWSET_SHA256,
         "source_vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": EXECUTION_READINESS_BRIDGE_ROWSET_SHA256,
         "source_vanderbilt_reviewer_blank_execution_verification_rowset_sha256": BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
+        "source_vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

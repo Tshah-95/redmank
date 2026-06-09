@@ -34,6 +34,7 @@ EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET = "18619a07cc9bf02fba3cf898dc3d21252b2
 EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4"
 EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET = "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa"
 EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET = "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e"
+EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET = "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
@@ -262,6 +263,9 @@ def main() -> None:
     blank_execution_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json")
     blank_execution_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.csv")
     blank_execution_json = read_json(ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.json")
+    slice_prioritization_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json")
+    slice_prioritization_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.csv")
+    slice_prioritization_json = read_json(ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -315,6 +319,9 @@ def main() -> None:
     reviewer_blank_execution_text = (
         ROOT / "scripts" / "materialize_vanderbilt_reviewer_blank_execution_verification.py"
     ).read_text(encoding="utf-8")
+    reviewer_slice_prioritization_text = (
+        ROOT / "scripts" / "materialize_vanderbilt_reviewer_slice_prioritization_plan.py"
+    ).read_text(encoding="utf-8")
     gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
         encoding="utf-8"
     )
@@ -332,6 +339,7 @@ def main() -> None:
             slice_index_summary,
             execution_readiness_summary,
             blank_execution_summary,
+            slice_prioritization_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
@@ -356,6 +364,7 @@ def main() -> None:
         or not isinstance(slice_index_json, list)
         or not isinstance(execution_readiness_json, list)
         or not isinstance(blank_execution_json, list)
+        or not isinstance(slice_prioritization_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
@@ -840,6 +849,67 @@ def main() -> None:
     add_check(
         checks,
         generated_at,
+        "vanderbilt_reviewer_slice_prioritization_plan_boundary",
+        slice_prioritization_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET
+        and slice_prioritization_summary.get("prioritization_rows") == 20
+        and slice_prioritization_summary.get("slice_rows_represented") == 159
+        and slice_prioritization_summary.get("ready_for_bounded_human_reviewer_input_rows") == 20
+        and slice_prioritization_summary.get("blank_execution_pass_rows_represented") == 20
+        and slice_prioritization_summary.get("dry_run_patch_rows_represented") == 0
+        and slice_prioritization_summary.get("accepted_person_rows") == 0
+        and slice_prioritization_summary.get("apply_executed") is False
+        and slice_prioritization_summary.get("mutation_allowed") is False
+        and slice_prioritization_summary.get("person_ingestion_allowed") is False
+        and slice_prioritization_summary.get("first_priority_execution_order") == "4"
+        and slice_prioritization_summary.get("first_priority_program_name") == "General Surgery"
+        and slice_prioritization_summary.get("first_priority_workbook_row_count") == 2
+        and len(slice_prioritization_csv) == 20
+        and len(slice_prioritization_json) == 20,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET,
+            "prioritization_rows": 20,
+            "slice_rows_represented": 159,
+            "ready_for_bounded_human_reviewer_input_rows": 20,
+            "blank_execution_pass_rows_represented": 20,
+            "dry_run_patch_rows_represented": 0,
+            "accepted_person_rows": 0,
+            "apply_executed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "first_priority_execution_order": "4",
+            "first_priority_program_name": "General Surgery",
+            "first_priority_workbook_row_count": 2,
+            "csv_rows": 20,
+            "json_rows": 20,
+        },
+        {
+            "rowset_sha256": slice_prioritization_summary.get("rowset_sha256"),
+            "prioritization_rows": slice_prioritization_summary.get("prioritization_rows"),
+            "slice_rows_represented": slice_prioritization_summary.get("slice_rows_represented"),
+            "ready_for_bounded_human_reviewer_input_rows": slice_prioritization_summary.get(
+                "ready_for_bounded_human_reviewer_input_rows"
+            ),
+            "blank_execution_pass_rows_represented": slice_prioritization_summary.get(
+                "blank_execution_pass_rows_represented"
+            ),
+            "dry_run_patch_rows_represented": slice_prioritization_summary.get("dry_run_patch_rows_represented"),
+            "accepted_person_rows": slice_prioritization_summary.get("accepted_person_rows"),
+            "apply_executed": slice_prioritization_summary.get("apply_executed"),
+            "mutation_allowed": slice_prioritization_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": slice_prioritization_summary.get("person_ingestion_allowed"),
+            "first_priority_execution_order": slice_prioritization_summary.get("first_priority_execution_order"),
+            "first_priority_program_name": slice_prioritization_summary.get("first_priority_program_name"),
+            "first_priority_workbook_row_count": slice_prioritization_summary.get(
+                "first_priority_workbook_row_count"
+            ),
+            "csv_rows": len(slice_prioritization_csv),
+            "json_rows": len(slice_prioritization_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_reviewer_slice_prioritization_plan_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
         "vanderbilt_gap_manifest_committed_rows",
         gap_summary.get("rows") == 113
         and gap_summary.get("open_gap_rows") == 113
@@ -1236,6 +1306,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.json",
             ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json",
             RESEARCH / "vanderbilt-reviewer-blank-execution-verification-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.csv",
+            ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan.json",
+            ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json",
+            RESEARCH / "vanderbilt-reviewer-slice-prioritization-plan-2026-06-09.md",
         ]
     )
     add_check(
@@ -1245,7 +1319,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 28, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 32, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1451,6 +1525,35 @@ def main() -> None:
             "readme": "README.md",
         },
     )
+    slice_prioritization_guard_present = all(
+        token in reviewer_slice_prioritization_text
+        for token in [
+            "SLICE_INDEX_ROWSET",
+            "BLANK_EXECUTION_ROWSET",
+            "DECISION_AUDIT_ROWSET",
+            "assignment_group",
+            "apply_executed",
+            "person_ingestion_allowed",
+            "denominator_closure_allowed",
+            "does not fill",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_slice_prioritization_plan_guard_present",
+        slice_prioritization_guard_present
+        and "materialize_vanderbilt_reviewer_slice_prioritization_plan.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": slice_prioritization_guard_present,
+            "readme_documented": "materialize_vanderbilt_reviewer_slice_prioritization_plan.py" in readme_text,
+        },
+        {
+            "script": "scripts/materialize_vanderbilt_reviewer_slice_prioritization_plan.py",
+            "readme": "README.md",
+        },
+    )
     gap_slicer_guard_present = all(
         token in gap_batch_slicer_text
         for token in [
@@ -1575,6 +1678,7 @@ def main() -> None:
         "vanderbilt_workbook_slice_index_rowset_sha256": EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET,
         "vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET,
         "vanderbilt_reviewer_blank_execution_verification_rowset_sha256": EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET,
+        "vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
