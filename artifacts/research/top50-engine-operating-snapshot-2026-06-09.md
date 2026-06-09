@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Engine Operating Snapshot
-created_at: 2026-06-09T05:31:54.231049+00:00
+created_at: 2026-06-09T05:37:34.742217+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -28,7 +28,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "rowset_sha256": "f5a10761fb912699eb4ce0d23377f82acb765345d713474fae6d1fc4a954ad72",
+  "rowset_sha256": "8218394eb07dc61713bfb945d318102ae16d99756addb59f3da68cc2cbd255f7",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -69,6 +69,11 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
     "candidate_review_scaffold_verification_pass_rows": 7,
     "candidate_review_scaffold_verification_rows": 7,
     "candidate_review_scaffold_verification_rowset_sha256": "24e03f71174cd456b4783457113d64d4b15185721fc86092ca2a5f47e7eb4260",
+    "candidate_reviewer_decision_audit_rows": 159,
+    "candidate_reviewer_decision_audit_rowset_sha256": "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de",
+    "candidate_reviewer_decision_invalid_rows": 0,
+    "candidate_reviewer_decision_pending_rows": 159,
+    "candidate_reviewer_decision_valid_rows": 0,
     "execution_workbench_rows": 20,
     "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
     "execution_workbench_unique_fetch_urls": 16,
@@ -96,5 +101,5 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
 
 | lane | status | artifact | rowset | next action |
 | --- | --- | --- | --- | --- |
-| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_non_mutating_manual_review_decisions | artifacts/data/vanderbilt_candidate_review_decision_scaffold.csv | 29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938 | Use the verified Vanderbilt reviewer decision scaffold and blank manual decision template for non-mutating candidate/scope/recourse review. Any accepted person rows, denominator closure, or identity reconciliation still requires a later exact approval packet. |
+| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_for_manual_vanderbilt_candidate_review_input | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de | Enter non-mutating reviewer decisions in the Vanderbilt manual decision template, then re-run the decision audit. Any accepted person rows, denominator closure, identity reconciliation, parser acceptance, or scope closure still requires a later exact approval packet. |
 | vanderbilt_active_gap_resolution_manifest | active_non_mutating_discovery_queue | artifacts/data/school_gap_resolution_manifest.csv |  | Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work. |
