@@ -10,17 +10,17 @@
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "generated_at": "2026-06-09T04:24:30.852553+00:00",
+  "generated_at": "2026-06-09T04:29:35.698523+00:00",
   "json": "artifacts/data/top50_engine_operating_snapshot.json",
   "markdown": "artifacts/research/top50-engine-operating-snapshot-2026-06-09.md",
   "mutation_allowed": false,
   "next_lanes": [
     {
-      "lane": "vanderbilt_targeted_parser_scope_execution_workbench",
-      "recommended_next_action": "Fetch/render the queued official routes, preserve route observations, and emit exact parser acceptance, scope-disposition, or recourse packets. Do not ingest people or close denominators without exact GBrain approval.",
-      "rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
-      "source_artifact": "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench.csv",
-      "status": "ready_non_mutating_route_fetch_and_rendered_review"
+      "lane": "vanderbilt_targeted_route_observation_review",
+      "recommended_next_action": "Use the route-observation ledger to build exact parser-acceptance, scope-disposition, or recourse approval packets. Do not accept parsers, ingest people, rewrite URLs, or close denominators without exact GBrain approval.",
+      "rowset_sha256": "f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258",
+      "source_artifact": "artifacts/data/vanderbilt_targeted_route_observations.csv",
+      "status": "ready_non_mutating_parser_acceptance_or_scope_disposition_packet_design"
     },
     {
       "lane": "vanderbilt_active_gap_resolution_manifest",
@@ -41,7 +41,7 @@
     "unique_person_identity_collapse"
   ],
   "public_safety_policy": "This snapshot is an operating index over committed public artifacts. It does not include raw GBrain HTTP responses, browser dumps, debug databases, or raw BRIMR workbooks.",
-  "rowset_sha256": "104a9cca233eebe4e33935d2020e63f7f39163593767b79779c5b37d7a58b967",
+  "rowset_sha256": "6650a69e4efa5a0715fc7ec5c7ddbd1a4cc35e891cd6d90896598887a2a7d41f",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -140,6 +140,7 @@
       "name": "vanderbilt_targeted_source_discovery",
       "selected_summary": {
         "mutation_allowed": false,
+        "observation_rows": 81,
         "rowset_sha256": "dd72909d1f992209a414ef232d8c4d499de5de2a90cf45f49428153d1ebe1b71",
         "workbench_rows": 38
       },
@@ -166,6 +167,17 @@
         "workbench_rows": 20
       },
       "summary_json": "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "vanderbilt_targeted_route_observations",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "observation_rows": 20,
+        "rowset_sha256": "f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258",
+        "unique_observed_urls": 16
+      },
+      "summary_json": "artifacts/data/vanderbilt_targeted_route_observation_summary.json"
     }
   ],
   "target_registry": {
@@ -178,6 +190,9 @@
     "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
     "execution_workbench_unique_fetch_urls": 16,
     "review_packet_rows": 20,
-    "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785"
+    "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
+    "route_observation_rows": 20,
+    "route_observation_rowset_sha256": "f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258",
+    "route_observation_unique_urls": 16
   }
 }

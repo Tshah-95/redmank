@@ -1,0 +1,40 @@
+{
+  "by_candidate_route_signal": {
+    "http_error_needs_retry_or_recourse": 1,
+    "official_route_current_roster_signal_needs_parser_scope_packet": 19
+  },
+  "by_fetch_status": {
+    "fetched": 20
+  },
+  "by_final_or_fetch_domain": {
+    "medicine.vumc.org": 4,
+    "pediatrics.vumc.org": 12,
+    "www.vumc.org": 4
+  },
+  "csv": "artifacts/data/vanderbilt_targeted_route_observations.csv",
+  "generated_at": "2026-06-09T04:29:32.373163+00:00",
+  "json": "artifacts/data/vanderbilt_targeted_route_observations.json",
+  "markdown": "artifacts/research/vanderbilt-targeted-route-observations-2026-06-09.md",
+  "mutation_allowed": false,
+  "not_approved": [
+    "person_ingestion",
+    "parser_acceptance",
+    "training_state_mutation",
+    "denominator_closure",
+    "vanderbilt_school_verification",
+    "url_rewrite",
+    "unsupported_label_ingestion",
+    "profile_contact_research_fact_acceptance",
+    "unique_person_identity_collapse"
+  ],
+  "observation_rows": 20,
+  "policy": "Non-mutating Vanderbilt targeted route observation ledger. It records fetch status, final URL, hashes, title/heading booleans, and coarse current-roster route signals for official public pages. It stores no raw browser dump, raw HTML dump, raw text dump, raw headings, raw anchor samples, accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, or identity collapse.",
+  "public_safety_policy": "This ledger stores fetch metadata, hashes, title/heading booleans, and coarse link/signal counts only. Do not commit raw HTML/text/browser dumps or accepted person records from this observation lane.",
+  "rowset_sha256": "f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258",
+  "source_execution_rows": 20,
+  "source_execution_workbench": "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench.json",
+  "source_execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
+  "source_execution_workbench_summary": "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench_summary.json",
+  "source_unique_fetch_urls": 16,
+  "unique_observed_urls": 16
+}

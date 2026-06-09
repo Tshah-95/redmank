@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Engine Operating Snapshot
-created_at: 2026-06-09T04:24:30.852553+00:00
+created_at: 2026-06-09T04:29:35.698523+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -28,7 +28,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "rowset_sha256": "104a9cca233eebe4e33935d2020e63f7f39163593767b79779c5b37d7a58b967",
+  "rowset_sha256": "6650a69e4efa5a0715fc7ec5c7ddbd1a4cc35e891cd6d90896598887a2a7d41f",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -52,7 +52,10 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
     "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
     "execution_workbench_unique_fetch_urls": 16,
     "review_packet_rows": 20,
-    "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785"
+    "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
+    "route_observation_rows": 20,
+    "route_observation_rowset_sha256": "f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258",
+    "route_observation_unique_urls": 16
   }
 }
 ```
@@ -61,5 +64,5 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
 
 | lane | status | artifact | rowset | next action |
 | --- | --- | --- | --- | --- |
-| vanderbilt_targeted_parser_scope_execution_workbench | ready_non_mutating_route_fetch_and_rendered_review | artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench.csv | b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b | Fetch/render the queued official routes, preserve route observations, and emit exact parser acceptance, scope-disposition, or recourse packets. Do not ingest people or close denominators without exact GBrain approval. |
+| vanderbilt_targeted_route_observation_review | ready_non_mutating_parser_acceptance_or_scope_disposition_packet_design | artifacts/data/vanderbilt_targeted_route_observations.csv | f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258 | Use the route-observation ledger to build exact parser-acceptance, scope-disposition, or recourse approval packets. Do not accept parsers, ingest people, rewrite URLs, or close denominators without exact GBrain approval. |
 | vanderbilt_active_gap_resolution_manifest | active_non_mutating_discovery_queue | artifacts/data/school_gap_resolution_manifest.csv |  | Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work. |

@@ -29,6 +29,7 @@ SUMMARY_FILES = {
     "vanderbilt_parser_scope_review": ARTIFACTS / "vanderbilt_targeted_parser_scope_review_packet_summary.json",
     "vanderbilt_parser_scope_execution_workbench": ARTIFACTS
     / "vanderbilt_targeted_parser_scope_execution_workbench_summary.json",
+    "vanderbilt_targeted_route_observations": ARTIFACTS / "vanderbilt_targeted_route_observation_summary.json",
 }
 
 
@@ -59,6 +60,8 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "workbench_rows",
         "review_rows",
         "unique_fetch_urls",
+        "observation_rows",
+        "unique_observed_urls",
         "mutation_allowed",
         "gbrain_approval_verified",
         "gbrain_registration_status",
@@ -81,18 +84,19 @@ def main() -> None:
     playbook_summary = summaries["source_discovery_playbook"]
     vanderbilt_parser_summary = summaries["vanderbilt_parser_scope_review"]
     vanderbilt_execution_summary = summaries["vanderbilt_parser_scope_execution_workbench"]
+    vanderbilt_route_summary = summaries["vanderbilt_targeted_route_observations"]
 
     next_lanes = [
         {
-            "lane": "vanderbilt_targeted_parser_scope_execution_workbench",
-            "status": "ready_non_mutating_route_fetch_and_rendered_review",
-            "source_artifact": vanderbilt_execution_summary.get(
-                "csv", "artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench.csv"
+            "lane": "vanderbilt_targeted_route_observation_review",
+            "status": "ready_non_mutating_parser_acceptance_or_scope_disposition_packet_design",
+            "source_artifact": vanderbilt_route_summary.get(
+                "csv", "artifacts/data/vanderbilt_targeted_route_observations.csv"
             ),
-            "rowset_sha256": vanderbilt_execution_summary.get("rowset_sha256", ""),
+            "rowset_sha256": vanderbilt_route_summary.get("rowset_sha256", ""),
             "recommended_next_action": (
-                "Fetch/render the queued official routes, preserve route observations, and emit exact parser "
-                "acceptance, scope-disposition, or recourse packets. Do not ingest people or close denominators "
+                "Use the route-observation ledger to build exact parser-acceptance, scope-disposition, or recourse "
+                "approval packets. Do not accept parsers, ingest people, rewrite URLs, or close denominators "
                 "without exact GBrain approval."
             ),
         },
@@ -141,6 +145,9 @@ def main() -> None:
             "execution_workbench_rows": vanderbilt_execution_summary.get("workbench_rows", 0),
             "execution_workbench_unique_fetch_urls": vanderbilt_execution_summary.get("unique_fetch_urls", 0),
             "execution_workbench_rowset_sha256": vanderbilt_execution_summary.get("rowset_sha256", ""),
+            "route_observation_rows": vanderbilt_route_summary.get("observation_rows", 0),
+            "route_observation_unique_urls": vanderbilt_route_summary.get("unique_observed_urls", 0),
+            "route_observation_rowset_sha256": vanderbilt_route_summary.get("rowset_sha256", ""),
         },
         "mutation_allowed": False,
         "not_approved": [
