@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -59,6 +60,7 @@ VANDERBILT_RELATED_SCOPE_SOURCE_DISCOVERY_DISPOSITION_SUMMARY = ARTIFACTS / "van
 VANDERBILT_RELATED_SCOPE_SOURCE_DISCOVERY_DISPOSITION_EFFECT = "vanderbilt_related_scope_source_discovery_disposition_21_non_mutating_approved"
 VANDERBILT_RELATED_SCOPE_SOURCE_DISCOVERY_DISPOSITION_ROWSET_SHA256 = "825f93d30829daaa4e30543e372b88e7826fd5de165532f02788897a9ce9e06a"
 VANDERBILT_RELATED_SCOPE_SOURCE_DISCOVERY_DISPOSITION_ROWS = 21
+ALLOW_EMPTY_ENV = "ALLOW_EMPTY_GAP_MANIFEST"
 
 csv.field_size_limit(sys.maxsize)
 
@@ -136,6 +138,38 @@ def int_value(value: object) -> int:
         return int(str(value or "0"))
     except ValueError:
         return 0
+
+
+def missing_core_inputs() -> list[str]:
+    required = [
+        ARTIFACTS / "vanderbilt_gme_program_coverage.json",
+    ]
+    if not stanford_school_verification_approved():
+        required.extend(
+            [
+                ARTIFACTS / "top50_next_school_discovery_manifest.csv",
+                ARTIFACTS / "stanford_training_summary.json",
+                ARTIFACTS / "stanford_gap_drain_queue.csv",
+            ]
+        )
+    return [str(path.relative_to(ROOT)) for path in required if not path.exists()]
+
+
+def guard_nonempty_manifest(rows: list[dict[str, object]], previous_summary: object) -> None:
+    if rows or os.environ.get(ALLOW_EMPTY_ENV) == "1":
+        return
+    previous_rows = int_value(previous_summary.get("rows") if isinstance(previous_summary, dict) else 0)
+    missing = missing_core_inputs()
+    details = {
+        "refused_rows": 0,
+        "previous_summary_rows": previous_rows,
+        "missing_core_inputs": missing,
+        "override_env": ALLOW_EMPTY_ENV + "=1",
+    }
+    raise SystemExit(
+        "Refusing to write an empty school gap-resolution manifest from an incomplete checkout: "
+        + json.dumps(details, ensure_ascii=True, sort_keys=True)
+    )
 
 
 def stanford_school_verification_approved() -> bool:
@@ -1524,12 +1558,14 @@ def build_summary(
 
 def main() -> None:
     generated_at = datetime.now(timezone.utc).isoformat()
+    previous_summary = read_json(SUMMARY_OUT, {})
     stanford_rows = materialize_stanford(generated_at)
     suppressed_verified_school_rows: dict[str, int] = {}
     if stanford_school_verification_approved():
         suppressed_verified_school_rows[STANFORD_SCHOOL] = len(stanford_rows)
         stanford_rows = []
     rows = stanford_rows + materialize_vanderbilt(generated_at)
+    guard_nonempty_manifest(rows, previous_summary)
     rows.sort(
         key=lambda row: (
             0 if row["school_name"] == STANFORD_SCHOOL else 1,
