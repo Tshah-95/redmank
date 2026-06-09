@@ -38,6 +38,7 @@ EXECUTION_READINESS_BRIDGE_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_execution_
 BLANK_EXECUTION_VERIFICATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json"
 SLICE_PRIORITIZATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_slice_prioritization_plan_summary.json"
 PRIORITY_INSTRUCTION_SUMMARY = ARTIFACTS / "vanderbilt_priority_reviewer_instruction_packet_summary.json"
+PATCH_HELPER_FIXTURE_SUMMARY = ARTIFACTS / "vanderbilt_patch_helper_fixture_verification_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -46,7 +47,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "09f43cbe668244b0224439cf7ff474c637a7ecd71e5b1b0433ae1e448e0ef8b9"
+VERIFICATION_ROWSET_SHA256 = "7ab4b93271d8744d70d8b434957bd0d383ba2a90dd73143fe0f5606977de91b2"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -64,6 +65,7 @@ EXECUTION_READINESS_BRIDGE_ROWSET_SHA256 = "ac16e7d92c4992c248162c05778abc4739a4
 BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256 = "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e"
 SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256 = "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c"
 PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256 = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
+PATCH_HELPER_FIXTURE_ROWSET_SHA256 = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -258,6 +260,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     blank_execution_verification_summary = read_json(BLANK_EXECUTION_VERIFICATION_SUMMARY)
     slice_prioritization_summary = read_json(SLICE_PRIORITIZATION_SUMMARY)
     priority_instruction_summary = read_json(PRIORITY_INSTRUCTION_SUMMARY)
+    patch_helper_fixture_summary = read_json(PATCH_HELPER_FIXTURE_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -282,6 +285,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             blank_execution_verification_summary,
             slice_prioritization_summary,
             priority_instruction_summary,
+            patch_helper_fixture_summary,
             gap_summary,
         ]
     ):
@@ -434,6 +438,17 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and priority_instruction_summary.get("apply_executed") is False
         and priority_instruction_summary.get("mutation_allowed") is False
         and priority_instruction_summary.get("person_ingestion_allowed") is False,
+        "patch_helper_fixture_rowset": patch_helper_fixture_summary.get("rowset_sha256")
+        == PATCH_HELPER_FIXTURE_ROWSET_SHA256,
+        "patch_helper_fixture_coverage": patch_helper_fixture_summary.get("fixture_check_rows") == 16
+        and patch_helper_fixture_summary.get("pass_rows") == 16
+        and patch_helper_fixture_summary.get("fail_rows") == 0
+        and patch_helper_fixture_summary.get("synthetic_fixture_only") is True
+        and patch_helper_fixture_summary.get("real_vanderbilt_rows_used") == 0
+        and patch_helper_fixture_summary.get("accepted_person_rows") == 0
+        and patch_helper_fixture_summary.get("apply_executed") is False
+        and patch_helper_fixture_summary.get("mutation_allowed") is False
+        and patch_helper_fixture_summary.get("person_ingestion_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -459,6 +474,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         blank_execution_verification_summary,
         slice_prioritization_summary,
         priority_instruction_summary,
+        patch_helper_fixture_summary,
         gap_summary,
     )
 
@@ -530,6 +546,7 @@ def main() -> None:
         blank_execution_verification_summary,
         slice_prioritization_summary,
         priority_instruction_summary,
+        patch_helper_fixture_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -639,18 +656,20 @@ def main() -> None:
         row(
             execution_order=3,
             action_lane="vanderbilt_active_gap_manifest_triage",
-            action_status="ready_for_priority_instruction_packet_review",
+            action_status="ready_for_fixture_verified_priority_instruction_review",
             priority=760,
             entity_type="vanderbilt_priority_reviewer_instruction_packet",
             entity_key="vanderbilt_priority_reviewer_instruction_packet",
             display_label="Vanderbilt General Surgery priority reviewer instruction packet",
             impact_count=int(priority_instruction_summary.get("instruction_rows", 0)),
-            source_artifact="artifacts/data/vanderbilt_reviewer_slice_prioritization_plan.csv",
+            source_artifact="artifacts/data/vanderbilt_patch_helper_fixture_verification.csv",
             target_artifact="artifacts/data/vanderbilt_priority_reviewer_instruction_packet.csv",
             required_next_evidence=(
                 "The priority instruction packet materializes the first General Surgery reviewer slice as exactly two "
-                "blank, hash-only instruction rows with allowed actions and required confirmations. Filled reviewer "
-                "decisions still require strict extraction and dry-run verification before any explicit apply."
+                "blank, hash-only instruction rows with allowed actions and required confirmations. The synthetic "
+                "fixture harness verifies valid, invalid, stale, duplicate, blank, and include-blank helper behavior "
+                "without real Vanderbilt rows. Filled reviewer decisions still require strict extraction and dry-run "
+                "verification before any explicit apply."
             ),
             recommended_next_action=(
                 "Use artifacts/data/vanderbilt_priority_reviewer_instruction_packet.csv as the reviewer-facing scaffold "
@@ -658,11 +677,12 @@ def main() -> None:
                 "a strict patch, dry-run apply, and do not run --apply until that slice is reviewed."
             ),
             verification_command=(
+                "python3 scripts/materialize_vanderbilt_patch_helper_fixture_verification.py && "
                 "python3 scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py && "
                 "python3 scripts/materialize_top50_public_clone_verification.py && "
                 "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
-            success_condition="Priority instruction packet has two pending blank General Surgery rows, no raw labels or URLs, accepted_person_rows=0, and apply_executed=false.",
+            success_condition="Fixture harness passes 16/16 synthetic checks; priority instruction packet has two pending blank General Surgery rows, no raw labels or URLs, accepted_person_rows=0, and apply_executed=false.",
             approval_required_for=[
                 "denominator_closure",
                 "vanderbilt_school_verification",
@@ -670,7 +690,7 @@ def main() -> None:
                 "url_rewrite",
                 "identity_collapse",
             ],
-            source_rowset_sha256=SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256,
+            source_rowset_sha256=PATCH_HELPER_FIXTURE_ROWSET_SHA256,
             target_rowset_sha256=PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256,
             evidence={
                 "gap_manifest_rows": gap_summary.get("rows"),
@@ -759,6 +779,9 @@ def main() -> None:
                 "priority_instruction_program_name": priority_instruction_summary.get("program_name"),
                 "priority_instruction_execution_order": priority_instruction_summary.get("execution_order"),
                 "priority_instruction_rowset_sha256": priority_instruction_summary.get("rowset_sha256"),
+                "patch_helper_fixture_rows": patch_helper_fixture_summary.get("fixture_check_rows"),
+                "patch_helper_fixture_pass_rows": patch_helper_fixture_summary.get("pass_rows"),
+                "patch_helper_fixture_rowset_sha256": patch_helper_fixture_summary.get("rowset_sha256"),
             },
             generated_at=generated_at,
         ),
@@ -835,6 +858,7 @@ def main() -> None:
         "source_vanderbilt_reviewer_blank_execution_verification_rowset_sha256": BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
         "source_vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256,
         "source_vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256,
+        "source_vanderbilt_patch_helper_fixture_verification_rowset_sha256": PATCH_HELPER_FIXTURE_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

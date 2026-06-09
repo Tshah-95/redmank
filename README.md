@@ -29,6 +29,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_reviewer_blank_execution_verification_summary.json`: non-mutating verifier proving all 20 blank Vanderbilt reviewer slices fail closed, produce zero dry-run patch rows, and remove `/tmp` outputs.
 - `artifacts/data/vanderbilt_reviewer_slice_prioritization_plan_summary.json`: non-mutating reviewer slice assignment plan ranking the 20 fail-closed Vanderbilt slices with public-safe lane, row-count, and verifier-status metrics; General Surgery is the first bounded 2-row review slice.
 - `artifacts/data/vanderbilt_priority_reviewer_instruction_packet_summary.json`: non-mutating priority reviewer instruction packet for the first General Surgery slice, with two blank hash-only decision rows and no raw labels, URLs, notes, accepted people, or apply step.
+- `artifacts/data/vanderbilt_patch_helper_fixture_verification_summary.json`: synthetic-only non-mutating verification for the Vanderbilt patch extract/apply helper functions, covering valid, invalid, stale, duplicate, blank, and include-blank fixture behavior without real Vanderbilt rows.
 - `artifacts/data/school_readiness_dossier_summary.json`: non-mutating school-readiness dossier rollup for GBrain verification posture.
 - `scripts/materialize_school_capability_manifest.py`, `scripts/materialize_school_readiness_dossiers.py`, `scripts/materialize_school_gap_resolution_manifest.py`, `scripts/materialize_school_gap_resolution_batches.py`, and `scripts/materialize_school_gap_resolution_batch_packets.py`: shared school-level operating manifest builders.
 - `scripts/materialize_school_gap_resolution_batch_slice_index.py`: reproducible materializer for the public-safe Vanderbilt gap-resolution batch slice index.
@@ -42,6 +43,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_reviewer_blank_execution_verification.py`: reproducible verifier that runs the blank reviewer slice/extract/dry-run path to `/tmp` and proves it fails closed without applying decisions.
 - `scripts/materialize_vanderbilt_reviewer_slice_prioritization_plan.py`: reproducible materializer for the public-safe Vanderbilt reviewer slice prioritization plan; it ranks fail-closed slices without filling decisions, applying patches, accepting people, or closing denominators.
 - `scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py`: reproducible materializer for the first General Surgery reviewer instruction packet; it emits only blank decision placeholders, hashes, keys, allowed actions, required confirmations, and helper commands.
+- `scripts/materialize_vanderbilt_patch_helper_fixture_verification.py`: reproducible synthetic fixture harness for patch helper validation; it exercises helper behavior in memory without reading or writing real reviewer decisions.
 - `scripts/validate_school_gap_resolution_review_template.py`: strict validator for filled gap review-template rows; it accepts only allowed non-mutating actions and `/tmp` output paths.
 - `scripts/materialize_school_gap_resolution_manifest.py` fails closed if a checkout lacks the core source inputs and would otherwise emit an empty manifest; set `ALLOW_EMPTY_GAP_MANIFEST=1` only for an intentional empty-manifest test run.
 - `artifacts/data/school_verification_registry_summary.json`: public registry of GBrain school-level verification posture, currently recording Stanford as school-verified under a non-mutating boundary.
@@ -75,6 +77,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index_summary.json`: public-safe index of 20 bounded Vanderbilt workbook slice commands, each writing one operator-packet workbook to `/tmp` by default.
 - `artifacts/data/vanderbilt_reviewer_slice_prioritization_plan_summary.json`: public-safe Vanderbilt reviewer slice priority plan over the 20 fail-closed workbook slices.
 - `artifacts/data/vanderbilt_priority_reviewer_instruction_packet_summary.json`: public-safe first-slice reviewer instruction packet for General Surgery priority review.
+- `artifacts/data/vanderbilt_patch_helper_fixture_verification_summary.json`: synthetic-only verifier for Vanderbilt patch helper validation logic.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_top50_public_clone_verification.py`: pure verifier for public-clone top-50/Vanderbilt safety and reproducibility invariants; it reads committed artifacts only and performs no web fetch, GBrain call, person ingestion, denominator closure, or scratch-dependent manifest regeneration.
 - `scripts/materialize_top50_public_contributor_worklist.py`: reproducible worklist materializer that turns the verified public snapshot, Vanderbilt batch packets, decision audit, and gap manifest into bounded non-mutating contributor actions with exact commands and approval gates.
@@ -105,6 +108,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py`: selector CLI for writing exactly one operator-packet workbook slice by execution order or operator packet key.
 - `scripts/materialize_vanderbilt_reviewer_slice_prioritization_plan.py`: reproducible planner that ranks verified Vanderbilt reviewer slices for bounded human review without mutating decisions.
 - `scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py`: reproducible materializer for the General Surgery priority instruction packet.
+- `scripts/materialize_vanderbilt_patch_helper_fixture_verification.py`: reproducible synthetic fixture verifier for patch helper valid/invalid/blank behavior.
 - `scripts/extract_vanderbilt_reviewer_decision_patch.py`: extractor for filled workbook rows; it writes only strict patch-helper columns and validates extracted rows through the same non-mutating audit path.
 - `scripts/apply_vanderbilt_reviewer_decision_patch.py`: dry-run-by-default helper for validating and optionally applying public-safe reviewer decision patches; it only accepts audit-valid non-mutating decisions and never accepts people or closes denominators.
 
