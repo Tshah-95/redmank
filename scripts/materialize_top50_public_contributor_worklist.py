@@ -377,8 +377,8 @@ def main() -> None:
                 "manifest in a public clone unless the core source inputs are present."
             ),
             verification_command=(
-                "python3 scripts/materialize_top50_public_clone_verification.py; "
-                "python3 scripts/materialize_school_gap_resolution_manifest.py should fail closed in this public checkout"
+                "python3 scripts/materialize_top50_public_clone_verification.py && "
+                "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
             success_condition="Committed gap manifest remains 113 Vanderbilt rows and mutation_allowed=false.",
             approval_required_for=[

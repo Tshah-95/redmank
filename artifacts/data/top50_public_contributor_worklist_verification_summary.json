@@ -1,0 +1,19 @@
+{
+  "csv": "artifacts/data/top50_public_contributor_worklist_verification.csv",
+  "denominator_closure_allowed": false,
+  "fail_rows": 0,
+  "gbrain_approval_line": "APPROVE top50_public_contributor_worklist_verification_lane_approved",
+  "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_verification_lane",
+  "generated_at": "2026-06-09T06:12:43.872606+00:00",
+  "json": "artifacts/data/top50_public_contributor_worklist_verification.json",
+  "markdown": "artifacts/research/top50-public-contributor-worklist-verification-2026-06-09.md",
+  "mutation_allowed": false,
+  "pass_rows": 11,
+  "person_ingestion_allowed": false,
+  "policy": "Non-mutating verification for the public top-50 contributor worklist. It checks committed worklist rowsets, commands, source artifacts, prohibition gates, and public-safety leakage. It does not execute contributor work, ingest people, mutate training states, close denominators, verify schools, rewrite URLs, accept profile/contact/research facts, publish raw dumps, or collapse identities.",
+  "rowset_sha256": "274124b749fec9403009c3324f62f33595975b2317498f5a464c2e901d0e9e23",
+  "school_verification_allowed": false,
+  "source_worklist_rowset_sha256": "cbaec08eb19367f9f673c72c637def2fac551ca0d3941a2cccb0ea4402e4458a",
+  "source_worklist_summary": "artifacts/data/top50_public_contributor_worklist_summary.json",
+  "verification_rows": 11
+}

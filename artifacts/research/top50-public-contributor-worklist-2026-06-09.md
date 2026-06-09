@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Contributor Worklist
-created_at: 2026-06-09T06:03:34.365521+00:00
+created_at: 2026-06-09T06:12:43.850185+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -32,7 +32,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE top50_public_contributor_worklist_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
-  "generated_at": "2026-06-09T06:03:34.365521+00:00",
+  "generated_at": "2026-06-09T06:12:43.850185+00:00",
   "high_rows": 1,
   "json": "artifacts/data/top50_public_contributor_worklist.json",
   "low_rows": 0,
@@ -41,7 +41,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "mutation_allowed": false,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ranks bounded public-safe operator actions from committed verification, snapshot, Vanderbilt batch-packet, decision-audit, and gap manifest artifacts. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
-  "rowset_sha256": "3baf8429b506fdca5df2a35e5d9f23c1be976d3fba84c58024b6ac1fa1809f8f",
+  "rowset_sha256": "cbaec08eb19367f9f673c72c637def2fac551ca0d3941a2cccb0ea4402e4458a",
   "school_verification_allowed": false,
   "source_snapshot_rowset_sha256": "2743bdc6aa80c59dbcfa2f4dceb4a84668cbaff298a4d79756f79a6bad222588",
   "source_vanderbilt_batch_packet_rowset_sha256": "1f9da0ab244581dbf5782eab572d5045b8a53c8bffc9d4892e077ca1c7b0e30e",
