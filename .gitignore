@@ -4,3 +4,9 @@ __pycache__/
 *.py[cod]
 artifacts/data/raw/
 artifacts/data/redmank.sqlite
+artifacts/data/gbrain_*_http_mcp_response.json
+artifacts/data/browser_page_dumps/
+artifacts/data/debug_*.sqlite
+.playwright-mcp/
+inbox/
+reports/

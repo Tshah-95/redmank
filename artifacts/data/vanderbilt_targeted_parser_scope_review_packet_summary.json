@@ -1,0 +1,30 @@
+{
+  "by_parser_readiness_status": {
+    "linked_roster_candidate_needs_fetch_and_scope_review": 15,
+    "linked_roster_candidate_scope_ambiguous": 4,
+    "medium_signal_rendered_or_js_parser_review_required": 1
+  },
+  "by_parser_review_lane": {
+    "follow_same_program_roster_link_before_parser": 15,
+    "rendered_current_residents_scope_review": 1,
+    "scope_ambiguous_roster_link_review": 4
+  },
+  "by_source_selection_reason": {
+    "general_surgery_medium_current_residents_review_row": 1,
+    "high_confidence_current_roster_signal": 19
+  },
+  "csv": "artifacts/data/vanderbilt_targeted_parser_scope_review_packet.csv",
+  "gbrain_approval_effect": "vanderbilt_targeted_gap_source_discovery_evidence_registration_approved",
+  "gbrain_registration_status": "approved",
+  "generated_at": "2026-06-09T02:50:42.489373+00:00",
+  "json": "artifacts/data/vanderbilt_targeted_parser_scope_review_packet.json",
+  "markdown": "artifacts/research/vanderbilt-targeted-parser-scope-review-packet-2026-06-09.md",
+  "mutation_allowed": false,
+  "policy": "Non-mutating Vanderbilt targeted parser/scope review packet. It queues official candidate pages for parser design, rendered review, link-follow review, or scope disposition. It authorizes no person ingestion, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, profile enrichment, contact acceptance, research fact acceptance, or unique-person identity collapse.",
+  "review_rows": 20,
+  "rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
+  "source_target_gap_rows": 19,
+  "source_workbench": "artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench.json",
+  "source_workbench_rows": 38,
+  "source_workbench_rowset_sha256": "dd72909d1f992209a414ef232d8c4d499de5de2a90cf45f49428153d1ebe1b71"
+}

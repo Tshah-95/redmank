@@ -4,6 +4,18 @@
 
 The first case study focuses on Penn Department of Medicine residents and fellows, with a separate partial medical-student source from the public Penn MSTP directory. The project keeps provenance close to each record: source URL, source type, extraction method, role, program, population, training-year label, current-status inference, and quality notes.
 
+The repository is intended to stay cloneable and reviewable as an open-source substrate. Commit public-source evidence, deterministic summaries, review packets, and reproducible materializers; keep raw browser dumps, local approval-service responses, debug databases, and private operator scratch out of Git.
+
+## Current Top-50/Vanderbilt Outputs
+
+- `artifacts/data/top50_scraper_source_discovery_playbook_summary.json`: non-mutating scraper/source-discovery playbook approval summary for top-50 medical-school roster work.
+- `artifacts/data/top50_scraper_source_discovery_playbook.csv`: row-level source-discovery playbook covering observed school patterns, operator contracts, and Vanderbilt next-queue rows.
+- `artifacts/research/top50-scraper-source-discovery-playbook-2026-06-07.md`: human-readable playbook packet.
+- `artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench_summary.json`: targeted Vanderbilt source-discovery summary for 19 open gaps, with the exact rowset hash and mutation boundary.
+- `artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench.csv`: candidate official-source workbench rows. These are evidence for parser/scope review only.
+- `artifacts/data/vanderbilt_targeted_parser_scope_review_packet_summary.json`: non-mutating parser/scope review packet derived from the targeted Vanderbilt workbench.
+- `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
+
 ## Current Penn Outputs
 
 - `artifacts/data/penn_training_people_unique.json`: deduplicated Department of Medicine resident/fellow corpus.

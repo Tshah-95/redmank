@@ -1,0 +1,58 @@
+{
+  "by_candidate_status": {
+    "official_candidate_current_roster_signal_needs_parser_review": 19,
+    "official_candidate_roster_text_without_supported_people": 4,
+    "official_context_no_current_roster_signal": 10,
+    "official_context_or_negative_page_no_current_roster": 5
+  },
+  "by_confidence": {
+    "high": 19,
+    "low": 15,
+    "medium": 4
+  },
+  "candidate_url_rows": 38,
+  "csv": "artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench.csv",
+  "generated_at": "2026-06-09T02:21:26.597659+00:00",
+  "json": "artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench.json",
+  "lanes": [
+    "manual_rendered_review_or_targeted_source_discovery"
+  ],
+  "markdown": "artifacts/research/vanderbilt-targeted-gap-source-discovery-workbench-2026-06-08.md",
+  "mutation_allowed": false,
+  "observation_csv": "artifacts/data/vanderbilt_targeted_gap_source_discovery_search_observations.csv",
+  "observation_rows": 81,
+  "playbook_approval_effect": "top50_scraper_source_discovery_playbook_non_mutating_approved",
+  "playbook_rowset_sha256": "1b33439d36c878a527294dea38b8662bc69d5634c4427ad21ffa878b3db1e355",
+  "policy": "Non-mutating Vanderbilt generalized source-discovery workbench. It searches and fetches official-domain candidate source evidence only. It authorizes no person ingestion, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, profile enrichment, unsupported-label ingestion, research fact acceptance, or identity collapse.",
+  "programs_with_high_confidence_candidate": [
+    "Academic General Pediatrics",
+    "Advanced Endoscopy",
+    "Advanced Inflammatory Bowel Disease",
+    "Developmental-Behavioral Pediatrics",
+    "Gastroenterology",
+    "Neonatal-Perinatal Medicine",
+    "Orthopaedic Surgery",
+    "Pediatric Critical Care",
+    "Pediatric Emergency Medicine",
+    "Pediatric Endocrinology",
+    "Pediatric Gastroenterology",
+    "Pediatric Hospital Medicine",
+    "Pediatric Infectious Diseases",
+    "Pediatric Rheumatology",
+    "Pediatrics",
+    "Psychiatry",
+    "Rheumatology",
+    "Transplant Hepatology"
+  ],
+  "programs_with_medium_confidence_candidate": [
+    "Academic General Pediatrics",
+    "General Surgery",
+    "Pediatric Gastroenterology"
+  ],
+  "query_csv": "artifacts/data/vanderbilt_targeted_gap_source_discovery_queries.csv",
+  "query_rows": 76,
+  "rowset_sha256": "dd72909d1f992209a414ef232d8c4d499de5de2a90cf45f49428153d1ebe1b71",
+  "school_name": "VANDERBILT UNIVERSITY SCH OF MEDICINE",
+  "target_gap_rows": 19,
+  "workbench_rows": 38
+}
