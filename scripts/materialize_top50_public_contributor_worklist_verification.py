@@ -26,7 +26,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist_verification.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_verification_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-verification-2026-06-09.md"
 
-EXPECTED_WORKLIST_ROWSET = "49ef8213829012327e0b190e25d8ade137527447ac6c0732df46784b7967e0a3"
+EXPECTED_WORKLIST_ROWSET = "673714f62ed47e6d0826cb12de3542a9d5ff8acae16650ab646ff8c902a873c4"
 EXPECTED_CLONE_VERIFICATION_ROWSET = "da28ec6ac1e9a4df95c7f60c12fa9e6a8221ea639d50f27f86776ec194b871ba"
 EXPECTED_BATCH_PACKET_ROWSET = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 EXPECTED_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -76,7 +76,7 @@ REQUIRED_PROHIBITIONS = [
     "unique_person_identity_collapse",
 ]
 ALLOWED_COMMANDS = {
-    "python3 scripts/materialize_top50_public_clone_verification.py",
+    "python3 scripts/materialize_top50_public_substrate_check_contract.py",
     (
         "python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && "
         "python3 scripts/materialize_vanderbilt_candidate_review_batch_packets.py && "
