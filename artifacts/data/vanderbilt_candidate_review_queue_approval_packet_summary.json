@@ -1,0 +1,38 @@
+{
+  "accepted_person_row_allowed": false,
+  "approval_rows": 159,
+  "by_approval_request_lane": {
+    "candidate_fingerprint_review_queue": 155,
+    "linked_scope_metadata_review_queue": 3,
+    "route_recourse_review_queue": 1
+  },
+  "by_next_artifact_if_approved": {
+    "vanderbilt_candidate_fingerprint_review_queue": 155,
+    "vanderbilt_linked_scope_metadata_review_queue": 3,
+    "vanderbilt_route_recourse_review_queue": 1
+  },
+  "csv": "artifacts/data/vanderbilt_candidate_review_queue_approval_packet.csv",
+  "denominator_closure_allowed": false,
+  "gbrain_approval_effect": "vanderbilt_candidate_review_queue_materialization_approved",
+  "gbrain_approval_status": "approved_exact_non_mutating_review_queue_materialization",
+  "gbrain_denial_effect": "vanderbilt_candidate_review_queue_materialization_denied",
+  "gbrain_denial_line": "",
+  "gbrain_denial_recourse": "",
+  "generated_at": "2026-06-09T05:25:22.344489+00:00",
+  "json": "artifacts/data/vanderbilt_candidate_review_queue_approval_packet.json",
+  "markdown": "artifacts/research/vanderbilt-candidate-review-queue-approval-packet-2026-06-09.md",
+  "mutation_allowed": false,
+  "person_ingestion_allowed": false,
+  "policy": "Non-mutating Vanderbilt candidate review-queue approval request. It asks whether verified candidate fingerprints, linked-route scope metadata, and route recourse rows may become review queues. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+  "queue_materialization_allowed": true,
+  "required_approval_line": "APPROVE vanderbilt_candidate_review_queue_materialization_approved APPROVAL_ROWS 159 CANDIDATE_QUEUE_ROWS 155 SCOPE_QUEUE_ROWS 3 RECOURSE_QUEUE_ROWS 1 SOURCE_ROWSET_SHA256 2740184f00379fd6b1885632ac13faec45ff96bfbf0a70130aa712e5966612ba VERIFICATION_ROWSET_SHA256 918556f5b5a33b5d8e7181ed6654a9b7773b8c8a24f09f9a23b06c7157d39fe2 ROWSET_SHA256 a62defd685b64560a138cfaeb82956254f49341ce982bb549fe1846b25dd5bd5",
+  "rowset_sha256": "a62defd685b64560a138cfaeb82956254f49341ce982bb549fe1846b25dd5bd5",
+  "source_candidate_fingerprint_rows": 155,
+  "source_candidate_parser_output_rowset_sha256": "2740184f00379fd6b1885632ac13faec45ff96bfbf0a70130aa712e5966612ba",
+  "source_candidate_parser_output_summary": "artifacts/data/vanderbilt_candidate_only_parser_output_summary.json",
+  "source_candidate_parser_outputs": "artifacts/data/vanderbilt_candidate_only_parser_outputs.json",
+  "source_parser_output_rows": 159,
+  "url_rewrite_allowed": false,
+  "verification_rowset_sha256": "918556f5b5a33b5d8e7181ed6654a9b7773b8c8a24f09f9a23b06c7157d39fe2",
+  "verification_summary": "artifacts/data/vanderbilt_candidate_parser_output_verification_summary.json"
+}

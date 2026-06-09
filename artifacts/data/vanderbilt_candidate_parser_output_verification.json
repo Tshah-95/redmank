@@ -1,0 +1,92 @@
+[
+  {
+    "check_name": "acceptance_flags_all_false",
+    "check_status": "pass",
+    "evidence_json": "{\"fields\":[\"accepted_person_row\",\"person_ingestion_allowed\",\"denominator_closure_allowed\"]}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_287d3cd232167993a9a4"
+  },
+  {
+    "check_name": "csv_json_summary_row_counts_match",
+    "check_status": "pass",
+    "evidence_json": "{\"source_csv\":\"artifacts/data/vanderbilt_candidate_only_parser_outputs.csv\",\"source_json\":\"artifacts/data/vanderbilt_candidate_only_parser_outputs.json\"}",
+    "expected_value": "{\"csv_rows\":159,\"json_rows\":159,\"summary_rows\":159}",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"csv_rows\":159,\"json_rows\":159,\"summary_rows\":159}",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_5e7558476381d93c57a3"
+  },
+  {
+    "check_name": "duplicate_candidate_fingerprints_absent",
+    "check_status": "pass",
+    "evidence_json": "{\"fingerprint_rows\":155}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_d7894f542c859ec27fc5"
+  },
+  {
+    "check_name": "fingerprint_hash_fields_present",
+    "check_status": "pass",
+    "evidence_json": "{\"fingerprint_rows\":155}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_23684e1afeb4d91f76bc"
+  },
+  {
+    "check_name": "output_kind_counts_match",
+    "check_status": "pass",
+    "evidence_json": "{\"by_output_kind\":{\"candidate_fingerprint\":155,\"route_recourse\":1,\"scope_metadata\":3}}",
+    "expected_value": "{\"candidate_fingerprint\":155,\"route_recourse\":1,\"scope_metadata\":3}",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"candidate_fingerprint\":155,\"route_recourse\":1,\"scope_metadata\":3}",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_74e692d1fab79ecbf223"
+  },
+  {
+    "check_name": "profile_anchor_paths_are_person_path",
+    "check_status": "pass",
+    "evidence_json": "{\"profile_anchor_rows\":98}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_ac0d244ff7a293edbf37"
+  },
+  {
+    "check_name": "raw_name_and_url_fields_absent",
+    "check_status": "pass",
+    "evidence_json": "{\"scan\":\"RAW_NAMEISH_RE and URL_RE across non-allowed CSV fields; values reported by hash only\"}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_662dcc4995c7e3a8f8c2"
+  },
+  {
+    "check_name": "scope_and_recourse_rows_have_no_candidate_fingerprints",
+    "check_status": "pass",
+    "evidence_json": "{\"recourse_rows\":1,\"scope_rows\":3}",
+    "expected_value": "{\"scope_or_recourse_fingerprints\":0}",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"scope_or_recourse_fingerprints\":0}",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_d39615bb7de0a709aed7"
+  },
+  {
+    "check_name": "source_rowset_boundary_matches",
+    "check_status": "pass",
+    "evidence_json": "{\"source_summary\":\"artifacts/data/vanderbilt_candidate_only_parser_output_summary.json\"}",
+    "expected_value": "\"2740184f00379fd6b1885632ac13faec45ff96bfbf0a70130aa712e5966612ba\"",
+    "generated_at": "2026-06-09T05:20:26.208987+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate parser output verification. It validates raw-name-free candidate fingerprints, scope metadata, recourse rows, source rowset boundaries, and acceptance prohibitions. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "\"2740184f00379fd6b1885632ac13faec45ff96bfbf0a70130aa712e5966612ba\"",
+    "verification_key": "vanderbilt_candidate_parser_output_verification_ff12b8f528c204d0d3de"
+  }
+]

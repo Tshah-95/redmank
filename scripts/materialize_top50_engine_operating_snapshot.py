@@ -42,6 +42,11 @@ SUMMARY_FILES = {
     / "vanderbilt_parser_scope_decision_packet_summary.json",
     "vanderbilt_candidate_only_parser_outputs": ARTIFACTS
     / "vanderbilt_candidate_only_parser_output_summary.json",
+    "vanderbilt_candidate_parser_output_verification": ARTIFACTS
+    / "vanderbilt_candidate_parser_output_verification_summary.json",
+    "vanderbilt_candidate_review_queue_approval_packet": ARTIFACTS
+    / "vanderbilt_candidate_review_queue_approval_packet_summary.json",
+    "vanderbilt_candidate_review_queues": ARTIFACTS / "vanderbilt_candidate_review_queue_summary.json",
 }
 
 
@@ -81,7 +86,10 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "decision_rows",
         "parser_output_rows",
         "candidate_fingerprint_rows",
+        "review_queue_rows",
         "total_candidate_entity_count",
+        "pass_rows",
+        "fail_rows",
         "mutation_allowed",
         "gbrain_approval_verified",
         "gbrain_registration_status",
@@ -112,8 +120,46 @@ def main() -> None:
     vanderbilt_execution_evidence_summary = summaries["vanderbilt_parser_scope_execution_evidence"]
     vanderbilt_decision_summary = summaries["vanderbilt_parser_scope_decision_packets"]
     vanderbilt_candidate_parser_summary = summaries["vanderbilt_candidate_only_parser_outputs"]
+    vanderbilt_candidate_verification_summary = summaries["vanderbilt_candidate_parser_output_verification"]
+    vanderbilt_review_queue_approval_summary = summaries["vanderbilt_candidate_review_queue_approval_packet"]
+    vanderbilt_review_queue_summary = summaries["vanderbilt_candidate_review_queues"]
     parser_scope_status = vanderbilt_parser_scope_packet_summary.get("gbrain_approval_status", "")
-    if vanderbilt_candidate_parser_summary.get("rowset_sha256"):
+    if vanderbilt_review_queue_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_non_mutating_candidate_review_queue_execution"
+        parser_scope_next_action = (
+            "Execute Vanderbilt candidate fingerprint, linked-scope, and route-recourse review queues. Reviewer "
+            "actions must stay non-mutating; any person ingestion, denominator closure, or identity reconciliation "
+            "requires a later exact approval packet."
+        )
+        parser_scope_source_artifact = vanderbilt_review_queue_summary.get(
+            "csv", "artifacts/data/vanderbilt_candidate_review_queues.csv"
+        )
+        parser_scope_rowset = vanderbilt_review_queue_summary.get("rowset_sha256", "")
+    elif vanderbilt_review_queue_approval_summary.get("rowset_sha256"):
+        parser_scope_lane_status = str(
+            vanderbilt_review_queue_approval_summary.get("gbrain_approval_status", "pending_review_queue_approval")
+        )
+        parser_scope_next_action = (
+            "Materialize approved non-mutating review queues from candidate fingerprints, linked-scope metadata, "
+            "and route recourse rows. Do not accept people or close denominators."
+        )
+        parser_scope_source_artifact = vanderbilt_review_queue_approval_summary.get(
+            "csv", "artifacts/data/vanderbilt_candidate_review_queue_approval_packet.csv"
+        )
+        parser_scope_rowset = vanderbilt_review_queue_approval_summary.get("rowset_sha256", "")
+    elif vanderbilt_candidate_verification_summary.get("rowset_sha256"):
+        parser_scope_lane_status = str(
+            vanderbilt_candidate_verification_summary.get("gbrain_registration_status", "pending_candidate_output_verification")
+        )
+        parser_scope_next_action = (
+            "Use the approved candidate-output verification packet to request exact review-queue materialization. "
+            "Do not create reviewer queues or accept people before approval."
+        )
+        parser_scope_source_artifact = vanderbilt_candidate_verification_summary.get(
+            "csv", "artifacts/data/vanderbilt_candidate_parser_output_verification.csv"
+        )
+        parser_scope_rowset = vanderbilt_candidate_verification_summary.get("rowset_sha256", "")
+    elif vanderbilt_candidate_parser_summary.get("rowset_sha256"):
         parser_scope_lane_status = "ready_non_mutating_candidate_parser_output_verification"
         parser_scope_next_action = (
             "Verify the candidate-only Vanderbilt parser outputs, preserve raw-name-free diagnostics, and build the "
@@ -274,6 +320,27 @@ def main() -> None:
                 "candidate_fingerprint_rows", 0
             ),
             "candidate_only_parser_output_rowset_sha256": vanderbilt_candidate_parser_summary.get("rowset_sha256", ""),
+            "candidate_parser_output_verification_rows": vanderbilt_candidate_verification_summary.get(
+                "verification_rows", 0
+            ),
+            "candidate_parser_output_verification_pass_rows": vanderbilt_candidate_verification_summary.get(
+                "pass_rows", 0
+            ),
+            "candidate_parser_output_verification_fail_rows": vanderbilt_candidate_verification_summary.get(
+                "fail_rows", 0
+            ),
+            "candidate_parser_output_verification_rowset_sha256": vanderbilt_candidate_verification_summary.get(
+                "rowset_sha256", ""
+            ),
+            "candidate_review_queue_approval_rows": vanderbilt_review_queue_approval_summary.get("approval_rows", 0),
+            "candidate_review_queue_approval_status": vanderbilt_review_queue_approval_summary.get(
+                "gbrain_approval_status", ""
+            ),
+            "candidate_review_queue_approval_rowset_sha256": vanderbilt_review_queue_approval_summary.get(
+                "rowset_sha256", ""
+            ),
+            "candidate_review_queue_rows": vanderbilt_review_queue_summary.get("review_queue_rows", 0),
+            "candidate_review_queue_rowset_sha256": vanderbilt_review_queue_summary.get("rowset_sha256", ""),
         },
         "mutation_allowed": False,
         "not_approved": [

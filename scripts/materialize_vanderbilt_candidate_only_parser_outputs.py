@@ -200,17 +200,21 @@ def is_candidate_label(label: str) -> bool:
 
 def extract_candidates(fetch_result: dict[str, object]) -> list[dict[str, str]]:
     candidates: dict[str, dict[str, str]] = {}
+    anchored_label_hashes: set[str] = set()
     for anchor in fetch_result.get("anchors", []) or []:
         label = clean_label(str(anchor.get("text") or ""))
         href = str(anchor.get("href") or "")
         if "/person/" not in urlparse(href).path.lower() or not is_candidate_label(label):
             continue
+        anchored_label_hashes.add(sha256_text(label.lower()))
         key = sha256_text("anchor|" + label.lower() + "|" + href)
         candidates[key] = {"label": label, "href": href, "source_kind": "profile_anchor"}
 
     for heading in fetch_result.get("headings", []) or []:
         label = clean_label(str(heading))
         if not is_candidate_label(label):
+            continue
+        if sha256_text(label.lower()) in anchored_label_hashes:
             continue
         key = sha256_text("heading|" + label.lower())
         candidates.setdefault(key, {"label": label, "href": "", "source_kind": "heading_signal"})

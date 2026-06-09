@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Engine Operating Snapshot
-created_at: 2026-06-09T05:10:04.120236+00:00
+created_at: 2026-06-09T05:27:17.899483+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -28,7 +28,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "rowset_sha256": "d4c5ca61d015919e8fae37d899ff5ccb648ae9a64418d2c58f35c0732ce35701",
+  "rowset_sha256": "3d61bf895c272ed84ae57388e7fe90476896692bcc16089aba400438408eef40",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -50,9 +50,18 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
   "vanderbilt_targeted_parser_scope": {
     "approved_next_packet_rows": 20,
     "approved_next_packet_rowset_sha256": "098c0a813eb577552b46e9454fbf2e9088bcee228d0aa678827439eba082e261",
-    "candidate_only_parser_fingerprint_rows": 229,
-    "candidate_only_parser_output_rows": 233,
-    "candidate_only_parser_output_rowset_sha256": "312918a4b812f82bbf858a0b5c50d5d04394fa8be634a1a0cc9a7ad6aaa2f034",
+    "candidate_only_parser_fingerprint_rows": 155,
+    "candidate_only_parser_output_rows": 159,
+    "candidate_only_parser_output_rowset_sha256": "2740184f00379fd6b1885632ac13faec45ff96bfbf0a70130aa712e5966612ba",
+    "candidate_parser_output_verification_fail_rows": 0,
+    "candidate_parser_output_verification_pass_rows": 9,
+    "candidate_parser_output_verification_rows": 9,
+    "candidate_parser_output_verification_rowset_sha256": "918556f5b5a33b5d8e7181ed6654a9b7773b8c8a24f09f9a23b06c7157d39fe2",
+    "candidate_review_queue_approval_rows": 159,
+    "candidate_review_queue_approval_rowset_sha256": "a62defd685b64560a138cfaeb82956254f49341ce982bb549fe1846b25dd5bd5",
+    "candidate_review_queue_approval_status": "approved_exact_non_mutating_review_queue_materialization",
+    "candidate_review_queue_rows": 159,
+    "candidate_review_queue_rowset_sha256": "b74b337bfa43406d8a200956d469eb5dc0d41902c197f78af85001f18750b148",
     "execution_workbench_rows": 20,
     "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
     "execution_workbench_unique_fetch_urls": 16,
@@ -80,5 +89,5 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
 
 | lane | status | artifact | rowset | next action |
 | --- | --- | --- | --- | --- |
-| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_non_mutating_candidate_parser_output_verification | artifacts/data/vanderbilt_candidate_only_parser_outputs.csv | 312918a4b812f82bbf858a0b5c50d5d04394fa8be634a1a0cc9a7ad6aaa2f034 | Verify the candidate-only Vanderbilt parser outputs, preserve raw-name-free diagnostics, and build the next exact approval packet before any person ingestion, denominator closure, or accepted roster rows. |
+| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_non_mutating_candidate_review_queue_execution | artifacts/data/vanderbilt_candidate_review_queues.csv | b74b337bfa43406d8a200956d469eb5dc0d41902c197f78af85001f18750b148 | Execute Vanderbilt candidate fingerprint, linked-scope, and route-recourse review queues. Reviewer actions must stay non-mutating; any person ingestion, denominator closure, or identity reconciliation requires a later exact approval packet. |
 | vanderbilt_active_gap_resolution_manifest | active_non_mutating_discovery_queue | artifacts/data/school_gap_resolution_manifest.csv |  | Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work. |
