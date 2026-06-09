@@ -18,7 +18,7 @@
     "fixture_fail_rows": 0,
     "fixture_pass_rows": 16,
     "free_text_note_column_committed": "false",
-    "generated_at": "2026-06-09T11:00:38.778781+00:00",
+    "generated_at": "2026-06-09T11:13:10.834043+00:00",
     "handoff_packet_key": "vanderbilt_priority_reviewer_handoff_fe716e47237ae626a7bf",
     "handoff_status": "ready_for_local_reviewer_handoff_execution",
     "instruction_rows_represented": 2,

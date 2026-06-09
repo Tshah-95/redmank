@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Contributor Worklist
-created_at: 2026-06-09T11:00:42.089449+00:00
+created_at: 2026-06-09T11:13:14.525227+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -20,6 +20,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
     "vanderbilt_active_gap_manifest_triage": 1,
     "vanderbilt_bounded_manual_review_packets": 1,
     "vanderbilt_open_gap_manifest_triage_packet": 1,
+    "vanderbilt_slice_2_approved_parser_scope_next_packets": 1,
     "vanderbilt_slice_2_execution_plan_packet": 1,
     "vanderbilt_slice_2_live_fetch_approval_request_packet": 1,
     "vanderbilt_slice_2_live_route_observation_packet": 1,
@@ -28,10 +29,11 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   },
   "by_action_status": {
     "approved_and_route_observations_materialized": 1,
+    "approved_next_packet_ledger_materialized": 1,
     "blocked_until_valid_non_mutating_decisions": 1,
     "parser_scope_approval_request_materialized": 1,
-    "pending_exact_gbrain_approval": 1,
     "ready_and_passing": 1,
+    "ready_for_bounded_parser_scope_followup_packet_building": 1,
     "ready_for_local_reviewer_handoff_execution": 1,
     "ready_for_no_fetch_execution_planning": 1,
     "ready_for_non_mutating_gap_slice_execution": 1,
@@ -42,8 +44,8 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE top50_public_contributor_worklist_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
-  "generated_at": "2026-06-09T11:00:42.089449+00:00",
-  "high_rows": 6,
+  "generated_at": "2026-06-09T11:13:14.525227+00:00",
+  "high_rows": 7,
   "json": "artifacts/data/top50_public_contributor_worklist.json",
   "low_rows": 0,
   "markdown": "artifacts/research/top50-public-contributor-worklist-2026-06-09.md",
@@ -51,7 +53,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "mutation_allowed": false,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ranks bounded public-safe operator actions from committed verification, snapshot, Vanderbilt batch-packet, decision-audit, and gap manifest artifacts. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
-  "rowset_sha256": "9d7b61c602167e1e86ae45aa4145ec250401de8c0fe4ced028765b4d02a4a739",
+  "rowset_sha256": "6c58487d189dfbf69ea66ad0fd0450702151ec36be80ab79f7f542fbc7f25447",
   "school_verification_allowed": false,
   "source_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "source_vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
@@ -78,9 +80,9 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "source_vanderbilt_slice_2_route_parser_scope_approval_rowset_sha256": "bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672",
   "source_vanderbilt_synthetic_handoff_dry_run_demo_rowset_sha256": "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4",
   "source_vanderbilt_triage_slice_definition_contract_rowset_sha256": "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f",
-  "source_verification_rowset_sha256": "5e6652365adb9e2c6257b1f3331c480287becdb1559bf5752bcda814c35993d1",
-  "total_impact_count": 538,
-  "worklist_rows": 9
+  "source_verification_rowset_sha256": "15368ea38b7038c28037f4b7b67e941123ee884a53dba9eb6e7fc8b7fc941948",
+  "total_impact_count": 557,
+  "worklist_rows": 10
 }
 ```
 
@@ -88,12 +90,13 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
 
 | order | lane | status | priority | impact | source | target | next action |
 | ---: | --- | --- | ---: | ---: | --- | --- | --- |
-| 1 | verify_public_clone_substrate | ready_and_passing | 980 | 51 | artifacts/data/top50_public_clone_verification_summary.json | artifacts/data/top50_public_clone_verification_summary.json | Run python3 scripts/materialize_top50_public_substrate_check_contract.py after any public top-50/Vanderbilt artifact change. |
+| 1 | verify_public_clone_substrate | ready_and_passing | 980 | 52 | artifacts/data/top50_public_clone_verification_summary.json | artifacts/data/top50_public_clone_verification_summary.json | Run python3 scripts/materialize_top50_public_substrate_check_contract.py after any public top-50/Vanderbilt artifact change. |
 | 2 | vanderbilt_bounded_manual_review_packets | ready_for_non_mutating_reviewer_input | 940 | 159 | artifacts/data/vanderbilt_public_reviewer_operator_packets.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Use artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index.csv to choose one operator packet, slice it with scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py, fill only non-mutating decisions, extract strict patch rows with scripts/extract_vanderbilt_reviewer_decision_patch.py, dry-run scripts/apply_vanderbilt_reviewer_decision_patch.py, then stop. Do not run --apply or commit filled decisions until a future exact approval packet exists. |
 | 3 | vanderbilt_active_gap_manifest_triage | ready_for_local_reviewer_handoff_execution | 760 | 2 | artifacts/data/vanderbilt_priority_reviewer_handoff_packet.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Use artifacts/data/vanderbilt_priority_reviewer_handoff_packet.csv as the reviewer-facing runbook. Run its slice command locally, fill only the blank action/confirmation fields in the local workbook, extract a strict patch, dry-run apply, and do not run --apply until a future exact approval packet exists. |
 | 4 | vanderbilt_open_gap_manifest_triage_packet | ready_for_non_mutating_gap_slice_execution | 880 | 113 | artifacts/data/vanderbilt_open_gap_manifest_triage_packet_summary.json | artifacts/data/vanderbilt_open_gap_manifest_triage_packet_summary.json | Use artifacts/data/vanderbilt_open_gap_manifest_triage_packet.csv to pick the next Vanderbilt open-gap slice beyond the General Surgery reviewer handoff; run only its /tmp slice command, then prepare non-mutating source-discovery or review evidence for a future exact packet. |
 | 5 | vanderbilt_slice_2_execution_plan_packet | ready_for_no_fetch_execution_planning | 860 | 9 | artifacts/data/vanderbilt_slice_2_execution_plan_packet_summary.json | artifacts/data/vanderbilt_slice_2_execution_plan_packet_summary.json | Use artifacts/data/vanderbilt_slice_2_execution_plan_packet.csv to review the 9 execution-order-1 Vanderbilt gaps and decide the next exact non-mutating source-discovery packet; do not fetch web pages under this packet. |
 | 6 | vanderbilt_slice_2_live_fetch_approval_request_packet | approved_and_route_observations_materialized | 850 | 9 | artifacts/data/vanderbilt_slice_2_execution_plan_packet_summary.json | artifacts/data/vanderbilt_slice_2_live_fetch_approval_request_packet_summary.json | Submit artifacts/data/vanderbilt_slice_2_live_fetch_approval_request_packet_summary.json for exact GBrain approval. If approved, the next implementation must fetch only bounded public route metadata and hashes, then commit a separate non-mutating route-observation packet. |
 | 7 | vanderbilt_slice_2_live_route_observation_packet | parser_scope_approval_request_materialized | 845 | 18 | artifacts/data/vanderbilt_slice_2_live_route_observation_summary.json | artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json | Build a non-mutating Vanderbilt slice-2 route parser/scope approval-request packet from artifacts/data/vanderbilt_slice_2_live_route_observations.csv; do not parse or accept people. |
-| 8 | vanderbilt_slice_2_route_parser_scope_approval_packet | pending_exact_gbrain_approval | 842 | 18 | artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json | artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json | Submit artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json to GBrain and require the exact approval line before building parser-build review, scope-disposition, or recourse artifacts. |
-| 9 | future_exact_approval_packet_after_valid_decisions | blocked_until_valid_non_mutating_decisions | 640 | 159 | artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json | artifacts/data/vanderbilt_candidate_acceptance_or_closure_approval_packet.csv | Do not build person-ingestion, denominator-closure, parser-acceptance, scope-closure, or identity-collapse packets until reviewer decisions are present and the decision audit passes. |
+| 8 | vanderbilt_slice_2_route_parser_scope_approval_packet | approved_next_packet_ledger_materialized | 842 | 18 | artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json | artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packet_summary.json | Keep artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packet_summary.json as the approved lane boundary for the next bounded parser/scope follow-up packets. |
+| 9 | vanderbilt_slice_2_approved_parser_scope_next_packets | ready_for_bounded_parser_scope_followup_packet_building | 838 | 18 | artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packet_summary.json | artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packet_summary.json | Materialize bounded follow-up packets from artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packets.csv for target-route parser-build review, related-scope disposition, broader-context recourse, and denominator-redirect recourse; do not implement parsers or accept people. |
+| 10 | future_exact_approval_packet_after_valid_decisions | blocked_until_valid_non_mutating_decisions | 640 | 159 | artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json | artifacts/data/vanderbilt_candidate_acceptance_or_closure_approval_packet.csv | Do not build person-ingestion, denominator-closure, parser-acceptance, scope-closure, or identity-collapse packets until reviewer decisions are present and the decision audit passes. |
