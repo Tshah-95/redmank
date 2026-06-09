@@ -1,0 +1,21 @@
+[
+  {
+    "gap_drain_active_batch_rows": 0,
+    "gap_drain_queue_rows": 70,
+    "gbrain_decision_effect": "stanford_school_verified_next_lane_approved",
+    "generated_at": "2026-06-09T04:07:35.968026+00:00",
+    "membership_observation_count": 1088,
+    "mutation_allowed": "false",
+    "not_approved_json": "[\"new_person_ingestion\",\"training_state_mutation\",\"new_no_public_roster_closure\",\"new_denominator_closure\",\"url_rewrite\",\"unsupported_label_ingestion\",\"research_profile_contact_fact_acceptance\",\"unique_person_identity_collapse\",\"global_top50_readiness\"]",
+    "open_gap_rows": 0,
+    "packet_status": "approved_stanford_school_verified_next_lane",
+    "recommended_next_action": "Treat this as school-level verified under the packet boundary; do not infer person ingestion, denominator closure, URL rewrite, enrichment acceptance, or identity collapse.",
+    "registry_key": "school_verification_registry_d3d780439a547143cb91",
+    "required_approval_line": "APPROVE stanford_school_verified_next_lane_approved ROW_COUNT 1 ROWSET_SHA256 25f821b23c74710d3c7f1290e880c5d6d57e25c7818749d49a00e44b188086e1",
+    "rowset_sha256": "25f821b23c74710d3c7f1290e880c5d6d57e25c7818749d49a00e44b188086e1",
+    "school_name": "STANFORD UNIVERSITY SCH OF MEDICINE",
+    "source_markdown": "artifacts/research/stanford-school-readiness-gbrain-packet-2026-06-07.md",
+    "source_summary_json": "artifacts/data/stanford_school_readiness_packet_summary.json",
+    "verification_status": "school_verified_by_gbrain"
+  }
+]

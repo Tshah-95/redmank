@@ -8,12 +8,16 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 
 ## Current Top-50/Vanderbilt Outputs
 
+- `artifacts/data/school_verification_registry_summary.json`: public registry of GBrain school-level verification posture, currently recording Stanford as school-verified under a non-mutating boundary.
+- `artifacts/data/stanford_school_readiness_packet_summary.json`: approved Stanford school-readiness packet. The packet records 1,088 accepted membership observations and school-level verification, but it does not publish or newly authorize Stanford person ingestion in this repo increment.
+- `artifacts/research/stanford-school-readiness-gbrain-packet-2026-06-07.md`: human-readable Stanford school-level verification packet.
 - `artifacts/data/top50_scraper_source_discovery_playbook_summary.json`: non-mutating scraper/source-discovery playbook approval summary for top-50 medical-school roster work.
 - `artifacts/data/top50_scraper_source_discovery_playbook.csv`: row-level source-discovery playbook covering observed school patterns, operator contracts, and Vanderbilt next-queue rows.
 - `artifacts/research/top50-scraper-source-discovery-playbook-2026-06-07.md`: human-readable playbook packet.
 - `artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench_summary.json`: targeted Vanderbilt source-discovery summary for 19 open gaps, with the exact rowset hash and mutation boundary.
 - `artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench.csv`: candidate official-source workbench rows. These are evidence for parser/scope review only.
 - `artifacts/data/vanderbilt_targeted_parser_scope_review_packet_summary.json`: non-mutating parser/scope review packet derived from the targeted Vanderbilt workbench.
+- `scripts/materialize_school_verification_registry.py`: reproducible materializer for the school-level verification registry.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
 
 ## Current Penn Outputs

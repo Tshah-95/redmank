@@ -1,0 +1,16 @@
+{
+  "by_verification_status": {
+    "school_verified_by_gbrain": 1
+  },
+  "csv": "artifacts/data/school_verification_registry.csv",
+  "generated_at": "2026-06-09T04:07:35.968026+00:00",
+  "json": "artifacts/data/school_verification_registry.json",
+  "mutation_allowed": false,
+  "policy": "Public school verification registry. It records GBrain school-level verification decisions and their exact packet boundaries. It does not publish raw GBrain responses and does not authorize person ingestion, training-state mutation, denominator closure, URL rewrites, enrichment facts, or identity collapse.",
+  "registry_rows": 1,
+  "rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
+  "source_summary_files": [
+    "artifacts/data/stanford_school_readiness_packet_summary.json"
+  ],
+  "verified_school_rows": 1
+}
