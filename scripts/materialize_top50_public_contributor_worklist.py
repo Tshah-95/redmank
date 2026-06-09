@@ -27,6 +27,8 @@ PATCH_TEMPLATE_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_decision_patch_templat
 PATCH_WORKBOOK_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_summary.json"
 PATCH_SLICE_INDEX_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_slice_index_summary.json"
 GAP_SLICE_INDEX_SUMMARY = ARTIFACTS / "school_gap_resolution_batch_slice_index_summary.json"
+GAP_REVIEW_TEMPLATE_SUMMARY = ARTIFACTS / "school_gap_resolution_review_template_summary.json"
+GAP_REVIEW_TEMPLATE_VALIDATION_SUMMARY = ARTIFACTS / "school_gap_resolution_review_template_validation_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -35,7 +37,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "b706d7715ca275c8a5026f4f725c698a445a1b37417b1b6a95e3313fafdf2d1c"
+VERIFICATION_ROWSET_SHA256 = "78131414de65e86916d336a26d7675f15b085b57903095ef88e703c89317c12f"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -44,6 +46,7 @@ PATCH_TEMPLATE_ROWSET_SHA256 = "5532d007555997f54d25884baba2f4e594d4ff1fa286301b
 PATCH_WORKBOOK_ROWSET_SHA256 = "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3"
 PATCH_SLICE_INDEX_ROWSET_SHA256 = "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4"
 GAP_SLICE_INDEX_ROWSET_SHA256 = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
+GAP_REVIEW_TEMPLATE_ROWSET_SHA256 = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -227,6 +230,8 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     patch_workbook_summary = read_json(PATCH_WORKBOOK_SUMMARY)
     patch_slice_index_summary = read_json(PATCH_SLICE_INDEX_SUMMARY)
     gap_slice_index_summary = read_json(GAP_SLICE_INDEX_SUMMARY)
+    gap_review_template_summary = read_json(GAP_REVIEW_TEMPLATE_SUMMARY)
+    gap_review_template_validation_summary = read_json(GAP_REVIEW_TEMPLATE_VALIDATION_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -240,6 +245,8 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             patch_workbook_summary,
             patch_slice_index_summary,
             gap_slice_index_summary,
+            gap_review_template_summary,
+            gap_review_template_validation_summary,
             gap_summary,
         ]
     ):
@@ -280,6 +287,20 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and gap_slice_index_summary.get("gap_rows_represented") == 113
         and gap_slice_index_summary.get("slice_outputs_default_tmp_only") is True
         and gap_slice_index_summary.get("mutation_allowed") is False,
+        "gap_review_template_rowset": gap_review_template_summary.get("rowset_sha256")
+        == GAP_REVIEW_TEMPLATE_ROWSET_SHA256,
+        "gap_review_template_blank": gap_review_template_summary.get("review_template_rows") == 113
+        and gap_review_template_summary.get("batch_rows_represented") == 21
+        and gap_review_template_summary.get("blank_action_rows") == 113
+        and gap_review_template_summary.get("valid_non_mutating_review_rows") == 0
+        and gap_review_template_summary.get("mutation_allowed") is False,
+        "gap_review_template_validation": gap_review_template_validation_summary.get("rowset_sha256")
+        == GAP_REVIEW_TEMPLATE_ROWSET_SHA256
+        and gap_review_template_validation_summary.get("template_rows") == 113
+        and gap_review_template_validation_summary.get("pending_rows") == 113
+        and gap_review_template_validation_summary.get("valid_non_mutating_rows") == 0
+        and gap_review_template_validation_summary.get("invalid_rows") == 0
+        and gap_review_template_validation_summary.get("mutation_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -294,6 +315,8 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         patch_workbook_summary,
         patch_slice_index_summary,
         gap_slice_index_summary,
+        gap_review_template_summary,
+        gap_review_template_validation_summary,
         gap_summary,
     )
 
@@ -354,6 +377,8 @@ def main() -> None:
         patch_workbook_summary,
         patch_slice_index_summary,
         gap_slice_index_summary,
+        gap_review_template_summary,
+        gap_review_template_validation_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -379,7 +404,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="23 verification rows pass and fail_rows remains 0.",
+            success_condition="26 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -469,23 +494,25 @@ def main() -> None:
             entity_key="vanderbilt_active_gap_manifest",
             display_label="Vanderbilt active 113-gap manifest",
             impact_count=int(gap_summary.get("rows", 0)),
-            source_artifact="artifacts/data/school_gap_resolution_manifest.csv",
-            target_artifact="artifacts/data/school_gap_resolution_batch_packets.csv",
+            source_artifact="artifacts/data/school_gap_resolution_batch_packets.csv",
+            target_artifact="artifacts/data/school_gap_resolution_review_template.csv",
             required_next_evidence=(
-                "Use committed gap rows for bounded planning only; regenerating the manifest requires private core source "
-                "inputs or an explicit ALLOW_EMPTY_GAP_MANIFEST=1 test run."
+                "Use committed gap packets and the blank review template for bounded planning only; filled rows must pass "
+                "the gap review-template validator before becoming evidence for any later exact approval packet."
             ),
             recommended_next_action=(
-                "Use artifacts/data/school_gap_resolution_batch_slice_index.csv to choose one bounded gap batch, slice "
-                "it with scripts/slice_school_gap_resolution_batch_packets.py, perform only non-mutating source-discovery "
-                "planning or packet preparation, and do not regenerate the gap manifest in a public clone unless the core "
-                "source inputs are present."
+                "Use artifacts/data/school_gap_resolution_review_template.csv for non-mutating source-discovery planning, "
+                "or choose a bounded batch from artifacts/data/school_gap_resolution_batch_slice_index.csv and slice it "
+                "with scripts/slice_school_gap_resolution_batch_packets.py. Validate filled template rows with "
+                "scripts/validate_school_gap_resolution_review_template.py before requesting any later approval."
             ),
             verification_command=(
+                "python3 scripts/materialize_school_gap_resolution_review_template.py && "
+                "python3 scripts/validate_school_gap_resolution_review_template.py && "
                 "python3 scripts/materialize_top50_public_clone_verification.py && "
                 "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
-            success_condition="Committed gap manifest remains 113 Vanderbilt rows and mutation_allowed=false.",
+            success_condition="Gap review template remains 113 Vanderbilt rows; validator reports 0 invalid rows and mutation_allowed=false.",
             approval_required_for=[
                 "denominator_closure",
                 "vanderbilt_school_verification",
@@ -493,8 +520,8 @@ def main() -> None:
                 "url_rewrite",
                 "identity_collapse",
             ],
-            source_rowset_sha256="",
-            target_rowset_sha256="",
+            source_rowset_sha256=GAP_SLICE_INDEX_ROWSET_SHA256,
+            target_rowset_sha256=GAP_REVIEW_TEMPLATE_ROWSET_SHA256,
             evidence={
                 "gap_manifest_rows": gap_summary.get("rows"),
                 "gap_manifest_csv_rows": len(gap_rows),
@@ -503,6 +530,10 @@ def main() -> None:
                 "gap_slice_index_rows": gap_slice_index_summary.get("slice_index_rows"),
                 "gap_slice_index_rowset_sha256": gap_slice_index_summary.get("rowset_sha256"),
                 "gap_slice_outputs_default_tmp_only": gap_slice_index_summary.get("slice_outputs_default_tmp_only"),
+                "gap_review_template_rows": gap_review_template_summary.get("review_template_rows"),
+                "gap_review_template_rowset_sha256": gap_review_template_summary.get("rowset_sha256"),
+                "gap_review_template_pending_rows": gap_review_template_validation_summary.get("pending_rows"),
+                "gap_review_template_invalid_rows": gap_review_template_validation_summary.get("invalid_rows"),
             },
             generated_at=generated_at,
         ),
@@ -570,6 +601,7 @@ def main() -> None:
         "source_vanderbilt_patch_workbook_rowset_sha256": PATCH_WORKBOOK_ROWSET_SHA256,
         "source_vanderbilt_patch_slice_index_rowset_sha256": PATCH_SLICE_INDEX_ROWSET_SHA256,
         "source_vanderbilt_gap_slice_index_rowset_sha256": GAP_SLICE_INDEX_ROWSET_SHA256,
+        "source_vanderbilt_gap_review_template_rowset_sha256": GAP_REVIEW_TEMPLATE_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

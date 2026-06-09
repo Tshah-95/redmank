@@ -1,0 +1,33 @@
+{
+  "allowed_review_actions": [
+    "candidate_official_source_for_later_probe",
+    "defer_needs_more_context",
+    "no_public_roster_closure_packet_needed",
+    "rendered_or_manual_review_needed",
+    "route_inspection_needed",
+    "scope_disposition_packet_needed",
+    "source_discovery_query_only"
+  ],
+  "batch_rows_represented": 21,
+  "by_action": {},
+  "by_status": {
+    "pending": 113
+  },
+  "candidate_evidence_only": true,
+  "denominator_closure_allowed": false,
+  "error_rows": 0,
+  "errors": [],
+  "expected_rowset_sha256": "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782",
+  "generated_at": "2026-06-09T07:27:26.035097+00:00",
+  "identity_collapse_allowed": false,
+  "input": "/Users/tejas/Github/redmank/artifacts/data/school_gap_resolution_review_template.csv",
+  "invalid_rows": 0,
+  "mutation_allowed": false,
+  "pending_rows": 113,
+  "person_ingestion_allowed": false,
+  "rowset_sha256": "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782",
+  "school_verification_allowed": false,
+  "template_rows": 113,
+  "url_rewrite_allowed": false,
+  "valid_non_mutating_rows": 0
+}
