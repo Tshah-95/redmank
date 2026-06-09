@@ -107,6 +107,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workbook", default=str(DEFAULT_WORKBOOK), help="Filled Vanderbilt reviewer patch workbook CSV.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Strict helper-compatible patch CSV to write.")
+    parser.add_argument("--scaffold", default=str(SCAFFOLD_JSON), help="Decision scaffold JSON context.")
+    parser.add_argument("--decisions", default=str(DECISIONS_CSV), help="Reviewer decision template CSV context.")
     parser.add_argument("--include-blank", action="store_true", help="Extract blank rows too; mainly useful for shape tests.")
     parser.add_argument("--allow-empty", action="store_true", help="Allow writing an empty patch CSV.")
     return parser.parse_args()
@@ -116,13 +118,19 @@ def main() -> None:
     args = parse_args()
     workbook_path = resolved(args.workbook)
     output_path = resolved(args.output)
+    scaffold_path = resolved(args.scaffold)
+    decisions_path = resolved(args.decisions)
     if not workbook_path.exists():
         raise SystemExit("Workbook file does not exist: " + str(workbook_path))
+    if not scaffold_path.exists():
+        raise SystemExit("Scaffold file does not exist: " + str(scaffold_path))
+    if not decisions_path.exists():
+        raise SystemExit("Decisions file does not exist: " + str(decisions_path))
 
     fields, workbook_rows = read_csv_rows(workbook_path)
     validate_workbook_header(fields)
-    scaffold_rows = read_json(SCAFFOLD_JSON)
-    decision_fields, decision_rows = read_csv_rows(DECISIONS_CSV)
+    scaffold_rows = read_json(scaffold_path)
+    decision_fields, decision_rows = read_csv_rows(decisions_path)
     if not isinstance(scaffold_rows, list):
         raise SystemExit("Expected Vanderbilt decision scaffold JSON array.")
     scaffold_by_manual_key = {str(row.get("manual_decision_row_key")): row for row in scaffold_rows}

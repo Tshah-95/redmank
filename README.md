@@ -31,6 +31,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_priority_reviewer_instruction_packet_summary.json`: non-mutating priority reviewer instruction packet for the first General Surgery slice, with two blank hash-only decision rows and no raw labels, URLs, notes, accepted people, or apply step.
 - `artifacts/data/vanderbilt_patch_helper_fixture_verification_summary.json`: synthetic-only non-mutating verification for the Vanderbilt patch extract/apply helper functions, covering valid, invalid, stale, duplicate, blank, and include-blank fixture behavior without real Vanderbilt rows.
 - `artifacts/data/vanderbilt_priority_reviewer_handoff_packet_summary.json`: non-mutating General Surgery handoff packet that bundles the priority instruction packet, synthetic fixture status, slice/extract/dry-run commands, and explicit no-apply boundary for local reviewer execution.
+- `artifacts/data/vanderbilt_synthetic_handoff_dry_run_demo_summary.json`: synthetic-only end-to-end handoff demo proving the slice, extract, and dry-run patch commands compose against fabricated `/tmp` rows without touching real Vanderbilt decisions.
 - `artifacts/data/school_readiness_dossier_summary.json`: non-mutating school-readiness dossier rollup for GBrain verification posture.
 - `scripts/materialize_school_capability_manifest.py`, `scripts/materialize_school_readiness_dossiers.py`, `scripts/materialize_school_gap_resolution_manifest.py`, `scripts/materialize_school_gap_resolution_batches.py`, and `scripts/materialize_school_gap_resolution_batch_packets.py`: shared school-level operating manifest builders.
 - `scripts/materialize_school_gap_resolution_batch_slice_index.py`: reproducible materializer for the public-safe Vanderbilt gap-resolution batch slice index.
@@ -46,6 +47,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py`: reproducible materializer for the first General Surgery reviewer instruction packet; it emits only blank decision placeholders, hashes, keys, allowed actions, required confirmations, and helper commands.
 - `scripts/materialize_vanderbilt_patch_helper_fixture_verification.py`: reproducible synthetic fixture harness for patch helper validation; it exercises helper behavior in memory without reading or writing real reviewer decisions.
 - `scripts/materialize_vanderbilt_priority_reviewer_handoff_packet.py`: reproducible materializer for the public-safe General Surgery handoff packet, preserving blank decisions while exposing the exact local slice, extract, and dry-run command sequence.
+- `scripts/materialize_vanderbilt_synthetic_handoff_dry_run_demo.py`: reproducible synthetic end-to-end dry-run demo for the handoff command path; it creates fabricated context under `/tmp`, runs slice/extract/dry-run commands, and removes the temporary tree.
 - `scripts/validate_school_gap_resolution_review_template.py`: strict validator for filled gap review-template rows; it accepts only allowed non-mutating actions and `/tmp` output paths.
 - `scripts/materialize_school_gap_resolution_manifest.py` fails closed if a checkout lacks the core source inputs and would otherwise emit an empty manifest; set `ALLOW_EMPTY_GAP_MANIFEST=1` only for an intentional empty-manifest test run.
 - `artifacts/data/school_verification_registry_summary.json`: public registry of GBrain school-level verification posture, currently recording Stanford as school-verified under a non-mutating boundary.
@@ -81,6 +83,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_priority_reviewer_instruction_packet_summary.json`: public-safe first-slice reviewer instruction packet for General Surgery priority review.
 - `artifacts/data/vanderbilt_patch_helper_fixture_verification_summary.json`: synthetic-only verifier for Vanderbilt patch helper validation logic.
 - `artifacts/data/vanderbilt_priority_reviewer_handoff_packet_summary.json`: public-safe General Surgery reviewer handoff packet tying the instruction rows and fixture validation to no-apply local execution commands.
+- `artifacts/data/vanderbilt_synthetic_handoff_dry_run_demo_summary.json`: synthetic-only command-path verifier for the General Surgery handoff sequence.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_top50_public_clone_verification.py`: pure verifier for public-clone top-50/Vanderbilt safety and reproducibility invariants; it reads committed artifacts only and performs no web fetch, GBrain call, person ingestion, denominator closure, or scratch-dependent manifest regeneration.
 - `scripts/materialize_top50_public_contributor_worklist.py`: reproducible worklist materializer that turns the verified public snapshot, Vanderbilt batch packets, decision audit, and gap manifest into bounded non-mutating contributor actions with exact commands and approval gates.
@@ -113,6 +116,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py`: reproducible materializer for the General Surgery priority instruction packet.
 - `scripts/materialize_vanderbilt_patch_helper_fixture_verification.py`: reproducible synthetic fixture verifier for patch helper valid/invalid/blank behavior.
 - `scripts/materialize_vanderbilt_priority_reviewer_handoff_packet.py`: reproducible materializer for the General Surgery priority handoff packet with slice/extract/dry-run commands and a hard no-apply boundary.
+- `scripts/materialize_vanderbilt_synthetic_handoff_dry_run_demo.py`: reproducible synthetic dry-run command-path demo for the handoff workflow.
 - `scripts/extract_vanderbilt_reviewer_decision_patch.py`: extractor for filled workbook rows; it writes only strict patch-helper columns and validates extracted rows through the same non-mutating audit path.
 - `scripts/apply_vanderbilt_reviewer_decision_patch.py`: dry-run-by-default helper for validating and optionally applying public-safe reviewer decision patches; it only accepts audit-valid non-mutating decisions and never accepts people or closes denominators.
 

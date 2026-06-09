@@ -41,6 +41,7 @@ PRIORITY_INSTRUCTION_SUMMARY = ARTIFACTS / "vanderbilt_priority_reviewer_instruc
 PATCH_HELPER_FIXTURE_SUMMARY = ARTIFACTS / "vanderbilt_patch_helper_fixture_verification_summary.json"
 PRIORITY_HANDOFF_SUMMARY = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json"
 PRIORITY_HANDOFF_CSV = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.csv"
+SYNTHETIC_HANDOFF_DEMO_SUMMARY = ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -49,7 +50,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "6044abd14a3e5f1d54b8ff88492c00c5510564776da72eff80c1fd024423d230"
+VERIFICATION_ROWSET_SHA256 = "da28ec6ac1e9a4df95c7f60c12fa9e6a8221ea639d50f27f86776ec194b871ba"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -69,6 +70,7 @@ SLICE_PRIORITIZATION_PLAN_ROWSET_SHA256 = "eeaf14d0496276eb6603f3434a497eb3640af
 PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256 = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
 PATCH_HELPER_FIXTURE_ROWSET_SHA256 = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
 PRIORITY_HANDOFF_PACKET_ROWSET_SHA256 = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
+SYNTHETIC_HANDOFF_DEMO_ROWSET_SHA256 = "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -265,6 +267,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     priority_instruction_summary = read_json(PRIORITY_INSTRUCTION_SUMMARY)
     patch_helper_fixture_summary = read_json(PATCH_HELPER_FIXTURE_SUMMARY)
     priority_handoff_summary = read_json(PRIORITY_HANDOFF_SUMMARY)
+    synthetic_handoff_demo_summary = read_json(SYNTHETIC_HANDOFF_DEMO_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -291,6 +294,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             priority_instruction_summary,
             patch_helper_fixture_summary,
             priority_handoff_summary,
+            synthetic_handoff_demo_summary,
             gap_summary,
         ]
     ):
@@ -471,6 +475,21 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and priority_handoff_summary.get("apply_executed") is False
         and priority_handoff_summary.get("mutation_allowed") is False
         and priority_handoff_summary.get("person_ingestion_allowed") is False,
+        "synthetic_handoff_demo_rowset": synthetic_handoff_demo_summary.get("rowset_sha256")
+        == SYNTHETIC_HANDOFF_DEMO_ROWSET_SHA256,
+        "synthetic_handoff_demo_coverage": synthetic_handoff_demo_summary.get("demo_check_rows") == 5
+        and synthetic_handoff_demo_summary.get("pass_rows") == 5
+        and synthetic_handoff_demo_summary.get("fail_rows") == 0
+        and synthetic_handoff_demo_summary.get("synthetic_fixture_only") is True
+        and synthetic_handoff_demo_summary.get("real_vanderbilt_rows_used") == 0
+        and synthetic_handoff_demo_summary.get("slice_rows") == 2
+        and synthetic_handoff_demo_summary.get("extracted_patch_rows") == 1
+        and synthetic_handoff_demo_summary.get("valid_non_mutating_rows") == 1
+        and synthetic_handoff_demo_summary.get("dry_run_outputs_written") == 0
+        and synthetic_handoff_demo_summary.get("tmp_outputs_removed") is True
+        and synthetic_handoff_demo_summary.get("apply_executed") is False
+        and synthetic_handoff_demo_summary.get("mutation_allowed") is False
+        and synthetic_handoff_demo_summary.get("person_ingestion_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -498,6 +517,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         priority_instruction_summary,
         patch_helper_fixture_summary,
         priority_handoff_summary,
+        synthetic_handoff_demo_summary,
         gap_summary,
     )
 
@@ -571,6 +591,7 @@ def main() -> None:
         priority_instruction_summary,
         patch_helper_fixture_summary,
         priority_handoff_summary,
+        synthetic_handoff_demo_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -597,7 +618,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="43 verification rows pass and fail_rows remains 0.",
+            success_condition="45 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -692,7 +713,8 @@ def main() -> None:
             required_next_evidence=(
                 "The handoff packet bundles the first General Surgery reviewer slice, the two blank hash-only "
                 "instruction rows, the synthetic fixture status, and the slice/extract/dry-run commands under an "
-                "explicit no-apply boundary. Filled reviewer decisions still require strict extraction and dry-run "
+                "explicit no-apply boundary. The synthetic dry-run demo proves the command path composes against "
+                "fabricated /tmp rows. Filled real reviewer decisions still require strict extraction and dry-run "
                 "verification, and any apply or repo commit of filled decisions needs future exact approval."
             ),
             recommended_next_action=(
@@ -704,10 +726,11 @@ def main() -> None:
                 "python3 scripts/materialize_vanderbilt_patch_helper_fixture_verification.py && "
                 "python3 scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py && "
                 "python3 scripts/materialize_vanderbilt_priority_reviewer_handoff_packet.py && "
+                "python3 scripts/materialize_vanderbilt_synthetic_handoff_dry_run_demo.py && "
                 "python3 scripts/materialize_top50_public_clone_verification.py && "
                 "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
-            success_condition="Handoff packet represents two pending blank General Surgery rows, fixture harness passes 16/16 synthetic checks, no raw labels or URLs are committed, accepted_person_rows=0, apply_command_allowed=false, and apply_executed=false.",
+            success_condition="Handoff packet represents two pending blank General Surgery rows, fixture harness passes 16/16 synthetic checks, synthetic end-to-end dry-run passes 5/5 with one valid non-mutating fabricated patch row and zero dry-run outputs written, no raw labels or URLs are committed, accepted_person_rows=0, apply_command_allowed=false, and apply_executed=false.",
             approval_required_for=[
                 "filled_reviewer_decision_commit",
                 "patch_apply",
@@ -815,6 +838,17 @@ def main() -> None:
                 "priority_handoff_apply_command_allowed": priority_handoff_summary.get("apply_command_allowed"),
                 "priority_handoff_rowset_sha256": priority_handoff_summary.get("rowset_sha256"),
                 "priority_handoff_csv_rows": len(priority_handoff_rows),
+                "synthetic_handoff_demo_rows": synthetic_handoff_demo_summary.get("demo_check_rows"),
+                "synthetic_handoff_demo_pass_rows": synthetic_handoff_demo_summary.get("pass_rows"),
+                "synthetic_handoff_demo_slice_rows": synthetic_handoff_demo_summary.get("slice_rows"),
+                "synthetic_handoff_demo_extracted_patch_rows": synthetic_handoff_demo_summary.get(
+                    "extracted_patch_rows"
+                ),
+                "synthetic_handoff_demo_valid_non_mutating_rows": synthetic_handoff_demo_summary.get(
+                    "valid_non_mutating_rows"
+                ),
+                "synthetic_handoff_demo_tmp_outputs_removed": synthetic_handoff_demo_summary.get("tmp_outputs_removed"),
+                "synthetic_handoff_demo_rowset_sha256": synthetic_handoff_demo_summary.get("rowset_sha256"),
             },
             generated_at=generated_at,
         ),
@@ -893,6 +927,7 @@ def main() -> None:
         "source_vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256,
         "source_vanderbilt_patch_helper_fixture_verification_rowset_sha256": PATCH_HELPER_FIXTURE_ROWSET_SHA256,
         "source_vanderbilt_priority_reviewer_handoff_packet_rowset_sha256": PRIORITY_HANDOFF_PACKET_ROWSET_SHA256,
+        "source_vanderbilt_synthetic_handoff_dry_run_demo_rowset_sha256": SYNTHETIC_HANDOFF_DEMO_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

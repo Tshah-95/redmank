@@ -38,6 +38,7 @@ EXPECTED_VANDERBILT_SLICE_PRIORITIZATION_ROWSET = "eeaf14d0496276eb6603f3434a497
 EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
 EXPECTED_VANDERBILT_PATCH_HELPER_FIXTURE_ROWSET = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
 EXPECTED_VANDERBILT_PRIORITY_HANDOFF_ROWSET = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
+EXPECTED_VANDERBILT_SYNTHETIC_HANDOFF_DRY_RUN_ROWSET = "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
@@ -278,6 +279,9 @@ def main() -> None:
     priority_handoff_summary = read_json(ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json")
     priority_handoff_csv = read_csv_rows(ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.csv")
     priority_handoff_json = read_json(ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.json")
+    synthetic_handoff_demo_summary = read_json(ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo_summary.json")
+    synthetic_handoff_demo_csv = read_csv_rows(ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo.csv")
+    synthetic_handoff_demo_json = read_json(ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -343,6 +347,9 @@ def main() -> None:
     priority_handoff_text = (
         ROOT / "scripts" / "materialize_vanderbilt_priority_reviewer_handoff_packet.py"
     ).read_text(encoding="utf-8")
+    synthetic_handoff_demo_text = (
+        ROOT / "scripts" / "materialize_vanderbilt_synthetic_handoff_dry_run_demo.py"
+    ).read_text(encoding="utf-8")
     gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
         encoding="utf-8"
     )
@@ -364,6 +371,7 @@ def main() -> None:
             priority_instruction_summary,
             patch_fixture_summary,
             priority_handoff_summary,
+            synthetic_handoff_demo_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
@@ -392,6 +400,7 @@ def main() -> None:
         or not isinstance(priority_instruction_json, list)
         or not isinstance(patch_fixture_json, list)
         or not isinstance(priority_handoff_json, list)
+        or not isinstance(synthetic_handoff_demo_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
@@ -1152,6 +1161,76 @@ def main() -> None:
     add_check(
         checks,
         generated_at,
+        "vanderbilt_synthetic_handoff_dry_run_demo_boundary",
+        synthetic_handoff_demo_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_SYNTHETIC_HANDOFF_DRY_RUN_ROWSET
+        and synthetic_handoff_demo_summary.get("demo_check_rows") == 5
+        and synthetic_handoff_demo_summary.get("pass_rows") == 5
+        and synthetic_handoff_demo_summary.get("fail_rows") == 0
+        and synthetic_handoff_demo_summary.get("synthetic_fixture_only") is True
+        and synthetic_handoff_demo_summary.get("real_vanderbilt_rows_used") == 0
+        and synthetic_handoff_demo_summary.get("synthetic_input_rows_written") == 6
+        and synthetic_handoff_demo_summary.get("slice_rows") == 2
+        and synthetic_handoff_demo_summary.get("extracted_patch_rows") == 1
+        and synthetic_handoff_demo_summary.get("valid_non_mutating_rows") == 1
+        and synthetic_handoff_demo_summary.get("dry_run_patch_rows") == 1
+        and synthetic_handoff_demo_summary.get("dry_run_outputs_written") == 0
+        and synthetic_handoff_demo_summary.get("tmp_outputs_removed") is True
+        and synthetic_handoff_demo_summary.get("accepted_person_rows") == 0
+        and synthetic_handoff_demo_summary.get("apply_executed") is False
+        and synthetic_handoff_demo_summary.get("mutation_allowed") is False
+        and synthetic_handoff_demo_summary.get("person_ingestion_allowed") is False
+        and synthetic_handoff_demo_summary.get("denominator_closure_allowed") is False
+        and len(synthetic_handoff_demo_csv) == 5
+        and len(synthetic_handoff_demo_json) == 5,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_SYNTHETIC_HANDOFF_DRY_RUN_ROWSET,
+            "demo_check_rows": 5,
+            "pass_rows": 5,
+            "fail_rows": 0,
+            "synthetic_fixture_only": True,
+            "real_vanderbilt_rows_used": 0,
+            "synthetic_input_rows_written": 6,
+            "slice_rows": 2,
+            "extracted_patch_rows": 1,
+            "valid_non_mutating_rows": 1,
+            "dry_run_patch_rows": 1,
+            "dry_run_outputs_written": 0,
+            "tmp_outputs_removed": True,
+            "accepted_person_rows": 0,
+            "apply_executed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "csv_rows": 5,
+            "json_rows": 5,
+        },
+        {
+            "rowset_sha256": synthetic_handoff_demo_summary.get("rowset_sha256"),
+            "demo_check_rows": synthetic_handoff_demo_summary.get("demo_check_rows"),
+            "pass_rows": synthetic_handoff_demo_summary.get("pass_rows"),
+            "fail_rows": synthetic_handoff_demo_summary.get("fail_rows"),
+            "synthetic_fixture_only": synthetic_handoff_demo_summary.get("synthetic_fixture_only"),
+            "real_vanderbilt_rows_used": synthetic_handoff_demo_summary.get("real_vanderbilt_rows_used"),
+            "synthetic_input_rows_written": synthetic_handoff_demo_summary.get("synthetic_input_rows_written"),
+            "slice_rows": synthetic_handoff_demo_summary.get("slice_rows"),
+            "extracted_patch_rows": synthetic_handoff_demo_summary.get("extracted_patch_rows"),
+            "valid_non_mutating_rows": synthetic_handoff_demo_summary.get("valid_non_mutating_rows"),
+            "dry_run_patch_rows": synthetic_handoff_demo_summary.get("dry_run_patch_rows"),
+            "dry_run_outputs_written": synthetic_handoff_demo_summary.get("dry_run_outputs_written"),
+            "tmp_outputs_removed": synthetic_handoff_demo_summary.get("tmp_outputs_removed"),
+            "accepted_person_rows": synthetic_handoff_demo_summary.get("accepted_person_rows"),
+            "apply_executed": synthetic_handoff_demo_summary.get("apply_executed"),
+            "mutation_allowed": synthetic_handoff_demo_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": synthetic_handoff_demo_summary.get("person_ingestion_allowed"),
+            "denominator_closure_allowed": synthetic_handoff_demo_summary.get("denominator_closure_allowed"),
+            "csv_rows": len(synthetic_handoff_demo_csv),
+            "json_rows": len(synthetic_handoff_demo_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_synthetic_handoff_dry_run_demo_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
         "vanderbilt_gap_manifest_committed_rows",
         gap_summary.get("rows") == 113
         and gap_summary.get("open_gap_rows") == 113
@@ -1564,6 +1643,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.json",
             ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json",
             RESEARCH / "vanderbilt-priority-reviewer-handoff-packet-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo.csv",
+            ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo.json",
+            ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo_summary.json",
+            RESEARCH / "vanderbilt-synthetic-handoff-dry-run-demo-2026-06-09.md",
         ]
     )
     add_check(
@@ -1573,7 +1656,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 44, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 48, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1656,6 +1739,8 @@ def main() -> None:
         token in reviewer_patch_script_text
         for token in [
             "--apply",
+            "--scaffold",
+            "--decisions",
             "valid_non_mutating",
             "audit.audit_decision",
             "person_ingestion_allowed",
@@ -1680,6 +1765,8 @@ def main() -> None:
         for token in [
             "validate_workbook_header",
             "patch_helper.validate_patch_rows",
+            "--scaffold",
+            "--decisions",
             "No filled workbook rows to extract",
             "reviewer_note",
             "URL_RE",
@@ -1899,6 +1986,37 @@ def main() -> None:
             "readme": "README.md",
         },
     )
+    synthetic_handoff_demo_guard_present = all(
+        token in synthetic_handoff_demo_text
+        for token in [
+            "TMP_DIR",
+            "synthetic_fixture_only",
+            "real_vanderbilt_rows_used",
+            "slice_vanderbilt_reviewer_decision_patch_workbook.py",
+            "extract_vanderbilt_reviewer_decision_patch.py",
+            "apply_vanderbilt_reviewer_decision_patch.py",
+            "--scaffold",
+            "--decisions",
+            "tmp_outputs_removed",
+            "does not read or write real Vanderbilt reviewer decisions",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_synthetic_handoff_dry_run_demo_guard_present",
+        synthetic_handoff_demo_guard_present
+        and "materialize_vanderbilt_synthetic_handoff_dry_run_demo.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": synthetic_handoff_demo_guard_present,
+            "readme_documented": "materialize_vanderbilt_synthetic_handoff_dry_run_demo.py" in readme_text,
+        },
+        {
+            "script": "scripts/materialize_vanderbilt_synthetic_handoff_dry_run_demo.py",
+            "readme": "README.md",
+        },
+    )
     gap_slicer_guard_present = all(
         token in gap_batch_slicer_text
         for token in [
@@ -2027,6 +2145,7 @@ def main() -> None:
         "vanderbilt_priority_reviewer_instruction_packet_rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_INSTRUCTION_ROWSET,
         "vanderbilt_patch_helper_fixture_verification_rowset_sha256": EXPECTED_VANDERBILT_PATCH_HELPER_FIXTURE_ROWSET,
         "vanderbilt_priority_reviewer_handoff_packet_rowset_sha256": EXPECTED_VANDERBILT_PRIORITY_HANDOFF_ROWSET,
+        "vanderbilt_synthetic_handoff_dry_run_demo_rowset_sha256": EXPECTED_VANDERBILT_SYNTHETIC_HANDOFF_DRY_RUN_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,

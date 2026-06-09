@@ -26,8 +26,8 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist_verification.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_verification_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-verification-2026-06-09.md"
 
-EXPECTED_WORKLIST_ROWSET = "a19307633b0d9358f2a52e75b6ff52f78afd66c669b40b02cc88d28220dd0188"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "6044abd14a3e5f1d54b8ff88492c00c5510564776da72eff80c1fd024423d230"
+EXPECTED_WORKLIST_ROWSET = "49ef8213829012327e0b190e25d8ade137527447ac6c0732df46784b7967e0a3"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "da28ec6ac1e9a4df95c7f60c12fa9e6a8221ea639d50f27f86776ec194b871ba"
 EXPECTED_BATCH_PACKET_ROWSET = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 EXPECTED_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
@@ -87,6 +87,7 @@ ALLOWED_COMMANDS = {
         "python3 scripts/materialize_vanderbilt_patch_helper_fixture_verification.py && "
         "python3 scripts/materialize_vanderbilt_priority_reviewer_instruction_packet.py && "
         "python3 scripts/materialize_vanderbilt_priority_reviewer_handoff_packet.py && "
+        "python3 scripts/materialize_vanderbilt_synthetic_handoff_dry_run_demo.py && "
         "python3 scripts/materialize_top50_public_clone_verification.py && "
         "python3 scripts/assert_gap_manifest_fails_closed.py"
     ),
@@ -243,9 +244,9 @@ def main() -> None:
         "worklist_summary_boundary",
         summary.get("rowset_sha256") == EXPECTED_WORKLIST_ROWSET
         and summary.get("worklist_rows") == 4
-        and summary.get("total_impact_count") == 363
+        and summary.get("total_impact_count") == 365
         and summary.get("mutation_allowed") is False,
-        {"rowset_sha256": EXPECTED_WORKLIST_ROWSET, "worklist_rows": 4, "total_impact_count": 363, "mutation_allowed": False},
+        {"rowset_sha256": EXPECTED_WORKLIST_ROWSET, "worklist_rows": 4, "total_impact_count": 365, "mutation_allowed": False},
         {
             "rowset_sha256": summary.get("rowset_sha256"),
             "worklist_rows": summary.get("worklist_rows"),

@@ -142,6 +142,8 @@ def validate_patch_rows(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--patch", required=True, help="CSV patch with non-mutating reviewer decisions.")
+    parser.add_argument("--scaffold", default=str(SCAFFOLD_JSON), help="Decision scaffold JSON context.")
+    parser.add_argument("--decisions", default=str(DECISIONS_CSV), help="Reviewer decision template CSV context.")
     parser.add_argument("--apply", action="store_true", help="Write the validated decisions to the output files.")
     parser.add_argument("--output", default=str(DECISIONS_CSV), help="Decision CSV output path. Defaults to the committed template.")
     parser.add_argument("--json-output", default=str(DECISIONS_JSON), help="Decision JSON output path. Defaults to the committed template JSON.")
@@ -151,13 +153,19 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     patch = patch_path(args.patch)
+    scaffold_path = patch_path(args.scaffold)
+    decisions_path = patch_path(args.decisions)
     output = patch_path(args.output)
     json_output = patch_path(args.json_output)
     if not patch.exists():
         raise SystemExit("Patch file does not exist: " + str(patch))
+    if not scaffold_path.exists():
+        raise SystemExit("Scaffold file does not exist: " + str(scaffold_path))
+    if not decisions_path.exists():
+        raise SystemExit("Decisions file does not exist: " + str(decisions_path))
 
-    scaffold_rows = read_json(SCAFFOLD_JSON)
-    decision_fields, decision_rows = read_csv_rows(DECISIONS_CSV)
+    scaffold_rows = read_json(scaffold_path)
+    decision_fields, decision_rows = read_csv_rows(decisions_path)
     patch_fields, patch_rows = read_csv_rows(patch)
     if not isinstance(scaffold_rows, list):
         raise SystemExit("Expected Vanderbilt decision scaffold JSON array.")
