@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Slice 2 Live Fetch Approval Request Packet
-created_at: 2026-06-09T10:49:52.529420+00:00
+created_at: 2026-06-09T11:00:38.876776+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -49,7 +49,7 @@ Non-mutating Vanderbilt slice-2 live-fetch approval request. It asks whether a l
   "gbrain_approval_status": "pending_exact_gbrain_approval",
   "gbrain_denial_line": "DENY vanderbilt_slice_2_live_fetch_approval_request_packet_denied",
   "gbrain_exact_approval_line": "APPROVE vanderbilt_slice_2_live_fetch_approval_request_packet_approved REQUEST_ROWS 9 SOURCE_PLAN_ROWS 9 SOURCE_ROWSET_SHA256 c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b ROWSET_SHA256 98961c203962855aa7ebc7c31c4396b3ad231e166b71cf2a465e4fa474d6bc2d",
-  "generated_at": "2026-06-09T10:49:52.529420+00:00",
+  "generated_at": "2026-06-09T11:00:38.876776+00:00",
   "identity_collapse_allowed": false,
   "json": "artifacts/data/vanderbilt_slice_2_live_fetch_approval_request_packet.json",
   "markdown": "artifacts/research/vanderbilt-slice-2-live-fetch-approval-request-packet-2026-06-09.md",

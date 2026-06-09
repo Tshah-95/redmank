@@ -47,6 +47,9 @@ TRIAGE_SLICE_CONTRACT_SUMMARY = ARTIFACTS / "vanderbilt_triage_slice_definition_
 SLICE_2_EXECUTION_PLAN_SUMMARY = ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet_summary.json"
 SLICE_2_LIVE_FETCH_APPROVAL_SUMMARY = ARTIFACTS / "vanderbilt_slice_2_live_fetch_approval_request_packet_summary.json"
 SLICE_2_LIVE_ROUTE_OBSERVATION_SUMMARY = ARTIFACTS / "vanderbilt_slice_2_live_route_observation_summary.json"
+SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_SUMMARY = (
+    ARTIFACTS / "vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json"
+)
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -55,7 +58,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "628996011c4d47a7a08c9993bcf772087f4ef43fb888972aace4932dcb40e09d"
+VERIFICATION_ROWSET_SHA256 = "5e6652365adb9e2c6257b1f3331c480287becdb1559bf5752bcda814c35993d1"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -81,6 +84,7 @@ TRIAGE_SLICE_CONTRACT_ROWSET_SHA256 = "b8559206ae9341dae7c9136ddb6d83651ff84905f
 SLICE_2_EXECUTION_PLAN_ROWSET_SHA256 = "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b"
 SLICE_2_LIVE_FETCH_APPROVAL_ROWSET_SHA256 = "98961c203962855aa7ebc7c31c4396b3ad231e166b71cf2a465e4fa474d6bc2d"
 SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET_SHA256 = "c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0"
+SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET_SHA256 = "bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -283,6 +287,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     slice_2_execution_plan_summary = read_json(SLICE_2_EXECUTION_PLAN_SUMMARY)
     slice_2_live_fetch_approval_summary = read_json(SLICE_2_LIVE_FETCH_APPROVAL_SUMMARY)
     slice_2_live_route_observation_summary = read_json(SLICE_2_LIVE_ROUTE_OBSERVATION_SUMMARY)
+    slice_2_route_parser_scope_approval_summary = read_json(SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -315,6 +320,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             slice_2_execution_plan_summary,
             slice_2_live_fetch_approval_summary,
             slice_2_live_route_observation_summary,
+            slice_2_route_parser_scope_approval_summary,
             gap_summary,
         ]
     ):
@@ -589,6 +595,23 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and slice_2_live_route_observation_summary.get("parser_acceptance_allowed") is False
         and slice_2_live_route_observation_summary.get("denominator_closure_allowed") is False
         and slice_2_live_route_observation_summary.get("school_verification_allowed") is False,
+        "slice_2_route_parser_scope_approval_rowset": slice_2_route_parser_scope_approval_summary.get(
+            "rowset_sha256"
+        )
+        == SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET_SHA256,
+        "slice_2_route_parser_scope_approval_coverage": slice_2_route_parser_scope_approval_summary.get("packet_rows")
+        == 18
+        and slice_2_route_parser_scope_approval_summary.get("request_rows_represented") == 9
+        and slice_2_route_parser_scope_approval_summary.get("source_route_observation_rowset_sha256")
+        == SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET_SHA256
+        and slice_2_route_parser_scope_approval_summary.get("gbrain_approval_status") == "pending_exact_approval_line"
+        and slice_2_route_parser_scope_approval_summary.get("web_fetch_allowed") is False
+        and slice_2_route_parser_scope_approval_summary.get("mutation_allowed") is False
+        and slice_2_route_parser_scope_approval_summary.get("parser_implementation_allowed") is False
+        and slice_2_route_parser_scope_approval_summary.get("parser_acceptance_allowed") is False
+        and slice_2_route_parser_scope_approval_summary.get("person_ingestion_allowed") is False
+        and slice_2_route_parser_scope_approval_summary.get("denominator_closure_allowed") is False
+        and slice_2_route_parser_scope_approval_summary.get("school_verification_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -622,6 +645,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         slice_2_execution_plan_summary,
         slice_2_live_fetch_approval_summary,
         slice_2_live_route_observation_summary,
+        slice_2_route_parser_scope_approval_summary,
         gap_summary,
     )
 
@@ -701,6 +725,7 @@ def main() -> None:
         slice_2_execution_plan_summary,
         slice_2_live_fetch_approval_summary,
         slice_2_live_route_observation_summary,
+        slice_2_route_parser_scope_approval_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -1147,7 +1172,7 @@ def main() -> None:
         row(
             execution_order=7,
             action_lane="vanderbilt_slice_2_live_route_observation_packet",
-            action_status="ready_for_parser_scope_approval_request",
+            action_status="parser_scope_approval_request_materialized",
             priority=845,
             entity_type="vanderbilt_slice_2_live_route_observations",
             entity_key="vanderbilt_slice_2_live_route_observations",
@@ -1184,7 +1209,7 @@ def main() -> None:
                 "identity_collapse",
             ],
             source_rowset_sha256=SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET_SHA256,
-            target_rowset_sha256="",
+            target_rowset_sha256=SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET_SHA256,
             evidence={
                 "observation_rows": slice_2_live_route_observation_summary.get("observation_rows"),
                 "request_rows_represented": slice_2_live_route_observation_summary.get("request_rows_represented"),
@@ -1203,6 +1228,65 @@ def main() -> None:
         ),
         row(
             execution_order=8,
+            action_lane="vanderbilt_slice_2_route_parser_scope_approval_packet",
+            action_status="pending_exact_gbrain_approval",
+            priority=842,
+            entity_type="vanderbilt_slice_2_route_parser_scope_approval_packet",
+            entity_key="vanderbilt_slice_2_route_parser_scope_approval_packet",
+            display_label="Vanderbilt slice 2 route parser/scope approval packet",
+            impact_count=int(slice_2_route_parser_scope_approval_summary.get("packet_rows", 0)),
+            source_artifact="artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json",
+            target_artifact="artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json",
+            required_next_evidence=(
+                "The packet is an exact approval request only. It splits the 18 route observations into target-route "
+                "parser-build review, related-scope disposition, broader-context recourse, and denominator-redirect "
+                "recourse lanes. It does not approve parser implementation or acceptance."
+            ),
+            recommended_next_action=(
+                "Submit artifacts/data/vanderbilt_slice_2_route_parser_scope_approval_packet_summary.json to GBrain "
+                "and require the exact approval line before building parser-build review, scope-disposition, or "
+                "recourse artifacts."
+            ),
+            verification_command=(
+                "python3 scripts/materialize_vanderbilt_slice_2_route_parser_scope_approval_packet.py && "
+                "python3 scripts/materialize_top50_public_clone_verification.py"
+            ),
+            success_condition=(
+                "Approval packet remains 18 rows, source route-observation rowset matches, gbrain_approval_status "
+                "is pending_exact_approval_line, web_fetch_allowed=false, parser_implementation_allowed=false, "
+                "parser_acceptance_allowed=false, accepted_person_rows=0, and all mutation flags false."
+            ),
+            approval_required_for=[
+                "parser_build_review",
+                "scope_disposition",
+                "route_recourse",
+                "parser_implementation",
+                "parser_acceptance",
+                "person_ingestion",
+                "denominator_closure",
+                "vanderbilt_school_verification",
+                "source_url_rewrite",
+                "identity_collapse",
+            ],
+            source_rowset_sha256=SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET_SHA256,
+            target_rowset_sha256=SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET_SHA256,
+            evidence={
+                "packet_rows": slice_2_route_parser_scope_approval_summary.get("packet_rows"),
+                "request_rows_represented": slice_2_route_parser_scope_approval_summary.get(
+                    "request_rows_represented"
+                ),
+                "by_approval_request_lane": slice_2_route_parser_scope_approval_summary.get(
+                    "by_approval_request_lane"
+                ),
+                "gbrain_approval_status": slice_2_route_parser_scope_approval_summary.get("gbrain_approval_status"),
+                "source_route_observation_rowset_sha256": slice_2_route_parser_scope_approval_summary.get(
+                    "source_route_observation_rowset_sha256"
+                ),
+            },
+            generated_at=generated_at,
+        ),
+        row(
+            execution_order=9,
             action_lane="future_exact_approval_packet_after_valid_decisions",
             action_status="blocked_until_valid_non_mutating_decisions",
             priority=640,
@@ -1282,6 +1366,7 @@ def main() -> None:
         "source_vanderbilt_slice_2_execution_plan_rowset_sha256": SLICE_2_EXECUTION_PLAN_ROWSET_SHA256,
         "source_vanderbilt_slice_2_live_fetch_approval_request_rowset_sha256": SLICE_2_LIVE_FETCH_APPROVAL_ROWSET_SHA256,
         "source_vanderbilt_slice_2_live_route_observation_rowset_sha256": SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET_SHA256,
+        "source_vanderbilt_slice_2_route_parser_scope_approval_rowset_sha256": SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,
