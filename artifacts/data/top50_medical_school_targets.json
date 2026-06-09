@@ -1,0 +1,965 @@
+{
+  "generated_at": "2026-06-08T02:57:44.959385+00:00",
+  "selection_policy": "Initial top-50 target set uses BRIMR 2024 total NIH funding attributed to Schools of Medicine. This is a transparent operational ranking for research-intensive medical schools; gbrain/user may approve, replace, or supplement it before declaring project-level readiness.",
+  "source": {
+    "methodology_url": "https://brimr.org/notes-on-methodology-2024/",
+    "name": "BRIMR Rankings of NIH Funding in 2024 - Medical Schools Only",
+    "url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/",
+    "workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx"
+  },
+  "targets": [
+    {
+      "award_rows": 1280,
+      "brimr_2024_total_funding": 726020299.0,
+      "city": "SAN FRANCISCO",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF CALIFORNIA SAN FRANCISCO"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_001",
+      "school_name": "UNIV OF CALIFORNIA SAN FRAN SCH OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 1,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 1076,
+      "brimr_2024_total_funding": 683318054.0,
+      "city": "SAINT LOUIS",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "WASHINGTON UNIVERSITY ST LOUIS"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_002",
+      "school_name": "WASHINGTON UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MISSOURI",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 2,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 1093,
+      "brimr_2024_total_funding": 597930763.0,
+      "city": "NEW HAVEN",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "YALE UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_003",
+      "school_name": "YALE UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CONNECTICUT",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 3,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 1030,
+      "brimr_2024_total_funding": 587526359.0,
+      "city": "PHILADELPHIA",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF PENNSYLVANIA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_004",
+      "school_name": "UNIV OF PENNSYLVANIA SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "PENNSYLVANIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 4,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 858,
+      "brimr_2024_total_funding": 586273695.0,
+      "city": "NASHVILLE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "VANDERBILT UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_005",
+      "school_name": "VANDERBILT UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "TENNESSEE",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 5,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 1037,
+      "brimr_2024_total_funding": 571755774.0,
+      "city": "BALTIMORE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "JOHNS HOPKINS UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_006",
+      "school_name": "JOHNS HOPKINS UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MARYLAND",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 6,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 1020,
+      "brimr_2024_total_funding": 548681085.0,
+      "city": "STANFORD",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "STANFORD UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_007",
+      "school_name": "STANFORD UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 7,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 978,
+      "brimr_2024_total_funding": 535038697.0,
+      "city": "PITTSBURGH",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF PITTSBURGH"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_008",
+      "school_name": "UNIV OF PITTSBURGH SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "PENNSYLVANIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 8,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 872,
+      "brimr_2024_total_funding": 527236660.0,
+      "city": "NEW YORK",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "COLUMBIA UNIVERSITY HEALTH SCIENCES"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_009",
+      "school_name": "COLUMBIA U COL OF PHYSICIANS & SURGEONS",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NEW YORK",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 9,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 1005,
+      "brimr_2024_total_funding": 510493010.0,
+      "city": "ANN ARBOR",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF MICHIGAN ANN ARBOR"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_010",
+      "school_name": "UNIVERSITY OF MICHIGAN MEDICAL SCHOOL",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MICHIGAN",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 10,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 611,
+      "brimr_2024_total_funding": 490227441.0,
+      "city": "NEW YORK",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "NEW YORK UNIVERSITY SCHOOL OF MEDICINE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_011",
+      "school_name": "NEW YORK UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NEW YORK",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 11,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 727,
+      "brimr_2024_total_funding": 460463801.0,
+      "city": "NEW YORK",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "MOUNT SINAI ICAHN SCHOOL OF MEDICINE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_012",
+      "school_name": "MOUNT SINAI ICAHN SCHOOL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NEW YORK",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 12,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 796,
+      "brimr_2024_total_funding": 454891637.0,
+      "city": "DURHAM",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "DUKE UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_013",
+      "school_name": "DUKE UNIVERSITY SCHOOL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NORTH CAROLINA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 13,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 723,
+      "brimr_2024_total_funding": 421038467.0,
+      "city": "LA JOLLA",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF CALIFORNIA SAN DIEGO"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_014",
+      "school_name": "UNIV OF CALIFORNIA SAN DIEGO SCH OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 14,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 659,
+      "brimr_2024_total_funding": 417013376.0,
+      "city": "LOS ANGELES",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF CALIFORNIA LOS ANGELES",
+        "UNIVERSITY OF CALIFORNIA RIVERSIDE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_015",
+      "school_name": "DAVID GEFFEN SCHOOL OF MEDICINE AT UCLA",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 15,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 716,
+      "brimr_2024_total_funding": 414130627.0,
+      "city": "CHICAGO",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "NORTHWESTERN UNIVERSITY CHICAGO"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_016",
+      "school_name": "NORTHWESTERN UNIVERSITY MEDICAL SCHOOL",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "ILLINOIS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 16,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 625,
+      "brimr_2024_total_funding": 380713087.0,
+      "city": "SEATTLE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF WASHINGTON SEATTLE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_017",
+      "school_name": "UNIVERSITY OF WASHINGTON SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "WASHINGTON",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 17,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 681,
+      "brimr_2024_total_funding": 374577692.0,
+      "city": "ATLANTA",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "EMORY UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_018",
+      "school_name": "EMORY UNIVERSITY SCHOOL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "GEORGIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 18,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 684,
+      "brimr_2024_total_funding": 348917592.0,
+      "city": "CHAPEL HILL",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF NORTH CAROLINA CHAPEL HILL"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_019",
+      "school_name": "UNIVERSITY OF NORTH CAROLINA SCH OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NORTH CAROLINA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 19,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 626,
+      "brimr_2024_total_funding": 319871538.0,
+      "city": "HOUSTON",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "BAYLOR COLLEGE OF MEDICINE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_020",
+      "school_name": "BAYLOR COLLEGE OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "TEXAS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 20,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 554,
+      "brimr_2024_total_funding": 313171313.0,
+      "city": "NEW YORK",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "CORNELL UNIVERSITY WEILL MEDICAL COLLEGE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_021",
+      "school_name": "WEILL MEDICAL COLLEGE OF CORNELL UNIV",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NEW YORK",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 21,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 702,
+      "brimr_2024_total_funding": 304038136.0,
+      "city": "AURORA",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF COLORADO DENVER"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_022",
+      "school_name": "UNIV OF COLORADO HLTH SCI CTR SCH OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "COLORADO",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 22,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 422,
+      "brimr_2024_total_funding": 294147363.0,
+      "city": "MADISON",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF WISCONSIN MADISON"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_023",
+      "school_name": "UNIVERSITY OF WISCONSIN MEDICAL SCHOOL",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "WISCONSIN",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 23,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 600,
+      "brimr_2024_total_funding": 293771084.0,
+      "city": "DALLAS",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF TEXAS SOUTHWESTERN DALLAS"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_024",
+      "school_name": "UNIVERSITY OF TEXAS SW MED CTR/DALLAS",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "TEXAS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 24,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 585,
+      "brimr_2024_total_funding": 291133902.0,
+      "city": "MINNEAPOLIS",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF MINNESOTA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_025",
+      "school_name": "UNIVERSITY OF MINNESOTA MEDICAL SCHOOL",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MINNESOTA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 25,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 564,
+      "brimr_2024_total_funding": 289200267.0,
+      "city": "CLEVELAND",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "CASE WESTERN RESERVE U & CLEVELAND CLINIC LERNER COM"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_026",
+      "school_name": "CASE WESTERN RESERVE UNIV SCH OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "OHIO",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 26,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 527,
+      "brimr_2024_total_funding": 272067297.0,
+      "city": "BIRMINGHAM",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF ALABAMA BIRMINGHAM",
+        "UNIVERSITY OF ALABAMA TUSCALOOSA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_027",
+      "school_name": "UNIVERSITY OF ALABAMA SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "ALABAMA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 27,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 446,
+      "brimr_2024_total_funding": 232851513.0,
+      "city": "CHICAGO",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF CHICAGO"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_028",
+      "school_name": "UNIV OF CHICAGO PRITZKER SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "ILLINOIS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 28,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 378,
+      "brimr_2024_total_funding": 232445734.0,
+      "city": "INDIANAPOLIS",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "INDIANA UNIVERSITY INDIANAPOLIS"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_029",
+      "school_name": "INDIANA UNIVERSITY SCHOOL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "INDIANA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 29,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 413,
+      "brimr_2024_total_funding": 224352847.0,
+      "city": "PORTLAND",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "OREGON HEALTH & SCIENCE UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_030",
+      "school_name": "OREGON HLTH SCIS UNIV SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "OREGON",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 30,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 308,
+      "brimr_2024_total_funding": 219614405.0,
+      "city": "LOS ANGELES",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF SOUTHERN CALIFORNIA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_031",
+      "school_name": "KECK SCHOOL OF MEDICINE OF USC",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 31,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 405,
+      "brimr_2024_total_funding": 209940972.0,
+      "city": "DAVIS",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF CALIFORNIA DAVIS"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_032",
+      "school_name": "UNIV OF CALIFORNIA DAVIS COL OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 32,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 453,
+      "brimr_2024_total_funding": 204296142.0,
+      "city": "SALT LAKE CITY",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF UTAH"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_033",
+      "school_name": "UNIVERSITY OF UTAH SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "UTAH",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 33,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 321,
+      "brimr_2024_total_funding": 191779929.0,
+      "city": "BRONX",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "ALBERT EINSTEIN COLLEGE OF MEDICINE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_034",
+      "school_name": "ALBERT EINSTEIN COLLEGE OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NEW YORK",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 34,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 361,
+      "brimr_2024_total_funding": 191053492.0,
+      "city": "WORCESTER",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF MASSACHUSETTS MED SCH WORCESTER"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_035",
+      "school_name": "UNIVERSITY OF MASSACHUSETTS MEDICAL SCH",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MASSACHUSETTS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 35,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 375,
+      "brimr_2024_total_funding": 185198022.0,
+      "city": "COLUMBUS",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "OHIO STATE UNIVERSITY"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_036",
+      "school_name": "OHIO STATE UNIVERSITY COL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "OHIO",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 36,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 278,
+      "brimr_2024_total_funding": 177486613.0,
+      "city": "IRVINE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF CALIFORNIA IRVINE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_037",
+      "school_name": "UNIV OF CALIFORNIA IRVINE CAL COL OF MED",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "CALIFORNIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 37,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 375,
+      "brimr_2024_total_funding": 168870875.0,
+      "city": "CHARLOTTESVILLE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF VIRGINIA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_038",
+      "school_name": "UNIVERSITY OF VIRGINIA SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "VIRGINIA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 38,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 366,
+      "brimr_2024_total_funding": 167849423.0,
+      "city": "BALTIMORE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF MARYLAND BALTIMORE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_039",
+      "school_name": "UNIVERSITY OF MARYLAND SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MARYLAND",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 39,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 342,
+      "brimr_2024_total_funding": 166242027.0,
+      "city": "GAINESVILLE",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF FLORIDA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_040",
+      "school_name": "UNIVERSITY OF FLORIDA COL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "FLORIDA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 40,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 285,
+      "brimr_2024_total_funding": 165189619.0,
+      "city": "CORAL GABLES",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF MIAMI SCHOOL OF MEDICINE"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_041",
+      "school_name": "UNIVERSITY OF MIAMI SCHOOL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "FLORIDA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 41,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 296,
+      "brimr_2024_total_funding": 161810585.0,
+      "city": "BOSTON",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "HARVARD MEDICAL SCHOOL"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_042",
+      "school_name": "HARVARD MEDICAL SCHOOL",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MASSACHUSETTS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 42,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 336,
+      "brimr_2024_total_funding": 157106312.0,
+      "city": "ROCHESTER",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF ROCHESTER"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_043",
+      "school_name": "UNIV OF ROCHESTER SCH MED & DENT",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NEW YORK",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 43,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 187,
+      "brimr_2024_total_funding": 139814844.0,
+      "city": "BOSTON",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "BOSTON UNIVERSITY MEDICAL CAMPUS"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_044",
+      "school_name": "BOSTON UNIVERSITY SCHOOL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "MASSACHUSETTS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 44,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 293,
+      "brimr_2024_total_funding": 139389020.0,
+      "city": "IOWA CITY",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF IOWA"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_045",
+      "school_name": "UNIVERSITY OF IOWA COLLEGE OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "IOWA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 45,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 251,
+      "brimr_2024_total_funding": 135493989.0,
+      "city": "WINSTON-SALEM",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "WAKE FOREST UNIVERSITY HLTH SCIS"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_046",
+      "school_name": "WAKE FOREST UNIVERSITY SCH OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "NORTH CAROLINA",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 46,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 277,
+      "brimr_2024_total_funding": 125948347.0,
+      "city": "CHICAGO",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF ILLINOIS CHICAGO",
+        "UNIVERSITY OF ILLINOIS URBANA-CHAMPAIGN"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_047",
+      "school_name": "UNIVERSITY OF ILLINOIS COL OF MEDICINE",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "ILLINOIS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 47,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 235,
+      "brimr_2024_total_funding": 125408579.0,
+      "city": "SAN ANTONIO",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF TEXAS HLTH SCI CTR SAN ANTONIO"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_048",
+      "school_name": "U OF TX HLTH SCI CTR SAN ANTONIO MED SCH",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "TEXAS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 48,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 266,
+      "brimr_2024_total_funding": 122058619.0,
+      "city": "HOUSTON",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF TEXAS HLTH SCI CTR HOUSTON"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_049",
+      "school_name": "U OF TEXAS HLTH SCI CTR HOUSTON MED SCH",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "TEXAS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 49,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    },
+    {
+      "award_rows": 125,
+      "brimr_2024_total_funding": 119218642.0,
+      "city": "GALVESTON",
+      "gbrain_readiness_status": "not_submitted",
+      "generated_at": "2026-06-08T02:57:44.959385+00:00",
+      "institution_type": "SCHOOLS OF MEDICINE",
+      "observed_organization_names": [
+        "UNIVERSITY OF TEXAS MED BR GALVESTON"
+      ],
+      "school_expansion_status": "not_started",
+      "school_key": "brimr_2024_school_050",
+      "school_name": "UNIV OF TX MED BR/MED SCH AT GALVESTON",
+      "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+      "state_or_country": "TEXAS",
+      "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+      "target_rank": 50,
+      "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/"
+    }
+  ]
+}

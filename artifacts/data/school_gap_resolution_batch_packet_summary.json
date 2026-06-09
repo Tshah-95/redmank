@@ -1,0 +1,25 @@
+{
+  "batch_rows": 21,
+  "by_packet_status": {
+    "parser_or_manual_review_gap_packet": 23,
+    "related_scope_gap_packet": 5,
+    "school_gap_resolution_packet": 15,
+    "source_discovery_gap_packet": 65,
+    "url_repair_gap_packet": 5
+  },
+  "by_school": {
+    "VANDERBILT UNIVERSITY SCH OF MEDICINE": 113
+  },
+  "by_support_status": {
+    "has_candidate_source_needs_probe_or_review": 29,
+    "has_non_mutating_disposition_evidence_but_closure_blocked": 2,
+    "has_supported_person_structure_but_mutation_blocked": 32,
+    "needs_source_discovery_or_closure_evidence": 50
+  },
+  "csv": "artifacts/data/school_gap_resolution_batch_packets.csv",
+  "generated_at": "2026-06-08T02:40:36.999863+00:00",
+  "json": "artifacts/data/school_gap_resolution_batch_packets.json",
+  "mutation_allowed": false,
+  "policy": "Row-level packets for non-mutating school gap-resolution batches. They carry exact gap evidence and mutation prohibitions forward to operator work.",
+  "rows": 113
+}

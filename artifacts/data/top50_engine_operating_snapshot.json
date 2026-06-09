@@ -1,0 +1,165 @@
+{
+  "active_gap_resolution": {
+    "gbrain_strategy_effect": "top50_gap_resolution_manifest_strategy_non_mutating_stanford_first_vanderbilt_second",
+    "open_gap_rows": 113,
+    "school_priority_order": [
+      "STANFORD UNIVERSITY SCH OF MEDICINE",
+      "VANDERBILT UNIVERSITY SCH OF MEDICINE"
+    ],
+    "suppressed_verified_school_raw_gap_rows_by_school": {
+      "STANFORD UNIVERSITY SCH OF MEDICINE": 69
+    }
+  },
+  "generated_at": "2026-06-09T04:15:43.808892+00:00",
+  "json": "artifacts/data/top50_engine_operating_snapshot.json",
+  "markdown": "artifacts/research/top50-engine-operating-snapshot-2026-06-09.md",
+  "mutation_allowed": false,
+  "next_lanes": [
+    {
+      "lane": "vanderbilt_targeted_parser_scope_review",
+      "recommended_next_action": "Run parser/scope review rows into exact parser acceptance, rendered review, or source-discovery recourse packets. Do not ingest people or close denominators without exact GBrain approval.",
+      "rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
+      "source_artifact": "artifacts/data/vanderbilt_targeted_parser_scope_review_packet.csv",
+      "status": "ready_non_mutating_parser_scope_execution"
+    },
+    {
+      "lane": "vanderbilt_active_gap_resolution_manifest",
+      "recommended_next_action": "Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work.",
+      "rowset_sha256": "",
+      "source_artifact": "artifacts/data/school_gap_resolution_manifest.csv",
+      "status": "active_non_mutating_discovery_queue"
+    }
+  ],
+  "not_approved": [
+    "person_ingestion",
+    "training_state_mutation",
+    "denominator_closure",
+    "school_verification_without_exact_gbrain_packet",
+    "url_rewrite",
+    "unsupported_label_ingestion",
+    "profile_contact_research_fact_acceptance",
+    "unique_person_identity_collapse"
+  ],
+  "public_safety_policy": "This snapshot is an operating index over committed public artifacts. It does not include raw GBrain HTTP responses, browser dumps, debug databases, or raw BRIMR workbooks.",
+  "rowset_sha256": "8cb6f5ca85f84ead769e5e4d72e8bcbaa4ebe0e9b1479009b7004828c2afabcf",
+  "school_verification": {
+    "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
+    "source_summary_files": [
+      "artifacts/data/stanford_school_readiness_packet_summary.json"
+    ],
+    "verified_school_rows": 1
+  },
+  "source_discovery_playbook": {
+    "gbrain_approval_verified": true,
+    "rows": 48,
+    "rowset_sha256": "1b33439d36c878a527294dea38b8662bc69d5634c4427ad21ffa878b3db1e355",
+    "vanderbilt_open_gap_rows_represented": 113
+  },
+  "summary_refs": [
+    {
+      "exists": true,
+      "name": "target_registry",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "rowset_sha256": "fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8",
+        "targets": 50
+      },
+      "summary_json": "artifacts/data/top50_medical_school_targets_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "school_verification_registry",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "registry_rows": 1,
+        "rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
+        "verified_school_rows": 1
+      },
+      "summary_json": "artifacts/data/school_verification_registry_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "school_capability_manifest",
+      "selected_summary": {
+        "manifest_rows": 43
+      },
+      "summary_json": "artifacts/data/school_capability_manifest_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "school_readiness_dossiers",
+      "selected_summary": {
+        "dossier_rows": 7,
+        "open_gap_rows": 144
+      },
+      "summary_json": "artifacts/data/school_readiness_dossier_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "school_gap_resolution_manifest",
+      "selected_summary": {
+        "gbrain_strategy_effect": "top50_gap_resolution_manifest_strategy_non_mutating_stanford_first_vanderbilt_second",
+        "mutation_allowed": false,
+        "open_gap_rows": 113,
+        "rows": 113
+      },
+      "summary_json": "artifacts/data/school_gap_resolution_manifest_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "school_gap_resolution_batches",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "rows": 21
+      },
+      "summary_json": "artifacts/data/school_gap_resolution_batch_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "school_gap_resolution_batch_packets",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "rows": 113
+      },
+      "summary_json": "artifacts/data/school_gap_resolution_batch_packet_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "source_discovery_playbook",
+      "selected_summary": {
+        "gbrain_approval_verified": true,
+        "gbrain_strategy_effect": "strategy_advisory_stanford_then_discovery_improvement_then_vanderbilt_no_new_mutation_approval",
+        "mutation_allowed": false,
+        "rows": 48,
+        "rowset_sha256": "1b33439d36c878a527294dea38b8662bc69d5634c4427ad21ffa878b3db1e355"
+      },
+      "summary_json": "artifacts/data/top50_scraper_source_discovery_playbook_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "vanderbilt_targeted_source_discovery",
+      "selected_summary": {
+        "mutation_allowed": false,
+        "rowset_sha256": "dd72909d1f992209a414ef232d8c4d499de5de2a90cf45f49428153d1ebe1b71",
+        "workbench_rows": 38
+      },
+      "summary_json": "artifacts/data/vanderbilt_targeted_gap_source_discovery_workbench_summary.json"
+    },
+    {
+      "exists": true,
+      "name": "vanderbilt_parser_scope_review",
+      "selected_summary": {
+        "gbrain_registration_status": "approved",
+        "mutation_allowed": false,
+        "review_rows": 20,
+        "rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785"
+      },
+      "summary_json": "artifacts/data/vanderbilt_targeted_parser_scope_review_packet_summary.json"
+    }
+  ],
+  "target_registry": {
+    "basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+    "rowset_sha256": "fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8",
+    "target_count": 50
+  }
+}

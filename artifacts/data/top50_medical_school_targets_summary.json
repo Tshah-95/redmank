@@ -1,0 +1,26 @@
+{
+  "csv": "artifacts/data/top50_medical_school_targets.csv",
+  "generated_at": "2026-06-08T02:57:44.959385+00:00",
+  "json": "artifacts/data/top50_medical_school_targets.json",
+  "mutation_allowed": false,
+  "policy": "Top-50 target registry only. It defines the operating target set and authorizes no roster ingestion, school verification, denominator closure, URL rewrite, enrichment acceptance, or identity collapse.",
+  "rowset_sha256": "fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8",
+  "selection_policy": "Initial top-50 target set uses BRIMR 2024 total NIH funding attributed to Schools of Medicine. This is a transparent operational ranking for research-intensive medical schools; gbrain/user may approve, replace, or supplement it before declaring project-level readiness.",
+  "source_workbook": "artifacts/data/raw/brimr/MedicalSchoolsOnly_2024_C.xlsx",
+  "source_workbook_publication_policy": "raw workbook is not committed; place it under artifacts/data/raw/brimr/ to regenerate",
+  "target_basis": "BRIMR 2024 NIH funding - Schools of Medicine",
+  "target_source_url": "https://brimr.org/brimr-rankings-of-nih-funding-in-2024/",
+  "targets": 50,
+  "top_10_school_names": [
+    "UNIV OF CALIFORNIA SAN FRAN SCH OF MED",
+    "WASHINGTON UNIVERSITY SCH OF MEDICINE",
+    "YALE UNIVERSITY SCH OF MEDICINE",
+    "UNIV OF PENNSYLVANIA SCH OF MEDICINE",
+    "VANDERBILT UNIVERSITY SCH OF MEDICINE",
+    "JOHNS HOPKINS UNIVERSITY SCH OF MEDICINE",
+    "STANFORD UNIVERSITY SCH OF MEDICINE",
+    "UNIV OF PITTSBURGH SCH OF MEDICINE",
+    "COLUMBIA U COL OF PHYSICIANS & SURGEONS",
+    "UNIVERSITY OF MICHIGAN MEDICAL SCHOOL"
+  ]
+}

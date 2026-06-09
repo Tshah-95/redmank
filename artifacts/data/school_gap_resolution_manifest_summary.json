@@ -1,0 +1,70 @@
+{
+  "approved_non_mutating_disposition_gap_rows": 42,
+  "by_next_operator_lane": {
+    "headed_refetch": 1,
+    "linked_route_inspection_after_related_scope_source_discovery": 2,
+    "manual_current_scope_review_packet": 7,
+    "manual_rendered_review_or_targeted_source_discovery": 19,
+    "manual_url_confirmation_after_official_context_resolution": 4,
+    "program_page_probe": 9,
+    "rendered_parser_manual_repair_after_official_url_probe": 1,
+    "rendered_parser_manual_review_after_related_scope_source_discovery": 7,
+    "second_hop_route_inspection_after_official_url_probe": 1,
+    "shared_source_program_scope_review_packet": 5,
+    "target_program_source_discovery_after_exclusion": 16,
+    "target_program_source_discovery_after_mixed_negative_evidence": 9,
+    "target_program_source_discovery_after_non_current_exclusion": 1,
+    "target_program_source_discovery_after_official_url_probe_exclusion": 1,
+    "target_program_source_discovery_after_official_url_probe_related_scope": 1,
+    "target_program_source_discovery_after_parser_exclusion": 7,
+    "targeted_source_discovery_after_parent_url_resolution": 8,
+    "targeted_source_discovery_or_no_public_roster_closure_after_official_url_probe": 4,
+    "targeted_source_discovery_or_no_public_roster_closure_after_related_scope_source_discovery": 2,
+    "targeted_source_discovery_or_no_public_roster_closure_packet": 8
+  },
+  "by_school": {
+    "VANDERBILT UNIVERSITY SCH OF MEDICINE": 113
+  },
+  "by_school_resolution_category": {
+    "VANDERBILT UNIVERSITY SCH OF MEDICINE": {
+      "faculty_leadership_exclusion_recorded_source_discovery_needed": 16,
+      "faculty_leadership_parser_exclusion_recorded_source_discovery_needed": 7,
+      "first_hop_program_probe_needed": 9,
+      "manual_current_scope_review_needed_after_parser_probe": 7,
+      "mixed_negative_route_evidence_recorded_source_discovery_needed": 9,
+      "negative_route_evidence_recorded_manual_or_source_discovery_needed": 18,
+      "no_current_roster_probe_recorded_source_discovery_or_closure_needed": 8,
+      "non_current_parser_exclusion_recorded_source_discovery_needed": 1,
+      "official_context_url_resolution_recorded_manual_confirmation_needed": 4,
+      "official_parent_url_resolution_recorded_source_discovery_needed": 8,
+      "official_url_probe_no_roster_signal_source_discovery_or_closure_needed": 4,
+      "official_url_probe_rendered_parser_manual_needed": 1,
+      "official_url_probe_route_faculty_leadership_recorded_source_discovery_needed": 1,
+      "official_url_probe_route_related_scope_recorded_source_discovery_needed": 1,
+      "official_url_probe_route_second_hop_inspection_needed": 1,
+      "open_gap_linked_route_inspection_after_related_scope_source_discovery": 2,
+      "open_gap_manual_rendered_review_or_targeted_source_discovery_needed": 1,
+      "open_gap_rendered_parser_review_after_related_scope_source_discovery": 7,
+      "open_gap_source_discovery_or_no_public_roster_closure_after_related_scope_source_discovery": 2,
+      "retry_or_refetch_needed": 1,
+      "shared_or_related_program_scope_review_needed": 5
+    }
+  },
+  "candidate_source_gap_rows": 61,
+  "csv": "artifacts/data/school_gap_resolution_manifest.csv",
+  "gbrain_strategy_effect": "top50_gap_resolution_manifest_strategy_non_mutating_stanford_first_vanderbilt_second",
+  "generated_at": "2026-06-08T02:40:36.542825+00:00",
+  "json": "artifacts/data/school_gap_resolution_manifest.json",
+  "mutation_allowed": false,
+  "open_gap_rows": 113,
+  "policy": "Non-mutating gap-resolution manifest requested by GBrain after Stanford lifecycle repair. It maps remaining unverified-school denominator gaps to evidence and recourse, but it cannot mutate roster truth, denominator closure, school verification, training states, URL rewrites, or unique-person identity collapse. A verified school's raw denominator gap rows are suppressed only when an exact approved school-readiness packet and drained queue are present.",
+  "rows": 113,
+  "school_priority_order": [
+    "STANFORD UNIVERSITY SCH OF MEDICINE",
+    "VANDERBILT UNIVERSITY SCH OF MEDICINE"
+  ],
+  "supported_person_gap_rows": 32,
+  "suppressed_verified_school_raw_gap_rows_by_school": {
+    "STANFORD UNIVERSITY SCH OF MEDICINE": 69
+  }
+}
