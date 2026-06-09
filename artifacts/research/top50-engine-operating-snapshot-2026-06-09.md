@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Engine Operating Snapshot
-created_at: 2026-06-09T04:53:20.678859+00:00
+created_at: 2026-06-09T05:10:04.120236+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -28,7 +28,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "rowset_sha256": "392460e6ceca1d02aac6ad04dbbeffb1ff833e631938fe06f488300ddfea3199",
+  "rowset_sha256": "d4c5ca61d015919e8fae37d899ff5ccb648ae9a64418d2c58f35c0732ce35701",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -50,9 +50,17 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
   "vanderbilt_targeted_parser_scope": {
     "approved_next_packet_rows": 20,
     "approved_next_packet_rowset_sha256": "098c0a813eb577552b46e9454fbf2e9088bcee228d0aa678827439eba082e261",
+    "candidate_only_parser_fingerprint_rows": 229,
+    "candidate_only_parser_output_rows": 233,
+    "candidate_only_parser_output_rowset_sha256": "312918a4b812f82bbf858a0b5c50d5d04394fa8be634a1a0cc9a7ad6aaa2f034",
     "execution_workbench_rows": 20,
     "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
     "execution_workbench_unique_fetch_urls": 16,
+    "parser_scope_decision_rows": 20,
+    "parser_scope_decision_rowset_sha256": "aa94351eae7a7309d2b760a891f69538d8a8998058fc1ceb24af3d2b918644b8",
+    "parser_scope_execution_evidence_rows": 20,
+    "parser_scope_execution_evidence_rowset_sha256": "db7e7c7b03c31c20a6b3b9c2a17da2d24cbf0c725f97872452db63a2e5942812",
+    "parser_scope_execution_evidence_total_candidate_count": 348,
     "review_packet_rows": 20,
     "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
     "route_observation_rows": 20,
@@ -72,5 +80,5 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
 
 | lane | status | artifact | rowset | next action |
 | --- | --- | --- | --- | --- |
-| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_non_mutating_parser_build_scope_and_recourse_execution | artifacts/data/vanderbilt_approved_parser_scope_next_packets.csv | 098c0a813eb577552b46e9454fbf2e9088bcee228d0aa678827439eba082e261 | Use the approved next-packet ledger to execute source-specific parser-build review, linked-route scope disposition, General Surgery rendered review, and route recourse work. Keep all outputs candidate-only until a later exact person-ingestion/denominator approval exists. |
+| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_non_mutating_candidate_parser_output_verification | artifacts/data/vanderbilt_candidate_only_parser_outputs.csv | 312918a4b812f82bbf858a0b5c50d5d04394fa8be634a1a0cc9a7ad6aaa2f034 | Verify the candidate-only Vanderbilt parser outputs, preserve raw-name-free diagnostics, and build the next exact approval packet before any person ingestion, denominator closure, or accepted roster rows. |
 | vanderbilt_active_gap_resolution_manifest | active_non_mutating_discovery_queue | artifacts/data/school_gap_resolution_manifest.csv |  | Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work. |

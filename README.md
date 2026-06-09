@@ -30,6 +30,10 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_targeted_route_parser_scope_packet_summary.json`: exact GBrain approval-request packet for advancing observed Vanderbilt routes into parser-build review, linked-scope disposition, General Surgery rendered review, or recourse handling.
 - `artifacts/data/vanderbilt_route_parser_scope_verification_packet_summary.json`: verification-registration packet for the approved Vanderbilt route parser/scope rowset, including 7/7 passing checks and the GBrain registration status.
 - `artifacts/data/vanderbilt_approved_parser_scope_next_packet_summary.json`: approved non-mutating next-packet ledger splitting Vanderbilt rows into parser-build review, linked-scope disposition, General Surgery rendered review, and recourse lanes.
+- `artifacts/data/vanderbilt_parser_scope_execution_evidence_summary.json`: public-safe parser/scope execution evidence for the approved Vanderbilt next-packet ledger, recording parser families, route freshness, candidate counts, and recourse status without raw names or accepted people.
+- `artifacts/data/vanderbilt_parser_scope_decision_packet_summary.json`: non-mutating parser-family spec and scope/recourse decision packet, preserving exact next approval requirements before parser implementation or person ingestion.
+- `artifacts/data/vanderbilt_parser_scope_implementation_approval_packet_summary.json`: exact GBrain approval-request packet for candidate-only Vanderbilt parser implementation, linked-route scope metadata, General Surgery parser review, and Orthopaedic recourse handling.
+- `artifacts/data/vanderbilt_candidate_only_parser_output_summary.json`: approved candidate-only Vanderbilt parser diagnostics with hashed candidate fingerprints, route/scope rows, and no raw names, raw person URLs, accepted people, or denominator mutation.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_school_verification_registry.py`: reproducible materializer for the school-level verification registry.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
@@ -38,6 +42,10 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_targeted_route_parser_scope_packet.py`: reproducible materializer for the Vanderbilt route parser/scope approval-request packet.
 - `scripts/materialize_vanderbilt_route_parser_scope_verification_packet.py`: reproducible materializer for the Vanderbilt route parser/scope verification-registration packet.
 - `scripts/materialize_vanderbilt_approved_parser_scope_next_packets.py`: reproducible materializer for the approved Vanderbilt parser/scope next-packet ledger.
+- `scripts/materialize_vanderbilt_parser_scope_execution_evidence.py`: reproducible materializer for approved Vanderbilt parser/scope execution evidence.
+- `scripts/materialize_vanderbilt_parser_scope_decision_packets.py`: reproducible materializer for Vanderbilt parser-family specs and scope/recourse decision packets.
+- `scripts/materialize_vanderbilt_parser_scope_implementation_approval_packet.py`: reproducible materializer for the Vanderbilt candidate-only parser implementation approval-request packet.
+- `scripts/materialize_vanderbilt_candidate_only_parser_outputs.py`: reproducible materializer for approved candidate-only Vanderbilt parser diagnostics.
 
 ## Current Penn Outputs
 

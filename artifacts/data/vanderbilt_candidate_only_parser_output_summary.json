@@ -1,0 +1,57 @@
+{
+  "accepted_person_rows": 0,
+  "by_candidate_source_kind": {
+    "heading_signal": 131,
+    "none": 4,
+    "profile_anchor": 98
+  },
+  "by_output_kind": {
+    "candidate_fingerprint": 229,
+    "route_recourse": 1,
+    "scope_metadata": 3
+  },
+  "by_parser_status": {
+    "candidate_only_parser_emitted_fingerprint": 229,
+    "recourse_recorded_no_parser_output": 1,
+    "scope_metadata_recorded_no_parser_output": 3
+  },
+  "by_program_output_rows": {
+    "Academic General Pediatrics": 4,
+    "Advanced Endoscopy": 1,
+    "Advanced Inflammatory Bowel Disease": 1,
+    "Developmental-Behavioral Pediatrics": 6,
+    "Gastroenterology": 10,
+    "General Surgery": 2,
+    "Neonatal-Perinatal Medicine": 32,
+    "Orthopaedic Surgery": 2,
+    "Pediatric Critical Care": 28,
+    "Pediatric Emergency Medicine": 28,
+    "Pediatric Endocrinology": 3,
+    "Pediatric Gastroenterology": 18,
+    "Pediatric Hospital Medicine": 6,
+    "Pediatric Infectious Diseases": 14,
+    "Pediatric Rheumatology": 6,
+    "Pediatrics": 47,
+    "Psychiatry": 9,
+    "Rheumatology": 6,
+    "Transplant Hepatology": 10
+  },
+  "candidate_fingerprint_rows": 229,
+  "csv": "artifacts/data/vanderbilt_candidate_only_parser_outputs.csv",
+  "denominator_closure_allowed": false,
+  "generated_at": "2026-06-09T05:09:16.700734+00:00",
+  "json": "artifacts/data/vanderbilt_candidate_only_parser_outputs.json",
+  "markdown": "artifacts/research/vanderbilt-candidate-only-parser-outputs-2026-06-09.md",
+  "mutation_allowed": false,
+  "parser_output_rows": 233,
+  "person_ingestion_allowed": false,
+  "policy": "Approved Vanderbilt candidate-only parser diagnostics. This artifact may contain candidate fingerprints, counts, href hashes, route hashes, scope metadata, and recourse rows only. It contains no raw candidate names, raw person URLs, accepted person rows, person ingestion, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+  "raw_candidate_hrefs_committed": false,
+  "raw_candidate_names_committed": false,
+  "rowset_sha256": "312918a4b812f82bbf858a0b5c50d5d04394fa8be634a1a0cc9a7ad6aaa2f034",
+  "source_approval_rows": 20,
+  "source_implementation_approval_packet": "artifacts/data/vanderbilt_parser_scope_implementation_approval_packet.json",
+  "source_implementation_approval_rowset_sha256": "0ce935b64a7eb2153b4fb4b5a8cca47034bab839aa932c8951c29d3bda363b40",
+  "source_implementation_approval_summary": "artifacts/data/vanderbilt_parser_scope_implementation_approval_packet_summary.json",
+  "unique_fetch_urls": 16
+}

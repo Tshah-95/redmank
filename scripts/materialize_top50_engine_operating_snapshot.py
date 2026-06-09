@@ -36,6 +36,12 @@ SUMMARY_FILES = {
     / "vanderbilt_route_parser_scope_verification_packet_summary.json",
     "vanderbilt_approved_parser_scope_next_packets": ARTIFACTS
     / "vanderbilt_approved_parser_scope_next_packet_summary.json",
+    "vanderbilt_parser_scope_execution_evidence": ARTIFACTS
+    / "vanderbilt_parser_scope_execution_evidence_summary.json",
+    "vanderbilt_parser_scope_decision_packets": ARTIFACTS
+    / "vanderbilt_parser_scope_decision_packet_summary.json",
+    "vanderbilt_candidate_only_parser_outputs": ARTIFACTS
+    / "vanderbilt_candidate_only_parser_output_summary.json",
 }
 
 
@@ -71,6 +77,11 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "packet_rows",
         "verification_rows",
         "next_packet_rows",
+        "execution_evidence_rows",
+        "decision_rows",
+        "parser_output_rows",
+        "candidate_fingerprint_rows",
+        "total_candidate_entity_count",
         "mutation_allowed",
         "gbrain_approval_verified",
         "gbrain_registration_status",
@@ -98,8 +109,43 @@ def main() -> None:
     vanderbilt_parser_scope_packet_summary = summaries["vanderbilt_targeted_route_parser_scope_packet"]
     vanderbilt_verification_summary = summaries["vanderbilt_route_parser_scope_verification_packet"]
     vanderbilt_next_packet_summary = summaries["vanderbilt_approved_parser_scope_next_packets"]
+    vanderbilt_execution_evidence_summary = summaries["vanderbilt_parser_scope_execution_evidence"]
+    vanderbilt_decision_summary = summaries["vanderbilt_parser_scope_decision_packets"]
+    vanderbilt_candidate_parser_summary = summaries["vanderbilt_candidate_only_parser_outputs"]
     parser_scope_status = vanderbilt_parser_scope_packet_summary.get("gbrain_approval_status", "")
-    if vanderbilt_next_packet_summary.get("rowset_sha256"):
+    if vanderbilt_candidate_parser_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_non_mutating_candidate_parser_output_verification"
+        parser_scope_next_action = (
+            "Verify the candidate-only Vanderbilt parser outputs, preserve raw-name-free diagnostics, and build the "
+            "next exact approval packet before any person ingestion, denominator closure, or accepted roster rows."
+        )
+        parser_scope_source_artifact = vanderbilt_candidate_parser_summary.get(
+            "csv", "artifacts/data/vanderbilt_candidate_only_parser_outputs.csv"
+        )
+        parser_scope_rowset = vanderbilt_candidate_parser_summary.get("rowset_sha256", "")
+    elif vanderbilt_decision_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_exact_parser_implementation_or_scope_acceptance_approval_packet"
+        parser_scope_next_action = (
+            "Use the parser/scope decision packets to request exact approval for candidate-only parser "
+            "implementation, accepted scope dispositions, General Surgery parser-build review, and Orthopaedic "
+            "route replacement/recourse. Do not implement parsers or accept people before that exact approval."
+        )
+        parser_scope_source_artifact = vanderbilt_decision_summary.get(
+            "csv", "artifacts/data/vanderbilt_parser_scope_decision_packets.csv"
+        )
+        parser_scope_rowset = vanderbilt_decision_summary.get("rowset_sha256", "")
+    elif vanderbilt_execution_evidence_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_non_mutating_parser_spec_and_scope_decision_packet"
+        parser_scope_next_action = (
+            "Use the parser/scope execution evidence to materialize parser-family specs, linked-route scope "
+            "decisions, General Surgery rendered-review disposition, and Orthopaedic recourse packets. Keep all "
+            "candidate entities as counts/hashes until a later exact person-ingestion/denominator approval exists."
+        )
+        parser_scope_source_artifact = vanderbilt_execution_evidence_summary.get(
+            "csv", "artifacts/data/vanderbilt_parser_scope_execution_evidence.csv"
+        )
+        parser_scope_rowset = vanderbilt_execution_evidence_summary.get("rowset_sha256", "")
+    elif vanderbilt_next_packet_summary.get("rowset_sha256"):
         parser_scope_lane_status = "ready_non_mutating_parser_build_scope_and_recourse_execution"
         parser_scope_next_action = (
             "Use the approved next-packet ledger to execute source-specific parser-build review, linked-route "
@@ -212,6 +258,22 @@ def main() -> None:
             ),
             "approved_next_packet_rows": vanderbilt_next_packet_summary.get("next_packet_rows", 0),
             "approved_next_packet_rowset_sha256": vanderbilt_next_packet_summary.get("rowset_sha256", ""),
+            "parser_scope_execution_evidence_rows": vanderbilt_execution_evidence_summary.get(
+                "execution_evidence_rows", 0
+            ),
+            "parser_scope_execution_evidence_total_candidate_count": vanderbilt_execution_evidence_summary.get(
+                "total_candidate_entity_count", 0
+            ),
+            "parser_scope_execution_evidence_rowset_sha256": vanderbilt_execution_evidence_summary.get(
+                "rowset_sha256", ""
+            ),
+            "parser_scope_decision_rows": vanderbilt_decision_summary.get("decision_rows", 0),
+            "parser_scope_decision_rowset_sha256": vanderbilt_decision_summary.get("rowset_sha256", ""),
+            "candidate_only_parser_output_rows": vanderbilt_candidate_parser_summary.get("parser_output_rows", 0),
+            "candidate_only_parser_fingerprint_rows": vanderbilt_candidate_parser_summary.get(
+                "candidate_fingerprint_rows", 0
+            ),
+            "candidate_only_parser_output_rowset_sha256": vanderbilt_candidate_parser_summary.get("rowset_sha256", ""),
         },
         "mutation_allowed": False,
         "not_approved": [
