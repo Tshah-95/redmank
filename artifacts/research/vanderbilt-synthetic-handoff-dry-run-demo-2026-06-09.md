@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Synthetic Handoff Dry Run Demo
-created_at: 2026-06-09T10:31:37.551171+00:00
+created_at: 2026-06-09T10:49:52.319802+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -26,7 +26,7 @@ Synthetic-only Vanderbilt handoff dry-run demonstration. It writes fabricated sc
   "fail_rows": 0,
   "gbrain_approval_line": "APPROVE vanderbilt_synthetic_handoff_dry_run_demo_non_mutating_increment",
   "gbrain_approval_status": "approved_non_mutating_vanderbilt_synthetic_handoff_dry_run_demo_increment",
-  "generated_at": "2026-06-09T10:31:37.551171+00:00",
+  "generated_at": "2026-06-09T10:49:52.319802+00:00",
   "json": "artifacts/data/vanderbilt_synthetic_handoff_dry_run_demo.json",
   "markdown": "artifacts/research/vanderbilt-synthetic-handoff-dry-run-demo-2026-06-09.md",
   "mutation_allowed": false,

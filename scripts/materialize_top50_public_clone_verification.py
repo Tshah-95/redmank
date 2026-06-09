@@ -49,6 +49,7 @@ EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb
 EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
 EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET = "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b"
 EXPECTED_VANDERBILT_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET = "98961c203962855aa7ebc7c31c4396b3ad231e166b71cf2a465e4fa474d6bc2d"
+EXPECTED_VANDERBILT_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET = "c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -352,6 +353,15 @@ def main() -> None:
     vanderbilt_slice_2_live_fetch_approval_json = read_json(
         ARTIFACTS / "vanderbilt_slice_2_live_fetch_approval_request_packet.json"
     )
+    vanderbilt_slice_2_live_route_observation_summary = read_json(
+        ARTIFACTS / "vanderbilt_slice_2_live_route_observation_summary.json"
+    )
+    vanderbilt_slice_2_live_route_observation_csv = read_csv_rows(
+        ARTIFACTS / "vanderbilt_slice_2_live_route_observations.csv"
+    )
+    vanderbilt_slice_2_live_route_observation_json = read_json(
+        ARTIFACTS / "vanderbilt_slice_2_live_route_observations.json"
+    )
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
@@ -425,6 +435,7 @@ def main() -> None:
             vanderbilt_triage_contract_summary,
             vanderbilt_slice_2_execution_plan_summary,
             vanderbilt_slice_2_live_fetch_approval_summary,
+            vanderbilt_slice_2_live_route_observation_summary,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
@@ -451,6 +462,7 @@ def main() -> None:
         or not isinstance(vanderbilt_triage_contract_json, list)
         or not isinstance(vanderbilt_slice_2_execution_plan_json, list)
         or not isinstance(vanderbilt_slice_2_live_fetch_approval_json, list)
+        or not isinstance(vanderbilt_slice_2_live_route_observation_json, list)
     ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
@@ -1626,6 +1638,108 @@ def main() -> None:
         },
         {"summary": "artifacts/data/vanderbilt_slice_2_live_fetch_approval_request_packet_summary.json"},
     )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_slice_2_live_route_observation_boundary",
+        vanderbilt_slice_2_live_route_observation_summary.get("rowset_sha256")
+        == EXPECTED_VANDERBILT_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET
+        and vanderbilt_slice_2_live_route_observation_summary.get("observation_rows") == 18
+        and vanderbilt_slice_2_live_route_observation_summary.get("request_rows_represented") == 9
+        and vanderbilt_slice_2_live_route_observation_summary.get("unique_observed_urls") == 12
+        and vanderbilt_slice_2_live_route_observation_summary.get("source_approval_request_rowset_sha256")
+        == EXPECTED_VANDERBILT_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET
+        and vanderbilt_slice_2_live_route_observation_summary.get("source_execution_plan_rowset_sha256")
+        == EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET
+        and vanderbilt_slice_2_live_route_observation_summary.get("gbrain_approval_status")
+        == "approved_exact_non_mutating_live_route_observation"
+        and vanderbilt_slice_2_live_route_observation_summary.get("web_fetch_executed") is True
+        and vanderbilt_slice_2_live_route_observation_summary.get("web_fetch_approved_by_gbrain") is True
+        and vanderbilt_slice_2_live_route_observation_summary.get("private_artifact_paths_committed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("raw_dump_publication_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("mutation_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("person_ingestion_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("parser_acceptance_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("denominator_closure_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("school_verification_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("url_rewrite_allowed") is False
+        and vanderbilt_slice_2_live_route_observation_summary.get("identity_collapse_allowed") is False
+        and len(vanderbilt_slice_2_live_route_observation_csv) == 18
+        and len(vanderbilt_slice_2_live_route_observation_json) == 18,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET,
+            "observation_rows": 18,
+            "request_rows_represented": 9,
+            "unique_observed_urls": 12,
+            "source_approval_request_rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET,
+            "source_execution_plan_rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET,
+            "gbrain_approval_status": "approved_exact_non_mutating_live_route_observation",
+            "web_fetch_executed": True,
+            "web_fetch_approved_by_gbrain": True,
+            "private_artifact_paths_committed": False,
+            "raw_dump_publication_allowed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "parser_acceptance_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+            "url_rewrite_allowed": False,
+            "identity_collapse_allowed": False,
+            "csv_rows": 18,
+            "json_rows": 18,
+        },
+        {
+            "rowset_sha256": vanderbilt_slice_2_live_route_observation_summary.get("rowset_sha256"),
+            "observation_rows": vanderbilt_slice_2_live_route_observation_summary.get("observation_rows"),
+            "request_rows_represented": vanderbilt_slice_2_live_route_observation_summary.get(
+                "request_rows_represented"
+            ),
+            "unique_observed_urls": vanderbilt_slice_2_live_route_observation_summary.get(
+                "unique_observed_urls"
+            ),
+            "source_approval_request_rowset_sha256": vanderbilt_slice_2_live_route_observation_summary.get(
+                "source_approval_request_rowset_sha256"
+            ),
+            "source_execution_plan_rowset_sha256": vanderbilt_slice_2_live_route_observation_summary.get(
+                "source_execution_plan_rowset_sha256"
+            ),
+            "gbrain_approval_status": vanderbilt_slice_2_live_route_observation_summary.get(
+                "gbrain_approval_status"
+            ),
+            "web_fetch_executed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "web_fetch_executed"
+            ),
+            "web_fetch_approved_by_gbrain": vanderbilt_slice_2_live_route_observation_summary.get(
+                "web_fetch_approved_by_gbrain"
+            ),
+            "private_artifact_paths_committed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "private_artifact_paths_committed"
+            ),
+            "raw_dump_publication_allowed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "raw_dump_publication_allowed"
+            ),
+            "mutation_allowed": vanderbilt_slice_2_live_route_observation_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "person_ingestion_allowed"
+            ),
+            "parser_acceptance_allowed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "parser_acceptance_allowed"
+            ),
+            "denominator_closure_allowed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "denominator_closure_allowed"
+            ),
+            "school_verification_allowed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "school_verification_allowed"
+            ),
+            "url_rewrite_allowed": vanderbilt_slice_2_live_route_observation_summary.get("url_rewrite_allowed"),
+            "identity_collapse_allowed": vanderbilt_slice_2_live_route_observation_summary.get(
+                "identity_collapse_allowed"
+            ),
+            "csv_rows": len(vanderbilt_slice_2_live_route_observation_csv),
+            "json_rows": len(vanderbilt_slice_2_live_route_observation_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_slice_2_live_route_observation_summary.json"},
+    )
     gap_review_template_blank_counts = gap_review_template_summary.get("blank_review_fields")
     add_check(
         checks,
@@ -2038,6 +2152,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_slice_2_live_fetch_approval_request_packet.json",
             ARTIFACTS / "vanderbilt_slice_2_live_fetch_approval_request_packet_summary.json",
             RESEARCH / "vanderbilt-slice-2-live-fetch-approval-request-packet-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_slice_2_live_route_observations.csv",
+            ARTIFACTS / "vanderbilt_slice_2_live_route_observations.json",
+            ARTIFACTS / "vanderbilt_slice_2_live_route_observation_summary.json",
+            RESEARCH / "vanderbilt-slice-2-live-route-observations-2026-06-09.md",
         ]
     )
     add_check(
@@ -2047,7 +2165,7 @@ def main() -> None:
         not gap_private_hits,
         [],
         gap_private_hits,
-        {"scanned_outputs": 42, "scan": "private_artifact_path_markers"},
+        {"scanned_outputs": 46, "scan": "private_artifact_path_markers"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -2508,6 +2626,7 @@ def main() -> None:
         "vanderbilt_triage_slice_definition_contract_rowset_sha256": EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET,
         "vanderbilt_slice_2_execution_plan_rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET,
         "vanderbilt_slice_2_live_fetch_approval_request_rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET,
+        "vanderbilt_slice_2_live_route_observation_rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,
