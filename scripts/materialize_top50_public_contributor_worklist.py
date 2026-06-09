@@ -35,6 +35,7 @@ GAP_PARSER_SCOPE_BRIDGE_SUMMARY = ARTIFACTS / "school_gap_resolution_parser_scop
 GAP_CANDIDATE_OUTPUT_BRIDGE_SUMMARY = ARTIFACTS / "school_gap_resolution_candidate_output_bridge_summary.json"
 GAP_REVIEW_QUEUE_BRIDGE_SUMMARY = ARTIFACTS / "school_gap_resolution_review_queue_bridge_summary.json"
 EXECUTION_READINESS_BRIDGE_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge_summary.json"
+BLANK_EXECUTION_VERIFICATION_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -43,7 +44,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "96426841fdc8e3db4ac35f046d6d3ff979244620f3795316ad00f505dcd9223b"
+VERIFICATION_ROWSET_SHA256 = "20732de8041c1ba95e14613c8ff2dc965f99cc2b03d4c5c373e2c5b051a7d356"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -58,6 +59,7 @@ GAP_PARSER_SCOPE_BRIDGE_ROWSET_SHA256 = "942d131072d56524c9e19832c084b9e2520e43e
 GAP_CANDIDATE_OUTPUT_BRIDGE_ROWSET_SHA256 = "dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843"
 GAP_REVIEW_QUEUE_BRIDGE_ROWSET_SHA256 = "46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d"
 EXECUTION_READINESS_BRIDGE_ROWSET_SHA256 = "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa"
+BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256 = "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -249,6 +251,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     gap_candidate_output_bridge_summary = read_json(GAP_CANDIDATE_OUTPUT_BRIDGE_SUMMARY)
     gap_review_queue_bridge_summary = read_json(GAP_REVIEW_QUEUE_BRIDGE_SUMMARY)
     execution_readiness_bridge_summary = read_json(EXECUTION_READINESS_BRIDGE_SUMMARY)
+    blank_execution_verification_summary = read_json(BLANK_EXECUTION_VERIFICATION_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -270,6 +273,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             gap_candidate_output_bridge_summary,
             gap_review_queue_bridge_summary,
             execution_readiness_bridge_summary,
+            blank_execution_verification_summary,
             gap_summary,
         ]
     ):
@@ -381,6 +385,20 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and execution_readiness_bridge_summary.get("patch_output_paths_tmp_only") is True
         and execution_readiness_bridge_summary.get("mutation_allowed") is False
         and execution_readiness_bridge_summary.get("person_ingestion_allowed") is False,
+        "blank_execution_verification_rowset": blank_execution_verification_summary.get("rowset_sha256")
+        == BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
+        "blank_execution_verification_coverage": blank_execution_verification_summary.get("verification_rows") == 20
+        and blank_execution_verification_summary.get("pass_rows") == 20
+        and blank_execution_verification_summary.get("fail_rows") == 0
+        and blank_execution_verification_summary.get("slice_rows_represented") == 159
+        and blank_execution_verification_summary.get("blank_extract_fail_closed_rows") == 20
+        and blank_execution_verification_summary.get("allow_empty_patch_rows_represented") == 0
+        and blank_execution_verification_summary.get("dry_run_patch_rows_represented") == 0
+        and blank_execution_verification_summary.get("dry_run_valid_non_mutating_rows_represented") == 0
+        and blank_execution_verification_summary.get("tmp_outputs_removed_rows") == 20
+        and blank_execution_verification_summary.get("mutation_allowed") is False
+        and blank_execution_verification_summary.get("person_ingestion_allowed") is False
+        and blank_execution_verification_summary.get("apply_executed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -403,6 +421,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         gap_candidate_output_bridge_summary,
         gap_review_queue_bridge_summary,
         execution_readiness_bridge_summary,
+        blank_execution_verification_summary,
         gap_summary,
     )
 
@@ -471,6 +490,7 @@ def main() -> None:
         gap_candidate_output_bridge_summary,
         gap_review_queue_bridge_summary,
         execution_readiness_bridge_summary,
+        blank_execution_verification_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -496,7 +516,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="33 verification rows pass and fail_rows remains 0.",
+            success_condition="35 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -580,23 +600,23 @@ def main() -> None:
         row(
             execution_order=3,
             action_lane="vanderbilt_active_gap_manifest_triage",
-            action_status="ready_for_bounded_reviewer_execution_readiness",
+            action_status="ready_for_fail_closed_verified_reviewer_input",
             priority=760,
-            entity_type="vanderbilt_reviewer_execution_readiness_bridge",
-            entity_key="vanderbilt_reviewer_execution_readiness_bridge",
-            display_label="Vanderbilt bounded reviewer execution readiness",
-            impact_count=int(execution_readiness_bridge_summary.get("pending_decision_rows_represented", 0)),
-            source_artifact="artifacts/data/school_gap_resolution_review_queue_bridge.csv",
-            target_artifact="artifacts/data/vanderbilt_reviewer_execution_readiness_bridge.csv",
+            entity_type="vanderbilt_reviewer_blank_execution_verification",
+            entity_key="vanderbilt_reviewer_blank_execution_verification",
+            display_label="Vanderbilt blank reviewer execution fail-closed verification",
+            impact_count=int(blank_execution_verification_summary.get("slice_rows_represented", 0)),
+            source_artifact="artifacts/data/vanderbilt_reviewer_execution_readiness_bridge.csv",
+            target_artifact="artifacts/data/vanderbilt_reviewer_blank_execution_verification.csv",
             required_next_evidence=(
-                "The execution-readiness bridge proves the 19 review-queue bridge programs map to 20 /tmp-only "
-                "reviewer slice commands and 159 pending decision rows; any filled reviewer decisions, applied "
-                "patches, acceptance, or closure still need their own exact boundary."
+                "The blank execution verifier proves all 20 reviewer slices write only to /tmp, blank extraction "
+                "fails closed, explicit allow-empty extraction produces zero patch rows, dry-run apply validates zero "
+                "rows, and temporary outputs are removed. Filled reviewer decisions still require bounded human input."
             ),
             recommended_next_action=(
-                "Use artifacts/data/vanderbilt_reviewer_execution_readiness_bridge.csv to choose one program, run "
-                "the listed /tmp slice command, fill only non-mutating reviewer decisions in that slice, extract a "
-                "strict patch, and dry-run apply before any explicit --apply step."
+                "Use artifacts/data/vanderbilt_reviewer_blank_execution_verification.csv plus the slice index to "
+                "choose one bounded reviewer slice. Fill only allowed non-mutating reviewer decisions, extract a "
+                "strict patch, dry-run apply, and do not run --apply until that slice is reviewed."
             ),
             verification_command=(
                 "python3 scripts/materialize_school_gap_resolution_review_template.py && "
@@ -605,6 +625,7 @@ def main() -> None:
                 "python3 scripts/materialize_school_gap_resolution_candidate_output_bridge.py && "
                 "python3 scripts/materialize_school_gap_resolution_review_queue_bridge.py && "
                 "python3 scripts/materialize_vanderbilt_reviewer_execution_readiness_bridge.py && "
+                "python3 scripts/materialize_vanderbilt_reviewer_blank_execution_verification.py && "
                 "python3 scripts/validate_school_gap_resolution_review_template.py "
                 "--input artifacts/data/school_gap_resolution_targeted_review_packet.csv "
                 "--summary artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json && "
@@ -612,7 +633,7 @@ def main() -> None:
                 "python3 scripts/materialize_top50_public_clone_verification.py && "
                 "python3 scripts/assert_gap_manifest_fails_closed.py"
             ),
-            success_condition="Execution-readiness bridge has 19 ready program rows, 20 /tmp-only slice commands, 159 pending decisions, and mutation_allowed=false.",
+            success_condition="Blank execution verifier has 20 passing rows, 159 represented slice rows, zero dry-run patch rows, and apply_executed=false.",
             approval_required_for=[
                 "denominator_closure",
                 "vanderbilt_school_verification",
@@ -620,8 +641,8 @@ def main() -> None:
                 "url_rewrite",
                 "identity_collapse",
             ],
-            source_rowset_sha256=GAP_REVIEW_QUEUE_BRIDGE_ROWSET_SHA256,
-            target_rowset_sha256=EXECUTION_READINESS_BRIDGE_ROWSET_SHA256,
+            source_rowset_sha256=EXECUTION_READINESS_BRIDGE_ROWSET_SHA256,
+            target_rowset_sha256=BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
             evidence={
                 "gap_manifest_rows": gap_summary.get("rows"),
                 "gap_manifest_csv_rows": len(gap_rows),
@@ -680,6 +701,16 @@ def main() -> None:
                     "pending_decision_rows_represented"
                 ),
                 "execution_readiness_rowset_sha256": execution_readiness_bridge_summary.get("rowset_sha256"),
+                "blank_execution_verification_rows": blank_execution_verification_summary.get("verification_rows"),
+                "blank_execution_pass_rows": blank_execution_verification_summary.get("pass_rows"),
+                "blank_execution_slice_rows": blank_execution_verification_summary.get("slice_rows_represented"),
+                "blank_execution_fail_closed_rows": blank_execution_verification_summary.get(
+                    "blank_extract_fail_closed_rows"
+                ),
+                "blank_execution_dry_run_patch_rows": blank_execution_verification_summary.get(
+                    "dry_run_patch_rows_represented"
+                ),
+                "blank_execution_rowset_sha256": blank_execution_verification_summary.get("rowset_sha256"),
             },
             generated_at=generated_at,
         ),
@@ -753,6 +784,7 @@ def main() -> None:
         "source_vanderbilt_gap_candidate_output_bridge_rowset_sha256": GAP_CANDIDATE_OUTPUT_BRIDGE_ROWSET_SHA256,
         "source_vanderbilt_gap_review_queue_bridge_rowset_sha256": GAP_REVIEW_QUEUE_BRIDGE_ROWSET_SHA256,
         "source_vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": EXECUTION_READINESS_BRIDGE_ROWSET_SHA256,
+        "source_vanderbilt_reviewer_blank_execution_verification_rowset_sha256": BLANK_EXECUTION_VERIFICATION_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

@@ -33,6 +33,7 @@ EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET = "5532d007555997f54d25884baba2f4e594d
 EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET = "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3"
 EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4"
 EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET = "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa"
+EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET = "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
@@ -258,6 +259,9 @@ def main() -> None:
     execution_readiness_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge_summary.json")
     execution_readiness_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.csv")
     execution_readiness_json = read_json(ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.json")
+    blank_execution_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json")
+    blank_execution_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.csv")
+    blank_execution_json = read_json(ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -308,6 +312,9 @@ def main() -> None:
     reviewer_execution_bridge_text = (
         ROOT / "scripts" / "materialize_vanderbilt_reviewer_execution_readiness_bridge.py"
     ).read_text(encoding="utf-8")
+    reviewer_blank_execution_text = (
+        ROOT / "scripts" / "materialize_vanderbilt_reviewer_blank_execution_verification.py"
+    ).read_text(encoding="utf-8")
     gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
         encoding="utf-8"
     )
@@ -324,6 +331,7 @@ def main() -> None:
             patch_workbook_summary,
             slice_index_summary,
             execution_readiness_summary,
+            blank_execution_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
@@ -347,6 +355,7 @@ def main() -> None:
         or not isinstance(patch_workbook_json, list)
         or not isinstance(slice_index_json, list)
         or not isinstance(execution_readiness_json, list)
+        or not isinstance(blank_execution_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
@@ -772,6 +781,65 @@ def main() -> None:
     add_check(
         checks,
         generated_at,
+        "vanderbilt_reviewer_blank_execution_verification_boundary",
+        blank_execution_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET
+        and blank_execution_summary.get("verification_rows") == 20
+        and blank_execution_summary.get("pass_rows") == 20
+        and blank_execution_summary.get("fail_rows") == 0
+        and blank_execution_summary.get("slice_rows_represented") == 159
+        and blank_execution_summary.get("blank_extract_fail_closed_rows") == 20
+        and blank_execution_summary.get("allow_empty_patch_rows_represented") == 0
+        and blank_execution_summary.get("dry_run_patch_rows_represented") == 0
+        and blank_execution_summary.get("dry_run_valid_non_mutating_rows_represented") == 0
+        and blank_execution_summary.get("tmp_outputs_removed_rows") == 20
+        and blank_execution_summary.get("mutation_allowed") is False
+        and blank_execution_summary.get("person_ingestion_allowed") is False
+        and blank_execution_summary.get("apply_executed") is False
+        and len(blank_execution_csv) == 20
+        and len(blank_execution_json) == 20,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET,
+            "verification_rows": 20,
+            "pass_rows": 20,
+            "fail_rows": 0,
+            "slice_rows_represented": 159,
+            "blank_extract_fail_closed_rows": 20,
+            "allow_empty_patch_rows_represented": 0,
+            "dry_run_patch_rows_represented": 0,
+            "dry_run_valid_non_mutating_rows_represented": 0,
+            "tmp_outputs_removed_rows": 20,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "apply_executed": False,
+            "csv_rows": 20,
+            "json_rows": 20,
+        },
+        {
+            "rowset_sha256": blank_execution_summary.get("rowset_sha256"),
+            "verification_rows": blank_execution_summary.get("verification_rows"),
+            "pass_rows": blank_execution_summary.get("pass_rows"),
+            "fail_rows": blank_execution_summary.get("fail_rows"),
+            "slice_rows_represented": blank_execution_summary.get("slice_rows_represented"),
+            "blank_extract_fail_closed_rows": blank_execution_summary.get("blank_extract_fail_closed_rows"),
+            "allow_empty_patch_rows_represented": blank_execution_summary.get(
+                "allow_empty_patch_rows_represented"
+            ),
+            "dry_run_patch_rows_represented": blank_execution_summary.get("dry_run_patch_rows_represented"),
+            "dry_run_valid_non_mutating_rows_represented": blank_execution_summary.get(
+                "dry_run_valid_non_mutating_rows_represented"
+            ),
+            "tmp_outputs_removed_rows": blank_execution_summary.get("tmp_outputs_removed_rows"),
+            "mutation_allowed": blank_execution_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": blank_execution_summary.get("person_ingestion_allowed"),
+            "apply_executed": blank_execution_summary.get("apply_executed"),
+            "csv_rows": len(blank_execution_csv),
+            "json_rows": len(blank_execution_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_reviewer_blank_execution_verification_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
         "vanderbilt_gap_manifest_committed_rows",
         gap_summary.get("rows") == 113
         and gap_summary.get("open_gap_rows") == 113
@@ -1164,6 +1232,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.json",
             ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge_summary.json",
             RESEARCH / "vanderbilt-reviewer-execution-readiness-bridge-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.csv",
+            ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification.json",
+            ARTIFACTS / "vanderbilt_reviewer_blank_execution_verification_summary.json",
+            RESEARCH / "vanderbilt-reviewer-blank-execution-verification-2026-06-09.md",
         ]
     )
     add_check(
@@ -1173,7 +1245,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 24, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 28, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1351,6 +1423,34 @@ def main() -> None:
             "readme": "README.md",
         },
     )
+    blank_execution_guard_present = all(
+        token in reviewer_blank_execution_text
+        for token in [
+            "EXPECTED_BLANK_EXTRACT_MESSAGE",
+            "No filled workbook rows to extract",
+            "--allow-empty",
+            "apply_executed",
+            "tmp_outputs_removed",
+            "shutil.rmtree",
+            "person_ingestion_allowed",
+            "denominator_closure_allowed",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_blank_execution_verification_guard_present",
+        blank_execution_guard_present and "materialize_vanderbilt_reviewer_blank_execution_verification.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": blank_execution_guard_present,
+            "readme_documented": "materialize_vanderbilt_reviewer_blank_execution_verification.py" in readme_text,
+        },
+        {
+            "script": "scripts/materialize_vanderbilt_reviewer_blank_execution_verification.py",
+            "readme": "README.md",
+        },
+    )
     gap_slicer_guard_present = all(
         token in gap_batch_slicer_text
         for token in [
@@ -1474,6 +1574,7 @@ def main() -> None:
         "vanderbilt_patch_workbook_rowset_sha256": EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET,
         "vanderbilt_workbook_slice_index_rowset_sha256": EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET,
         "vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET,
+        "vanderbilt_reviewer_blank_execution_verification_rowset_sha256": EXPECTED_VANDERBILT_BLANK_EXECUTION_VERIFICATION_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
