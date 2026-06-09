@@ -1,0 +1,72 @@
+---
+type: research-checkpoint
+title: Vanderbilt Slice 2 Execution Plan Packet
+created_at: 2026-06-09T10:20:34.263094+00:00
+project: top-50-medical-school-roster-engine
+---
+
+# Vanderbilt Slice 2 Execution Plan Packet
+
+## Boundary
+
+Non-mutating Vanderbilt slice-2 execution-plan packet. It converts committed gap packet rows for triage order 2 / execution order 1 into no-fetch query, route-review, and packet-preparation instructions. It does not fetch web pages, fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.
+
+## Summary
+
+```json
+{
+  "accepted_person_rows": 0,
+  "approved_non_mutating_disposition_rows_represented": 14,
+  "by_candidate_context_status": {
+    "manual_scope_review": 5,
+    "secondary_source_search_needed": 4
+  },
+  "by_plan_lane": {
+    "broader_official_search_plan": 4,
+    "related_scope_exclusion_then_target_program_source_discovery": 5
+  },
+  "by_targeted_packet_status": {
+    "not_in_targeted_review_packet": 9
+  },
+  "candidate_source_rows_represented": 22,
+  "csv": "artifacts/data/vanderbilt_slice_2_execution_plan_packet.csv",
+  "denominator_closure_allowed": false,
+  "execution_order": 1,
+  "gap_rows_represented": 9,
+  "gbrain_advisory_effect": "gbrain_selected_vanderbilt_slice_2_execution_plan_packet_option_a_no_web_fetch",
+  "generated_at": "2026-06-09T10:20:34.263094+00:00",
+  "identity_collapse_allowed": false,
+  "json": "artifacts/data/vanderbilt_slice_2_execution_plan_packet.json",
+  "markdown": "artifacts/research/vanderbilt-slice-2-execution-plan-packet-2026-06-09.md",
+  "mutation_allowed": false,
+  "person_ingestion_allowed": false,
+  "plan_rows": 9,
+  "policy": "Non-mutating Vanderbilt slice-2 execution-plan packet. It converts committed gap packet rows for triage order 2 / execution order 1 into no-fetch query, route-review, and packet-preparation instructions. It does not fetch web pages, fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
+  "private_artifact_paths_committed": false,
+  "raw_dump_publication_allowed": false,
+  "rowset_sha256": "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b",
+  "school_gap_resolution_batch_key": "school_gap_resolution_batch_e81d6de09bb3a988757d",
+  "school_verification_allowed": false,
+  "source_targeted_review_rowset_sha256": "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607",
+  "source_triage_contract_rowset_sha256": "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f",
+  "source_triage_rowset_sha256": "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391",
+  "supported_person_rows_represented": 158,
+  "triage_order": 2,
+  "url_rewrite_allowed": false,
+  "web_fetch_allowed": false
+}
+```
+
+## Plan Rows
+
+| order | program | lane | context status | web fetch |
+| ---: | --- | --- | --- | --- |
+| 1 | Plastic Surgery-Integrated | related_scope_exclusion_then_target_program_source_discovery | manual_scope_review | false |
+| 2 | Adult and Pediatric Craniofacial | related_scope_exclusion_then_target_program_source_discovery | manual_scope_review | false |
+| 3 | Hand Surgery (Plastic Surgery) | related_scope_exclusion_then_target_program_source_discovery | manual_scope_review | false |
+| 4 | Plastic Surgery | related_scope_exclusion_then_target_program_source_discovery | manual_scope_review | false |
+| 5 | Emergency Medical Services | broader_official_search_plan | secondary_source_search_needed | false |
+| 6 | Emergency Medicine Simulation | broader_official_search_plan | secondary_source_search_needed | false |
+| 7 | Emergency Medicine Ultrasound | broader_official_search_plan | secondary_source_search_needed | false |
+| 8 | Genitourinary Reconstruction and Trauma | related_scope_exclusion_then_target_program_source_discovery | manual_scope_review | false |
+| 9 | Global Emergency Medicine | broader_official_search_plan | secondary_source_search_needed | false |

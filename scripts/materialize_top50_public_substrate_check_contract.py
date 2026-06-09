@@ -25,15 +25,16 @@ EXPECTED_SYNTHETIC_HANDOFF_ROWSET = "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83
 EXPECTED_PRIORITY_HANDOFF_ROWSET = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
 EXPECTED_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
 EXPECTED_TRIAGE_CONTRACT_ROWSET = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "3769d2294e7d3682257fd4df8f4484aea699bb757ef4ba510c1262d1039cbeaa"
-EXPECTED_WORKLIST_ROWSET = "2908c35a7730cb55bd2305943a305a97995d483c8b26ca8c68b39e4bab3b14ea"
-EXPECTED_WORKLIST_VERIFICATION_ROWSET = "606e729b15ae4de6db830326b8e5a885a15b1dc0f3f018df7ebf2d0a8f99f59d"
+EXPECTED_SLICE_2_EXECUTION_PLAN_ROWSET = "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "a14a59c7317f58f176406ef8052bca926c075ec5cf550dd469dd31572d331624"
+EXPECTED_WORKLIST_ROWSET = "240f8d2603f7f31646c3f08c2d629337fc3120355095245c77307a0ce6a7da93"
+EXPECTED_WORKLIST_VERIFICATION_ROWSET = "54ccd6065ba475a9f399ba28ad61d6f20e0d32c29f1f3dc67898f995ed16b372"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_substrate_check_contract_non_mutating_increment"
 
 MUTATION_POLICY = (
     "Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed "
-    "synthetic handoff dry-run, priority handoff, open-gap triage, public clone verification, contributor worklist, "
+    "synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, public clone verification, contributor worklist, "
     "worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill "
     "reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a "
     "school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities."
@@ -118,18 +119,36 @@ COMMANDS = [
         },
     ),
     (
+        "slice_2_execution_plan_packet",
+        [sys.executable, "scripts/materialize_vanderbilt_slice_2_execution_plan_packet.py"],
+        ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet_summary.json",
+        EXPECTED_SLICE_2_EXECUTION_PLAN_ROWSET,
+        {
+            "plan_rows": 9,
+            "gap_rows_represented": 9,
+            "triage_order": 2,
+            "execution_order": 1,
+            "web_fetch_allowed": False,
+            "accepted_person_rows": 0,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+        },
+    ),
+    (
         "public_clone_verification",
         [sys.executable, "scripts/materialize_top50_public_clone_verification.py"],
         ARTIFACTS / "top50_public_clone_verification_summary.json",
         EXPECTED_CLONE_VERIFICATION_ROWSET,
-        {"pass_rows": 47, "fail_rows": 0, "verification_rows": 47},
+        {"pass_rows": 48, "fail_rows": 0, "verification_rows": 48},
     ),
     (
         "public_contributor_worklist",
         [sys.executable, "scripts/materialize_top50_public_contributor_worklist.py"],
         ARTIFACTS / "top50_public_contributor_worklist_summary.json",
         EXPECTED_WORKLIST_ROWSET,
-        {"worklist_rows": 5, "total_impact_count": 480},
+        {"worklist_rows": 6, "total_impact_count": 490},
     ),
     (
         "public_contributor_worklist_verification",
@@ -358,6 +377,7 @@ def main() -> None:
         "source_priority_handoff_rowset_sha256": EXPECTED_PRIORITY_HANDOFF_ROWSET,
         "source_open_gap_triage_rowset_sha256": EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
         "source_triage_contract_rowset_sha256": EXPECTED_TRIAGE_CONTRACT_ROWSET,
+        "source_slice_2_execution_plan_rowset_sha256": EXPECTED_SLICE_2_EXECUTION_PLAN_ROWSET,
         "source_clone_verification_rowset_sha256": EXPECTED_CLONE_VERIFICATION_ROWSET,
         "source_worklist_rowset_sha256": EXPECTED_WORKLIST_ROWSET,
         "source_worklist_verification_rowset_sha256": EXPECTED_WORKLIST_VERIFICATION_ROWSET,

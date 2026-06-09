@@ -47,6 +47,7 @@ EXPECTED_GAP_CANDIDATE_OUTPUT_BRIDGE_ROWSET = "dfb141c1883d85fd6a8c7c0e015b93941
 EXPECTED_GAP_REVIEW_QUEUE_BRIDGE_ROWSET = "46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d"
 EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
 EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
+EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET = "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -332,6 +333,15 @@ def main() -> None:
     vanderbilt_triage_contract_json = read_json(
         ARTIFACTS / "vanderbilt_triage_slice_definition_contract.json"
     )
+    vanderbilt_slice_2_execution_plan_summary = read_json(
+        ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet_summary.json"
+    )
+    vanderbilt_slice_2_execution_plan_csv = read_csv_rows(
+        ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet.csv"
+    )
+    vanderbilt_slice_2_execution_plan_json = read_json(
+        ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet.json"
+    )
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
@@ -403,6 +413,7 @@ def main() -> None:
             gap_review_queue_bridge_summary,
             vanderbilt_open_gap_triage_summary,
             vanderbilt_triage_contract_summary,
+            vanderbilt_slice_2_execution_plan_summary,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
@@ -427,6 +438,7 @@ def main() -> None:
         or not isinstance(gap_review_queue_bridge_json, list)
         or not isinstance(vanderbilt_open_gap_triage_json, list)
         or not isinstance(vanderbilt_triage_contract_json, list)
+        or not isinstance(vanderbilt_slice_2_execution_plan_json, list)
     ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
@@ -1431,6 +1443,79 @@ def main() -> None:
         },
         {"summary": "artifacts/data/vanderbilt_triage_slice_definition_contract_summary.json"},
     )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_slice_2_execution_plan_boundary",
+        vanderbilt_slice_2_execution_plan_summary.get("rowset_sha256")
+        == EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET
+        and vanderbilt_slice_2_execution_plan_summary.get("plan_rows") == 9
+        and vanderbilt_slice_2_execution_plan_summary.get("gap_rows_represented") == 9
+        and vanderbilt_slice_2_execution_plan_summary.get("triage_order") == 2
+        and vanderbilt_slice_2_execution_plan_summary.get("execution_order") == 1
+        and vanderbilt_slice_2_execution_plan_summary.get("source_triage_rowset_sha256")
+        == EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET
+        and vanderbilt_slice_2_execution_plan_summary.get("source_triage_contract_rowset_sha256")
+        == EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET
+        and vanderbilt_slice_2_execution_plan_summary.get("web_fetch_allowed") is False
+        and vanderbilt_slice_2_execution_plan_summary.get("private_artifact_paths_committed") is False
+        and vanderbilt_slice_2_execution_plan_summary.get("raw_dump_publication_allowed") is False
+        and vanderbilt_slice_2_execution_plan_summary.get("mutation_allowed") is False
+        and vanderbilt_slice_2_execution_plan_summary.get("person_ingestion_allowed") is False
+        and vanderbilt_slice_2_execution_plan_summary.get("denominator_closure_allowed") is False
+        and vanderbilt_slice_2_execution_plan_summary.get("school_verification_allowed") is False
+        and len(vanderbilt_slice_2_execution_plan_csv) == 9
+        and len(vanderbilt_slice_2_execution_plan_json) == 9,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET,
+            "plan_rows": 9,
+            "gap_rows_represented": 9,
+            "triage_order": 2,
+            "execution_order": 1,
+            "source_triage_rowset_sha256": EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET,
+            "source_triage_contract_rowset_sha256": EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET,
+            "web_fetch_allowed": False,
+            "private_artifact_paths_committed": False,
+            "raw_dump_publication_allowed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+            "csv_rows": 9,
+            "json_rows": 9,
+        },
+        {
+            "rowset_sha256": vanderbilt_slice_2_execution_plan_summary.get("rowset_sha256"),
+            "plan_rows": vanderbilt_slice_2_execution_plan_summary.get("plan_rows"),
+            "gap_rows_represented": vanderbilt_slice_2_execution_plan_summary.get("gap_rows_represented"),
+            "triage_order": vanderbilt_slice_2_execution_plan_summary.get("triage_order"),
+            "execution_order": vanderbilt_slice_2_execution_plan_summary.get("execution_order"),
+            "source_triage_rowset_sha256": vanderbilt_slice_2_execution_plan_summary.get(
+                "source_triage_rowset_sha256"
+            ),
+            "source_triage_contract_rowset_sha256": vanderbilt_slice_2_execution_plan_summary.get(
+                "source_triage_contract_rowset_sha256"
+            ),
+            "web_fetch_allowed": vanderbilt_slice_2_execution_plan_summary.get("web_fetch_allowed"),
+            "private_artifact_paths_committed": vanderbilt_slice_2_execution_plan_summary.get(
+                "private_artifact_paths_committed"
+            ),
+            "raw_dump_publication_allowed": vanderbilt_slice_2_execution_plan_summary.get(
+                "raw_dump_publication_allowed"
+            ),
+            "mutation_allowed": vanderbilt_slice_2_execution_plan_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": vanderbilt_slice_2_execution_plan_summary.get("person_ingestion_allowed"),
+            "denominator_closure_allowed": vanderbilt_slice_2_execution_plan_summary.get(
+                "denominator_closure_allowed"
+            ),
+            "school_verification_allowed": vanderbilt_slice_2_execution_plan_summary.get(
+                "school_verification_allowed"
+            ),
+            "csv_rows": len(vanderbilt_slice_2_execution_plan_csv),
+            "json_rows": len(vanderbilt_slice_2_execution_plan_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_slice_2_execution_plan_packet_summary.json"},
+    )
     gap_review_template_blank_counts = gap_review_template_summary.get("blank_review_fields")
     add_check(
         checks,
@@ -1835,6 +1920,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_triage_slice_definition_contract.json",
             ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json",
             RESEARCH / "vanderbilt-triage-slice-definition-contract-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet.csv",
+            ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet.json",
+            ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet_summary.json",
+            RESEARCH / "vanderbilt-slice-2-execution-plan-packet-2026-06-09.md",
         ]
     )
     add_check(
@@ -1844,7 +1933,7 @@ def main() -> None:
         not gap_private_hits,
         [],
         gap_private_hits,
-        {"scanned_outputs": 34, "scan": "private_artifact_path_markers"},
+        {"scanned_outputs": 38, "scan": "private_artifact_path_markers"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -2303,6 +2392,7 @@ def main() -> None:
         "vanderbilt_gap_review_queue_bridge_rowset_sha256": EXPECTED_GAP_REVIEW_QUEUE_BRIDGE_ROWSET,
         "vanderbilt_open_gap_manifest_triage_rowset_sha256": EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET,
         "vanderbilt_triage_slice_definition_contract_rowset_sha256": EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET,
+        "vanderbilt_slice_2_execution_plan_rowset_sha256": EXPECTED_VANDERBILT_SLICE_2_EXECUTION_PLAN_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,

@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Clone Verification
-created_at: 2026-06-09T10:09:08.370547+00:00
+created_at: 2026-06-09T10:20:34.295932+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -20,17 +20,17 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
   "fail_rows": 0,
   "gbrain_approval_line": "APPROVE top50_public_clone_verification_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_clone_verification_lane",
-  "generated_at": "2026-06-09T10:09:08.370547+00:00",
+  "generated_at": "2026-06-09T10:20:34.295932+00:00",
   "json": "artifacts/data/top50_public_clone_verification.json",
   "markdown": "artifacts/research/top50-public-clone-verification-2026-06-09.md",
   "mutation_allowed": false,
-  "pass_rows": 47,
+  "pass_rows": 48,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
   "raw_browser_dumps_committed": false,
   "raw_debug_databases_committed": false,
   "raw_gbrain_responses_committed": false,
-  "rowset_sha256": "3769d2294e7d3682257fd4df8f4484aea699bb757ef4ba510c1262d1039cbeaa",
+  "rowset_sha256": "a14a59c7317f58f176406ef8052bca926c075ec5cf550dd469dd31572d331624",
   "top50_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
   "vanderbilt_gap_batch_slice_index_rowset_sha256": "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75",
@@ -50,10 +50,11 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
   "vanderbilt_reviewer_blank_execution_verification_rowset_sha256": "8214eb3162fd6c56206c6c937b78fcd0ee485e5cdb6ca681737f8a64a378f02e",
   "vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa",
   "vanderbilt_reviewer_slice_prioritization_plan_rowset_sha256": "eeaf14d0496276eb6603f3434a497eb3640afc7a69802301e1077a7e52c92d7c",
+  "vanderbilt_slice_2_execution_plan_rowset_sha256": "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b",
   "vanderbilt_synthetic_handoff_dry_run_demo_rowset_sha256": "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4",
   "vanderbilt_triage_slice_definition_contract_rowset_sha256": "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f",
   "vanderbilt_workbook_slice_index_rowset_sha256": "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4",
-  "verification_rows": 47
+  "verification_rows": 48
 }
 ```
 
@@ -83,6 +84,7 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
 | vanderbilt_gap_batch_slice_index_boundary | pass | `{"batch_csv_rows":21,"batch_gap_rows":113,"batch_mutation_allowed":false,"batch_rows":21,"csv_rows":21,"gap_rows_represented":113,"json_rows":21,"mutation_allowed":false,"packet_batch_rows":21,"packet_csv_rows":113,"packet_mutation_allowed":false,"packet_rows":113,"private_artifact_paths_committed":false,"rowset_sha256":"2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75","slice_index_rows":21,"slice_outputs_default_tmp_only":true}` |
 | vanderbilt_open_gap_manifest_triage_boundary | pass | `{"csv_rows":21,"denominator_closure_allowed":false,"gap_rows_represented":113,"json_rows":21,"mutation_allowed":false,"person_ingestion_allowed":false,"private_artifact_paths_committed":false,"raw_dump_publication_allowed":false,"rowset_sha256":"b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391","school_verification_allowed":false,"slice_outputs_default_tmp_only":true,"source_slice_index_rowset_sha256":"2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75","triage_rows":21}` |
 | vanderbilt_triage_slice_definition_contract_boundary | pass | `{"contract_rows":4,"csv_rows":4,"denominator_closure_allowed":false,"gap_rows_represented":113,"json_rows":4,"mutation_allowed":false,"person_ingestion_allowed":false,"private_artifact_paths_committed":false,"raw_dump_publication_allowed":false,"rowset_sha256":"b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f","school_verification_allowed":false,"slice_outputs_default_tmp_only":true,"slice_rows_represented":21}` |
+| vanderbilt_slice_2_execution_plan_boundary | pass | `{"csv_rows":9,"denominator_closure_allowed":false,"execution_order":1,"gap_rows_represented":9,"json_rows":9,"mutation_allowed":false,"person_ingestion_allowed":false,"plan_rows":9,"private_artifact_paths_committed":false,"raw_dump_publication_allowed":false,"rowset_sha256":"c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b","school_verification_allowed":false,"source_triage_contract_rowset_sha256":"b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f","source_triage_rowset_sha256":"b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391","triage_order":2,"web_fetch_allowed":false}` |
 | vanderbilt_gap_review_template_boundary | pass | `{"batch_rows_represented":21,"blank_action_rows":113,"blank_review_fields":{"confirm_candidate_evidence_only":113,"confirm_no_denominator_closure":113,"confirm_no_identity_collapse":113,"confirm_no_person_ingestion":113,"confirm_no_school_verification":113,"confirm_no_url_rewrite":113,"proposed_candidate_official_url":113,"proposed_evidence_summary":113,"proposed_non_mutating_review_action":113,"proposed_output_artifact":113,"proposed_source_discovery_query":113},"csv_rows":113,"json_rows":113,"mutation_allowed":false,"private_artifact_paths_committed":false,"review_template_rows":113,"reviewer_note_column_committed":false,"rowset_sha256":"537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782","valid_non_mutating_review_rows":0}` |
 | vanderbilt_gap_review_template_validation_boundary | pass | `{"invalid_rows":0,"mutation_allowed":false,"pending_rows":113,"rowset_sha256":"537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782","template_rows":113,"valid_non_mutating_rows":0}` |
 | vanderbilt_gap_targeted_review_packet_boundary | pass | `{"blank_review_rows":94,"csv_rows":113,"filled_review_rows":19,"json_rows":113,"mutation_allowed":false,"review_packet_rows":113,"rowset_sha256":"d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607","source_template_rowset_sha256":"537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782","target_gap_rows":19}` |

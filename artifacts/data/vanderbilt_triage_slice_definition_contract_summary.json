@@ -11,7 +11,7 @@
   "denominator_closure_allowed": false,
   "gap_rows_represented": 113,
   "gbrain_advisory_effect": "gbrain_selected_vanderbilt_open_gap_manifest_triage_packet_option_b",
-  "generated_at": "2026-06-09T10:09:08.340943+00:00",
+  "generated_at": "2026-06-09T10:20:34.238103+00:00",
   "identity_collapse_allowed": false,
   "json": "artifacts/data/vanderbilt_triage_slice_definition_contract.json",
   "markdown": "artifacts/research/vanderbilt-triage-slice-definition-contract-2026-06-09.md",

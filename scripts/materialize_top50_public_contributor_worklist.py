@@ -44,6 +44,7 @@ PRIORITY_HANDOFF_CSV = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.
 SYNTHETIC_HANDOFF_DEMO_SUMMARY = ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo_summary.json"
 OPEN_GAP_TRIAGE_SUMMARY = ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet_summary.json"
 TRIAGE_SLICE_CONTRACT_SUMMARY = ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json"
+SLICE_2_EXECUTION_PLAN_SUMMARY = ARTIFACTS / "vanderbilt_slice_2_execution_plan_packet_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -52,7 +53,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "3769d2294e7d3682257fd4df8f4484aea699bb757ef4ba510c1262d1039cbeaa"
+VERIFICATION_ROWSET_SHA256 = "a14a59c7317f58f176406ef8052bca926c075ec5cf550dd469dd31572d331624"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -75,6 +76,7 @@ PRIORITY_HANDOFF_PACKET_ROWSET_SHA256 = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe
 SYNTHETIC_HANDOFF_DEMO_ROWSET_SHA256 = "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4"
 OPEN_GAP_TRIAGE_ROWSET_SHA256 = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
 TRIAGE_SLICE_CONTRACT_ROWSET_SHA256 = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
+SLICE_2_EXECUTION_PLAN_ROWSET_SHA256 = "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -274,6 +276,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     synthetic_handoff_demo_summary = read_json(SYNTHETIC_HANDOFF_DEMO_SUMMARY)
     open_gap_triage_summary = read_json(OPEN_GAP_TRIAGE_SUMMARY)
     triage_slice_contract_summary = read_json(TRIAGE_SLICE_CONTRACT_SUMMARY)
+    slice_2_execution_plan_summary = read_json(SLICE_2_EXECUTION_PLAN_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -303,6 +306,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             synthetic_handoff_demo_summary,
             open_gap_triage_summary,
             triage_slice_contract_summary,
+            slice_2_execution_plan_summary,
             gap_summary,
         ]
     ):
@@ -521,6 +525,22 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and triage_slice_contract_summary.get("person_ingestion_allowed") is False
         and triage_slice_contract_summary.get("denominator_closure_allowed") is False
         and triage_slice_contract_summary.get("school_verification_allowed") is False,
+        "slice_2_execution_plan_rowset": slice_2_execution_plan_summary.get("rowset_sha256")
+        == SLICE_2_EXECUTION_PLAN_ROWSET_SHA256,
+        "slice_2_execution_plan_coverage": slice_2_execution_plan_summary.get("plan_rows") == 9
+        and slice_2_execution_plan_summary.get("gap_rows_represented") == 9
+        and slice_2_execution_plan_summary.get("triage_order") == 2
+        and slice_2_execution_plan_summary.get("execution_order") == 1
+        and slice_2_execution_plan_summary.get("source_triage_rowset_sha256") == OPEN_GAP_TRIAGE_ROWSET_SHA256
+        and slice_2_execution_plan_summary.get("source_triage_contract_rowset_sha256")
+        == TRIAGE_SLICE_CONTRACT_ROWSET_SHA256
+        and slice_2_execution_plan_summary.get("web_fetch_allowed") is False
+        and slice_2_execution_plan_summary.get("private_artifact_paths_committed") is False
+        and slice_2_execution_plan_summary.get("raw_dump_publication_allowed") is False
+        and slice_2_execution_plan_summary.get("mutation_allowed") is False
+        and slice_2_execution_plan_summary.get("person_ingestion_allowed") is False
+        and slice_2_execution_plan_summary.get("denominator_closure_allowed") is False
+        and slice_2_execution_plan_summary.get("school_verification_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -551,6 +571,7 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         synthetic_handoff_demo_summary,
         open_gap_triage_summary,
         triage_slice_contract_summary,
+        slice_2_execution_plan_summary,
         gap_summary,
     )
 
@@ -627,6 +648,7 @@ def main() -> None:
         synthetic_handoff_demo_summary,
         open_gap_triage_summary,
         triage_slice_contract_summary,
+        slice_2_execution_plan_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -949,6 +971,72 @@ def main() -> None:
         ),
         row(
             execution_order=5,
+            action_lane="vanderbilt_slice_2_execution_plan_packet",
+            action_status="ready_for_no_fetch_execution_planning",
+            priority=860,
+            entity_type="vanderbilt_slice_2_execution_plan_packet",
+            entity_key="vanderbilt_slice_2_execution_plan_packet",
+            display_label="Vanderbilt slice 2 no-fetch execution plan packet",
+            impact_count=int(slice_2_execution_plan_summary.get("plan_rows", 0)),
+            source_artifact="artifacts/data/vanderbilt_slice_2_execution_plan_packet_summary.json",
+            target_artifact="artifacts/data/vanderbilt_slice_2_execution_plan_packet_summary.json",
+            required_next_evidence=(
+                "This increment is a no-fetch execution plan only. Later work may use the query and route-review "
+                "instructions to prepare a separate exact source-discovery or route-observation packet, but live web "
+                "fetching, parser acceptance, person ingestion, denominator closure, and school verification remain blocked."
+            ),
+            recommended_next_action=(
+                "Use artifacts/data/vanderbilt_slice_2_execution_plan_packet.csv to review the 9 execution-order-1 "
+                "Vanderbilt gaps and decide the next exact non-mutating source-discovery packet; do not fetch web pages "
+                "under this packet."
+            ),
+            verification_command=(
+                "python3 scripts/materialize_vanderbilt_slice_2_execution_plan_packet.py && "
+                "python3 scripts/materialize_top50_public_clone_verification.py"
+            ),
+            success_condition=(
+                "Plan packet remains 9 rows over triage_order=2/execution_order=1, web_fetch_allowed=false, "
+                "accepted_person_rows=0, and all mutation flags remain false."
+            ),
+            approval_required_for=[
+                "live_web_fetch_or_probe",
+                "parser_acceptance",
+                "person_ingestion",
+                "denominator_closure",
+                "vanderbilt_school_verification",
+                "source_url_rewrite",
+                "scope_closure",
+                "identity_collapse",
+            ],
+            source_rowset_sha256=SLICE_2_EXECUTION_PLAN_ROWSET_SHA256,
+            target_rowset_sha256=SLICE_2_EXECUTION_PLAN_ROWSET_SHA256,
+            evidence={
+                "plan_rows": slice_2_execution_plan_summary.get("plan_rows"),
+                "gap_rows_represented": slice_2_execution_plan_summary.get("gap_rows_represented"),
+                "triage_order": slice_2_execution_plan_summary.get("triage_order"),
+                "execution_order": slice_2_execution_plan_summary.get("execution_order"),
+                "by_plan_lane": slice_2_execution_plan_summary.get("by_plan_lane"),
+                "by_candidate_context_status": slice_2_execution_plan_summary.get("by_candidate_context_status"),
+                "supported_person_rows_represented": slice_2_execution_plan_summary.get(
+                    "supported_person_rows_represented"
+                ),
+                "candidate_source_rows_represented": slice_2_execution_plan_summary.get(
+                    "candidate_source_rows_represented"
+                ),
+                "approved_non_mutating_disposition_rows_represented": slice_2_execution_plan_summary.get(
+                    "approved_non_mutating_disposition_rows_represented"
+                ),
+                "web_fetch_allowed": slice_2_execution_plan_summary.get("web_fetch_allowed"),
+                "source_triage_rowset_sha256": slice_2_execution_plan_summary.get("source_triage_rowset_sha256"),
+                "source_triage_contract_rowset_sha256": slice_2_execution_plan_summary.get(
+                    "source_triage_contract_rowset_sha256"
+                ),
+                "gbrain_advisory_effect": slice_2_execution_plan_summary.get("gbrain_advisory_effect"),
+            },
+            generated_at=generated_at,
+        ),
+        row(
+            execution_order=6,
             action_lane="future_exact_approval_packet_after_valid_decisions",
             action_status="blocked_until_valid_non_mutating_decisions",
             priority=640,
