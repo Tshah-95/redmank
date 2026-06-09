@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Reviewer Decision Patch Workbook
-created_at: 2026-06-09T06:56:33.401532+00:00
+created_at: 2026-06-09T07:04:03.528887+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -34,7 +34,7 @@ Non-mutating Vanderbilt reviewer decision patch workbook. It joins operator-pack
   "csv": "artifacts/data/vanderbilt_reviewer_decision_patch_workbook.csv",
   "decision_fingerprint_present_rows": 159,
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T06:56:33.401532+00:00",
+  "generated_at": "2026-06-09T07:04:03.528887+00:00",
   "helper_patch_extraction_required": true,
   "helper_patch_output_columns": [
     "manual_decision_row_key",

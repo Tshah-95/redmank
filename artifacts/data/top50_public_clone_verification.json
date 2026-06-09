@@ -4,7 +4,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/top50_medical_school_targets_summary.json\"}",
     "expected_value": "{\"rowset_sha256\":\"fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8\",\"targets\":50}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"rowset_sha256\":\"fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8\",\"targets\":50}",
     "verification_key": "top50_public_clone_verification_6c134ad8cab7abf99ac7"
@@ -14,7 +14,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/school_verification_registry_summary.json\"}",
     "expected_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29\",\"verified_school_rows\":1}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29\",\"verified_school_rows\":1}",
     "verification_key": "top50_public_clone_verification_75cd3db5029f0d62ac49"
@@ -24,7 +24,7 @@
     "check_status": "pass",
     "evidence_json": "{\"snapshot\":\"artifacts/data/top50_engine_operating_snapshot.json\"}",
     "expected_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48\"}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"mutation_allowed\":false,\"rowset_sha256\":\"b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48\"}",
     "verification_key": "top50_public_clone_verification_fea34c3bcbe4ef0c3409"
@@ -34,7 +34,7 @@
     "check_status": "pass",
     "evidence_json": "{\"snapshot_lane\":{\"lane\":\"vanderbilt_targeted_route_parser_scope_gbrain_approval\",\"recommended_next_action\":\"Use the public-safe Vanderbilt reviewer operator packets to enter non-mutating reviewer decisions in artifacts/data/vanderbilt_candidate_reviewer_decisions.csv, then rerun the decision audit, batch packet materializer, and operator-packet materializer. Any accepted person rows, denominator closure, identity reconciliation, parser acceptance, or scope closure still requires a later exact approval packet.\",\"rowset_sha256\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"source_artifact\":\"artifacts/data/vanderbilt_public_reviewer_operator_packets.csv\",\"status\":\"ready_for_public_safe_vanderbilt_operator_packets\"}}",
     "expected_value": "{\"rowset_sha256\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"status\":\"ready_for_public_safe_vanderbilt_operator_packets\"}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"rowset_sha256\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\",\"status\":\"ready_for_public_safe_vanderbilt_operator_packets\"}",
     "verification_key": "top50_public_clone_verification_c8cf5c679cf63a86a190"
@@ -44,7 +44,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_candidate_review_batch_packet_summary.json\"}",
     "expected_value": "{\"batch_packet_rows\":20,\"csv_rows\":20,\"decision_row_count\":159,\"invalid_decision_rows\":0,\"json_rows\":20,\"mutation_allowed\":false,\"pending_decision_rows\":159,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"rowset_sha256\":\"26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f\"}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"batch_packet_rows\":20,\"csv_rows\":20,\"decision_row_count\":159,\"invalid_decision_rows\":0,\"json_rows\":20,\"mutation_allowed\":false,\"pending_decision_rows\":159,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"rowset_sha256\":\"26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f\"}",
     "verification_key": "top50_public_clone_verification_3a6f47f1fe1cf4d34f10"
@@ -54,7 +54,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_public_reviewer_operator_packet_summary.json\"}",
     "expected_value": "{\"csv_rows\":20,\"decision_row_count\":159,\"json_rows\":20,\"missing_required_template_column_mentions\":0,\"mutation_allowed\":false,\"operator_packet_rows\":20,\"pending_decision_rows\":159,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"rowset_sha256\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\"}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"csv_rows\":20,\"decision_row_count\":159,\"json_rows\":20,\"missing_required_template_column_mentions\":0,\"mutation_allowed\":false,\"operator_packet_rows\":20,\"pending_decision_rows\":159,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"rowset_sha256\":\"6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173\"}",
     "verification_key": "top50_public_clone_verification_01e449698b588ace886e"
@@ -64,7 +64,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json\"}",
     "expected_value": "{\"accepted_person_rows\":0,\"audit_rows\":159,\"invalid_rows\":0,\"mutation_allowed\":false,\"pending_rows\":159,\"rowset_sha256\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\"}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"accepted_person_rows\":0,\"audit_rows\":159,\"invalid_rows\":0,\"mutation_allowed\":false,\"pending_rows\":159,\"rowset_sha256\":\"e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de\"}",
     "verification_key": "top50_public_clone_verification_a9a5237e48fd646a4ccd"
@@ -74,7 +74,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_candidate_review_decision_scaffold_summary.json\"}",
     "expected_value": "{\"decision_scaffold_rows\":159,\"manual_decision_template_rows\":159,\"mutation_allowed\":false,\"rowset_sha256\":\"29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938\"}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"decision_scaffold_rows\":159,\"manual_decision_template_rows\":159,\"mutation_allowed\":false,\"rowset_sha256\":\"29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938\"}",
     "verification_key": "top50_public_clone_verification_0cd72bc29a57b0a7633a"
@@ -84,7 +84,7 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_reviewer_decision_patch_template_summary.json\"}",
     "expected_value": "{\"blank_action_rows\":159,\"blank_confirmation_rows\":159,\"csv_rows\":159,\"helper_accepts_template_shape\":true,\"json_rows\":159,\"mutation_allowed\":false,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"reviewer_note_column_committed\":false,\"rowset_sha256\":\"5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d\",\"template_intentionally_invalid_until_filled\":true,\"template_rows\":159,\"valid_non_mutating_rows\":0}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"blank_action_rows\":159,\"blank_confirmation_rows\":{\"confirm_candidate_fingerprint_only\":159,\"confirm_decision_fingerprint\":159,\"confirm_no_denominator_closure\":159,\"confirm_no_person_ingestion\":159,\"confirm_no_raw_name_added\":159,\"confirm_no_url_rewrite\":159,\"confirm_recourse_only\":159,\"confirm_scope_metadata_only\":159},\"csv_rows\":159,\"helper_accepts_template_shape\":true,\"json_rows\":159,\"mutation_allowed\":false,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"reviewer_note_column_committed\":false,\"rowset_sha256\":\"5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d\",\"template_intentionally_invalid_until_filled\":true,\"template_rows\":159,\"valid_non_mutating_rows\":0}",
     "verification_key": "top50_public_clone_verification_85756c97ebff4611d6f3"
@@ -94,17 +94,27 @@
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_reviewer_decision_patch_workbook_summary.json\"}",
     "expected_value": "{\"blank_action_rows\":159,\"blank_confirmation_rows\":159,\"csv_rows\":159,\"decision_fingerprint_present_rows\":159,\"helper_patch_extraction_required\":true,\"json_rows\":159,\"mutation_allowed\":false,\"operator_packet_rows_represented\":20,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"reviewer_note_column_committed\":false,\"rowset_sha256\":\"18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3\",\"valid_non_mutating_rows\":0,\"workbook_intentionally_invalid_as_direct_patch\":true,\"workbook_rows\":159}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"blank_action_rows\":159,\"blank_confirmation_rows\":{\"confirm_candidate_fingerprint_only\":159,\"confirm_decision_fingerprint\":159,\"confirm_no_denominator_closure\":159,\"confirm_no_person_ingestion\":159,\"confirm_no_raw_name_added\":159,\"confirm_no_url_rewrite\":159,\"confirm_recourse_only\":159,\"confirm_scope_metadata_only\":159},\"csv_rows\":159,\"decision_fingerprint_present_rows\":159,\"helper_patch_extraction_required\":true,\"json_rows\":159,\"mutation_allowed\":false,\"operator_packet_rows_represented\":20,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"reviewer_note_column_committed\":false,\"rowset_sha256\":\"18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3\",\"valid_non_mutating_rows\":0,\"workbook_intentionally_invalid_as_direct_patch\":true,\"workbook_rows\":159}",
     "verification_key": "top50_public_clone_verification_3a140c198aa7fe29557e"
+  },
+  {
+    "check_name": "vanderbilt_reviewer_workbook_slice_index_boundary",
+    "check_status": "pass",
+    "evidence_json": "{\"summary\":\"artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index_summary.json\"}",
+    "expected_value": "{\"csv_rows\":20,\"json_rows\":20,\"mutation_allowed\":false,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"reviewer_note_column_committed\":false,\"rowset_sha256\":\"d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4\",\"slice_index_rows\":20,\"slice_outputs_default_tmp_only\":true,\"workbook_rows_represented\":159}",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
+    "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
+    "observed_value": "{\"csv_rows\":20,\"json_rows\":20,\"mutation_allowed\":false,\"raw_candidate_names_committed\":false,\"raw_person_urls_committed\":false,\"reviewer_note_column_committed\":false,\"rowset_sha256\":\"d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4\",\"slice_index_rows\":20,\"slice_outputs_default_tmp_only\":true,\"workbook_rows_represented\":159}",
+    "verification_key": "top50_public_clone_verification_0194ed342576af79cd93"
   },
   {
     "check_name": "vanderbilt_gap_manifest_committed_rows",
     "check_status": "pass",
     "evidence_json": "{\"summary\":\"artifacts/data/school_gap_resolution_manifest_summary.json\"}",
     "expected_value": "{\"csv_rows\":113,\"mutation_allowed\":false,\"open_gap_rows\":113,\"rows\":113}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"csv_rows\":113,\"mutation_allowed\":false,\"open_gap_rows\":113,\"rows\":113}",
     "verification_key": "top50_public_clone_verification_1bcecb491e1acf0e61b0"
@@ -112,9 +122,9 @@
   {
     "check_name": "vanderbilt_review_packet_public_leak_scan",
     "check_status": "pass",
-    "evidence_json": "{\"scan\":\"url_like_text_or_reviewer_note_text_field\",\"scanned_outputs\":16}",
+    "evidence_json": "{\"scan\":\"url_like_text_or_reviewer_note_text_field\",\"scanned_outputs\":20}",
     "expected_value": "[]",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "[]",
     "verification_key": "top50_public_clone_verification_bd811b4359feac9db768"
@@ -124,7 +134,7 @@
     "check_status": "pass",
     "evidence_json": "{\"patterns\":[\"artifacts/data/gbrain_*_http_mcp_response.json\",\"artifacts/data/browser_page_dumps/\",\"artifacts/data/debug_*.sqlite\",\"artifacts/data/raw/\",\".playwright-mcp/\",\"inbox/\",\"reports/\"]}",
     "expected_value": "[]",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "[]",
     "verification_key": "top50_public_clone_verification_ff95e66512ebca79a57d"
@@ -134,7 +144,7 @@
     "check_status": "pass",
     "evidence_json": "{\".gitignore\":\".gitignore\"}",
     "expected_value": "{\".playwright-mcp/\":true,\"artifacts/data/browser_page_dumps/\":true,\"artifacts/data/debug_*.sqlite\":true,\"artifacts/data/gbrain_*_http_mcp_response.json\":true,\"artifacts/data/raw/\":true,\"inbox/\":true,\"reports/\":true}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\".playwright-mcp/\":true,\"artifacts/data/browser_page_dumps/\":true,\"artifacts/data/debug_*.sqlite\":true,\"artifacts/data/gbrain_*_http_mcp_response.json\":true,\"artifacts/data/raw/\":true,\"inbox/\":true,\"reports/\":true}",
     "verification_key": "top50_public_clone_verification_5089f48aa2a32da6852b"
@@ -144,7 +154,7 @@
     "check_status": "pass",
     "evidence_json": "{\"readme\":\"README.md\",\"script\":\"scripts/materialize_school_gap_resolution_manifest.py\"}",
     "expected_value": "{\"readme_override_documented\":true,\"script_guard\":true}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"readme_override_documented\":true,\"script_guard\":true}",
     "verification_key": "top50_public_clone_verification_7e963cbcc278e97d9bfe"
@@ -154,7 +164,7 @@
     "check_status": "pass",
     "evidence_json": "{\"readme\":\"README.md\",\"script\":\"scripts/apply_vanderbilt_reviewer_decision_patch.py\"}",
     "expected_value": "{\"readme_documented\":true,\"script_guard\":true}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"readme_documented\":true,\"script_guard\":true}",
     "verification_key": "top50_public_clone_verification_4ec0e257f678e6d65d82"
@@ -164,17 +174,27 @@
     "check_status": "pass",
     "evidence_json": "{\"readme\":\"README.md\",\"script\":\"scripts/extract_vanderbilt_reviewer_decision_patch.py\"}",
     "expected_value": "{\"readme_documented\":true,\"script_guard\":true}",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "{\"readme_documented\":true,\"script_guard\":true}",
     "verification_key": "top50_public_clone_verification_4d0a5cac63bcb56b1e3f"
+  },
+  {
+    "check_name": "vanderbilt_reviewer_workbook_slicer_guard_present",
+    "check_status": "pass",
+    "evidence_json": "{\"readme\":\"README.md\",\"script\":\"scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py\"}",
+    "expected_value": "{\"readme_documented\":true,\"script_guard\":true}",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
+    "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
+    "observed_value": "{\"readme_documented\":true,\"script_guard\":true}",
+    "verification_key": "top50_public_clone_verification_8689b07c4abad8a02c19"
   },
   {
     "check_name": "gbrain_public_clone_verification_lane_approved",
     "check_status": "pass",
     "evidence_json": "{\"approval_boundary\":\"pure public-clone verification of committed top50/Vanderbilt safety and reproducibility invariants\",\"prohibited_mutations\":[\"person_ingestion\",\"training_state_mutation\",\"denominator_closure\",\"school_verification\",\"url_rewrite\",\"unsupported_label_ingestion\",\"unique_person_identity_collapse\"]}",
     "expected_value": "\"APPROVE top50_public_clone_verification_lane_approved\"",
-    "generated_at": "2026-06-09T06:56:33.436045+00:00",
+    "generated_at": "2026-06-09T07:04:03.587295+00:00",
     "mutation_policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
     "observed_value": "\"APPROVE top50_public_clone_verification_lane_approved\"",
     "verification_key": "top50_public_clone_verification_c9d4f69cdc7dc54badfa"
