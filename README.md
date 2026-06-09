@@ -37,6 +37,8 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_candidate_parser_output_verification_summary.json`: verification packet for candidate-only parser diagnostics, registering 9/9 passing checks over raw-field absence, duplicate fingerprints, and acceptance prohibitions.
 - `artifacts/data/vanderbilt_candidate_review_queue_approval_packet_summary.json`: exact GBrain approval-request packet for non-mutating review-queue materialization from verified candidate fingerprints, scope metadata, and recourse rows.
 - `artifacts/data/vanderbilt_candidate_review_queue_summary.json`: approved non-mutating Vanderbilt review queues for candidate fingerprints, linked-route scope metadata, and route recourse.
+- `artifacts/data/vanderbilt_candidate_review_decision_scaffold_summary.json`: non-mutating reviewer decision scaffold and blank manual decision template for Vanderbilt candidate/scope/recourse review queues.
+- `artifacts/data/vanderbilt_candidate_review_scaffold_verification_summary.json`: verification packet for the Vanderbilt decision scaffold, confirming blank decisions, matching keys, raw-field absence, and false acceptance flags.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_school_verification_registry.py`: reproducible materializer for the school-level verification registry.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
@@ -52,6 +54,8 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_candidate_parser_output_verification.py`: reproducible verifier for raw-name-free Vanderbilt candidate parser diagnostics.
 - `scripts/materialize_vanderbilt_candidate_review_queue_approval_packet.py`: reproducible materializer for the Vanderbilt candidate review-queue approval packet.
 - `scripts/materialize_vanderbilt_candidate_review_queues.py`: reproducible materializer for approved non-mutating Vanderbilt candidate review queues.
+- `scripts/materialize_vanderbilt_candidate_review_decision_scaffold.py`: reproducible materializer for Vanderbilt reviewer decision scaffolds and blank manual decision templates.
+- `scripts/materialize_vanderbilt_candidate_review_scaffold_verification.py`: reproducible verifier for Vanderbilt candidate review decision scaffolds.
 
 ## Current Penn Outputs
 

@@ -1,0 +1,52 @@
+{
+  "accepted_person_rows": 0,
+  "by_decision_status": {
+    "pending_non_mutating_reviewer_decision": 159
+  },
+  "by_program_decision_rows": {
+    "Academic General Pediatrics": 4,
+    "Advanced Endoscopy": 1,
+    "Advanced Inflammatory Bowel Disease": 1,
+    "Developmental-Behavioral Pediatrics": 4,
+    "Gastroenterology": 10,
+    "General Surgery": 2,
+    "Neonatal-Perinatal Medicine": 19,
+    "Orthopaedic Surgery": 2,
+    "Pediatric Critical Care": 17,
+    "Pediatric Emergency Medicine": 17,
+    "Pediatric Endocrinology": 3,
+    "Pediatric Gastroenterology": 12,
+    "Pediatric Hospital Medicine": 4,
+    "Pediatric Infectious Diseases": 10,
+    "Pediatric Rheumatology": 4,
+    "Pediatrics": 26,
+    "Psychiatry": 9,
+    "Rheumatology": 4,
+    "Transplant Hepatology": 10
+  },
+  "by_review_queue_lane": {
+    "candidate_fingerprint_review": 155,
+    "linked_scope_metadata_review": 3,
+    "route_recourse_review": 1
+  },
+  "csv": "artifacts/data/vanderbilt_candidate_review_decision_scaffold.csv",
+  "decision_scaffold_rows": 159,
+  "denominator_closure_allowed": false,
+  "generated_at": "2026-06-09T05:29:58.024935+00:00",
+  "json": "artifacts/data/vanderbilt_candidate_review_decision_scaffold.json",
+  "manual_decision_template_rows": 159,
+  "manual_decisions_csv": "artifacts/data/vanderbilt_candidate_reviewer_decisions.csv",
+  "manual_decisions_json": "artifacts/data/vanderbilt_candidate_reviewer_decisions.json",
+  "markdown": "artifacts/research/vanderbilt-candidate-review-decision-scaffold-2026-06-09.md",
+  "mutation_allowed": false,
+  "person_ingestion_allowed": false,
+  "policy": "Non-mutating Vanderbilt candidate review decision scaffold. It creates pending reviewer-decision rows and blank decision templates for hashed candidate fingerprints, linked-scope metadata, and route recourse rows. It does not approve raw candidate labels, raw person URLs, accepted person rows, person ingestion, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+  "raw_candidate_names_committed": false,
+  "raw_person_urls_committed": false,
+  "review_batch_count": 20,
+  "rowset_sha256": "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938",
+  "source_review_queue_rows": 159,
+  "source_review_queue_rowset_sha256": "b74b337bfa43406d8a200956d469eb5dc0d41902c197f78af85001f18750b148",
+  "source_review_queue_summary": "artifacts/data/vanderbilt_candidate_review_queue_summary.json",
+  "source_review_queues": "artifacts/data/vanderbilt_candidate_review_queues.json"
+}

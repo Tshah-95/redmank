@@ -1,0 +1,72 @@
+[
+  {
+    "check_name": "acceptance_flags_all_false",
+    "check_status": "pass",
+    "evidence_json": "{\"fields\":[\"accepted_person_row\",\"person_ingestion_allowed\",\"denominator_closure_allowed\"]}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_287d3cd232167993a9a4"
+  },
+  {
+    "check_name": "manual_decision_keys_match_scaffold",
+    "check_status": "pass",
+    "evidence_json": "{}",
+    "expected_value": "{\"manual_decision_keys_equal\":true}",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"extra_in_decisions\":[],\"missing_in_decisions\":[]}",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_3d394a3e93b374afaad6"
+  },
+  {
+    "check_name": "manual_decision_templates_blank",
+    "check_status": "pass",
+    "evidence_json": "{\"manual_decisions_csv\":\"artifacts/data/vanderbilt_candidate_reviewer_decisions.csv\"}",
+    "expected_value": "{\"confirmations\":\"\",\"reviewer_action\":\"\"}",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"nonblank_actions\":[],\"nonblank_confirmations\":[]}",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_b52c98d8e1c83ab29a34"
+  },
+  {
+    "check_name": "raw_name_and_url_fields_absent",
+    "check_status": "pass",
+    "evidence_json": "{\"scan\":\"NAMEISH_RE and URL_RE over non-allowed scaffold fields; values reported by hash only\"}",
+    "expected_value": "[]",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "[]",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_662dcc4995c7e3a8f8c2"
+  },
+  {
+    "check_name": "review_lane_counts_match",
+    "check_status": "pass",
+    "evidence_json": "{}",
+    "expected_value": "{\"candidate_fingerprint_review\":155,\"linked_scope_metadata_review\":3,\"route_recourse_review\":1}",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"candidate_fingerprint_review\":155,\"linked_scope_metadata_review\":3,\"route_recourse_review\":1}",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_475ff539c00c8fae224d"
+  },
+  {
+    "check_name": "scaffold_and_manual_row_counts_match",
+    "check_status": "pass",
+    "evidence_json": "{}",
+    "expected_value": "{\"decision_csv\":159,\"decision_json\":159,\"scaffold_csv\":159,\"scaffold_json\":159}",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "{\"decision_csv\":159,\"decision_json\":159,\"scaffold_csv\":159,\"scaffold_json\":159}",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_c2b355d9c97ca9248cb9"
+  },
+  {
+    "check_name": "source_rowset_boundary_matches",
+    "check_status": "pass",
+    "evidence_json": "{\"source_summary\":\"artifacts/data/vanderbilt_candidate_review_decision_scaffold_summary.json\"}",
+    "expected_value": "\"29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938\"",
+    "generated_at": "2026-06-09T05:31:05.391559+00:00",
+    "mutation_policy": "Non-mutating Vanderbilt candidate review scaffold verification. It checks pending decision rows, blank manual decision templates, confirmation fields, hash boundaries, and raw-field absence. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+    "observed_value": "\"29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938\"",
+    "verification_key": "vanderbilt_candidate_review_scaffold_verification_3dd3b23624daf5194494"
+  }
+]

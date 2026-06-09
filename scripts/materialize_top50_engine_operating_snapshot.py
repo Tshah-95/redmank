@@ -47,6 +47,10 @@ SUMMARY_FILES = {
     "vanderbilt_candidate_review_queue_approval_packet": ARTIFACTS
     / "vanderbilt_candidate_review_queue_approval_packet_summary.json",
     "vanderbilt_candidate_review_queues": ARTIFACTS / "vanderbilt_candidate_review_queue_summary.json",
+    "vanderbilt_candidate_review_decision_scaffold": ARTIFACTS
+    / "vanderbilt_candidate_review_decision_scaffold_summary.json",
+    "vanderbilt_candidate_review_scaffold_verification": ARTIFACTS
+    / "vanderbilt_candidate_review_scaffold_verification_summary.json",
 }
 
 
@@ -87,6 +91,8 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "parser_output_rows",
         "candidate_fingerprint_rows",
         "review_queue_rows",
+        "decision_scaffold_rows",
+        "manual_decision_template_rows",
         "total_candidate_entity_count",
         "pass_rows",
         "fail_rows",
@@ -123,8 +129,30 @@ def main() -> None:
     vanderbilt_candidate_verification_summary = summaries["vanderbilt_candidate_parser_output_verification"]
     vanderbilt_review_queue_approval_summary = summaries["vanderbilt_candidate_review_queue_approval_packet"]
     vanderbilt_review_queue_summary = summaries["vanderbilt_candidate_review_queues"]
+    vanderbilt_review_scaffold_summary = summaries["vanderbilt_candidate_review_decision_scaffold"]
+    vanderbilt_review_scaffold_verification_summary = summaries["vanderbilt_candidate_review_scaffold_verification"]
     parser_scope_status = vanderbilt_parser_scope_packet_summary.get("gbrain_approval_status", "")
-    if vanderbilt_review_queue_summary.get("rowset_sha256"):
+    if vanderbilt_review_scaffold_verification_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_non_mutating_manual_review_decisions"
+        parser_scope_next_action = (
+            "Use the verified Vanderbilt reviewer decision scaffold and blank manual decision template for "
+            "non-mutating candidate/scope/recourse review. Any accepted person rows, denominator closure, or "
+            "identity reconciliation still requires a later exact approval packet."
+        )
+        parser_scope_source_artifact = vanderbilt_review_scaffold_summary.get(
+            "csv", "artifacts/data/vanderbilt_candidate_review_decision_scaffold.csv"
+        )
+        parser_scope_rowset = vanderbilt_review_scaffold_summary.get("rowset_sha256", "")
+    elif vanderbilt_review_scaffold_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_non_mutating_review_scaffold_verification"
+        parser_scope_next_action = (
+            "Verify the Vanderbilt candidate review decision scaffold before any manual decisions are entered."
+        )
+        parser_scope_source_artifact = vanderbilt_review_scaffold_summary.get(
+            "csv", "artifacts/data/vanderbilt_candidate_review_decision_scaffold.csv"
+        )
+        parser_scope_rowset = vanderbilt_review_scaffold_summary.get("rowset_sha256", "")
+    elif vanderbilt_review_queue_summary.get("rowset_sha256"):
         parser_scope_lane_status = "ready_non_mutating_candidate_review_queue_execution"
         parser_scope_next_action = (
             "Execute Vanderbilt candidate fingerprint, linked-scope, and route-recourse review queues. Reviewer "
@@ -341,6 +369,27 @@ def main() -> None:
             ),
             "candidate_review_queue_rows": vanderbilt_review_queue_summary.get("review_queue_rows", 0),
             "candidate_review_queue_rowset_sha256": vanderbilt_review_queue_summary.get("rowset_sha256", ""),
+            "candidate_review_decision_scaffold_rows": vanderbilt_review_scaffold_summary.get(
+                "decision_scaffold_rows", 0
+            ),
+            "candidate_review_manual_decision_template_rows": vanderbilt_review_scaffold_summary.get(
+                "manual_decision_template_rows", 0
+            ),
+            "candidate_review_decision_scaffold_rowset_sha256": vanderbilt_review_scaffold_summary.get(
+                "rowset_sha256", ""
+            ),
+            "candidate_review_scaffold_verification_rows": vanderbilt_review_scaffold_verification_summary.get(
+                "verification_rows", 0
+            ),
+            "candidate_review_scaffold_verification_pass_rows": vanderbilt_review_scaffold_verification_summary.get(
+                "pass_rows", 0
+            ),
+            "candidate_review_scaffold_verification_fail_rows": vanderbilt_review_scaffold_verification_summary.get(
+                "fail_rows", 0
+            ),
+            "candidate_review_scaffold_verification_rowset_sha256": vanderbilt_review_scaffold_verification_summary.get(
+                "rowset_sha256", ""
+            ),
         },
         "mutation_allowed": False,
         "not_approved": [
