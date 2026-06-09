@@ -34,6 +34,7 @@ EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET = "18619a07cc9bf02fba3cf898dc3d21252b2
 EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
+EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -267,6 +268,12 @@ def main() -> None:
     )
     gap_review_template_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_review_template.csv")
     gap_review_template_json = read_json(ARTIFACTS / "school_gap_resolution_review_template.json")
+    gap_targeted_review_packet_summary = read_json(ARTIFACTS / "school_gap_resolution_targeted_review_packet_summary.json")
+    gap_targeted_review_packet_validation = read_json(
+        ARTIFACTS / "school_gap_resolution_targeted_review_packet_validation_summary.json"
+    )
+    gap_targeted_review_packet_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_targeted_review_packet.csv")
+    gap_targeted_review_packet_json = read_json(ARTIFACTS / "school_gap_resolution_targeted_review_packet.json")
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
@@ -303,6 +310,8 @@ def main() -> None:
             gap_slice_summary,
             gap_review_template_summary,
             gap_review_template_validation,
+            gap_targeted_review_packet_summary,
+            gap_targeted_review_packet_validation,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
@@ -314,6 +323,7 @@ def main() -> None:
         or not isinstance(slice_index_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
+        or not isinstance(gap_targeted_review_packet_json, list)
     ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
@@ -800,6 +810,71 @@ def main() -> None:
         },
         {"summary": "artifacts/data/school_gap_resolution_review_template_validation_summary.json"},
     )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_gap_targeted_review_packet_boundary",
+        gap_targeted_review_packet_summary.get("rowset_sha256") == EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET
+        and gap_targeted_review_packet_summary.get("review_packet_rows") == 113
+        and gap_targeted_review_packet_summary.get("filled_review_rows") == 19
+        and gap_targeted_review_packet_summary.get("blank_review_rows") == 94
+        and gap_targeted_review_packet_summary.get("target_gap_rows") == 19
+        and gap_targeted_review_packet_summary.get("source_template_rowset_sha256") == EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET
+        and gap_targeted_review_packet_summary.get("mutation_allowed") is False
+        and len(gap_targeted_review_packet_csv) == 113
+        and len(gap_targeted_review_packet_json) == 113,
+        {
+            "rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
+            "review_packet_rows": 113,
+            "filled_review_rows": 19,
+            "blank_review_rows": 94,
+            "target_gap_rows": 19,
+            "source_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
+            "mutation_allowed": False,
+            "csv_rows": 113,
+            "json_rows": 113,
+        },
+        {
+            "rowset_sha256": gap_targeted_review_packet_summary.get("rowset_sha256"),
+            "review_packet_rows": gap_targeted_review_packet_summary.get("review_packet_rows"),
+            "filled_review_rows": gap_targeted_review_packet_summary.get("filled_review_rows"),
+            "blank_review_rows": gap_targeted_review_packet_summary.get("blank_review_rows"),
+            "target_gap_rows": gap_targeted_review_packet_summary.get("target_gap_rows"),
+            "source_template_rowset_sha256": gap_targeted_review_packet_summary.get("source_template_rowset_sha256"),
+            "mutation_allowed": gap_targeted_review_packet_summary.get("mutation_allowed"),
+            "csv_rows": len(gap_targeted_review_packet_csv),
+            "json_rows": len(gap_targeted_review_packet_json),
+        },
+        {"summary": "artifacts/data/school_gap_resolution_targeted_review_packet_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_gap_targeted_review_packet_validation_boundary",
+        gap_targeted_review_packet_validation.get("rowset_sha256") == EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET
+        and gap_targeted_review_packet_validation.get("template_rows") == 113
+        and gap_targeted_review_packet_validation.get("pending_rows") == 94
+        and gap_targeted_review_packet_validation.get("valid_non_mutating_rows") == 19
+        and gap_targeted_review_packet_validation.get("invalid_rows") == 0
+        and gap_targeted_review_packet_validation.get("mutation_allowed") is False,
+        {
+            "rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
+            "template_rows": 113,
+            "pending_rows": 94,
+            "valid_non_mutating_rows": 19,
+            "invalid_rows": 0,
+            "mutation_allowed": False,
+        },
+        {
+            "rowset_sha256": gap_targeted_review_packet_validation.get("rowset_sha256"),
+            "template_rows": gap_targeted_review_packet_validation.get("template_rows"),
+            "pending_rows": gap_targeted_review_packet_validation.get("pending_rows"),
+            "valid_non_mutating_rows": gap_targeted_review_packet_validation.get("valid_non_mutating_rows"),
+            "invalid_rows": gap_targeted_review_packet_validation.get("invalid_rows"),
+            "mutation_allowed": gap_targeted_review_packet_validation.get("mutation_allowed"),
+        },
+        {"summary": "artifacts/data/school_gap_resolution_targeted_review_packet_validation_summary.json"},
+    )
     leak_hits = batch_packet_leak_hits(
         [
             ARTIFACTS / "vanderbilt_candidate_review_batch_packets.csv",
@@ -844,6 +919,11 @@ def main() -> None:
             ARTIFACTS / "school_gap_resolution_review_template_summary.json",
             ARTIFACTS / "school_gap_resolution_review_template_validation_summary.json",
             RESEARCH / "school-gap-resolution-review-template-2026-06-09.md",
+            ARTIFACTS / "school_gap_resolution_targeted_review_packet.csv",
+            ARTIFACTS / "school_gap_resolution_targeted_review_packet.json",
+            ARTIFACTS / "school_gap_resolution_targeted_review_packet_summary.json",
+            ARTIFACTS / "school_gap_resolution_targeted_review_packet_validation_summary.json",
+            RESEARCH / "school-gap-resolution-targeted-review-packet-2026-06-09.md",
         ]
     )
     add_check(
@@ -853,7 +933,7 @@ def main() -> None:
         not gap_private_hits,
         [],
         gap_private_hits,
-        {"scanned_outputs": 9, "scan": "private_artifact_path_markers"},
+        {"scanned_outputs": 14, "scan": "private_artifact_path_markers"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -1016,12 +1096,15 @@ def main() -> None:
         "vanderbilt_gap_review_template_guard_present",
         gap_review_template_guard_present
         and gap_review_template_validator_guard_present
+        and "materialize_school_gap_resolution_targeted_review_packet.py" in readme_text
         and "materialize_school_gap_resolution_review_template.py" in readme_text
         and "validate_school_gap_resolution_review_template.py" in readme_text,
-        {"materializer_guard": True, "validator_guard": True, "readme_documented": True},
+        {"materializer_guard": True, "validator_guard": True, "targeted_packet_readme_documented": True},
         {
             "materializer_guard": gap_review_template_guard_present,
             "validator_guard": gap_review_template_validator_guard_present,
+            "targeted_packet_readme_documented": "materialize_school_gap_resolution_targeted_review_packet.py"
+            in readme_text,
             "materializer_readme_documented": "materialize_school_gap_resolution_review_template.py" in readme_text,
             "validator_readme_documented": "validate_school_gap_resolution_review_template.py" in readme_text,
         },
@@ -1070,6 +1153,7 @@ def main() -> None:
         "vanderbilt_workbook_slice_index_rowset_sha256": EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
+        "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,
