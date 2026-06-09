@@ -26,15 +26,16 @@ EXPECTED_PRIORITY_HANDOFF_ROWSET = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f3
 EXPECTED_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
 EXPECTED_TRIAGE_CONTRACT_ROWSET = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
 EXPECTED_SLICE_2_EXECUTION_PLAN_ROWSET = "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "a14a59c7317f58f176406ef8052bca926c075ec5cf550dd469dd31572d331624"
-EXPECTED_WORKLIST_ROWSET = "240f8d2603f7f31646c3f08c2d629337fc3120355095245c77307a0ce6a7da93"
-EXPECTED_WORKLIST_VERIFICATION_ROWSET = "54ccd6065ba475a9f399ba28ad61d6f20e0d32c29f1f3dc67898f995ed16b372"
+EXPECTED_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET = "98961c203962855aa7ebc7c31c4396b3ad231e166b71cf2a465e4fa474d6bc2d"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "0e545a2de5016c016c8e32322a5b7bcf44d03bdcc53bf34f930f73b9521e4705"
+EXPECTED_WORKLIST_ROWSET = "9391f8a6da0b2b379e8b90af142ed3aa21d5431e7ac1cc254ab23893627e0320"
+EXPECTED_WORKLIST_VERIFICATION_ROWSET = "5352feb913c7b4b0e53f3fd10dee7a7196ae852bb8b8c2f2f31d42ab2b98602b"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_substrate_check_contract_non_mutating_increment"
 
 MUTATION_POLICY = (
     "Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed "
-    "synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, public clone verification, contributor worklist, "
+    "synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, public clone verification, contributor worklist, "
     "worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill "
     "reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a "
     "school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities."
@@ -137,18 +138,40 @@ COMMANDS = [
         },
     ),
     (
+        "slice_2_live_fetch_approval_request_packet",
+        [sys.executable, "scripts/materialize_vanderbilt_slice_2_live_fetch_approval_request_packet.py"],
+        ARTIFACTS / "vanderbilt_slice_2_live_fetch_approval_request_packet_summary.json",
+        EXPECTED_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET,
+        {
+            "approval_request_rows": 9,
+            "source_plan_rows": 9,
+            "triage_order": 2,
+            "execution_order": 1,
+            "source_execution_plan_rowset_sha256": EXPECTED_SLICE_2_EXECUTION_PLAN_ROWSET,
+            "gbrain_approval_status": "pending_exact_gbrain_approval",
+            "web_fetch_allowed": False,
+            "web_fetch_executed": False,
+            "future_web_fetch_requested": True,
+            "accepted_person_rows": 0,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+        },
+    ),
+    (
         "public_clone_verification",
         [sys.executable, "scripts/materialize_top50_public_clone_verification.py"],
         ARTIFACTS / "top50_public_clone_verification_summary.json",
         EXPECTED_CLONE_VERIFICATION_ROWSET,
-        {"pass_rows": 48, "fail_rows": 0, "verification_rows": 48},
+        {"pass_rows": 49, "fail_rows": 0, "verification_rows": 49},
     ),
     (
         "public_contributor_worklist",
         [sys.executable, "scripts/materialize_top50_public_contributor_worklist.py"],
         ARTIFACTS / "top50_public_contributor_worklist_summary.json",
         EXPECTED_WORKLIST_ROWSET,
-        {"worklist_rows": 6, "total_impact_count": 490},
+        {"worklist_rows": 7, "total_impact_count": 500},
     ),
     (
         "public_contributor_worklist_verification",
@@ -378,6 +401,7 @@ def main() -> None:
         "source_open_gap_triage_rowset_sha256": EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
         "source_triage_contract_rowset_sha256": EXPECTED_TRIAGE_CONTRACT_ROWSET,
         "source_slice_2_execution_plan_rowset_sha256": EXPECTED_SLICE_2_EXECUTION_PLAN_ROWSET,
+        "source_slice_2_live_fetch_approval_request_rowset_sha256": EXPECTED_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET,
         "source_clone_verification_rowset_sha256": EXPECTED_CLONE_VERIFICATION_ROWSET,
         "source_worklist_rowset_sha256": EXPECTED_WORKLIST_ROWSET,
         "source_worklist_verification_rowset_sha256": EXPECTED_WORKLIST_VERIFICATION_ROWSET,

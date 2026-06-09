@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Triage Slice Definition Contract
-created_at: 2026-06-09T10:20:34.238103+00:00
+created_at: 2026-06-09T10:31:37.708502+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -27,7 +27,7 @@ Non-mutating Vanderbilt open-gap manifest triage packet. It ranks the committed 
   "denominator_closure_allowed": false,
   "gap_rows_represented": 113,
   "gbrain_advisory_effect": "gbrain_selected_vanderbilt_open_gap_manifest_triage_packet_option_b",
-  "generated_at": "2026-06-09T10:20:34.238103+00:00",
+  "generated_at": "2026-06-09T10:31:37.708502+00:00",
   "identity_collapse_allowed": false,
   "json": "artifacts/data/vanderbilt_triage_slice_definition_contract.json",
   "markdown": "artifacts/research/vanderbilt-triage-slice-definition-contract-2026-06-09.md",
