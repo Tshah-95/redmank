@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Public Reviewer Operator Packets
-created_at: 2026-06-09T06:29:54.221079+00:00
+created_at: 2026-06-09T06:36:39.298002+00:00
 project: top-50-medical-school-roster-engine
 school: Vanderbilt University School of Medicine
 ---
@@ -28,7 +28,7 @@ Public-safe Vanderbilt reviewer operator packets. They are a non-mutating runboo
   "csv": "artifacts/data/vanderbilt_public_reviewer_operator_packets.csv",
   "decision_row_count": 159,
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T06:29:54.221079+00:00",
+  "generated_at": "2026-06-09T06:36:39.298002+00:00",
   "invalid_decision_rows": 0,
   "json": "artifacts/data/vanderbilt_public_reviewer_operator_packets.json",
   "manual_decisions_csv": "artifacts/data/vanderbilt_candidate_reviewer_decisions.csv",

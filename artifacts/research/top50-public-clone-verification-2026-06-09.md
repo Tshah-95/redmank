@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Clone Verification
-created_at: 2026-06-09T06:29:54.283919+00:00
+created_at: 2026-06-09T06:36:39.357524+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -20,22 +20,22 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
   "fail_rows": 0,
   "gbrain_approval_line": "APPROVE top50_public_clone_verification_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_clone_verification_lane",
-  "generated_at": "2026-06-09T06:29:54.283919+00:00",
+  "generated_at": "2026-06-09T06:36:39.357524+00:00",
   "json": "artifacts/data/top50_public_clone_verification.json",
   "markdown": "artifacts/research/top50-public-clone-verification-2026-06-09.md",
   "mutation_allowed": false,
-  "pass_rows": 14,
+  "pass_rows": 15,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public clone verification for the top-50/Vanderbilt operating substrate. It reads committed public-safe summaries, packets, README policy, and script guards. It does not fetch web pages, call GBrain, regenerate scratch-dependent manifests, approve person ingestion, close denominators, verify schools, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
   "raw_browser_dumps_committed": false,
   "raw_debug_databases_committed": false,
   "raw_gbrain_responses_committed": false,
-  "rowset_sha256": "1056abc4a0d52b01aea33e74c312c0d143881b126bdfe2edbc49357845d8a7bd",
+  "rowset_sha256": "bdcaa0de410067958596849ebb9d09c7325846b10f9feae89f7323788621e3a9",
   "top50_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
   "vanderbilt_gap_manifest_rows": 113,
   "vanderbilt_operator_packet_rowset_sha256": "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173",
-  "verification_rows": 14
+  "verification_rows": 15
 }
 ```
 
@@ -56,4 +56,5 @@ Non-mutating public clone verification for the top-50/Vanderbilt operating subst
 | private_artifact_paths_not_committed | pass | `[]` |
 | private_artifact_patterns_ignored | pass | `{".playwright-mcp/":true,"artifacts/data/browser_page_dumps/":true,"artifacts/data/debug_*.sqlite":true,"artifacts/data/gbrain_*_http_mcp_response.json":true,"artifacts/data/raw/":true,"inbox/":true,"reports/":true}` |
 | gap_manifest_empty_output_guard_present | pass | `{"readme_override_documented":true,"script_guard":true}` |
+| vanderbilt_reviewer_patch_helper_guard_present | pass | `{"readme_documented":true,"script_guard":true}` |
 | gbrain_public_clone_verification_lane_approved | pass | `"APPROVE top50_public_clone_verification_lane_approved"` |

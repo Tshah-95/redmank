@@ -31,7 +31,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "1056abc4a0d52b01aea33e74c312c0d143881b126bdfe2edbc49357845d8a7bd"
+VERIFICATION_ROWSET_SHA256 = "bdcaa0de410067958596849ebb9d09c7325846b10f9feae89f7323788621e3a9"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -313,7 +313,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="14 verification rows pass and fail_rows remains 0.",
+            success_condition="15 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -342,7 +342,8 @@ def main() -> None:
             ),
             recommended_next_action=(
                 "Work one public-safe operator packet at a time, enter only non-mutating decisions in the reviewer "
-                "decision template, then rerun the decision audit, batch-packet materializer, and operator-packet materializer."
+                "decision template, optionally through scripts/apply_vanderbilt_reviewer_decision_patch.py, then rerun "
+                "the decision audit, batch-packet materializer, and operator-packet materializer."
             ),
             verification_command=(
                 "python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && "

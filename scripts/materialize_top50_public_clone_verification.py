@@ -230,6 +230,9 @@ def main() -> None:
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
     )
+    reviewer_patch_script_text = (ROOT / "scripts" / "apply_vanderbilt_reviewer_decision_patch.py").read_text(
+        encoding="utf-8"
+    )
 
     if not all(
         isinstance(item, dict)
@@ -502,6 +505,29 @@ def main() -> None:
         {"script_guard": True, "readme_override_documented": True},
         {"script_guard": guard_present, "readme_override_documented": "ALLOW_EMPTY_GAP_MANIFEST=1" in readme_text},
         {"script": "scripts/materialize_school_gap_resolution_manifest.py", "readme": "README.md"},
+    )
+    patch_helper_guard_present = all(
+        token in reviewer_patch_script_text
+        for token in [
+            "--apply",
+            "valid_non_mutating",
+            "audit.audit_decision",
+            "person_ingestion_allowed",
+            "denominator_closure_allowed",
+            "accepted_person_rows",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_patch_helper_guard_present",
+        patch_helper_guard_present and "apply_vanderbilt_reviewer_decision_patch.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": patch_helper_guard_present,
+            "readme_documented": "apply_vanderbilt_reviewer_decision_patch.py" in readme_text,
+        },
+        {"script": "scripts/apply_vanderbilt_reviewer_decision_patch.py", "readme": "README.md"},
     )
     add_check(
         checks,

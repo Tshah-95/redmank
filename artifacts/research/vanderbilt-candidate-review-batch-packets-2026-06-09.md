@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Candidate Review Batch Packets
-created_at: 2026-06-09T06:29:54.193194+00:00
+created_at: 2026-06-09T06:36:39.270330+00:00
 project: top-50-medical-school-roster-engine
 school: Vanderbilt University School of Medicine
 ---
@@ -31,7 +31,7 @@ Non-mutating Vanderbilt candidate reviewer batch packets. They group hash-only c
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE vanderbilt_candidate_review_packet_materialization_non_mutating_approved",
   "gbrain_approval_status": "approved_non_mutating_batch_packet_materialization",
-  "generated_at": "2026-06-09T06:29:54.193194+00:00",
+  "generated_at": "2026-06-09T06:36:39.270330+00:00",
   "invalid_decision_rows": 0,
   "json": "artifacts/data/vanderbilt_candidate_review_batch_packets.json",
   "manual_decisions_csv": "artifacts/data/vanderbilt_candidate_reviewer_decisions.csv",

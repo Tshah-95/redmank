@@ -70,6 +70,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py`: reproducible verifier for manual Vanderbilt reviewer decisions against allowed actions, current decision fingerprints, confirmation fields, raw-note safety, and mutation prohibitions.
 - `scripts/materialize_vanderbilt_candidate_review_batch_packets.py`: reproducible materializer for bounded Vanderbilt reviewer batch packets/dossiers derived from the audited manual decision template.
 - `scripts/materialize_vanderbilt_public_reviewer_operator_packets.py`: reproducible public-safe operator runbook over the Vanderbilt reviewer batch packets; it fails if required confirmation columns are missing from the blank manual decision template.
+- `scripts/apply_vanderbilt_reviewer_decision_patch.py`: dry-run-by-default helper for validating and optionally applying public-safe reviewer decision patches; it only accepts audit-valid non-mutating decisions and never accepts people or closes denominators.
 
 ## Current Penn Outputs
 
