@@ -1,0 +1,27 @@
+{
+  "by_approved_next_artifact_lane": {
+    "general_surgery_rendered_parser_scope_packet": 1,
+    "linked_route_scope_disposition_packet": 3,
+    "route_retry_or_recourse_packet": 1,
+    "source_specific_parser_build_review_packet": 15
+  },
+  "by_next_packet_status": {
+    "approved_non_mutating_general_surgery_rendered_review_packet_ready": 1,
+    "approved_non_mutating_parser_build_review_packet_ready": 15,
+    "approved_non_mutating_route_recourse_packet_ready": 1,
+    "approved_non_mutating_scope_disposition_packet_ready": 3
+  },
+  "csv": "artifacts/data/vanderbilt_approved_parser_scope_next_packets.csv",
+  "gbrain_approval_line": "APPROVE vanderbilt_targeted_route_observation_parser_scope_packet_approved PACKET_ROWS 20 PARSER_BUILD_REVIEW_ROWS 15 SCOPE_DISPOSITION_ROWS 3 GENERAL_SURGERY_ROWS 1 RECOURSE_ROWS 1 ROWSET_SHA256 9037a83b5ca96458e9a88f99dec1a13ee46e3ba8a4426bc5fd7a8c13e62e4fc3",
+  "generated_at": "2026-06-09T04:52:32.693253+00:00",
+  "json": "artifacts/data/vanderbilt_approved_parser_scope_next_packets.json",
+  "markdown": "artifacts/research/vanderbilt-approved-parser-scope-next-packets-2026-06-09.md",
+  "mutation_allowed": false,
+  "next_packet_rows": 20,
+  "policy": "Approved non-mutating Vanderbilt parser/scope next-packet lane. The exact GBrain approval allows only source-specific parser-build review packets, linked-route scope-disposition packets, a General Surgery rendered-review packet, and route retry/recourse handling. It does not approve parser output as people, person ingestion, training-state mutation, denominator closure, Vanderbilt school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
+  "rowset_sha256": "098c0a813eb577552b46e9454fbf2e9088bcee228d0aa678827439eba082e261",
+  "source_parser_scope_packet": "artifacts/data/vanderbilt_targeted_route_parser_scope_packet.json",
+  "source_parser_scope_packet_rows": 20,
+  "source_parser_scope_packet_rowset_sha256": "9037a83b5ca96458e9a88f99dec1a13ee46e3ba8a4426bc5fd7a8c13e62e4fc3",
+  "source_parser_scope_packet_summary": "artifacts/data/vanderbilt_targeted_route_parser_scope_packet_summary.json"
+}

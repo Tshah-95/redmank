@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Engine Operating Snapshot
-created_at: 2026-06-09T04:29:35.698523+00:00
+created_at: 2026-06-09T04:53:20.678859+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -28,7 +28,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "rowset_sha256": "6650a69e4efa5a0715fc7ec5c7ddbd1a4cc35e891cd6d90896598887a2a7d41f",
+  "rowset_sha256": "392460e6ceca1d02aac6ad04dbbeffb1ff833e631938fe06f488300ddfea3199",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -48,6 +48,8 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
     "target_count": 50
   },
   "vanderbilt_targeted_parser_scope": {
+    "approved_next_packet_rows": 20,
+    "approved_next_packet_rowset_sha256": "098c0a813eb577552b46e9454fbf2e9088bcee228d0aa678827439eba082e261",
     "execution_workbench_rows": 20,
     "execution_workbench_rowset_sha256": "b9f7addcc552747c3b0d12459d5055efd60a08d610996aeeeff0a8ea095b2f3b",
     "execution_workbench_unique_fetch_urls": 16,
@@ -55,7 +57,13 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
     "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
     "route_observation_rows": 20,
     "route_observation_rowset_sha256": "f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258",
-    "route_observation_unique_urls": 16
+    "route_observation_unique_urls": 16,
+    "route_parser_scope_packet_gbrain_status": "approved_exact_non_mutating_next_artifact_lane",
+    "route_parser_scope_packet_rows": 20,
+    "route_parser_scope_packet_rowset_sha256": "9037a83b5ca96458e9a88f99dec1a13ee46e3ba8a4426bc5fd7a8c13e62e4fc3",
+    "route_parser_scope_verification_gbrain_status": "approved_exact_verification_registration",
+    "route_parser_scope_verification_rows": 7,
+    "route_parser_scope_verification_rowset_sha256": "fb95acaa555f304beb7875fc13209dc1dd4beec8118cc324c87d09c48baca7f5"
   }
 }
 ```
@@ -64,5 +72,5 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
 
 | lane | status | artifact | rowset | next action |
 | --- | --- | --- | --- | --- |
-| vanderbilt_targeted_route_observation_review | ready_non_mutating_parser_acceptance_or_scope_disposition_packet_design | artifacts/data/vanderbilt_targeted_route_observations.csv | f547a298bf0efdaba630aa9d184ecd85979d0356039bbbd92d3c2fd026745258 | Use the route-observation ledger to build exact parser-acceptance, scope-disposition, or recourse approval packets. Do not accept parsers, ingest people, rewrite URLs, or close denominators without exact GBrain approval. |
+| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_non_mutating_parser_build_scope_and_recourse_execution | artifacts/data/vanderbilt_approved_parser_scope_next_packets.csv | 098c0a813eb577552b46e9454fbf2e9088bcee228d0aa678827439eba082e261 | Use the approved next-packet ledger to execute source-specific parser-build review, linked-route scope disposition, General Surgery rendered review, and route recourse work. Keep all outputs candidate-only until a later exact person-ingestion/denominator approval exists. |
 | vanderbilt_active_gap_resolution_manifest | active_non_mutating_discovery_queue | artifacts/data/school_gap_resolution_manifest.csv |  | Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work. |

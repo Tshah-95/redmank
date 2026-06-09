@@ -30,6 +30,12 @@ SUMMARY_FILES = {
     "vanderbilt_parser_scope_execution_workbench": ARTIFACTS
     / "vanderbilt_targeted_parser_scope_execution_workbench_summary.json",
     "vanderbilt_targeted_route_observations": ARTIFACTS / "vanderbilt_targeted_route_observation_summary.json",
+    "vanderbilt_targeted_route_parser_scope_packet": ARTIFACTS
+    / "vanderbilt_targeted_route_parser_scope_packet_summary.json",
+    "vanderbilt_route_parser_scope_verification_packet": ARTIFACTS
+    / "vanderbilt_route_parser_scope_verification_packet_summary.json",
+    "vanderbilt_approved_parser_scope_next_packets": ARTIFACTS
+    / "vanderbilt_approved_parser_scope_next_packet_summary.json",
 }
 
 
@@ -62,9 +68,13 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "unique_fetch_urls",
         "observation_rows",
         "unique_observed_urls",
+        "packet_rows",
+        "verification_rows",
+        "next_packet_rows",
         "mutation_allowed",
         "gbrain_approval_verified",
         "gbrain_registration_status",
+        "gbrain_approval_status",
         "gbrain_strategy_effect",
     ]
     return {
@@ -85,20 +95,62 @@ def main() -> None:
     vanderbilt_parser_summary = summaries["vanderbilt_parser_scope_review"]
     vanderbilt_execution_summary = summaries["vanderbilt_parser_scope_execution_workbench"]
     vanderbilt_route_summary = summaries["vanderbilt_targeted_route_observations"]
+    vanderbilt_parser_scope_packet_summary = summaries["vanderbilt_targeted_route_parser_scope_packet"]
+    vanderbilt_verification_summary = summaries["vanderbilt_route_parser_scope_verification_packet"]
+    vanderbilt_next_packet_summary = summaries["vanderbilt_approved_parser_scope_next_packets"]
+    parser_scope_status = vanderbilt_parser_scope_packet_summary.get("gbrain_approval_status", "")
+    if vanderbilt_next_packet_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_non_mutating_parser_build_scope_and_recourse_execution"
+        parser_scope_next_action = (
+            "Use the approved next-packet ledger to execute source-specific parser-build review, linked-route "
+            "scope disposition, General Surgery rendered review, and route recourse work. Keep all outputs "
+            "candidate-only until a later exact person-ingestion/denominator approval exists."
+        )
+        parser_scope_source_artifact = vanderbilt_next_packet_summary.get(
+            "csv", "artifacts/data/vanderbilt_approved_parser_scope_next_packets.csv"
+        )
+        parser_scope_rowset = vanderbilt_next_packet_summary.get("rowset_sha256", "")
+    elif parser_scope_status == "denied_needs_verification_documentation":
+        parser_scope_lane_status = "denied_needs_verification_documentation"
+        parser_scope_next_action = (
+            "Build verification documentation/registration for the exact route parser/scope packet artifact and "
+            "rowset, then resubmit the same non-mutating approval boundary. Do not build parser-acceptance "
+            "artifacts while denied."
+        )
+        parser_scope_source_artifact = vanderbilt_parser_scope_packet_summary.get(
+            "csv", "artifacts/data/vanderbilt_targeted_route_parser_scope_packet.csv"
+        )
+        parser_scope_rowset = vanderbilt_parser_scope_packet_summary.get("rowset_sha256", "")
+    elif parser_scope_status == "approved_exact_non_mutating_next_artifact_lane":
+        parser_scope_lane_status = "approved_non_mutating_next_artifacts_ready"
+        parser_scope_next_action = (
+            "Materialize the approved non-mutating source-specific parser-build review packets, linked-route "
+            "scope-disposition packets, General Surgery rendered-review packet, and route retry/recourse packet. "
+            "Do not ingest people, accept parser output as people, rewrite URLs, or close denominators."
+        )
+        parser_scope_source_artifact = vanderbilt_parser_scope_packet_summary.get(
+            "csv", "artifacts/data/vanderbilt_targeted_route_parser_scope_packet.csv"
+        )
+        parser_scope_rowset = vanderbilt_parser_scope_packet_summary.get("rowset_sha256", "")
+    else:
+        parser_scope_lane_status = str(parser_scope_status or "pending_exact_gbrain_approval_line")
+        parser_scope_next_action = (
+            "Submit the exact parser/scope packet to GBrain. If approved, build only the named non-mutating "
+            "parser-build, scope-disposition, General Surgery rendered-review, and recourse artifacts. Do not "
+            "ingest people, rewrite URLs, or close denominators without a later exact approval."
+        )
+        parser_scope_source_artifact = vanderbilt_parser_scope_packet_summary.get(
+            "csv", "artifacts/data/vanderbilt_targeted_route_parser_scope_packet.csv"
+        )
+        parser_scope_rowset = vanderbilt_parser_scope_packet_summary.get("rowset_sha256", "")
 
     next_lanes = [
         {
-            "lane": "vanderbilt_targeted_route_observation_review",
-            "status": "ready_non_mutating_parser_acceptance_or_scope_disposition_packet_design",
-            "source_artifact": vanderbilt_route_summary.get(
-                "csv", "artifacts/data/vanderbilt_targeted_route_observations.csv"
-            ),
-            "rowset_sha256": vanderbilt_route_summary.get("rowset_sha256", ""),
-            "recommended_next_action": (
-                "Use the route-observation ledger to build exact parser-acceptance, scope-disposition, or recourse "
-                "approval packets. Do not accept parsers, ingest people, rewrite URLs, or close denominators "
-                "without exact GBrain approval."
-            ),
+            "lane": "vanderbilt_targeted_route_parser_scope_gbrain_approval",
+            "status": parser_scope_lane_status,
+            "source_artifact": parser_scope_source_artifact,
+            "rowset_sha256": parser_scope_rowset,
+            "recommended_next_action": parser_scope_next_action,
         },
         {
             "lane": "vanderbilt_active_gap_resolution_manifest",
@@ -148,6 +200,18 @@ def main() -> None:
             "route_observation_rows": vanderbilt_route_summary.get("observation_rows", 0),
             "route_observation_unique_urls": vanderbilt_route_summary.get("unique_observed_urls", 0),
             "route_observation_rowset_sha256": vanderbilt_route_summary.get("rowset_sha256", ""),
+            "route_parser_scope_packet_rows": vanderbilt_parser_scope_packet_summary.get("packet_rows", 0),
+            "route_parser_scope_packet_rowset_sha256": vanderbilt_parser_scope_packet_summary.get("rowset_sha256", ""),
+            "route_parser_scope_packet_gbrain_status": vanderbilt_parser_scope_packet_summary.get(
+                "gbrain_approval_status", ""
+            ),
+            "route_parser_scope_verification_rows": vanderbilt_verification_summary.get("verification_rows", 0),
+            "route_parser_scope_verification_rowset_sha256": vanderbilt_verification_summary.get("rowset_sha256", ""),
+            "route_parser_scope_verification_gbrain_status": vanderbilt_verification_summary.get(
+                "gbrain_registration_status", ""
+            ),
+            "approved_next_packet_rows": vanderbilt_next_packet_summary.get("next_packet_rows", 0),
+            "approved_next_packet_rowset_sha256": vanderbilt_next_packet_summary.get("rowset_sha256", ""),
         },
         "mutation_allowed": False,
         "not_approved": [

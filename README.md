@@ -27,11 +27,17 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_targeted_parser_scope_review_packet_summary.json`: non-mutating parser/scope review packet derived from the targeted Vanderbilt workbench.
 - `artifacts/data/vanderbilt_targeted_parser_scope_execution_workbench_summary.json`: non-mutating execution queue for the 20 Vanderbilt parser/scope rows, routing them to linked-route fetch, rendered review, parser-test design, scope disposition, or recourse packets without accepting people or closing denominators.
 - `artifacts/data/vanderbilt_targeted_route_observation_summary.json`: public-safe fetch observation ledger for the Vanderbilt execution queue, storing route status, final URLs, hashes, title/heading signal booleans, and coarse roster signals without raw dumps or accepted people.
+- `artifacts/data/vanderbilt_targeted_route_parser_scope_packet_summary.json`: exact GBrain approval-request packet for advancing observed Vanderbilt routes into parser-build review, linked-scope disposition, General Surgery rendered review, or recourse handling.
+- `artifacts/data/vanderbilt_route_parser_scope_verification_packet_summary.json`: verification-registration packet for the approved Vanderbilt route parser/scope rowset, including 7/7 passing checks and the GBrain registration status.
+- `artifacts/data/vanderbilt_approved_parser_scope_next_packet_summary.json`: approved non-mutating next-packet ledger splitting Vanderbilt rows into parser-build review, linked-scope disposition, General Surgery rendered review, and recourse lanes.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_school_verification_registry.py`: reproducible materializer for the school-level verification registry.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_execution_workbench.py`: reproducible materializer for the Vanderbilt parser/scope execution workbench.
 - `scripts/fetch_vanderbilt_targeted_parser_scope_routes.py`: dependency-free public-route observer for the Vanderbilt execution workbench; it records metadata and hashes only.
+- `scripts/materialize_vanderbilt_targeted_route_parser_scope_packet.py`: reproducible materializer for the Vanderbilt route parser/scope approval-request packet.
+- `scripts/materialize_vanderbilt_route_parser_scope_verification_packet.py`: reproducible materializer for the Vanderbilt route parser/scope verification-registration packet.
+- `scripts/materialize_vanderbilt_approved_parser_scope_next_packets.py`: reproducible materializer for the approved Vanderbilt parser/scope next-packet ledger.
 
 ## Current Penn Outputs
 
