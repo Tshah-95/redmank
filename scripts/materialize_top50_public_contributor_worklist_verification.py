@@ -26,8 +26,8 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist_verification.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_verification_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-verification-2026-06-09.md"
 
-EXPECTED_WORKLIST_ROWSET = "6c58487d189dfbf69ea66ad0fd0450702151ec36be80ab79f7f542fbc7f25447"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "15368ea38b7038c28037f4b7b67e941123ee884a53dba9eb6e7fc8b7fc941948"
+EXPECTED_WORKLIST_ROWSET = "76b85a5939c2899334fe6372b895dbf1198b208a88dcedf33027064d8fb52d31"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "a93dbbaef2ae1ad30906102091611e0b6f6912ef79674815debbb1e4461a2f0f"
 EXPECTED_BATCH_PACKET_ROWSET = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 EXPECTED_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
@@ -49,6 +49,7 @@ EXPECTED_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET = "98961c203962855aa7ebc7c31c4396b3a
 EXPECTED_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET = "c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0"
 EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET = "bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672"
 EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET = "c59c9c4fe4b09f4d225676cdb12566eaeafadd1e3bc2f5049aa24745130a6362"
+EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET = "565b637a2cd4ec165139e1da96f0187d7eee50d94acc24be1d1999ae0829e1e3"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -115,6 +116,10 @@ ALLOWED_COMMANDS = {
     ),
     (
         "python3 scripts/materialize_vanderbilt_slice_2_approved_parser_scope_next_packets.py && "
+        "python3 scripts/materialize_top50_public_clone_verification.py"
+    ),
+    (
+        "python3 scripts/materialize_vanderbilt_slice_2_followup_packet_set.py && "
         "python3 scripts/materialize_top50_public_clone_verification.py"
     ),
     "python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py",
@@ -270,13 +275,13 @@ def main() -> None:
         generated_at,
         "worklist_summary_boundary",
         summary.get("rowset_sha256") == EXPECTED_WORKLIST_ROWSET
-        and summary.get("worklist_rows") == 10
-        and summary.get("total_impact_count") == 557
+        and summary.get("worklist_rows") == 11
+        and summary.get("total_impact_count") == 576
         and summary.get("mutation_allowed") is False,
         {
             "rowset_sha256": EXPECTED_WORKLIST_ROWSET,
-            "worklist_rows": 10,
-            "total_impact_count": 557,
+            "worklist_rows": 11,
+            "total_impact_count": 576,
             "mutation_allowed": False,
         },
         {
@@ -291,8 +296,8 @@ def main() -> None:
         checks,
         generated_at,
         "worklist_csv_json_counts_match",
-        len(csv_rows) == len(json_rows) == summary.get("worklist_rows") == 10,
-        {"csv_rows": 10, "json_rows": 10, "summary_rows": 10},
+        len(csv_rows) == len(json_rows) == summary.get("worklist_rows") == 11,
+        {"csv_rows": 11, "json_rows": 11, "summary_rows": 11},
         {"csv_rows": len(csv_rows), "json_rows": len(json_rows), "summary_rows": summary.get("worklist_rows")},
         {},
     )
@@ -307,6 +312,7 @@ def main() -> None:
         "vanderbilt_slice_2_live_route_observation_packet",
         "vanderbilt_slice_2_route_parser_scope_approval_packet",
         "vanderbilt_slice_2_approved_parser_scope_next_packets",
+        "vanderbilt_slice_2_followup_packet_set",
         "future_exact_approval_packet_after_valid_decisions",
     ]
     add_check(checks, generated_at, "worklist_lane_order", observed_order == expected_order, expected_order, observed_order, {})
@@ -386,6 +392,8 @@ def main() -> None:
         == EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET
         and source_rowsets.get("vanderbilt_slice_2_approved_parser_scope_next_packets")
         == EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET
+        and source_rowsets.get("vanderbilt_slice_2_followup_packet_set")
+        == EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET
         and source_rowsets.get("future_exact_approval_packet_after_valid_decisions") == EXPECTED_DECISION_AUDIT_ROWSET,
         {
             "verify_public_clone_substrate": EXPECTED_CLONE_VERIFICATION_ROWSET,
@@ -397,6 +405,7 @@ def main() -> None:
             "vanderbilt_slice_2_live_route_observation_packet": EXPECTED_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET,
             "vanderbilt_slice_2_route_parser_scope_approval_packet": EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET,
             "vanderbilt_slice_2_approved_parser_scope_next_packets": EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET,
+            "vanderbilt_slice_2_followup_packet_set": EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET,
             "future_exact_approval_packet_after_valid_decisions": EXPECTED_DECISION_AUDIT_ROWSET,
         },
         source_rowsets,
@@ -422,7 +431,9 @@ def main() -> None:
         and target_rowsets.get("vanderbilt_slice_2_route_parser_scope_approval_packet")
         == EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET
         and target_rowsets.get("vanderbilt_slice_2_approved_parser_scope_next_packets")
-        == EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET,
+        == EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET
+        and target_rowsets.get("vanderbilt_slice_2_followup_packet_set")
+        == EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET,
         {
             "verify_public_clone_substrate": EXPECTED_CLONE_VERIFICATION_ROWSET,
             "vanderbilt_bounded_manual_review_packets": EXPECTED_DECISION_AUDIT_ROWSET,
@@ -432,7 +443,8 @@ def main() -> None:
             "vanderbilt_slice_2_live_fetch_approval_request_packet": EXPECTED_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET,
             "vanderbilt_slice_2_live_route_observation_packet": EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET,
             "vanderbilt_slice_2_route_parser_scope_approval_packet": EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET,
-            "vanderbilt_slice_2_approved_parser_scope_next_packets": EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET,
+            "vanderbilt_slice_2_approved_parser_scope_next_packets": EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET,
+            "vanderbilt_slice_2_followup_packet_set": EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET,
         },
         target_rowsets,
         {},

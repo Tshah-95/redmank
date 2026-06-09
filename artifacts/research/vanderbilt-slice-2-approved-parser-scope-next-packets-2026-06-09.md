@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Slice 2 Approved Parser Scope Next Packets
-created_at: 2026-06-09T11:13:14.422925+00:00
+created_at: 2026-06-09T11:27:20.065865+00:00
 project: top-50-medical-school-roster-engine
 school: Vanderbilt University School of Medicine
 ---
@@ -37,7 +37,7 @@ Approved non-mutating Vanderbilt slice-2 parser/scope next-packet lane. The exac
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE vanderbilt_slice_2_route_parser_scope_approval_packet_approved PACKET_ROWS 18 TARGET_ROUTE_REVIEW_ROWS 5 RELATED_SCOPE_ROWS 5 BROADER_CONTEXT_RECOURSE_ROWS 4 DENOMINATOR_REDIRECT_RECOURSE_ROWS 4 SOURCE_ROWSET_SHA256 c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0 ROWSET_SHA256 bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672",
   "gbrain_approval_status": "approved_exact_non_mutating_next_packet_lane",
-  "generated_at": "2026-06-09T11:13:14.422925+00:00",
+  "generated_at": "2026-06-09T11:27:20.065865+00:00",
   "identity_collapse_allowed": false,
   "json": "artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packets.json",
   "markdown": "artifacts/research/vanderbilt-slice-2-approved-parser-scope-next-packets-2026-06-09.md",

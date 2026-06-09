@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Substrate Check Contract
-created_at: 2026-06-09T11:13:10.692510+00:00
+created_at: 2026-06-09T11:27:16.643338+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -9,7 +9,7 @@ project: top-50-medical-school-roster-engine
 
 ## Boundary
 
-Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, slice-2 live route observations, slice-2 parser/scope approval request, slice-2 approved parser/scope next-packet ledger, public clone verification, contributor worklist, worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities.
+Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, slice-2 live route observations, slice-2 parser/scope approval request, slice-2 approved parser/scope next-packet ledger, slice-2 follow-up packet set, public clone verification, contributor worklist, worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities.
 
 ## Summary
 
@@ -17,7 +17,7 @@ Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt
 {
   "accepted_person_rows": 0,
   "apply_executed": false,
-  "contract_check_rows": 14,
+  "contract_check_rows": 15,
   "csv": "artifacts/data/top50_public_substrate_check_contract.csv",
   "decision_audit_invalid_rows": 0,
   "decision_audit_pending_rows": 159,
@@ -26,28 +26,29 @@ Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt
   "fail_rows": 0,
   "gbrain_approval_line": "APPROVE top50_public_substrate_check_contract_non_mutating_increment",
   "gbrain_approval_status": "approved_non_mutating_top50_public_substrate_check_contract_increment",
-  "generated_at": "2026-06-09T11:13:10.692510+00:00",
+  "generated_at": "2026-06-09T11:27:16.643338+00:00",
   "json": "artifacts/data/top50_public_substrate_check_contract.json",
   "markdown": "artifacts/research/top50-public-substrate-check-contract-2026-06-09.md",
   "mutation_allowed": false,
-  "pass_rows": 14,
+  "pass_rows": 15,
   "person_ingestion_allowed": false,
-  "policy": "Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, slice-2 live route observations, slice-2 parser/scope approval request, slice-2 approved parser/scope next-packet ledger, public clone verification, contributor worklist, worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities.",
-  "rowset_sha256": "88d11ad4208da35a677a35bce4c1191a4d437bcb965904b77db23bcb070d71c7",
+  "policy": "Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, slice-2 live route observations, slice-2 parser/scope approval request, slice-2 approved parser/scope next-packet ledger, slice-2 follow-up packet set, public clone verification, contributor worklist, worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities.",
+  "rowset_sha256": "77af989f5d432af1d12e6a94f5944a1aaded63b96f02a19aa00ca38003525f77",
   "school_verification_allowed": false,
-  "source_clone_verification_rowset_sha256": "15368ea38b7038c28037f4b7b67e941123ee884a53dba9eb6e7fc8b7fc941948",
+  "source_clone_verification_rowset_sha256": "a93dbbaef2ae1ad30906102091611e0b6f6912ef79674815debbb1e4461a2f0f",
   "source_decision_audit_rowset_sha256": "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de",
   "source_open_gap_triage_rowset_sha256": "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391",
   "source_priority_handoff_rowset_sha256": "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0",
   "source_slice_2_approved_parser_scope_next_packet_rowset_sha256": "c59c9c4fe4b09f4d225676cdb12566eaeafadd1e3bc2f5049aa24745130a6362",
   "source_slice_2_execution_plan_rowset_sha256": "c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b",
+  "source_slice_2_followup_packet_set_rowset_sha256": "565b637a2cd4ec165139e1da96f0187d7eee50d94acc24be1d1999ae0829e1e3",
   "source_slice_2_live_fetch_approval_request_rowset_sha256": "98961c203962855aa7ebc7c31c4396b3ad231e166b71cf2a465e4fa474d6bc2d",
   "source_slice_2_live_route_observation_rowset_sha256": "c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0",
   "source_slice_2_route_parser_scope_approval_rowset_sha256": "bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672",
   "source_synthetic_handoff_rowset_sha256": "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4",
   "source_triage_contract_rowset_sha256": "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f",
-  "source_worklist_rowset_sha256": "6c58487d189dfbf69ea66ad0fd0450702151ec36be80ab79f7f542fbc7f25447",
-  "source_worklist_verification_rowset_sha256": "d498512140f0035ca03fd2dfe83cd379cfe5a31e2c3b6aaf0c44f0e34f821ace"
+  "source_worklist_rowset_sha256": "76b85a5939c2899334fe6372b895dbf1198b208a88dcedf33027064d8fb52d31",
+  "source_worklist_verification_rowset_sha256": "2f238b1f39e41c24865aa96c58272e5a9c5855dc69f110ba4c4c023cb0d2558c"
 }
 ```
 
@@ -64,8 +65,9 @@ Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt
 | 7 | slice_2_live_route_observations | pass | `python3 scripts/fetch_vanderbilt_slice_2_live_route_observations.py` |
 | 8 | slice_2_route_parser_scope_approval_packet | pass | `python3 scripts/materialize_vanderbilt_slice_2_route_parser_scope_approval_packet.py` |
 | 9 | slice_2_approved_parser_scope_next_packets | pass | `python3 scripts/materialize_vanderbilt_slice_2_approved_parser_scope_next_packets.py` |
-| 10 | public_clone_verification | pass | `python3 scripts/materialize_top50_public_clone_verification.py` |
-| 11 | public_contributor_worklist | pass | `python3 scripts/materialize_top50_public_contributor_worklist.py` |
-| 12 | public_contributor_worklist_verification | pass | `python3 scripts/materialize_top50_public_contributor_worklist_verification.py` |
-| 13 | decision_audit_pending_boundary | pass | `python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py` |
-| 14 | gap_manifest_fail_closed_assertion | pass | `python3 scripts/assert_gap_manifest_fails_closed.py` |
+| 10 | slice_2_followup_packet_set | pass | `python3 scripts/materialize_vanderbilt_slice_2_followup_packet_set.py` |
+| 11 | public_clone_verification | pass | `python3 scripts/materialize_top50_public_clone_verification.py` |
+| 12 | public_contributor_worklist | pass | `python3 scripts/materialize_top50_public_contributor_worklist.py` |
+| 13 | public_contributor_worklist_verification | pass | `python3 scripts/materialize_top50_public_contributor_worklist_verification.py` |
+| 14 | decision_audit_pending_boundary | pass | `python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py` |
+| 15 | gap_manifest_fail_closed_assertion | pass | `python3 scripts/assert_gap_manifest_fails_closed.py` |

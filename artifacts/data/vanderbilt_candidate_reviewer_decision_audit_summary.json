@@ -15,7 +15,7 @@
   },
   "csv": "artifacts/data/vanderbilt_candidate_reviewer_decision_audit.csv",
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T11:13:14.569067+00:00",
+  "generated_at": "2026-06-09T11:27:20.235488+00:00",
   "invalid_rows": 0,
   "json": "artifacts/data/vanderbilt_candidate_reviewer_decision_audit.json",
   "manual_decision_rows": 159,

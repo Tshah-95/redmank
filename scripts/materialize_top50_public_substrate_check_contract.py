@@ -30,15 +30,16 @@ EXPECTED_SLICE_2_LIVE_FETCH_APPROVAL_ROWSET = "98961c203962855aa7ebc7c31c4396b3a
 EXPECTED_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET = "c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0"
 EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET = "bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672"
 EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET = "c59c9c4fe4b09f4d225676cdb12566eaeafadd1e3bc2f5049aa24745130a6362"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "15368ea38b7038c28037f4b7b67e941123ee884a53dba9eb6e7fc8b7fc941948"
-EXPECTED_WORKLIST_ROWSET = "6c58487d189dfbf69ea66ad0fd0450702151ec36be80ab79f7f542fbc7f25447"
-EXPECTED_WORKLIST_VERIFICATION_ROWSET = "d498512140f0035ca03fd2dfe83cd379cfe5a31e2c3b6aaf0c44f0e34f821ace"
+EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET = "565b637a2cd4ec165139e1da96f0187d7eee50d94acc24be1d1999ae0829e1e3"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "a93dbbaef2ae1ad30906102091611e0b6f6912ef79674815debbb1e4461a2f0f"
+EXPECTED_WORKLIST_ROWSET = "76b85a5939c2899334fe6372b895dbf1198b208a88dcedf33027064d8fb52d31"
+EXPECTED_WORKLIST_VERIFICATION_ROWSET = "2f238b1f39e41c24865aa96c58272e5a9c5855dc69f110ba4c4c023cb0d2558c"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_substrate_check_contract_non_mutating_increment"
 
 MUTATION_POLICY = (
     "Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed "
-    "synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, slice-2 live route observations, slice-2 parser/scope approval request, slice-2 approved parser/scope next-packet ledger, public clone verification, contributor worklist, "
+    "synthetic handoff dry-run, priority handoff, open-gap triage, slice-2 execution planning, slice-2 live-fetch approval request, slice-2 live route observations, slice-2 parser/scope approval request, slice-2 approved parser/scope next-packet ledger, slice-2 follow-up packet set, public clone verification, contributor worklist, "
     "worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill "
     "reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a "
     "school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities."
@@ -227,18 +228,44 @@ COMMANDS = [
         },
     ),
     (
+        "slice_2_followup_packet_set",
+        [sys.executable, "scripts/materialize_vanderbilt_slice_2_followup_packet_set.py"],
+        ARTIFACTS / "vanderbilt_slice_2_followup_packet_set_summary.json",
+        EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET,
+        {
+            "followup_packet_rows": 18,
+            "source_next_packet_rows": 18,
+            "request_rows_represented": 9,
+            "source_approved_parser_scope_next_packet_rowset_sha256": EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET,
+            "source_route_parser_scope_approval_packet_rowset_sha256": EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET,
+            "source_route_observation_rowset_sha256": EXPECTED_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET,
+            "gbrain_advisory_status": "approved_option_a_combined_followup_packet_set",
+            "web_fetch_allowed": False,
+            "parser_execution_allowed": False,
+            "accepted_person_rows": 0,
+            "mutation_allowed": False,
+            "parser_implementation_allowed": False,
+            "parser_acceptance_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+            "url_rewrite_allowed": False,
+            "identity_collapse_allowed": False,
+        },
+    ),
+    (
         "public_clone_verification",
         [sys.executable, "scripts/materialize_top50_public_clone_verification.py"],
         ARTIFACTS / "top50_public_clone_verification_summary.json",
         EXPECTED_CLONE_VERIFICATION_ROWSET,
-        {"pass_rows": 52, "fail_rows": 0, "verification_rows": 52},
+        {"pass_rows": 53, "fail_rows": 0, "verification_rows": 53},
     ),
     (
         "public_contributor_worklist",
         [sys.executable, "scripts/materialize_top50_public_contributor_worklist.py"],
         ARTIFACTS / "top50_public_contributor_worklist_summary.json",
         EXPECTED_WORKLIST_ROWSET,
-        {"worklist_rows": 10, "total_impact_count": 557},
+        {"worklist_rows": 11, "total_impact_count": 576},
     ),
     (
         "public_contributor_worklist_verification",
@@ -472,6 +499,7 @@ def main() -> None:
         "source_slice_2_live_route_observation_rowset_sha256": EXPECTED_SLICE_2_LIVE_ROUTE_OBSERVATION_ROWSET,
         "source_slice_2_route_parser_scope_approval_rowset_sha256": EXPECTED_SLICE_2_ROUTE_PARSER_SCOPE_APPROVAL_ROWSET,
         "source_slice_2_approved_parser_scope_next_packet_rowset_sha256": EXPECTED_SLICE_2_APPROVED_PARSER_SCOPE_NEXT_PACKET_ROWSET,
+        "source_slice_2_followup_packet_set_rowset_sha256": EXPECTED_SLICE_2_FOLLOWUP_PACKET_SET_ROWSET,
         "source_clone_verification_rowset_sha256": EXPECTED_CLONE_VERIFICATION_ROWSET,
         "source_worklist_rowset_sha256": EXPECTED_WORKLIST_ROWSET,
         "source_worklist_verification_rowset_sha256": EXPECTED_WORKLIST_VERIFICATION_ROWSET,

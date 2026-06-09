@@ -1,0 +1,89 @@
+---
+type: research-checkpoint
+title: Vanderbilt Slice 2 Follow-Up Packet Set
+created_at: 2026-06-09T11:27:20.087847+00:00
+project: top-50-medical-school-roster-engine
+school: Vanderbilt University School of Medicine
+---
+
+# Vanderbilt Slice 2 Follow-Up Packet Set
+
+## Boundary
+
+Combined non-mutating Vanderbilt slice-2 follow-up packet set. It converts the approved parser/scope next-packet ledger into row-level packet families and required evidence boundaries for target-route parser-build review, related-scope disposition, broader-context recourse, and denominator-redirect recourse. It does not fetch web pages, execute parsers, accept parser output, ingest people, mutate training states, close denominators, verify Vanderbilt as a school, rewrite URLs, accept unsupported labels or enrichment facts, publish raw dumps, or collapse unique-person identities.
+
+## Summary
+
+```json
+{
+  "accepted_person_rows": 0,
+  "by_followup_lane": {
+    "broader_context_source_discovery_recourse": 4,
+    "denominator_redirect_recourse": 4,
+    "related_scope_context_disposition_review": 5,
+    "target_route_parser_build_review": 5
+  },
+  "by_followup_packet_status": {
+    "non_mutating_broader_context_recourse_packet_ready": 4,
+    "non_mutating_denominator_redirect_recourse_packet_ready": 4,
+    "non_mutating_parser_test_design_packet_ready": 5,
+    "non_mutating_scope_disposition_packet_ready": 5
+  },
+  "by_packet_family": {
+    "broader_context_source_discovery_recourse_packet": 4,
+    "denominator_redirect_recourse_packet": 4,
+    "related_scope_context_disposition_packet": 5,
+    "target_route_parser_build_review_packet": 5
+  },
+  "csv": "artifacts/data/vanderbilt_slice_2_followup_packet_set.csv",
+  "denominator_closure_allowed": false,
+  "followup_packet_rows": 18,
+  "gbrain_advisory_line": "APPROVE option_a_combined_followup_packet_set",
+  "gbrain_advisory_status": "approved_option_a_combined_followup_packet_set",
+  "generated_at": "2026-06-09T11:27:20.087847+00:00",
+  "identity_collapse_allowed": false,
+  "json": "artifacts/data/vanderbilt_slice_2_followup_packet_set.json",
+  "markdown": "artifacts/research/vanderbilt-slice-2-followup-packet-set-2026-06-09.md",
+  "mutation_allowed": false,
+  "parser_acceptance_allowed": false,
+  "parser_execution_allowed": false,
+  "parser_implementation_allowed": false,
+  "person_ingestion_allowed": false,
+  "policy": "Combined non-mutating Vanderbilt slice-2 follow-up packet set. It converts the approved parser/scope next-packet ledger into row-level packet families and required evidence boundaries for target-route parser-build review, related-scope disposition, broader-context recourse, and denominator-redirect recourse. It does not fetch web pages, execute parsers, accept parser output, ingest people, mutate training states, close denominators, verify Vanderbilt as a school, rewrite URLs, accept unsupported labels or enrichment facts, publish raw dumps, or collapse unique-person identities.",
+  "raw_dump_publication_allowed": false,
+  "request_rows_represented": 9,
+  "rowset_sha256": "565b637a2cd4ec165139e1da96f0187d7eee50d94acc24be1d1999ae0829e1e3",
+  "school_verification_allowed": false,
+  "source_approved_parser_scope_next_packet_rowset_sha256": "c59c9c4fe4b09f4d225676cdb12566eaeafadd1e3bc2f5049aa24745130a6362",
+  "source_approved_parser_scope_next_packet_summary": "artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packet_summary.json",
+  "source_approved_parser_scope_next_packets": "artifacts/data/vanderbilt_slice_2_approved_parser_scope_next_packets.csv",
+  "source_next_packet_rows": 18,
+  "source_route_observation_rowset_sha256": "c606878519468dacb24ba3579ddb382f3d234abea8048db4d57f5ede6a06bbf0",
+  "source_route_parser_scope_approval_packet_rowset_sha256": "bb0c69694a411c386964d1b7ae523a65a31452e5d62db227d4469044bd109672",
+  "url_rewrite_allowed": false,
+  "web_fetch_allowed": false
+}
+```
+
+## Packet Rows
+
+| request | program | packet family | follow-up lane | status | next approval |
+| ---: | --- | --- | --- | --- | --- |
+| 5 | Emergency Medical Services | broader_context_source_discovery_recourse_packet | broader_context_source_discovery_recourse | non_mutating_broader_context_recourse_packet_ready | exact_source_discovery_fetch_or_unresolved_gap_disposition_approval_required |
+| 6 | Emergency Medicine Simulation | broader_context_source_discovery_recourse_packet | broader_context_source_discovery_recourse | non_mutating_broader_context_recourse_packet_ready | exact_source_discovery_fetch_or_unresolved_gap_disposition_approval_required |
+| 7 | Emergency Medicine Ultrasound | broader_context_source_discovery_recourse_packet | broader_context_source_discovery_recourse | non_mutating_broader_context_recourse_packet_ready | exact_source_discovery_fetch_or_unresolved_gap_disposition_approval_required |
+| 9 | Global Emergency Medicine | broader_context_source_discovery_recourse_packet | broader_context_source_discovery_recourse | non_mutating_broader_context_recourse_packet_ready | exact_source_discovery_fetch_or_unresolved_gap_disposition_approval_required |
+| 5 | Emergency Medical Services | denominator_redirect_recourse_packet | denominator_redirect_recourse | non_mutating_denominator_redirect_recourse_packet_ready | exact_route_replacement_or_unresolved_gap_disposition_approval_required |
+| 6 | Emergency Medicine Simulation | denominator_redirect_recourse_packet | denominator_redirect_recourse | non_mutating_denominator_redirect_recourse_packet_ready | exact_route_replacement_or_unresolved_gap_disposition_approval_required |
+| 7 | Emergency Medicine Ultrasound | denominator_redirect_recourse_packet | denominator_redirect_recourse | non_mutating_denominator_redirect_recourse_packet_ready | exact_route_replacement_or_unresolved_gap_disposition_approval_required |
+| 9 | Global Emergency Medicine | denominator_redirect_recourse_packet | denominator_redirect_recourse | non_mutating_denominator_redirect_recourse_packet_ready | exact_route_replacement_or_unresolved_gap_disposition_approval_required |
+| 1 | Plastic Surgery-Integrated | related_scope_context_disposition_packet | related_scope_context_disposition_review | non_mutating_scope_disposition_packet_ready | exact_scope_disposition_acceptance_or_recourse_approval_required |
+| 2 | Adult and Pediatric Craniofacial | related_scope_context_disposition_packet | related_scope_context_disposition_review | non_mutating_scope_disposition_packet_ready | exact_scope_disposition_acceptance_or_recourse_approval_required |
+| 3 | Hand Surgery (Plastic Surgery) | related_scope_context_disposition_packet | related_scope_context_disposition_review | non_mutating_scope_disposition_packet_ready | exact_scope_disposition_acceptance_or_recourse_approval_required |
+| 4 | Plastic Surgery | related_scope_context_disposition_packet | related_scope_context_disposition_review | non_mutating_scope_disposition_packet_ready | exact_scope_disposition_acceptance_or_recourse_approval_required |
+| 8 | Genitourinary Reconstruction and Trauma | related_scope_context_disposition_packet | related_scope_context_disposition_review | non_mutating_scope_disposition_packet_ready | exact_scope_disposition_acceptance_or_recourse_approval_required |
+| 1 | Plastic Surgery-Integrated | target_route_parser_build_review_packet | target_route_parser_build_review | non_mutating_parser_test_design_packet_ready | exact_parser_execution_or_candidate_only_extraction_approval_required |
+| 2 | Adult and Pediatric Craniofacial | target_route_parser_build_review_packet | target_route_parser_build_review | non_mutating_parser_test_design_packet_ready | exact_parser_execution_or_candidate_only_extraction_approval_required |
+| 3 | Hand Surgery (Plastic Surgery) | target_route_parser_build_review_packet | target_route_parser_build_review | non_mutating_parser_test_design_packet_ready | exact_parser_execution_or_candidate_only_extraction_approval_required |
+| 4 | Plastic Surgery | target_route_parser_build_review_packet | target_route_parser_build_review | non_mutating_parser_test_design_packet_ready | exact_parser_execution_or_candidate_only_extraction_approval_required |
+| 8 | Genitourinary Reconstruction and Trauma | target_route_parser_build_review_packet | target_route_parser_build_review | non_mutating_parser_test_design_packet_ready | exact_parser_execution_or_candidate_only_extraction_approval_required |

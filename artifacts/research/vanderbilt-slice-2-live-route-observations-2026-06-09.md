@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Slice 2 Live Route Observations
-created_at: 2026-06-09T11:13:10.969589+00:00
+created_at: 2026-06-09T11:27:16.915210+00:00
 project: top-50-medical-school-roster-engine
 school: Vanderbilt University School of Medicine
 ---
@@ -39,7 +39,7 @@ These observations are public-safe route metadata only. They do not accept parse
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE vanderbilt_slice_2_live_fetch_approval_request_packet_approved REQUEST_ROWS 9 SOURCE_PLAN_ROWS 9 SOURCE_ROWSET_SHA256 c759c51d71ba8336798af94d591822a8002d2d5a95827854848c620da58dcc6b ROWSET_SHA256 98961c203962855aa7ebc7c31c4396b3ad231e166b71cf2a465e4fa474d6bc2d",
   "gbrain_approval_status": "approved_exact_non_mutating_live_route_observation",
-  "generated_at": "2026-06-09T11:13:10.969589+00:00",
+  "generated_at": "2026-06-09T11:27:16.915210+00:00",
   "identity_collapse_allowed": false,
   "json": "artifacts/data/vanderbilt_slice_2_live_route_observations.json",
   "markdown": "artifacts/research/vanderbilt-slice-2-live-route-observations-2026-06-09.md",
