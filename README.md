@@ -40,6 +40,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `artifacts/data/vanderbilt_candidate_review_decision_scaffold_summary.json`: non-mutating reviewer decision scaffold and blank manual decision template for Vanderbilt candidate/scope/recourse review queues.
 - `artifacts/data/vanderbilt_candidate_review_scaffold_verification_summary.json`: verification packet for the Vanderbilt decision scaffold, confirming blank decisions, matching keys, raw-field absence, and false acceptance flags.
 - `artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json`: non-mutating audit of the Vanderbilt reviewer decision template, currently confirming 159 pending blank decisions, 0 invalid decisions, and no accepted people or denominator mutation.
+- `artifacts/data/vanderbilt_candidate_review_batch_packet_summary.json`: GBrain-approved non-mutating Vanderbilt reviewer batch packets, grouping the 159 pending decision rows into 20 bounded program/lane review surfaces without raw candidate names, raw person URLs, accepted people, or denominator mutation.
 - `scripts/materialize_top50_engine_operating_snapshot.py`: reproducible materializer for the public top-50 operating snapshot.
 - `scripts/materialize_school_verification_registry.py`: reproducible materializer for the school-level verification registry.
 - `scripts/materialize_vanderbilt_targeted_parser_scope_review_packet.py`: reproducible materializer for the targeted parser/scope packet. It marks the packet as pending unless the exact GBrain registration approval line is supplied.
@@ -58,6 +59,7 @@ The repository is intended to stay cloneable and reviewable as an open-source su
 - `scripts/materialize_vanderbilt_candidate_review_decision_scaffold.py`: reproducible materializer for Vanderbilt reviewer decision scaffolds and blank manual decision templates.
 - `scripts/materialize_vanderbilt_candidate_review_scaffold_verification.py`: reproducible verifier for Vanderbilt candidate review decision scaffolds.
 - `scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py`: reproducible verifier for manual Vanderbilt reviewer decisions against allowed actions, current decision fingerprints, confirmation fields, raw-note safety, and mutation prohibitions.
+- `scripts/materialize_vanderbilt_candidate_review_batch_packets.py`: reproducible materializer for bounded Vanderbilt reviewer batch packets/dossiers derived from the audited manual decision template.
 
 ## Current Penn Outputs
 
