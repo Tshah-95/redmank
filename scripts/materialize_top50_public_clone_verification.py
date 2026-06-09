@@ -32,6 +32,7 @@ EXPECTED_VANDERBILT_SCAFFOLD_ROWSET = "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30
 EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET = "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d"
 EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET = "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3"
 EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET = "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4"
+EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET = "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa"
 EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET = "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75"
 EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET = "537cb74b062b074b7b7bdb9a73fd14675c6cefbf5f2f4bbd72c54ffb56da0782"
 EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e14fbcd8d7199f2bdbe059b38728607"
@@ -254,6 +255,9 @@ def main() -> None:
     slice_index_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_slice_index_summary.json")
     slice_index_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_slice_index.csv")
     slice_index_json = read_json(ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_slice_index.json")
+    execution_readiness_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge_summary.json")
+    execution_readiness_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.csv")
+    execution_readiness_json = read_json(ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -301,6 +305,9 @@ def main() -> None:
     reviewer_workbook_slicer_text = (
         ROOT / "scripts" / "slice_vanderbilt_reviewer_decision_patch_workbook.py"
     ).read_text(encoding="utf-8")
+    reviewer_execution_bridge_text = (
+        ROOT / "scripts" / "materialize_vanderbilt_reviewer_execution_readiness_bridge.py"
+    ).read_text(encoding="utf-8")
     gap_batch_slicer_text = (ROOT / "scripts" / "slice_school_gap_resolution_batch_packets.py").read_text(
         encoding="utf-8"
     )
@@ -316,6 +323,7 @@ def main() -> None:
             patch_template_summary,
             patch_workbook_summary,
             slice_index_summary,
+            execution_readiness_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
@@ -338,6 +346,7 @@ def main() -> None:
         or not isinstance(patch_template_json, list)
         or not isinstance(patch_workbook_json, list)
         or not isinstance(slice_index_json, list)
+        or not isinstance(execution_readiness_json, list)
         or not isinstance(gap_slice_json, list)
         or not isinstance(gap_review_template_json, list)
         or not isinstance(gap_targeted_review_packet_json, list)
@@ -686,6 +695,79 @@ def main() -> None:
             "json_rows": len(slice_index_json),
         },
         {"summary": "artifacts/data/vanderbilt_reviewer_decision_patch_workbook_slice_index_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_execution_readiness_bridge_boundary",
+        execution_readiness_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET
+        and execution_readiness_summary.get("bridge_rows") == 19
+        and execution_readiness_summary.get("ready_program_rows") == 19
+        and execution_readiness_summary.get("not_ready_program_rows") == 0
+        and execution_readiness_summary.get("slice_index_rows_represented") == 20
+        and execution_readiness_summary.get("workbook_rows_represented") == 159
+        and execution_readiness_summary.get("pending_decision_rows_represented") == 159
+        and execution_readiness_summary.get("review_queue_rows_represented") == 159
+        and execution_readiness_summary.get("valid_non_mutating_decision_rows_represented") == 0
+        and execution_readiness_summary.get("invalid_decision_rows_represented") == 0
+        and execution_readiness_summary.get("slice_output_paths_tmp_only") is True
+        and execution_readiness_summary.get("patch_output_paths_tmp_only") is True
+        and execution_readiness_summary.get("extract_commands_present") is True
+        and execution_readiness_summary.get("patch_dry_run_commands_present") is True
+        and execution_readiness_summary.get("apply_commands_present") is True
+        and execution_readiness_summary.get("mutation_allowed") is False
+        and execution_readiness_summary.get("person_ingestion_allowed") is False
+        and len(execution_readiness_csv) == 19
+        and len(execution_readiness_json) == 19,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET,
+            "bridge_rows": 19,
+            "ready_program_rows": 19,
+            "not_ready_program_rows": 0,
+            "slice_index_rows_represented": 20,
+            "workbook_rows_represented": 159,
+            "pending_decision_rows_represented": 159,
+            "review_queue_rows_represented": 159,
+            "valid_non_mutating_decision_rows_represented": 0,
+            "invalid_decision_rows_represented": 0,
+            "slice_output_paths_tmp_only": True,
+            "patch_output_paths_tmp_only": True,
+            "extract_commands_present": True,
+            "patch_dry_run_commands_present": True,
+            "apply_commands_present": True,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "csv_rows": 19,
+            "json_rows": 19,
+        },
+        {
+            "rowset_sha256": execution_readiness_summary.get("rowset_sha256"),
+            "bridge_rows": execution_readiness_summary.get("bridge_rows"),
+            "ready_program_rows": execution_readiness_summary.get("ready_program_rows"),
+            "not_ready_program_rows": execution_readiness_summary.get("not_ready_program_rows"),
+            "slice_index_rows_represented": execution_readiness_summary.get("slice_index_rows_represented"),
+            "workbook_rows_represented": execution_readiness_summary.get("workbook_rows_represented"),
+            "pending_decision_rows_represented": execution_readiness_summary.get(
+                "pending_decision_rows_represented"
+            ),
+            "review_queue_rows_represented": execution_readiness_summary.get("review_queue_rows_represented"),
+            "valid_non_mutating_decision_rows_represented": execution_readiness_summary.get(
+                "valid_non_mutating_decision_rows_represented"
+            ),
+            "invalid_decision_rows_represented": execution_readiness_summary.get(
+                "invalid_decision_rows_represented"
+            ),
+            "slice_output_paths_tmp_only": execution_readiness_summary.get("slice_output_paths_tmp_only"),
+            "patch_output_paths_tmp_only": execution_readiness_summary.get("patch_output_paths_tmp_only"),
+            "extract_commands_present": execution_readiness_summary.get("extract_commands_present"),
+            "patch_dry_run_commands_present": execution_readiness_summary.get("patch_dry_run_commands_present"),
+            "apply_commands_present": execution_readiness_summary.get("apply_commands_present"),
+            "mutation_allowed": execution_readiness_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": execution_readiness_summary.get("person_ingestion_allowed"),
+            "csv_rows": len(execution_readiness_csv),
+            "json_rows": len(execution_readiness_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_reviewer_execution_readiness_bridge_summary.json"},
     )
     add_check(
         checks,
@@ -1078,6 +1160,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_slice_index.json",
             ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_slice_index_summary.json",
             RESEARCH / "vanderbilt-reviewer-decision-patch-workbook-slice-index-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.csv",
+            ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge.json",
+            ARTIFACTS / "vanderbilt_reviewer_execution_readiness_bridge_summary.json",
+            RESEARCH / "vanderbilt-reviewer-execution-readiness-bridge-2026-06-09.md",
         ]
     )
     add_check(
@@ -1087,7 +1173,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 20, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 24, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1237,6 +1323,34 @@ def main() -> None:
         },
         {"script": "scripts/slice_vanderbilt_reviewer_decision_patch_workbook.py", "readme": "README.md"},
     )
+    execution_bridge_guard_present = all(
+        token in reviewer_execution_bridge_text
+        for token in [
+            "REVIEW_QUEUE_BRIDGE_ROWSET",
+            "SLICE_INDEX_ROWSET",
+            "tmp_only",
+            "patch_dry_run_commands_present",
+            "apply_commands_present",
+            "It does not run commands",
+            "person_ingestion_allowed",
+            "denominator_closure_allowed",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_execution_readiness_bridge_guard_present",
+        execution_bridge_guard_present and "materialize_vanderbilt_reviewer_execution_readiness_bridge.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": execution_bridge_guard_present,
+            "readme_documented": "materialize_vanderbilt_reviewer_execution_readiness_bridge.py" in readme_text,
+        },
+        {
+            "script": "scripts/materialize_vanderbilt_reviewer_execution_readiness_bridge.py",
+            "readme": "README.md",
+        },
+    )
     gap_slicer_guard_present = all(
         token in gap_batch_slicer_text
         for token in [
@@ -1359,6 +1473,7 @@ def main() -> None:
         "vanderbilt_patch_template_rowset_sha256": EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET,
         "vanderbilt_patch_workbook_rowset_sha256": EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET,
         "vanderbilt_workbook_slice_index_rowset_sha256": EXPECTED_VANDERBILT_WORKBOOK_SLICE_INDEX_ROWSET,
+        "vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": EXPECTED_VANDERBILT_EXECUTION_READINESS_BRIDGE_ROWSET,
         "vanderbilt_gap_batch_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
         "vanderbilt_gap_review_template_rowset_sha256": EXPECTED_GAP_REVIEW_TEMPLATE_ROWSET,
         "vanderbilt_gap_targeted_review_packet_rowset_sha256": EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET,

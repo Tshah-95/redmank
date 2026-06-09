@@ -8,7 +8,7 @@
   "by_action_status": {
     "blocked_until_valid_non_mutating_decisions": 1,
     "ready_and_passing": 1,
-    "ready_for_non_mutating_review_queue_bridge": 1,
+    "ready_for_bounded_reviewer_execution_readiness": 1,
     "ready_for_non_mutating_reviewer_input": 1
   },
   "critical_rows": 2,
@@ -16,7 +16,7 @@
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE top50_public_contributor_worklist_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
-  "generated_at": "2026-06-09T08:25:57.171615+00:00",
+  "generated_at": "2026-06-09T08:38:52.813892+00:00",
   "high_rows": 1,
   "json": "artifacts/data/top50_public_contributor_worklist.json",
   "low_rows": 0,
@@ -25,7 +25,7 @@
   "mutation_allowed": false,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ranks bounded public-safe operator actions from committed verification, snapshot, Vanderbilt batch-packet, decision-audit, and gap manifest artifacts. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
-  "rowset_sha256": "3b3e570a38a9a7e2611697d9e9825206cd9d1f1deed4e7714eb5c29eac70e707",
+  "rowset_sha256": "9db4ea94274715c369b02cf5b9276ebbdf8d68429202174301b89bb8a22c6ca6",
   "school_verification_allowed": false,
   "source_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "source_vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
@@ -39,7 +39,8 @@
   "source_vanderbilt_patch_slice_index_rowset_sha256": "d16ccc0adbb0be4a5fd5b59bdcf82ecb976e1d032baa1d3c9d92bf861c4179c4",
   "source_vanderbilt_patch_template_rowset_sha256": "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d",
   "source_vanderbilt_patch_workbook_rowset_sha256": "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3",
-  "source_verification_rowset_sha256": "e74a02b606763c79d578fec022fa5e0becbd68e2f83318f88da2b3ab7b5149fc",
-  "total_impact_count": 462,
+  "source_vanderbilt_reviewer_execution_readiness_bridge_rowset_sha256": "ac16e7d92c4992c248162c05778abc4739a487aa01ffe8bc6dde21d6b372dafa",
+  "source_verification_rowset_sha256": "96426841fdc8e3db4ac35f046d6d3ff979244620f3795316ad00f505dcd9223b",
+  "total_impact_count": 510,
   "worklist_rows": 4
 }
