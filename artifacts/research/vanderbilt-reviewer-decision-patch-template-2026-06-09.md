@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Reviewer Decision Patch Template
-created_at: 2026-06-09T06:45:12.574679+00:00
+created_at: 2026-06-09T06:56:33.376461+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -33,7 +33,7 @@ Non-mutating Vanderbilt reviewer decision patch template. It materializes only h
   },
   "csv": "artifacts/data/vanderbilt_reviewer_decision_patch_template.csv",
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T06:45:12.574679+00:00",
+  "generated_at": "2026-06-09T06:56:33.376461+00:00",
   "helper_accepts_template_shape": true,
   "helper_patch_fields": [
     "manual_decision_row_key",

@@ -10,16 +10,17 @@
     "confirm_recourse_only": 159,
     "confirm_scope_metadata_only": 159
   },
-  "by_source_review_queue_lane": {
+  "by_review_queue_lane": {
     "candidate_fingerprint_review": 155,
     "linked_scope_metadata_review": 3,
     "route_recourse_review": 1
   },
-  "csv": "artifacts/data/vanderbilt_reviewer_decision_patch_template.csv",
+  "csv": "artifacts/data/vanderbilt_reviewer_decision_patch_workbook.csv",
+  "decision_fingerprint_present_rows": 159,
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T06:56:33.376461+00:00",
-  "helper_accepts_template_shape": true,
-  "helper_patch_fields": [
+  "generated_at": "2026-06-09T06:56:33.401532+00:00",
+  "helper_patch_extraction_required": true,
+  "helper_patch_output_columns": [
     "manual_decision_row_key",
     "reviewer_action",
     "confirm_decision_fingerprint",
@@ -31,21 +32,24 @@
     "confirm_scope_metadata_only",
     "confirm_recourse_only"
   ],
-  "json": "artifacts/data/vanderbilt_reviewer_decision_patch_template.json",
-  "markdown": "artifacts/research/vanderbilt-reviewer-decision-patch-template-2026-06-09.md",
+  "json": "artifacts/data/vanderbilt_reviewer_decision_patch_workbook.json",
+  "markdown": "artifacts/research/vanderbilt-reviewer-decision-patch-workbook-2026-06-09.md",
   "mutation_allowed": false,
+  "operator_packet_rows_represented": 20,
   "person_ingestion_allowed": false,
-  "policy": "Non-mutating Vanderbilt reviewer decision patch template. It materializes only helper-compatible blank patch rows keyed by manual_decision_row_key. It does not fill reviewer decisions, include reviewer notes, publish raw candidate names or URLs, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, or collapse identities.",
+  "policy": "Non-mutating Vanderbilt reviewer decision patch workbook. It joins operator-packet context, current decision fingerprints, allowed actions, required confirmation fields, and blank patch columns so a reviewer can fill a bounded workbook and extract helper-compatible patch rows. It does not include reviewer notes, publish raw candidate names or URLs, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, or collapse identities.",
   "raw_candidate_names_committed": false,
   "raw_person_urls_committed": false,
   "reviewer_note_column_committed": false,
-  "rowset_sha256": "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d",
+  "rowset_sha256": "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3",
   "school_verification_allowed": false,
   "source_operator_packet_rowset_sha256": "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173",
   "source_operator_packet_summary": "artifacts/data/vanderbilt_public_reviewer_operator_packet_summary.json",
+  "source_patch_template_rowset_sha256": "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d",
+  "source_patch_template_summary": "artifacts/data/vanderbilt_reviewer_decision_patch_template_summary.json",
   "source_scaffold_rowset_sha256": "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938",
   "source_scaffold_summary": "artifacts/data/vanderbilt_candidate_review_decision_scaffold_summary.json",
-  "template_intentionally_invalid_until_filled": true,
-  "template_rows": 159,
-  "valid_non_mutating_rows": 0
+  "valid_non_mutating_rows": 0,
+  "workbook_intentionally_invalid_as_direct_patch": true,
+  "workbook_rows": 159
 }

@@ -30,6 +30,7 @@ EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8
 EXPECTED_VANDERBILT_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 EXPECTED_VANDERBILT_SCAFFOLD_ROWSET = "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938"
 EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET = "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d"
+EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET = "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -226,6 +227,9 @@ def main() -> None:
     patch_template_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_decision_patch_template_summary.json")
     patch_template_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_decision_patch_template.csv")
     patch_template_json = read_json(ARTIFACTS / "vanderbilt_reviewer_decision_patch_template.json")
+    patch_workbook_summary = read_json(ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_summary.json")
+    patch_workbook_csv = read_csv_rows(ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook.csv")
+    patch_workbook_json = read_json(ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -235,6 +239,9 @@ def main() -> None:
         encoding="utf-8"
     )
     reviewer_patch_script_text = (ROOT / "scripts" / "apply_vanderbilt_reviewer_decision_patch.py").read_text(
+        encoding="utf-8"
+    )
+    reviewer_patch_extractor_text = (ROOT / "scripts" / "extract_vanderbilt_reviewer_decision_patch.py").read_text(
         encoding="utf-8"
     )
 
@@ -247,13 +254,19 @@ def main() -> None:
             batch_summary,
             operator_summary,
             patch_template_summary,
+            patch_workbook_summary,
             audit_summary,
             scaffold_summary,
             gap_summary,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
-    if not isinstance(batch_json, list) or not isinstance(operator_json, list) or not isinstance(patch_template_json, list):
+    if (
+        not isinstance(batch_json, list)
+        or not isinstance(operator_json, list)
+        or not isinstance(patch_template_json, list)
+        or not isinstance(patch_workbook_json, list)
+    ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
     add_check(
@@ -497,6 +510,65 @@ def main() -> None:
         },
         {"summary": "artifacts/data/vanderbilt_reviewer_decision_patch_template_summary.json"},
     )
+    patch_workbook_blank_confirmation_counts = patch_workbook_summary.get("blank_confirmation_rows")
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_patch_workbook_boundary",
+        patch_workbook_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET
+        and patch_workbook_summary.get("workbook_rows") == 159
+        and patch_workbook_summary.get("operator_packet_rows_represented") == 20
+        and patch_workbook_summary.get("decision_fingerprint_present_rows") == 159
+        and patch_workbook_summary.get("blank_action_rows") == 159
+        and isinstance(patch_workbook_blank_confirmation_counts, dict)
+        and all(value == 159 for value in patch_workbook_blank_confirmation_counts.values())
+        and patch_workbook_summary.get("helper_patch_extraction_required") is True
+        and patch_workbook_summary.get("workbook_intentionally_invalid_as_direct_patch") is True
+        and patch_workbook_summary.get("valid_non_mutating_rows") == 0
+        and patch_workbook_summary.get("reviewer_note_column_committed") is False
+        and patch_workbook_summary.get("raw_candidate_names_committed") is False
+        and patch_workbook_summary.get("raw_person_urls_committed") is False
+        and patch_workbook_summary.get("mutation_allowed") is False
+        and len(patch_workbook_csv) == 159
+        and len(patch_workbook_json) == 159,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET,
+            "workbook_rows": 159,
+            "operator_packet_rows_represented": 20,
+            "decision_fingerprint_present_rows": 159,
+            "blank_action_rows": 159,
+            "blank_confirmation_rows": 159,
+            "helper_patch_extraction_required": True,
+            "workbook_intentionally_invalid_as_direct_patch": True,
+            "valid_non_mutating_rows": 0,
+            "reviewer_note_column_committed": False,
+            "raw_candidate_names_committed": False,
+            "raw_person_urls_committed": False,
+            "mutation_allowed": False,
+            "csv_rows": 159,
+            "json_rows": 159,
+        },
+        {
+            "rowset_sha256": patch_workbook_summary.get("rowset_sha256"),
+            "workbook_rows": patch_workbook_summary.get("workbook_rows"),
+            "operator_packet_rows_represented": patch_workbook_summary.get("operator_packet_rows_represented"),
+            "decision_fingerprint_present_rows": patch_workbook_summary.get("decision_fingerprint_present_rows"),
+            "blank_action_rows": patch_workbook_summary.get("blank_action_rows"),
+            "blank_confirmation_rows": patch_workbook_blank_confirmation_counts,
+            "helper_patch_extraction_required": patch_workbook_summary.get("helper_patch_extraction_required"),
+            "workbook_intentionally_invalid_as_direct_patch": patch_workbook_summary.get(
+                "workbook_intentionally_invalid_as_direct_patch"
+            ),
+            "valid_non_mutating_rows": patch_workbook_summary.get("valid_non_mutating_rows"),
+            "reviewer_note_column_committed": patch_workbook_summary.get("reviewer_note_column_committed"),
+            "raw_candidate_names_committed": patch_workbook_summary.get("raw_candidate_names_committed"),
+            "raw_person_urls_committed": patch_workbook_summary.get("raw_person_urls_committed"),
+            "mutation_allowed": patch_workbook_summary.get("mutation_allowed"),
+            "csv_rows": len(patch_workbook_csv),
+            "json_rows": len(patch_workbook_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_reviewer_decision_patch_workbook_summary.json"},
+    )
     add_check(
         checks,
         generated_at,
@@ -528,6 +600,10 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_reviewer_decision_patch_template.json",
             ARTIFACTS / "vanderbilt_reviewer_decision_patch_template_summary.json",
             RESEARCH / "vanderbilt-reviewer-decision-patch-template-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook.csv",
+            ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook.json",
+            ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_summary.json",
+            RESEARCH / "vanderbilt-reviewer-decision-patch-workbook-2026-06-09.md",
         ]
     )
     add_check(
@@ -537,7 +613,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 12, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 16, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -600,6 +676,29 @@ def main() -> None:
         },
         {"script": "scripts/apply_vanderbilt_reviewer_decision_patch.py", "readme": "README.md"},
     )
+    patch_extractor_guard_present = all(
+        token in reviewer_patch_extractor_text
+        for token in [
+            "validate_workbook_header",
+            "patch_helper.validate_patch_rows",
+            "No filled workbook rows to extract",
+            "reviewer_note",
+            "URL_RE",
+            "DEFAULT_OUTPUT = Path(\"/tmp/vanderbilt_reviewer_decision_patch_extracted.csv\")",
+        ]
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_reviewer_patch_extractor_guard_present",
+        patch_extractor_guard_present and "extract_vanderbilt_reviewer_decision_patch.py" in readme_text,
+        {"script_guard": True, "readme_documented": True},
+        {
+            "script_guard": patch_extractor_guard_present,
+            "readme_documented": "extract_vanderbilt_reviewer_decision_patch.py" in readme_text,
+        },
+        {"script": "scripts/extract_vanderbilt_reviewer_decision_patch.py", "readme": "README.md"},
+    )
     add_check(
         checks,
         generated_at,
@@ -635,6 +734,7 @@ def main() -> None:
         "vanderbilt_batch_packet_rowset_sha256": EXPECTED_VANDERBILT_BATCH_PACKET_ROWSET,
         "vanderbilt_operator_packet_rowset_sha256": EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET,
         "vanderbilt_patch_template_rowset_sha256": EXPECTED_VANDERBILT_PATCH_TEMPLATE_ROWSET,
+        "vanderbilt_patch_workbook_rowset_sha256": EXPECTED_VANDERBILT_PATCH_WORKBOOK_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,

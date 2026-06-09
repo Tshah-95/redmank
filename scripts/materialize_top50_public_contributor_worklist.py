@@ -24,6 +24,7 @@ OPERATOR_SUMMARY = ARTIFACTS / "vanderbilt_public_reviewer_operator_packet_summa
 OPERATOR_CSV = ARTIFACTS / "vanderbilt_public_reviewer_operator_packets.csv"
 DECISION_AUDIT_SUMMARY = ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json"
 PATCH_TEMPLATE_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_decision_patch_template_summary.json"
+PATCH_WORKBOOK_SUMMARY = ARTIFACTS / "vanderbilt_reviewer_decision_patch_workbook_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -32,12 +33,13 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "3005db62be8f9b3adcb1d5b17399c495fdbdad9099269097f7b5367ba9a9a80d"
+VERIFICATION_ROWSET_SHA256 = "f2d45019ddcd9042a348a21fda8db8e52232b70ca0a6a518618608c2e70807c8"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 DECISION_AUDIT_ROWSET_SHA256 = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 PATCH_TEMPLATE_ROWSET_SHA256 = "5532d007555997f54d25884baba2f4e594d4ff1fa286301bfa6f87fc64caaa8d"
+PATCH_WORKBOOK_ROWSET_SHA256 = "18619a07cc9bf02fba3cf898dc3d21252b25f9c4a8adfb0d88d126a506bed3c3"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -218,6 +220,7 @@ def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict
     operator_summary = read_json(OPERATOR_SUMMARY)
     decision_audit_summary = read_json(DECISION_AUDIT_SUMMARY)
     patch_template_summary = read_json(PATCH_TEMPLATE_SUMMARY)
+    patch_workbook_summary = read_json(PATCH_WORKBOOK_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -228,6 +231,7 @@ def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict
             operator_summary,
             decision_audit_summary,
             patch_template_summary,
+            patch_workbook_summary,
             gap_summary,
         ]
     ):
@@ -252,11 +256,26 @@ def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict
         and patch_template_summary.get("blank_action_rows") == 159
         and patch_template_summary.get("valid_non_mutating_rows") == 0
         and patch_template_summary.get("mutation_allowed") is False,
+        "patch_workbook_rowset": patch_workbook_summary.get("rowset_sha256") == PATCH_WORKBOOK_ROWSET_SHA256,
+        "patch_workbook_blank": patch_workbook_summary.get("workbook_rows") == 159
+        and patch_workbook_summary.get("decision_fingerprint_present_rows") == 159
+        and patch_workbook_summary.get("blank_action_rows") == 159
+        and patch_workbook_summary.get("valid_non_mutating_rows") == 0
+        and patch_workbook_summary.get("mutation_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
         raise SystemExit("Unexpected public contributor worklist source boundary: " + dumps(checks))
-    return verification_summary, snapshot, batch_summary, operator_summary, decision_audit_summary, patch_template_summary, gap_summary
+    return (
+        verification_summary,
+        snapshot,
+        batch_summary,
+        operator_summary,
+        decision_audit_summary,
+        patch_template_summary,
+        patch_workbook_summary,
+        gap_summary,
+    )
 
 
 def rowset_sha256(rows: list[dict[str, object]]) -> str:
@@ -305,7 +324,16 @@ def write_markdown(rows: list[dict[str, object]], summary: dict[str, object]) ->
 
 
 def main() -> None:
-    verification_summary, snapshot, batch_summary, operator_summary, decision_audit_summary, patch_template_summary, gap_summary = verify_source_boundary()
+    (
+        verification_summary,
+        snapshot,
+        batch_summary,
+        operator_summary,
+        decision_audit_summary,
+        patch_template_summary,
+        patch_workbook_summary,
+        gap_summary,
+    ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
     operator_rows = read_csv_rows(OPERATOR_CSV)
     gap_rows = read_csv_rows(GAP_CSV)
@@ -329,7 +357,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="16 verification rows pass and fail_rows remains 0.",
+            success_condition="18 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -357,9 +385,10 @@ def main() -> None:
                 "confirmation fields, and no-ingestion/no-closure/no-raw-name/no-url-rewrite confirmations."
             ),
             recommended_next_action=(
-                "Work one public-safe operator packet at a time, copy relevant rows from "
-                "artifacts/data/vanderbilt_reviewer_decision_patch_template.csv, fill only non-mutating decisions, "
-                "dry-run scripts/apply_vanderbilt_reviewer_decision_patch.py, then apply and rerun the decision audit, "
+                "Work one public-safe operator packet at a time in "
+                "artifacts/data/vanderbilt_reviewer_decision_patch_workbook.csv, fill only non-mutating decisions, "
+                "extract strict patch rows with scripts/extract_vanderbilt_reviewer_decision_patch.py, dry-run "
+                "scripts/apply_vanderbilt_reviewer_decision_patch.py, then apply and rerun the decision audit, "
                 "batch-packet materializer, and operator-packet materializer."
             ),
             verification_command=(
@@ -395,6 +424,11 @@ def main() -> None:
                 "patch_template_rowset_sha256": patch_template_summary.get("rowset_sha256"),
                 "patch_template_intentionally_invalid_until_filled": patch_template_summary.get(
                     "template_intentionally_invalid_until_filled"
+                ),
+                "patch_workbook_rows": patch_workbook_summary.get("workbook_rows"),
+                "patch_workbook_rowset_sha256": patch_workbook_summary.get("rowset_sha256"),
+                "patch_workbook_helper_patch_extraction_required": patch_workbook_summary.get(
+                    "helper_patch_extraction_required"
                 ),
                 "by_packet_status": dict(sorted(by_batch_status.items())),
                 "by_review_queue_lane": dict(sorted(by_batch_lane.items())),
@@ -503,6 +537,7 @@ def main() -> None:
         "source_vanderbilt_batch_packet_rowset_sha256": BATCH_PACKET_ROWSET_SHA256,
         "source_vanderbilt_operator_packet_rowset_sha256": OPERATOR_PACKET_ROWSET_SHA256,
         "source_vanderbilt_patch_template_rowset_sha256": PATCH_TEMPLATE_ROWSET_SHA256,
+        "source_vanderbilt_patch_workbook_rowset_sha256": PATCH_WORKBOOK_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,
