@@ -23,16 +23,18 @@ OUT_MD = RESEARCH / "top50-public-substrate-check-contract-2026-06-09.md"
 
 EXPECTED_SYNTHETIC_HANDOFF_ROWSET = "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4"
 EXPECTED_PRIORITY_HANDOFF_ROWSET = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "da28ec6ac1e9a4df95c7f60c12fa9e6a8221ea639d50f27f86776ec194b871ba"
-EXPECTED_WORKLIST_ROWSET = "673714f62ed47e6d0826cb12de3542a9d5ff8acae16650ab646ff8c902a873c4"
-EXPECTED_WORKLIST_VERIFICATION_ROWSET = "045d521cc6215a7dad3e73badd04983f32bcdad336e1bf089316bbf0e6a27c75"
+EXPECTED_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
+EXPECTED_TRIAGE_CONTRACT_ROWSET = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "3769d2294e7d3682257fd4df8f4484aea699bb757ef4ba510c1262d1039cbeaa"
+EXPECTED_WORKLIST_ROWSET = "2908c35a7730cb55bd2305943a305a97995d483c8b26ca8c68b39e4bab3b14ea"
+EXPECTED_WORKLIST_VERIFICATION_ROWSET = "606e729b15ae4de6db830326b8e5a885a15b1dc0f3f018df7ebf2d0a8f99f59d"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_substrate_check_contract_non_mutating_increment"
 
 MUTATION_POLICY = (
     "Aggregate non-mutating public substrate check contract for the top-50/Vanderbilt lane. It runs the committed "
-    "synthetic handoff dry-run, priority handoff, public clone verification, contributor worklist, worklist "
-    "verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill "
+    "synthetic handoff dry-run, priority handoff, open-gap triage, public clone verification, contributor worklist, "
+    "worklist verification, and gap-manifest fail-closed checks, then records their rowsets and pass counts. It does not fill "
     "reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a "
     "school, rewrite URLs, accept enrichment facts, publish raw candidate labels or person URLs, or collapse identities."
 )
@@ -83,18 +85,51 @@ COMMANDS = [
         {"handoff_rows": 1, "accepted_person_rows": 0, "apply_executed": False},
     ),
     (
+        "open_gap_manifest_triage_packet",
+        [sys.executable, "scripts/materialize_vanderbilt_open_gap_manifest_triage_packet.py"],
+        ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet_summary.json",
+        EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
+        {
+            "triage_rows": 21,
+            "gap_rows_represented": 113,
+            "slice_outputs_default_tmp_only": True,
+            "accepted_person_rows": 0,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+        },
+    ),
+    (
+        "triage_slice_definition_contract",
+        [sys.executable, "scripts/materialize_vanderbilt_open_gap_manifest_triage_packet.py"],
+        ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json",
+        EXPECTED_TRIAGE_CONTRACT_ROWSET,
+        {
+            "contract_rows": 4,
+            "slice_rows_represented": 21,
+            "gap_rows_represented": 113,
+            "slice_outputs_default_tmp_only": True,
+            "accepted_person_rows": 0,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+        },
+    ),
+    (
         "public_clone_verification",
         [sys.executable, "scripts/materialize_top50_public_clone_verification.py"],
         ARTIFACTS / "top50_public_clone_verification_summary.json",
         EXPECTED_CLONE_VERIFICATION_ROWSET,
-        {"pass_rows": 45, "fail_rows": 0, "verification_rows": 45},
+        {"pass_rows": 47, "fail_rows": 0, "verification_rows": 47},
     ),
     (
         "public_contributor_worklist",
         [sys.executable, "scripts/materialize_top50_public_contributor_worklist.py"],
         ARTIFACTS / "top50_public_contributor_worklist_summary.json",
         EXPECTED_WORKLIST_ROWSET,
-        {"worklist_rows": 4, "total_impact_count": 365},
+        {"worklist_rows": 5, "total_impact_count": 480},
     ),
     (
         "public_contributor_worklist_verification",
@@ -321,6 +356,8 @@ def main() -> None:
         "fail_rows": fail_rows,
         "source_synthetic_handoff_rowset_sha256": EXPECTED_SYNTHETIC_HANDOFF_ROWSET,
         "source_priority_handoff_rowset_sha256": EXPECTED_PRIORITY_HANDOFF_ROWSET,
+        "source_open_gap_triage_rowset_sha256": EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
+        "source_triage_contract_rowset_sha256": EXPECTED_TRIAGE_CONTRACT_ROWSET,
         "source_clone_verification_rowset_sha256": EXPECTED_CLONE_VERIFICATION_ROWSET,
         "source_worklist_rowset_sha256": EXPECTED_WORKLIST_ROWSET,
         "source_worklist_verification_rowset_sha256": EXPECTED_WORKLIST_VERIFICATION_ROWSET,

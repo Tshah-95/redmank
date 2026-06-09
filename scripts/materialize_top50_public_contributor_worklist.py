@@ -42,6 +42,8 @@ PATCH_HELPER_FIXTURE_SUMMARY = ARTIFACTS / "vanderbilt_patch_helper_fixture_veri
 PRIORITY_HANDOFF_SUMMARY = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet_summary.json"
 PRIORITY_HANDOFF_CSV = ARTIFACTS / "vanderbilt_priority_reviewer_handoff_packet.csv"
 SYNTHETIC_HANDOFF_DEMO_SUMMARY = ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo_summary.json"
+OPEN_GAP_TRIAGE_SUMMARY = ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet_summary.json"
+TRIAGE_SLICE_CONTRACT_SUMMARY = ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
 
@@ -50,7 +52,7 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "da28ec6ac1e9a4df95c7f60c12fa9e6a8221ea639d50f27f86776ec194b871ba"
+VERIFICATION_ROWSET_SHA256 = "3769d2294e7d3682257fd4df8f4484aea699bb757ef4ba510c1262d1039cbeaa"
 SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
 BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
@@ -71,6 +73,8 @@ PRIORITY_INSTRUCTION_PACKET_ROWSET_SHA256 = "dfe6c7081ac7c3c28ac6e8afcb736a2d16b
 PATCH_HELPER_FIXTURE_ROWSET_SHA256 = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
 PRIORITY_HANDOFF_PACKET_ROWSET_SHA256 = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
 SYNTHETIC_HANDOFF_DEMO_ROWSET_SHA256 = "81da7a86173eef52ee6fbc4afdf98ab3f33555b6d83f6c61be88bad61a211bb4"
+OPEN_GAP_TRIAGE_ROWSET_SHA256 = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
+TRIAGE_SLICE_CONTRACT_ROWSET_SHA256 = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
 MUTATION_POLICY = (
@@ -268,6 +272,8 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
     patch_helper_fixture_summary = read_json(PATCH_HELPER_FIXTURE_SUMMARY)
     priority_handoff_summary = read_json(PRIORITY_HANDOFF_SUMMARY)
     synthetic_handoff_demo_summary = read_json(SYNTHETIC_HANDOFF_DEMO_SUMMARY)
+    open_gap_triage_summary = read_json(OPEN_GAP_TRIAGE_SUMMARY)
+    triage_slice_contract_summary = read_json(TRIAGE_SLICE_CONTRACT_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
     if not all(
         isinstance(item, dict)
@@ -295,6 +301,8 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
             patch_helper_fixture_summary,
             priority_handoff_summary,
             synthetic_handoff_demo_summary,
+            open_gap_triage_summary,
+            triage_slice_contract_summary,
             gap_summary,
         ]
     ):
@@ -490,6 +498,29 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         and synthetic_handoff_demo_summary.get("apply_executed") is False
         and synthetic_handoff_demo_summary.get("mutation_allowed") is False
         and synthetic_handoff_demo_summary.get("person_ingestion_allowed") is False,
+        "open_gap_triage_rowset": open_gap_triage_summary.get("rowset_sha256") == OPEN_GAP_TRIAGE_ROWSET_SHA256,
+        "open_gap_triage_coverage": open_gap_triage_summary.get("triage_rows") == 21
+        and open_gap_triage_summary.get("gap_rows_represented") == 113
+        and open_gap_triage_summary.get("source_slice_index_rowset_sha256") == GAP_SLICE_INDEX_ROWSET_SHA256
+        and open_gap_triage_summary.get("slice_outputs_default_tmp_only") is True
+        and open_gap_triage_summary.get("private_artifact_paths_committed") is False
+        and open_gap_triage_summary.get("raw_dump_publication_allowed") is False
+        and open_gap_triage_summary.get("mutation_allowed") is False
+        and open_gap_triage_summary.get("person_ingestion_allowed") is False
+        and open_gap_triage_summary.get("denominator_closure_allowed") is False
+        and open_gap_triage_summary.get("school_verification_allowed") is False,
+        "triage_slice_contract_rowset": triage_slice_contract_summary.get("rowset_sha256")
+        == TRIAGE_SLICE_CONTRACT_ROWSET_SHA256,
+        "triage_slice_contract_coverage": triage_slice_contract_summary.get("contract_rows") == 4
+        and triage_slice_contract_summary.get("slice_rows_represented") == 21
+        and triage_slice_contract_summary.get("gap_rows_represented") == 113
+        and triage_slice_contract_summary.get("slice_outputs_default_tmp_only") is True
+        and triage_slice_contract_summary.get("private_artifact_paths_committed") is False
+        and triage_slice_contract_summary.get("raw_dump_publication_allowed") is False
+        and triage_slice_contract_summary.get("mutation_allowed") is False
+        and triage_slice_contract_summary.get("person_ingestion_allowed") is False
+        and triage_slice_contract_summary.get("denominator_closure_allowed") is False
+        and triage_slice_contract_summary.get("school_verification_allowed") is False,
         "gap_manifest_rows": gap_summary.get("rows") == 113 and gap_summary.get("mutation_allowed") is False,
     }
     if not all(checks.values()):
@@ -518,6 +549,8 @@ def verify_source_boundary() -> tuple[dict[str, object], ...]:
         patch_helper_fixture_summary,
         priority_handoff_summary,
         synthetic_handoff_demo_summary,
+        open_gap_triage_summary,
+        triage_slice_contract_summary,
         gap_summary,
     )
 
@@ -592,6 +625,8 @@ def main() -> None:
         patch_helper_fixture_summary,
         priority_handoff_summary,
         synthetic_handoff_demo_summary,
+        open_gap_triage_summary,
+        triage_slice_contract_summary,
         gap_summary,
     ) = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
@@ -854,6 +889,66 @@ def main() -> None:
         ),
         row(
             execution_order=4,
+            action_lane="vanderbilt_open_gap_manifest_triage_packet",
+            action_status="ready_for_non_mutating_gap_slice_execution",
+            priority=880,
+            entity_type="vanderbilt_open_gap_manifest_triage_packet",
+            entity_key="vanderbilt_open_gap_manifest_triage_packet",
+            display_label="Vanderbilt open-gap manifest triage packet",
+            impact_count=int(open_gap_triage_summary.get("gap_rows_represented", 0)),
+            source_artifact="artifacts/data/vanderbilt_open_gap_manifest_triage_packet_summary.json",
+            target_artifact="artifacts/data/vanderbilt_open_gap_manifest_triage_packet_summary.json",
+            required_next_evidence=(
+                "Contributor work must select one bounded /tmp slice from the triage packet, collect or classify "
+                "non-mutating official-source evidence, and stop at packet preparation. The slice-definition contract "
+                "keeps source-discovery, route/parser review, scope review, and URL-confirmation actions separate from "
+                "person acceptance or denominator closure."
+            ),
+            recommended_next_action=(
+                "Use artifacts/data/vanderbilt_open_gap_manifest_triage_packet.csv to pick the next Vanderbilt "
+                "open-gap slice beyond the General Surgery reviewer handoff; run only its /tmp slice command, then "
+                "prepare non-mutating source-discovery or review evidence for a future exact packet."
+            ),
+            verification_command=(
+                "python3 scripts/materialize_vanderbilt_open_gap_manifest_triage_packet.py && "
+                "python3 scripts/materialize_top50_public_clone_verification.py"
+            ),
+            success_condition=(
+                "Triage packet represents 21 slices and 113 Vanderbilt open gaps, slice contract represents every "
+                "slice family, outputs remain /tmp-only by default, and all mutation flags remain false."
+            ),
+            approval_required_for=[
+                "person_ingestion",
+                "denominator_closure",
+                "vanderbilt_school_verification",
+                "parser_acceptance",
+                "scope_closure",
+                "url_rewrite",
+                "identity_collapse",
+            ],
+            source_rowset_sha256=OPEN_GAP_TRIAGE_ROWSET_SHA256,
+            target_rowset_sha256=OPEN_GAP_TRIAGE_ROWSET_SHA256,
+            evidence={
+                "triage_rows": open_gap_triage_summary.get("triage_rows"),
+                "gap_rows_represented": open_gap_triage_summary.get("gap_rows_represented"),
+                "by_triage_family": open_gap_triage_summary.get("by_triage_family"),
+                "gap_rows_by_triage_family": open_gap_triage_summary.get("gap_rows_by_triage_family"),
+                "critical_rows": open_gap_triage_summary.get("critical_rows"),
+                "high_rows": open_gap_triage_summary.get("high_rows"),
+                "source_slice_index_rowset_sha256": open_gap_triage_summary.get(
+                    "source_slice_index_rowset_sha256"
+                ),
+                "slice_outputs_default_tmp_only": open_gap_triage_summary.get("slice_outputs_default_tmp_only"),
+                "triage_contract_rows": triage_slice_contract_summary.get("contract_rows"),
+                "triage_contract_slice_rows": triage_slice_contract_summary.get("slice_rows_represented"),
+                "triage_contract_gap_rows": triage_slice_contract_summary.get("gap_rows_represented"),
+                "triage_contract_rowset_sha256": triage_slice_contract_summary.get("rowset_sha256"),
+                "gbrain_advisory_effect": open_gap_triage_summary.get("gbrain_advisory_effect"),
+            },
+            generated_at=generated_at,
+        ),
+        row(
+            execution_order=5,
             action_lane="future_exact_approval_packet_after_valid_decisions",
             action_status="blocked_until_valid_non_mutating_decisions",
             priority=640,
@@ -928,6 +1023,8 @@ def main() -> None:
         "source_vanderbilt_patch_helper_fixture_verification_rowset_sha256": PATCH_HELPER_FIXTURE_ROWSET_SHA256,
         "source_vanderbilt_priority_reviewer_handoff_packet_rowset_sha256": PRIORITY_HANDOFF_PACKET_ROWSET_SHA256,
         "source_vanderbilt_synthetic_handoff_dry_run_demo_rowset_sha256": SYNTHETIC_HANDOFF_DEMO_ROWSET_SHA256,
+        "source_vanderbilt_open_gap_manifest_triage_packet_rowset_sha256": OPEN_GAP_TRIAGE_ROWSET_SHA256,
+        "source_vanderbilt_triage_slice_definition_contract_rowset_sha256": TRIAGE_SLICE_CONTRACT_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

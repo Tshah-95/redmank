@@ -26,8 +26,8 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist_verification.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_verification_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-verification-2026-06-09.md"
 
-EXPECTED_WORKLIST_ROWSET = "673714f62ed47e6d0826cb12de3542a9d5ff8acae16650ab646ff8c902a873c4"
-EXPECTED_CLONE_VERIFICATION_ROWSET = "da28ec6ac1e9a4df95c7f60c12fa9e6a8221ea639d50f27f86776ec194b871ba"
+EXPECTED_WORKLIST_ROWSET = "2908c35a7730cb55bd2305943a305a97995d483c8b26ca8c68b39e4bab3b14ea"
+EXPECTED_CLONE_VERIFICATION_ROWSET = "3769d2294e7d3682257fd4df8f4484aea699bb757ef4ba510c1262d1039cbeaa"
 EXPECTED_BATCH_PACKET_ROWSET = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
 EXPECTED_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 EXPECTED_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
@@ -43,6 +43,7 @@ EXPECTED_SLICE_PRIORITIZATION_PLAN_ROWSET = "eeaf14d0496276eb6603f3434a497eb3640
 EXPECTED_PRIORITY_INSTRUCTION_PACKET_ROWSET = "dfe6c7081ac7c3c28ac6e8afcb736a2d16bc8a6cbd8cba1cbc38b420064ddd65"
 EXPECTED_PATCH_HELPER_FIXTURE_ROWSET = "9d87181804d6ade23ea3bd7fd322cdc7fdeab7b3078aade0921c8d2b2cab2825"
 EXPECTED_PRIORITY_HANDOFF_PACKET_ROWSET = "9ec4ad8a9117ff2b48e6e67b1044b0d59e2d1fe367f381bb4ac3c8b7fc39b8b0"
+EXPECTED_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -90,6 +91,10 @@ ALLOWED_COMMANDS = {
         "python3 scripts/materialize_vanderbilt_synthetic_handoff_dry_run_demo.py && "
         "python3 scripts/materialize_top50_public_clone_verification.py && "
         "python3 scripts/assert_gap_manifest_fails_closed.py"
+    ),
+    (
+        "python3 scripts/materialize_vanderbilt_open_gap_manifest_triage_packet.py && "
+        "python3 scripts/materialize_top50_public_clone_verification.py"
     ),
     "python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py",
 }
@@ -243,10 +248,10 @@ def main() -> None:
         generated_at,
         "worklist_summary_boundary",
         summary.get("rowset_sha256") == EXPECTED_WORKLIST_ROWSET
-        and summary.get("worklist_rows") == 4
-        and summary.get("total_impact_count") == 365
+        and summary.get("worklist_rows") == 5
+        and summary.get("total_impact_count") == 480
         and summary.get("mutation_allowed") is False,
-        {"rowset_sha256": EXPECTED_WORKLIST_ROWSET, "worklist_rows": 4, "total_impact_count": 365, "mutation_allowed": False},
+        {"rowset_sha256": EXPECTED_WORKLIST_ROWSET, "worklist_rows": 5, "total_impact_count": 480, "mutation_allowed": False},
         {
             "rowset_sha256": summary.get("rowset_sha256"),
             "worklist_rows": summary.get("worklist_rows"),
@@ -259,8 +264,8 @@ def main() -> None:
         checks,
         generated_at,
         "worklist_csv_json_counts_match",
-        len(csv_rows) == len(json_rows) == summary.get("worklist_rows") == 4,
-        {"csv_rows": 4, "json_rows": 4, "summary_rows": 4},
+        len(csv_rows) == len(json_rows) == summary.get("worklist_rows") == 5,
+        {"csv_rows": 5, "json_rows": 5, "summary_rows": 5},
         {"csv_rows": len(csv_rows), "json_rows": len(json_rows), "summary_rows": summary.get("worklist_rows")},
         {},
     )
@@ -269,6 +274,7 @@ def main() -> None:
         "verify_public_clone_substrate",
         "vanderbilt_bounded_manual_review_packets",
         "vanderbilt_active_gap_manifest_triage",
+        "vanderbilt_open_gap_manifest_triage_packet",
         "future_exact_approval_packet_after_valid_decisions",
     ]
     add_check(checks, generated_at, "worklist_lane_order", observed_order == expected_order, expected_order, observed_order, {})
@@ -338,11 +344,13 @@ def main() -> None:
         source_rowsets.get("verify_public_clone_substrate") == EXPECTED_CLONE_VERIFICATION_ROWSET
         and source_rowsets.get("vanderbilt_bounded_manual_review_packets") == EXPECTED_OPERATOR_PACKET_ROWSET
         and source_rowsets.get("vanderbilt_active_gap_manifest_triage") == EXPECTED_PRIORITY_HANDOFF_PACKET_ROWSET
+        and source_rowsets.get("vanderbilt_open_gap_manifest_triage_packet") == EXPECTED_OPEN_GAP_TRIAGE_ROWSET
         and source_rowsets.get("future_exact_approval_packet_after_valid_decisions") == EXPECTED_DECISION_AUDIT_ROWSET,
         {
             "verify_public_clone_substrate": EXPECTED_CLONE_VERIFICATION_ROWSET,
             "vanderbilt_bounded_manual_review_packets": EXPECTED_OPERATOR_PACKET_ROWSET,
             "vanderbilt_active_gap_manifest_triage": EXPECTED_PRIORITY_HANDOFF_PACKET_ROWSET,
+            "vanderbilt_open_gap_manifest_triage_packet": EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
             "future_exact_approval_packet_after_valid_decisions": EXPECTED_DECISION_AUDIT_ROWSET,
         },
         source_rowsets,
@@ -358,11 +366,13 @@ def main() -> None:
         "worklist_target_rowsets_match",
         target_rowsets.get("verify_public_clone_substrate") == EXPECTED_CLONE_VERIFICATION_ROWSET
         and target_rowsets.get("vanderbilt_bounded_manual_review_packets") == EXPECTED_DECISION_AUDIT_ROWSET
-        and target_rowsets.get("vanderbilt_active_gap_manifest_triage") == EXPECTED_DECISION_AUDIT_ROWSET,
+        and target_rowsets.get("vanderbilt_active_gap_manifest_triage") == EXPECTED_DECISION_AUDIT_ROWSET
+        and target_rowsets.get("vanderbilt_open_gap_manifest_triage_packet") == EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
         {
             "verify_public_clone_substrate": EXPECTED_CLONE_VERIFICATION_ROWSET,
             "vanderbilt_bounded_manual_review_packets": EXPECTED_DECISION_AUDIT_ROWSET,
             "vanderbilt_active_gap_manifest_triage": EXPECTED_DECISION_AUDIT_ROWSET,
+            "vanderbilt_open_gap_manifest_triage_packet": EXPECTED_OPEN_GAP_TRIAGE_ROWSET,
         },
         target_rowsets,
         {},

@@ -1,0 +1,29 @@
+{
+  "accepted_person_rows": 0,
+  "by_triage_family": {
+    "official_url_confirmation": 1,
+    "route_parser_or_rendered_review": 3,
+    "scope_or_shared_source_review": 2,
+    "source_discovery_or_program_probe": 15
+  },
+  "contract_rows": 4,
+  "csv": "artifacts/data/vanderbilt_triage_slice_definition_contract.csv",
+  "denominator_closure_allowed": false,
+  "gap_rows_represented": 113,
+  "gbrain_advisory_effect": "gbrain_selected_vanderbilt_open_gap_manifest_triage_packet_option_b",
+  "generated_at": "2026-06-09T10:09:08.340943+00:00",
+  "identity_collapse_allowed": false,
+  "json": "artifacts/data/vanderbilt_triage_slice_definition_contract.json",
+  "markdown": "artifacts/research/vanderbilt-triage-slice-definition-contract-2026-06-09.md",
+  "mutation_allowed": false,
+  "person_ingestion_allowed": false,
+  "policy": "Non-mutating Vanderbilt open-gap manifest triage packet. It ranks the committed 21 Vanderbilt gap-resolution batch slices covering 113 open gaps and records slice-definition boundaries for contributor execution. It does not fetch web pages, fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
+  "private_artifact_paths_committed": false,
+  "raw_dump_publication_allowed": false,
+  "rowset_sha256": "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f",
+  "school_verification_allowed": false,
+  "slice_outputs_default_tmp_only": true,
+  "slice_rows_represented": 21,
+  "source_triage_summary": "artifacts/data/vanderbilt_open_gap_manifest_triage_packet_summary.json",
+  "url_rewrite_allowed": false
+}

@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Candidate Reviewer Decision Audit
-created_at: 2026-06-09T09:55:07.278125+00:00
+created_at: 2026-06-09T10:09:08.484053+00:00
 project: top-50-medical-school-roster-engine
 school: Vanderbilt University School of Medicine
 ---
@@ -32,7 +32,7 @@ Non-mutating Vanderbilt candidate reviewer decision audit. It checks manual revi
   },
   "csv": "artifacts/data/vanderbilt_candidate_reviewer_decision_audit.csv",
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T09:55:07.278125+00:00",
+  "generated_at": "2026-06-09T10:09:08.484053+00:00",
   "invalid_rows": 0,
   "json": "artifacts/data/vanderbilt_candidate_reviewer_decision_audit.json",
   "manual_decision_rows": 159,

@@ -1,0 +1,43 @@
+{
+  "accepted_person_rows": 0,
+  "by_triage_family": {
+    "official_url_confirmation": 1,
+    "route_parser_or_rendered_review": 3,
+    "scope_or_shared_source_review": 2,
+    "source_discovery_or_program_probe": 15
+  },
+  "critical_rows": 3,
+  "csv": "artifacts/data/vanderbilt_open_gap_manifest_triage_packet.csv",
+  "denominator_closure_allowed": false,
+  "gap_rows_by_triage_family": {
+    "official_url_confirmation": 4,
+    "route_parser_or_rendered_review": 3,
+    "scope_or_shared_source_review": 12,
+    "source_discovery_or_program_probe": 94
+  },
+  "gap_rows_represented": 113,
+  "gbrain_advisory_effect": "gbrain_selected_vanderbilt_open_gap_manifest_triage_packet_option_b",
+  "generated_at": "2026-06-09T10:09:08.340943+00:00",
+  "high_rows": 5,
+  "identity_collapse_allowed": false,
+  "json": "artifacts/data/vanderbilt_open_gap_manifest_triage_packet.json",
+  "low_rows": 13,
+  "markdown": "artifacts/research/vanderbilt-open-gap-manifest-triage-packet-2026-06-09.md",
+  "medium_rows": 0,
+  "mutation_allowed": false,
+  "person_ingestion_allowed": false,
+  "policy": "Non-mutating Vanderbilt open-gap manifest triage packet. It ranks the committed 21 Vanderbilt gap-resolution batch slices covering 113 open gaps and records slice-definition boundaries for contributor execution. It does not fetch web pages, fill reviewer decisions, apply patches, approve people, ingest people, close denominators, verify Vanderbilt as a school, rewrite URLs, accept enrichment facts, publish raw dumps, or collapse identities.",
+  "private_artifact_paths_committed": false,
+  "raw_dump_publication_allowed": false,
+  "rowset_sha256": "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391",
+  "school_verification_allowed": false,
+  "slice_definition_contract_summary": "artifacts/data/vanderbilt_triage_slice_definition_contract_summary.json",
+  "slice_outputs_default_tmp_only": true,
+  "source_batch_summary": "artifacts/data/school_gap_resolution_batch_summary.json",
+  "source_manifest_summary": "artifacts/data/school_gap_resolution_manifest_summary.json",
+  "source_packet_summary": "artifacts/data/school_gap_resolution_batch_packet_summary.json",
+  "source_slice_index_rowset_sha256": "2442accacb8ff67df1d2df3915c737af70e0186f11b9750c0d52c6b819c2cb75",
+  "source_slice_summary": "artifacts/data/school_gap_resolution_batch_slice_index_summary.json",
+  "triage_rows": 21,
+  "url_rewrite_allowed": false
+}

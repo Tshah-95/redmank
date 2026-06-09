@@ -45,6 +45,8 @@ EXPECTED_GAP_TARGETED_REVIEW_PACKET_ROWSET = "d2e85a18ae738930a5371e48e30615663e
 EXPECTED_GAP_PARSER_SCOPE_BRIDGE_ROWSET = "942d131072d56524c9e19832c084b9e2520e43e783e3a9c0c6e2ae30c0f06912"
 EXPECTED_GAP_CANDIDATE_OUTPUT_BRIDGE_ROWSET = "dfb141c1883d85fd6a8c7c0e015b939414788936eb13dbb04eecb9111ff5b843"
 EXPECTED_GAP_REVIEW_QUEUE_BRIDGE_ROWSET = "46c2b215f28819df10913fa35f7dff6e7f4afc4ec6c3598e7432088c3f34e10d"
+EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET = "b89f2278c96c18c70403099be2b18542bb0f59a4c50a53921f17fe83864b1391"
+EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET = "b8559206ae9341dae7c9136ddb6d83651ff84905feb74ec133992e822534416f"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
 
 MUTATION_POLICY = (
@@ -316,6 +318,20 @@ def main() -> None:
     gap_review_queue_bridge_summary = read_json(ARTIFACTS / "school_gap_resolution_review_queue_bridge_summary.json")
     gap_review_queue_bridge_csv = read_csv_rows(ARTIFACTS / "school_gap_resolution_review_queue_bridge.csv")
     gap_review_queue_bridge_json = read_json(ARTIFACTS / "school_gap_resolution_review_queue_bridge.json")
+    vanderbilt_open_gap_triage_summary = read_json(
+        ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet_summary.json"
+    )
+    vanderbilt_open_gap_triage_csv = read_csv_rows(ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet.csv")
+    vanderbilt_open_gap_triage_json = read_json(ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet.json")
+    vanderbilt_triage_contract_summary = read_json(
+        ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json"
+    )
+    vanderbilt_triage_contract_csv = read_csv_rows(
+        ARTIFACTS / "vanderbilt_triage_slice_definition_contract.csv"
+    )
+    vanderbilt_triage_contract_json = read_json(
+        ARTIFACTS / "vanderbilt_triage_slice_definition_contract.json"
+    )
     readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
     gap_manifest_script_text = (ROOT / "scripts" / "materialize_school_gap_resolution_manifest.py").read_text(
         encoding="utf-8"
@@ -385,6 +401,8 @@ def main() -> None:
             gap_parser_scope_bridge_summary,
             gap_candidate_output_bridge_summary,
             gap_review_queue_bridge_summary,
+            vanderbilt_open_gap_triage_summary,
+            vanderbilt_triage_contract_summary,
         ]
     ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
@@ -407,6 +425,8 @@ def main() -> None:
         or not isinstance(gap_parser_scope_bridge_json, list)
         or not isinstance(gap_candidate_output_bridge_json, list)
         or not isinstance(gap_review_queue_bridge_json, list)
+        or not isinstance(vanderbilt_open_gap_triage_json, list)
+        or not isinstance(vanderbilt_triage_contract_json, list)
     ):
         raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
@@ -1298,6 +1318,119 @@ def main() -> None:
         },
         {"summary": "artifacts/data/school_gap_resolution_batch_slice_index_summary.json"},
     )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_open_gap_manifest_triage_boundary",
+        vanderbilt_open_gap_triage_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET
+        and vanderbilt_open_gap_triage_summary.get("triage_rows") == 21
+        and vanderbilt_open_gap_triage_summary.get("gap_rows_represented") == 113
+        and vanderbilt_open_gap_triage_summary.get("source_slice_index_rowset_sha256")
+        == EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET
+        and vanderbilt_open_gap_triage_summary.get("slice_outputs_default_tmp_only") is True
+        and vanderbilt_open_gap_triage_summary.get("private_artifact_paths_committed") is False
+        and vanderbilt_open_gap_triage_summary.get("raw_dump_publication_allowed") is False
+        and vanderbilt_open_gap_triage_summary.get("mutation_allowed") is False
+        and vanderbilt_open_gap_triage_summary.get("person_ingestion_allowed") is False
+        and vanderbilt_open_gap_triage_summary.get("denominator_closure_allowed") is False
+        and vanderbilt_open_gap_triage_summary.get("school_verification_allowed") is False
+        and len(vanderbilt_open_gap_triage_csv) == 21
+        and len(vanderbilt_open_gap_triage_json) == 21,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET,
+            "triage_rows": 21,
+            "gap_rows_represented": 113,
+            "source_slice_index_rowset_sha256": EXPECTED_GAP_BATCH_SLICE_INDEX_ROWSET,
+            "slice_outputs_default_tmp_only": True,
+            "private_artifact_paths_committed": False,
+            "raw_dump_publication_allowed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+            "csv_rows": 21,
+            "json_rows": 21,
+        },
+        {
+            "rowset_sha256": vanderbilt_open_gap_triage_summary.get("rowset_sha256"),
+            "triage_rows": vanderbilt_open_gap_triage_summary.get("triage_rows"),
+            "gap_rows_represented": vanderbilt_open_gap_triage_summary.get("gap_rows_represented"),
+            "source_slice_index_rowset_sha256": vanderbilt_open_gap_triage_summary.get(
+                "source_slice_index_rowset_sha256"
+            ),
+            "slice_outputs_default_tmp_only": vanderbilt_open_gap_triage_summary.get(
+                "slice_outputs_default_tmp_only"
+            ),
+            "private_artifact_paths_committed": vanderbilt_open_gap_triage_summary.get(
+                "private_artifact_paths_committed"
+            ),
+            "raw_dump_publication_allowed": vanderbilt_open_gap_triage_summary.get("raw_dump_publication_allowed"),
+            "mutation_allowed": vanderbilt_open_gap_triage_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": vanderbilt_open_gap_triage_summary.get("person_ingestion_allowed"),
+            "denominator_closure_allowed": vanderbilt_open_gap_triage_summary.get(
+                "denominator_closure_allowed"
+            ),
+            "school_verification_allowed": vanderbilt_open_gap_triage_summary.get("school_verification_allowed"),
+            "csv_rows": len(vanderbilt_open_gap_triage_csv),
+            "json_rows": len(vanderbilt_open_gap_triage_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_open_gap_manifest_triage_packet_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_triage_slice_definition_contract_boundary",
+        vanderbilt_triage_contract_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET
+        and vanderbilt_triage_contract_summary.get("contract_rows") == 4
+        and vanderbilt_triage_contract_summary.get("slice_rows_represented") == 21
+        and vanderbilt_triage_contract_summary.get("gap_rows_represented") == 113
+        and vanderbilt_triage_contract_summary.get("slice_outputs_default_tmp_only") is True
+        and vanderbilt_triage_contract_summary.get("private_artifact_paths_committed") is False
+        and vanderbilt_triage_contract_summary.get("raw_dump_publication_allowed") is False
+        and vanderbilt_triage_contract_summary.get("mutation_allowed") is False
+        and vanderbilt_triage_contract_summary.get("person_ingestion_allowed") is False
+        and vanderbilt_triage_contract_summary.get("denominator_closure_allowed") is False
+        and vanderbilt_triage_contract_summary.get("school_verification_allowed") is False
+        and len(vanderbilt_triage_contract_csv) == 4
+        and len(vanderbilt_triage_contract_json) == 4,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET,
+            "contract_rows": 4,
+            "slice_rows_represented": 21,
+            "gap_rows_represented": 113,
+            "slice_outputs_default_tmp_only": True,
+            "private_artifact_paths_committed": False,
+            "raw_dump_publication_allowed": False,
+            "mutation_allowed": False,
+            "person_ingestion_allowed": False,
+            "denominator_closure_allowed": False,
+            "school_verification_allowed": False,
+            "csv_rows": 4,
+            "json_rows": 4,
+        },
+        {
+            "rowset_sha256": vanderbilt_triage_contract_summary.get("rowset_sha256"),
+            "contract_rows": vanderbilt_triage_contract_summary.get("contract_rows"),
+            "slice_rows_represented": vanderbilt_triage_contract_summary.get("slice_rows_represented"),
+            "gap_rows_represented": vanderbilt_triage_contract_summary.get("gap_rows_represented"),
+            "slice_outputs_default_tmp_only": vanderbilt_triage_contract_summary.get(
+                "slice_outputs_default_tmp_only"
+            ),
+            "private_artifact_paths_committed": vanderbilt_triage_contract_summary.get(
+                "private_artifact_paths_committed"
+            ),
+            "raw_dump_publication_allowed": vanderbilt_triage_contract_summary.get("raw_dump_publication_allowed"),
+            "mutation_allowed": vanderbilt_triage_contract_summary.get("mutation_allowed"),
+            "person_ingestion_allowed": vanderbilt_triage_contract_summary.get("person_ingestion_allowed"),
+            "denominator_closure_allowed": vanderbilt_triage_contract_summary.get(
+                "denominator_closure_allowed"
+            ),
+            "school_verification_allowed": vanderbilt_triage_contract_summary.get("school_verification_allowed"),
+            "csv_rows": len(vanderbilt_triage_contract_csv),
+            "json_rows": len(vanderbilt_triage_contract_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_triage_slice_definition_contract_summary.json"},
+    )
     gap_review_template_blank_counts = gap_review_template_summary.get("blank_review_fields")
     add_check(
         checks,
@@ -1647,6 +1780,14 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo.json",
             ARTIFACTS / "vanderbilt_synthetic_handoff_dry_run_demo_summary.json",
             RESEARCH / "vanderbilt-synthetic-handoff-dry-run-demo-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet.csv",
+            ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet.json",
+            ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet_summary.json",
+            RESEARCH / "vanderbilt-open-gap-manifest-triage-packet-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_triage_slice_definition_contract.csv",
+            ARTIFACTS / "vanderbilt_triage_slice_definition_contract.json",
+            ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json",
+            RESEARCH / "vanderbilt-triage-slice-definition-contract-2026-06-09.md",
         ]
     )
     add_check(
@@ -1656,7 +1797,7 @@ def main() -> None:
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 48, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 56, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     gap_private_hits = private_marker_hits_in_paths(
         [
@@ -1686,6 +1827,14 @@ def main() -> None:
             ARTIFACTS / "school_gap_resolution_review_queue_bridge.json",
             ARTIFACTS / "school_gap_resolution_review_queue_bridge_summary.json",
             RESEARCH / "school-gap-resolution-review-queue-bridge-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet.csv",
+            ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet.json",
+            ARTIFACTS / "vanderbilt_open_gap_manifest_triage_packet_summary.json",
+            RESEARCH / "vanderbilt-open-gap-manifest-triage-packet-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_triage_slice_definition_contract.csv",
+            ARTIFACTS / "vanderbilt_triage_slice_definition_contract.json",
+            ARTIFACTS / "vanderbilt_triage_slice_definition_contract_summary.json",
+            RESEARCH / "vanderbilt-triage-slice-definition-contract-2026-06-09.md",
         ]
     )
     add_check(
@@ -1695,7 +1844,7 @@ def main() -> None:
         not gap_private_hits,
         [],
         gap_private_hits,
-        {"scanned_outputs": 26, "scan": "private_artifact_path_markers"},
+        {"scanned_outputs": 34, "scan": "private_artifact_path_markers"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -2152,6 +2301,8 @@ def main() -> None:
         "vanderbilt_gap_parser_scope_bridge_rowset_sha256": EXPECTED_GAP_PARSER_SCOPE_BRIDGE_ROWSET,
         "vanderbilt_gap_candidate_output_bridge_rowset_sha256": EXPECTED_GAP_CANDIDATE_OUTPUT_BRIDGE_ROWSET,
         "vanderbilt_gap_review_queue_bridge_rowset_sha256": EXPECTED_GAP_REVIEW_QUEUE_BRIDGE_ROWSET,
+        "vanderbilt_open_gap_manifest_triage_rowset_sha256": EXPECTED_VANDERBILT_OPEN_GAP_TRIAGE_ROWSET,
+        "vanderbilt_triage_slice_definition_contract_rowset_sha256": EXPECTED_VANDERBILT_TRIAGE_CONTRACT_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,
