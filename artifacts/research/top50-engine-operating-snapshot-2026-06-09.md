@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Engine Operating Snapshot
-created_at: 2026-06-09T05:47:38.157522+00:00
+created_at: 2026-06-09T06:29:54.255584+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -28,7 +28,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
       "STANFORD UNIVERSITY SCH OF MEDICINE": 69
     }
   },
-  "rowset_sha256": "2743bdc6aa80c59dbcfa2f4dceb4a84668cbaff298a4d79756f79a6bad222588",
+  "rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
   "school_verification": {
     "registry_rowset_sha256": "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29",
     "source_summary_files": [
@@ -62,7 +62,7 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
     "candidate_review_batch_packet_invalid_rows": 0,
     "candidate_review_batch_packet_pending_rows": 159,
     "candidate_review_batch_packet_rows": 20,
-    "candidate_review_batch_packet_rowset_sha256": "1f9da0ab244581dbf5782eab572d5045b8a53c8bffc9d4892e077ca1c7b0e30e",
+    "candidate_review_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
     "candidate_review_decision_scaffold_rows": 159,
     "candidate_review_decision_scaffold_rowset_sha256": "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938",
     "candidate_review_manual_decision_template_rows": 159,
@@ -88,6 +88,9 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
     "parser_scope_execution_evidence_rows": 20,
     "parser_scope_execution_evidence_rowset_sha256": "db7e7c7b03c31c20a6b3b9c2a17da2d24cbf0c725f97872452db63a2e5942812",
     "parser_scope_execution_evidence_total_candidate_count": 348,
+    "public_reviewer_operator_missing_required_template_column_mentions": 0,
+    "public_reviewer_operator_packet_rows": 20,
+    "public_reviewer_operator_packet_rowset_sha256": "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173",
     "review_packet_rows": 20,
     "review_packet_rowset_sha256": "dd7ba52cefcec632da434810653bce1b106696ca9a9d94fe3e517f206ae50785",
     "route_observation_rows": 20,
@@ -107,5 +110,5 @@ This snapshot is non-mutating and authorizes no person ingestion, training-state
 
 | lane | status | artifact | rowset | next action |
 | --- | --- | --- | --- | --- |
-| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_for_bounded_vanderbilt_manual_review_packets | artifacts/data/vanderbilt_candidate_review_batch_packets.csv | 1f9da0ab244581dbf5782eab572d5045b8a53c8bffc9d4892e077ca1c7b0e30e | Use the bounded Vanderbilt candidate review batch packets to enter non-mutating reviewer decisions in artifacts/data/vanderbilt_candidate_reviewer_decisions.csv, then rerun the decision audit and batch packet materializer. Any accepted person rows, denominator closure, identity reconciliation, parser acceptance, or scope closure still requires a later exact approval packet. |
+| vanderbilt_targeted_route_parser_scope_gbrain_approval | ready_for_public_safe_vanderbilt_operator_packets | artifacts/data/vanderbilt_public_reviewer_operator_packets.csv | 6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173 | Use the public-safe Vanderbilt reviewer operator packets to enter non-mutating reviewer decisions in artifacts/data/vanderbilt_candidate_reviewer_decisions.csv, then rerun the decision audit, batch packet materializer, and operator-packet materializer. Any accepted person rows, denominator closure, identity reconciliation, parser acceptance, or scope closure still requires a later exact approval packet. |
 | vanderbilt_active_gap_resolution_manifest | active_non_mutating_discovery_queue | artifacts/data/school_gap_resolution_manifest.csv |  | Use the Vanderbilt-only active gap manifest to choose bounded source-discovery, route-inspection, rendered-review, or closure-packet work. |

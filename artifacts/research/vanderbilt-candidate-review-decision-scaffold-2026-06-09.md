@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Vanderbilt Candidate Review Decision Scaffold
-created_at: 2026-06-09T05:29:58.024935+00:00
+created_at: 2026-06-09T06:29:54.137955+00:00
 project: top-50-medical-school-roster-engine
 school: Vanderbilt University School of Medicine
 ---
@@ -49,7 +49,7 @@ Non-mutating Vanderbilt candidate review decision scaffold. It creates pending r
   "csv": "artifacts/data/vanderbilt_candidate_review_decision_scaffold.csv",
   "decision_scaffold_rows": 159,
   "denominator_closure_allowed": false,
-  "generated_at": "2026-06-09T05:29:58.024935+00:00",
+  "generated_at": "2026-06-09T06:29:54.137955+00:00",
   "json": "artifacts/data/vanderbilt_candidate_review_decision_scaffold.json",
   "manual_decision_template_rows": 159,
   "manual_decisions_csv": "artifacts/data/vanderbilt_candidate_reviewer_decisions.csv",

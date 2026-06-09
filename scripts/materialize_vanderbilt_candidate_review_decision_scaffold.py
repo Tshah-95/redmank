@@ -79,6 +79,9 @@ DECISION_FIELDS = [
     "confirm_no_denominator_closure",
     "confirm_no_raw_name_added",
     "confirm_no_url_rewrite",
+    "confirm_candidate_fingerprint_only",
+    "confirm_scope_metadata_only",
+    "confirm_recourse_only",
 ]
 
 ROWSET_FIELDS = [
@@ -300,6 +303,9 @@ def main() -> None:
                 "confirm_no_denominator_closure": "",
                 "confirm_no_raw_name_added": "",
                 "confirm_no_url_rewrite": "",
+                "confirm_candidate_fingerprint_only": "",
+                "confirm_scope_metadata_only": "",
+                "confirm_recourse_only": "",
             }
         )
 

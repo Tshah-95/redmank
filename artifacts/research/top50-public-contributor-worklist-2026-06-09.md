@@ -1,7 +1,7 @@
 ---
 type: research-checkpoint
 title: Top50 Public Contributor Worklist
-created_at: 2026-06-09T06:12:43.850185+00:00
+created_at: 2026-06-09T06:29:54.375287+00:00
 project: top-50-medical-school-roster-engine
 ---
 
@@ -32,7 +32,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "denominator_closure_allowed": false,
   "gbrain_approval_line": "APPROVE top50_public_contributor_worklist_lane_approved",
   "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
-  "generated_at": "2026-06-09T06:12:43.850185+00:00",
+  "generated_at": "2026-06-09T06:29:54.375287+00:00",
   "high_rows": 1,
   "json": "artifacts/data/top50_public_contributor_worklist.json",
   "low_rows": 0,
@@ -41,12 +41,13 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
   "mutation_allowed": false,
   "person_ingestion_allowed": false,
   "policy": "Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ranks bounded public-safe operator actions from committed verification, snapshot, Vanderbilt batch-packet, decision-audit, and gap manifest artifacts. It does not approve person ingestion, parser output as accepted people, training-state mutation, denominator closure, school verification, URL rewrite, unsupported-label ingestion, enrichment acceptance, raw dump publication, or unique-person identity collapse.",
-  "rowset_sha256": "cbaec08eb19367f9f673c72c637def2fac551ca0d3941a2cccb0ea4402e4458a",
+  "rowset_sha256": "4bbbc536428ccdfb8f780593563d89c5f09084836e2c5fc48a7ee39ed4a1ee52",
   "school_verification_allowed": false,
-  "source_snapshot_rowset_sha256": "2743bdc6aa80c59dbcfa2f4dceb4a84668cbaff298a4d79756f79a6bad222588",
-  "source_vanderbilt_batch_packet_rowset_sha256": "1f9da0ab244581dbf5782eab572d5045b8a53c8bffc9d4892e077ca1c7b0e30e",
-  "source_verification_rowset_sha256": "0347fde0a9594cd476c49938e55bc710d46104f325f061221c324902f95cc490",
-  "total_impact_count": 444,
+  "source_snapshot_rowset_sha256": "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48",
+  "source_vanderbilt_batch_packet_rowset_sha256": "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f",
+  "source_vanderbilt_operator_packet_rowset_sha256": "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173",
+  "source_verification_rowset_sha256": "1056abc4a0d52b01aea33e74c312c0d143881b126bdfe2edbc49357845d8a7bd",
+  "total_impact_count": 445,
   "worklist_rows": 4
 }
 ```
@@ -55,7 +56,7 @@ Non-mutating public contributor worklist for the top-50/Vanderbilt engine. It ra
 
 | order | lane | status | priority | impact | source | target | next action |
 | ---: | --- | --- | ---: | ---: | --- | --- | --- |
-| 1 | verify_public_clone_substrate | ready_and_passing | 980 | 13 | artifacts/data/top50_public_clone_verification_summary.json | artifacts/data/top50_public_clone_verification_summary.json | Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change. |
-| 2 | vanderbilt_bounded_manual_review_packets | ready_for_non_mutating_reviewer_input | 940 | 159 | artifacts/data/vanderbilt_candidate_review_batch_packets.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Work one bounded packet at a time, enter only non-mutating decisions in the reviewer decision template, then rerun the decision audit and batch-packet materializer. |
+| 1 | verify_public_clone_substrate | ready_and_passing | 980 | 14 | artifacts/data/top50_public_clone_verification_summary.json | artifacts/data/top50_public_clone_verification_summary.json | Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change. |
+| 2 | vanderbilt_bounded_manual_review_packets | ready_for_non_mutating_reviewer_input | 940 | 159 | artifacts/data/vanderbilt_public_reviewer_operator_packets.csv | artifacts/data/vanderbilt_candidate_reviewer_decisions.csv | Work one public-safe operator packet at a time, enter only non-mutating decisions in the reviewer decision template, then rerun the decision audit, batch-packet materializer, and operator-packet materializer. |
 | 3 | vanderbilt_active_gap_manifest_triage | ready_for_non_mutating_source_discovery_planning | 760 | 113 | artifacts/data/school_gap_resolution_manifest.csv | artifacts/data/school_gap_resolution_batch_packets.csv | Use existing gap-resolution batches/packets for source-discovery planning; do not regenerate the gap manifest in a public clone unless the core source inputs are present. |
 | 4 | future_exact_approval_packet_after_valid_decisions | blocked_until_valid_non_mutating_decisions | 640 | 159 | artifacts/data/vanderbilt_candidate_reviewer_decision_audit_summary.json | artifacts/data/vanderbilt_candidate_acceptance_or_closure_approval_packet.csv | Do not build person-ingestion, denominator-closure, parser-acceptance, scope-closure, or identity-collapse packets until reviewer decisions are present and the decision audit passes. |

@@ -140,6 +140,14 @@ def allowed_actions(scaffold_row: dict[str, object]) -> set[str]:
     return {item.strip() for item in str(scaffold_row.get("allowed_reviewer_actions") or "").split(";") if item.strip()}
 
 
+def required_confirmation_fields(scaffold_row: dict[str, object]) -> list[str]:
+    return [
+        item.strip()
+        for item in str(scaffold_row.get("required_confirmation_fields") or "").split(";")
+        if item.strip()
+    ]
+
+
 def confirmation_keys(decision_row: dict[str, str]) -> list[str]:
     return [key for key in decision_row if key.startswith("confirm_")]
 
@@ -148,9 +156,12 @@ def audit_decision(scaffold_row: dict[str, object], decision_row: dict[str, str]
     action = str(decision_row.get("reviewer_action") or "").strip()
     note = str(decision_row.get("reviewer_note") or "").strip()
     allowed = allowed_actions(scaffold_row)
+    required_confirmations = required_confirmation_fields(scaffold_row)
+    missing_confirmation_fields = [key for key in required_confirmations if key not in decision_row]
     fingerprint_match = decision_row.get("confirm_decision_fingerprint") == scaffold_row.get("decision_fingerprint")
-    confirmations = confirmation_keys(decision_row)
-    confirmations_present = all(str(decision_row.get(key) or "").lower() == "true" for key in confirmations)
+    confirmations = required_confirmations or confirmation_keys(decision_row)
+    boolean_confirmations = [key for key in confirmations if key != "confirm_decision_fingerprint"]
+    confirmations_present = all(str(decision_row.get(key) or "").lower() == "true" for key in boolean_confirmations)
     raw_note_hit = bool(NAME_LIKE_RE.search(note) or URL_RE.search(note))
 
     if not action and not note and not any(decision_row.get(key) for key in confirmations):
@@ -174,6 +185,13 @@ def audit_decision(scaffold_row: dict[str, object], decision_row: dict[str, str]
         allowed_match = "true"
         fingerprint_value = "false"
         confirmations_value = "true" if confirmations_present else "false"
+    elif missing_confirmation_fields:
+        state = "invalid_manual_decision"
+        status = "invalid"
+        blocker = "required_confirmation_fields_absent_from_manual_template"
+        allowed_match = "true"
+        fingerprint_value = "true"
+        confirmations_value = "false"
     elif not confirmations_present:
         state = "invalid_manual_decision"
         status = "invalid"
@@ -218,6 +236,8 @@ def audit_decision(scaffold_row: dict[str, object], decision_row: dict[str, str]
             {
                 "source_scaffold_rowset_sha256": SCAFFOLD_ROWSET_SHA256,
                 "allowed_actions": sorted(allowed),
+                "required_confirmation_fields": required_confirmations,
+                "missing_confirmation_fields": missing_confirmation_fields,
                 "note_hash": sha256_text(note) if note else "",
                 "raw_note_hit": raw_note_hit,
             }

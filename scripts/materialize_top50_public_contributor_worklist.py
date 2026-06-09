@@ -20,6 +20,8 @@ VERIFICATION_SUMMARY = ARTIFACTS / "top50_public_clone_verification_summary.json
 SNAPSHOT_JSON = ARTIFACTS / "top50_engine_operating_snapshot.json"
 BATCH_SUMMARY = ARTIFACTS / "vanderbilt_candidate_review_batch_packet_summary.json"
 BATCH_CSV = ARTIFACTS / "vanderbilt_candidate_review_batch_packets.csv"
+OPERATOR_SUMMARY = ARTIFACTS / "vanderbilt_public_reviewer_operator_packet_summary.json"
+OPERATOR_CSV = ARTIFACTS / "vanderbilt_public_reviewer_operator_packets.csv"
 DECISION_AUDIT_SUMMARY = ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json"
 GAP_SUMMARY = ARTIFACTS / "school_gap_resolution_manifest_summary.json"
 GAP_CSV = ARTIFACTS / "school_gap_resolution_manifest.csv"
@@ -29,9 +31,10 @@ OUT_JSON = ARTIFACTS / "top50_public_contributor_worklist.json"
 OUT_SUMMARY = ARTIFACTS / "top50_public_contributor_worklist_summary.json"
 OUT_MD = RESEARCH / "top50-public-contributor-worklist-2026-06-09.md"
 
-VERIFICATION_ROWSET_SHA256 = "0347fde0a9594cd476c49938e55bc710d46104f325f061221c324902f95cc490"
-SNAPSHOT_ROWSET_SHA256 = "2743bdc6aa80c59dbcfa2f4dceb4a84668cbaff298a4d79756f79a6bad222588"
-BATCH_PACKET_ROWSET_SHA256 = "1f9da0ab244581dbf5782eab572d5045b8a53c8bffc9d4892e077ca1c7b0e30e"
+VERIFICATION_ROWSET_SHA256 = "1056abc4a0d52b01aea33e74c312c0d143881b126bdfe2edbc49357845d8a7bd"
+SNAPSHOT_ROWSET_SHA256 = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
+BATCH_PACKET_ROWSET_SHA256 = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
+OPERATOR_PACKET_ROWSET_SHA256 = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 DECISION_AUDIT_ROWSET_SHA256 = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_contributor_worklist_lane_approved"
 
@@ -206,13 +209,17 @@ def row(
     }
 
 
-def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict[str, object], dict[str, object], dict[str, object]]:
+def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict[str, object], dict[str, object], dict[str, object], dict[str, object]]:
     verification_summary = read_json(VERIFICATION_SUMMARY)
     snapshot = read_json(SNAPSHOT_JSON)
     batch_summary = read_json(BATCH_SUMMARY)
+    operator_summary = read_json(OPERATOR_SUMMARY)
     decision_audit_summary = read_json(DECISION_AUDIT_SUMMARY)
     gap_summary = read_json(GAP_SUMMARY)
-    if not all(isinstance(item, dict) for item in [verification_summary, snapshot, batch_summary, decision_audit_summary, gap_summary]):
+    if not all(
+        isinstance(item, dict)
+        for item in [verification_summary, snapshot, batch_summary, operator_summary, decision_audit_summary, gap_summary]
+    ):
         raise SystemExit("Expected public contributor worklist source summaries to be JSON objects.")
     checks = {
         "verification_rowset": verification_summary.get("rowset_sha256") == VERIFICATION_ROWSET_SHA256,
@@ -222,6 +229,10 @@ def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict
         "snapshot_non_mutating": snapshot.get("mutation_allowed") is False,
         "batch_rowset": batch_summary.get("rowset_sha256") == BATCH_PACKET_ROWSET_SHA256,
         "batch_rows": batch_summary.get("batch_packet_rows") == 20 and batch_summary.get("decision_row_count") == 159,
+        "operator_rowset": operator_summary.get("rowset_sha256") == OPERATOR_PACKET_ROWSET_SHA256,
+        "operator_rows": operator_summary.get("operator_packet_rows") == 20
+        and operator_summary.get("decision_row_count") == 159
+        and operator_summary.get("missing_required_template_column_mentions") == 0,
         "decision_audit_rowset": decision_audit_summary.get("rowset_sha256") == DECISION_AUDIT_ROWSET_SHA256,
         "decision_audit_pending": decision_audit_summary.get("pending_rows") == 159
         and decision_audit_summary.get("invalid_rows") == 0,
@@ -229,7 +240,7 @@ def verify_source_boundary() -> tuple[dict[str, object], dict[str, object], dict
     }
     if not all(checks.values()):
         raise SystemExit("Unexpected public contributor worklist source boundary: " + dumps(checks))
-    return verification_summary, snapshot, batch_summary, decision_audit_summary, gap_summary
+    return verification_summary, snapshot, batch_summary, operator_summary, decision_audit_summary, gap_summary
 
 
 def rowset_sha256(rows: list[dict[str, object]]) -> str:
@@ -278,12 +289,14 @@ def write_markdown(rows: list[dict[str, object]], summary: dict[str, object]) ->
 
 
 def main() -> None:
-    verification_summary, snapshot, batch_summary, decision_audit_summary, gap_summary = verify_source_boundary()
+    verification_summary, snapshot, batch_summary, operator_summary, decision_audit_summary, gap_summary = verify_source_boundary()
     batch_rows = read_csv_rows(BATCH_CSV)
+    operator_rows = read_csv_rows(OPERATOR_CSV)
     gap_rows = read_csv_rows(GAP_CSV)
     generated_at = datetime.now(timezone.utc).isoformat()
     by_batch_status = Counter(row.get("packet_status", "") for row in batch_rows)
     by_batch_lane = Counter(row.get("review_queue_lane", "") for row in batch_rows)
+    by_operator_status = Counter(row.get("operator_packet_status", "") for row in operator_rows)
 
     rows = [
         row(
@@ -300,7 +313,7 @@ def main() -> None:
             required_next_evidence="All public-clone verification rows must pass before reviewer work or source-discovery work starts.",
             recommended_next_action="Run python3 scripts/materialize_top50_public_clone_verification.py after any public top-50 artifact change.",
             verification_command="python3 scripts/materialize_top50_public_clone_verification.py",
-            success_condition="13 verification rows pass and fail_rows remains 0.",
+            success_condition="14 verification rows pass and fail_rows remains 0.",
             approval_required_for=["none_for_verification_only"],
             source_rowset_sha256=VERIFICATION_ROWSET_SHA256,
             target_rowset_sha256=VERIFICATION_ROWSET_SHA256,
@@ -317,23 +330,24 @@ def main() -> None:
             action_lane="vanderbilt_bounded_manual_review_packets",
             action_status="ready_for_non_mutating_reviewer_input",
             priority=940,
-            entity_type="vanderbilt_candidate_review_batch_packets",
-            entity_key="vanderbilt_candidate_review_batch_packets",
-            display_label="Vanderbilt bounded manual review packets",
+            entity_type="vanderbilt_public_reviewer_operator_packets",
+            entity_key="vanderbilt_public_reviewer_operator_packets",
+            display_label="Vanderbilt public reviewer operator packets",
             impact_count=int(batch_summary.get("decision_row_count", 0)),
-            source_artifact="artifacts/data/vanderbilt_candidate_review_batch_packets.csv",
+            source_artifact="artifacts/data/vanderbilt_public_reviewer_operator_packets.csv",
             target_artifact="artifacts/data/vanderbilt_candidate_reviewer_decisions.csv",
             required_next_evidence=(
-                "Reviewer decisions must use allowed actions, current decision fingerprints, and no-ingestion/no-closure/"
-                "no-raw-name/no-url-rewrite confirmations."
+                "Reviewer decisions must use allowed actions, current decision fingerprints, all lane-specific "
+                "confirmation fields, and no-ingestion/no-closure/no-raw-name/no-url-rewrite confirmations."
             ),
             recommended_next_action=(
-                "Work one bounded packet at a time, enter only non-mutating decisions in the reviewer decision template, "
-                "then rerun the decision audit and batch-packet materializer."
+                "Work one public-safe operator packet at a time, enter only non-mutating decisions in the reviewer "
+                "decision template, then rerun the decision audit, batch-packet materializer, and operator-packet materializer."
             ),
             verification_command=(
                 "python3 scripts/materialize_vanderbilt_candidate_reviewer_decision_audit.py && "
                 "python3 scripts/materialize_vanderbilt_candidate_review_batch_packets.py && "
+                "python3 scripts/materialize_vanderbilt_public_reviewer_operator_packets.py && "
                 "python3 scripts/materialize_top50_public_clone_verification.py"
             ),
             success_condition="No invalid reviewer decisions; accepted person rows and denominator closure remain 0.",
@@ -345,10 +359,17 @@ def main() -> None:
                 "parser_acceptance",
                 "scope_closure",
             ],
-            source_rowset_sha256=BATCH_PACKET_ROWSET_SHA256,
+            source_rowset_sha256=OPERATOR_PACKET_ROWSET_SHA256,
             target_rowset_sha256=DECISION_AUDIT_ROWSET_SHA256,
             evidence={
+                "operator_packet_rows": operator_summary.get("operator_packet_rows"),
+                "missing_required_template_column_mentions": operator_summary.get(
+                    "missing_required_template_column_mentions"
+                ),
+                "by_operator_packet_status": dict(sorted(by_operator_status.items())),
+                "operator_source_batch_packet_rowset_sha256": operator_summary.get("source_batch_packet_rowset_sha256"),
                 "batch_packet_rows": batch_summary.get("batch_packet_rows"),
+                "batch_packet_rowset_sha256": batch_summary.get("rowset_sha256"),
                 "decision_row_count": batch_summary.get("decision_row_count"),
                 "pending_decision_rows": batch_summary.get("pending_decision_rows"),
                 "invalid_decision_rows": batch_summary.get("invalid_decision_rows"),
@@ -457,6 +478,7 @@ def main() -> None:
         "source_verification_rowset_sha256": VERIFICATION_ROWSET_SHA256,
         "source_snapshot_rowset_sha256": SNAPSHOT_ROWSET_SHA256,
         "source_vanderbilt_batch_packet_rowset_sha256": BATCH_PACKET_ROWSET_SHA256,
+        "source_vanderbilt_operator_packet_rowset_sha256": OPERATOR_PACKET_ROWSET_SHA256,
         "gbrain_approval_status": "approved_non_mutating_public_contributor_worklist_lane",
         "gbrain_approval_line": GBRAIN_APPROVAL_LINE,
         "mutation_allowed": False,

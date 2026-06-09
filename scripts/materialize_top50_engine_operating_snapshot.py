@@ -55,6 +55,8 @@ SUMMARY_FILES = {
     / "vanderbilt_candidate_reviewer_decision_audit_summary.json",
     "vanderbilt_candidate_review_batch_packets": ARTIFACTS
     / "vanderbilt_candidate_review_batch_packet_summary.json",
+    "vanderbilt_public_reviewer_operator_packets": ARTIFACTS
+    / "vanderbilt_public_reviewer_operator_packet_summary.json",
 }
 
 
@@ -99,6 +101,8 @@ def summary_ref(name: str, path: Path) -> dict[str, object]:
         "manual_decision_template_rows",
         "audit_rows",
         "batch_packet_rows",
+        "operator_packet_rows",
+        "missing_required_template_column_mentions",
         "pending_rows",
         "valid_non_mutating_rows",
         "invalid_rows",
@@ -143,8 +147,21 @@ def main() -> None:
     vanderbilt_review_scaffold_verification_summary = summaries["vanderbilt_candidate_review_scaffold_verification"]
     vanderbilt_reviewer_decision_audit_summary = summaries["vanderbilt_candidate_reviewer_decision_audit"]
     vanderbilt_review_batch_packet_summary = summaries["vanderbilt_candidate_review_batch_packets"]
+    vanderbilt_public_operator_summary = summaries["vanderbilt_public_reviewer_operator_packets"]
     parser_scope_status = vanderbilt_parser_scope_packet_summary.get("gbrain_approval_status", "")
-    if vanderbilt_review_batch_packet_summary.get("rowset_sha256"):
+    if vanderbilt_public_operator_summary.get("rowset_sha256"):
+        parser_scope_lane_status = "ready_for_public_safe_vanderbilt_operator_packets"
+        parser_scope_next_action = (
+            "Use the public-safe Vanderbilt reviewer operator packets to enter non-mutating reviewer decisions in "
+            "artifacts/data/vanderbilt_candidate_reviewer_decisions.csv, then rerun the decision audit, batch "
+            "packet materializer, and operator-packet materializer. Any accepted person rows, denominator closure, "
+            "identity reconciliation, parser acceptance, or scope closure still requires a later exact approval packet."
+        )
+        parser_scope_source_artifact = vanderbilt_public_operator_summary.get(
+            "csv", "artifacts/data/vanderbilt_public_reviewer_operator_packets.csv"
+        )
+        parser_scope_rowset = vanderbilt_public_operator_summary.get("rowset_sha256", "")
+    elif vanderbilt_review_batch_packet_summary.get("rowset_sha256"):
         parser_scope_lane_status = "ready_for_bounded_vanderbilt_manual_review_packets"
         parser_scope_next_action = (
             "Use the bounded Vanderbilt candidate review batch packets to enter non-mutating reviewer decisions in "
@@ -453,6 +470,13 @@ def main() -> None:
             ),
             "candidate_review_batch_packet_gbrain_status": vanderbilt_review_batch_packet_summary.get(
                 "gbrain_approval_status", ""
+            ),
+            "public_reviewer_operator_packet_rows": vanderbilt_public_operator_summary.get("operator_packet_rows", 0),
+            "public_reviewer_operator_packet_rowset_sha256": vanderbilt_public_operator_summary.get(
+                "rowset_sha256", ""
+            ),
+            "public_reviewer_operator_missing_required_template_column_mentions": vanderbilt_public_operator_summary.get(
+                "missing_required_template_column_mentions", 0
             ),
         },
         "mutation_allowed": False,

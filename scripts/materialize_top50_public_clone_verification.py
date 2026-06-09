@@ -24,8 +24,9 @@ OUT_MD = RESEARCH / "top50-public-clone-verification-2026-06-09.md"
 
 EXPECTED_TOP50_TARGET_ROWSET = "fa547bf602d8dc9998189a0fabe2b45a1cba6892239eedf391cdb65c6ef419d8"
 EXPECTED_SCHOOL_VERIFICATION_ROWSET = "e99eb07b856f8bdd546d2ac2bb0641c22cd2bedd69e42d8f38f7e5db04823e29"
-EXPECTED_TOP50_SNAPSHOT_ROWSET = "2743bdc6aa80c59dbcfa2f4dceb4a84668cbaff298a4d79756f79a6bad222588"
-EXPECTED_VANDERBILT_BATCH_PACKET_ROWSET = "1f9da0ab244581dbf5782eab572d5045b8a53c8bffc9d4892e077ca1c7b0e30e"
+EXPECTED_TOP50_SNAPSHOT_ROWSET = "b8933a5875eb28cdf61430110ddd9a70a41b2d4525198e38e17ff3924236fd48"
+EXPECTED_VANDERBILT_BATCH_PACKET_ROWSET = "26b30bda381e9bc86c8d8448c0dcdb2a00466fcaf7f1d8b6d438331e702c3a0f"
+EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET = "6d61db6d2fa9a43034c35b401f2cc2d1b8a7b96b6a606368b825aa9822c2c173"
 EXPECTED_VANDERBILT_DECISION_AUDIT_ROWSET = "e75fc27de3e1374e1e945efe207adbfb4cc04c4c7bc969afe4eaa3d0eb8e93de"
 EXPECTED_VANDERBILT_SCAFFOLD_ROWSET = "29f91bd14647f1d9ee3eaa82dda6326e2b2d78f30c10041f31ac781f05353938"
 GBRAIN_APPROVAL_LINE = "APPROVE top50_public_clone_verification_lane_approved"
@@ -218,6 +219,9 @@ def main() -> None:
     batch_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_batch_packet_summary.json")
     batch_csv = read_csv_rows(ARTIFACTS / "vanderbilt_candidate_review_batch_packets.csv")
     batch_json = read_json(ARTIFACTS / "vanderbilt_candidate_review_batch_packets.json")
+    operator_summary = read_json(ARTIFACTS / "vanderbilt_public_reviewer_operator_packet_summary.json")
+    operator_csv = read_csv_rows(ARTIFACTS / "vanderbilt_public_reviewer_operator_packets.csv")
+    operator_json = read_json(ARTIFACTS / "vanderbilt_public_reviewer_operator_packets.json")
     audit_summary = read_json(ARTIFACTS / "vanderbilt_candidate_reviewer_decision_audit_summary.json")
     scaffold_summary = read_json(ARTIFACTS / "vanderbilt_candidate_review_decision_scaffold_summary.json")
     gap_summary = read_json(ARTIFACTS / "school_gap_resolution_manifest_summary.json")
@@ -227,10 +231,13 @@ def main() -> None:
         encoding="utf-8"
     )
 
-    if not all(isinstance(item, dict) for item in [target_summary, school_verification, snapshot, batch_summary, audit_summary, scaffold_summary, gap_summary]):
+    if not all(
+        isinstance(item, dict)
+        for item in [target_summary, school_verification, snapshot, batch_summary, operator_summary, audit_summary, scaffold_summary, gap_summary]
+    ):
         raise SystemExit("Expected public top-50 summary artifacts to be JSON objects.")
-    if not isinstance(batch_json, list):
-        raise SystemExit("Expected Vanderbilt candidate review batch packet JSON array.")
+    if not isinstance(batch_json, list) or not isinstance(operator_json, list):
+        raise SystemExit("Expected Vanderbilt candidate review batch and operator packet JSON arrays.")
 
     add_check(
         checks,
@@ -267,16 +274,24 @@ def main() -> None:
     )
     next_lanes = snapshot.get("next_lanes") if isinstance(snapshot.get("next_lanes"), list) else []
     vanderbilt_lane = next(
-        (lane for lane in next_lanes if isinstance(lane, dict) and lane.get("source_artifact") == "artifacts/data/vanderbilt_candidate_review_batch_packets.csv"),
+        (
+            lane
+            for lane in next_lanes
+            if isinstance(lane, dict)
+            and lane.get("source_artifact") == "artifacts/data/vanderbilt_public_reviewer_operator_packets.csv"
+        ),
         {},
     )
     add_check(
         checks,
         generated_at,
-        "snapshot_points_to_vanderbilt_batch_packets",
-        vanderbilt_lane.get("status") == "ready_for_bounded_vanderbilt_manual_review_packets"
-        and vanderbilt_lane.get("rowset_sha256") == EXPECTED_VANDERBILT_BATCH_PACKET_ROWSET,
-        {"status": "ready_for_bounded_vanderbilt_manual_review_packets", "rowset_sha256": EXPECTED_VANDERBILT_BATCH_PACKET_ROWSET},
+        "snapshot_points_to_vanderbilt_operator_packets",
+        vanderbilt_lane.get("status") == "ready_for_public_safe_vanderbilt_operator_packets"
+        and vanderbilt_lane.get("rowset_sha256") == EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET,
+        {
+            "status": "ready_for_public_safe_vanderbilt_operator_packets",
+            "rowset_sha256": EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET,
+        },
         {"status": vanderbilt_lane.get("status"), "rowset_sha256": vanderbilt_lane.get("rowset_sha256")},
         {"snapshot_lane": vanderbilt_lane},
     )
@@ -319,6 +334,48 @@ def main() -> None:
             "json_rows": len(batch_json),
         },
         {"summary": "artifacts/data/vanderbilt_candidate_review_batch_packet_summary.json"},
+    )
+    add_check(
+        checks,
+        generated_at,
+        "vanderbilt_operator_packet_boundary",
+        operator_summary.get("rowset_sha256") == EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET
+        and operator_summary.get("operator_packet_rows") == 20
+        and operator_summary.get("decision_row_count") == 159
+        and operator_summary.get("pending_decision_rows") == 159
+        and operator_summary.get("missing_required_template_column_mentions") == 0
+        and operator_summary.get("raw_candidate_names_committed") is False
+        and operator_summary.get("raw_person_urls_committed") is False
+        and operator_summary.get("mutation_allowed") is False
+        and len(operator_csv) == 20
+        and len(operator_json) == 20,
+        {
+            "rowset_sha256": EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET,
+            "operator_packet_rows": 20,
+            "decision_row_count": 159,
+            "pending_decision_rows": 159,
+            "missing_required_template_column_mentions": 0,
+            "raw_candidate_names_committed": False,
+            "raw_person_urls_committed": False,
+            "mutation_allowed": False,
+            "csv_rows": 20,
+            "json_rows": 20,
+        },
+        {
+            "rowset_sha256": operator_summary.get("rowset_sha256"),
+            "operator_packet_rows": operator_summary.get("operator_packet_rows"),
+            "decision_row_count": operator_summary.get("decision_row_count"),
+            "pending_decision_rows": operator_summary.get("pending_decision_rows"),
+            "missing_required_template_column_mentions": operator_summary.get(
+                "missing_required_template_column_mentions"
+            ),
+            "raw_candidate_names_committed": operator_summary.get("raw_candidate_names_committed"),
+            "raw_person_urls_committed": operator_summary.get("raw_person_urls_committed"),
+            "mutation_allowed": operator_summary.get("mutation_allowed"),
+            "csv_rows": len(operator_csv),
+            "json_rows": len(operator_json),
+        },
+        {"summary": "artifacts/data/vanderbilt_public_reviewer_operator_packet_summary.json"},
     )
     add_check(
         checks,
@@ -393,16 +450,20 @@ def main() -> None:
             ARTIFACTS / "vanderbilt_candidate_review_batch_packets.json",
             ARTIFACTS / "vanderbilt_candidate_review_batch_packet_summary.json",
             RESEARCH / "vanderbilt-candidate-review-batch-packets-2026-06-09.md",
+            ARTIFACTS / "vanderbilt_public_reviewer_operator_packets.csv",
+            ARTIFACTS / "vanderbilt_public_reviewer_operator_packets.json",
+            ARTIFACTS / "vanderbilt_public_reviewer_operator_packet_summary.json",
+            RESEARCH / "vanderbilt-public-reviewer-operator-packets-2026-06-09.md",
         ]
     )
     add_check(
         checks,
         generated_at,
-        "vanderbilt_batch_packet_public_leak_scan",
+        "vanderbilt_review_packet_public_leak_scan",
         not leak_hits,
         [],
         leak_hits,
-        {"scanned_outputs": 4, "scan": "url_like_text_or_reviewer_note_text_field"},
+        {"scanned_outputs": 8, "scan": "url_like_text_or_reviewer_note_text_field"},
     )
     private_hits = committed_private_path_hits()
     add_check(
@@ -475,6 +536,7 @@ def main() -> None:
         "fail_rows": fail_rows,
         "top50_snapshot_rowset_sha256": EXPECTED_TOP50_SNAPSHOT_ROWSET,
         "vanderbilt_batch_packet_rowset_sha256": EXPECTED_VANDERBILT_BATCH_PACKET_ROWSET,
+        "vanderbilt_operator_packet_rowset_sha256": EXPECTED_VANDERBILT_OPERATOR_PACKET_ROWSET,
         "vanderbilt_gap_manifest_rows": gap_summary.get("rows"),
         "mutation_allowed": False,
         "person_ingestion_allowed": False,
